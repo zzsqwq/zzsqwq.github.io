@@ -1,5 +1,5 @@
 baseURL = "https://blog.zzsqwq.cn/"
-title = "johndoe"
+title = "Zs's Blog"
 theme = "hugo-coder"
 languageCode = "en"
 defaultContentLanguage = "en"
@@ -12,10 +12,10 @@ enableEmoji = true
 # disqusShortname = "yourdiscussshortname"
 
 [params]
-author = "John Doe"
+author = "zzsqwq"
 description = "John Doe's personal website"
 keywords = "blog,developer,personal"
-info = ["Full Stack DevOps", "Magician"]
+info = ["An undergraduate student in NWPU."]
 avatarURL = "images/avatar.png"
 #gravatar = "john.doe@example.com"
 dateFormat = "January 2, 2006"
