@@ -2,6 +2,7 @@ baseURL = "https://blog.zzsqwq.cn/"
 title = "Zs's Blog"
 theme = "hugo-coder"
 languageCode = "en"
+publishDir= "docs"
 defaultContentLanguage = "en"
 paginate = 20
 pygmentsStyle = "bw"
