@@ -1,9 +1,9 @@
 baseURL = "https://zzsqwq.github.io/Zs-Hugo-Blog/"
 title = "Zs's Blog"
 theme = "hugo-coder"
-languageCode = "en"
+languageCode = "cn"
 publishDir= "public"
-defaultContentLanguage = "en"
+defaultContentLanguage = "cn"
 paginate = 20
 pygmentsStyle = "bw"
 pygmentsCodeFences = true
@@ -14,7 +14,7 @@ enableEmoji = true
 
 [params]
 author = "zzsqwq"
-description = "John Doe's personal website"
+description = "Zs's personal website."
 keywords = "blog,developer,personal"
 info = ["An undergraduate student in NWPU."]
 avatarURL = "images/avatar.png"
@@ -98,31 +98,37 @@ author = "authors"
 name = "Github"
 icon = "fa fa-2x fa-github"
 weight = 1
-url = "https://github.com/johndoe/"
+url = "https://github.com/zzsqwq/"
 
 [[params.social]]
 name = "Gitlab"
 icon = "fa fa-2x fa-gitlab"
 weight = 2
-url = "https://gitlab.com/johndoe/"
+url = "https://gitlab.com/zzsqwq/"
 
 [[params.social]]
-name = "Twitter"
-icon = "fa fa-2x fa-twitter"
-weight = 3
-url = "https://twitter.com/johndoe/"
+name = "Telegram"
+icon = "fa fa-2x fa-telegram"
+weight = 2
+url = "https://t.me/zzsqwq"
 
-[[params.social]]
-name = "LinkedIn"
-icon = "fa fa-2x fa-linkedin"
-weight = 4
-url = "https://www.linkedin.com/in/johndoe/"
+# [[params.social]]
+# name = "Twitter"
+# icon = "fa fa-2x fa-twitter"
+# weight = 3
+# url = "https://twitter.com/zzsqwq03"
 
-[[params.social]]
-name = "Medium"
-icon = "fa fa-2x fa-medium"
-weight = 5
-url = "https://medium.com/@johndoe"
+# [[params.social]]
+# name = "LinkedIn"
+# icon = "fa fa-2x fa-linkedin"
+# weight = 4
+# url = "https://www.linkedin.com/in/johndoe/"
+
+# [[params.social]]
+# name = "Medium"
+# icon = "fa fa-2x fa-medium"
+# weight = 5
+# url = "https://medium.com/@johndoe"
 
 [[params.social]]
 name = "RSS"
@@ -132,55 +138,55 @@ url = "https://myhugosite.com/index.xml"
 rel = "alternate"
 type = "application/rss+xml"
 
-[languages.en]
-languageName = ":uk:"
+[languages.cn]
+languageName = ":zh:"
 
-[[languages.en.menu.main]]
+[[languages.cn.menu.main]]
 name = "About"
 weight = 1
 url = "about/"
 
-[[languages.en.menu.main]]
+[[languages.cn.menu.main]]
 name = "Blog"
 weight = 2
 url = "posts/"
 
-[[languages.en.menu.main]]
+[[languages.cn.menu.main]]
 name = "Projects"
 weight = 3
 url = "projects/"
 
-[[languages.en.menu.main]]
+[[languages.cn.menu.main]]
 name = "Contact me"
 weight = 5
 url = "contact/"
 
-[languages.pt-br]
-languageName = ":brazil:"
-title = "João Ninguém"
-
-[languages.pt-br.params]
-author = "João Ninguém"
-info = "Full Stack DevOps e Mágico"
-description = "Sítio pessoal de João Ninguém"
-keywords = "blog,desenvolvedor,pessoal"
-
-[[languages.pt-br.menu.main]]
-name = "Sobre"
-weight = 1
-url = "about/"
-
-[[languages.pt-br.menu.main]]
-name = "Blog"
-weight = 2
-url = "posts/"
-
-[[languages.pt-br.menu.main]]
-name = "Projetos"
-weight = 3
-url = "projects/"
-
-[[languages.pt-br.menu.main]]
-name = "Contato"
-weight = 5
-url = "contact/"
+# [languages.pt-br]
+# languageName = ":brazil:"
+# title = "João Ninguém"
+# 
+# [languages.pt-br.params]
+# author = "João Ninguém"
+# info = "Full Stack DevOps e Mágico"
+# description = "Sítio pessoal de João Ninguém"
+# keywords = "blog,desenvolvedor,pessoal"
+# 
+# [[languages.pt-br.menu.main]]
+# name = "Sobre"
+# weight = 1
+# url = "about/"
+# 
+# [[languages.pt-br.menu.main]]
+# name = "Blog"
+# weight = 2
+# url = "posts/"
+# 
+# [[languages.pt-br.menu.main]]
+# name = "Projetos"
+# weight = 3
+# url = "projects/"
+# 
+# [[languages.pt-br.menu.main]]
+# name = "Contato"
+# weight = 5
+# url = "contact/"
