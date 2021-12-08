@@ -157,9 +157,14 @@ weight = 3
 url = "projects/"
 
 [[languages.cn.menu.main]]
-name = "Contact me"
-weight = 5
+name = "Contact Me"
+weight = 6
 url = "contact/"
+
+[[languages.cn.menu.main]]
+name = "Friends"
+weight = 5
+url = "friends/"
 
 # [languages.pt-br]
 # languageName = ":brazil:"
