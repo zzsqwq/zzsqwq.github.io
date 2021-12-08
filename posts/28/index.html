@@ -1,0 +1,517 @@
+<!doctype html><html lang=cn>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=content-language content="cn">
+<meta name=color-scheme content="light dark">
+<meta http-equiv=content-security-policy content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
+<meta name=author content="zzsqwq">
+<meta name=description content="
+  前言
+  
+    
+  
+
+​	   STL之前只会用 stack 和 queue ，set 和 map 啥的也不太会用。学习一下。">
+<meta name=keywords content="blog,developer,personal">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="关于STL的一些总结">
+<meta name=twitter:description content="
+  前言
+  
+    
+  
+
+​	   STL之前只会用 stack 和 queue ，set 和 map 啥的也不太会用。学习一下。">
+<meta property="og:title" content="关于STL的一些总结">
+<meta property="og:description" content="
+  前言
+  
+    
+  
+
+​	   STL之前只会用 stack 和 queue ，set 和 map 啥的也不太会用。学习一下。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://zzsqwq.github.io/Zs-Hugo-Blog/posts/28/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2020-02-16T00:55:00+00:00">
+<meta property="article:modified_time" content="2020-02-16T00:55:00+00:00">
+<title>
+关于STL的一些总结 · Zs's Blog
+</title>
+<link rel=canonical href=https://zzsqwq.github.io/Zs-Hugo-Blog/posts/28/>
+<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
+<link rel=stylesheet href=/Zs-Hugo-Blog/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css integrity="sha256-2f3b/+byfmmYXcX+BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/Zs-Hugo-Blog/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen>
+<link rel=icon type=image/png href=/Zs-Hugo-Blog/images/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/Zs-Hugo-Blog/images/favicon-16x16.png sizes=16x16>
+<link rel=apple-touch-icon href=/Zs-Hugo-Blog/images/apple-touch-icon.png>
+<link rel=apple-touch-icon sizes=180x180 href=/Zs-Hugo-Blog/images/apple-touch-icon.png>
+<meta name=generator content="Hugo 0.89.4">
+</head>
+<body class="preload-transitions colorscheme-auto">
+<div class=float-container>
+<a id=dark-mode-toggle class=colorscheme-toggle>
+<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
+</a>
+</div>
+<main class=wrapper>
+<nav class=navigation>
+<section class=container>
+<a class=navigation-title href=/Zs-Hugo-Blog>
+Zs's Blog
+</a>
+<input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle>
+<i class="fa fa-bars fa-fw" aria-hidden=true></i>
+</label>
+<ul class=navigation-list>
+<li class=navigation-item>
+<a class=navigation-link href=/Zs-Hugo-Blog/about/>About</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/Zs-Hugo-Blog/posts/>Blog</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/Zs-Hugo-Blog/projects/>Projects</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/Zs-Hugo-Blog/contact/>Contact me</a>
+</li>
+</ul>
+</section>
+</nav>
+<div class=content>
+<section class="container post">
+<article>
+<header>
+<div class=post-title>
+<h1 class=title>
+<a class=title-link href=https://zzsqwq.github.io/Zs-Hugo-Blog/posts/28/>
+关于STL的一些总结
+</a>
+</h1>
+</div>
+<div class=post-meta>
+<div class=date>
+<span class=posted-on>
+<i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2020-02-16T00:55:00Z>
+February 16, 2020
+</time>
+</span>
+<span class=reading-time>
+<i class="fa fa-clock-o" aria-hidden=true></i>
+</span>
+</div>
+<div class=categories>
+<i class="fa fa-folder" aria-hidden=true></i>
+<a href=/Zs-Hugo-Blog/categories/stl/>STL</a></div>
+<div class=tags>
+<i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag>
+<a href=/Zs-Hugo-Blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/>数据结构</a>
+</span>
+<span class=separator>•</span>
+<span class=tag>
+<a href=/Zs-Hugo-Blog/tags/stl/>STL</a>
+</span></div>
+</div>
+</header>
+<div>
+<h2 id=前言>
+前言
+<a class=heading-link href=#%e5%89%8d%e8%a8%80>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<p>​    STL之前只会用 stack 和 queue ，set 和 map 啥的也不太会用。学习一下。</p>
+<hr>
+<h2 id=队列queue>
+队列(queue)
+<a class=heading-link href=#%e9%98%9f%e5%88%97queue>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<h3 id=概述>
+概述
+<a class=heading-link href=#%e6%a6%82%e8%bf%b0>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<p>​    队列是一种特殊的线性表，是一种先进先出（FIFO）的数据结构。它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列中没有元素时，称为空队列。</p>
+<h3 id=用法>
+用法
+<a class=heading-link href=#%e7%94%a8%e6%b3%95>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<p>​    首先使用之前需要声明头文件 <code>#include&lt;queue></code> ，通过 <code>queue&lt;typename> q</code> 的形式来进行定义队列，上述为定义了一个队列元素类型为 typename 的队列，队列名称为 q，typename可以为C++原有数据类型，例如int，char，string这些，也可以是自定义的结构体类型等。</p>
+<h3 id=主要函数及用途>
+主要函数及用途
+<a class=heading-link href=#%e4%b8%bb%e8%a6%81%e5%87%bd%e6%95%b0%e5%8f%8a%e7%94%a8%e9%80%94>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<p>​    使用下述函数都是用类似于 队列名称.函数名() 的形式，好比pop函数就是 q.pop()</p>
+<blockquote>
+<ol>
+<li>push(x) 将元素x从队尾入队</li>
+<li>front( ) & back( ) 分别为获取队首元素和队尾元素，使用的时候必须确保队列不为空</li>
+<li>pop( ) 弹出队首元素，使用的时候必须确保队列不为空</li>
+<li>empty( ) 判断队列是否为空，空返回true，不空返回false</li>
+<li>size( ) 查询队列中有多少个元素</li>
+</ol>
+</blockquote>
+<h3 id=应用实例>
+应用实例
+<a class=heading-link href=#%e5%ba%94%e7%94%a8%e5%ae%9e%e4%be%8b>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
+</span><span>#include</span><span>&lt;iostream&gt;</span><span>
+</span><span>#include</span><span>&lt;queue&gt;</span><span>
+</span><span></span>
+<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+
+queue&lt;<span>int</span>&gt; q;
+<span>int</span> main()
+{
+	q.push(1);
+	<span style=font-weight:700>if</span>(!q.empty()) printf(<span style=font-style:italic>&#34;%d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,q.front()); <span style=font-style:italic>//
+</span><span style=font-style:italic></span>	q.push(2);
+	<span style=font-weight:700>if</span>(!q.empty()) printf(<span style=font-style:italic>&#34;%d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,q.back());
+	printf(<span style=font-style:italic>&#34;%d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,q.size());
+	<span style=font-weight:700>if</span>(!q.empty()) q.pop();
+	<span style=font-weight:700>if</span>(q.empty()) printf(<span style=font-style:italic>&#34;queue is empty</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>);
+	<span style=font-weight:700>else</span> printf(<span style=font-style:italic>&#34;queue is not empty</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>);
+	<span style=font-weight:700>if</span>(!q.empty()) q.pop();
+	<span style=font-weight:700>if</span>(q.empty()) printf(<span style=font-style:italic>&#34;queue is empty</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>);
+}
+<span style=font-style:italic>/*
+</span><span style=font-style:italic>运行结果
+</span><span style=font-style:italic>1
+</span><span style=font-style:italic>2
+</span><span style=font-style:italic>2
+</span><span style=font-style:italic>queue is not empty
+</span><span style=font-style:italic>queue is empty
+</span><span style=font-style:italic>*/</span>
+</code></pre></div><hr>
+<h2 id=栈stack>
+栈(stack)
+<a class=heading-link href=#%e6%a0%88stack>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<h3 id=概述-1>
+概述
+<a class=heading-link href=#%e6%a6%82%e8%bf%b0-1>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<p>​    与队列相对应，是一种先进后出（FILO）的数据结构，限定仅在表尾进行插入和删除操作的线性表。这一端被称为栈顶，相对地，把另一端称为栈底。向一个栈插入新元素又称作进栈、入栈或压栈，它是把新元素放到栈顶元素的上面，使之成为新的栈顶元素；从一个栈删除元素又称作出栈或退栈，它是把栈顶元素删除掉，使其相邻的元素成为新的栈顶元素。</p>
+<h3 id=用法-1>
+用法
+<a class=heading-link href=#%e7%94%a8%e6%b3%95-1>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<p>​    首先使用之前需要声明头文件 <code>#include&lt;stack></code> ，通过 <code>stack&lt;typename> s</code> 的形式来进行定义栈，上述为定义了一个队列元素类型为 typename 的栈，栈名称为 s，typename可以为C++原有数据类型，例如int，char，string这些，也可以是自定义的结构体类型等。</p>
+<h3 id=主要函数及用途-1>
+主要函数及用途
+<a class=heading-link href=#%e4%b8%bb%e8%a6%81%e5%87%bd%e6%95%b0%e5%8f%8a%e7%94%a8%e9%80%94-1>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<p>​ 使用下述函数都是用类似于 栈名称.函数名() 的形式，好比pop函数就是 s.pop()</p>
+<blockquote>
+<ol>
+<li>push(x) 将元素x压栈</li>
+<li>pop( ) 将栈顶元素出栈，使用时确保栈不为空</li>
+<li>top( ) 获取栈顶元素的值，使用时要确保栈不为空</li>
+<li>size( ) 返回栈中元素的个数</li>
+<li>empty( ) 查询栈是否为空，空返回true，不空返回false</li>
+</ol>
+</blockquote>
+<h3 id=应用实例-1>
+应用实例
+<a class=heading-link href=#%e5%ba%94%e7%94%a8%e5%ae%9e%e4%be%8b-1>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
+</span><span>#include</span><span>&lt;iostream&gt;</span><span>
+</span><span>#include</span><span>&lt;stack&gt;</span><span>
+</span><span></span>
+<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+
+stack&lt;<span>int</span>&gt; s;
+
+<span>int</span> main()
+{
+	s.push(1);
+	s.push(2);
+	printf(<span style=font-style:italic>&#34;Now the top element is %d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,s.top()); <span style=font-style:italic>//Now the top element is 2
+</span><span style=font-style:italic></span>	printf(<span style=font-style:italic>&#34;Now the stack size is %d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,s.size()); <span style=font-style:italic>//Now the stack size is 2
+</span><span style=font-style:italic></span>	<span style=font-weight:700>if</span>(!s.empty()) s.pop(); <span style=font-style:italic>//元素2 弹出栈
+</span><span style=font-style:italic></span>	printf(<span style=font-style:italic>&#34;Now the top element is %d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,s.top()); <span style=font-style:italic>//Now the top element is 1
+</span><span style=font-style:italic></span>	printf(<span style=font-style:italic>&#34;Now the stack size is %d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,s.size()); <span style=font-style:italic>//Now the stack size is 1
+</span><span style=font-style:italic></span>	<span style=font-weight:700>if</span>(s.empty()) printf(<span style=font-style:italic>&#34;stack is empty</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>); 
+	<span style=font-weight:700>else</span> printf(<span style=font-style:italic>&#34;stack is not empty</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>); <span style=font-style:italic>//stack is not empty
+</span><span style=font-style:italic></span>	<span style=font-weight:700>if</span>(!s.empty()) s.pop(); <span style=font-style:italic>//元素1 弹出栈
+</span><span style=font-style:italic></span>	<span style=font-weight:700>if</span>(s.empty()) printf(<span style=font-style:italic>&#34;stack is empty</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>); <span style=font-style:italic>//stack is empty
+</span><span style=font-style:italic></span>	<span style=font-weight:700>else</span> printf(<span style=font-style:italic>&#34;stack is not empty</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>);
+}
+<span style=font-style:italic>/*
+</span><span style=font-style:italic>运行结果
+</span><span style=font-style:italic>Now the top element is 2
+</span><span style=font-style:italic>Now the stack size is 2
+</span><span style=font-style:italic>Now the top element is 1
+</span><span style=font-style:italic>Now the stack size is 1
+</span><span style=font-style:italic>stack is not empty
+</span><span style=font-style:italic>stack is empty
+</span><span style=font-style:italic>*/</span>
+</code></pre></div><hr>
+<h2 id=映射map>
+映射(map)
+<a class=heading-link href=#%e6%98%a0%e5%b0%84map>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<h3 id=概述-2>
+概述
+<a class=heading-link href=#%e6%a6%82%e8%bf%b0-2>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<p>​    map是STL的一个关联容器，提供一对一的数据处理能力，可以建立两个数据之间一一映射关系，map的定义需要关键字和存储值两个参数，我们可以通过关键字来查找对应的存储值（感觉类似于下标可以为任何类型的数组）吧，因为map的底层实现为红黑树（虽然我没学过），所以具有自动排序功能，也就是说map内部有序。</p>
+<h3 id=用法-2>
+用法
+<a class=heading-link href=#%e7%94%a8%e6%b3%95-2>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<p>​    使用之前声明头文件 <code>#include&lt;map></code> ，通过 <code>map&lt;typename,typename> m</code> 的形式来定义映射，如果我们要建立string和int这两个类型之间的一一映射，就可以写成 <code>map&lt;string,int> m</code> ，我们可以通过关键字string来查找对应的int值。下述的讲述我们用这个m这个映射来进行。</p>
+<h3 id=迭代器>
+迭代器
+<a class=heading-link href=#%e8%bf%ad%e4%bb%a3%e5%99%a8>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<p>​    迭代器就是类似于指针吧，我们可以通过<code>map&lt;string,int>::iterator it</code> ，来定义一个对应映射的迭代器，他能够用来指向map中的元素，通过它们我们可以对map执行定点删除，遍历等操作。</p>
+<h3 id=主要函数及用途-2>
+主要函数及用途
+<a class=heading-link href=#%e4%b8%bb%e8%a6%81%e5%87%bd%e6%95%b0%e5%8f%8a%e7%94%a8%e9%80%94-2>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<h4 id=1-插入数据>
+1. 插入数据
+<a class=heading-link href=#1-%e6%8f%92%e5%85%a5%e6%95%b0%e6%8d%ae>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h4>
+<ul>
+<li>通过insert函数进行插入
+<ul>
+<li><code>m.insert(pair&lt;string,int>("zs",1))</code></li>
+<li><code>m.insert(make_pair("zs",2)) </code></li>
+</ul>
+</li>
+<li>通过类似于数组的形式插入
+<ul>
+<li><code>m["zs"] = 2</code></li>
+</ul>
+</li>
+</ul>
+<p>​    上述两种形式有一定的区别，因为集合中元素是唯一的，用insert函数插入的时候，如果已经有相应的关键字，那么就不会插入。而如果用类似于数组的方式进行插入，就会覆盖原关键字对应的值。</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>map&lt;string,<span>int</span>&gt; m;
+<span>int</span> main()
+{
+	m.insert(pair&lt;string,<span>int</span>&gt;(<span style=font-style:italic>&#34;zs&#34;</span>,1));
+	printf(<span style=font-style:italic>&#34;%d &#34;</span>,m[<span style=font-style:italic>&#34;zs&#34;</span>]);
+	m.insert(make_pair(<span style=font-style:italic>&#34;zs&#34;</span>,2));
+	printf(<span style=font-style:italic>&#34;%d &#34;</span>,m[<span style=font-style:italic>&#34;zs&#34;</span>]);
+	m[<span style=font-style:italic>&#34;zs&#34;</span>]=2;
+	printf(<span style=font-style:italic>&#34;%d &#34;</span>,m[<span style=font-style:italic>&#34;zs&#34;</span>]);
+	<span style=font-style:italic>/*
+</span><span style=font-style:italic>	输出结果  1 1 2 
+</span><span style=font-style:italic>	*/</span>
+}
+</code></pre></div><h4 id=2-查找数据>
+2. 查找数据
+<a class=heading-link href=#2-%e6%9f%a5%e6%89%be%e6%95%b0%e6%8d%ae>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h4>
+<p>​    通过find函数来查找关键字在map中的位置，如果找到了的话就返回对应的迭代器，如果没有找到的话就返回尾部的迭代器（end函数返回的值）。</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>map&lt;string,<span>int</span>&gt; m;
+<span>int</span> main()
+{
+	map&lt;string,<span>int</span>&gt;::iterator it;
+	m[<span style=font-style:italic>&#34;zs&#34;</span>]=1;
+	it=m.find(<span style=font-style:italic>&#34;zs&#34;</span>);
+	cout&lt;&lt;it-&gt;first&lt;&lt;<span style=font-style:italic>&#34; &#34;</span>&lt;&lt;it-&gt;second;
+	<span style=font-style:italic>/*
+</span><span style=font-style:italic>	输出结果 zs 1 
+</span><span style=font-style:italic>	*/</span> 
+}
+</code></pre></div><h4 id=3-删除数据>
+3. 删除数据
+<a class=heading-link href=#3-%e5%88%a0%e9%99%a4%e6%95%b0%e6%8d%ae>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h4>
+<ul>
+<li>清空map，可以使用clear函数。</li>
+<li>删除特定元素
+<ul>
+<li>先用find函数找到特定元素的迭代器，通过erase函数清除。</li>
+<li>直接通过相应关键字清除。</li>
+</ul>
+</li>
+<li>删除一串序列，通过erase(起始迭代器，终点迭代器) 来实现。</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>map&lt;string,<span>int</span>&gt; m;
+
+<span>int</span> main()
+{
+	map&lt;string,<span>int</span>&gt;::iterator it;
+	m[<span style=font-style:italic>&#34;zs&#34;</span>]=1;
+	it=m.find(<span style=font-style:italic>&#34;zs&#34;</span>);
+	m.erase(it);
+	it=m.find(<span style=font-style:italic>&#34;zs&#34;</span>);
+	<span style=font-weight:700>if</span>(it==m.end())
+	printf(<span style=font-style:italic>&#34;Not find zs</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>);
+	m[<span style=font-style:italic>&#34;zs&#34;</span>]=2;
+	m.erase(<span style=font-style:italic>&#34;zs&#34;</span>);
+	it=m.find(<span style=font-style:italic>&#34;zs&#34;</span>);
+	<span style=font-weight:700>if</span>(it==m.end())
+	printf(<span style=font-style:italic>&#34;Not find zs&#34;</span>);
+	<span style=font-style:italic>/*
+</span><span style=font-style:italic>	输出结果 Not find zs 
+</span><span style=font-style:italic>		    Not find zs
+</span><span style=font-style:italic>	*/</span> 
+}
+</code></pre></div><h4 id=4-其他>
+4. 其他
+<a class=heading-link href=#4-%e5%85%b6%e4%bb%96>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h4>
+<blockquote>
+<ol>
+<li>count(&ldquo;关键字&rdquo;) 查询相应关键字在map中是否出现过，出现过返回1，没出现返回0</li>
+<li>empty( ) 判断是否为空，空返回true，不空返回false</li>
+<li>begin( ) & end( ) 分别为返回头和尾迭代器，配合迭代器可实行遍历</li>
+<li>iterator->first & iterator->second 分别对应相应迭代器指向的元素的关键字和值</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id=集合set>
+集合(set)
+<a class=heading-link href=#%e9%9b%86%e5%90%88set>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<h3 id=概述-3>
+概述
+<a class=heading-link href=#%e6%a6%82%e8%bf%b0-3>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<p>​    set为一个容器，用来存储同一数据类型的数据，并且能从一个数据集合中取出数据，在set中每个元素的值都唯一（集合的唯一性），并且内部能根据元素的值自动进行排序。</p>
+<h3 id=用法-3>
+用法
+<a class=heading-link href=#%e7%94%a8%e6%b3%95-3>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<p>​    使用之前需要声明头文件 <code>#include&lt;set></code> ，通过 <code>set&lt;typename> s</code> 来定义一个存储数据类型为typename的集合，名字叫做s。下述实例用此做基础。</p>
+<h3 id=迭代器-1>
+迭代器
+<a class=heading-link href=#%e8%bf%ad%e4%bb%a3%e5%99%a8-1>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<p>​    通过<code>set&lt;typename>::iterator it</code>，可以来定义一个相应的set的迭代器，用来遍历和指向其中元素。</p>
+<h3 id=主要函数及用途-3>
+主要函数及用途
+<a class=heading-link href=#%e4%b8%bb%e8%a6%81%e5%87%bd%e6%95%b0%e5%8f%8a%e7%94%a8%e9%80%94-3>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<h4 id=1-插入数据-1>
+1. 插入数据
+<a class=heading-link href=#1-%e6%8f%92%e5%85%a5%e6%95%b0%e6%8d%ae-1>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h4>
+<ul>
+<li>插入特定元素可以通过 <code>s.insert(3)</code> 插入对应键值，返回值为pair&lt;set::iterator,bool> ，后续bool变量标志是否成功，如果元素3已经存在，那么bool值为false，迭代器对应的是该元素在其中的位置，如果元素不存在其中，返回true，并且返回的迭代器对应的在集合中位置</li>
+<li>插入一个区间的元素，例如有整数数组a ，可以用 <code>s.insert(a,a+3)</code> ，可以将a中的 a[0] a[1] a[2] 插入到set中。</li>
+</ul>
+<h4 id=2-删除数据>
+2. 删除数据
+<a class=heading-link href=#2-%e5%88%a0%e9%99%a4%e6%95%b0%e6%8d%ae>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h4>
+<p>​    删除和map非常像，也是三种。具体可参考map讲解。</p>
+<h4 id=3-查找元素>
+3. 查找元素
+<a class=heading-link href=#3-%e6%9f%a5%e6%89%be%e5%85%83%e7%b4%a0>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h4>
+<p>​    也是可以通过find函数，也是和map非常的像~</p>
+<h4 id=4-其他-1>
+4. 其他
+<a class=heading-link href=#4-%e5%85%b6%e4%bb%96-1>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h4>
+<blockquote>
+<ol>
+<li>begin() & end( ) 返回头尾迭代器，注意尾迭代器是尾元素的后一位。</li>
+<li>clear( ) 清除set容器中所有元素</li>
+<li>empty( ) 判断set容器是否为空，为空则返回true，不空返回false</li>
+<li>size( ) 返回当前set容器中元素的个数</li>
+<li>rebegin( ) & rend( ) 返回尾和头迭代器，配合reverse_iterator可以反序遍历set</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id=关于vector和string等>
+关于vector和string等
+<a class=heading-link href=#%e5%85%b3%e4%ba%8evector%e5%92%8cstring%e7%ad%89>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<ul>
+<li>
+<p>vector好的学习文章 ： <a href=https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html>C++ vector容器浅析</a></p>
+</li>
+<li>
+<p>string好的学习文章 ： <a href=https://www.cnblogs.com/fzxiaoyi/p/12083144.html>C++ STL(一)介绍及string</a></p>
+</li>
+</ul>
+</div>
+<footer>
+</footer>
+</article>
+</section>
+</div>
+<footer class=footer>
+<section class=container>
+©
+2019 -
+2021
+zzsqwq
+·
+<a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
+</section>
+</footer>
+</main>
+<script src=/Zs-Hugo-Blog/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Database on Zs's Blog</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/tags/database/</link><description>Recent content in Database on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Fri, 11 Sep 2020 00:08:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/Zs-Hugo-Blog/tags/database/index.xml" rel="self" type="application/rss+xml"/><item><title>数据库的一些基础知识总结</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/107/</link><pubDate>Fri, 11 Sep 2020 00:08:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/107/</guid><description>了解SQL 一.什么是SQL SQL是结构化查询语言（Structured Query Language）的缩写。是一种专门用来与数据库通信的语言。
+二.什么是数据库？ 数据库（Database）：保存有组织的数据的容器（通常是一个文件或一组文件）。 ​[scode type = &amp;ldquo;yellow&amp;rdquo;]需要注意的是，有时候我们把数据库软件也简称为数据库，但是数据库软件和数据库有本质区别，数据库软件应称为DBMS（数据库管理系统），我们通过数据库软件对数据库进行删减等操作，他代替你操作和访问数据库。[/scode]
+三.数据库的组成 表
+ 数据库中通常有多张表，这类似于一个清单。就好像我们管理两个班级就可以用两个表单。
+ 表单之间用表名区分，在同一个数据库中不能有两个具有相同表名的表单。
+行（又称记录）
+ 在表中可以有很多行，我们可以把表看成一个二维数组。每一行代表了一个成员。
+列
+ 每一行有好多列，一列可以代表着成员的一个属性，例如id，班级，姓名等等······
+数据类型
+ 每一列都有着特定的数据类型，例如字符串和数字就是两种不同的数据类型。
+主键（primary key）
+ 对于表中的每一行，我们都有一个唯一标识他的记号，这称作他的主键。
+ 可以发现，主键有以下特征：1.每一行都必须有一个主键，不能为空。2.不同行的主键不同。
+ 我们可以用多列作为主键，这样只需要确保多列组合起来的标识是唯一的。
+外键（foreign key）
+ 外键为某个表中的一列，它包含另一个表的主键值，定义了两个表之间的值，通过DBMS的操作可以将两个表联结起来。
+ 通俗点讲，好比有两张表，分别存储了所有供应商的信息，和所有产品的信息，在前面那张表定义了每个供应商的id，作为其主键。然后我们为每个产品定义外键的id，填上对应供应商的id，然后通过连结，我们就能知道每个产品供应商的详细信息了。
+可伸缩性（scale）</description></item></channel></rss>

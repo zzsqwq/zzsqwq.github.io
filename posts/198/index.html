@@ -1,0 +1,318 @@
+<!doctype html><html lang=cn>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=content-language content="cn">
+<meta name=color-scheme content="light dark">
+<meta http-equiv=content-security-policy content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
+<meta name=author content="zzsqwq">
+<meta name=description content="前言     最近基地的打印机突然又好起来了。
+ 因为基地的打印机型号比较老——HP LaserJet 1020，没有无线打印的功能。所以之前一位学长1 用树莓派配置了打印机的无线打印功能，但是后来发现有一些问题，有时候发送打印请求树莓派无法接收，而且不知道为何，学长之前用的是树莓派自己创建WiFi，连接对应WiFi才能打印，但是这个显然不是最优的解决办法。
+ 考虑到之间已经配置好基地WiFi，我决定重新配置一下打印功能，使其连接基地WiFi即可实现局域网打印。
+ 配置过程    查看树莓派内容     通过ssh连接树莓派，发现里面除了Github上的一个开源项目create_ap ，就没有什么其他的内容了，连接屏幕后发现没有任何图像信号，无从下手，因此考虑重新刷机。
+ 对树莓派进行刷机     把数据备份了一下，看了一下树莓派版本是2015年生产的 Raspberry Pi 3 model B V1.2 ，是老古董了。
+ 去官网看了一下，因为我对Ubuntu比较熟悉，我计划安装一个 Ubuntu20.04版本的，考虑到版本比较老，就装了server版本的，相比与desktop版本负担更小一些。
+ 其实就是下一个官方的软件，Raspberry Pi Imager ，直接用读卡器对树莓派的存储卡刷机即可。
+ 这里是对应的镜像以及教程： 镜像下载 安装教程
+ 配置网络相关     Ubuntu的server版本有个比较蛋疼的问题就是上网比较困难，如果是用的学校网线，必须要PPPOE拨号才能上网，但是server版本居然没有 net-tools 和 network-manager ，连接WiFi啥的试了很多办法但还是没有什么作用。
+ 解决办法：用网线直接连接树莓派和有网的路由器，安装 net-tools 和 network-manager ，执行
+$ sudo nmtui  选择 Activate a connect  连接无线的WiFi，执行">
+<meta name=keywords content="blog,developer,personal">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="利用树莓派为HP LaserJet 1020配置无线打印功能">
+<meta name=twitter:description content="前言     最近基地的打印机突然又好起来了。
+ 因为基地的打印机型号比较老——HP LaserJet 1020，没有无线打印的功能。所以之前一位学长1 用树莓派配置了打印机的无线打印功能，但是后来发现有一些问题，有时候发送打印请求树莓派无法接收，而且不知道为何，学长之前用的是树莓派自己创建WiFi，连接对应WiFi才能打印，但是这个显然不是最优的解决办法。
+ 考虑到之间已经配置好基地WiFi，我决定重新配置一下打印功能，使其连接基地WiFi即可实现局域网打印。
+ 配置过程    查看树莓派内容     通过ssh连接树莓派，发现里面除了Github上的一个开源项目create_ap ，就没有什么其他的内容了，连接屏幕后发现没有任何图像信号，无从下手，因此考虑重新刷机。
+ 对树莓派进行刷机     把数据备份了一下，看了一下树莓派版本是2015年生产的 Raspberry Pi 3 model B V1.2 ，是老古董了。
+ 去官网看了一下，因为我对Ubuntu比较熟悉，我计划安装一个 Ubuntu20.04版本的，考虑到版本比较老，就装了server版本的，相比与desktop版本负担更小一些。
+ 其实就是下一个官方的软件，Raspberry Pi Imager ，直接用读卡器对树莓派的存储卡刷机即可。
+ 这里是对应的镜像以及教程： 镜像下载 安装教程
+ 配置网络相关     Ubuntu的server版本有个比较蛋疼的问题就是上网比较困难，如果是用的学校网线，必须要PPPOE拨号才能上网，但是server版本居然没有 net-tools 和 network-manager ，连接WiFi啥的试了很多办法但还是没有什么作用。
+ 解决办法：用网线直接连接树莓派和有网的路由器，安装 net-tools 和 network-manager ，执行
+$ sudo nmtui  选择 Activate a connect  连接无线的WiFi，执行">
+<meta property="og:title" content="利用树莓派为HP LaserJet 1020配置无线打印功能">
+<meta property="og:description" content="前言     最近基地的打印机突然又好起来了。
+ 因为基地的打印机型号比较老——HP LaserJet 1020，没有无线打印的功能。所以之前一位学长1 用树莓派配置了打印机的无线打印功能，但是后来发现有一些问题，有时候发送打印请求树莓派无法接收，而且不知道为何，学长之前用的是树莓派自己创建WiFi，连接对应WiFi才能打印，但是这个显然不是最优的解决办法。
+ 考虑到之间已经配置好基地WiFi，我决定重新配置一下打印功能，使其连接基地WiFi即可实现局域网打印。
+ 配置过程    查看树莓派内容     通过ssh连接树莓派，发现里面除了Github上的一个开源项目create_ap ，就没有什么其他的内容了，连接屏幕后发现没有任何图像信号，无从下手，因此考虑重新刷机。
+ 对树莓派进行刷机     把数据备份了一下，看了一下树莓派版本是2015年生产的 Raspberry Pi 3 model B V1.2 ，是老古董了。
+ 去官网看了一下，因为我对Ubuntu比较熟悉，我计划安装一个 Ubuntu20.04版本的，考虑到版本比较老，就装了server版本的，相比与desktop版本负担更小一些。
+ 其实就是下一个官方的软件，Raspberry Pi Imager ，直接用读卡器对树莓派的存储卡刷机即可。
+ 这里是对应的镜像以及教程： 镜像下载 安装教程
+ 配置网络相关     Ubuntu的server版本有个比较蛋疼的问题就是上网比较困难，如果是用的学校网线，必须要PPPOE拨号才能上网，但是server版本居然没有 net-tools 和 network-manager ，连接WiFi啥的试了很多办法但还是没有什么作用。
+ 解决办法：用网线直接连接树莓派和有网的路由器，安装 net-tools 和 network-manager ，执行
+$ sudo nmtui  选择 Activate a connect  连接无线的WiFi，执行">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://zzsqwq.github.io/Zs-Hugo-Blog/posts/198/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-07-18T16:03:00+00:00">
+<meta property="article:modified_time" content="2021-07-18T16:03:00+00:00">
+<title>
+利用树莓派为HP LaserJet 1020配置无线打印功能 · Zs's Blog
+</title>
+<link rel=canonical href=https://zzsqwq.github.io/Zs-Hugo-Blog/posts/198/>
+<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
+<link rel=stylesheet href=/Zs-Hugo-Blog/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css integrity="sha256-2f3b/+byfmmYXcX+BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/Zs-Hugo-Blog/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen>
+<link rel=icon type=image/png href=/Zs-Hugo-Blog/images/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/Zs-Hugo-Blog/images/favicon-16x16.png sizes=16x16>
+<link rel=apple-touch-icon href=/Zs-Hugo-Blog/images/apple-touch-icon.png>
+<link rel=apple-touch-icon sizes=180x180 href=/Zs-Hugo-Blog/images/apple-touch-icon.png>
+<meta name=generator content="Hugo 0.89.4">
+</head>
+<body class="preload-transitions colorscheme-auto">
+<div class=float-container>
+<a id=dark-mode-toggle class=colorscheme-toggle>
+<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
+</a>
+</div>
+<main class=wrapper>
+<nav class=navigation>
+<section class=container>
+<a class=navigation-title href=/Zs-Hugo-Blog>
+Zs's Blog
+</a>
+<input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle>
+<i class="fa fa-bars fa-fw" aria-hidden=true></i>
+</label>
+<ul class=navigation-list>
+<li class=navigation-item>
+<a class=navigation-link href=/Zs-Hugo-Blog/about/>About</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/Zs-Hugo-Blog/posts/>Blog</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/Zs-Hugo-Blog/projects/>Projects</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/Zs-Hugo-Blog/contact/>Contact me</a>
+</li>
+</ul>
+</section>
+</nav>
+<div class=content>
+<section class="container post">
+<article>
+<header>
+<div class=post-title>
+<h1 class=title>
+<a class=title-link href=https://zzsqwq.github.io/Zs-Hugo-Blog/posts/198/>
+利用树莓派为HP LaserJet 1020配置无线打印功能
+</a>
+</h1>
+</div>
+<div class=post-meta>
+<div class=date>
+<span class=posted-on>
+<i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2021-07-18T16:03:00Z>
+July 18, 2021
+</time>
+</span>
+<span class=reading-time>
+<i class="fa fa-clock-o" aria-hidden=true></i>
+</span>
+</div>
+<div class=categories>
+<i class="fa fa-folder" aria-hidden=true></i>
+<a href=/Zs-Hugo-Blog/categories/%E6%9D%82%E5%AD%A6/>杂学</a>
+<span class=separator>•</span>
+<a href=/Zs-Hugo-Blog/categories/ubuntu/>Ubuntu</a></div>
+<div class=tags>
+<i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag>
+<a href=/Zs-Hugo-Blog/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/>树莓派</a>
+</span>
+<span class=separator>•</span>
+<span class=tag>
+<a href=/Zs-Hugo-Blog/tags/hp-laserjet/>HP LaserJet</a>
+</span>
+<span class=separator>•</span>
+<span class=tag>
+<a href=/Zs-Hugo-Blog/tags/%E6%89%93%E5%8D%B0%E6%9C%BA/>打印机</a>
+</span></div>
+</div>
+</header>
+<div>
+<h2 id=前言>
+前言
+<a class=heading-link href=#%e5%89%8d%e8%a8%80>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<p>    最近基地的打印机突然又好起来了。</p>
+<p>    因为基地的打印机型号比较老——HP LaserJet 1020，没有无线打印的功能。所以之前一位学长<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> 用树莓派配置了打印机的无线打印功能，但是后来发现有一些问题，有时候发送打印请求树莓派无法接收，而且不知道为何，学长之前用的是树莓派自己创建WiFi，连接对应WiFi才能打印，但是这个显然不是最优的解决办法。</p>
+<p>    考虑到之间已经配置好基地WiFi，我决定重新配置一下打印功能，使其连接基地WiFi即可实现局域网打印。</p>
+<hr>
+<h2 id=配置过程>
+配置过程
+<a class=heading-link href=#%e9%85%8d%e7%bd%ae%e8%bf%87%e7%a8%8b>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<h3 id=查看树莓派内容>
+查看树莓派内容
+<a class=heading-link href=#%e6%9f%a5%e7%9c%8b%e6%a0%91%e8%8e%93%e6%b4%be%e5%86%85%e5%ae%b9>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<p>    通过ssh连接树莓派，发现里面除了Github上的一个开源项目<a href=https://github.com/oblique/create_ap>create_ap</a> ，就没有什么其他的内容了，连接屏幕后发现没有任何图像信号，无从下手，因此考虑重新刷机。</p>
+<hr>
+<h3 id=对树莓派进行刷机>
+对树莓派进行刷机
+<a class=heading-link href=#%e5%af%b9%e6%a0%91%e8%8e%93%e6%b4%be%e8%bf%9b%e8%a1%8c%e5%88%b7%e6%9c%ba>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<p>    把数据备份了一下，看了一下树莓派版本是2015年生产的 <code>Raspberry Pi 3 model B V1.2</code> ，是老古董了。</p>
+<p>    去官网看了一下，因为我对Ubuntu比较熟悉，我计划安装一个 Ubuntu20.04版本的，考虑到版本比较老，就装了<strong>server</strong>版本的，相比与desktop版本负担更小一些。</p>
+<p>    其实就是下一个官方的软件，<code>Raspberry Pi Imager</code> ，直接用读卡器对树莓派的存储卡刷机即可。</p>
+<p>    这里是对应的镜像以及教程： <a href=https://ubuntu.com/download/raspberry-pi>镜像下载</a> <a href=https://ubuntu.com/tutorials/how-to-install-ubuntu-desktop-on-raspberry-pi-4#1-overview>安装教程</a></p>
+<hr>
+<h3 id=配置网络相关>
+配置网络相关
+<a class=heading-link href=#%e9%85%8d%e7%bd%ae%e7%bd%91%e7%bb%9c%e7%9b%b8%e5%85%b3>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<p>    Ubuntu的server版本有个比较蛋疼的问题就是上网比较困难，如果是用的学校网线，必须要PPPOE拨号才能上网，但是server版本居然没有 <code>net-tools</code> 和 <code>network-manager</code> ，连接WiFi啥的试了很多办法但还是没有什么作用。</p>
+<p>    <strong>解决办法：用网线直接连接树莓派和有网的路由器，安装 <code>net-tools</code> 和 <code>network-manager</code> ，执行</strong></p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo nmtui
+</code></pre></div><p>    选择 <code>Activate a connect </code> 连接无线的WiFi，执行</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo ifconfig
+</code></pre></div><p>    查看WiFi对应的IP，至此，树莓派可以摆脱屏幕，我们可以使用电脑进行使用 <code>ssh</code> 连接。</p>
+<p>    这里也可以使用网线进行连接，具体操作如下</p>
+<p>    1. 用网线连接树莓派和自己的电脑。</p>
+<p>    2. 在树莓派的利用 <code>nmtui</code> 选择 <code>Edit a connection </code> ，Add一个Ethernet connect，对IPv4 CONFIGURATION进行设置，首先讲 <code>Automatic</code> 设置为 <code>Manual</code>，设置 <code>Address</code> 为 <strong>静态IP</strong> 如 <code>192.168.3.2</code> ，<code>Gateway</code> 设置为 <code>192.168.3.1</code> 。</p>
+<p>    3. 在自己电脑利用 <code>nmtui</code> 同上不过设置 <code>Address</code> 为 <code>192.168.3.3</code> ，只要是位于同一网段即可。</p>
+<p>    4. 这时候就可以通过网线进行 <code>ssh</code> 连接了。</p>
+<hr>
+<h3 id=配置cups>
+配置cups
+<a class=heading-link href=#%e9%85%8d%e7%bd%aecups>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<p>    以下大多参考：<a href=https://sspai.com/post/40997>如何正确地用树莓派共享打印机</a></p>
+<p>    大佬言：</p>
+<blockquote>
+<p>其实，这一步的工作量非常少，因为软件包 CUPS 就是为共享打印机而生。我们要做的只是将打印机用 USB 线缆连接树莓派，然后安装并配置 CUPS。</p>
+</blockquote>
+<p>    然而，事实并非如此。</p>
+<h4 id=换源>
+换源
+<a class=heading-link href=#%e6%8d%a2%e6%ba%90>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h4>
+<p>    在安装之前需要换源，如果不换源的话，安装会十分缓慢，具体的流程可以看上面的blog，因为我们基地的WiFi自带代理，因此这一步我没有做。</p>
+<h4 id=安装驱动及打印程序>
+安装驱动及打印程序
+<a class=heading-link href=#%e5%ae%89%e8%a3%85%e9%a9%b1%e5%8a%a8%e5%8f%8a%e6%89%93%e5%8d%b0%e7%a8%8b%e5%ba%8f>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h4>
+<ul>
+<li>首先更新源并安装Hp的打印机驱动 <code>hplip</code></li>
+</ul>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo apt update
+$ sudo apt install hplip
+</code></pre></div><ul>
+<li>然后安装Apple开源的远程打印工具 <code>cups</code>，并配置相应权限</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo apt install cups  <span style=font-style:italic># Install cups package</span>
+$ sudo usermod -aG lpadmin pi <span style=font-style:italic># Add user to lpadmin group,pi is your user name</span>
+$ sudo cupsctl --remote-any <span style=font-style:italic># open remote access </span>
+</code></pre></div><ul>
+<li>然后使用在同一局域网的电脑，访问 <code>https://树莓派IP:631</code>，可以进入如下界面，按照下图设置右侧的<code>Server Settings</code></li>
+</ul>
+<p><img src=https://www.zzsqwq.cn/usr/uploads/2021/07/2334607761.png alt=cups管理页面></p>
+<ul>
+<li>
+<p><strong>连接打印机和树莓派</strong>，点击Add Printer添加打印机，在弹出的窗口中输入对应的用户信息，使用在上一步中用户组中添加的用户</p>
+<p><img src=https://www.zzsqwq.cn/usr/uploads/2021/07/3556322742.png alt=cups登录界面></p>
+</li>
+<li>
+<p>然后按着一步步的指引，选择HP LaserJet 1020打印机，然后按照提示，选择和名称对应的驱动，我们会发现 <strong>LaserJet 1020</strong> 对应驱动会提示：HP laserjet requires proprietary plugin，也就是我们不仅需要这个通用的驱动，而且需要一些额外的插件，打印机才能正常工作。</p>
+</li>
+<li>
+<p>查阅资料发现：HP官方已经给出了<a href=https://developers.hp.com/hp-linux-imaging-and-printing/binary_plugin.html>说明</a>，我们需要查看hplip版本，然后安装对应的驱动插件。</p>
+<ul>
+<li>首先我们查看一下版本，发现是3.20.3版本</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo apt show hplip 
+Package: hplip
+Version: 3.20.3+dfsg0-2
+Priority: optional
+Section: utils
+Origin: Ubuntu
+Maintainer: Ubuntu Developers &lt;ubuntu-devel-discuss@lists.ubuntu.com&gt;
+Original-Maintainer: Debian Printing Team &lt;debian-printing@lists.debian.org&gt;
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 518 kB
+</code></pre></div><ul>
+<li>
+<p>然后在 <a href=https://developers.hp.com/hp-linux-imaging-and-printing/plugins>插件列表</a> 中找到 3.20.3 对应的<code>hplip-3.20.3-plugin.run</code>和<code>hplip-3.20.3-plugin.run.asc</code>，使用wget下载到树莓派本地。</p>
+</li>
+<li>
+<p>运行 <code>hp-setup -i</code> 使用命令行进行安装，按照提示命令，进行插件的安装。</p>
+<p>[scode type=&ldquo;yellow&rdquo;]这里建议提前下好安装，而不是直接联网下载，速度较快，指定路径需要为绝对路径[/scode]</p>
+</li>
+</ul>
+</li>
+<li>
+<p>至此，我们可以尝试使用手机或者电脑搜索打印机来进行打印测试，没有其他意外的话，可以发现打印成功！</p>
+</li>
+</ul>
+<hr>
+<h2 id=结语>
+结语
+<a class=heading-link href=#%e7%bb%93%e8%af%ad>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<p>    其实这个配置过程远没有这么简单，期间还有很多小问题，但是大致的流程大概就是如上述所示，全写出来可能太啰嗦，大家如果配置过程中遇到更多的疑问，可以在下方评论一起探讨~</p>
+<h2 id=参考链接>
+参考链接
+<a class=heading-link href=#%e5%8f%82%e8%80%83%e9%93%be%e6%8e%a5>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<ul>
+<li><a href=https://developers.hp.com/hp-linux-imaging-and-printing/binary_plugin.html>What is the HPLIP Binary Plug-In and How Do I Install It?</a></li>
+<li><a href=https://developers.hp.com/hp-linux-imaging-and-printing/plugins>Plugins</a></li>
+<li><a href=https://www.openprinting.org/download/printdriver/auxfiles/HP/plugins/>Other Plugins</a></li>
+<li><a href=https://github.com/apple/cups>cups</a></li>
+<li><a href=https://www.jianshu.com/p/d3752c584e01>使用树莓派搭建无线打印机</a></li>
+<li><a href=https://sspai.com/post/40997>如何正确地用树莓派共享打印机</a></li>
+</ul>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p>学长的博客在这里: <a href=https://tec.blog.ykai.top/>dykai</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+<footer>
+</footer>
+</article>
+</section>
+</div>
+<footer class=footer>
+<section class=container>
+©
+2019 -
+2021
+zzsqwq
+·
+<a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
+</section>
+</footer>
+</main>
+<script src=/Zs-Hugo-Blog/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>程序星 on Zs's Blog</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/tags/%E7%A8%8B%E5%BA%8F%E6%98%9F/</link><description>Recent content in 程序星 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Thu, 12 Nov 2020 23:13:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/Zs-Hugo-Blog/tags/%E7%A8%8B%E5%BA%8F%E6%98%9F/index.xml" rel="self" type="application/rss+xml"/><item><title>“程序星编程之路”第二次作业题解</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/136/</link><pubDate>Thu, 12 Nov 2020 23:13:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/136/</guid><description>“程序星编程之路”第二次作业题解 A. Zs的回文质数 题目描述 ​ 读入一个整数 $n$ ，输出 $[1,n]$ 的所有回文质数，我们规定 $1\sim9$ 也是回文数。
+思路 ​ 首先我们需要了解什么是回文数，以及什么是质数。
+​ 简单点说，回文数就是正着读反着读都是一样的，也就是对称的，形如 $abcba $ 或者 $123321$ 这样的。
+​ 质数的话，对于一个数 $n$ ，如果他是质数，那它除了 $1$ 和 $n$ 没有其他因子。例如 $2,3,5,7,11$ 这样的。
+​ 那么接下来我们考虑一下解决这个问题应该怎么做，首先我们看一下数据范围，$[1,100000]$ ，还是挺小的，我们可以考虑直接枚举每一个数来判断它是不是回文数，然后再判断一下是不是质数，如果两个都满足，我们就输出它。
+​ 判断回文数，我们可以考虑到 NOJ05 幸运数 一题的解题思路，也就是说我们把一个数倒置过来，好比一个数 $xyz$ 倒置成 $zyx$ ，然后判断是否 $xyz == zyx$ ，如果相等的话就是回文数，如果不相等就不是。
+​ 判断质数，我们可以在 $[2,\lfloor\sqrt{n}\rfloor]$ 枚举它的因子，这个的完备性我上课的时候证明过，不再赘述。这里需要注意 $1,2$ 需要特判一下。
+代码 #include&amp;lt;stdio.</description></item></channel></rss>

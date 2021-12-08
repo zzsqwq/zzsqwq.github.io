@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Zs's Blog</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/tags/linux/</link><description>Recent content in Linux on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Mon, 13 Sep 2021 18:15:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/Zs-Hugo-Blog/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>纯终端环境代理配置教程</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/212/</link><pubDate>Mon, 13 Sep 2021 18:15:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/212/</guid><description>纯终端环境代理配置教程 前言 我们在很多情况下，可能会在云服务器或是其他纯终端环境（例如树莓派服务器等），或者一些没有屏幕的情况下，只能 ssh 链接到服务器上进行一些操作。
+这些时候，如果我们想要克隆一个 Github 的仓库，或者下载一些镜像源中没有的文件，简直是难如登天，100kb/s 的速度都很罕见，因此在这种环境下配一个代理还是十分必要的！
+我们常在 Linux 上使用的 GUI 代理软件如 Qv2ray、Clash 这些就没法用了。因此需要考虑如何在纯终端环境中配置代理的问题，这篇教程就是为解决此问题而写的。
+教程 此教程搭配的是常用的 v2ray-core + v2rayA ，这里的 v2rayA 是一个网页端的代理管理工具，其中支持 v2ray、Xray、SS、SSR、Trojan 等多种协议。
+一、安装 v2ray-core 首先是需要安装 v2ray-core ，这里我们使用开源的项目 v2fly/fhs-install-v2ray 进行安装，它是一个脚本，可以直接运行完成 v2ray 的安装，安装的文件组织结构符合 Filesystem Hierarchy Standard ，十分方便简洁，很赞！
+具体步骤如下：
+下载 fhs-install-v2ray 源码 首先我们因为 Github 克隆很慢，可以先在自己的主机上克隆或者以 zip 包形式下载源码
+将源码上传到远端 键入下列代码，通过 scp 将解压后的代码文件夹目录上传到远端服务器的根目录（如果是树莓派的话可以连接同一局域网进行），注意这里的 path/to/fhs-install-v2ray 指的是本地文件夹的路径</description></item><item><title>Ubuntu18.04优化教程</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/141/</link><pubDate>Fri, 04 Dec 2020 01:39:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/141/</guid><description>前言 ​ 因为最近Ubuntu用的比较频繁，所以前一阵把Ubuntu16.04换成Ubuntu18.04了，并且囿于机械硬盘那启动速度，我忍痛割爱把我80G的固态硬盘分给了Ubuntu。
+​ 后来，用着用着就觉得这个Ubuntu的原始界面确实不是特别的好看，配色偏基佬紫的感觉。“工欲善其事，必先利其器“，我们只有将自己的工作环境布置的舒心一些才能有做下去的动力！所以我想给Ubuntu换一个看起来舒服点的界面，然后上网找教程乱七八糟的倒腾了一会，感觉换完以后完全不一样了，这个界面真的好看！！用起来也特别的舒心，感觉自己马上就要告别Windows投奔Linux的怀抱了。后续还有一些其他的优化，例如装QQ、微信、配置终端等，一并写在这里吧。
+Ubuntu界面的优化 具体效果 ​ 先放几张效果图上来，是我改后的界面。大概就是这样(自我感觉挺好看的)，当然也有其他的主题可供选择。
+1.安装GNOME桌面环境主题配置工具 ​ 如果要改主题，那么首先要有一个利器，这里我用的Ubuntu18.04，桌面环境为 GNOME 3.28.2 ，因为我目前接触的只有GNOME桌面环境的，Ubuntu18.04本来的桌面环境就是GNOME，但是Ubuntu16.04好像没有自带，但是可以安装，这里大家可以自行百度了解。
+​ 然后我们已经有了GNOME桌面环境后，安装主题配置工具 GNOME Tweaks ，在终端中输入如下内容：
+sudo apt-get update sudo apt-get install gnome-tweak-tool ​ 我们先更新软件源，然后安装后直接打开他就行，在系统软件中中文大概叫 优化 。
+2.拓展上述工具 ​ 安装完上述工具后，我们可能发现了一个问题，就是外观那一栏目的Shell有一个感叹号，无法更改，这是因为我们没有安装拓展导致的。我们在终端中运行
+sudo apt-get install gnome-shell-extensions ​ 然后重启一下电脑。再打开软件找到左侧的拓展，把 User themes 那一栏目打开。切换回去就可以发现Shell那边的感叹号无了。
+3.寻找自己喜欢的主题 ​ 这里我大家可以去这个网址去找自己喜欢的 GNOME-LOOK.ORG
+​ 这里面包含了图标，主题这些，下面介绍一下如何安装。
+​ 好比我们找到一个自己喜欢的主题，然后我们点击下面的 Files ，可能会有很多文件，但是多是同一个主题的不同风格，好比暗风格和亮风格这样的，还有不同的版本的，我多是安装那个下载量最多的，我们下载那个对应的文件(多是tar.</description></item><item><title>Linux和Vim入门</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/63/</link><pubDate>Mon, 30 Mar 2020 01:18:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/63/</guid><description>&lt;h2 id="linux系统常见命令">
+Linux系统常见命令
+&lt;a class="heading-link" href="#linux%e7%b3%bb%e7%bb%9f%e5%b8%b8%e8%a7%81%e5%91%bd%e4%bb%a4">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="基本操作">
+基本操作
+&lt;a class="heading-link" href="#%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>**cd (Change Directory)**命令：跳转目录&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>cd path&lt;/strong> ： path为路径，进入相应目录&lt;/li>
+&lt;li>&lt;strong>cd #&lt;/strong> 或 &lt;strong>cd ~&lt;/strong> ：回到主目录&lt;/li>
+&lt;li>&lt;strong>cd -&lt;/strong> ： 回到上次所在目录&lt;/li>
+&lt;li>&lt;strong>cd !$&lt;/strong> ：将上个命令的参数做为输入&lt;/li>
+&lt;li>&lt;strong>cd ..&lt;/strong> ：回到上层目录&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1228769729.png" alt="image-20200330164354765.png">&lt;/p>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>

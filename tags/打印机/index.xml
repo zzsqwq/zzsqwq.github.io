@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>打印机 on Zs's Blog</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/tags/%E6%89%93%E5%8D%B0%E6%9C%BA/</link><description>Recent content in 打印机 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Sun, 18 Jul 2021 16:03:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/Zs-Hugo-Blog/tags/%E6%89%93%E5%8D%B0%E6%9C%BA/index.xml" rel="self" type="application/rss+xml"/><item><title>利用树莓派为HP LaserJet 1020配置无线打印功能</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/198/</link><pubDate>Sun, 18 Jul 2021 16:03:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/198/</guid><description>前言  最近基地的打印机突然又好起来了。
+ 因为基地的打印机型号比较老——HP LaserJet 1020，没有无线打印的功能。所以之前一位学长1 用树莓派配置了打印机的无线打印功能，但是后来发现有一些问题，有时候发送打印请求树莓派无法接收，而且不知道为何，学长之前用的是树莓派自己创建WiFi，连接对应WiFi才能打印，但是这个显然不是最优的解决办法。
+ 考虑到之间已经配置好基地WiFi，我决定重新配置一下打印功能，使其连接基地WiFi即可实现局域网打印。
+配置过程 查看树莓派内容  通过ssh连接树莓派，发现里面除了Github上的一个开源项目create_ap ，就没有什么其他的内容了，连接屏幕后发现没有任何图像信号，无从下手，因此考虑重新刷机。
+对树莓派进行刷机  把数据备份了一下，看了一下树莓派版本是2015年生产的 Raspberry Pi 3 model B V1.2 ，是老古董了。
+ 去官网看了一下，因为我对Ubuntu比较熟悉，我计划安装一个 Ubuntu20.04版本的，考虑到版本比较老，就装了server版本的，相比与desktop版本负担更小一些。
+ 其实就是下一个官方的软件，Raspberry Pi Imager ，直接用读卡器对树莓派的存储卡刷机即可。
+ 这里是对应的镜像以及教程： 镜像下载 安装教程
+配置网络相关  Ubuntu的server版本有个比较蛋疼的问题就是上网比较困难，如果是用的学校网线，必须要PPPOE拨号才能上网，但是server版本居然没有 net-tools 和 network-manager ，连接WiFi啥的试了很多办法但还是没有什么作用。
+ 解决办法：用网线直接连接树莓派和有网的路由器，安装 net-tools 和 network-manager ，执行
+$ sudo nmtui  选择 Activate a connect 连接无线的WiFi，执行</description></item></channel></rss>

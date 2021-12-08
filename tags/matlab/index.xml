@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MATLAB on Zs's Blog</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/tags/matlab/</link><description>Recent content in MATLAB on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Mon, 23 Mar 2020 01:14:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/Zs-Hugo-Blog/tags/matlab/index.xml" rel="self" type="application/rss+xml"/><item><title>专题四:MATLAB绘图</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/51/</link><pubDate>Mon, 23 Mar 2020 01:14:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/51/</guid><description>&lt;h2 id="41-二维曲线">
+4.1 二维曲线
+&lt;a class="heading-link" href="#41-%e4%ba%8c%e7%bb%b4%e6%9b%b2%e7%ba%bf">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="span-idjumpplot函数span">
+&lt;!-- raw HTML omitted -->plot函数&lt;!-- raw HTML omitted -->
+&lt;a class="heading-link" href="#span-idjumpplot%e5%87%bd%e6%95%b0span">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>基本用法&lt;/strong>：&lt;code>plot(x,y)&lt;/code> ，x和y分别代表横纵坐标，plot函数会将各个点连接起来，形成线，x和y一般为长度相等的向量。&lt;/li>
+&lt;li>&lt;strong>最简单的调用格式&lt;/strong>：&lt;code>plot(x)&lt;/code>
+&lt;ul>
+&lt;li>&lt;strong>当x为实向量时&lt;/strong>，则以该元素下表为横坐标，元素的值为纵坐标绘制曲线。&lt;/li>
+&lt;li>&lt;strong>当x为复向量时&lt;/strong>，则以&lt;strong>实部&lt;/strong>和&lt;strong>虚部&lt;/strong>分别为横纵坐标绘制曲线。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>专题三:MATLAB程序流程控制</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/36/</link><pubDate>Wed, 18 Mar 2020 01:09:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/36/</guid><description>&lt;h2 id="31-顺序结构程序">
+3.1 顺序结构程序
+&lt;a class="heading-link" href="#31-%e9%a1%ba%e5%ba%8f%e7%bb%93%e6%9e%84%e7%a8%8b%e5%ba%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="程序设计的基本步骤">
+程序设计的基本步骤
+&lt;a class="heading-link" href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%ad%a5%e9%aa%a4">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2521586228.png" alt="step.png">&lt;/p></description></item><item><title>专题二:MATLAB矩阵处理</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/34/</link><pubDate>Sun, 15 Mar 2020 01:07:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/34/</guid><description>&lt;h2 id="21-特殊矩阵">
+2.1 特殊矩阵
+&lt;a class="heading-link" href="#21-%e7%89%b9%e6%ae%8a%e7%9f%a9%e9%98%b5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="通用的特殊矩阵">
+通用的特殊矩阵
+&lt;a class="heading-link" href="#%e9%80%9a%e7%94%a8%e7%9a%84%e7%89%b9%e6%ae%8a%e7%9f%a9%e9%98%b5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>zeros函数&lt;/strong>： 产生全0矩阵，即零矩阵。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>ones函数&lt;/strong>： 产生全1函数，即幺矩阵。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>eye函数&lt;/strong>： 产生对角线为1的矩阵，当矩阵为方针时，为单位矩阵。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>rand函数&lt;/strong>： 产生 &lt;strong>(0,1)&lt;/strong> 区间均匀分布的随机矩阵。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>通过 &lt;code>fix(a+(b-a+1)*rand(x))&lt;/code> 可产生[a,b]区间上均匀分布的随机整数。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>randn函数&lt;/strong>： n为normal的意思，产生均值为0，方差为1的标准正态分布随机矩阵。&lt;/p>
+&lt;ul>
+&lt;li>通过 $\mu+\sigma x$ 来得到均值为 $\mu$ ，方差为 $\sigma{^2}$ 的随机数据。&lt;strong>(高中数学知识，证明可百度)&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>专题一:MATLAB基础知识</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/33/</link><pubDate>Sat, 14 Mar 2020 01:05:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/33/</guid><description>&lt;h2 id="11-matlab系统环境">
+1.1 MATLAB系统环境
+&lt;a class="heading-link" href="#11-matlab%e7%b3%bb%e7%bb%9f%e7%8e%af%e5%a2%83">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="matlab操作界面的组成">
+MATLAB操作界面的组成
+&lt;a class="heading-link" href="#matlab%e6%93%8d%e4%bd%9c%e7%95%8c%e9%9d%a2%e7%9a%84%e7%bb%84%e6%88%90">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>&lt;strong>MATLAB主窗口&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>命令行窗口&lt;/strong>
+&lt;ul>
+&lt;li>命令行窗口含有 &lt;code>&amp;gt;&amp;gt;&lt;/code> 命令提示符，表示MATLAB处于准备状态，可以接受并执行命令，按下回车键后MATLAB会执行输入命令，并在后面显示执行结果&lt;/li>
+&lt;li>如果指令过长可以分行输入，在一行末尾写 &lt;code>...&lt;/code> 并按下回车键，在下个命令行继续输入，&lt;code>...&lt;/code>称为续行符。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>当前文件夹窗口&lt;/strong>
+&lt;ul>
+&lt;li>在MATLAB编程过程中生成的文件自动存放在当前文件夹，我们可以通过cd命令(例如我们要进入E盘下的work文件夹，可以&lt;code>cd e:\work&lt;/code>)或者选择文件工具栏中的文件夹来设置当前文件夹。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>工作区窗口&lt;/strong>
+&lt;ul>
+&lt;li>可用于变量的显示和操作，可显示你当前创建的变量。并且可对其保存，修改，删除。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol></description></item></channel></rss>

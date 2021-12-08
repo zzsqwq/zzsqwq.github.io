@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on Zs's Blog</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/categories/git/</link><description>Recent content in Git on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Fri, 23 Jul 2021 14:17:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/Zs-Hugo-Blog/categories/git/index.xml" rel="self" type="application/rss+xml"/><item><title>关于Git的一些理解</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/201/</link><pubDate>Fri, 23 Jul 2021 14:17:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/201/</guid><description>前言 前段时间在 Github 学完了关于 git 的小游戏 learnGitBranching ，受益匪浅。
+它通过可视化的方式将分支的关系，每条命令的作用等都明明白白的体现出来，可以很直观的感受到你每条命令对整个分支树，每一个 ref 的作用。
+通过这种学习感觉自己对 Git 的理解更加深入一步，能够理解其中的原理，而不是浅尝辄止，照猫画虎。
+学习中记了一些零零散散的思路，想要写一篇笔记记录出来，之前已经写过一个简单的 Git 教程，这篇教程将会更加深入，希望可以帮助大家更好的掌握 Git。
+窃认为，想要学好 Git ，必须要理解清楚其中的分区以及引用，学会了这两个，各种基本操作就很容易理解了。接下来的笔记也基本以此思路展开。
+Git中的分区 首先，Git中存在三大分区，分别是工作区、暂存区、版本库。其中，
+工作区即我们工作的目录，暂存区是我们执行 git add 后文件存在的区域。
+我们可以通过 git status 对两种状态进行查看，例如：
+~/test master* base ❯ git status On branch master Changes to be committed: (use &amp;#34;git restore --staged &amp;lt;file&amp;gt;...&amp;#34; to unstage) modified: test Changes not staged for commit: (use &amp;#34;git add &amp;lt;file&amp;gt;...&amp;#34; to update what will be committed) (use &amp;#34;git restore &amp;lt;file&amp;gt;.</description></item><item><title>Git的简易教程</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/157/</link><pubDate>Sat, 05 Dec 2020 20:26:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/157/</guid><description>前言 ​ 最近在复习Git，因此顺手做个笔记分享出来，方便大家学习和查阅。相信无论是以后的课程作业还是工作，我们都会或多或少的接触/用到Git。
+什么是Git？ ​ Git你可能没听说过，但是我相信你应该听说过Github，毕竟是全球最大的同性交友网站。他和Git有着密不可分的联系，我们后续再详细介绍。
+​ Git的中文全称叫 分布式版本控制系统 ，版本控制系统是什么意思呢？我们举一个简单的例子，你在做一个大作业，很可能要写上千行的代码，但是你可能写完一个功能以后，对他不够满意，但是又害怕改了以后后悔了，又找不回来了，所以你可能就有很多版本，版本1，版本2，版本3等等等。Git就是解决这个问题的，让你文件能够保持最新，但是又能恢复到之前的版本。
+​ 那么既然有分布式版本控制系统，就有 集中式版本控制系统，前者的代表是 Git ，后者的代表有 SVN、CVS 等。
+​ 关于两者的区别，对于集中式版本控制系统，如果你想要对做一个项目的内容做修改，那么你要先从中央服务器把最近的版本拉取(Pull)下来，然后修改完以后，把修改后的版本推送(Push)上去，你本地只有最新的版本，而没有完整的版本库，分布式版本控制系统所作的工作与集中式的相差不大，只是它的本地会有一个完整的版本库，因此它十分的安全。
+​ 这里贴一个他人总结的区别，供大家参考。
+Git的安装 Linux系统
+ 因为我只用过Ubuntu，所以我只会Ubuntu的QAQ..
+ Ubuntu中安装Git只需要在终端中输入 sudo apt-get install git 即可。
+ 如果是其他的linux系统，我猜你在终端中输入git即可获得安装提示，不然的话借助搜索引擎也可以。
+Windows系统
+ 直接去 Git官网 下载安装程序然后安装即可。关于安装时候的选项，我都是用的默认的。
+Mac OS
+ 太穷了，没用过Mac，但是参考链接中给出了方法，大家有需求可以参考。
+Git的基本使用 ​ Git可以做许多事情，好比版本更新，版本修改，提交到远程仓库等等，这里我们只写一写大概以后用的会比较多的。
+​ 需要注意的是，我们安装以后大概会有一个 Git GUI 还有一个 Git Bash ，开发中多用 Git Bash，下面的教程也是基于Git Bash的。</description></item></channel></rss>

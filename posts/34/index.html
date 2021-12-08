@@ -1,0 +1,559 @@
+<!doctype html><html lang=cn>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=content-language content="cn">
+<meta name=color-scheme content="light dark">
+<meta http-equiv=content-security-policy content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
+<meta name=author content="zzsqwq">
+<meta name=description content="
+  2.1 特殊矩阵
+  
+    
+  
+
+
+  通用的特殊矩阵
+  
+    
+  
+
+
+
+zeros函数： 产生全0矩阵，即零矩阵。
+
+
+ones函数：  产生全1函数，即幺矩阵。
+
+
+eye函数： 产生对角线为1的矩阵，当矩阵为方针时，为单位矩阵。
+
+
+rand函数： 产生 (0,1) 区间均匀分布的随机矩阵。
+
+
+通过 fix(a+(b-a+1)*rand(x)) 可产生[a,b]区间上均匀分布的随机整数。
+
+
+randn函数： n为normal的意思，产生均值为0，方差为1的标准正态分布随机矩阵。
+
+通过 $\mu+\sigma x$  来得到均值为 $\mu$ ，方差为 $\sigma{^2}$ 的随机数据。(高中数学知识，证明可百度)
+
+
+">
+<meta name=keywords content="blog,developer,personal">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="专题二:MATLAB矩阵处理">
+<meta name=twitter:description content="
+  2.1 特殊矩阵
+  
+    
+  
+
+
+  通用的特殊矩阵
+  
+    
+  
+
+
+
+zeros函数： 产生全0矩阵，即零矩阵。
+
+
+ones函数：  产生全1函数，即幺矩阵。
+
+
+eye函数： 产生对角线为1的矩阵，当矩阵为方针时，为单位矩阵。
+
+
+rand函数： 产生 (0,1) 区间均匀分布的随机矩阵。
+
+
+通过 fix(a+(b-a+1)*rand(x)) 可产生[a,b]区间上均匀分布的随机整数。
+
+
+randn函数： n为normal的意思，产生均值为0，方差为1的标准正态分布随机矩阵。
+
+通过 $\mu+\sigma x$  来得到均值为 $\mu$ ，方差为 $\sigma{^2}$ 的随机数据。(高中数学知识，证明可百度)
+
+
+">
+<meta property="og:title" content="专题二:MATLAB矩阵处理">
+<meta property="og:description" content="
+  2.1 特殊矩阵
+  
+    
+  
+
+
+  通用的特殊矩阵
+  
+    
+  
+
+
+
+zeros函数： 产生全0矩阵，即零矩阵。
+
+
+ones函数：  产生全1函数，即幺矩阵。
+
+
+eye函数： 产生对角线为1的矩阵，当矩阵为方针时，为单位矩阵。
+
+
+rand函数： 产生 (0,1) 区间均匀分布的随机矩阵。
+
+
+通过 fix(a+(b-a+1)*rand(x)) 可产生[a,b]区间上均匀分布的随机整数。
+
+
+randn函数： n为normal的意思，产生均值为0，方差为1的标准正态分布随机矩阵。
+
+通过 $\mu+\sigma x$  来得到均值为 $\mu$ ，方差为 $\sigma{^2}$ 的随机数据。(高中数学知识，证明可百度)
+
+
+">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://zzsqwq.github.io/Zs-Hugo-Blog/posts/34/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2020-03-15T01:07:00+00:00">
+<meta property="article:modified_time" content="2020-03-15T01:07:00+00:00">
+<title>
+专题二:MATLAB矩阵处理 · Zs's Blog
+</title>
+<link rel=canonical href=https://zzsqwq.github.io/Zs-Hugo-Blog/posts/34/>
+<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
+<link rel=stylesheet href=/Zs-Hugo-Blog/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css integrity="sha256-2f3b/+byfmmYXcX+BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/Zs-Hugo-Blog/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen>
+<link rel=icon type=image/png href=/Zs-Hugo-Blog/images/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/Zs-Hugo-Blog/images/favicon-16x16.png sizes=16x16>
+<link rel=apple-touch-icon href=/Zs-Hugo-Blog/images/apple-touch-icon.png>
+<link rel=apple-touch-icon sizes=180x180 href=/Zs-Hugo-Blog/images/apple-touch-icon.png>
+<meta name=generator content="Hugo 0.89.4">
+</head>
+<body class="preload-transitions colorscheme-auto">
+<div class=float-container>
+<a id=dark-mode-toggle class=colorscheme-toggle>
+<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
+</a>
+</div>
+<main class=wrapper>
+<nav class=navigation>
+<section class=container>
+<a class=navigation-title href=/Zs-Hugo-Blog>
+Zs's Blog
+</a>
+<input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle>
+<i class="fa fa-bars fa-fw" aria-hidden=true></i>
+</label>
+<ul class=navigation-list>
+<li class=navigation-item>
+<a class=navigation-link href=/Zs-Hugo-Blog/about/>About</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/Zs-Hugo-Blog/posts/>Blog</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/Zs-Hugo-Blog/projects/>Projects</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/Zs-Hugo-Blog/contact/>Contact me</a>
+</li>
+</ul>
+</section>
+</nav>
+<div class=content>
+<section class="container post">
+<article>
+<header>
+<div class=post-title>
+<h1 class=title>
+<a class=title-link href=https://zzsqwq.github.io/Zs-Hugo-Blog/posts/34/>
+专题二:MATLAB矩阵处理
+</a>
+</h1>
+</div>
+<div class=post-meta>
+<div class=date>
+<span class=posted-on>
+<i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2020-03-15T01:07:00Z>
+March 15, 2020
+</time>
+</span>
+<span class=reading-time>
+<i class="fa fa-clock-o" aria-hidden=true></i>
+</span>
+</div>
+<div class=categories>
+<i class="fa fa-folder" aria-hidden=true></i>
+<a href=/Zs-Hugo-Blog/categories/matlab/>MATLAB</a></div>
+<div class=tags>
+<i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag>
+<a href=/Zs-Hugo-Blog/tags/matlab/>MATLAB</a>
+</span></div>
+</div>
+</header>
+<div>
+<h2 id=21-特殊矩阵>
+2.1 特殊矩阵
+<a class=heading-link href=#21-%e7%89%b9%e6%ae%8a%e7%9f%a9%e9%98%b5>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<h3 id=通用的特殊矩阵>
+通用的特殊矩阵
+<a class=heading-link href=#%e9%80%9a%e7%94%a8%e7%9a%84%e7%89%b9%e6%ae%8a%e7%9f%a9%e9%98%b5>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<ul>
+<li>
+<p><strong>zeros函数</strong>： 产生全0矩阵，即零矩阵。</p>
+</li>
+<li>
+<p><strong>ones函数</strong>： 产生全1函数，即幺矩阵。</p>
+</li>
+<li>
+<p><strong>eye函数</strong>： 产生对角线为1的矩阵，当矩阵为方针时，为单位矩阵。</p>
+</li>
+<li>
+<p><strong>rand函数</strong>： 产生 <strong>(0,1)</strong> 区间均匀分布的随机矩阵。</p>
+</li>
+<li>
+<p>通过 <code>fix(a+(b-a+1)*rand(x))</code> 可产生[a,b]区间上均匀分布的随机整数。</p>
+</li>
+<li>
+<p><strong>randn函数</strong>： n为normal的意思，产生均值为0，方差为1的标准正态分布随机矩阵。</p>
+<ul>
+<li>通过 $\mu+\sigma x$ 来得到均值为 $\mu$ ，方差为 $\sigma{^2}$ 的随机数据。<strong>(高中数学知识，证明可百度)</strong></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>对于上述函数的调用格式，我们都有如下规定，<code>zeros(m)</code>为产生 $m\times m$ 的零矩阵，<code>zeros(m,n)</code>为产生类型为 $m\times n$ 的零矩阵， <code>zeros(size(A))</code> 为产生和 <strong>A</strong> 同类型的零矩阵，其余函数和此类似。</li>
+</ul>
+<h3 id=用于专门学科的特殊矩阵>
+用于专门学科的特殊矩阵
+<a class=heading-link href=#%e7%94%a8%e4%ba%8e%e4%b8%93%e9%97%a8%e5%ad%a6%e7%a7%91%e7%9a%84%e7%89%b9%e6%ae%8a%e7%9f%a9%e9%98%b5>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<ol>
+<li>
+<p><strong>魔方/幻方矩阵 (Magic Square)</strong></p>
+<ul>
+<li>n阶幻方矩阵每行，每列，主副对角线的和相等。</li>
+<li>n阶幻方矩阵每行每列的元素之和为 $(1+2+3+\cdots+n^2)/n=(n+n^3)/2$</li>
+</ul>
+</li>
+<li>
+<p><strong>范德蒙矩阵 (Vandermonde)</strong></p>
+<ul>
+<li>利用 <strong>Vander(V)</strong> 生成以向量 V 为基础的**范德蒙(Vandermonde)**矩阵。</li>
+</ul>
+<p><img src=https://www.zzsqwq.cn/usr/uploads/2020/08/881557732.png alt=Vander.png></p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>A=vander(1:5)
+A =
+
+     1     1     1     1     1
+    16     8     4     2     1
+    81    27     9     3     1
+   256    64    16     4     1
+   625   125    25     5     1
+</code></pre></div></li>
+<li>
+<p><strong>希尔伯特矩阵 (Hilbert)</strong></p>
+<ul>
+<li>利用 <strong>hilb(n)</strong> 可以生成n阶希尔伯特矩阵。</li>
+</ul>
+<p><img src=https://www.zzsqwq.cn/usr/uploads/2020/08/2952928869.png alt=Hilbert.png></p>
+</li>
+<li>
+<p><strong>伴随矩阵</strong></p>
+<ul>
+<li>通过 <strong>compan(p)</strong> 可以生成向量p对应的多项式的伴随矩阵。<strong>p向量中高次系数在前，低次系数在后。</strong>(我感觉我学过伴随矩阵，但看了之后又感觉没学过QAQ)</li>
+</ul>
+<p><img src=https://www.zzsqwq.cn/usr/uploads/2020/08/2172119825.png alt=Company.png></p>
+</li>
+<li>
+<p><strong>帕斯卡矩阵</strong></p>
+<ul>
+<li>通过 <strong>pascal(n)</strong> 生成一个n阶帕斯卡矩阵。</li>
+</ul>
+<p><img src=https://www.zzsqwq.cn/usr/uploads/2020/08/3001100753.png alt=Pascal1.png></p>
+<p><img src=https://www.zzsqwq.cn/usr/uploads/2020/08/3347696985.png alt=Pascal2.png></p>
+</li>
+</ol>
+<hr>
+<h2 id=22-矩阵变换>
+2.2 矩阵变换
+<a class=heading-link href=#22-%e7%9f%a9%e9%98%b5%e5%8f%98%e6%8d%a2>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<h3 id=对角阵>
+对角阵
+<a class=heading-link href=#%e5%af%b9%e8%a7%92%e9%98%b5>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<ul>
+<li>对角矩阵：只有对角线上有非0元素的矩阵是对角矩阵。如果对角线上元素相等，则称为数量矩阵。当对角线上元素相等且为1，称为单位矩阵。</li>
+<li>提取矩阵的对角线元素
+<ul>
+<li><strong>diag(A):</strong> 提取矩阵A主对角线元素，产生一个列向量。</li>
+<li><strong>diag(A,k):</strong> 提取矩阵A第k条对角线元素，产生一个列向量。主对角线为第0条，往上依次为1，2···n，往下依次为-1，-2 ··· -n。</li>
+</ul>
+</li>
+<li>构造对角矩阵
+<ul>
+<li><strong>diag(V):</strong> 以向量V为主对角线元素，产生对角矩阵。</li>
+<li><strong>diag(V,k):</strong> 以向量V为第k条对角线元素，产生对角矩阵。</li>
+</ul>
+</li>
+</ul>
+<h3 id=三角阵>
+三角阵
+<a class=heading-link href=#%e4%b8%89%e8%a7%92%e9%98%b5>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<ul>
+<li>矩阵对角线以上元素全为0为上三角矩阵，以下全为0为下三角矩阵。</li>
+<li>上，下三角矩阵 <strong>(上 up，下 low)</strong>，关于下三角的只需要把 <strong>triu</strong> 换为 <strong>tril</strong>
+<ul>
+<li><strong>triu(A):</strong> 提取矩阵A的主对角线及以上的元素。</li>
+<li><strong>triu(A,k):</strong> 提取矩阵A的第k条对角线及以上的元素。</li>
+</ul>
+</li>
+</ul>
+<h3 id=矩阵的转置>
+矩阵的转置
+<a class=heading-link href=#%e7%9f%a9%e9%98%b5%e7%9a%84%e8%bd%ac%e7%bd%ae>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<ul>
+<li>普通转置运算符为 <code>.'</code> ，共轭转置为 <code>'</code> ，它在转置的基础上还会求每个数的复共轭。</li>
+</ul>
+<h3 id=矩阵的旋转>
+矩阵的旋转
+<a class=heading-link href=#%e7%9f%a9%e9%98%b5%e7%9a%84%e6%97%8b%e8%bd%ac>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<ul>
+<li><strong>rot90(A,k):</strong> 将矩阵A逆时针方向旋转 $90^{\circ}$ 的k倍，当k为1时可以省略。</li>
+</ul>
+<h3 id=矩阵的翻转>
+矩阵的翻转
+<a class=heading-link href=#%e7%9f%a9%e9%98%b5%e7%9a%84%e7%bf%bb%e8%bd%ac>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<ul>
+<li><strong>fliplr(A):</strong> 对矩阵A实施左右翻转。</li>
+<li><strong>flipud(A):</strong> 对矩阵A进行上下反转。</li>
+</ul>
+<h3 id=矩阵的求逆>
+矩阵的求逆
+<a class=heading-link href=#%e7%9f%a9%e9%98%b5%e7%9a%84%e6%b1%82%e9%80%86>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<ul>
+<li><strong>inv(A):</strong> 求A的逆阵。</li>
+</ul>
+<h3 id=矩阵的阶梯状>
+矩阵的阶梯状
+<a class=heading-link href=#%e7%9f%a9%e9%98%b5%e7%9a%84%e9%98%b6%e6%a2%af%e7%8a%b6>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<ul>
+<li><strong>rref(A):</strong> 将矩阵A化为阶梯状（具体不再解释，不懂可百度）</li>
+</ul>
+<hr>
+<h2 id=23-矩阵求值>
+2.3 矩阵求值
+<a class=heading-link href=#23-%e7%9f%a9%e9%98%b5%e6%b1%82%e5%80%bc>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<h3 id=方阵的行列式>
+方阵的行列式
+<a class=heading-link href=#%e6%96%b9%e9%98%b5%e7%9a%84%e8%a1%8c%e5%88%97%e5%bc%8f>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<ul>
+<li>通过 <strong>det(A)</strong> 可以求A矩阵的行列式值。</li>
+</ul>
+<h3 id=矩阵的秩>
+矩阵的秩
+<a class=heading-link href=#%e7%9f%a9%e9%98%b5%e7%9a%84%e7%a7%a9>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<ul>
+<li>通过 <strong>rank(A)</strong> 可以求A矩阵的秩。</li>
+</ul>
+<h3 id=矩阵的迹>
+矩阵的迹
+<a class=heading-link href=#%e7%9f%a9%e9%98%b5%e7%9a%84%e8%bf%b9>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<ul>
+<li>矩阵的迹等于对角线元素之和，也等于特征值之和。通过 <strong>trace(A)</strong> 可以求A矩阵的迹。</li>
+</ul>
+<h3 id=向量和矩阵的范数>
+向量和矩阵的范数
+<a class=heading-link href=#%e5%90%91%e9%87%8f%e5%92%8c%e7%9f%a9%e9%98%b5%e7%9a%84%e8%8c%83%e6%95%b0>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<ul>
+<li>
+<p>范数用来度量矩阵或向量在某种意义下的长度。</p>
+</li>
+<li>
+<p>向量的范数</p>
+<ul>
+<li>向量 1-范数 : 为向量元素的绝对值之和。通过 <strong>norm(V,1)计算V的1-范数</strong></li>
+</ul>
+<p>$$
+||V||{_1}=\sum\limits^n_{i=1}|v_i|
+$$</p>
+<ul>
+<li>向量 2-范数 : 为向量元素绝对值的平方和的平方根。通过<strong>norm(V)或者norm(V,2)计算向量V的2-范数</strong></li>
+</ul>
+<p>$$
+||V||_2=\sqrt{\sum\limits^n_{i=1}|v_i|^2}
+$$</p>
+<ul>
+<li>向量 ∞-范数 : 所有向量元素绝对值中的最大值。通过<strong>norm(V,inf)计算向量V的∞-范数</strong></li>
+</ul>
+<p>$$
+||V||_{\infty}=\mathop{max}\limits_{0&lt;=i&lt;=n}{|v_i|}
+$$</p>
+</li>
+<li>
+<p>矩阵的范数**（对不起我实在不想写latex了，直接截图了）**</p>
+<ul>
+<li>矩阵的范数求法和向量的一样一样滴</li>
+</ul>
+<p><img src=https://www.zzsqwq.cn/usr/uploads/2020/08/3797164482.png alt=fanshu.png></p>
+</li>
+</ul>
+<h3 id=矩阵的条件数>
+矩阵的条件数
+<a class=heading-link href=#%e7%9f%a9%e9%98%b5%e7%9a%84%e6%9d%a1%e4%bb%b6%e6%95%b0>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<ul>
+<li>用于描述矩阵性能的数，等于矩阵的范数乘逆阵的范数，条件数约接近一，矩阵性能越好。</li>
+<li>通过 <strong>cond(A,1)</strong> ，<strong>cond(A)或cond(A,2) ，cond(A,inf)</strong> 分别求矩阵A三种范数下的条件数。</li>
+</ul>
+<hr>
+<h2 id=24-矩阵的特征值与特征向量>
+2.4 矩阵的特征值与特征向量
+<a class=heading-link href=#24-%e7%9f%a9%e9%98%b5%e7%9a%84%e7%89%b9%e5%be%81%e5%80%bc%e4%b8%8e%e7%89%b9%e5%be%81%e5%90%91%e9%87%8f>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<h3 id=求矩阵的特征值>
+求矩阵的特征值
+<a class=heading-link href=#%e6%b1%82%e7%9f%a9%e9%98%b5%e7%9a%84%e7%89%b9%e5%be%81%e5%80%bc>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<ul>
+<li><strong>E=eig(A)</strong> ：求矩阵A的全部特征值，构成向量E。</li>
+<li><strong>[X,D]=eig(A)</strong> ：求矩阵A的全部特征值，构成对角阵D，并产生矩阵X，X各列为相应特征值对应的特征向量。</li>
+</ul>
+<h3 id=特征值的几何意义>
+特征值的几何意义
+<a class=heading-link href=#%e7%89%b9%e5%be%81%e5%80%bc%e7%9a%84%e5%87%a0%e4%bd%95%e6%84%8f%e4%b9%89>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<p>​ 这里没太听懂，回头来补，咕咕咕QAQ。</p>
+<hr>
+<h2 id=25-稀疏矩阵>
+2.5 稀疏矩阵
+<a class=heading-link href=#25-%e7%a8%80%e7%96%8f%e7%9f%a9%e9%98%b5>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<p>​ <strong>稀疏矩阵就是零元素个数远远大于非0元素个数的矩阵</strong>。</p>
+<h3 id=矩阵的存储方式>
+矩阵的存储方式
+<a class=heading-link href=#%e7%9f%a9%e9%98%b5%e7%9a%84%e5%ad%98%e5%82%a8%e6%96%b9%e5%bc%8f>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<ul>
+<li><strong>完全存储方式</strong>：把所以元素按列依次存储</li>
+<li><strong>稀疏存储方式</strong>：只存储非0元素的行列下标和数值，不改变存储顺序，依次按列存储。</li>
+</ul>
+<h3 id=稀疏存储方式的产生>
+稀疏存储方式的产生
+<a class=heading-link href=#%e7%a8%80%e7%96%8f%e5%ad%98%e5%82%a8%e6%96%b9%e5%bc%8f%e7%9a%84%e4%ba%a7%e7%94%9f>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<ul>
+<li>
+<p>完全存储方式与稀疏存储方式的转化</p>
+<ul>
+<li>通过 <strong>A=sparse(S)</strong> 可以将矩阵S转化为稀疏存储方式的矩阵A</li>
+<li>通过 <strong>S=full(A)</strong> 可以将矩阵A转化为完全存储方式的矩阵S。</li>
+</ul>
+</li>
+<li>
+<p>直接建立稀疏存储矩阵</p>
+<ul>
+<li>
+<p><strong>sparse(m,n)</strong> 可以建立一个 $m\times n$ 的所有元素都为0的稀疏矩阵。</p>
+</li>
+<li>
+<p><strong>sparse(u,v,S)</strong> 其中u，v，S为3个等长向量，分别表示行下标，列下标，非零元素。</p>
+</li>
+<li>
+<p><strong>B=spconvert(A)</strong> ，A是一个 $m\times 3$ 或 $m\times4$ 的矩阵，每一行元素依次表示一个稀疏矩阵的非零元素，从1~4列分别为，行下标，列下标，元素实部，元素虚部，若元素为实数，则第四列省略。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>单位矩阵的稀疏存储</p>
+<ul>
+<li><strong>speye(m,n)</strong> 可返回一个 $m\times n$ 的稀疏存储单位矩阵。</li>
+</ul>
+</li>
+</ul>
+</div>
+<footer>
+</footer>
+</article>
+</section>
+</div>
+<footer class=footer>
+<section class=container>
+©
+2019 -
+2021
+zzsqwq
+·
+<a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
+</section>
+</footer>
+</main>
+<script src=/Zs-Hugo-Blog/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+</body>
+</html>

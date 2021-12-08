@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CenterNet on Zs's Blog</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/tags/centernet/</link><description>Recent content in CenterNet on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Wed, 27 Jan 2021 11:50:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/Zs-Hugo-Blog/tags/centernet/index.xml" rel="self" type="application/rss+xml"/><item><title>如何使用CenterNet做3D目标检测测试</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/164/</link><pubDate>Wed, 27 Jan 2021 11:50:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/164/</guid><description>CenterNet—Objects as Points介绍 ​ CenterNet是一个anchor-free的目标检测网络，与YOLOv3相比，精度有所提升，此外他不仅能够用于2D目标检测，也能够用于人体姿态识别，3D目标检测等···
+安装CenterNet ​ 其实安装CenterNet的过程就是一个配置环境的问题，直接跟着官方给出的这里Install.md配置一下即可，十分推荐使用Conda来管理环境，这里给出我的环境给大家参考一下：
+Ubuntu = 18.04 LTS
+pytorch = 1.2.0
+python = 3.6.12
+torchvision = 0.4.0
+cuda = 10.2
+​ 需要注意的是：
+官方给出的教程里面使用的是 pytorch 0.4.1，但是我个人在实测过程中遇到了一些问题，遂安装网上的教程更改为 pytorch 1.2.0，并且需要把 ${CenterNet_Root}/src/lib/models/networks/DCNv2 中的这个DCNv2网络更改为官方的最新版。 这里使用的cuda版本最好和你的显卡匹配，之前因为显卡驱动的一些问题导致重装了电脑，根据我们学长学姐的建议，最好直接去cuda官网那边去下载deb包直接安装。 遇到环境配置问题可以先去Google一下，一般作者都在CenterNet&amp;rsquo;s Issues中给出了回复，如果没有，可以发邮件给作者询问，当然也可以发消息/邮箱给我，大家一起探讨一下~ 运行CenterNet的demo ​ 想要运行demo，首先要去 Model zoo 中下载一下我们需要使用的model，2D目标检测使用的是 ctdet_coco_dla_2x.pth ，人体姿态评估使用的是 multi_pose_dla_3x.pth ，下载后统一将他们放在CenterNet根目录中的model文件夹中。
+​ 然后使用conda切换到CenterNet的环境，在终端中运行：
+python demo.py ctdet --demo ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg --load_model ../models/ctdet_coco_dla_2x.pth ​ 这里需要注意的是 --demo 后面的 ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.</description></item></channel></rss>

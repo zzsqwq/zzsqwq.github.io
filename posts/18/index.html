@@ -1,0 +1,350 @@
+<!doctype html><html lang=cn>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=content-language content="cn">
+<meta name=color-scheme content="light dark">
+<meta http-equiv=content-security-policy content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
+<meta name=author content="zzsqwq">
+<meta name=description content="
+  前言
+  
+    
+  
+
+
+​	      某位大佬曾经说过，dp不会没问题，想不到状态转移方程没问题，多做题就会了。所以，我打算多刷点dp题。那么，先从基础刷起吧。
+
+  1. P1091 合唱队形
+  
+    
+  
+
+
+
+  题意
+  
+    
+  
+
+​	      已知序列 $a$ 有 $n$ 个数，通过取出其中一些数可以使他满足严格的先增再减序列，问最少取出几个。
+">
+<meta name=keywords content="blog,developer,personal">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="基础线性dp例题">
+<meta name=twitter:description content="
+  前言
+  
+    
+  
+
+
+​	      某位大佬曾经说过，dp不会没问题，想不到状态转移方程没问题，多做题就会了。所以，我打算多刷点dp题。那么，先从基础刷起吧。
+
+  1. P1091 合唱队形
+  
+    
+  
+
+
+
+  题意
+  
+    
+  
+
+​	      已知序列 $a$ 有 $n$ 个数，通过取出其中一些数可以使他满足严格的先增再减序列，问最少取出几个。
+">
+<meta property="og:title" content="基础线性dp例题">
+<meta property="og:description" content="
+  前言
+  
+    
+  
+
+
+​	      某位大佬曾经说过，dp不会没问题，想不到状态转移方程没问题，多做题就会了。所以，我打算多刷点dp题。那么，先从基础刷起吧。
+
+  1. P1091 合唱队形
+  
+    
+  
+
+
+
+  题意
+  
+    
+  
+
+​	      已知序列 $a$ 有 $n$ 个数，通过取出其中一些数可以使他满足严格的先增再减序列，问最少取出几个。
+">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://zzsqwq.github.io/Zs-Hugo-Blog/posts/18/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2020-02-06T00:09:00+00:00">
+<meta property="article:modified_time" content="2020-02-06T00:09:00+00:00">
+<title>
+基础线性dp例题 · Zs's Blog
+</title>
+<link rel=canonical href=https://zzsqwq.github.io/Zs-Hugo-Blog/posts/18/>
+<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
+<link rel=stylesheet href=/Zs-Hugo-Blog/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css integrity="sha256-2f3b/+byfmmYXcX+BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/Zs-Hugo-Blog/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen>
+<link rel=icon type=image/png href=/Zs-Hugo-Blog/images/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/Zs-Hugo-Blog/images/favicon-16x16.png sizes=16x16>
+<link rel=apple-touch-icon href=/Zs-Hugo-Blog/images/apple-touch-icon.png>
+<link rel=apple-touch-icon sizes=180x180 href=/Zs-Hugo-Blog/images/apple-touch-icon.png>
+<meta name=generator content="Hugo 0.89.4">
+</head>
+<body class="preload-transitions colorscheme-auto">
+<div class=float-container>
+<a id=dark-mode-toggle class=colorscheme-toggle>
+<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
+</a>
+</div>
+<main class=wrapper>
+<nav class=navigation>
+<section class=container>
+<a class=navigation-title href=/Zs-Hugo-Blog>
+Zs's Blog
+</a>
+<input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle>
+<i class="fa fa-bars fa-fw" aria-hidden=true></i>
+</label>
+<ul class=navigation-list>
+<li class=navigation-item>
+<a class=navigation-link href=/Zs-Hugo-Blog/about/>About</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/Zs-Hugo-Blog/posts/>Blog</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/Zs-Hugo-Blog/projects/>Projects</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/Zs-Hugo-Blog/contact/>Contact me</a>
+</li>
+</ul>
+</section>
+</nav>
+<div class=content>
+<section class="container post">
+<article>
+<header>
+<div class=post-title>
+<h1 class=title>
+<a class=title-link href=https://zzsqwq.github.io/Zs-Hugo-Blog/posts/18/>
+基础线性dp例题
+</a>
+</h1>
+</div>
+<div class=post-meta>
+<div class=date>
+<span class=posted-on>
+<i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2020-02-06T00:09:00Z>
+February 6, 2020
+</time>
+</span>
+<span class=reading-time>
+<i class="fa fa-clock-o" aria-hidden=true></i>
+</span>
+</div>
+<div class=categories>
+<i class="fa fa-folder" aria-hidden=true></i>
+<a href=/Zs-Hugo-Blog/categories/dp/>dp</a></div>
+<div class=tags>
+<i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag>
+<a href=/Zs-Hugo-Blog/tags/luogu/>Luogu</a>
+</span>
+<span class=separator>•</span>
+<span class=tag>
+<a href=/Zs-Hugo-Blog/tags/dp/>dp</a>
+</span></div>
+</div>
+</header>
+<div>
+<h3 id=前言>
+前言
+<a class=heading-link href=#%e5%89%8d%e8%a8%80>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<hr>
+<p>​       某位大佬曾经说过，dp不会没问题，想不到状态转移方程没问题，多做题就会了。所以，我打算多刷点dp题。那么，先从基础刷起吧。</p>
+<h3 id=1-p1091-合唱队形httpswwwluogucomcnproblemp1091>
+1. <a href=https://www.luogu.com.cn/problem/P1091>P1091 合唱队形</a>
+<a class=heading-link href=#1-p1091-%e5%90%88%e5%94%b1%e9%98%9f%e5%bd%a2httpswwwluogucomcnproblemp1091>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<hr>
+<h4 id=题意>
+题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h4>
+<p>​       已知序列 $a$ 有 $n$ 个数，通过取出其中一些数可以使他满足严格的先增再减序列，问最少取出几个。</p>
+<hr>
+<h4 id=思路>
+思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h4>
+<p>​       很显然想要求最少取出几个，我们就看严格先增再减的序列的最长长度即可。我们可以用 $g[i]$ 来存储到 $a[i]$ 为止的最长递增子序列的长度，然后用 $l[i]$ 来存储从 $a[i]$ 到序列末尾最长的递减子序列的长度。处理 $g[i]$ 从前往后扫，处理 $l[i]$ 需要从后往前扫。处理完 $f$ 和 $g$ 数组那么就从左到右扫一遍，$ans=max(ans,g[i]+l[i]-1)$ 。答案即是 $n-ans$ 。</p>
+<hr>
+<h4 id=代码实现>
+代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h4>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
+</span><span>#include</span><span>&lt;algorithm&gt;</span><span>
+</span><span>#include</span><span>&lt;cmath&gt;</span><span>
+</span><span>#include</span><span>&lt;iostream&gt;</span><span>
+</span><span>#include</span><span>&lt;cstring&gt;</span><span>
+</span><span></span>
+<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+
+<span style=font-weight:700>const</span> <span>int</span> maxn=105;
+<span>int</span> n;
+<span>int</span> a[maxn],g[maxn],l[maxn];
+<span>int</span> main()
+{
+	scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;n);
+	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+	{
+		scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;a[i]);
+	}
+	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+	{
+		<span style=font-weight:700>for</span>(<span>int</span> j=0;j&lt;i;j++)
+		{
+			<span style=font-weight:700>if</span>(a[i]&gt;a[j]) g[i]=max(g[i],g[j]+1);
+		}
+	}
+	<span style=font-weight:700>for</span>(<span>int</span> i=n;i&gt;=1;i--)
+	{
+		<span style=font-weight:700>for</span>(<span>int</span> j=n+1;j&gt;i;j--)
+		{
+			<span style=font-weight:700>if</span>(a[i]&gt;a[j]) l[i]=max(l[i],l[j]+1);
+		}
+	}
+	<span>int</span> maxout=0;
+	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+	{
+		maxout=max(maxout,g[i]+l[i]-1);
+	}
+	printf(<span style=font-style:italic>&#34;%d&#34;</span>,n-maxout);
+	<span style=font-weight:700>return</span> 0;
+} 
+</code></pre></div><hr>
+<h3 id=2-p1280-尼克的任务httpswwwluogucomcnproblemp1280>
+2. <a href=https://www.luogu.com.cn/problem/P1280>P1280 尼克的任务</a>
+<a class=heading-link href=#2-p1280-%e5%b0%bc%e5%85%8b%e7%9a%84%e4%bb%bb%e5%8a%a1httpswwwluogucomcnproblemp1280>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h3>
+<hr>
+<h4 id=题意-1>
+题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f-1>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h4>
+<p>​       尼克的一个工作日为 $n$ 分钟，从第一分钟开始到第 $n$ 分钟结束。当尼克到达单位后他就开始干活。如果在同一时刻有多个任务需要完成，尼克可以任选其中的一个来做，而其余的则由他的同事完成，反之如果只有一个任务，则该任务必需由尼克去完成，假如某些任务开始时刻尼克正在工作，则这些任务也由尼克的同事完成。如果某任务于第 $p$ 分钟开始，持续时间为 $t$ 分钟，则该任务将在第 $p+t-1$ 分钟结束。（实在不会总结题意，就直接复制过来了）</p>
+<hr>
+<h4 id=思路-1>
+思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af-1>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h4>
+<p>​       我们可以设 $f[i]$ 为时间从 $i\sim n$ 所能获得最长空闲时间，最终 $f[1]$ 对应的就是答案。假设在这个 $i$ 分钟有 $k[i]$ 个任务可以，那么我们可以分以下情况转移</p>
+<ul>
+<li>$k[i]=0$ ， 那么 $f[i]=f[i+1]+1$</li>
+<li>$k[i]\not=0$ ，那么可以循环 $1 \sim k[i]$ 遍历这个时间点开始的任务，$f[i]=max(f[i],f[i+k[i].t])$</li>
+</ul>
+<p>​       思路是这样的，但是我们记录 $k[i].t$ 并不好记录，因此我们可以先将任务开始时间按降序排序，用一个一个变量 $cnt$ 来代表已经取到第几个任务了，那么这样一直取下去，最终就能够遍历所有的任务。</p>
+<hr>
+<h4 id=代码实现-1>
+代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h4>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
+</span><span>#include</span><span>&lt;cstring&gt;</span><span>
+</span><span>#include</span><span>&lt;algorithm&gt;</span><span>
+</span><span>#include</span><span>&lt;cmath&gt;</span><span>
+</span><span>#include</span><span>&lt;iostream&gt;</span><span>
+</span><span></span>
+<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+
+<span style=font-weight:700>const</span> <span>int</span> maxn=10005;
+<span style=font-weight:700>struct</span> <span style=font-weight:700>task</span>
+{
+	<span>int</span> l,r;
+}t[maxn];
+<span>int</span> cmp(<span style=font-weight:700>struct</span> <span style=font-weight:700>task</span> a,<span style=font-weight:700>struct</span> <span style=font-weight:700>task</span> b)
+{
+	<span style=font-weight:700>return</span> a.l&gt;b.l;
+}
+<span>int</span> dp[maxn];
+<span>int</span> p[maxn];
+<span>int</span> cnt=1,n,k; 
+<span>int</span> main()
+{
+	scanf(<span style=font-style:italic>&#34;%d%d&#34;</span>,&amp;n,&amp;k);
+	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=k;i++)
+	{
+		scanf(<span style=font-style:italic>&#34;%d%d&#34;</span>,&amp;t[i].l,&amp;t[i].r);
+		p[t[i].l]++;
+	}
+	sort(t+1,t+1+k,cmp);
+	<span style=font-weight:700>for</span>(<span>int</span> i=n;i&gt;=1;i--)
+	{
+		<span style=font-weight:700>if</span>(!p[i])
+		{
+			dp[i]=dp[i+1]+1;
+		}
+		<span style=font-weight:700>else</span> 
+		{
+			<span style=font-weight:700>for</span>(<span>int</span> j=1;j&lt;=p[i];j++)
+			{
+				dp[i]=max(dp[i],dp[i+t[cnt].r]);
+				cnt++;
+			}
+		}
+	}
+	printf(<span style=font-style:italic>&#34;%d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,dp[1]);
+	<span style=font-weight:700>return</span> 0;
+}
+</code></pre></div><hr>
+<p>​</p>
+<p>​       我太懒了····就写了两道，明天继续加油吧。。</p>
+</div>
+<footer>
+</footer>
+</article>
+</section>
+</div>
+<footer class=footer>
+<section class=container>
+©
+2019 -
+2021
+zzsqwq
+·
+<a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
+</section>
+</footer>
+</main>
+<script src=/Zs-Hugo-Blog/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+</body>
+</html>
