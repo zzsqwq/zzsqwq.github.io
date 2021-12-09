@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Zs's Blog</title><link>https://zzsqwq.github.io/tags/linux/</link><description>Recent content in Linux on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 13 Sep 2021 18:15:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>纯终端环境代理配置教程</title><link>https://zzsqwq.github.io/posts/212/</link><pubDate>Mon, 13 Sep 2021 18:15:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/212/</guid><description>&lt;h1 id="纯终端环境代理配置教程">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Zs's Blog</title><link>https://www.zzsqwq.cn/tags/linux/</link><description>Recent content in Linux on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 13 Sep 2021 18:15:00 +0000</lastBuildDate><atom:link href="https://www.zzsqwq.cn/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>纯终端环境代理配置教程</title><link>https://www.zzsqwq.cn/posts/212/</link><pubDate>Mon, 13 Sep 2021 18:15:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/212/</guid><description>&lt;h1 id="纯终端环境代理配置教程">
 纯终端环境代理配置教程
 &lt;a class="heading-link" href="#%e7%ba%af%e7%bb%88%e7%ab%af%e7%8e%af%e5%a2%83%e4%bb%a3%e7%90%86%e9%85%8d%e7%bd%ae%e6%95%99%e7%a8%8b">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -128,7 +128,7 @@ index.html [ &amp;lt;=&amp;gt; ] 13.42K 59.8KB/s in 0.2s
 &lt;/a>
 &lt;/h3>
 &lt;p>我现在还没有搞清楚透明代理的作用，如果不开的话，我通过 &lt;code>proxychains&lt;/code> 配置对应的端口，发现并不能上网，但是如果我直接开了透明代理，不需要 &lt;code>proxychains&lt;/code> 也可以直接在终端使用代理，感觉是全局代理，不过不影响使用。&lt;/p>
-&lt;p>具体的一些细节还没有搞清楚，后续学习了再回来补更。&lt;/p></description></item><item><title>Ubuntu18.04优化教程</title><link>https://zzsqwq.github.io/posts/141/</link><pubDate>Fri, 04 Dec 2020 01:39:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/141/</guid><description>&lt;h3 id="前言">
+&lt;p>具体的一些细节还没有搞清楚，后续学习了再回来补更。&lt;/p></description></item><item><title>Ubuntu18.04优化教程</title><link>https://www.zzsqwq.cn/posts/141/</link><pubDate>Fri, 04 Dec 2020 01:39:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/141/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -307,7 +307,7 @@ prompt pure
 &lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/61447507">常用的oh-my-zsh插件&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;p>还有一些其他的配置有时间再写吧……咕咕咕&lt;/p></description></item><item><title>Linux和Vim入门</title><link>https://zzsqwq.github.io/posts/63/</link><pubDate>Mon, 30 Mar 2020 01:18:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/63/</guid><description>&lt;h2 id="linux系统常见命令">
+&lt;p>还有一些其他的配置有时间再写吧……咕咕咕&lt;/p></description></item><item><title>Linux和Vim入门</title><link>https://www.zzsqwq.cn/posts/63/</link><pubDate>Mon, 30 Mar 2020 01:18:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/63/</guid><description>&lt;h2 id="linux系统常见命令">
 Linux系统常见命令
 &lt;a class="heading-link" href="#linux%e7%b3%bb%e7%bb%9f%e5%b8%b8%e8%a7%81%e5%91%bd%e4%bb%a4">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>

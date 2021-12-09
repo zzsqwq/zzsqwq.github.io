@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://zzsqwq.github.io/</link><description>Recent content on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 01 Dec 2021 20:12:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Posts</title><link>https://zzsqwq.github.io/posts/</link><pubDate>Wed, 01 Dec 2021 20:12:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/</guid><description/></item><item><title/><link>https://zzsqwq.github.io/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zzsqwq.github.io/about/</guid><description>&lt;h1 id="about-me">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://www.zzsqwq.cn/</link><description>Recent content on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 01 Dec 2021 20:12:00 +0000</lastBuildDate><atom:link href="https://www.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml"/><item><title>Posts</title><link>https://www.zzsqwq.cn/posts/</link><pubDate>Wed, 01 Dec 2021 20:12:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/</guid><description/></item><item><title/><link>https://www.zzsqwq.cn/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.zzsqwq.cn/about/</guid><description>&lt;h1 id="about-me">
 About Me
 &lt;a class="heading-link" href="#about-me">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -19,7 +19,7 @@ About Blog
 &lt;p>Blog is proudly powered by &lt;a href="https://gohugo.io/">Hugo&lt;/a>.&lt;/p>
 &lt;p>The theme used is &lt;a href="https://github.com/luizdepra/hugo-coder">Coder&lt;/a>, I like this simple and atmospheric theme very much.&lt;/p>
 &lt;p>I have used &lt;a href="https://typecho.org/">Typecho&lt;/a> and &lt;a href="https://hexo.io/zh-cn/">Hexo&lt;/a> to powered my blog in the past, typecho version links are here&lt;/p>
-&lt;p>&lt;a href="https://www.zzsqwq.cn">Zs&amp;rsquo;s Blog(Typecho)&lt;/a>&lt;/p></description></item><item><title/><link>https://zzsqwq.github.io/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zzsqwq.github.io/contact/</guid><description>&lt;h1 id="contact-me">
+&lt;p>&lt;a href="https://www.zzsqwq.cn">Zs&amp;rsquo;s Blog(Typecho)&lt;/a>&lt;/p></description></item><item><title/><link>https://www.zzsqwq.cn/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.zzsqwq.cn/contact/</guid><description>&lt;h1 id="contact-me">
 Contact Me
 &lt;a class="heading-link" href="#contact-me">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -27,12 +27,12 @@ Contact Me
 &lt;/h1>
 &lt;p>&lt;strong>Github：&lt;a href="https://github.com/zzsqwq">@zzsqwq&lt;/a>&lt;/strong>&lt;/p>
 &lt;p>&lt;strong>E-mail: &lt;a href="mailto:trizsqwq@gmail.com">trizsqwq@gmail.com&lt;/a>&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Telegram: &lt;a href="https://t.me/zzsqwq">@zzsqwq&lt;/a>&lt;/strong>&lt;/p></description></item><item><title/><link>https://zzsqwq.github.io/friends/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zzsqwq.github.io/friends/</guid><description>&lt;h1 id="friends">
+&lt;p>&lt;strong>Telegram: &lt;a href="https://t.me/zzsqwq">@zzsqwq&lt;/a>&lt;/strong>&lt;/p></description></item><item><title/><link>https://www.zzsqwq.cn/friends/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.zzsqwq.cn/friends/</guid><description>&lt;h1 id="friends">
 Friends
 &lt;a class="heading-link" href="#friends">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
-&lt;/h1></description></item><item><title/><link>https://zzsqwq.github.io/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://zzsqwq.github.io/projects/</guid><description>&lt;h1 id="projects">
+&lt;/h1></description></item><item><title/><link>https://www.zzsqwq.cn/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.zzsqwq.cn/projects/</guid><description>&lt;h1 id="projects">
 Projects
 &lt;a class="heading-link" href="#projects">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>

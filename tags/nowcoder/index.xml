@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nowcoder on Zs's Blog</title><link>https://zzsqwq.github.io/tags/nowcoder/</link><description>Recent content in Nowcoder on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 19 Aug 2020 13:21:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/nowcoder/index.xml" rel="self" type="application/rss+xml"/><item><title>排位三和四记录</title><link>https://zzsqwq.github.io/posts/68/</link><pubDate>Wed, 19 Aug 2020 13:21:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/68/</guid><description>&lt;h1 id="day-3">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nowcoder on Zs's Blog</title><link>https://www.zzsqwq.cn/tags/nowcoder/</link><description>Recent content in Nowcoder on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 19 Aug 2020 13:21:00 +0000</lastBuildDate><atom:link href="https://www.zzsqwq.cn/tags/nowcoder/index.xml" rel="self" type="application/rss+xml"/><item><title>排位三和四记录</title><link>https://www.zzsqwq.cn/posts/68/</link><pubDate>Wed, 19 Aug 2020 13:21:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/68/</guid><description>&lt;h1 id="day-3">
 Day 3
 &lt;a class="heading-link" href="#day-3">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -295,7 +295,7 @@ printf(&lt;span style="color:#e6db74">&amp;#34;%d&lt;/span>&lt;span style="color
 dfs(m);
 &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 }
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>排位一和二记录</title><link>https://zzsqwq.github.io/posts/5/</link><pubDate>Mon, 17 Aug 2020 20:04:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/5/</guid><description>&lt;h1 id="day-1">
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>排位一和二记录</title><link>https://www.zzsqwq.cn/posts/5/</link><pubDate>Mon, 17 Aug 2020 20:04:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/5/</guid><description>&lt;h1 id="day-1">
 Day 1
 &lt;a class="heading-link" href="#day-1">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -683,7 +683,7 @@ ans &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&
 }
 printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,ans);
 }
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>日常水题</title><link>https://zzsqwq.github.io/posts/25/</link><pubDate>Thu, 13 Feb 2020 00:47:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/25/</guid><description>&lt;h2 id="前言">
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>日常水题</title><link>https://www.zzsqwq.cn/posts/25/</link><pubDate>Thu, 13 Feb 2020 00:47:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/25/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>

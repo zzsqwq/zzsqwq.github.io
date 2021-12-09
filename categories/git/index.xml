@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on Zs's Blog</title><link>https://zzsqwq.github.io/categories/git/</link><description>Recent content in Git on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 23 Jul 2021 14:17:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/categories/git/index.xml" rel="self" type="application/rss+xml"/><item><title>关于Git的一些理解</title><link>https://zzsqwq.github.io/posts/201/</link><pubDate>Fri, 23 Jul 2021 14:17:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/201/</guid><description>&lt;h1 id="前言">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on Zs's Blog</title><link>https://www.zzsqwq.cn/categories/git/</link><description>Recent content in Git on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 23 Jul 2021 14:17:00 +0000</lastBuildDate><atom:link href="https://www.zzsqwq.cn/categories/git/index.xml" rel="self" type="application/rss+xml"/><item><title>关于Git的一些理解</title><link>https://www.zzsqwq.cn/posts/201/</link><pubDate>Fri, 23 Jul 2021 14:17:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/201/</guid><description>&lt;h1 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -167,7 +167,7 @@ $ git checkout &amp;lt;commit-id&amp;gt;
 &lt;li>
 &lt;p>&lt;a href="https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-Git-%E5%BC%95%E7%94%A8">Git的引用&lt;/a>：来自 Git 官方的讲解，十分硬核。&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>Git的简易教程</title><link>https://zzsqwq.github.io/posts/157/</link><pubDate>Sat, 05 Dec 2020 20:26:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/157/</guid><description>&lt;h3 id="前言">
+&lt;/ul></description></item><item><title>Git的简易教程</title><link>https://www.zzsqwq.cn/posts/157/</link><pubDate>Sat, 05 Dec 2020 20:26:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/157/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>

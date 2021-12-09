@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Luogu on Zs's Blog</title><link>https://zzsqwq.github.io/tags/luogu/</link><description>Recent content in Luogu on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 20 Feb 2020 01:04:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/luogu/index.xml" rel="self" type="application/rss+xml"/><item><title>树形dp例题</title><link>https://zzsqwq.github.io/posts/31/</link><pubDate>Thu, 20 Feb 2020 01:04:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/31/</guid><description>&lt;h2 id="前言">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Luogu on Zs's Blog</title><link>https://www.zzsqwq.cn/tags/luogu/</link><description>Recent content in Luogu on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 20 Feb 2020 01:04:00 +0000</lastBuildDate><atom:link href="https://www.zzsqwq.cn/tags/luogu/index.xml" rel="self" type="application/rss+xml"/><item><title>树形dp例题</title><link>https://www.zzsqwq.cn/posts/31/</link><pubDate>Thu, 20 Feb 2020 01:04:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/31/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -261,7 +261,7 @@ dfs(&lt;span style="color:#ae81ff">1&lt;/span>);
 printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,dp[&lt;span style="color:#ae81ff">1&lt;/span>][q]);
 &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 }
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>dp练习</title><link>https://zzsqwq.github.io/posts/29/</link><pubDate>Tue, 18 Feb 2020 01:00:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/29/</guid><description>&lt;h2 id="a-矩阵取数游戏httpswwwluogucomcnproblemp1005">
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>dp练习</title><link>https://www.zzsqwq.cn/posts/29/</link><pubDate>Tue, 18 Feb 2020 01:00:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/29/</guid><description>&lt;h2 id="a-矩阵取数游戏httpswwwluogucomcnproblemp1005">
 A. &lt;a href="https://www.luogu.com.cn/problem/P1005">矩阵取数游戏&lt;/a>
 &lt;a class="heading-link" href="#a-%e7%9f%a9%e9%98%b5%e5%8f%96%e6%95%b0%e6%b8%b8%e6%88%8fhttpswwwluogucomcnproblemp1005">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -493,7 +493,7 @@ ans&lt;span style="color:#f92672">%=&lt;/span>mod;
 }
 printf(&lt;span style="color:#e6db74">&amp;#34;%lld&amp;#34;&lt;/span>,ans);
 }
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>dp习题练习</title><link>https://zzsqwq.github.io/posts/24/</link><pubDate>Wed, 12 Feb 2020 00:45:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/24/</guid><description>&lt;h2 id="a-方格取数httpswwwluogucomcnproblemp1004">
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>dp习题练习</title><link>https://www.zzsqwq.cn/posts/24/</link><pubDate>Wed, 12 Feb 2020 00:45:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/24/</guid><description>&lt;h2 id="a-方格取数httpswwwluogucomcnproblemp1004">
 A. &lt;a href="https://www.luogu.com.cn/problem/P1004">方格取数&lt;/a>
 &lt;a class="heading-link" href="#a-%e6%96%b9%e6%a0%bc%e5%8f%96%e6%95%b0httpswwwluogucomcnproblemp1004">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -802,7 +802,7 @@ dp[i][j]&lt;span style="color:#f92672">=&lt;/span>max(dp[i][j],dp[i][k]&lt;span 
 printf(&lt;span style="color:#e6db74">&amp;#34;%lld&amp;#34;&lt;/span>,ans);
 &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 }
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>背包进阶</title><link>https://zzsqwq.github.io/posts/21/</link><pubDate>Sun, 09 Feb 2020 00:38:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/21/</guid><description>&lt;h3 id="1-分组背包httpswwwluogucomcnproblemp1757">
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>背包进阶</title><link>https://www.zzsqwq.cn/posts/21/</link><pubDate>Sun, 09 Feb 2020 00:38:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/21/</guid><description>&lt;h3 id="1-分组背包httpswwwluogucomcnproblemp1757">
 1. &lt;a href="https://www.luogu.com.cn/problem/P1757">分组背包&lt;/a>
 &lt;a class="heading-link" href="#1-%e5%88%86%e7%bb%84%e8%83%8c%e5%8c%85httpswwwluogucomcnproblemp1757">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1075,7 +1075,7 @@ printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,dp[i]);
 }
 &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 }
-&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>一些关于背包的题</title><link>https://zzsqwq.github.io/posts/20/</link><pubDate>Sat, 08 Feb 2020 00:33:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/20/</guid><description>&lt;h3 id="前言">
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>一些关于背包的题</title><link>https://www.zzsqwq.cn/posts/20/</link><pubDate>Sat, 08 Feb 2020 00:33:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/20/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1270,7 +1270,7 @@ f[j]&lt;span style="color:#f92672">=&lt;/span>max(f[j],f[j&lt;span style="color:
 printf(&lt;span style="color:#e6db74">&amp;#34;%d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,f[m]);
 &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 }
-&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>基础线性dp例题 #2</title><link>https://zzsqwq.github.io/posts/19/</link><pubDate>Fri, 07 Feb 2020 00:22:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/19/</guid><description>&lt;h3 id="1-石子归并httpswww51nodcomchallengeproblemhtmlproblemid1021">
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>基础线性dp例题 #2</title><link>https://www.zzsqwq.cn/posts/19/</link><pubDate>Fri, 07 Feb 2020 00:22:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/19/</guid><description>&lt;h3 id="1-石子归并httpswww51nodcomchallengeproblemhtmlproblemid1021">
 1. &lt;a href="https://www.51nod.com/Challenge/Problem.html#problemId=1021">石子归并&lt;/a>
 &lt;a class="heading-link" href="#1-%e7%9f%b3%e5%ad%90%e5%bd%92%e5%b9%b6httpswww51nodcomchallengeproblemhtmlproblemid1021">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1559,7 +1559,7 @@ dp[i][j]&lt;span style="color:#f92672">=&lt;/span>max(dp[i][j],dp[i&lt;span styl
 printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,dp[n][m]);
 &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 }
-&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>基础线性dp例题</title><link>https://zzsqwq.github.io/posts/18/</link><pubDate>Thu, 06 Feb 2020 00:09:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/18/</guid><description>&lt;h3 id="前言">
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>基础线性dp例题</title><link>https://www.zzsqwq.cn/posts/18/</link><pubDate>Thu, 06 Feb 2020 00:09:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/18/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1718,7 +1718,7 @@ printf(&lt;span style="color:#e6db74">&amp;#34;%d&lt;/span>&lt;span style="color
 }
 &lt;/code>&lt;/pre>&lt;/div>&lt;hr>
 &lt;p>​&lt;/p>
-&lt;p>​       我太懒了····就写了两道，明天继续加油吧。。&lt;/p></description></item><item><title>洛谷的一些搜索题</title><link>https://zzsqwq.github.io/posts/16/</link><pubDate>Tue, 04 Feb 2020 23:02:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/16/</guid><description>&lt;h3 id="1-p1378-油滴扩展httpswwwluogucomcnproblemp1378">
+&lt;p>​       我太懒了····就写了两道，明天继续加油吧。。&lt;/p></description></item><item><title>洛谷的一些搜索题</title><link>https://www.zzsqwq.cn/posts/16/</link><pubDate>Tue, 04 Feb 2020 23:02:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/16/</guid><description>&lt;h3 id="1-p1378-油滴扩展httpswwwluogucomcnproblemp1378">
 1. &lt;a href="https://www.luogu.com.cn/problem/P1378">P1378 油滴扩展&lt;/a>
 &lt;a class="heading-link" href="#1-p1378-%e6%b2%b9%e6%bb%b4%e6%89%a9%e5%b1%95httpswwwluogucomcnproblemp1378">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>

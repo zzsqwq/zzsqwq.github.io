@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>背包 on Zs's Blog</title><link>https://zzsqwq.github.io/tags/%E8%83%8C%E5%8C%85/</link><description>Recent content in 背包 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 09 Feb 2020 00:38:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/%E8%83%8C%E5%8C%85/index.xml" rel="self" type="application/rss+xml"/><item><title>背包进阶</title><link>https://zzsqwq.github.io/posts/21/</link><pubDate>Sun, 09 Feb 2020 00:38:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/21/</guid><description>&lt;h3 id="1-分组背包httpswwwluogucomcnproblemp1757">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>背包 on Zs's Blog</title><link>https://www.zzsqwq.cn/tags/%E8%83%8C%E5%8C%85/</link><description>Recent content in 背包 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 09 Feb 2020 00:38:00 +0000</lastBuildDate><atom:link href="https://www.zzsqwq.cn/tags/%E8%83%8C%E5%8C%85/index.xml" rel="self" type="application/rss+xml"/><item><title>背包进阶</title><link>https://www.zzsqwq.cn/posts/21/</link><pubDate>Sun, 09 Feb 2020 00:38:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/21/</guid><description>&lt;h3 id="1-分组背包httpswwwluogucomcnproblemp1757">
 1. &lt;a href="https://www.luogu.com.cn/problem/P1757">分组背包&lt;/a>
 &lt;a class="heading-link" href="#1-%e5%88%86%e7%bb%84%e8%83%8c%e5%8c%85httpswwwluogucomcnproblemp1757">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -271,7 +271,7 @@ printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,dp[i]);
 }
 &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 }
-&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>一些关于背包的题</title><link>https://zzsqwq.github.io/posts/20/</link><pubDate>Sat, 08 Feb 2020 00:33:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/20/</guid><description>&lt;h3 id="前言">
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>一些关于背包的题</title><link>https://www.zzsqwq.cn/posts/20/</link><pubDate>Sat, 08 Feb 2020 00:33:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/20/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>

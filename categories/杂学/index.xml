@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>杂学 on Zs's Blog</title><link>https://zzsqwq.github.io/categories/%E6%9D%82%E5%AD%A6/</link><description>Recent content in 杂学 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 18 Jul 2021 16:03:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/categories/%E6%9D%82%E5%AD%A6/index.xml" rel="self" type="application/rss+xml"/><item><title>利用树莓派为HP LaserJet 1020配置无线打印功能</title><link>https://zzsqwq.github.io/posts/198/</link><pubDate>Sun, 18 Jul 2021 16:03:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/198/</guid><description>&lt;h2 id="前言">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>杂学 on Zs's Blog</title><link>https://www.zzsqwq.cn/categories/%E6%9D%82%E5%AD%A6/</link><description>Recent content in 杂学 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 18 Jul 2021 16:03:00 +0000</lastBuildDate><atom:link href="https://www.zzsqwq.cn/categories/%E6%9D%82%E5%AD%A6/index.xml" rel="self" type="application/rss+xml"/><item><title>利用树莓派为HP LaserJet 1020配置无线打印功能</title><link>https://www.zzsqwq.cn/posts/198/</link><pubDate>Sun, 18 Jul 2021 16:03:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/198/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -157,7 +157,7 @@ Installed-Size: &lt;span style="color:#ae81ff">518&lt;/span> kB
 &lt;p>学长的博客在这里: &lt;a href="https://tec.blog.ykai.top/">dykai&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/section></description></item><item><title>Ubuntu如何利用AppImage创建Qv2ray快捷方式</title><link>https://zzsqwq.github.io/posts/193/</link><pubDate>Wed, 16 Jun 2021 00:54:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/193/</guid><description>&lt;h3 id="前言">
+&lt;/section></description></item><item><title>Ubuntu如何利用AppImage创建Qv2ray快捷方式</title><link>https://www.zzsqwq.cn/posts/193/</link><pubDate>Wed, 16 Jun 2021 00:54:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/193/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -257,7 +257,7 @@ StartupNotify&lt;span style="color:#f92672">=&lt;/span>true
 &lt;/h3>
 &lt;p>​    我们直接将AppImage加入到 &lt;code>/usr/bin&lt;/code> 中即可，即执行以下命令：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ sudo cp xxx.AppImage /usr/bin/qv2ray
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    接下来我们在终端中输入 &lt;code>qv2ray&lt;/code> ，发现已经可以成功打开qv2ray，大功告成！~&lt;/p></description></item><item><title>利用神经网络进行波士顿房价预测</title><link>https://zzsqwq.github.io/posts/182/</link><pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/182/</guid><description>&lt;h3 id="前言">
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    接下来我们在终端中输入 &lt;code>qv2ray&lt;/code> ，发现已经可以成功打开qv2ray，大功告成！~&lt;/p></description></item><item><title>利用神经网络进行波士顿房价预测</title><link>https://www.zzsqwq.cn/posts/182/</link><pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/182/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -549,7 +549,7 @@ $$
 &lt;li>
 &lt;p>&lt;a href="https://cloud.tencent.com/developer/article/1574255">波士顿房价预测——回归分析案例（献给初学者）&lt;/a>&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>如何使用CenterNet做3D目标检测测试</title><link>https://zzsqwq.github.io/posts/164/</link><pubDate>Wed, 27 Jan 2021 11:50:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/164/</guid><description>&lt;h2 id="centernetobjects-as-points介绍">
+&lt;/ul></description></item><item><title>如何使用CenterNet做3D目标检测测试</title><link>https://www.zzsqwq.cn/posts/164/</link><pubDate>Wed, 27 Jan 2021 11:50:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/164/</guid><description>&lt;h2 id="centernetobjects-as-points介绍">
 CenterNet—Objects as Points介绍
 &lt;a class="heading-link" href="#centernetobjects-as-points%e4%bb%8b%e7%bb%8d">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -672,7 +672,7 @@ CenterNet—Objects as Points介绍
 &lt;code>mv label_2 label_val&lt;/code>&lt;/p>
 &lt;/blockquote>
 &lt;p>​ 更改后，运行成功~&lt;/p>
-&lt;p>​ 我们应该可以在 &lt;code>${CenterNet_ROOT}/exp/ddd/3dop/results&lt;/code> 看到我们得到的结果，只不过运行得到的是点的坐标，而不是图像，如果需要图像的话可能还需要自己绘制一下。&lt;/p></description></item><item><title>“程序星编程之路”第二次作业题解</title><link>https://zzsqwq.github.io/posts/136/</link><pubDate>Thu, 12 Nov 2020 23:13:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/136/</guid><description>&lt;h2 id="程序星编程之路第二次作业httpswwwluogucomcncontest36509题解">
+&lt;p>​ 我们应该可以在 &lt;code>${CenterNet_ROOT}/exp/ddd/3dop/results&lt;/code> 看到我们得到的结果，只不过运行得到的是点的坐标，而不是图像，如果需要图像的话可能还需要自己绘制一下。&lt;/p></description></item><item><title>“程序星编程之路”第二次作业题解</title><link>https://www.zzsqwq.cn/posts/136/</link><pubDate>Thu, 12 Nov 2020 23:13:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/136/</guid><description>&lt;h2 id="程序星编程之路第二次作业httpswwwluogucomcncontest36509题解">
 &lt;a href="https://www.luogu.com.cn/contest/36509">“程序星编程之路”第二次作业&lt;/a>题解
 &lt;a class="heading-link" href="#%e7%a8%8b%e5%ba%8f%e6%98%9f%e7%bc%96%e7%a8%8b%e4%b9%8b%e8%b7%af%e7%ac%ac%e4%ba%8c%e6%ac%a1%e4%bd%9c%e4%b8%9ahttpswwwluogucomcncontest36509%e9%a2%98%e8%a7%a3">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -960,7 +960,7 @@ pot &lt;span style="color:#f92672">=&lt;/span> (pot&lt;span style="color:#f92672
 }
 printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,pot&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
 }
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    &lt;strong>提示：n个人的约瑟夫环杀掉一个人后组成一个新的人数为 n-1 的约瑟夫环&lt;/strong>&lt;/p></description></item><item><title>自买服务器建站教程</title><link>https://zzsqwq.github.io/posts/77/</link><pubDate>Wed, 26 Aug 2020 16:34:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/77/</guid><description>&lt;h2 id="引言">
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    &lt;strong>提示：n个人的约瑟夫环杀掉一个人后组成一个新的人数为 n-1 的约瑟夫环&lt;/strong>&lt;/p></description></item><item><title>自买服务器建站教程</title><link>https://www.zzsqwq.cn/posts/77/</link><pubDate>Wed, 26 Aug 2020 16:34:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/77/</guid><description>&lt;h2 id="引言">
 引言
 &lt;a class="heading-link" href="#%e5%bc%95%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1049,7 +1049,7 @@ printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,pot&lt;span
 &lt;/h2>
 &lt;p>​    如果我们要自定义域名，首先我们可以去阿里云 / 腾讯云那边买一个域名，然后进行域名备案，你服务器是在哪边买的就在哪边备案即可。后续备案结束后在云解析那边添加域名解析（具体操作可以百度），然后在 &lt;strong>BT-Panel&lt;/strong> 这边也添加域名解析，这样即可使用我们的自定义域名访问博客了！&lt;/p>
 &lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1872130264.png" alt="添加域名解析">&lt;/p>
-&lt;p>​    还有一些后续的优化例如安装 &lt;strong>https安全证书（我自己现在还没搞好QAQ）&lt;/strong> ，加入 &lt;strong>SEO优化&lt;/strong> ，提交申请让 &lt;strong>搜索引擎收录&lt;/strong> 等等……大家有兴趣的可以自行探索！&lt;/p></description></item><item><title>Linux和Vim入门</title><link>https://zzsqwq.github.io/posts/63/</link><pubDate>Mon, 30 Mar 2020 01:18:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/63/</guid><description>&lt;h2 id="linux系统常见命令">
+&lt;p>​    还有一些后续的优化例如安装 &lt;strong>https安全证书（我自己现在还没搞好QAQ）&lt;/strong> ，加入 &lt;strong>SEO优化&lt;/strong> ，提交申请让 &lt;strong>搜索引擎收录&lt;/strong> 等等……大家有兴趣的可以自行探索！&lt;/p></description></item><item><title>Linux和Vim入门</title><link>https://www.zzsqwq.cn/posts/63/</link><pubDate>Mon, 30 Mar 2020 01:18:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/63/</guid><description>&lt;h2 id="linux系统常见命令">
 Linux系统常见命令
 &lt;a class="heading-link" href="#linux%e7%b3%bb%e7%bb%9f%e5%b8%b8%e8%a7%81%e5%91%bd%e4%bb%a4">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>

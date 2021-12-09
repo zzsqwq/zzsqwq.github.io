@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ACM on Zs's Blog</title><link>https://zzsqwq.github.io/categories/acm/</link><description>Recent content in ACM on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 19 Aug 2020 13:21:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/categories/acm/index.xml" rel="self" type="application/rss+xml"/><item><title>排位三和四记录</title><link>https://zzsqwq.github.io/posts/68/</link><pubDate>Wed, 19 Aug 2020 13:21:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/68/</guid><description>&lt;h1 id="day-3">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ACM on Zs's Blog</title><link>https://www.zzsqwq.cn/categories/acm/</link><description>Recent content in ACM on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 19 Aug 2020 13:21:00 +0000</lastBuildDate><atom:link href="https://www.zzsqwq.cn/categories/acm/index.xml" rel="self" type="application/rss+xml"/><item><title>排位三和四记录</title><link>https://www.zzsqwq.cn/posts/68/</link><pubDate>Wed, 19 Aug 2020 13:21:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/68/</guid><description>&lt;h1 id="day-3">
 Day 3
 &lt;a class="heading-link" href="#day-3">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -295,7 +295,7 @@ printf(&lt;span style="color:#e6db74">&amp;#34;%d&lt;/span>&lt;span style="color
 dfs(m);
 &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 }
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>排位一和二记录</title><link>https://zzsqwq.github.io/posts/5/</link><pubDate>Mon, 17 Aug 2020 20:04:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/5/</guid><description>&lt;h1 id="day-1">
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>排位一和二记录</title><link>https://www.zzsqwq.cn/posts/5/</link><pubDate>Mon, 17 Aug 2020 20:04:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/5/</guid><description>&lt;h1 id="day-1">
 Day 1
 &lt;a class="heading-link" href="#day-1">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -683,7 +683,7 @@ ans &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&
 }
 printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,ans);
 }
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Codeforces#620 (Div.2)</title><link>https://zzsqwq.github.io/posts/30/</link><pubDate>Wed, 19 Feb 2020 01:02:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/30/</guid><description>&lt;h2 id="a-two-rabbitshttpscodeforcescomcontest1304problema">
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Codeforces#620 (Div.2)</title><link>https://www.zzsqwq.cn/posts/30/</link><pubDate>Wed, 19 Feb 2020 01:02:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/30/</guid><description>&lt;h2 id="a-two-rabbitshttpscodeforcescomcontest1304problema">
 A. &lt;a href="https://codeforces.com/contest/1304/problem/A">Two Rabbits&lt;/a>
 &lt;a class="heading-link" href="#a-two-rabbitshttpscodeforcescomcontest1304problema">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -901,7 +901,7 @@ printf(&lt;span style="color:#e6db74">&amp;#34;YES&lt;/span>&lt;span style="colo
 &lt;span style="color:#66d9ef">else&lt;/span> printf(&lt;span style="color:#e6db74">&amp;#34;NO&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
 }
 }
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>杂题训练</title><link>https://zzsqwq.github.io/posts/27/</link><pubDate>Sat, 15 Feb 2020 00:52:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/27/</guid><description>&lt;h2 id="a-配对httpsacnowcodercomacmcontest3007a">
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>杂题训练</title><link>https://www.zzsqwq.cn/posts/27/</link><pubDate>Sat, 15 Feb 2020 00:52:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/27/</guid><description>&lt;h2 id="a-配对httpsacnowcodercomacmcontest3007a">
 A. &lt;a href="https://ac.nowcoder.com/acm/contest/3007/A">配对&lt;/a>
 &lt;a class="heading-link" href="#a-%e9%85%8d%e5%af%b9httpsacnowcodercomacmcontest3007a">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1112,7 +1112,7 @@ dp[i][j&lt;span style="color:#f92672">+&lt;/span>a[i].h]&lt;span style="color:#f
 &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>g;i&lt;span style="color:#f92672">++&lt;/span>) ans&lt;span style="color:#f92672">=&lt;/span>max(ans,dp[i][&lt;span style="color:#ae81ff">0&lt;/span>]);
 printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,ans);
 }
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Codeforces#619 (Div.2)</title><link>https://zzsqwq.github.io/posts/26/</link><pubDate>Fri, 14 Feb 2020 00:51:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/26/</guid><description>&lt;h2 id="a-three-stringshttpscodeforcescomcontest1301problema">
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Codeforces#619 (Div.2)</title><link>https://www.zzsqwq.cn/posts/26/</link><pubDate>Fri, 14 Feb 2020 00:51:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/26/</guid><description>&lt;h2 id="a-three-stringshttpscodeforcescomcontest1301problema">
 A. &lt;a href="https://codeforces.com/contest/1301/problem/A">Three Strings&lt;/a>
 &lt;a class="heading-link" href="#a-three-stringshttpscodeforcescomcontest1301problema">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1296,7 +1296,7 @@ printf(&lt;span style="color:#e6db74">&amp;#34;%lld&lt;/span>&lt;span style="col
 }
 &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 }
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>日常水题</title><link>https://zzsqwq.github.io/posts/25/</link><pubDate>Thu, 13 Feb 2020 00:47:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/25/</guid><description>&lt;h2 id="前言">
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>日常水题</title><link>https://www.zzsqwq.cn/posts/25/</link><pubDate>Thu, 13 Feb 2020 00:47:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/25/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1592,7 +1592,7 @@ printf(&lt;span style="color:#e6db74">&amp;#34;%lf&amp;#34;&lt;/span>,s&lt;span 
 &lt;span style="color:#66d9ef">else&lt;/span> printf(&lt;span style="color:#e6db74">&amp;#34;%lf&amp;#34;&lt;/span>,s&lt;span style="color:#f92672">*&lt;/span>p);
 &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 }
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Codeforces #618 (Div.2)</title><link>https://zzsqwq.github.io/posts/22/</link><pubDate>Mon, 10 Feb 2020 00:39:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/22/</guid><description>&lt;h2 id="a-non-zerohttpscodeforcescomcontest1300problema">
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Codeforces #618 (Div.2)</title><link>https://www.zzsqwq.cn/posts/22/</link><pubDate>Mon, 10 Feb 2020 00:39:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/22/</guid><description>&lt;h2 id="a-non-zerohttpscodeforcescomcontest1300problema">
 A. &lt;a href="https://codeforces.com/contest/1300/problem/A">Non-zero&lt;/a>
 &lt;a class="heading-link" href="#a-non-zerohttpscodeforcescomcontest1300problema">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1940,7 +1940,7 @@ printf(&lt;span style="color:#e6db74">&amp;#34;YES&amp;#34;&lt;/span>);
 }
 &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 }
-&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>Codeforces#617(Div.3)</title><link>https://zzsqwq.github.io/posts/17/</link><pubDate>Wed, 05 Feb 2020 23:18:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/17/</guid><description>&lt;h3 id="a-array-with-odd-sumhttpscodeforcescomcontest1296problema">
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>Codeforces#617(Div.3)</title><link>https://www.zzsqwq.cn/posts/17/</link><pubDate>Wed, 05 Feb 2020 23:18:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/17/</guid><description>&lt;h3 id="a-array-with-odd-sumhttpscodeforcescomcontest1296problema">
 A. &lt;a href="https://codeforces.com/contest/1296/problem/A">Array with Odd Sum&lt;/a>
 &lt;a class="heading-link" href="#a-array-with-odd-sumhttpscodeforcescomcontest1296problema">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -2227,7 +2227,7 @@ k&lt;span style="color:#f92672">-=&lt;/span>f[i];
 }
 printf(&lt;span style="color:#e6db74">&amp;#34;%d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,ans);
 }
-&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>CodeforcesER #81</title><link>https://zzsqwq.github.io/posts/8/</link><pubDate>Sun, 02 Feb 2020 21:53:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/8/</guid><description>&lt;h3 id="a--display-the-numberhttpscodeforcescomcontest1295problema">
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>CodeforcesER #81</title><link>https://www.zzsqwq.cn/posts/8/</link><pubDate>Sun, 02 Feb 2020 21:53:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/8/</guid><description>&lt;h3 id="a--display-the-numberhttpscodeforcescomcontest1295problema">
 A : &lt;a href="https://codeforces.com/contest/1295/problem/A">Display The Number&lt;/a>
 &lt;a class="heading-link" href="#a--display-the-numberhttpscodeforcescomcontest1295problema">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>

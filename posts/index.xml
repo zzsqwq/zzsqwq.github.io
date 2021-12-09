@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Zs's Blog</title><link>https://zzsqwq.github.io/posts/</link><description>Recent content in Posts on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 01 Dec 2021 20:12:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Markdown 编辑器推荐</title><link>https://zzsqwq.github.io/posts/220/</link><pubDate>Wed, 01 Dec 2021 20:12:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/220/</guid><description>&lt;h1 id="前言">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Zs's Blog</title><link>https://www.zzsqwq.cn/posts/</link><description>Recent content in Posts on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 01 Dec 2021 20:12:00 +0000</lastBuildDate><atom:link href="https://www.zzsqwq.cn/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Markdown 编辑器推荐</title><link>https://www.zzsqwq.cn/posts/220/</link><pubDate>Wed, 01 Dec 2021 20:12:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/220/</guid><description>&lt;h1 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -210,7 +210,7 @@
 &lt;/a>
 &lt;/h1>
 &lt;p>本来想把这个博文做成一个各类软件推荐文的，但是写着写着发现光是 Markdown 类的已经可以写很多了，为了防止篇幅过长，就单做一个 Markdown 编辑器的推荐文吧~&lt;/p>
-&lt;p>如果大家有更好的 Markdown 编辑器推荐，欢迎在下面留言！&lt;/p></description></item><item><title>2021版小新Pro14 Ubuntu 20.04 配置指南</title><link>https://zzsqwq.github.io/posts/215/</link><pubDate>Tue, 02 Nov 2021 01:16:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/215/</guid><description>&lt;h1 id="2021版小新pro14-ubuntu-2004-配置指南">
+&lt;p>如果大家有更好的 Markdown 编辑器推荐，欢迎在下面留言！&lt;/p></description></item><item><title>2021版小新Pro14 Ubuntu 20.04 配置指南</title><link>https://www.zzsqwq.cn/posts/215/</link><pubDate>Tue, 02 Nov 2021 01:16:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/215/</guid><description>&lt;h1 id="2021版小新pro14-ubuntu-2004-配置指南">
 2021版小新Pro14 Ubuntu 20.04 配置指南
 &lt;a class="heading-link" href="#2021%e7%89%88%e5%b0%8f%e6%96%b0pro14-ubuntu-2004-%e9%85%8d%e7%bd%ae%e6%8c%87%e5%8d%97">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -348,7 +348,7 @@ sudo reboot
 &lt;li>&lt;a href="https://askubuntu.com/questions/1041677/how-to-change-the-login-screen-resolution-in-ubuntu-18-04">How to change the login screen resolution in Ubuntu 18.04&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://askubuntu.com/questions/1252172/custom-resolution-ubuntu-20-04">Custom Resolution Ubuntu 20.04&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://askubuntu.com/questions/1091778/how-can-i-change-the-resolution-of-the-grub-menu">How can I change the resolution of the GRUB menu?&lt;/a>&lt;/li>
-&lt;/ol></description></item><item><title>纯终端环境代理配置教程</title><link>https://zzsqwq.github.io/posts/212/</link><pubDate>Mon, 13 Sep 2021 18:15:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/212/</guid><description>&lt;h1 id="纯终端环境代理配置教程">
+&lt;/ol></description></item><item><title>纯终端环境代理配置教程</title><link>https://www.zzsqwq.cn/posts/212/</link><pubDate>Mon, 13 Sep 2021 18:15:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/212/</guid><description>&lt;h1 id="纯终端环境代理配置教程">
 纯终端环境代理配置教程
 &lt;a class="heading-link" href="#%e7%ba%af%e7%bb%88%e7%ab%af%e7%8e%af%e5%a2%83%e4%bb%a3%e7%90%86%e9%85%8d%e7%bd%ae%e6%95%99%e7%a8%8b">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -478,7 +478,7 @@ index.html [ &amp;lt;=&amp;gt; ] 13.42K 59.8KB/s in 0.2s
 &lt;/a>
 &lt;/h3>
 &lt;p>我现在还没有搞清楚透明代理的作用，如果不开的话，我通过 &lt;code>proxychains&lt;/code> 配置对应的端口，发现并不能上网，但是如果我直接开了透明代理，不需要 &lt;code>proxychains&lt;/code> 也可以直接在终端使用代理，感觉是全局代理，不过不影响使用。&lt;/p>
-&lt;p>具体的一些细节还没有搞清楚，后续学习了再回来补更。&lt;/p></description></item><item><title>Redmi AC2100刷写OpenWrt教程</title><link>https://zzsqwq.github.io/posts/209/</link><pubDate>Sun, 01 Aug 2021 21:48:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/209/</guid><description>&lt;h1 id="redmi-ac2100刷写openwrt教程">
+&lt;p>具体的一些细节还没有搞清楚，后续学习了再回来补更。&lt;/p></description></item><item><title>Redmi AC2100刷写OpenWrt教程</title><link>https://www.zzsqwq.cn/posts/209/</link><pubDate>Sun, 01 Aug 2021 21:48:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/209/</guid><description>&lt;h1 id="redmi-ac2100刷写openwrt教程">
 Redmi AC2100刷写Openwrt教程
 &lt;a class="heading-link" href="#redmi-ac2100%e5%88%b7%e5%86%99openwrt%e6%95%99%e7%a8%8b">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -889,7 +889,7 @@ Source Code
 &lt;li>
 &lt;p>&lt;a href="https://biji.io/2017/4963.html">小米路由器青春版刷华硕固件&lt;/a>&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>关于Git的一些理解</title><link>https://zzsqwq.github.io/posts/201/</link><pubDate>Fri, 23 Jul 2021 14:17:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/201/</guid><description>&lt;h1 id="前言">
+&lt;/ul></description></item><item><title>关于Git的一些理解</title><link>https://www.zzsqwq.cn/posts/201/</link><pubDate>Fri, 23 Jul 2021 14:17:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/201/</guid><description>&lt;h1 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1058,7 +1058,7 @@ $ git checkout &amp;lt;commit-id&amp;gt;
 &lt;li>
 &lt;p>&lt;a href="https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-Git-%E5%BC%95%E7%94%A8">Git的引用&lt;/a>：来自 Git 官方的讲解，十分硬核。&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>利用树莓派为HP LaserJet 1020配置无线打印功能</title><link>https://zzsqwq.github.io/posts/198/</link><pubDate>Sun, 18 Jul 2021 16:03:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/198/</guid><description>&lt;h2 id="前言">
+&lt;/ul></description></item><item><title>利用树莓派为HP LaserJet 1020配置无线打印功能</title><link>https://www.zzsqwq.cn/posts/198/</link><pubDate>Sun, 18 Jul 2021 16:03:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/198/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1217,7 +1217,7 @@ Installed-Size: &lt;span style="color:#ae81ff">518&lt;/span> kB
 &lt;p>学长的博客在这里: &lt;a href="https://tec.blog.ykai.top/">dykai&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/section></description></item><item><title>deepin-wine-qq-9.1.8版本无法正常启动的解决方案</title><link>https://zzsqwq.github.io/posts/195/</link><pubDate>Wed, 16 Jun 2021 01:38:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/195/</guid><description>&lt;h3 id="问题描述">
+&lt;/section></description></item><item><title>deepin-wine-qq-9.1.8版本无法正常启动的解决方案</title><link>https://www.zzsqwq.cn/posts/195/</link><pubDate>Wed, 16 Jun 2021 01:38:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/195/</guid><description>&lt;h3 id="问题描述">
 问题描述
 &lt;a class="heading-link" href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1337,7 +1337,7 @@ Current serial number in output stream: &lt;span style="color:#ae81ff">206&lt;/s
 &lt;/a>
 &lt;/h3>
 &lt;p>​    虽然已经知道了解决方案，但是最终我还是选择卸载掉QQ，安装了wine版本的TIM，感觉和QQ没什么区别，而且更加简洁，而且可以流畅运行，没有N卡兼容问题！大家可以考虑一下~&lt;/p>
-&lt;p>​    而且QQ和TIM某些情况下会出现bug，字体全部变为方块，在 deepin-wine-ubuntu 的 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues">Issues&lt;/a> 中找到了解决方案 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/253">Ubuntu 安装QQ后中文方块解决方法&lt;/a> ，大家有同样困扰的也可以看一下~&lt;/p></description></item><item><title>Ubuntu如何利用AppImage创建Qv2ray快捷方式</title><link>https://zzsqwq.github.io/posts/193/</link><pubDate>Wed, 16 Jun 2021 00:54:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/193/</guid><description>&lt;h3 id="前言">
+&lt;p>​    而且QQ和TIM某些情况下会出现bug，字体全部变为方块，在 deepin-wine-ubuntu 的 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues">Issues&lt;/a> 中找到了解决方案 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/253">Ubuntu 安装QQ后中文方块解决方法&lt;/a> ，大家有同样困扰的也可以看一下~&lt;/p></description></item><item><title>Ubuntu如何利用AppImage创建Qv2ray快捷方式</title><link>https://www.zzsqwq.cn/posts/193/</link><pubDate>Wed, 16 Jun 2021 00:54:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/193/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1437,7 +1437,7 @@ StartupNotify&lt;span style="color:#f92672">=&lt;/span>true
 &lt;/h3>
 &lt;p>​    我们直接将AppImage加入到 &lt;code>/usr/bin&lt;/code> 中即可，即执行以下命令：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ sudo cp xxx.AppImage /usr/bin/qv2ray
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    接下来我们在终端中输入 &lt;code>qv2ray&lt;/code> ，发现已经可以成功打开qv2ray，大功告成！~&lt;/p></description></item><item><title>利用神经网络进行波士顿房价预测</title><link>https://zzsqwq.github.io/posts/182/</link><pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/182/</guid><description>&lt;h3 id="前言">
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    接下来我们在终端中输入 &lt;code>qv2ray&lt;/code> ，发现已经可以成功打开qv2ray，大功告成！~&lt;/p></description></item><item><title>利用神经网络进行波士顿房价预测</title><link>https://www.zzsqwq.cn/posts/182/</link><pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/182/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1729,7 +1729,7 @@ $$
 &lt;li>
 &lt;p>&lt;a href="https://cloud.tencent.com/developer/article/1574255">波士顿房价预测——回归分析案例（献给初学者）&lt;/a>&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>2021RoboMaster中国赛比赛记录</title><link>https://zzsqwq.github.io/posts/173/</link><pubDate>Fri, 30 Apr 2021 17:32:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/173/</guid><description>&lt;p>[hplayer]
+&lt;/ul></description></item><item><title>2021RoboMaster中国赛比赛记录</title><link>https://www.zzsqwq.cn/posts/173/</link><pubDate>Fri, 30 Apr 2021 17:32:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/173/</guid><description>&lt;p>[hplayer]
 [Music server=&amp;ldquo;netease&amp;rdquo; id=&amp;ldquo;525278524&amp;rdquo; type=&amp;ldquo;song&amp;rdquo;/]
 [/hplayer]&lt;/p>
 &lt;h4 id="前言">

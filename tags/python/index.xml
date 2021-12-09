@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on Zs's Blog</title><link>https://zzsqwq.github.io/tags/python/</link><description>Recent content in Python on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 16 May 2021 15:19:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>利用神经网络进行波士顿房价预测</title><link>https://zzsqwq.github.io/posts/182/</link><pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/182/</guid><description>&lt;h3 id="前言">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on Zs's Blog</title><link>https://www.zzsqwq.cn/tags/python/</link><description>Recent content in Python on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 16 May 2021 15:19:00 +0000</lastBuildDate><atom:link href="https://www.zzsqwq.cn/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>利用神经网络进行波士顿房价预测</title><link>https://www.zzsqwq.cn/posts/182/</link><pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/182/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -290,7 +290,7 @@ $$
 &lt;li>
 &lt;p>&lt;a href="https://cloud.tencent.com/developer/article/1574255">波士顿房价预测——回归分析案例（献给初学者）&lt;/a>&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>关于Anaconda中pip路径指向问题</title><link>https://zzsqwq.github.io/posts/169/</link><pubDate>Sat, 06 Mar 2021 20:51:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/169/</guid><description>&lt;h3 id="前言">
+&lt;/ul></description></item><item><title>关于Anaconda中pip路径指向问题</title><link>https://www.zzsqwq.cn/posts/169/</link><pubDate>Sat, 06 Mar 2021 20:51:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/169/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -315,7 +315,7 @@ $$
 &lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://www.pythonf.cn/read/51713">更改conda环境中的pip包安装的默认路径&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Python初步学习</title><link>https://zzsqwq.github.io/posts/66/</link><pubDate>Sat, 18 Apr 2020 01:24:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/66/</guid><description>&lt;h1 id="python学习笔记">
+&lt;/ul></description></item><item><title>Python初步学习</title><link>https://www.zzsqwq.cn/posts/66/</link><pubDate>Sat, 18 Apr 2020 01:24:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/66/</guid><description>&lt;h1 id="python学习笔记">
 Python学习笔记
 &lt;a class="heading-link" href="#python%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
