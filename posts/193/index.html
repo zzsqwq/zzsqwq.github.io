@@ -4,7 +4,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta http-equiv=content-language content="cn">
 <meta name=color-scheme content="light dark">
-<meta http-equiv=content-security-policy content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self' https://www.zzsqwq.cn; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://cdn.jsdelivr.net/; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
+<meta http-equiv=content-security-policy content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self' https://www.zzsqwq.cn; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://cdn.jsdelivr.net/ http://commento.zzsqwq.cn; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
 <meta name=author content="zzsqwq">
 <meta name=description content="前言    ​	最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：
 原理    ​	首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 \usr\share\applications 中，文件名为 **.desktop ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：
