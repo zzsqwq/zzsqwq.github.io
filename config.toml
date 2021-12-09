@@ -9,6 +9,7 @@ paginate = 20
 # pygmentsCodeFences = true
 # pygmentsCodeFencesGuessSyntax = true
 enableEmoji = true
+googleAnalytics = 'G-Z6EM6V1PVC'
 
 
 [params]
