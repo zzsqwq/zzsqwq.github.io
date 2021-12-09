@@ -15,7 +15,7 @@ katex = true
 
 [params]
 author = "zzsqwq"
-commentoURL = "http://commento.zzsqwq.cn" # Replace if you use a custom domain
+# commentoURL = "http://commento.zzsqwq.cn" # Replace if you use a custom domain
 description = "Zs's personal website."
 keywords = "blog,developer,personal"
 info = ["An undergraduate student in NWPU."]
@@ -43,6 +43,12 @@ customCSS = []
 customSCSS = []
 # Custom JS
 customJS = []
+
+[params.utterances]
+  repo = "zzsqwq/hugo-blog-comment" # https://utteranc.es/#heading-repository
+  issueTerm = "pathname" # https://utteranc.es/#heading-mapping
+  label = "comment" # https://utteranc.es/#heading-issue-label
+  theme = "github-light" # https://utteranc.es/#heading-theme
 
 # If you want to use fathom(https://usefathom.com) for analytics, add this section
 # [params.fathomAnalytics]
