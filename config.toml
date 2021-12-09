@@ -9,11 +9,13 @@ pygmentsStyle = "bw"
 pygmentsCodeFences = true
 pygmentsCodeFencesGuessSyntax = true
 enableEmoji = true
+katex = true
 # Enable Disqus comments
 # disqusShortname = "yourdiscussshortname"
 
 [params]
 author = "zzsqwq"
+commentoURL = "http://commento.zzsqwq.cn/" # Replace if you use a custom domain
 description = "Zs's personal website."
 keywords = "blog,developer,personal"
 info = ["An undergraduate student in NWPU."]
@@ -68,6 +70,7 @@ customJS = []
 # If you want to use Google Tag Manager(https://analytics.google.com/) for analytics, add this section
 # [params.googleTagManager]
 # id = "gid"
+
 
 # If you want to implement a Content-Security-Policy, add this section
 [params.csp]
