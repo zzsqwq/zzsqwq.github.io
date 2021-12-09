@@ -15,7 +15,7 @@ katex = true
 
 [params]
 author = "zzsqwq"
-commentoURL = "http://commento.zzsqwq.cn/" # Replace if you use a custom domain
+commentoURL = "http://commento.zzsqwq.cn" # Replace if you use a custom domain
 description = "Zs's personal website."
 keywords = "blog,developer,personal"
 info = ["An undergraduate student in NWPU."]
