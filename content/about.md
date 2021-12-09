@@ -6,6 +6,8 @@ I usually use ID zzsqwq on the Internet.
 
 Now an undergraduate of [Northwestern Polytechnical University](https://www.nwpu.edu.cn).
 
+I'm interested in computer vision and robotics...
+
 Please feel free to ask me anything if you have questions about my blog.
 
 ---
