@@ -4,26 +4,23 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta http-equiv=content-language content="cn">
 <meta name=color-scheme content="light dark">
-<meta http-equiv=content-security-policy content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
+<meta http-equiv=content-security-policy content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self' https://www.zzsqwq.cn; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://cdn.jsdelivr.net/; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
 <meta name=author content="zzsqwq">
-<meta name=description content="[hplayer] [Music server=&ldquo;netease&rdquo; id=&ldquo;1334624319&rdquo; type=&ldquo;song&rdquo;/] [/hplayer]
-前言    ​	前一阵学校有五一数模节校赛，和朋友一起参加做B题，波士顿房价预测，算是第一次自己动手实现一个简单的小网络吧，虽然很简单，但还是想记录一下。
-题目介绍    ​	波士顿住房数据由哈里森和鲁宾菲尔德于1978年Harrison and Rubinfeld1收集。它包括了波士顿大区每个调查行政区的506个观察值。1980年Belsley et al.2曾对此数据做过分析。
-​	数据一共14列，每一列的含义分别如下：
+<meta name=description content="前言    ​ 前一阵学校有五一数模节校赛，和朋友一起参加做B题，波士顿房价预测，算是第一次自己动手实现一个简单的小网络吧，虽然很简单，但还是想记录一下。
+题目介绍    ​ 波士顿住房数据由哈里森和鲁宾菲尔德于1978年Harrison and Rubinfeld1收集。它包括了波士顿大区每个调查行政区的506个观察值。1980年Belsley et al.2曾对此数据做过分析。
+​ 数据一共14列，每一列的含义分别如下：
    英文简称 详细含义     CRIM 城镇的人均犯罪率   ZN 大于25,000平方英尺的地块的住宅用地比例。   INDUS 每个镇的非零售业务英亩的比例。   CHAS 查尔斯河虚拟变量（如果环河，则等于1；否则等于0）   NOX 一氧化氮的浓度（百万分之几）   RM 每个住宅的平均房间数   AGE 1940年之前建造的自有住房的比例   DIS 到五个波士顿就业中心的加权距离   RAD 径向公路通达性的指标   TAX 每一万美元的全值财产税率   PTRATIO 各镇的师生比率   B 计算方法为 $1000(B_k-0.">
 <meta name=keywords content="blog,developer,personal">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="利用神经网络进行波士顿房价预测">
-<meta name=twitter:description content="[hplayer] [Music server=&ldquo;netease&rdquo; id=&ldquo;1334624319&rdquo; type=&ldquo;song&rdquo;/] [/hplayer]
-前言    ​	前一阵学校有五一数模节校赛，和朋友一起参加做B题，波士顿房价预测，算是第一次自己动手实现一个简单的小网络吧，虽然很简单，但还是想记录一下。
-题目介绍    ​	波士顿住房数据由哈里森和鲁宾菲尔德于1978年Harrison and Rubinfeld1收集。它包括了波士顿大区每个调查行政区的506个观察值。1980年Belsley et al.2曾对此数据做过分析。
-​	数据一共14列，每一列的含义分别如下：
+<meta name=twitter:description content="前言    ​ 前一阵学校有五一数模节校赛，和朋友一起参加做B题，波士顿房价预测，算是第一次自己动手实现一个简单的小网络吧，虽然很简单，但还是想记录一下。
+题目介绍    ​ 波士顿住房数据由哈里森和鲁宾菲尔德于1978年Harrison and Rubinfeld1收集。它包括了波士顿大区每个调查行政区的506个观察值。1980年Belsley et al.2曾对此数据做过分析。
+​ 数据一共14列，每一列的含义分别如下：
    英文简称 详细含义     CRIM 城镇的人均犯罪率   ZN 大于25,000平方英尺的地块的住宅用地比例。   INDUS 每个镇的非零售业务英亩的比例。   CHAS 查尔斯河虚拟变量（如果环河，则等于1；否则等于0）   NOX 一氧化氮的浓度（百万分之几）   RM 每个住宅的平均房间数   AGE 1940年之前建造的自有住房的比例   DIS 到五个波士顿就业中心的加权距离   RAD 径向公路通达性的指标   TAX 每一万美元的全值财产税率   PTRATIO 各镇的师生比率   B 计算方法为 $1000(B_k-0.">
 <meta property="og:title" content="利用神经网络进行波士顿房价预测">
-<meta property="og:description" content="[hplayer] [Music server=&ldquo;netease&rdquo; id=&ldquo;1334624319&rdquo; type=&ldquo;song&rdquo;/] [/hplayer]
-前言    ​	前一阵学校有五一数模节校赛，和朋友一起参加做B题，波士顿房价预测，算是第一次自己动手实现一个简单的小网络吧，虽然很简单，但还是想记录一下。
-题目介绍    ​	波士顿住房数据由哈里森和鲁宾菲尔德于1978年Harrison and Rubinfeld1收集。它包括了波士顿大区每个调查行政区的506个观察值。1980年Belsley et al.2曾对此数据做过分析。
-​	数据一共14列，每一列的含义分别如下：
+<meta property="og:description" content="前言    ​ 前一阵学校有五一数模节校赛，和朋友一起参加做B题，波士顿房价预测，算是第一次自己动手实现一个简单的小网络吧，虽然很简单，但还是想记录一下。
+题目介绍    ​ 波士顿住房数据由哈里森和鲁宾菲尔德于1978年Harrison and Rubinfeld1收集。它包括了波士顿大区每个调查行政区的506个观察值。1980年Belsley et al.2曾对此数据做过分析。
+​ 数据一共14列，每一列的含义分别如下：
    英文简称 详细含义     CRIM 城镇的人均犯罪率   ZN 大于25,000平方英尺的地块的住宅用地比例。   INDUS 每个镇的非零售业务英亩的比例。   CHAS 查尔斯河虚拟变量（如果环河，则等于1；否则等于0）   NOX 一氧化氮的浓度（百万分之几）   RM 每个住宅的平均房间数   AGE 1940年之前建造的自有住房的比例   DIS 到五个波士顿就业中心的加权距离   RAD 径向公路通达性的指标   TAX 每一万美元的全值财产税率   PTRATIO 各镇的师生比率   B 计算方法为 $1000(B_k-0.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://zzsqwq.github.io/Zs-Hugo-Blog/posts/182/"><meta property="article:section" content="posts">
@@ -131,9 +128,6 @@ May 16, 2021
 </div>
 </header>
 <div>
-<p>[hplayer]
-[Music server=&ldquo;netease&rdquo; id=&ldquo;1334624319&rdquo; type=&ldquo;song&rdquo;/]
-[/hplayer]</p>
 <h3 id=前言>
 前言
 <a class=heading-link href=#%e5%89%8d%e8%a8%80>
@@ -431,6 +425,9 @@ $$
 <footer>
 </footer>
 </article>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:!0},{left:'$',right:'$',display:!1},{left:'\\(',right:'\\)',display:!1},{left:'\\[',right:'\\]',display:!0}]})"></script>
 </section>
 </div>
 <footer class=footer>
