@@ -40,4 +40,4 @@ jobs:
         env:
           DEPLOY_KEY: ${{ secrets.SSH_KEY }}
         with:
-          args: "-avzr --delete --exclude='.htaccess' ${GITHUB_WORKSPACE}/ www@zzsqwq.cn:/home/www/tutorial/"
+          args: "-avzr --delete ${GITHUB_WORKSPACE}/ www@zzsqwq.cn:/home/www/tutorial/"
