@@ -1,9 +1,9 @@
 baseURL = "https://zzsqwq.github.io"
 title = "Zs's Blog"
 theme = "hugo-coder"
-languageCode = "cn"
+languageCode = "en"
 publishDir= "public"
-defaultContentLanguage = "cn"
+defaultContentLanguage = "en"
 paginate = 20
 # pygmentsStyle = "autumn"
 # pygmentsCodeFences = true
@@ -84,30 +84,30 @@ url = "https://zzsqwq.github.io/index.xml"
 rel = "alternate"
 type = "application/rss+xml"
 
-[languages.cn]
-languageName = ":zh:"
+[languages.en]
+languageName = ":uk:"
 
-[[languages.cn.menu.main]]
+[[languages.en.menu.main]]
 name = "About"
 weight = 1
 url = "about/"
 
-[[languages.cn.menu.main]]
+[[languages.en.menu.main]]
 name = "Blog"
 weight = 2
 url = "posts/"
 
-[[languages.cn.menu.main]]
+[[languages.en.menu.main]]
 name = "Projects"
 weight = 3
 url = "projects/"
 
-[[languages.cn.menu.main]]
+[[languages.en.menu.main]]
 name = "Contact Me"
 weight = 6
 url = "contact/"
 
-[[languages.cn.menu.main]]
+[[languages.en.menu.main]]
 name = "Friends"
 weight = 5
 url = "friends/"
