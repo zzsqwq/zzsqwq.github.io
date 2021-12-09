@@ -32,3 +32,14 @@ jobs:
         with:
           github_token: ${{ secrets.HUGO_DEPLOY }}
           publish_dir: ./public
+
+      - uses: actions/checkout@v2
+        with:
+          ref: 'gh-pages'
+      
+      - name: rsync to server
+        uses: contention/rsync-deployments@v1.0.0
+        env:
+          DEPLOY_KEY: ${{ secrets.SSH_KEY }}
+        with:
+          args: "-avzr --delete --exclude .htaccess --exclude /uploads/ www@zzsqwq.cn:/www/wwwroot/new_blog/"
