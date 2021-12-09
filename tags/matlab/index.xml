@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MATLAB on Zs's Blog</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/tags/matlab/</link><description>Recent content in MATLAB on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Mon, 23 Mar 2020 01:14:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/Zs-Hugo-Blog/tags/matlab/index.xml" rel="self" type="application/rss+xml"/><item><title>专题四:MATLAB绘图</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/51/</link><pubDate>Mon, 23 Mar 2020 01:14:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/51/</guid><description>&lt;h2 id="41-二维曲线">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MATLAB on Zs's Blog</title><link>https://zzsqwq.github.io/tags/matlab/</link><description>Recent content in MATLAB on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Mon, 23 Mar 2020 01:14:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/matlab/index.xml" rel="self" type="application/rss+xml"/><item><title>专题四:MATLAB绘图</title><link>https://zzsqwq.github.io/posts/51/</link><pubDate>Mon, 23 Mar 2020 01:14:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/51/</guid><description>&lt;h2 id="41-二维曲线">
 4.1 二维曲线
 &lt;a class="heading-link" href="#41-%e4%ba%8c%e7%bb%b4%e6%9b%b2%e7%ba%bf">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -18,7 +18,7 @@
 &lt;li>&lt;strong>当x为复向量时&lt;/strong>，则以&lt;strong>实部&lt;/strong>和&lt;strong>虚部&lt;/strong>分别为横纵坐标绘制曲线。&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>专题三:MATLAB程序流程控制</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/36/</link><pubDate>Wed, 18 Mar 2020 01:09:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/36/</guid><description>&lt;h2 id="31-顺序结构程序">
+&lt;/ul></description></item><item><title>专题三:MATLAB程序流程控制</title><link>https://zzsqwq.github.io/posts/36/</link><pubDate>Wed, 18 Mar 2020 01:09:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/36/</guid><description>&lt;h2 id="31-顺序结构程序">
 3.1 顺序结构程序
 &lt;a class="heading-link" href="#31-%e9%a1%ba%e5%ba%8f%e7%bb%93%e6%9e%84%e7%a8%8b%e5%ba%8f">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -30,7 +30,7 @@
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2521586228.png" alt="step.png">&lt;/p></description></item><item><title>专题二:MATLAB矩阵处理</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/34/</link><pubDate>Sun, 15 Mar 2020 01:07:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/34/</guid><description>&lt;h2 id="21-特殊矩阵">
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2521586228.png" alt="step.png">&lt;/p></description></item><item><title>专题二:MATLAB矩阵处理</title><link>https://zzsqwq.github.io/posts/34/</link><pubDate>Sun, 15 Mar 2020 01:07:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/34/</guid><description>&lt;h2 id="21-特殊矩阵">
 2.1 特殊矩阵
 &lt;a class="heading-link" href="#21-%e7%89%b9%e6%ae%8a%e7%9f%a9%e9%98%b5">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -64,7 +64,7 @@
 &lt;li>通过 $\mu+\sigma x$ 来得到均值为 $\mu$ ，方差为 $\sigma{^2}$ 的随机数据。&lt;strong>(高中数学知识，证明可百度)&lt;/strong>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>专题一:MATLAB基础知识</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/33/</link><pubDate>Sat, 14 Mar 2020 01:05:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/33/</guid><description>&lt;h2 id="11-matlab系统环境">
+&lt;/ul></description></item><item><title>专题一:MATLAB基础知识</title><link>https://zzsqwq.github.io/posts/33/</link><pubDate>Sat, 14 Mar 2020 01:05:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/33/</guid><description>&lt;h2 id="11-matlab系统环境">
 1.1 MATLAB系统环境
 &lt;a class="heading-link" href="#11-matlab%e7%b3%bb%e7%bb%9f%e7%8e%af%e5%a2%83">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>

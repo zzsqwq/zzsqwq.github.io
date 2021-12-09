@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Codeforces on Zs's Blog</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/tags/codeforces/</link><description>Recent content in Codeforces on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Wed, 19 Feb 2020 01:02:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/Zs-Hugo-Blog/tags/codeforces/index.xml" rel="self" type="application/rss+xml"/><item><title>Codeforces#620 (Div.2)</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/30/</link><pubDate>Wed, 19 Feb 2020 01:02:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/30/</guid><description>&lt;h2 id="a-two-rabbitshttpscodeforcescomcontest1304problema">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Codeforces on Zs's Blog</title><link>https://zzsqwq.github.io/tags/codeforces/</link><description>Recent content in Codeforces on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Wed, 19 Feb 2020 01:02:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/codeforces/index.xml" rel="self" type="application/rss+xml"/><item><title>Codeforces#620 (Div.2)</title><link>https://zzsqwq.github.io/posts/30/</link><pubDate>Wed, 19 Feb 2020 01:02:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/30/</guid><description>&lt;h2 id="a-two-rabbitshttpscodeforcescomcontest1304problema">
 A. &lt;a href="https://codeforces.com/contest/1304/problem/A">Two Rabbits&lt;/a>
 &lt;a class="heading-link" href="#a-two-rabbitshttpscodeforcescomcontest1304problema">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -10,7 +10,7 @@ A. &lt;a href="https://codeforces.com/contest/1304/problem/A">Two Rabbits&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    两个兔子分别位于 $(x,0)$ 和 $(y,0)$ ，两个人对头蹦，前者往前蹦 $a$ ，后者往前蹦 $b$ ，问两人是否能恰好相遇。&lt;/p></description></item><item><title>杂题训练</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/27/</link><pubDate>Sat, 15 Feb 2020 00:52:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/27/</guid><description>&lt;h2 id="a-配对httpsacnowcodercomacmcontest3007a">
+&lt;p>​    两个兔子分别位于 $(x,0)$ 和 $(y,0)$ ，两个人对头蹦，前者往前蹦 $a$ ，后者往前蹦 $b$ ，问两人是否能恰好相遇。&lt;/p></description></item><item><title>杂题训练</title><link>https://zzsqwq.github.io/posts/27/</link><pubDate>Sat, 15 Feb 2020 00:52:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/27/</guid><description>&lt;h2 id="a-配对httpsacnowcodercomacmcontest3007a">
 A. &lt;a href="https://ac.nowcoder.com/acm/contest/3007/A">配对&lt;/a>
 &lt;a class="heading-link" href="#a-%e9%85%8d%e5%af%b9httpsacnowcodercomacmcontest3007a">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -22,7 +22,7 @@ A. &lt;a href="https://ac.nowcoder.com/acm/contest/3007/A">配对&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    给定含有 $n$ 个正整数的集合 $A$ 和 $B$ ，你需要建立他们之间的一一映射。将配对的两个数相加可以得到 $n$ 个和，问第 $k$ 大的和最大为多少。&lt;/p></description></item><item><title>Codeforces#619 (Div.2)</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/26/</link><pubDate>Fri, 14 Feb 2020 00:51:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/26/</guid><description>&lt;h2 id="a-three-stringshttpscodeforcescomcontest1301problema">
+&lt;p>​    给定含有 $n$ 个正整数的集合 $A$ 和 $B$ ，你需要建立他们之间的一一映射。将配对的两个数相加可以得到 $n$ 个和，问第 $k$ 大的和最大为多少。&lt;/p></description></item><item><title>Codeforces#619 (Div.2)</title><link>https://zzsqwq.github.io/posts/26/</link><pubDate>Fri, 14 Feb 2020 00:51:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/26/</guid><description>&lt;h2 id="a-three-stringshttpscodeforcescomcontest1301problema">
 A. &lt;a href="https://codeforces.com/contest/1301/problem/A">Three Strings&lt;/a>
 &lt;a class="heading-link" href="#a-three-stringshttpscodeforcescomcontest1301problema">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -34,7 +34,7 @@ A. &lt;a href="https://codeforces.com/contest/1301/problem/A">Three Strings&lt;/
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    给定三个长度为 $n$ 的字符串 $a$ , $b$ , $c$ ，遍历每个 $c$ 中每个字符 $c_i$，可以将其替换成 $a_i$ 或者 $b_i$ ，必须操作其中一个，问能否通过此操作使得字符串 $a$ , $b$ 相同。&lt;/p></description></item><item><title>Codeforces #618 (Div.2)</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/22/</link><pubDate>Mon, 10 Feb 2020 00:39:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/22/</guid><description>&lt;h2 id="a-non-zerohttpscodeforcescomcontest1300problema">
+&lt;p>​    给定三个长度为 $n$ 的字符串 $a$ , $b$ , $c$ ，遍历每个 $c$ 中每个字符 $c_i$，可以将其替换成 $a_i$ 或者 $b_i$ ，必须操作其中一个，问能否通过此操作使得字符串 $a$ , $b$ 相同。&lt;/p></description></item><item><title>Codeforces #618 (Div.2)</title><link>https://zzsqwq.github.io/posts/22/</link><pubDate>Mon, 10 Feb 2020 00:39:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/22/</guid><description>&lt;h2 id="a-non-zerohttpscodeforcescomcontest1300problema">
 A. &lt;a href="https://codeforces.com/contest/1300/problem/A">Non-zero&lt;/a>
 &lt;a class="heading-link" href="#a-non-zerohttpscodeforcescomcontest1300problema">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -46,7 +46,7 @@ A. &lt;a href="https://codeforces.com/contest/1300/problem/A">Non-zero&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​       给出一段含有 $n$ 个数的序列 $a$ ，可以对其中任何数加一，问最少操作多少次让每一个数和序列和都不为0。&lt;/p></description></item><item><title>Codeforces#617(Div.3)</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/17/</link><pubDate>Wed, 05 Feb 2020 23:18:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/17/</guid><description>&lt;h3 id="a-array-with-odd-sumhttpscodeforcescomcontest1296problema">
+&lt;p>​       给出一段含有 $n$ 个数的序列 $a$ ，可以对其中任何数加一，问最少操作多少次让每一个数和序列和都不为0。&lt;/p></description></item><item><title>Codeforces#617(Div.3)</title><link>https://zzsqwq.github.io/posts/17/</link><pubDate>Wed, 05 Feb 2020 23:18:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/17/</guid><description>&lt;h3 id="a-array-with-odd-sumhttpscodeforcescomcontest1296problema">
 A. &lt;a href="https://codeforces.com/contest/1296/problem/A">Array with Odd Sum&lt;/a>
 &lt;a class="heading-link" href="#a-array-with-odd-sumhttpscodeforcescomcontest1296problema">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -67,7 +67,7 @@ A. &lt;a href="https://codeforces.com/contest/1296/problem/A">Array with Odd Sum
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​       首先当起始和为奇数的时候，就直接可输出 &lt;strong>YES&lt;/strong> 了，如果是偶数的话，我们可以发现，如果序列元素中同时包含奇数和偶数，那么就是可以的，否则不可以。&lt;/p></description></item><item><title>CodeforcesER #81</title><link>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/8/</link><pubDate>Sun, 02 Feb 2020 21:53:00 +0000</pubDate><guid>https://zzsqwq.github.io/Zs-Hugo-Blog/posts/8/</guid><description>&lt;h3 id="a--display-the-numberhttpscodeforcescomcontest1295problema">
+&lt;p>​       首先当起始和为奇数的时候，就直接可输出 &lt;strong>YES&lt;/strong> 了，如果是偶数的话，我们可以发现，如果序列元素中同时包含奇数和偶数，那么就是可以的，否则不可以。&lt;/p></description></item><item><title>CodeforcesER #81</title><link>https://zzsqwq.github.io/posts/8/</link><pubDate>Sun, 02 Feb 2020 21:53:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/8/</guid><description>&lt;h3 id="a--display-the-numberhttpscodeforcescomcontest1295problema">
 A : &lt;a href="https://codeforces.com/contest/1295/problem/A">Display The Number&lt;/a>
 &lt;a class="heading-link" href="#a--display-the-numberhttpscodeforcescomcontest1295problema">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
