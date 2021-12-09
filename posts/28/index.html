@@ -170,34 +170,34 @@ February 16, 2020
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
-</span><span>#include</span><span>&lt;iostream&gt;</span><span>
-</span><span>#include</span><span>&lt;queue&gt;</span><span>
-</span><span></span>
-<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;queue&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
 
-queue&lt;<span>int</span>&gt; q;
-<span>int</span> main()
+queue<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> q;
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-	q.push(1);
-	<span style=font-weight:700>if</span>(!q.empty()) printf(<span style=font-style:italic>&#34;%d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,q.front()); <span style=font-style:italic>//
-</span><span style=font-style:italic></span>	q.push(2);
-	<span style=font-weight:700>if</span>(!q.empty()) printf(<span style=font-style:italic>&#34;%d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,q.back());
-	printf(<span style=font-style:italic>&#34;%d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,q.size());
-	<span style=font-weight:700>if</span>(!q.empty()) q.pop();
-	<span style=font-weight:700>if</span>(q.empty()) printf(<span style=font-style:italic>&#34;queue is empty</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>);
-	<span style=font-weight:700>else</span> printf(<span style=font-style:italic>&#34;queue is not empty</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>);
-	<span style=font-weight:700>if</span>(!q.empty()) q.pop();
-	<span style=font-weight:700>if</span>(q.empty()) printf(<span style=font-style:italic>&#34;queue is empty</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>);
+	q.push(<span style=color:#ae81ff>1</span>);
+	<span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>q.empty()) printf(<span style=color:#e6db74>&#34;%d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,q.front()); <span style=color:#75715e>//
+</span><span style=color:#75715e></span>	q.push(<span style=color:#ae81ff>2</span>);
+	<span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>q.empty()) printf(<span style=color:#e6db74>&#34;%d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,q.back());
+	printf(<span style=color:#e6db74>&#34;%d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,q.size());
+	<span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>q.empty()) q.pop();
+	<span style=color:#66d9ef>if</span>(q.empty()) printf(<span style=color:#e6db74>&#34;queue is empty</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+	<span style=color:#66d9ef>else</span> printf(<span style=color:#e6db74>&#34;queue is not empty</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+	<span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>q.empty()) q.pop();
+	<span style=color:#66d9ef>if</span>(q.empty()) printf(<span style=color:#e6db74>&#34;queue is empty</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
 }
-<span style=font-style:italic>/*
-</span><span style=font-style:italic>运行结果
-</span><span style=font-style:italic>1
-</span><span style=font-style:italic>2
-</span><span style=font-style:italic>2
-</span><span style=font-style:italic>queue is not empty
-</span><span style=font-style:italic>queue is empty
-</span><span style=font-style:italic>*/</span>
+<span style=color:#75715e>/*
+</span><span style=color:#75715e>运行结果
+</span><span style=color:#75715e>1
+</span><span style=color:#75715e>2
+</span><span style=color:#75715e>2
+</span><span style=color:#75715e>queue is not empty
+</span><span style=color:#75715e>queue is empty
+</span><span style=color:#75715e>*/</span>
 </code></pre></div><hr>
 <h2 id=栈stack>
 栈(stack)
@@ -241,38 +241,38 @@ queue&lt;<span>int</span>&gt; q;
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
-</span><span>#include</span><span>&lt;iostream&gt;</span><span>
-</span><span>#include</span><span>&lt;stack&gt;</span><span>
-</span><span></span>
-<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;stack&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
 
-stack&lt;<span>int</span>&gt; s;
+stack<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> s;
 
-<span>int</span> main()
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-	s.push(1);
-	s.push(2);
-	printf(<span style=font-style:italic>&#34;Now the top element is %d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,s.top()); <span style=font-style:italic>//Now the top element is 2
-</span><span style=font-style:italic></span>	printf(<span style=font-style:italic>&#34;Now the stack size is %d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,s.size()); <span style=font-style:italic>//Now the stack size is 2
-</span><span style=font-style:italic></span>	<span style=font-weight:700>if</span>(!s.empty()) s.pop(); <span style=font-style:italic>//元素2 弹出栈
-</span><span style=font-style:italic></span>	printf(<span style=font-style:italic>&#34;Now the top element is %d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,s.top()); <span style=font-style:italic>//Now the top element is 1
-</span><span style=font-style:italic></span>	printf(<span style=font-style:italic>&#34;Now the stack size is %d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,s.size()); <span style=font-style:italic>//Now the stack size is 1
-</span><span style=font-style:italic></span>	<span style=font-weight:700>if</span>(s.empty()) printf(<span style=font-style:italic>&#34;stack is empty</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>); 
-	<span style=font-weight:700>else</span> printf(<span style=font-style:italic>&#34;stack is not empty</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>); <span style=font-style:italic>//stack is not empty
-</span><span style=font-style:italic></span>	<span style=font-weight:700>if</span>(!s.empty()) s.pop(); <span style=font-style:italic>//元素1 弹出栈
-</span><span style=font-style:italic></span>	<span style=font-weight:700>if</span>(s.empty()) printf(<span style=font-style:italic>&#34;stack is empty</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>); <span style=font-style:italic>//stack is empty
-</span><span style=font-style:italic></span>	<span style=font-weight:700>else</span> printf(<span style=font-style:italic>&#34;stack is not empty</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>);
+	s.push(<span style=color:#ae81ff>1</span>);
+	s.push(<span style=color:#ae81ff>2</span>);
+	printf(<span style=color:#e6db74>&#34;Now the top element is %d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,s.top()); <span style=color:#75715e>//Now the top element is 2
+</span><span style=color:#75715e></span>	printf(<span style=color:#e6db74>&#34;Now the stack size is %d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,s.size()); <span style=color:#75715e>//Now the stack size is 2
+</span><span style=color:#75715e></span>	<span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>s.empty()) s.pop(); <span style=color:#75715e>//元素2 弹出栈
+</span><span style=color:#75715e></span>	printf(<span style=color:#e6db74>&#34;Now the top element is %d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,s.top()); <span style=color:#75715e>//Now the top element is 1
+</span><span style=color:#75715e></span>	printf(<span style=color:#e6db74>&#34;Now the stack size is %d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,s.size()); <span style=color:#75715e>//Now the stack size is 1
+</span><span style=color:#75715e></span>	<span style=color:#66d9ef>if</span>(s.empty()) printf(<span style=color:#e6db74>&#34;stack is empty</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>); 
+	<span style=color:#66d9ef>else</span> printf(<span style=color:#e6db74>&#34;stack is not empty</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>); <span style=color:#75715e>//stack is not empty
+</span><span style=color:#75715e></span>	<span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>s.empty()) s.pop(); <span style=color:#75715e>//元素1 弹出栈
+</span><span style=color:#75715e></span>	<span style=color:#66d9ef>if</span>(s.empty()) printf(<span style=color:#e6db74>&#34;stack is empty</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>); <span style=color:#75715e>//stack is empty
+</span><span style=color:#75715e></span>	<span style=color:#66d9ef>else</span> printf(<span style=color:#e6db74>&#34;stack is not empty</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
 }
-<span style=font-style:italic>/*
-</span><span style=font-style:italic>运行结果
-</span><span style=font-style:italic>Now the top element is 2
-</span><span style=font-style:italic>Now the stack size is 2
-</span><span style=font-style:italic>Now the top element is 1
-</span><span style=font-style:italic>Now the stack size is 1
-</span><span style=font-style:italic>stack is not empty
-</span><span style=font-style:italic>stack is empty
-</span><span style=font-style:italic>*/</span>
+<span style=color:#75715e>/*
+</span><span style=color:#75715e>运行结果
+</span><span style=color:#75715e>Now the top element is 2
+</span><span style=color:#75715e>Now the stack size is 2
+</span><span style=color:#75715e>Now the top element is 1
+</span><span style=color:#75715e>Now the stack size is 1
+</span><span style=color:#75715e>stack is not empty
+</span><span style=color:#75715e>stack is empty
+</span><span style=color:#75715e>*/</span>
 </code></pre></div><hr>
 <h2 id=映射map>
 映射(map)
@@ -327,18 +327,18 @@ stack&lt;<span>int</span>&gt; s;
 </li>
 </ul>
 <p>​    上述两种形式有一定的区别，因为集合中元素是唯一的，用insert函数插入的时候，如果已经有相应的关键字，那么就不会插入。而如果用类似于数组的方式进行插入，就会覆盖原关键字对应的值。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>map&lt;string,<span>int</span>&gt; m;
-<span>int</span> main()
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>map<span style=color:#f92672>&lt;</span>string,<span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> m;
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-	m.insert(pair&lt;string,<span>int</span>&gt;(<span style=font-style:italic>&#34;zs&#34;</span>,1));
-	printf(<span style=font-style:italic>&#34;%d &#34;</span>,m[<span style=font-style:italic>&#34;zs&#34;</span>]);
-	m.insert(make_pair(<span style=font-style:italic>&#34;zs&#34;</span>,2));
-	printf(<span style=font-style:italic>&#34;%d &#34;</span>,m[<span style=font-style:italic>&#34;zs&#34;</span>]);
-	m[<span style=font-style:italic>&#34;zs&#34;</span>]=2;
-	printf(<span style=font-style:italic>&#34;%d &#34;</span>,m[<span style=font-style:italic>&#34;zs&#34;</span>]);
-	<span style=font-style:italic>/*
-</span><span style=font-style:italic>	输出结果  1 1 2 
-</span><span style=font-style:italic>	*/</span>
+	m.insert(pair<span style=color:#f92672>&lt;</span>string,<span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span>(<span style=color:#e6db74>&#34;zs&#34;</span>,<span style=color:#ae81ff>1</span>));
+	printf(<span style=color:#e6db74>&#34;%d &#34;</span>,m[<span style=color:#e6db74>&#34;zs&#34;</span>]);
+	m.insert(make_pair(<span style=color:#e6db74>&#34;zs&#34;</span>,<span style=color:#ae81ff>2</span>));
+	printf(<span style=color:#e6db74>&#34;%d &#34;</span>,m[<span style=color:#e6db74>&#34;zs&#34;</span>]);
+	m[<span style=color:#e6db74>&#34;zs&#34;</span>]<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>;
+	printf(<span style=color:#e6db74>&#34;%d &#34;</span>,m[<span style=color:#e6db74>&#34;zs&#34;</span>]);
+	<span style=color:#75715e>/*
+</span><span style=color:#75715e>	输出结果  1 1 2 
+</span><span style=color:#75715e>	*/</span>
 }
 </code></pre></div><h4 id=2-查找数据>
 2. 查找数据
@@ -347,16 +347,16 @@ stack&lt;<span>int</span>&gt; s;
 </a>
 </h4>
 <p>​    通过find函数来查找关键字在map中的位置，如果找到了的话就返回对应的迭代器，如果没有找到的话就返回尾部的迭代器（end函数返回的值）。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>map&lt;string,<span>int</span>&gt; m;
-<span>int</span> main()
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>map<span style=color:#f92672>&lt;</span>string,<span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> m;
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-	map&lt;string,<span>int</span>&gt;::iterator it;
-	m[<span style=font-style:italic>&#34;zs&#34;</span>]=1;
-	it=m.find(<span style=font-style:italic>&#34;zs&#34;</span>);
-	cout&lt;&lt;it-&gt;first&lt;&lt;<span style=font-style:italic>&#34; &#34;</span>&lt;&lt;it-&gt;second;
-	<span style=font-style:italic>/*
-</span><span style=font-style:italic>	输出结果 zs 1 
-</span><span style=font-style:italic>	*/</span> 
+	map<span style=color:#f92672>&lt;</span>string,<span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;::</span>iterator it;
+	m[<span style=color:#e6db74>&#34;zs&#34;</span>]<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;
+	it<span style=color:#f92672>=</span>m.find(<span style=color:#e6db74>&#34;zs&#34;</span>);
+	cout<span style=color:#f92672>&lt;&lt;</span>it<span style=color:#f92672>-&gt;</span>first<span style=color:#f92672>&lt;&lt;</span><span style=color:#e6db74>&#34; &#34;</span><span style=color:#f92672>&lt;&lt;</span>it<span style=color:#f92672>-&gt;</span>second;
+	<span style=color:#75715e>/*
+</span><span style=color:#75715e>	输出结果 zs 1 
+</span><span style=color:#75715e>	*/</span> 
 }
 </code></pre></div><h4 id=3-删除数据>
 3. 删除数据
@@ -374,26 +374,26 @@ stack&lt;<span>int</span>&gt; s;
 </li>
 <li>删除一串序列，通过erase(起始迭代器，终点迭代器) 来实现。</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>map&lt;string,<span>int</span>&gt; m;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>map<span style=color:#f92672>&lt;</span>string,<span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> m;
 
-<span>int</span> main()
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-	map&lt;string,<span>int</span>&gt;::iterator it;
-	m[<span style=font-style:italic>&#34;zs&#34;</span>]=1;
-	it=m.find(<span style=font-style:italic>&#34;zs&#34;</span>);
+	map<span style=color:#f92672>&lt;</span>string,<span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;::</span>iterator it;
+	m[<span style=color:#e6db74>&#34;zs&#34;</span>]<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;
+	it<span style=color:#f92672>=</span>m.find(<span style=color:#e6db74>&#34;zs&#34;</span>);
 	m.erase(it);
-	it=m.find(<span style=font-style:italic>&#34;zs&#34;</span>);
-	<span style=font-weight:700>if</span>(it==m.end())
-	printf(<span style=font-style:italic>&#34;Not find zs</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>);
-	m[<span style=font-style:italic>&#34;zs&#34;</span>]=2;
-	m.erase(<span style=font-style:italic>&#34;zs&#34;</span>);
-	it=m.find(<span style=font-style:italic>&#34;zs&#34;</span>);
-	<span style=font-weight:700>if</span>(it==m.end())
-	printf(<span style=font-style:italic>&#34;Not find zs&#34;</span>);
-	<span style=font-style:italic>/*
-</span><span style=font-style:italic>	输出结果 Not find zs 
-</span><span style=font-style:italic>		    Not find zs
-</span><span style=font-style:italic>	*/</span> 
+	it<span style=color:#f92672>=</span>m.find(<span style=color:#e6db74>&#34;zs&#34;</span>);
+	<span style=color:#66d9ef>if</span>(it<span style=color:#f92672>==</span>m.end())
+	printf(<span style=color:#e6db74>&#34;Not find zs</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+	m[<span style=color:#e6db74>&#34;zs&#34;</span>]<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>;
+	m.erase(<span style=color:#e6db74>&#34;zs&#34;</span>);
+	it<span style=color:#f92672>=</span>m.find(<span style=color:#e6db74>&#34;zs&#34;</span>);
+	<span style=color:#66d9ef>if</span>(it<span style=color:#f92672>==</span>m.end())
+	printf(<span style=color:#e6db74>&#34;Not find zs&#34;</span>);
+	<span style=color:#75715e>/*
+</span><span style=color:#75715e>	输出结果 Not find zs 
+</span><span style=color:#75715e>		    Not find zs
+</span><span style=color:#75715e>	*/</span> 
 }
 </code></pre></div><h4 id=4-其他>
 4. 其他

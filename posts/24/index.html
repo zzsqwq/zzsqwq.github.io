@@ -167,43 +167,43 @@ A. <a href=https://www.luogu.com.cn/problem/P1004>方格取数</a>
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
-</span><span>#include</span><span>&lt;cstring&gt;</span><span>
-</span><span>#include</span><span>&lt;algorithm&gt;</span><span>
-</span><span>#include</span><span>&lt;cmath&gt;</span><span>
-</span><span>#include</span><span>&lt;iostream&gt;</span><span>
-</span><span></span>
-<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
 
-<span style=font-weight:700>const</span> <span>int</span> maxn=15;
-<span>int</span> map[maxn][maxn];
-<span>int</span> n,x,y,z;
-<span>int</span> m;
-<span>int</span> dp[maxn][maxn][maxn][maxn];
-<span>int</span> main()
+<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>15</span>;
+<span style=color:#66d9ef>int</span> map[maxn][maxn];
+<span style=color:#66d9ef>int</span> n,x,y,z;
+<span style=color:#66d9ef>int</span> m;
+<span style=color:#66d9ef>int</span> dp[maxn][maxn][maxn][maxn];
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-	scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;n);
-	<span style=font-weight:700>while</span>(1)
+	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
+	<span style=color:#66d9ef>while</span>(<span style=color:#ae81ff>1</span>)
 	{
-		scanf(<span style=font-style:italic>&#34;%d%d%d&#34;</span>,&amp;x,&amp;y,&amp;z);
-		<span style=font-weight:700>if</span>(x==0&amp;&amp;y==0&amp;&amp;z==0) <span style=font-weight:700>break</span>;
-		map[x][y]=z;
+		scanf(<span style=color:#e6db74>&#34;%d%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>x,<span style=color:#f92672>&amp;</span>y,<span style=color:#f92672>&amp;</span>z);
+		<span style=color:#66d9ef>if</span>(x<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>y<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>z<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>) <span style=color:#66d9ef>break</span>;
+		map[x][y]<span style=color:#f92672>=</span>z;
 	}
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
 	{
-		<span style=font-weight:700>for</span>(<span>int</span> j=1;j&lt;=n;j++)
+		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>n;j<span style=color:#f92672>++</span>)
 		{
-			<span style=font-weight:700>for</span>(<span>int</span> k=1;k&lt;=n;k++)
+			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> k<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;k<span style=color:#f92672>&lt;=</span>n;k<span style=color:#f92672>++</span>)
 			{
-				m=i+j-k;
-				<span style=font-weight:700>if</span>(m&lt;=0) <span style=font-weight:700>continue</span>;
-				<span style=font-weight:700>if</span>(i==k&amp;&amp;j==m) dp[i][j][k][m]=max(max(dp[i-1][j][k-1][m],dp[i-1][j][k][m-1]),max(dp[i][j-1][k-1][m],dp[i][j-1][k][m-1]))+map[i][j];
-				<span style=font-weight:700>else</span> dp[i][j][k][m]=max(max(dp[i-1][j][k-1][m],dp[i-1][j][k][m-1]),max(dp[i][j-1][k-1][m],dp[i][j-1][k][m-1]))+map[i][j]+map[k][m];
+				m<span style=color:#f92672>=</span>i<span style=color:#f92672>+</span>j<span style=color:#f92672>-</span>k;
+				<span style=color:#66d9ef>if</span>(m<span style=color:#f92672>&lt;=</span><span style=color:#ae81ff>0</span>) <span style=color:#66d9ef>continue</span>;
+				<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>==</span>k<span style=color:#f92672>&amp;&amp;</span>j<span style=color:#f92672>==</span>m) dp[i][j][k][m]<span style=color:#f92672>=</span>max(max(dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j][k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][m],dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j][k][m<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]),max(dp[i][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][m],dp[i][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][k][m<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]))<span style=color:#f92672>+</span>map[i][j];
+				<span style=color:#66d9ef>else</span> dp[i][j][k][m]<span style=color:#f92672>=</span>max(max(dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j][k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][m],dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j][k][m<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]),max(dp[i][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][m],dp[i][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][k][m<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]))<span style=color:#f92672>+</span>map[i][j]<span style=color:#f92672>+</span>map[k][m];
 			}
 		}
 	}
-	printf(<span style=font-style:italic>&#34;%d&#34;</span>,dp[n][n][n][n]);
-	<span style=font-weight:700>return</span> 0;
+	printf(<span style=color:#e6db74>&#34;%d&#34;</span>,dp[n][n][n][n]);
+	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
 } 
 </code></pre></div>
 <h2 id=b-创意吃鱼法httpswwwluogucomcnproblemp1736>
@@ -232,61 +232,61 @@ B. <a href=https://www.luogu.com.cn/problem/P1736>创意吃鱼法</a>
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
-</span><span>#include</span><span>&lt;cstring&gt;</span><span>
-</span><span>#include</span><span>&lt;algorithm&gt;</span><span>
-</span><span>#include</span><span>&lt;cmath&gt;</span><span>
-</span><span>#include</span><span>&lt;iostream&gt;</span><span>
-</span><span></span>
-<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
 
-<span style=font-weight:700>const</span> <span>int</span> maxn=2505;
-<span>int</span> n,m;
-<span>int</span> map[maxn][maxn];
-<span>int</span> col[maxn][maxn],row[maxn][maxn];
-<span>int</span> dp[maxn][maxn];
-<span>int</span> ans;
-<span>int</span> main()
+<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>2505</span>;
+<span style=color:#66d9ef>int</span> n,m;
+<span style=color:#66d9ef>int</span> map[maxn][maxn];
+<span style=color:#66d9ef>int</span> col[maxn][maxn],row[maxn][maxn];
+<span style=color:#66d9ef>int</span> dp[maxn][maxn];
+<span style=color:#66d9ef>int</span> ans;
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-<span style=font-style:italic>//	freopen(&#34;test.in&#34;,&#34;r&#34;,stdin);
-</span><span style=font-style:italic></span>	scanf(<span style=font-style:italic>&#34;%d%d&#34;</span>,&amp;n,&amp;m);
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+<span style=color:#75715e>//	freopen(&#34;test.in&#34;,&#34;r&#34;,stdin);
+</span><span style=color:#75715e></span>	scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>m);
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
 	{
-		<span style=font-weight:700>for</span>(<span>int</span> j=1;j&lt;=m;j++)
+		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>m;j<span style=color:#f92672>++</span>)
 		{
-			scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;map[i][j]);
-		<span style=font-weight:700>if</span>(!map[i][j])
+			scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>map[i][j]);
+		<span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>map[i][j])
 		{
-			row[i][j]=row[i-1][j]+1;
-			col[i][j]=col[i][j-1]+1;
+			row[i][j]<span style=color:#f92672>=</span>row[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
+			col[i][j]<span style=color:#f92672>=</span>col[i][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
 		}
-		<span style=font-weight:700>else</span> 
+		<span style=color:#66d9ef>else</span> 
 		{
-			dp[i][j]=min(dp[i-1][j-1],min(row[i-1][j],col[i][j-1]))+1;
-			ans=max(dp[i][j],ans);
+			dp[i][j]<span style=color:#f92672>=</span>min(dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>],min(row[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j],col[i][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]))<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
+			ans<span style=color:#f92672>=</span>max(dp[i][j],ans);
 		}
 		}
 	}
-	memset(row,0,<span style=font-weight:700>sizeof</span>(row));
-	memset(col,0,<span style=font-weight:700>sizeof</span>(col));
-	memset(dp,0,<span style=font-weight:700>sizeof</span>(dp));
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+	memset(row,<span style=color:#ae81ff>0</span>,<span style=color:#66d9ef>sizeof</span>(row));
+	memset(col,<span style=color:#ae81ff>0</span>,<span style=color:#66d9ef>sizeof</span>(col));
+	memset(dp,<span style=color:#ae81ff>0</span>,<span style=color:#66d9ef>sizeof</span>(dp));
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
 	{
-		<span style=font-weight:700>for</span>(<span>int</span> j=m;j&gt;=1;j--)
+		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span>m;j<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>--</span>)
 		{
-			<span style=font-weight:700>if</span>(!map[i][j])
+			<span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>map[i][j])
 			{
-				row[i][j]=row[i-1][j]+1;
-				col[i][j]=col[i][j+1]+1;
+				row[i][j]<span style=color:#f92672>=</span>row[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
+				col[i][j]<span style=color:#f92672>=</span>col[i][j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
 			}
-			<span style=font-weight:700>else</span>
+			<span style=color:#66d9ef>else</span>
 			{
-				dp[i][j]=min(dp[i-1][j+1],min(row[i-1][j],col[i][j+1]))+1;
-				ans=max(ans,dp[i][j]);
+				dp[i][j]<span style=color:#f92672>=</span>min(dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>],min(row[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j],col[i][j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]))<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
+				ans<span style=color:#f92672>=</span>max(ans,dp[i][j]);
 			}
 		}
 	}
-	printf(<span style=font-style:italic>&#34;%d&#34;</span>,ans);
+	printf(<span style=color:#e6db74>&#34;%d&#34;</span>,ans);
 }
 </code></pre></div>
 <h2 id=c-乌龟棋httpswwwluogucomcnproblemp1541>
@@ -315,62 +315,62 @@ C. <a href=https://www.luogu.com.cn/problem/P1541>乌龟棋</a>
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
-</span><span>#include</span><span>&lt;cstring&gt;</span><span>
-</span><span>#include</span><span>&lt;algorithm&gt;</span><span>
-</span><span>#include</span><span>&lt;cmath&gt;</span><span>
-</span><span>#include</span><span>&lt;iostream&gt;</span><span>
-</span><span></span>
-<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
 
-<span style=font-weight:700>const</span> <span>int</span> maxn=355;
-<span style=font-weight:700>const</span> <span>int</span> maxm=125;
-<span>int</span> n,m,pos;
-<span>int</span> w[maxn];
-<span>int</span> x,num[5];
-<span>int</span> dp[42][42][42][42];
-<span>int</span> main()
+<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>355</span>;
+<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxm<span style=color:#f92672>=</span><span style=color:#ae81ff>125</span>;
+<span style=color:#66d9ef>int</span> n,m,pos;
+<span style=color:#66d9ef>int</span> w[maxn];
+<span style=color:#66d9ef>int</span> x,num[<span style=color:#ae81ff>5</span>];
+<span style=color:#66d9ef>int</span> dp[<span style=color:#ae81ff>42</span>][<span style=color:#ae81ff>42</span>][<span style=color:#ae81ff>42</span>][<span style=color:#ae81ff>42</span>];
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-	scanf(<span style=font-style:italic>&#34;%d%d&#34;</span>,&amp;n,&amp;m);
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++) scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;w[i]);
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=m;i++)
+	scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>m);
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>) scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>w[i]);
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>m;i<span style=color:#f92672>++</span>)
 	{
-		scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;x);
-		num[x]++;
+		scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>x);
+		num[x]<span style=color:#f92672>++</span>;
 	} 
-	memset(dp,-1,<span style=font-weight:700>sizeof</span>(dp));
-	dp[0][0][0][0]=w[1];
-	<span style=font-weight:700>for</span>(<span>int</span> a=0;a&lt;=num[1];a++)
+	memset(dp,<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>,<span style=color:#66d9ef>sizeof</span>(dp));
+	dp[<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>0</span>]<span style=color:#f92672>=</span>w[<span style=color:#ae81ff>1</span>];
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> a<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;a<span style=color:#f92672>&lt;=</span>num[<span style=color:#ae81ff>1</span>];a<span style=color:#f92672>++</span>)
 	{
-		<span style=font-weight:700>for</span>(<span>int</span> b=0;b&lt;=num[2];b++)
+		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> b<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;b<span style=color:#f92672>&lt;=</span>num[<span style=color:#ae81ff>2</span>];b<span style=color:#f92672>++</span>)
 		{
-			<span style=font-weight:700>for</span>(<span>int</span> c=0;c&lt;=num[3];c++)
+			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> c<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;c<span style=color:#f92672>&lt;=</span>num[<span style=color:#ae81ff>3</span>];c<span style=color:#f92672>++</span>)
 			{
-				<span style=font-weight:700>for</span>(<span>int</span> d=0;d&lt;=num[4];d++)
+				<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> d<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;d<span style=color:#f92672>&lt;=</span>num[<span style=color:#ae81ff>4</span>];d<span style=color:#f92672>++</span>)
 				{
-					pos=1+a+(b&lt;&lt;1)+c*3+(d&lt;&lt;2);
-					<span style=font-weight:700>if</span>(a&gt;0&amp;&amp;dp[a-1][b][c][d]!=-1)
+					pos<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span><span style=color:#f92672>+</span>a<span style=color:#f92672>+</span>(b<span style=color:#f92672>&lt;&lt;</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>+</span>c<span style=color:#f92672>*</span><span style=color:#ae81ff>3</span><span style=color:#f92672>+</span>(d<span style=color:#f92672>&lt;&lt;</span><span style=color:#ae81ff>2</span>);
+					<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>dp[a<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][b][c][d]<span style=color:#f92672>!=-</span><span style=color:#ae81ff>1</span>)
 					{
-						dp[a][b][c][d]=max(dp[a][b][c][d],dp[a-1][b][c][d]+w[pos]);
+						dp[a][b][c][d]<span style=color:#f92672>=</span>max(dp[a][b][c][d],dp[a<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][b][c][d]<span style=color:#f92672>+</span>w[pos]);
 					}
-					<span style=font-weight:700>if</span>(b&gt;0&amp;&amp;dp[a][b-1][c][d]!=-1)
+					<span style=color:#66d9ef>if</span>(b<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>dp[a][b<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][c][d]<span style=color:#f92672>!=-</span><span style=color:#ae81ff>1</span>)
 					{
-						dp[a][b][c][d]=max(dp[a][b][c][d],dp[a][b-1][c][d]+w[pos]);
+						dp[a][b][c][d]<span style=color:#f92672>=</span>max(dp[a][b][c][d],dp[a][b<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][c][d]<span style=color:#f92672>+</span>w[pos]);
 					}
-					<span style=font-weight:700>if</span>(c&gt;0&amp;&amp;dp[a][b][c-1][d]!=-1)
+					<span style=color:#66d9ef>if</span>(c<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>dp[a][b][c<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][d]<span style=color:#f92672>!=-</span><span style=color:#ae81ff>1</span>)
 					{
-						dp[a][b][c][d]=max(dp[a][b][c][d],dp[a][b][c-1][d]+w[pos]);
+						dp[a][b][c][d]<span style=color:#f92672>=</span>max(dp[a][b][c][d],dp[a][b][c<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][d]<span style=color:#f92672>+</span>w[pos]);
 					}
-					<span style=font-weight:700>if</span>(d&gt;0&amp;&amp;dp[a][b][c][d-1]!=-1)
+					<span style=color:#66d9ef>if</span>(d<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>dp[a][b][c][d<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>!=-</span><span style=color:#ae81ff>1</span>)
 					{
-						dp[a][b][c][d]=max(dp[a][b][c][d],dp[a][b][c][d-1]+w[pos]);
+						dp[a][b][c][d]<span style=color:#f92672>=</span>max(dp[a][b][c][d],dp[a][b][c][d<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span>w[pos]);
 					}
 				}
 			}
 		}
 	}
-	printf(<span style=font-style:italic>&#34;%d&#34;</span>,dp[num[1]][num[2]][num[3]][num[4]]);
-	<span style=font-weight:700>return</span> 0;
+	printf(<span style=color:#e6db74>&#34;%d&#34;</span>,dp[num[<span style=color:#ae81ff>1</span>]][num[<span style=color:#ae81ff>2</span>]][num[<span style=color:#ae81ff>3</span>]][num[<span style=color:#ae81ff>4</span>]]);
+	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
 }
 </code></pre></div>
 <h2 id=d-能量项链httpswwwluogucomcnproblemp1063>
@@ -400,56 +400,56 @@ D. <a href=https://www.luogu.com.cn/problem/P1063>能量项链</a>
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
-</span><span>#include</span><span>&lt;cstring&gt;</span><span>
-</span><span>#include</span><span>&lt;algorithm&gt;</span><span>
-</span><span>#include</span><span>&lt;cmath&gt;</span><span>
-</span><span>#include</span><span>&lt;iostream&gt;</span><span>
-</span><span></span>
-<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
 
-<span style=font-weight:700>typedef</span> <span>long</span> <span>long</span> ll;
-<span style=font-weight:700>const</span> <span>int</span> maxn=105;
-<span>int</span> n;
-ll dp[maxn&lt;&lt;1][maxn&lt;&lt;1];
-<span style=font-weight:700>struct</span> <span style=font-weight:700>node</span>
+<span style=color:#66d9ef>typedef</span> <span style=color:#66d9ef>long</span> <span style=color:#66d9ef>long</span> ll;
+<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>105</span>;
+<span style=color:#66d9ef>int</span> n;
+ll dp[maxn<span style=color:#f92672>&lt;&lt;</span><span style=color:#ae81ff>1</span>][maxn<span style=color:#f92672>&lt;&lt;</span><span style=color:#ae81ff>1</span>];
+<span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>node</span>
 {
 	ll w;
 	ll nxt;
-}a[maxn&lt;&lt;1];
-<span>int</span> main()
+}a[maxn<span style=color:#f92672>&lt;&lt;</span><span style=color:#ae81ff>1</span>];
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-<span style=font-style:italic>//	freopen(&#34;test.in&#34;,&#34;r&#34;,stdin);
-</span><span style=font-style:italic></span>	scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;n);
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+<span style=color:#75715e>//	freopen(&#34;test.in&#34;,&#34;r&#34;,stdin);
+</span><span style=color:#75715e></span>	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
 	{
-		scanf(<span style=font-style:italic>&#34;%lld&#34;</span>,&amp;a[i].w);
-		a[i+n].w=a[i].w;
+		scanf(<span style=color:#e6db74>&#34;%lld&#34;</span>,<span style=color:#f92672>&amp;</span>a[i].w);
+		a[i<span style=color:#f92672>+</span>n].w<span style=color:#f92672>=</span>a[i].w;
 	}
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n*2-1;i++)
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n<span style=color:#f92672>*</span><span style=color:#ae81ff>2</span><span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>++</span>)
 	{
-		a[i].nxt=a[i+1].w;
+		a[i].nxt<span style=color:#f92672>=</span>a[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>].w;
 	}
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=2*n;i++) dp[i][i]=0;
-	<span style=font-weight:700>for</span>(<span>int</span> p=2;p&lt;=n;p++)
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span><span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>n;i<span style=color:#f92672>++</span>) dp[i][i]<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> p<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>;p<span style=color:#f92672>&lt;=</span>n;p<span style=color:#f92672>++</span>)
 	{
-		<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=2*n-p+1;i++) <span style=font-style:italic>//重要(卡我巨长时间)
-</span><span style=font-style:italic></span>		{
-			<span>int</span> j=i+p-1;
-			<span style=font-weight:700>for</span>(<span>int</span> k=i;k&lt;j;k++)
+		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span><span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>n<span style=color:#f92672>-</span>p<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>++</span>) <span style=color:#75715e>//重要(卡我巨长时间)
+</span><span style=color:#75715e></span>		{
+			<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span>i<span style=color:#f92672>+</span>p<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;
+			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> k<span style=color:#f92672>=</span>i;k<span style=color:#f92672>&lt;</span>j;k<span style=color:#f92672>++</span>)
 			{
-				dp[i][j]=max(dp[i][j],dp[i][k]+dp[k+1][j]+a[i].w*a[k].nxt*a[j].nxt);
+				dp[i][j]<span style=color:#f92672>=</span>max(dp[i][j],dp[i][k]<span style=color:#f92672>+</span>dp[k<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>][j]<span style=color:#f92672>+</span>a[i].w<span style=color:#f92672>*</span>a[k].nxt<span style=color:#f92672>*</span>a[j].nxt);
 			}
 		}
 	}
-<span style=font-style:italic>//	for(int i=1;i&lt;=n;i++)
-</span><span style=font-style:italic>//	{
-</span><span style=font-style:italic>//		printf(&#34;%d &#34;,dp[i][i+1]);
-</span><span style=font-style:italic>//	}
-</span><span style=font-style:italic></span>	ll ans=0;
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++) ans=max(ans,dp[i][i+n-1]);
-	printf(<span style=font-style:italic>&#34;%lld&#34;</span>,ans);
-	<span style=font-weight:700>return</span> 0;
+<span style=color:#75715e>//	for(int i=1;i&lt;=n;i++)
+</span><span style=color:#75715e>//	{
+</span><span style=color:#75715e>//		printf(&#34;%d &#34;,dp[i][i+1]);
+</span><span style=color:#75715e>//	}
+</span><span style=color:#75715e></span>	ll ans<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>) ans<span style=color:#f92672>=</span>max(ans,dp[i][i<span style=color:#f92672>+</span>n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]);
+	printf(<span style=color:#e6db74>&#34;%lld&#34;</span>,ans);
+	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
 }
 </code></pre></div>
 </div>

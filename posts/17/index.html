@@ -190,36 +190,36 @@ A. <a href=https://codeforces.com/contest/1296/problem/A>Array with Odd Sum</a>
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
-</span><span>#include</span><span>&lt;cstring&gt;</span><span>
-</span><span>#include</span><span>&lt;algorithm&gt;</span><span>
-</span><span>#include</span><span>&lt;cmath&gt;</span><span>
-</span><span></span>
-<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
 
-<span>int</span> t,n,flag,sum,p,flag1,flag2;
-<span>int</span> main()
+<span style=color:#66d9ef>int</span> t,n,flag,sum,p,flag1,flag2;
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-	scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;t);
-	<span style=font-weight:700>while</span>(t--)
+	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>t);
+	<span style=color:#66d9ef>while</span>(t<span style=color:#f92672>--</span>)
 	{
-		flag=false;
-		flag2=flag1=false;
-		sum=0;
-		scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;n);
-		<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+		flag<span style=color:#f92672>=</span>false;
+		flag2<span style=color:#f92672>=</span>flag1<span style=color:#f92672>=</span>false;
+		sum<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+		scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
+		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
 		{
-			scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;p);
-			sum+=p;
-			<span style=font-weight:700>if</span>(p%2==1) flag1=true;
-			<span style=font-weight:700>if</span>(p%2==0) flag2=true;
+			scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>p);
+			sum<span style=color:#f92672>+=</span>p;
+			<span style=color:#66d9ef>if</span>(p<span style=color:#f92672>%</span><span style=color:#ae81ff>2</span><span style=color:#f92672>==</span><span style=color:#ae81ff>1</span>) flag1<span style=color:#f92672>=</span>true;
+			<span style=color:#66d9ef>if</span>(p<span style=color:#f92672>%</span><span style=color:#ae81ff>2</span><span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>) flag2<span style=color:#f92672>=</span>true;
 		}
-		<span style=font-weight:700>if</span>(flag1&amp;&amp;flag2) flag=true;
-		<span style=font-weight:700>if</span>(sum%2==1) printf(<span style=font-style:italic>&#34;YES</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>);
-		<span style=font-weight:700>else</span> 
+		<span style=color:#66d9ef>if</span>(flag1<span style=color:#f92672>&amp;&amp;</span>flag2) flag<span style=color:#f92672>=</span>true;
+		<span style=color:#66d9ef>if</span>(sum<span style=color:#f92672>%</span><span style=color:#ae81ff>2</span><span style=color:#f92672>==</span><span style=color:#ae81ff>1</span>) printf(<span style=color:#e6db74>&#34;YES</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+		<span style=color:#66d9ef>else</span> 
 		{
-			<span style=font-weight:700>if</span>(flag) printf(<span style=font-style:italic>&#34;YES</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>);
-			<span style=font-weight:700>else</span> printf(<span style=font-style:italic>&#34;NO</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>);
+			<span style=color:#66d9ef>if</span>(flag) printf(<span style=color:#e6db74>&#34;YES</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+			<span style=color:#66d9ef>else</span> printf(<span style=color:#e6db74>&#34;NO</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
 		}
 	}
 }
@@ -253,33 +253,33 @@ B. <a href=https://codeforces.com/contest/1296/problem/B>Food Buying</a>
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
-</span><span>#include</span><span>&lt;cstring&gt;</span><span>
-</span><span>#include</span><span>&lt;algorithm&gt;</span><span>
-</span><span>#include</span><span>&lt;cmath&gt;</span><span>
-</span><span></span>
-<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
 
-<span>int</span> t,s;
-<span>int</span> main()
+<span style=color:#66d9ef>int</span> t,s;
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-	scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;t);
-	<span style=font-weight:700>while</span>(t--)
+	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>t);
+	<span style=color:#66d9ef>while</span>(t<span style=color:#f92672>--</span>)
 	{
-		scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;s);
+		scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>s);
 		{
-			<span>int</span> p=s;
-			<span>int</span> now=0;
-			<span style=font-weight:700>while</span>(p)
+			<span style=color:#66d9ef>int</span> p<span style=color:#f92672>=</span>s;
+			<span style=color:#66d9ef>int</span> now<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+			<span style=color:#66d9ef>while</span>(p)
 			{
-				<span style=font-weight:700>if</span>(p&lt;10) <span style=font-weight:700>break</span>;
-				now=p/10;
-				s+=now;
-				p%=10;
-				p+=now;
+				<span style=color:#66d9ef>if</span>(p<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>10</span>) <span style=color:#66d9ef>break</span>;
+				now<span style=color:#f92672>=</span>p<span style=color:#f92672>/</span><span style=color:#ae81ff>10</span>;
+				s<span style=color:#f92672>+=</span>now;
+				p<span style=color:#f92672>%=</span><span style=color:#ae81ff>10</span>;
+				p<span style=color:#f92672>+=</span>now;
 			}
 		}
-		printf(<span style=font-style:italic>&#34;%d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,s);
+		printf(<span style=color:#e6db74>&#34;%d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,s);
 	}
 }
 
@@ -314,65 +314,65 @@ C. <a href=https://codeforces.com/contest/1296/problem/C>Yet Another Walking Rob
 </a>
 </h4>
 <hr>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
-</span><span>#include</span><span>&lt;cstring&gt;</span><span>
-</span><span>#include</span><span>&lt;algorithm&gt;</span><span>
-</span><span>#include</span><span>&lt;cmath&gt;</span><span>
-</span><span>#include</span><span>&lt;map&gt;</span><span>
-</span><span></span>
-<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;map&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
 
-<span style=font-weight:700>const</span> <span>int</span> maxn=200005;
-<span>int</span> t,n;
-<span>char</span> s[maxn];
-<span>bool</span> flag;
-<span>int</span> main()
+<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>200005</span>;
+<span style=color:#66d9ef>int</span> t,n;
+<span style=color:#66d9ef>char</span> s[maxn];
+<span style=color:#66d9ef>bool</span> flag;
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-	scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;t);
-	<span style=font-weight:700>while</span>(t--)
+	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>t);
+	<span style=color:#66d9ef>while</span>(t<span style=color:#f92672>--</span>)
 	{
-		scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;n);
-		<span>int</span> l=-1,r=n;
-		scanf(<span style=font-style:italic>&#34;%s&#34;</span>,s+1);
-		pair&lt;<span>int</span>,<span>int</span>&gt; pos; <span style=font-style:italic>//first为x second为y
-</span><span style=font-style:italic></span>		map&lt;pair&lt;<span>int</span>,<span>int</span>&gt;,<span>int</span>&gt; last;  
-		pos.first=pos.second=0;
-		last[pos]=0;
-		<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+		scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
+		<span style=color:#66d9ef>int</span> l<span style=color:#f92672>=-</span><span style=color:#ae81ff>1</span>,r<span style=color:#f92672>=</span>n;
+		scanf(<span style=color:#e6db74>&#34;%s&#34;</span>,s<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>);
+		pair<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span>,<span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> pos; <span style=color:#75715e>//first为x second为y
+</span><span style=color:#75715e></span>		map<span style=color:#f92672>&lt;</span>pair<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span>,<span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span>,<span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> last;  
+		pos.first<span style=color:#f92672>=</span>pos.second<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+		last[pos]<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
 		{
-			<span style=font-weight:700>if</span>(s[i]==<span style=font-style:italic>&#39;L&#39;</span>) pos.first--;
-			<span style=font-weight:700>if</span>(s[i]==<span style=font-style:italic>&#39;R&#39;</span>) pos.first++;
-			<span style=font-weight:700>if</span>(s[i]==<span style=font-style:italic>&#39;U&#39;</span>) pos.second++;
-			<span style=font-weight:700>if</span>(s[i]==<span style=font-style:italic>&#39;D&#39;</span>) pos.second--;
-<span style=font-style:italic>/*			
-</span><span style=font-style:italic>			if(i==2)
-</span><span style=font-style:italic>			{
-</span><span style=font-style:italic>				printf(&#34;%d %d\n&#34;,pos.first,pos.second);
-</span><span style=font-style:italic>			}
-</span><span style=font-style:italic>*/</span>			
-			<span style=font-weight:700>if</span>(last.count(pos)!=0)
+			<span style=color:#66d9ef>if</span>(s[i]<span style=color:#f92672>==</span><span style=color:#e6db74>&#39;L&#39;</span>) pos.first<span style=color:#f92672>--</span>;
+			<span style=color:#66d9ef>if</span>(s[i]<span style=color:#f92672>==</span><span style=color:#e6db74>&#39;R&#39;</span>) pos.first<span style=color:#f92672>++</span>;
+			<span style=color:#66d9ef>if</span>(s[i]<span style=color:#f92672>==</span><span style=color:#e6db74>&#39;U&#39;</span>) pos.second<span style=color:#f92672>++</span>;
+			<span style=color:#66d9ef>if</span>(s[i]<span style=color:#f92672>==</span><span style=color:#e6db74>&#39;D&#39;</span>) pos.second<span style=color:#f92672>--</span>;
+<span style=color:#75715e>/*			
+</span><span style=color:#75715e>			if(i==2)
+</span><span style=color:#75715e>			{
+</span><span style=color:#75715e>				printf(&#34;%d %d\n&#34;,pos.first,pos.second);
+</span><span style=color:#75715e>			}
+</span><span style=color:#75715e>*/</span>			
+			<span style=color:#66d9ef>if</span>(last.count(pos)<span style=color:#f92672>!=</span><span style=color:#ae81ff>0</span>)
 			{
-				<span>int</span> p=i-last[pos];
-<span style=font-style:italic>//				if(i==2) printf(&#34;%d %d\n&#34;,i,last[pos]);
-</span><span style=font-style:italic></span>				<span style=font-weight:700>if</span>(p&lt;r-l)
+				<span style=color:#66d9ef>int</span> p<span style=color:#f92672>=</span>i<span style=color:#f92672>-</span>last[pos];
+<span style=color:#75715e>//				if(i==2) printf(&#34;%d %d\n&#34;,i,last[pos]);
+</span><span style=color:#75715e></span>				<span style=color:#66d9ef>if</span>(p<span style=color:#f92672>&lt;</span>r<span style=color:#f92672>-</span>l)
 				{
-					l=last[pos];
-					r=i;	
+					l<span style=color:#f92672>=</span>last[pos];
+					r<span style=color:#f92672>=</span>i;	
 				}	
-<span style=font-style:italic>//				if(i==2 )printf(&#34;%d %d\n&#34;,l,r);
-</span><span style=font-style:italic></span>			}
-			last[pos]=i;
+<span style=color:#75715e>//				if(i==2 )printf(&#34;%d %d\n&#34;,l,r);
+</span><span style=color:#75715e></span>			}
+			last[pos]<span style=color:#f92672>=</span>i;
 		}
-		<span style=font-weight:700>if</span>(l==-1)
+		<span style=color:#66d9ef>if</span>(l<span style=color:#f92672>==-</span><span style=color:#ae81ff>1</span>)
 		{
-			printf(<span style=font-style:italic>&#34;-1</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>);
+			printf(<span style=color:#e6db74>&#34;-1</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
 		}
-		<span style=font-weight:700>else</span>
+		<span style=color:#66d9ef>else</span>
 		{
-			printf(<span style=font-style:italic>&#34;%d %d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,l+1,r);
+			printf(<span style=color:#e6db74>&#34;%d %d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,l<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,r);
 		}
 	}
-	<span style=font-weight:700>return</span> 0;
+	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
 }
 </code></pre></div><hr>
 <h3 id=d-fight-with-monstershttpscodeforcescomcontest1296problemd>
@@ -413,45 +413,45 @@ D. <a href=https://codeforces.com/contest/1296/problem/D>Fight with Monsters</a>
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
-</span><span>#include</span><span>&lt;cstring&gt;</span><span>
-</span><span>#include</span><span>&lt;algorithm&gt;</span><span>
-</span><span>#include</span><span>&lt;cmath&gt;</span><span>
-</span><span>#include</span><span>&lt;iostream&gt;</span><span>
-</span><span></span>
-<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
 
-<span style=font-weight:700>const</span> <span>int</span> maxn=200005;
-<span>int</span> n,a,b,k;
-<span>int</span> f[maxn];
-<span>int</span> cmp(<span>int</span> a,<span>int</span> b)
+<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>200005</span>;
+<span style=color:#66d9ef>int</span> n,a,b,k;
+<span style=color:#66d9ef>int</span> f[maxn];
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>cmp</span>(<span style=color:#66d9ef>int</span> a,<span style=color:#66d9ef>int</span> b)
 {
-	<span style=font-weight:700>return</span> a&lt;b;
+	<span style=color:#66d9ef>return</span> a<span style=color:#f92672>&lt;</span>b;
 }
-<span>int</span> h[maxn],ans;
-<span>int</span> main()
+<span style=color:#66d9ef>int</span> h[maxn],ans;
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-	scanf(<span style=font-style:italic>&#34;%d%d%d%d&#34;</span>,&amp;n,&amp;a,&amp;b,&amp;k);
-	<span>int</span> p=a+b;
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+	scanf(<span style=color:#e6db74>&#34;%d%d%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>a,<span style=color:#f92672>&amp;</span>b,<span style=color:#f92672>&amp;</span>k);
+	<span style=color:#66d9ef>int</span> p<span style=color:#f92672>=</span>a<span style=color:#f92672>+</span>b;
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
 	{
-		scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;h[i]);
-		h[i]%=p;
-		<span style=font-weight:700>if</span>(h[i]==0)
+		scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>h[i]);
+		h[i]<span style=color:#f92672>%=</span>p;
+		<span style=color:#66d9ef>if</span>(h[i]<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>)
 		{
-			h[i]+=b;
-			f[i]=ceil((<span>double</span>)h[i]/a);
+			h[i]<span style=color:#f92672>+=</span>b;
+			f[i]<span style=color:#f92672>=</span>ceil((<span style=color:#66d9ef>double</span>)h[i]<span style=color:#f92672>/</span>a);
 		}
-		<span style=font-weight:700>else</span> f[i]=ceil((<span>double</span>)h[i]/a)-1;
+		<span style=color:#66d9ef>else</span> f[i]<span style=color:#f92672>=</span>ceil((<span style=color:#66d9ef>double</span>)h[i]<span style=color:#f92672>/</span>a)<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;
 	}
-	sort(f+1,f+1+n,cmp);
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+	sort(f<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,f<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span><span style=color:#f92672>+</span>n,cmp);
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
 	{
-		<span style=font-weight:700>if</span>(k-f[i]&lt;0) <span style=font-weight:700>break</span>;
-		ans++;
-		k-=f[i];
+		<span style=color:#66d9ef>if</span>(k<span style=color:#f92672>-</span>f[i]<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>0</span>) <span style=color:#66d9ef>break</span>;
+		ans<span style=color:#f92672>++</span>;
+		k<span style=color:#f92672>-=</span>f[i];
 	}
-	printf(<span style=font-style:italic>&#34;%d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,ans);
+	printf(<span style=color:#e6db74>&#34;%d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,ans);
 }
 </code></pre></div><hr>
 </div>

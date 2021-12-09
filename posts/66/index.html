@@ -228,8 +228,8 @@ Python基础
 </a>
 </h4>
 <p>​    python提供了一个 <code>input()</code> 函数供我们输入使用，这读入的是字符串数据，并返回，可以将返回值存放在一个变量中。<strong>input</strong>函数中可以带字符串，这段字符串在输入前会打印在屏幕上，这使得我们具有很好的交互性，好比我们写:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>name = input(<span style=font-style:italic>&#34;hello,friend! please input your name&#34;</span>)
-print(<span style=font-style:italic>&#34;The input name is &#34;</span>,name)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>name <span style=color:#f92672>=</span> input(<span style=color:#e6db74>&#34;hello,friend! please input your name&#34;</span>)
+print(<span style=color:#e6db74>&#34;The input name is &#34;</span>,name)
 </code></pre></div><p>​    那么这时候我们运行上述程序，就会提示 <code>hello , friend! please input your name</code> ，这就提示我们应该输入名字。</p>
 <p>​    这里需要注意的是，<code>input()</code> 函数读入的是一个字符串 <code>str</code> ，就算我们输入了整数他也是一个字符串，如果我们要用真正的整数，那么就需要用 <code>int()</code> 进行类型强制转换。如果其中不是合法的整数，那么会报错。</p>
 <h4 id=输出>
@@ -293,24 +293,24 @@ Case Sensitive
 </a>
 </h4>
 <p>​    字符串是以单引号 <code>''</code> 或者双引号 <code>""</code> 括起来的任意文本。我们注意到<strong>Python</strong>中<strong>没有单个字符的概念</strong>，就算是单个字符也是一个字符串。如果<code>''</code> 括起来的字符串内部出现 <code>''</code> 需要使用<code>\</code>转义，相同的，如果 <code>""</code> 括起来的字符串内部出现 <code>""</code> 需要转义。好比下面的程序</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(<span style=font-style:italic>&#34;My name is &#39;zs&#39;&#34;</span>)  <span style=font-style:italic>#合法  My name is &#39;zs&#39;</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(<span style=color:#e6db74>&#34;My name is &#39;zs&#39;&#34;</span>)  <span style=color:#75715e>#合法  My name is &#39;zs&#39;</span>
 
-print(<span style=font-style:italic>&#34;My name is &#34;</span>zs<span style=font-style:italic>&#34;&#34;</span>)  <span style=font-style:italic>#不合法 invalid syntax</span>
+print(<span style=color:#e6db74>&#34;My name is &#34;</span>zs<span style=color:#e6db74>&#34;&#34;</span>)  <span style=color:#75715e>#不合法 invalid syntax</span>
 
-print(<span style=font-style:italic>&#34;My name is </span><span style=font-weight:700;font-style:italic>\&#34;</span><span style=font-style:italic>zs</span><span style=font-weight:700;font-style:italic>\&#34;</span><span style=font-style:italic>&#34;</span>) <span style=font-style:italic>#合法 My name is &#34;zs&#34; </span>
+print(<span style=color:#e6db74>&#34;My name is </span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>zs</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>&#34;</span>) <span style=color:#75715e>#合法 My name is &#34;zs&#34; </span>
 
-print(<span style=font-style:italic>&#39;My name is &#34;zs&#34;&#39;</span>)  <span style=font-style:italic>#合法  My name is &#34;zs&#34;</span>
+print(<span style=color:#e6db74>&#39;My name is &#34;zs&#34;&#39;</span>)  <span style=color:#75715e>#合法  My name is &#34;zs&#34;</span>
 
-print(<span style=font-style:italic>&#39;My name is &#39;</span>zs<span style=font-style:italic>&#39;&#39;</span>)  <span style=font-style:italic>#不合法 invalid syntax</span>
+print(<span style=color:#e6db74>&#39;My name is &#39;</span>zs<span style=color:#e6db74>&#39;&#39;</span>)  <span style=color:#75715e>#不合法 invalid syntax</span>
 
-print(<span style=font-style:italic>&#39;My name is </span><span style=font-weight:700;font-style:italic>\&#39;</span><span style=font-style:italic>zs</span><span style=font-weight:700;font-style:italic>\&#39;</span><span style=font-style:italic>&#39;</span>) <span style=font-style:italic>#合法 My name is &#39;zs&#39;</span>
+print(<span style=color:#e6db74>&#39;My name is </span><span style=color:#ae81ff>\&#39;</span><span style=color:#e6db74>zs</span><span style=color:#ae81ff>\&#39;</span><span style=color:#e6db74>&#39;</span>) <span style=color:#75715e>#合法 My name is &#39;zs&#39;</span>
 </code></pre></div><p>​    Python中也有很多转义字符，跟C++的很类似。<code>\n</code>,<code>\t</code>,<code>\\</code> 分别代表换行，横向制表，字符<code>\</code> 。在python中还支持用 <code>r' '</code> 表示 <code>''</code> 内部的字符默认不转义。</p>
 <p>​    Python在输出多行语句时，可以用 <code>print('''content''')</code> 其中content中的内容，支持用直觉上的换行。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(<span style=font-style:italic>&#39;&#39;&#39;python
-</span><span style=font-style:italic>name
-</span><span style=font-style:italic>zs&#39;&#39;&#39;</span>)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(<span style=color:#e6db74>&#39;&#39;&#39;python
+</span><span style=color:#e6db74>name
+</span><span style=color:#e6db74>zs&#39;&#39;&#39;</span>)
 
-<span style=font-style:italic># The output</span>
+<span style=color:#75715e># The output</span>
 python
 name
 zs
@@ -370,8 +370,8 @@ Python的字符串存储
 <p>​    我们可以通过<code>encode('编码方式')</code> 将 <strong>str</strong> 转变成 <strong>bytes</strong> 。我们也可以通过 <code>decode('编码方式')</code> 将 <strong>bytes</strong> 转变为 <strong>str</strong> 。</p>
 <p>​    Python为我们提供了一个 <code>len()</code> 函数，如果字符串是 <strong>str</strong> ，那么计算出的是字符数，如果是 <strong>bytes</strong> ，那么计算的是字节数。我们为了防止乱码问题，在两者相互转换时推荐用 <strong>utf-8</strong> 编码。</p>
 <p>​    由于Python源代码也是一个文本文件，所以，当你的源代码中包含中文的时候，在保存源代码时，就需要务必指定保存为UTF-8编码。当Python解释器读取源代码时，为了让它按UTF-8编码读取，我们通常在文件开头写上这两行：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-style:italic>#!/usr/bin/env python3</span>
-<span style=font-style:italic># -*- coding: utf-8 -*-</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>#!/usr/bin/env python3</span>
+<span style=color:#75715e># -*- coding: utf-8 -*-</span>
 </code></pre></div><p>第一行注释是为了告诉Linux/OS X系统，这是一个Python可执行程序，Windows系统会忽略这个注释；</p>
 <p>第二行注释是为了告诉Python解释器，按照UTF-8编码读取源代码，否则，你在源代码中写的中文输出可能会有乱码。而且需要你的编辑器支持 UTF-8编码。</p>
 <h4 id=字符串的格式化输出>
@@ -387,11 +387,11 @@ Python的字符串存储
 </a>
 </h5>
 <p>​    Python的 <code>print()</code> 格式化输出和C语言的很像，也是 <code>%d</code> 代表整数，<code>%f</code> 代表浮点数， <code>%s</code> 代表字符串，<code>%s</code>代表十六进制整数。关于格式的指定，好比补0什么的也和C的很像。具体格式如下：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(<span style=font-style:italic>&#39;</span><span style=font-weight:700;font-style:italic>%2d</span><span style=font-style:italic>-</span><span style=font-weight:700;font-style:italic>%02d</span><span style=font-style:italic>&#39;</span> % (3,1)) <span style=font-style:italic># 输出 3-01</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(<span style=color:#e6db74>&#39;</span><span style=color:#e6db74>%2d</span><span style=color:#e6db74>-</span><span style=color:#e6db74>%02d</span><span style=color:#e6db74>&#39;</span> <span style=color:#f92672>%</span> (<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>1</span>)) <span style=color:#75715e># 输出 3-01</span>
 
-print(<span style=font-style:italic>&#39;my name is </span><span style=font-weight:700;font-style:italic>%s</span><span style=font-style:italic>&#39;</span> % <span style=font-style:italic>&#34;zs&#34;</span>) <span style=font-style:italic># 输出 my name is zs</span>
+print(<span style=color:#e6db74>&#39;my name is </span><span style=color:#e6db74>%s</span><span style=color:#e6db74>&#39;</span> <span style=color:#f92672>%</span> <span style=color:#e6db74>&#34;zs&#34;</span>) <span style=color:#75715e># 输出 my name is zs</span>
 </code></pre></div><p>​    如果我们要在字符串里面输出 <code>%</code> ，那么就需要用 <code>%%</code> 来转义表示 <code>%</code> 。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(<span style=font-style:italic>&#34;This is a common </span><span style=font-weight:700;font-style:italic>%%</span><span style=font-style:italic> </span><span style=font-weight:700;font-style:italic>%s</span><span style=font-style:italic> &#34;</span> % <span style=font-style:italic>&#34;字符&#34;</span>) <span style=font-style:italic># 输出 This is a common % 字符</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(<span style=color:#e6db74>&#34;This is a common </span><span style=color:#e6db74>%%</span><span style=color:#e6db74> </span><span style=color:#e6db74>%s</span><span style=color:#e6db74> &#34;</span> <span style=color:#f92672>%</span> <span style=color:#e6db74>&#34;字符&#34;</span>) <span style=color:#75715e># 输出 This is a common % 字符</span>
 </code></pre></div><h5 id=第二种方式>
 第二种方式
 <a class=heading-link href=#%e7%ac%ac%e4%ba%8c%e7%a7%8d%e6%96%b9%e5%bc%8f>
@@ -399,7 +399,7 @@ print(<span style=font-style:italic>&#39;my name is </span><span style=font-weig
 </a>
 </h5>
 <p>​    除了上面的方法，<code>print</code> 还可以用 .format 的方法进行格式化输出。例如下例子</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(<span style=font-style:italic>&#39;</span><span style=font-weight:700;font-style:italic>{0}</span><span style=font-style:italic> name is </span><span style=font-weight:700;font-style:italic>{1}</span><span style=font-style:italic>&#39;</span>.format(<span style=font-style:italic>&#34;who&#34;</span>,<span style=font-style:italic>&#34;zs&#34;</span>)) <span style=font-style:italic>#输出 who name is zs</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(<span style=color:#e6db74>&#39;</span><span style=color:#e6db74>{0}</span><span style=color:#e6db74> name is </span><span style=color:#e6db74>{1}</span><span style=color:#e6db74>&#39;</span><span style=color:#f92672>.</span>format(<span style=color:#e6db74>&#34;who&#34;</span>,<span style=color:#e6db74>&#34;zs&#34;</span>)) <span style=color:#75715e>#输出 who name is zs</span>
 </code></pre></div><h3 id=list--tuple-列表和元组>
 List & tuple (列表和元组)
 <a class=heading-link href=#list--tuple-%e5%88%97%e8%a1%a8%e5%92%8c%e5%85%83%e7%bb%84>
@@ -418,23 +418,23 @@ List(列表)
 <p>​    我们可以通过 <code>listk = []</code> ，来创建一个空列表 <strong>listk</strong> ，如果用 <code>len()</code> 查看长度那么长度为<strong>0</strong>.</p>
 <p>​    此外列表中的元素也可以是列表，可以通过<strong>类似于二维数组的形式索引</strong>。</p>
 <p>​    列表中，有许多的<strong>方法</strong>。就像是相对于这个类型内置的一些函数，用法如下：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>Mylist = [<span style=font-style:italic>&#34;zs&#34;</span>,<span style=font-style:italic>&#34;wx&#34;</span>]
-print(Mylist) <span style=font-style:italic># 输出 [&#39;zs&#39;, &#39;wx&#39;]</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>Mylist <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#34;zs&#34;</span>,<span style=color:#e6db74>&#34;wx&#34;</span>]
+print(Mylist) <span style=color:#75715e># 输出 [&#39;zs&#39;, &#39;wx&#39;]</span>
 
-Mylist.append(<span style=font-style:italic>&#39;Better&#39;</span>) <span style=font-style:italic># 用于在列表后面追加一个元素</span>
-print(Mylist) <span style=font-style:italic># 输出 [&#39;zs&#39;, &#39;wx&#39;, &#39;Better&#39;]</span>
+Mylist<span style=color:#f92672>.</span>append(<span style=color:#e6db74>&#39;Better&#39;</span>) <span style=color:#75715e># 用于在列表后面追加一个元素</span>
+print(Mylist) <span style=color:#75715e># 输出 [&#39;zs&#39;, &#39;wx&#39;, &#39;Better&#39;]</span>
 
-Mylist.insert(1,<span style=font-style:italic>&#39;Good&#39;</span>) <span style=font-style:italic># 用于在下标为1的位置，插入一个元素</span>
-print(Mylist) <span style=font-style:italic># 输出 [&#39;zs&#39;, &#39;Good&#39;, &#39;wx&#39;, &#39;Better&#39;]</span>
+Mylist<span style=color:#f92672>.</span>insert(<span style=color:#ae81ff>1</span>,<span style=color:#e6db74>&#39;Good&#39;</span>) <span style=color:#75715e># 用于在下标为1的位置，插入一个元素</span>
+print(Mylist) <span style=color:#75715e># 输出 [&#39;zs&#39;, &#39;Good&#39;, &#39;wx&#39;, &#39;Better&#39;]</span>
 
-popx = Mylist.pop() <span style=font-style:italic># 用于删除列表中最后一个元素，并返回元素的值</span>
-print(Mylist,popx) <span style=font-style:italic># 输出 [&#39;zs&#39;, &#39;Good&#39;, &#39;wx&#39;] Better</span>
+popx <span style=color:#f92672>=</span> Mylist<span style=color:#f92672>.</span>pop() <span style=color:#75715e># 用于删除列表中最后一个元素，并返回元素的值</span>
+print(Mylist,popx) <span style=color:#75715e># 输出 [&#39;zs&#39;, &#39;Good&#39;, &#39;wx&#39;] Better</span>
 
-popx = Mylist.pop(1) <span style=font-style:italic># 用于删除列表中下标为1的元素，并返回元素的值</span>
-print(Mylist,popx) <span style=font-style:italic># 输出 [&#39;zs&#39;, &#39;wx&#39;] Good</span>
+popx <span style=color:#f92672>=</span> Mylist<span style=color:#f92672>.</span>pop(<span style=color:#ae81ff>1</span>) <span style=color:#75715e># 用于删除列表中下标为1的元素，并返回元素的值</span>
+print(Mylist,popx) <span style=color:#75715e># 输出 [&#39;zs&#39;, &#39;wx&#39;] Good</span>
 
-L = [] <span style=font-style:italic># 创建了一个空列表 L</span>
-print(len(L)) <span style=font-style:italic>#输出0</span>
+L <span style=color:#f92672>=</span> [] <span style=color:#75715e># 创建了一个空列表 L</span>
+print(len(L)) <span style=color:#75715e>#输出0</span>
 </code></pre></div><h4 id=tuple元组>
 Tuple(元组)
 <a class=heading-link href=#tuple%e5%85%83%e7%bb%84>
@@ -453,13 +453,13 @@ Tuple(元组)
 </h3>
 <p>​    条件判断是一个经典的语句。用于分支结构。</p>
 <p>​    用法跟C很像，不过 <strong>else if</strong> 可以缩写为 <strong>elif</strong> ，并且因为 <strong>if</strong> ，<strong>else</strong> , <strong>elif</strong> 后面接的都是语句块，因此要加 <code>:</code> 。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>weight = 120
-<span style=font-weight:700>if</span> weight&gt;=200:
-    print(<span style=font-style:italic>&#34;too fat&#34;</span>)
-<span style=font-weight:700>elif</span> weight&lt;=100:
-    print(<span style=font-style:italic>&#34;too thin&#34;</span>)
-<span style=font-weight:700>else</span>: 
-    print(<span style=font-style:italic>&#34;Good&#34;</span>)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>weight <span style=color:#f92672>=</span> <span style=color:#ae81ff>120</span>
+<span style=color:#66d9ef>if</span> weight<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>200</span>:
+    print(<span style=color:#e6db74>&#34;too fat&#34;</span>)
+<span style=color:#66d9ef>elif</span> weight<span style=color:#f92672>&lt;=</span><span style=color:#ae81ff>100</span>:
+    print(<span style=color:#e6db74>&#34;too thin&#34;</span>)
+<span style=color:#66d9ef>else</span>: 
+    print(<span style=color:#e6db74>&#34;Good&#34;</span>)
 </code></pre></div><h3 id=循环语句>
 循环语句
 <a class=heading-link href=#%e5%be%aa%e7%8e%af%e8%af%ad%e5%8f%a5>
@@ -475,8 +475,8 @@ for
 </h4>
 <p>​    for语句是我C++中最喜欢循环语句。在Python中，他的写法变成了 <code>for x in something:</code> ，下面接相应的循环语句块。这个 <strong>x</strong> 是变量的名字，<strong>something</strong> 是某一个容器，可以是列表可以是元组啥的，这个写法的意思就是 遍历 <strong>something</strong> 中的每个元素，带入变量 <strong>x</strong> 中，执行循环操作。</p>
 <p>​    我们通常配合 <code>range()</code> 函数来执行循环操作，通过 <code>range(n)</code> 可以生成从 <strong>[0,n)</strong> 的整数。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-weight:700>for</span> x <span style=font-weight:700>in</span> list(range(11)):
-    print(x)  <span style=font-style:italic>#输出 0~10</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>for</span> x <span style=color:#f92672>in</span> list(range(<span style=color:#ae81ff>11</span>)):
+    print(x)  <span style=color:#75715e>#输出 0~10</span>
 </code></pre></div><h4 id=while>
 while
 <a class=heading-link href=#while>
@@ -543,11 +543,11 @@ Set
 </a>
 </h4>
 <p>​    普通函数的定义通过 <code>def</code> 来进行，好比我们要写一个求绝对值的函数，那么就可以如下定义</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-weight:700>def</span> myabs(x):
-    <span style=font-weight:700>if</span> x&gt;=0:
-        <span style=font-weight:700>return</span> x
-    <span style=font-weight:700>else</span>:
-        <span style=font-weight:700>return</span> -x
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>myabs</span>(x):
+    <span style=color:#66d9ef>if</span> x<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span>:
+        <span style=color:#66d9ef>return</span> x
+    <span style=color:#66d9ef>else</span>:
+        <span style=color:#66d9ef>return</span> <span style=color:#f92672>-</span>x
 </code></pre></div><p>​    这样我们就可以类似调用 <code>myabs(-5)</code> 来获得 -5 的绝对值。</p>
 <p>​    如果我们想要定义一个<strong>空的函数</strong>，也就是什么都不做，那么函数内部的语句可以写 <code>pass</code> 。这类似于C++中的分号的作用？大概是。</p>
 <p>​    通过 <code>函数.__name__</code> 可以获得函数的真实名字。</p>
@@ -572,22 +572,22 @@ Set
 </a>
 </h4>
 <p>​    当我们调用一个函数，有几个参数大多数情况下是一个默认的值，少数时候是变的，那么我们可以用到默认参数，默认参数的使用我们可以在那个参数的后面加上 <code>=something</code> ，这意思说是，这个参数默认为 <strong>something</strong></p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-weight:700>def</span> poww(x,n=2):
-    k = 1
-    <span style=font-weight:700>while</span> n&gt;0:
-        n = n-1
-        k = k*x
-    <span style=font-weight:700>return</span> k
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>poww</span>(x,n<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>):
+    k <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+    <span style=color:#66d9ef>while</span> n<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>0</span>:
+        n <span style=color:#f92672>=</span> n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
+        k <span style=color:#f92672>=</span> k<span style=color:#f92672>*</span>x
+    <span style=color:#66d9ef>return</span> k
 </code></pre></div><p>​    例如上面这个例子，我们要求 $2^5$ ，那么可以调用 <code>poww(2,5)</code> 。那么我们如果要求 $2^2$ ，那么就可以直接调用<code>poww(2)</code> ，另一个参数可以不写，那么就是默认的2。</p>
 <p>​    需要注意的是，<strong>必选参数在前，默认参数要在后</strong>。否则话会产生歧义，因为解释器不知道你到底传入的参数是默认参数还是必选参数。</p>
 <p>​    此外，当我们有多个默认参数的时候，我们要在前面几个默认参数使用默认值，而后面那个用传入参数的时候，我们需要加上参数名，也就是 <code>参数名 = value</code> 这样传入。例子如下：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-weight:700>def</span> poww(x,n=2,z=3):
-    k = 1
-    f = n+z
-    <span style=font-weight:700>while</span> n&gt;0:
-        f = f-1
-        k = k*x
-    <span style=font-weight:700>return</span> k
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>poww</span>(x,n<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>,z<span style=color:#f92672>=</span><span style=color:#ae81ff>3</span>):
+    k <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+    f <span style=color:#f92672>=</span> n<span style=color:#f92672>+</span>z
+    <span style=color:#66d9ef>while</span> n<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>0</span>:
+        f <span style=color:#f92672>=</span> f<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
+        k <span style=color:#f92672>=</span> k<span style=color:#f92672>*</span>x
+    <span style=color:#66d9ef>return</span> k
 </code></pre></div><p>​    这时候，我们如果要调用 <code>poww(5,4)</code> ，代表求的是 $5^{4+3}$ ，如果我们要求 $5^{2+7}$ ，可以按照如下方法调用，使用 <code>poww(5,z=7)</code> 。</p>
 <p>​    最后还有一点很重要，默认参数要指向 <strong>不变对象</strong> 。否则当我们重复调用会发生错误。</p>
 <h4 id=可变参数>
@@ -598,22 +598,22 @@ Set
 </h4>
 <p>​    我们很多时候可能需要一个函数内传入不定量个数的参数，这就要用到可变参数，可变参数就是数量可变。</p>
 <p>​    我们很容易想到，可以往里面传<strong>列表或者元组</strong> ，不过这样当我们传之前还有要把所有的参数归到一个列表和元素中，这样太麻烦。Python给出了一个简便写法，我们只需要在参数面前加一个 <code>*</code> ，这样我们就可以传入可变个参数。而且调用的时候，按普通的调用方法来即可，不需要传入元组。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-weight:700>def</span> test(*numbers):
-    sum = 0
-    <span style=font-weight:700>for</span> i <span style=font-weight:700>in</span> numbers:
-        sum = sum + i*i
-    <span style=font-weight:700>return</span> sum
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test</span>(<span style=color:#f92672>*</span>numbers):
+    sum <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> numbers:
+        sum <span style=color:#f92672>=</span> sum <span style=color:#f92672>+</span> i<span style=color:#f92672>*</span>i
+    <span style=color:#66d9ef>return</span> sum
 
-print(test(1,2,3)) <span style=font-style:italic># 输出 14</span>
+print(test(<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>)) <span style=color:#75715e># 输出 14</span>
 </code></pre></div><p>​    那么当这时候我们想往里面传一个元组，或者列表。当然可以挨个用数组访问然后写，不过Python也给了我们一个简便做法，只需要在列表或者元组前面加一个 <code>*</code> ，就可以把它结构解开，然后挨个元素传入函数中。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-weight:700>def</span> test(*numbers):
-    sum = 0
-    <span style=font-weight:700>for</span> i <span style=font-weight:700>in</span> numbers:
-        sum = sum + i*i
-    <span style=font-weight:700>return</span> sum
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test</span>(<span style=color:#f92672>*</span>numbers):
+    sum <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> numbers:
+        sum <span style=color:#f92672>=</span> sum <span style=color:#f92672>+</span> i<span style=color:#f92672>*</span>i
+    <span style=color:#66d9ef>return</span> sum
 
-Mylist = list(range(5))
-print(test(*Mylist))  <span style=font-style:italic>#输出30</span>
+Mylist <span style=color:#f92672>=</span> list(range(<span style=color:#ae81ff>5</span>))
+print(test(<span style=color:#f92672>*</span>Mylist))  <span style=color:#75715e>#输出30</span>
 </code></pre></div><h4 id=关键词参数>
 关键词参数
 <a class=heading-link href=#%e5%85%b3%e9%94%ae%e8%af%8d%e5%8f%82%e6%95%b0>
@@ -621,12 +621,12 @@ print(test(*Mylist))  <span style=font-style:italic>#输出30</span>
 </a>
 </h4>
 <p>​    可变参数允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple。而关键字参数允许你传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-weight:700>def</span> myfun(**kw):
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>myfun</span>(<span style=color:#f92672>**</span>kw):
     print(kw)
 
-myfun(city = <span style=font-style:italic>&#34;jz&#34;</span>,name = <span style=font-style:italic>&#34;zs&#34;</span>) <span style=font-style:italic># 输出 {&#39;city&#39;: &#39;jz&#39;, &#39;name&#39;: &#39;zs&#39;}</span>
-Mydict = {<span style=font-style:italic>&#34;city&#34;</span>:<span style=font-style:italic>&#34;jz&#34;</span>,<span style=font-style:italic>&#34;name&#34;</span>:<span style=font-style:italic>&#34;zs&#34;</span>}
-myfun(**Mydict)  <span style=font-style:italic># 输出 {&#39;city&#39;: &#39;jz&#39;, &#39;name&#39;: &#39;zs&#39;}</span>
+myfun(city <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;jz&#34;</span>,name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;zs&#34;</span>) <span style=color:#75715e># 输出 {&#39;city&#39;: &#39;jz&#39;, &#39;name&#39;: &#39;zs&#39;}</span>
+Mydict <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;city&#34;</span>:<span style=color:#e6db74>&#34;jz&#34;</span>,<span style=color:#e6db74>&#34;name&#34;</span>:<span style=color:#e6db74>&#34;zs&#34;</span>}
+myfun(<span style=color:#f92672>**</span>Mydict)  <span style=color:#75715e># 输出 {&#39;city&#39;: &#39;jz&#39;, &#39;name&#39;: &#39;zs&#39;}</span>
 </code></pre></div><p>​    参数前面加 <code>**</code> 即是关键词参数。当然我们也可以传入参数时，用dict，然后加 <code>**</code> 解开结构传入。</p>
 <h4 id=命名关键词参数>
 命名关键词参数
@@ -664,12 +664,12 @@ myfun(**Mydict)  <span style=font-style:italic># 输出 {&#39;city&#39;: &#39;jz
 <p>​    切片操作感觉真的是Python很方便的一个特性了。</p>
 <p>​    <strong>字符串，列表，元组支持切片。</strong></p>
 <p>​    好比我们有一个列表，里面有数，0~100，我们要取其中的奇数，那么我们就需要每隔一个数取一个数，我们可以通过for循环来实现这个操作，但是呢，Python有一种更便利的方法来实现，那就是切片。他的用法类似于matlab中的冒号表达式，<code>begin🔚step</code> 这三个变量分别代表起始，终止和步长，也就是每个多少取一个，这三个参数都可以省略，<strong>省略时默认为序列起始点，序列终止点，1。这里要注意</strong>，<strong>序列范围为 <code>[begin,end)</code> ，前闭后开</strong>，例子：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>L = list(range(101))
-print(L[1<span>💯</span>2]) <span style=font-style:italic># 输出0~100所有的奇数</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>L <span style=color:#f92672>=</span> list(range(<span style=color:#ae81ff>101</span>))
+print(L[<span style=color:#ae81ff>1</span><span style=color:#960050;background-color:#1e0010>💯</span><span style=color:#ae81ff>2</span>]) <span style=color:#75715e># 输出0~100所有的奇数</span>
 
-print(L[-10::2])  <span style=font-style:italic># 从倒数第十个数开始输出奇数，输出 [91, 93, 95, 97, 99]</span>
+print(L[<span style=color:#f92672>-</span><span style=color:#ae81ff>10</span>::<span style=color:#ae81ff>2</span>])  <span style=color:#75715e># 从倒数第十个数开始输出奇数，输出 [91, 93, 95, 97, 99]</span>
 
-print(L[-50:0:-2])  <span style=font-style:italic># 从倒数第50个数，往前开始输出奇数，为 51~0中所有奇数</span>
+print(L[<span style=color:#f92672>-</span><span style=color:#ae81ff>50</span>:<span style=color:#ae81ff>0</span>:<span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>])  <span style=color:#75715e># 从倒数第50个数，往前开始输出奇数，为 51~0中所有奇数</span>
 
 </code></pre></div><h3 id=迭代>
 迭代
@@ -680,16 +680,16 @@ print(L[-50:0:-2])  <span style=font-style:italic># 从倒数第50个数，往�
 <p>​    迭代就是类似于遍历吧，通过 <strong>for</strong> 可以迭代遍历一个容器内的所有元素。</p>
 <p>​    字符串和列表，元组，集合，字典这些都是可以用<strong>for</strong>遍历的，这也叫做可迭代对象。需要注意的是，我们在遍历字典和集合时，因为是无序的，所以两次遍历顺序可能不太一样。</p>
 <p>​    当我们遍历字典时，默认遍历的是键值。例如下面这样</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>L = {<span style=font-style:italic>&#34;zs&#34;</span>:<span style=font-style:italic>&#34;rj&#34;</span>,<span style=font-style:italic>&#34;jjh&#34;</span>:<span style=font-style:italic>&#34;nb&#34;</span>}
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>L <span style=color:#f92672>=</span> {<span style=color:#e6db74>&#34;zs&#34;</span>:<span style=color:#e6db74>&#34;rj&#34;</span>,<span style=color:#e6db74>&#34;jjh&#34;</span>:<span style=color:#e6db74>&#34;nb&#34;</span>}
 
-<span style=font-weight:700>for</span> key <span style=font-weight:700>in</span> L:
-    print(key)  <span style=font-style:italic># 输出 zs jjh</span>
+<span style=color:#66d9ef>for</span> key <span style=color:#f92672>in</span> L:
+    print(key)  <span style=color:#75715e># 输出 zs jjh</span>
     
-<span style=font-weight:700>for</span> value <span style=font-weight:700>in</span> L.values():
-    print(value) <span style=font-style:italic># 输出 rj nb</span>
+<span style=color:#66d9ef>for</span> value <span style=color:#f92672>in</span> L<span style=color:#f92672>.</span>values():
+    print(value) <span style=color:#75715e># 输出 rj nb</span>
     
-<span style=font-weight:700>for</span> k,v <span style=font-weight:700>in</span> L.items():
-    print(k,v) <span style=font-style:italic># 输出 zs rj jjh nb</span>
+<span style=color:#66d9ef>for</span> k,v <span style=color:#f92672>in</span> L<span style=color:#f92672>.</span>items():
+    print(k,v) <span style=color:#75715e># 输出 zs rj jjh nb</span>
 
 </code></pre></div><p>​    可以注意到，可以同时迭代两个数，或者多个数。</p>
 <h3 id=列表生成器>
@@ -701,11 +701,11 @@ print(L[-50:0:-2])  <span style=font-style:italic># 从倒数第50个数，往�
 <p>​    列表生成式即List Comprehensions，是Python内置的非常简单却强大的可以用来创建list的生成式。</p>
 <p>​    好比我们生成 <code>[1*1,2*2,3*3,···,n*n]</code> 这样的列表，可以用循环实现，也可以用列表生成式。</p>
 <p>​    列表生成式格式大概是 <code>[元素 规则]</code> 就是前面是要往里面加的元素的表达式，后面是生成的规则。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>L = [x*x <span style=font-weight:700>for</span> x <span style=font-weight:700>in</span> range(1,11)]
-print(L)  <span style=font-style:italic># 输出[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>L <span style=color:#f92672>=</span> [x<span style=color:#f92672>*</span>x <span style=color:#66d9ef>for</span> x <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>11</span>)]
+print(L)  <span style=color:#75715e># 输出[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span>
 
-D = [x*x <span style=font-weight:700>for</span> x <span style=font-weight:700>in</span> range(1,11) <span style=font-weight:700>if</span> x % 2 == 0]
-print(D)  <span style=font-style:italic># 输出[4, 16, 36, 64, 100]</span>
+D <span style=color:#f92672>=</span> [x<span style=color:#f92672>*</span>x <span style=color:#66d9ef>for</span> x <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>11</span>) <span style=color:#66d9ef>if</span> x <span style=color:#f92672>%</span> <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>]
+print(D)  <span style=color:#75715e># 输出[4, 16, 36, 64, 100]</span>
 
 </code></pre></div><h3 id=生成器>
 生成器
@@ -725,19 +725,19 @@ print(D)  <span style=font-style:italic># 输出[4, 16, 36, 64, 100]</span>
 <p>​    凡是可作用于<code>next()</code>函数的对象都是<code>Iterator</code>类型，它们表示一个惰性计算的序列，<strong>这感觉就像是一个指针呀其实（自我认为），可以通过指针访问可迭代对象中的元素</strong>；</p>
 <p>​    集合数据类型如<code>list</code>、<code>dict</code>、<code>str</code>等是<code>Iterable</code>但不是<code>Iterator</code>，不过可以通过<code>iter()</code>函数获得一个<code>Iterator</code>对象。</p>
 <p>​    Python的<code>for</code>循环本质上就是通过不断调用<code>next()</code>函数实现的，例如：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-weight:700>for</span> x <span style=font-weight:700>in</span> [1, 2, 3, 4, 5]:
-    <span style=font-weight:700>pass</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>for</span> x <span style=color:#f92672>in</span> [<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>]:
+    <span style=color:#66d9ef>pass</span>
 </code></pre></div><p>实际上完全等价于：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-style:italic># 首先获得Iterator对象:</span>
-it = iter([1, 2, 3, 4, 5])
-<span style=font-style:italic># 循环:</span>
-<span style=font-weight:700>while</span> <span style=font-weight:700>True</span>:
-    <span style=font-weight:700>try</span>:
-        <span style=font-style:italic># 获得下一个值:</span>
-        x = next(it)
-    <span style=font-weight:700>except</span> <span style=font-weight:700>StopIteration</span>:
-        <span style=font-style:italic># 遇到StopIteration就退出循环</span>
-        <span style=font-weight:700>break</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e># 首先获得Iterator对象:</span>
+it <span style=color:#f92672>=</span> iter([<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>])
+<span style=color:#75715e># 循环:</span>
+<span style=color:#66d9ef>while</span> <span style=color:#66d9ef>True</span>:
+    <span style=color:#66d9ef>try</span>:
+        <span style=color:#75715e># 获得下一个值:</span>
+        x <span style=color:#f92672>=</span> next(it)
+    <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>StopIteration</span>:
+        <span style=color:#75715e># 遇到StopIteration就退出循环</span>
+        <span style=color:#66d9ef>break</span>
 </code></pre></div><h2 id=函数式编程>
 函数式编程
 <a class=heading-link href=#%e5%87%bd%e6%95%b0%e5%bc%8f%e7%bc%96%e7%a8%8b>
@@ -796,7 +796,7 @@ sorted
 </h3>
 <p>​    通过 <code>lambda</code> 可以创建匿名函数，这个就类似于matlab里面的那个 <code>@</code> 创建的匿名函数。</p>
 <p>​    格式为： <code>lambda 变量: 返回值</code></p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(list(map(<span style=font-weight:700>lambda</span> x: x*x,range(1,11)))) <span style=font-style:italic># [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>print(list(map(<span style=color:#66d9ef>lambda</span> x: x<span style=color:#f92672>*</span>x,range(<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>11</span>)))) <span style=color:#75715e># [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span>
 </code></pre></div><p>​    我们也可以把匿名函数当作函数的返回值返回。</p>
 <h3 id=装饰器>
 装饰器
@@ -807,18 +807,18 @@ sorted
 <p>​    我们可能想在调用函数之前在前面打印一下函数的运行日志，或者其他的一些内容，其他的操作。</p>
 <p>​    这样我们就可以通过装饰器来实现，装饰器是为了给函数加一些其他的修饰，但是不需要在原本函数的基础上做改变。</p>
 <p>​    本质上，<strong>装饰器(decorator)</strong> 是一个返回函数的高阶函数，一个能打印日志的 <strong>decorator</strong> 可以如下定义：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-weight:700>def</span> log(func):
-    <span style=font-weight:700>def</span> wrapper(*args,**kw):
-        print(<span style=font-style:italic>&#34;call </span><span style=font-weight:700;font-style:italic>%s</span><span style=font-style:italic>()&#34;</span> % func.__name__)
-        <span style=font-weight:700>return</span> func(*args,**kw)
-    <span style=font-weight:700>return</span> wrapper
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>log</span>(func):
+    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>wrapper</span>(<span style=color:#f92672>*</span>args,<span style=color:#f92672>**</span>kw):
+        print(<span style=color:#e6db74>&#34;call </span><span style=color:#e6db74>%s</span><span style=color:#e6db74>()&#34;</span> <span style=color:#f92672>%</span> func<span style=color:#f92672>.</span>__name__)
+        <span style=color:#66d9ef>return</span> func(<span style=color:#f92672>*</span>args,<span style=color:#f92672>**</span>kw)
+    <span style=color:#66d9ef>return</span> wrapper
 
 </code></pre></div><p>​    调用如下：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>@log
-<span style=font-weight:700>def</span> now():
-	print(<span style=font-style:italic>&#39;2020-4-18&#39;</span>)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#a6e22e>@log</span>
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>now</span>():
+	print(<span style=color:#e6db74>&#39;2020-4-18&#39;</span>)
     
-print(now()) <span style=font-style:italic># 输出 call now() 2020-4-18</span>
+print(now()) <span style=color:#75715e># 输出 call now() 2020-4-18</span>
 </code></pre></div><p>​    在这里， <code>@log</code> 可以等效为 <code>now = log(now)</code> ，那么我们应该怎么理解呢，首先，在我们调用之前，我们就把这个函数传入这个<code>log</code>函数，然后进入 <code>wrapper</code> 函数，先输出了日志，然后返回了一个 <code>func()</code> 函数，然后结束这个函数的定义，又返回了 <code>wrapper</code> 函数，这样就是将日志和原函数组合在一起了。所以最后一起输出</p>
 <h3 id=偏函数>
 偏函数
@@ -831,12 +831,12 @@ print(now()) <span style=font-style:italic># 输出 call now() 2020-4-18</span>
 <p>当函数的参数个数太多，需要简化时，使用<code>functools.partial</code>可以创建一个新的函数，这个新函数可以固定住原函数的部分参数，从而在调用时更简单。</p>
 </blockquote>
 <p>​ <strong>当用 <code>functools.partial</code> 之前我们需要引入 <code>functools</code> 模块。</strong></p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=font-weight:700>import</span> <span style=font-weight:700>functools</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> functools
 
-int2 = functools.partial(int,base=2)
+int2 <span style=color:#f92672>=</span> functools<span style=color:#f92672>.</span>partial(int,base<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>)
 
-print(int(<span style=font-style:italic>&#39;10110&#39;</span>,base=2)) <span style=font-style:italic># 以二进制来转化这个字符串，得到22</span>
-print(int2(<span style=font-style:italic>&#39;10110&#39;</span>)) <span style=font-style:italic># 和上述等价</span>
+print(int(<span style=color:#e6db74>&#39;10110&#39;</span>,base<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>)) <span style=color:#75715e># 以二进制来转化这个字符串，得到22</span>
+print(int2(<span style=color:#e6db74>&#39;10110&#39;</span>)) <span style=color:#75715e># 和上述等价</span>
 
 </code></pre></div><h2 id=模块>
 模块

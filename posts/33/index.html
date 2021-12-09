@@ -316,20 +316,20 @@ MATLAB的搜索路径
 <li>用于取整的函数有fix，floor，ceil，round。分别为靠0取整，向下取整，向上取整，四舍五入取整。</li>
 <li>判断是否为素数的函数isprime，是素数返回1，不是返回0。</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>&gt;&gt; x=[1:100];
-&gt;&gt; k=isprime(x);
-&gt;&gt; k1=find(k);
-&gt;&gt; p=x(k1)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#f92672>&gt;&gt;</span> x=[<span style=color:#ae81ff>1</span>:<span style=color:#ae81ff>100</span>];
+<span style=color:#f92672>&gt;&gt;</span> k=isprime(x);
+<span style=color:#f92672>&gt;&gt;</span> k1=find(k);
+<span style=color:#f92672>&gt;&gt;</span> p=x(k1)
 
 p =
 
-  1 至 16 列
+  <span style=color:#ae81ff>1</span> 至 <span style=color:#ae81ff>16</span> 列
 
-     2     3     5     7    11    13    17    19    23    29    31    37    41    43    47    53
+     <span style=color:#ae81ff>2</span>     <span style=color:#ae81ff>3</span>     <span style=color:#ae81ff>5</span>     <span style=color:#ae81ff>7</span>    <span style=color:#ae81ff>11</span>    <span style=color:#ae81ff>13</span>    <span style=color:#ae81ff>17</span>    <span style=color:#ae81ff>19</span>    <span style=color:#ae81ff>23</span>    <span style=color:#ae81ff>29</span>    <span style=color:#ae81ff>31</span>    <span style=color:#ae81ff>37</span>    <span style=color:#ae81ff>41</span>    <span style=color:#ae81ff>43</span>    <span style=color:#ae81ff>47</span>    <span style=color:#ae81ff>53</span>
 
-  17 至 25 列
+  <span style=color:#ae81ff>17</span> 至 <span style=color:#ae81ff>25</span> 列
 
-    59    61    67    71    73    79    83    89    97
+    <span style=color:#ae81ff>59</span>    <span style=color:#ae81ff>61</span>    <span style=color:#ae81ff>67</span>    <span style=color:#ae81ff>71</span>    <span style=color:#ae81ff>73</span>    <span style=color:#ae81ff>79</span>    <span style=color:#ae81ff>83</span>    <span style=color:#ae81ff>89</span>    <span style=color:#ae81ff>97</span>
 </code></pre></div></li>
 </ol>
 <hr>
@@ -416,29 +416,29 @@ p =
 <li>
 <p><strong>利用已有矩阵建立更大矩阵</strong></p>
 <p>个人感觉类似于分块矩阵，例子如下：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>&gt;&gt; A=[1,2,3;4,5,6;7,8,9];
-&gt;&gt; B=[-1,-2,-3;-4,-5,-6;-7,-8,-9];
-&gt;&gt; C=[A,B;B,A]
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#f92672>&gt;&gt;</span> A=[<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>;<span style=color:#ae81ff>4</span>,<span style=color:#ae81ff>5</span>,<span style=color:#ae81ff>6</span>;<span style=color:#ae81ff>7</span>,<span style=color:#ae81ff>8</span>,<span style=color:#ae81ff>9</span>];
+<span style=color:#f92672>&gt;&gt;</span> B=[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>,<span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>,<span style=color:#f92672>-</span><span style=color:#ae81ff>3</span>;<span style=color:#f92672>-</span><span style=color:#ae81ff>4</span>,<span style=color:#f92672>-</span><span style=color:#ae81ff>5</span>,<span style=color:#f92672>-</span><span style=color:#ae81ff>6</span>;<span style=color:#f92672>-</span><span style=color:#ae81ff>7</span>,<span style=color:#f92672>-</span><span style=color:#ae81ff>8</span>,<span style=color:#f92672>-</span><span style=color:#ae81ff>9</span>];
+<span style=color:#f92672>&gt;&gt;</span> C=[A,B;B,A]
 
 C =
 
-     1     2     3    -1    -2    -3
-     4     5     6    -4    -5    -6
-     7     8     9    -7    -8    -9
-    -1    -2    -3     1     2     3
-    -4    -5    -6     4     5     6
-    -7    -8    -9     7     8     9
+     <span style=color:#ae81ff>1</span>     <span style=color:#ae81ff>2</span>     <span style=color:#ae81ff>3</span>    <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>    <span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>    <span style=color:#f92672>-</span><span style=color:#ae81ff>3</span>
+     <span style=color:#ae81ff>4</span>     <span style=color:#ae81ff>5</span>     <span style=color:#ae81ff>6</span>    <span style=color:#f92672>-</span><span style=color:#ae81ff>4</span>    <span style=color:#f92672>-</span><span style=color:#ae81ff>5</span>    <span style=color:#f92672>-</span><span style=color:#ae81ff>6</span>
+     <span style=color:#ae81ff>7</span>     <span style=color:#ae81ff>8</span>     <span style=color:#ae81ff>9</span>    <span style=color:#f92672>-</span><span style=color:#ae81ff>7</span>    <span style=color:#f92672>-</span><span style=color:#ae81ff>8</span>    <span style=color:#f92672>-</span><span style=color:#ae81ff>9</span>
+    <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>    <span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>    <span style=color:#f92672>-</span><span style=color:#ae81ff>3</span>     <span style=color:#ae81ff>1</span>     <span style=color:#ae81ff>2</span>     <span style=color:#ae81ff>3</span>
+    <span style=color:#f92672>-</span><span style=color:#ae81ff>4</span>    <span style=color:#f92672>-</span><span style=color:#ae81ff>5</span>    <span style=color:#f92672>-</span><span style=color:#ae81ff>6</span>     <span style=color:#ae81ff>4</span>     <span style=color:#ae81ff>5</span>     <span style=color:#ae81ff>6</span>
+    <span style=color:#f92672>-</span><span style=color:#ae81ff>7</span>    <span style=color:#f92672>-</span><span style=color:#ae81ff>8</span>    <span style=color:#f92672>-</span><span style=color:#ae81ff>9</span>     <span style=color:#ae81ff>7</span>     <span style=color:#ae81ff>8</span>     <span style=color:#ae81ff>9</span>
 </code></pre></div></li>
 <li>
 <p><strong>用两个实矩阵矩阵通过矩阵的运算可以建立复数矩阵</strong>，<strong>要确保两个矩阵同类型</strong></p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>&gt;&gt; B=[1,2,3;4,5,6];
-&gt;&gt; C=[7,8,9;1,2,3];
-&gt;&gt; D=B+i*C
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#f92672>&gt;&gt;</span> B=[<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>;<span style=color:#ae81ff>4</span>,<span style=color:#ae81ff>5</span>,<span style=color:#ae81ff>6</span>];
+<span style=color:#f92672>&gt;&gt;</span> C=[<span style=color:#ae81ff>7</span>,<span style=color:#ae81ff>8</span>,<span style=color:#ae81ff>9</span>;<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>];
+<span style=color:#f92672>&gt;&gt;</span> D=B<span style=color:#f92672>+</span>i<span style=color:#f92672>*</span>C
 
 D =
 
-   1.0000 + 7.0000i   2.0000 + 8.0000i   3.0000 + 9.0000i
-   4.0000 + 1.0000i   5.0000 + 2.0000i   6.0000 + 3.0000i
+   <span style=color:#ae81ff>1.0000</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>7.0000</span>i   <span style=color:#ae81ff>2.0000</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>8.0000</span>i   <span style=color:#ae81ff>3.0000</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>9.0000</span>i
+   <span style=color:#ae81ff>4.0000</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>1.0000</span>i   <span style=color:#ae81ff>5.0000</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>2.0000</span>i   <span style=color:#ae81ff>6.0000</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>3.0000</span>i
 </code></pre></div></li>
 </ul>
 <h3 id=冒号表达式>
@@ -453,21 +453,21 @@ D =
 <p>一般格式为<code>e1:e2:e3</code> 分别是初始值，步长，终止值。可以省略e2，省略时步长为默认为1。</p>
 </li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>&gt;&gt; t=0:1:5
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#f92672>&gt;&gt;</span> t=<span style=color:#ae81ff>0</span>:<span style=color:#ae81ff>1</span>:<span style=color:#ae81ff>5</span>
 t=
-	0	1	2	3	4	5
-&gt;&gt; s=0:5
+	<span style=color:#ae81ff>0</span>	<span style=color:#ae81ff>1</span>	<span style=color:#ae81ff>2</span>	<span style=color:#ae81ff>3</span>	<span style=color:#ae81ff>4</span>	<span style=color:#ae81ff>5</span>
+<span style=color:#f92672>&gt;&gt;</span> s=<span style=color:#ae81ff>0</span>:<span style=color:#ae81ff>5</span>
 s
-	0	1	2	3	4	5
+	<span style=color:#ae81ff>0</span>	<span style=color:#ae81ff>1</span>	<span style=color:#ae81ff>2</span>	<span style=color:#ae81ff>3</span>	<span style=color:#ae81ff>4</span>	<span style=color:#ae81ff>5</span>
 </code></pre></div><ul>
 <li>
 <p><strong>通过linspace函数产生行向量</strong></p>
 <p>linspace(a,b,n) 代表首元素为a，末尾元素为b，产生n个元素，相应的，步长为(b-a)/(n-1)。当n可以省略，省略时默认n为100。</p>
 </li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>&gt;&gt; x=linspace(0,pi,5)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#f92672>&gt;&gt;</span> x=linspace(<span style=color:#ae81ff>0</span>,pi,<span style=color:#ae81ff>5</span>)
 x=
-	0    0.7854    1.5708    2.3562    3.1416
+	<span style=color:#ae81ff>0</span>    <span style=color:#ae81ff>0.7854</span>    <span style=color:#ae81ff>1.5708</span>    <span style=color:#ae81ff>2.3562</span>    <span style=color:#ae81ff>3.1416</span>
 </code></pre></div><h3 id=结构矩阵和单元矩阵>
 结构矩阵和单元矩阵
 <a class=heading-link href=#%e7%bb%93%e6%9e%84%e7%9f%a9%e9%98%b5%e5%92%8c%e5%8d%95%e5%85%83%e7%9f%a9%e9%98%b5>
@@ -507,13 +507,13 @@ x=
 <ol>
 <li>通过下标来引用矩阵，例如A(3,2)表示A矩阵第三列第二个元素。如果我们引用的元素超出矩阵范围，那么会默认扩充矩阵至满足要求，拓展元素默认为0。</li>
 </ol>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>&gt;&gt; A=[1,2,3;4,5,6];
-&gt;&gt; A(4,5)=10
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#f92672>&gt;&gt;</span> A=[<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>;<span style=color:#ae81ff>4</span>,<span style=color:#ae81ff>5</span>,<span style=color:#ae81ff>6</span>];
+<span style=color:#f92672>&gt;&gt;</span> A(<span style=color:#ae81ff>4</span>,<span style=color:#ae81ff>5</span>)=<span style=color:#ae81ff>10</span>
 A=
-	1	2	3	0	0
-	4	5	6	0	0
-	0	0	0	0	0
-	0	0	0	0	10
+	<span style=color:#ae81ff>1</span>	<span style=color:#ae81ff>2</span>	<span style=color:#ae81ff>3</span>	<span style=color:#ae81ff>0</span>	<span style=color:#ae81ff>0</span>
+	<span style=color:#ae81ff>4</span>	<span style=color:#ae81ff>5</span>	<span style=color:#ae81ff>6</span>	<span style=color:#ae81ff>0</span>	<span style=color:#ae81ff>0</span>
+	<span style=color:#ae81ff>0</span>	<span style=color:#ae81ff>0</span>	<span style=color:#ae81ff>0</span>	<span style=color:#ae81ff>0</span>	<span style=color:#ae81ff>0</span>
+	<span style=color:#ae81ff>0</span>	<span style=color:#ae81ff>0</span>	<span style=color:#ae81ff>0</span>	<span style=color:#ae81ff>0</span>	<span style=color:#ae81ff>10</span>
 </code></pre></div><ol start=2>
 <li>
 <p>通过序号来引用，<strong>注意矩阵元素按列存储</strong>，依次存放第一列，第二列···最后一列。</p>
@@ -523,22 +523,22 @@ A=
 <ul>
 <li><strong>sub2ind</strong> 函数：将矩阵中指定元素的行列下标转换成存储的序号，格式为<code>D=sub2ind(S,I,J)</code>，三个参数依次为<strong>行数和列数组成的二维向量(可以通过size函数获取)</strong>，<strong>转换矩阵元素的行下标</strong>，<strong>转换矩阵元素的列下标</strong>。如果I，J为矩阵的话，那么就说明要将对应的一个下标矩阵求对应序号。注意结合下例来进行理解，我们注意到A(1,1)的序号为1，A(2,1)的序号为2，那么就是给定下标矩阵的顺序来生产的这个序号矩阵，类型相同。</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>&gt;&gt; A=[1:3;4:6]
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#f92672>&gt;&gt;</span> A=[<span style=color:#ae81ff>1</span>:<span style=color:#ae81ff>3</span>;<span style=color:#ae81ff>4</span>:<span style=color:#ae81ff>6</span>]
 A=
-	1	2	3
-	4	5	6
-&gt;&gt; D=sub2ind(size(A),[1,2;2,2],[1,1;3,2])
+	<span style=color:#ae81ff>1</span>	<span style=color:#ae81ff>2</span>	<span style=color:#ae81ff>3</span>
+	<span style=color:#ae81ff>4</span>	<span style=color:#ae81ff>5</span>	<span style=color:#ae81ff>6</span>
+<span style=color:#f92672>&gt;&gt;</span> D=sub2ind(size(A),[<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>;<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>2</span>],[<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>1</span>;<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>2</span>])
 D=
-	1	2
-	6	4
+	<span style=color:#ae81ff>1</span>	<span style=color:#ae81ff>2</span>
+	<span style=color:#ae81ff>6</span>	<span style=color:#ae81ff>4</span>
 </code></pre></div><ul>
 <li><strong>ind2sub</strong> 函数：将矩阵元素的序号转换成下标，格式为 <code>[I,J]=ind2sub(S,D)</code> ，S,D分别为<strong>行数和列数组成的二维向量(可以通过size函数获取)</strong>，<strong>要获取下标的元素的序号(可以是一个向量，标志要获取多个元素的下标)</strong> ，那么前方的 I和J就是对应的行下标和列下标，类似于一个 <strong>sub2ind</strong> 函数的逆用。</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>&gt;&gt; [I,J]=ind2sub([3,3],[1,3,5])
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#f92672>&gt;&gt;</span> [I,J]=ind2sub([<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>3</span>],[<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>5</span>])
 I=
-	1	3	2
+	<span style=color:#ae81ff>1</span>	<span style=color:#ae81ff>3</span>	<span style=color:#ae81ff>2</span>
 J=
-	1	1	2
+	<span style=color:#ae81ff>1</span>	<span style=color:#ae81ff>1</span>	<span style=color:#ae81ff>2</span>
 </code></pre></div></li>
 </ol>
 <h3 id=利用冒号表达式获得子矩阵>
@@ -550,11 +550,11 @@ J=
 <ul>
 <li>我们可以用冒号表达式作为矩阵的行或列下标，也可以用单个<code>:</code>来当行或列下标，这代表取遍全部行或列。<strong>end运算符：</strong> 表示某一维的末尾元素下标。</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>A(i,:)	表示第i行的全部元素
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>A(i,:)	表示第i行的全部元素
 A(:,j)	表示第j行的全部元素
-A(i:i+m,j:j+m)	表示第i~i+m行和j~j+m列全部元素
-A(i:i+m,:)	表示第i~i+m行全部元素
-A(1:3;1:<span style=font-weight:700>end</span>) 这代表取1~3行和1~最后一列元素
+A(i:i<span style=color:#f92672>+</span>m,j:j<span style=color:#f92672>+</span>m)	表示第i<span style=color:#f92672>~</span>i<span style=color:#f92672>+</span>m行和j<span style=color:#f92672>~</span>j<span style=color:#f92672>+</span>m列全部元素
+A(i:i<span style=color:#f92672>+</span>m,:)	表示第i<span style=color:#f92672>~</span>i<span style=color:#f92672>+</span>m行全部元素
+A(<span style=color:#ae81ff>1</span>:<span style=color:#ae81ff>3</span>;<span style=color:#ae81ff>1</span>:<span style=color:#66d9ef>end</span>) 这代表取<span style=color:#ae81ff>1</span><span style=color:#f92672>~</span><span style=color:#ae81ff>3</span>行和<span style=color:#ae81ff>1</span><span style=color:#f92672>~</span>最后一列元素
 </code></pre></div><h3 id=利用空矩阵删除矩阵元素>
 利用空矩阵删除矩阵元素
 <a class=heading-link href=#%e5%88%a9%e7%94%a8%e7%a9%ba%e7%9f%a9%e9%98%b5%e5%88%a0%e9%99%a4%e7%9f%a9%e9%98%b5%e5%85%83%e7%b4%a0>
@@ -564,16 +564,16 @@ A(1:3;1:<span style=font-weight:700>end</span>) 这代表取1~3行和1~最后一
 <ul>
 <li>空矩阵就是不含任何元素的矩阵，例如<code>x=[]</code> 就建立了一个空矩阵x。</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>&gt;&gt; C=[4,5,6;1,2,3]
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#f92672>&gt;&gt;</span> C=[<span style=color:#ae81ff>4</span>,<span style=color:#ae81ff>5</span>,<span style=color:#ae81ff>6</span>;<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>]
 C =
 
-     4     5     6
-     1     2     3
-&gt;&gt; C(:,1:2)=[]
+     <span style=color:#ae81ff>4</span>     <span style=color:#ae81ff>5</span>     <span style=color:#ae81ff>6</span>
+     <span style=color:#ae81ff>1</span>     <span style=color:#ae81ff>2</span>     <span style=color:#ae81ff>3</span>
+<span style=color:#f92672>&gt;&gt;</span> C(:,<span style=color:#ae81ff>1</span>:<span style=color:#ae81ff>2</span>)=[]
 C =
 
-     6
-     3
+     <span style=color:#ae81ff>6</span>
+     <span style=color:#ae81ff>3</span>
 
 </code></pre></div><h3 id=改变矩阵的形状>
 改变矩阵的形状
@@ -640,18 +640,18 @@ C =
 <li><strong>点运算符</strong>：在相应算术运算符前面加.，有点乘，点右除，点左除，点乘方。</li>
 <li><strong>点运算</strong>：两个同型矩阵对应元素进行相关运算。</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>&gt;&gt; A=[1,2;3,4];
-&gt;&gt; A^2  
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#f92672>&gt;&gt;</span> A=[<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>;<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>4</span>];
+<span style=color:#f92672>&gt;&gt;</span> A^<span style=color:#ae81ff>2</span>  
 ans =
 
-     7    10
-    15    22
+     <span style=color:#ae81ff>7</span>    <span style=color:#ae81ff>10</span>
+    <span style=color:#ae81ff>15</span>    <span style=color:#ae81ff>22</span>
 
-&gt;&gt; A.^2
+<span style=color:#f92672>&gt;&gt;</span> A<span style=color:#f92672>.^</span><span style=color:#ae81ff>2</span>
 ans =
 
-     1     4
-     9    16
+     <span style=color:#ae81ff>1</span>     <span style=color:#ae81ff>4</span>
+     <span style=color:#ae81ff>9</span>    <span style=color:#ae81ff>16</span>
 </code></pre></div></li>
 </ol>
 <h3 id=关系运算>

@@ -36,7 +36,7 @@ Ubuntu 18.04 相关 Ubuntu 18.04 无法使用触摸板 Ubuntu 18.04 无法使用
 Git中的分区 首先，Git中存在三大分区，分别是工作区、暂存区、版本库。其中，
 工作区即我们工作的目录，暂存区是我们执行 git add 后文件存在的区域。
 我们可以通过 git status 对两种状态进行查看，例如：
-~/test master* base ❯ git status On branch master Changes to be committed: (use &amp;#34;git restore --staged &amp;lt;file&amp;gt;...&amp;#34; to unstage) modified: test Changes not staged for commit: (use &amp;#34;git add &amp;lt;file&amp;gt;...&amp;#34; to update what will be committed) (use &amp;#34;git restore &amp;lt;file&amp;gt;.</description></item><item><title>利用树莓派为HP LaserJet 1020配置无线打印功能</title><link>https://zzsqwq.github.io/posts/198/</link><pubDate>Sun, 18 Jul 2021 16:03:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/198/</guid><description>前言  最近基地的打印机突然又好起来了。
+~/test master* base ❯ git status On branch master Changes to be committed: (use &amp;quot;git restore --staged &amp;lt;file&amp;gt;...&amp;quot; to unstage) modified: test Changes not staged for commit: (use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to update what will be committed) (use &amp;quot;git restore &amp;lt;file&amp;gt;.</description></item><item><title>利用树莓派为HP LaserJet 1020配置无线打印功能</title><link>https://zzsqwq.github.io/posts/198/</link><pubDate>Sun, 18 Jul 2021 16:03:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/198/</guid><description>前言  最近基地的打印机突然又好起来了。
  因为基地的打印机型号比较老——HP LaserJet 1020，没有无线打印的功能。所以之前一位学长1 用树莓派配置了打印机的无线打印功能，但是后来发现有一些问题，有时候发送打印请求树莓派无法接收，而且不知道为何，学长之前用的是树莓派自己创建WiFi，连接对应WiFi才能打印，但是这个显然不是最优的解决办法。
  考虑到之间已经配置好基地WiFi，我决定重新配置一下打印功能，使其连接基地WiFi即可实现局域网打印。
 配置过程 查看树莓派内容  通过ssh连接树莓派，发现里面除了Github上的一个开源项目create_ap ，就没有什么其他的内容了，连接屏幕后发现没有任何图像信号，无从下手，因此考虑重新刷机。

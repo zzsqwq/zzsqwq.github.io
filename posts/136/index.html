@@ -160,43 +160,43 @@ A. <a href="https://www.luogu.com.cn/problem/U138527?contestId=36509">Zs的回�
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C++ data-lang=C++><span>#include</span><span>&lt;stdio.h&gt;</span><span>
-</span><span>#include</span><span>&lt;math.h&gt;  //我们需要用到sqrt函数，因此需要引入数学库</span><span>
-</span><span></span>
-<span>int</span> main()
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C++ data-lang=C++><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;math.h&gt;  //我们需要用到sqrt函数，因此需要引入数学库</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-    <span>int</span> n;
-    <span>bool</span> flag = false;  <span style=font-style:italic>// 标记 i 是否满足条件
-</span><span style=font-style:italic></span>    scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;n);
-    <span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+    <span style=color:#66d9ef>int</span> n;
+    <span style=color:#66d9ef>bool</span> flag <span style=color:#f92672>=</span> false;  <span style=color:#75715e>// 标记 i 是否满足条件
+</span><span style=color:#75715e></span>    scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
+    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
     {
-        flag = true;
-        <span>int</span> p=i,j=0;
-        <span style=font-weight:700>while</span>(p)   <span style=font-style:italic>// 将 p 反转为 j 
-</span><span style=font-style:italic></span>        {
-            j=j*10+p%10;
-            p/=10;
+        flag <span style=color:#f92672>=</span> true;
+        <span style=color:#66d9ef>int</span> p<span style=color:#f92672>=</span>i,j<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+        <span style=color:#66d9ef>while</span>(p)   <span style=color:#75715e>// 将 p 反转为 j 
+</span><span style=color:#75715e></span>        {
+            j<span style=color:#f92672>=</span>j<span style=color:#f92672>*</span><span style=color:#ae81ff>10</span><span style=color:#f92672>+</span>p<span style=color:#f92672>%</span><span style=color:#ae81ff>10</span>;
+            p<span style=color:#f92672>/=</span><span style=color:#ae81ff>10</span>;
         }
-        <span style=font-weight:700>if</span>(j==i)
+        <span style=color:#66d9ef>if</span>(j<span style=color:#f92672>==</span>i)
         {
-            <span style=font-weight:700>if</span>(j==1) <span style=font-weight:700>continue</span>; <span style=font-style:italic>// 特判 1
-</span><span style=font-style:italic></span>            <span style=font-weight:700>if</span>(j==2)           <span style=font-style:italic>// 特判 2
-</span><span style=font-style:italic></span>            {
-                printf(<span style=font-style:italic>&#34;2</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>);
-                <span style=font-weight:700>continue</span>;
+            <span style=color:#66d9ef>if</span>(j<span style=color:#f92672>==</span><span style=color:#ae81ff>1</span>) <span style=color:#66d9ef>continue</span>; <span style=color:#75715e>// 特判 1
+</span><span style=color:#75715e></span>            <span style=color:#66d9ef>if</span>(j<span style=color:#f92672>==</span><span style=color:#ae81ff>2</span>)           <span style=color:#75715e>// 特判 2
+</span><span style=color:#75715e></span>            {
+                printf(<span style=color:#e6db74>&#34;2</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+                <span style=color:#66d9ef>continue</span>;
             }
-            <span>int</span> sqrtj = sqrt(j);
-            <span style=font-weight:700>for</span>(<span>int</span> k=2;k&lt;=sqrtj;k++)  <span style=font-style:italic>// 枚举 [2,sqrt(n)]
-</span><span style=font-style:italic></span>            {
-                <span style=font-weight:700>if</span>(j%k==0)         <span style=font-style:italic>// 如果能够整除(余数为0),那么是 j 的因子
-</span><span style=font-style:italic></span>                {
-                    flag = false;
-                    <span style=font-weight:700>break</span>;
+            <span style=color:#66d9ef>int</span> sqrtj <span style=color:#f92672>=</span> sqrt(j);
+            <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> k<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>;k<span style=color:#f92672>&lt;=</span>sqrtj;k<span style=color:#f92672>++</span>)  <span style=color:#75715e>// 枚举 [2,sqrt(n)]
+</span><span style=color:#75715e></span>            {
+                <span style=color:#66d9ef>if</span>(j<span style=color:#f92672>%</span>k<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>)         <span style=color:#75715e>// 如果能够整除(余数为0),那么是 j 的因子
+</span><span style=color:#75715e></span>                {
+                    flag <span style=color:#f92672>=</span> false;
+                    <span style=color:#66d9ef>break</span>;
                 }
             }
-            <span style=font-weight:700>if</span>(flag)
+            <span style=color:#66d9ef>if</span>(flag)
             {
-                printf(<span style=font-style:italic>&#34;%d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,j);
+                printf(<span style=color:#e6db74>&#34;%d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,j);
             }
         }
         
@@ -209,43 +209,43 @@ A. <a href="https://www.luogu.com.cn/problem/U138527?contestId=36509">Zs的回�
 </a>
 </h4>
 <p>​    因为我们讲到这里的时候，我们没讲函数，但是这道题如果我们把判断是否为回文数，判断是否为质数，都另成一个函数模块，将使得程序变得更加简洁。我在这里也将函数版本的贴出来，有兴趣的可以看一下。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span>#include</span><span>&lt;stdio.h&gt;</span><span>
-</span><span>#include</span><span>&lt;math.h&gt;</span><span>
-</span><span></span>
-<span>bool</span> isprime(<span>int</span> k)  <span style=font-style:italic>//判断是否为质数，如果是质数返回true，如果不是返回false
-</span><span style=font-style:italic></span>{
-    <span style=font-weight:700>if</span>(k==1) <span style=font-weight:700>return</span> false;
-    <span style=font-weight:700>if</span>(k==2) <span style=font-weight:700>return</span> true;
-    <span style=font-weight:700>for</span>(<span>int</span> i=2;i&lt;=sqrt(k);i++)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;math.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>bool</span> <span style=color:#a6e22e>isprime</span>(<span style=color:#66d9ef>int</span> k)  <span style=color:#75715e>//判断是否为质数，如果是质数返回true，如果不是返回false
+</span><span style=color:#75715e></span>{
+    <span style=color:#66d9ef>if</span>(k<span style=color:#f92672>==</span><span style=color:#ae81ff>1</span>) <span style=color:#66d9ef>return</span> false;
+    <span style=color:#66d9ef>if</span>(k<span style=color:#f92672>==</span><span style=color:#ae81ff>2</span>) <span style=color:#66d9ef>return</span> true;
+    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>;i<span style=color:#f92672>&lt;=</span>sqrt(k);i<span style=color:#f92672>++</span>)
     {
-        <span style=font-weight:700>if</span>(k%i==0) <span style=font-weight:700>return</span> false;
+        <span style=color:#66d9ef>if</span>(k<span style=color:#f92672>%</span>i<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>) <span style=color:#66d9ef>return</span> false;
     }
-    <span style=font-weight:700>return</span> true; 
+    <span style=color:#66d9ef>return</span> true; 
 }
-<span>bool</span> ishw(<span>int</span> k) <span style=font-style:italic>//判断是否为回文数，如果是返回true，如果不是返回false
-</span><span style=font-style:italic></span>{
-    <span>int</span> ans=0;
-    <span>int</span> temp = k; <span style=font-style:italic>//temp作为一个k的复制版，因为后续需要用到k，新定义一个作为备份
-</span><span style=font-style:italic></span>    <span style=font-weight:700>while</span>(k)
+<span style=color:#66d9ef>bool</span> <span style=color:#a6e22e>ishw</span>(<span style=color:#66d9ef>int</span> k) <span style=color:#75715e>//判断是否为回文数，如果是返回true，如果不是返回false
+</span><span style=color:#75715e></span>{
+    <span style=color:#66d9ef>int</span> ans<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+    <span style=color:#66d9ef>int</span> temp <span style=color:#f92672>=</span> k; <span style=color:#75715e>//temp作为一个k的复制版，因为后续需要用到k，新定义一个作为备份
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>while</span>(k)
     {
-        ans = ans*10 + k%10;
-        k/=10;
+        ans <span style=color:#f92672>=</span> ans<span style=color:#f92672>*</span><span style=color:#ae81ff>10</span> <span style=color:#f92672>+</span> k<span style=color:#f92672>%</span><span style=color:#ae81ff>10</span>;
+        k<span style=color:#f92672>/=</span><span style=color:#ae81ff>10</span>;
     }
-    <span style=font-weight:700>if</span>(temp == ans)
+    <span style=color:#66d9ef>if</span>(temp <span style=color:#f92672>==</span> ans)
     {
-        <span style=font-weight:700>return</span> true;
+        <span style=color:#66d9ef>return</span> true;
     }
-    <span style=font-weight:700>else</span> <span style=font-weight:700>return</span> false;
+    <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>return</span> false;
 }
-<span>int</span> main()
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-    <span>int</span> n;
-    scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;n);
-    <span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+    <span style=color:#66d9ef>int</span> n;
+    scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
+    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
     {
-        <span style=font-weight:700>if</span>(isprime(i) &amp;&amp; ishw(i))  <span style=font-style:italic>//如果既是质数也是回文数
-</span><span style=font-style:italic></span>        {
-            printf(<span style=font-style:italic>&#34;%d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,i);
+        <span style=color:#66d9ef>if</span>(isprime(i) <span style=color:#f92672>&amp;&amp;</span> ishw(i))  <span style=color:#75715e>//如果既是质数也是回文数
+</span><span style=color:#75715e></span>        {
+            printf(<span style=color:#e6db74>&#34;%d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,i);
         }
     }
 }
@@ -290,27 +290,27 @@ $$</p>
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span>#include</span><span>&lt;stdio.h&gt;</span><span>
-</span><span></span>
-<span>int</span> main()
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-    <span>long</span> <span>long</span> a[105][105] = {0}; <span style=font-style:italic>//全都初始化为 0
-</span><span style=font-style:italic></span>    <span>int</span> n = 0;
-    scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;n);
-    <span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)  <span style=font-style:italic>//这里我用的是 1~n 而不是 0~n-1
-</span><span style=font-style:italic></span>    {
-        <span style=font-weight:700>for</span>(<span>int</span> j=1;j&lt;=i;j++)
+    <span style=color:#66d9ef>long</span> <span style=color:#66d9ef>long</span> a[<span style=color:#ae81ff>105</span>][<span style=color:#ae81ff>105</span>] <span style=color:#f92672>=</span> {<span style=color:#ae81ff>0</span>}; <span style=color:#75715e>//全都初始化为 0
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> n <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+    scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
+    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)  <span style=color:#75715e>//这里我用的是 1~n 而不是 0~n-1
+</span><span style=color:#75715e></span>    {
+        <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>i;j<span style=color:#f92672>++</span>)
         {
-            <span style=font-weight:700>if</span>(j==1 || j==i)
+            <span style=color:#66d9ef>if</span>(j<span style=color:#f92672>==</span><span style=color:#ae81ff>1</span> <span style=color:#f92672>||</span> j<span style=color:#f92672>==</span>i)
             {
-                printf(<span style=font-style:italic>&#34;%lld &#34;</span>,a[i][j]=1);
+                printf(<span style=color:#e6db74>&#34;%lld &#34;</span>,a[i][j]<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>);
             }
-            <span style=font-weight:700>else</span>
+            <span style=color:#66d9ef>else</span>
             {
-                printf(<span style=font-style:italic>&#34;%lld &#34;</span>,a[i][j]=a[i-1][j-1]+a[i-1][j]);
+                printf(<span style=color:#e6db74>&#34;%lld &#34;</span>,a[i][j]<span style=color:#f92672>=</span>a[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span>a[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j]);
             }
         }
-        printf(<span style=font-style:italic>&#34;</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>);
+        printf(<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
     }
 }
 </code></pre></div><h4 id=其他-1>
@@ -350,46 +350,46 @@ C. <a href="https://www.luogu.com.cn/problem/U138529?contestId=36509">Zh的约�
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span>#include</span><span>&lt;cstdio&gt;</span><span>
-</span><span>#include</span><span>&lt;cstring&gt;</span><span>
-</span><span>#include</span><span>&lt;algorithm&gt;</span><span>
-</span><span>#include</span><span>&lt;cmath&gt;</span><span>
-</span><span>#include</span><span>&lt;iostream&gt;</span><span>
-</span><span></span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
 using namespace std;
 
-<span>int</span> n,m;
-<span>int</span> vis[1005]; <span style=font-style:italic>//vis[i] = true 已经淘汰 vis[i] = false 未被淘汰
-</span><span style=font-style:italic></span><span>int</span> main()
+<span style=color:#66d9ef>int</span> n,m;
+<span style=color:#66d9ef>int</span> vis[<span style=color:#ae81ff>1005</span>]; <span style=color:#75715e>//vis[i] = true 已经淘汰 vis[i] = false 未被淘汰
+</span><span style=color:#75715e></span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-    scanf(<span style=font-style:italic>&#34;%d%d&#34;</span>,&amp;n,&amp;m);
-    <span>int</span> cnt = 1;    <span style=font-style:italic>//报数到多少
-</span><span style=font-style:italic></span>    <span>int</span> pot = 1;    <span style=font-style:italic>//当前是谁报数
-</span><span style=font-style:italic></span>    <span>int</span> exist = n;  <span style=font-style:italic>//在场的人数
-</span><span style=font-style:italic></span>    <span style=font-weight:700>while</span>(exist &gt; 1) 
+    scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>m);
+    <span style=color:#66d9ef>int</span> cnt <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;    <span style=color:#75715e>//报数到多少
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> pot <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;    <span style=color:#75715e>//当前是谁报数
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> exist <span style=color:#f92672>=</span> n;  <span style=color:#75715e>//在场的人数
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>while</span>(exist <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>) 
     {
-        cnt=0;
-        <span style=font-weight:700>while</span>(1)
+        cnt<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+        <span style=color:#66d9ef>while</span>(<span style=color:#ae81ff>1</span>)
         {
-            <span style=font-weight:700>if</span>(!vis[pot]) <span style=font-style:italic>//如果没有出圈
-</span><span style=font-style:italic></span>            {
-                cnt++;
-                <span style=font-weight:700>if</span>(cnt==m)
+            <span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>vis[pot]) <span style=color:#75715e>//如果没有出圈
+</span><span style=color:#75715e></span>            {
+                cnt<span style=color:#f92672>++</span>;
+                <span style=color:#66d9ef>if</span>(cnt<span style=color:#f92672>==</span>m)
                 {
-                    vis[pot] = true;
-                    exist--;
-                    <span style=font-weight:700>break</span>;
+                    vis[pot] <span style=color:#f92672>=</span> true;
+                    exist<span style=color:#f92672>--</span>;
+                    <span style=color:#66d9ef>break</span>;
                 }
             }
-            pot++;
-            <span style=font-weight:700>if</span>(pot==n+1) pot=1; <span style=font-style:italic>//模拟环
-</span><span style=font-style:italic></span>        }
+            pot<span style=color:#f92672>++</span>;
+            <span style=color:#66d9ef>if</span>(pot<span style=color:#f92672>==</span>n<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>) pot<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>; <span style=color:#75715e>//模拟环
+</span><span style=color:#75715e></span>        }
     }
-    <span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
     {
-        <span style=font-weight:700>if</span>(vis[i] == false) printf(<span style=font-style:italic>&#34;%d&#34;</span>,i); 
+        <span style=color:#66d9ef>if</span>(vis[i] <span style=color:#f92672>==</span> false) printf(<span style=color:#e6db74>&#34;%d&#34;</span>,i); 
     }
-    <span style=font-weight:700>return</span> 0;
+    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
 }
 
 </code></pre></div><h4 id=其他-2>
@@ -401,18 +401,18 @@ using namespace std;
 <p>​    上面的想法是比较好理解的形式。</p>
 <p>​    我们考虑一下模拟环，也就是使得 <strong>pot</strong> 指针处在一定的范围内，如果超出了将他重新置到头部，那么我们可以联想到取模，在模拟环时使用取模来实现，大家可以下去自己尝试，这有点像魏辰旭第一节课讲的那个字符串的问题。</p>
 <p>​    因为这道题只关心谁活了下来，所以还有一个比较简单的解法，我看在作业中也有几位同学给出了这个较简单的解法，如果理解了上述思想，看这个代码应该不难理解，大家可以对照代码自行思考。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span>#include</span><span>&lt;stdio.h&gt;</span><span>
-</span><span></span>
-<span>int</span> n,m;
-<span>int</span> pot = 0;
-<span>int</span> main()
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>int</span> n,m;
+<span style=color:#66d9ef>int</span> pot <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-    scanf(<span style=font-style:italic>&#34;%d%d&#34;</span>,&amp;n,&amp;m);
-    <span style=font-weight:700>for</span>(<span>int</span> i=2;i&lt;=n;i++)
+    scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>m);
+    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
     {
-        pot = (pot+m)%i;
+        pot <span style=color:#f92672>=</span> (pot<span style=color:#f92672>+</span>m)<span style=color:#f92672>%</span>i;
     }
-    printf(<span style=font-style:italic>&#34;%d&#34;</span>,pot+1);
+    printf(<span style=color:#e6db74>&#34;%d&#34;</span>,pot<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>);
 }
 </code></pre></div><p>​    <strong>提示：n个人的约瑟夫环杀掉一个人后组成一个新的人数为 n-1 的约瑟夫环</strong></p>
 </div>

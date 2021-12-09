@@ -201,15 +201,15 @@ September 13, 2021
 <p>这里的 local 参数代表是本地安装，解析后面的文件，<strong>注意这里是直接 zip 包</strong>，不需要解压。同时，这里的路径也是需要和你的下载的文件地址对应。</p>
 <p>不出意外的话，瞬间就可以安装完成。截止到这里，<strong>v2ray-core</strong> 已经安装成功。需要注意的是，这里不需要执行 <code>sudo systemctl enable v2ray</code> ，因为后续的 <strong>v2rayA</strong> 不依赖此服务。</p>
 <p>安装的文件路径如下：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>installed: /usr/local/bin/v2ray             <span style=font-style:italic>#v2ray 主程序地址</span>
-installed: /usr/local/bin/v2ctl				<span style=font-style:italic>#v2ray 控制程序</span>
-installed: /usr/local/share/v2ray/geoip.dat <span style=font-style:italic># 可选，路由信息</span>
-installed: /usr/local/share/v2ray/geosite.dat <span style=font-style:italic>#可选，路由信息</span>
-installed: /usr/local/etc/v2ray/config.json <span style=font-style:italic>#代理配置文件</span>
-installed: /var/log/v2ray/					<span style=font-style:italic>#下面三个都是log文件</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>installed: /usr/local/bin/v2ray             <span style=color:#75715e>#v2ray 主程序地址</span>
+installed: /usr/local/bin/v2ctl				<span style=color:#75715e>#v2ray 控制程序</span>
+installed: /usr/local/share/v2ray/geoip.dat <span style=color:#75715e># 可选，路由信息</span>
+installed: /usr/local/share/v2ray/geosite.dat <span style=color:#75715e>#可选，路由信息</span>
+installed: /usr/local/etc/v2ray/config.json <span style=color:#75715e>#代理配置文件</span>
+installed: /var/log/v2ray/					<span style=color:#75715e>#下面三个都是log文件</span>
 installed: /var/log/v2ray/access.log
 installed: /var/log/v2ray/error.log
-installed: /etc/systemd/system/v2ray.service <span style=font-style:italic>#v2ray 服务配置信息</span>
+installed: /etc/systemd/system/v2ray.service <span style=color:#75715e>#v2ray 服务配置信息</span>
 installed: /etc/systemd/system/v2ray@.service
 </code></pre></div><p>如果有报错的话，可以看对应的 <code>error</code> 报错去 <a href=https://github.com/v2fly/fhs-install-v2ray>v2fly/fhs-install-v2ray</a> 官方仓库 Issue 处查看。</p>
 <h3 id=二安装-v2raya>
@@ -220,15 +220,15 @@ installed: /etc/systemd/system/v2ray@.service
 </h3>
 <p>首先，同样的是，为了防止 Github 下载太慢，我们也可以去到官方仓库的发布站 -> <a href=https://github.com/v2rayA/v2rayA/releases>Releases · v2rayA/v2rayA </a> ，下载对应系统版本的安装包，然后通过 <code>scp</code> 上传到远端。</p>
 <p>这里以 <strong>x64_86 版本的 Ubuntu 18.04.5 LTS</strong> 举例，我们直接下载 <code>installer_debian_x64_v1.5.2.deb</code> 到本地，然后执行</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>scp path/to/installer_debian_x64_v1.5.2.deb username@hostname:~
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>scp path/to/installer_debian_x64_v1.5.2.deb username@hostname:~
 </code></pre></div><p>将文件上传到远端。</p>
 <p>然后 <strong>ssh</strong> 到服务器执行：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo dpkg -i installer_debian_x64_v1.5.2.deb
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo dpkg -i installer_debian_x64_v1.5.2.deb
 </code></pre></div><p>安装成功后依次执行：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=font-style:italic># 启动 v2raya</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#75715e># 启动 v2raya</span>
 sudo systemctl start v2raya
 
-<span style=font-style:italic># 开机自启 v2raya</span>
+<span style=color:#75715e># 开机自启 v2raya</span>
 sudo systemctl enable v2raya
 </code></pre></div><p>这样就成功开启了 <code>v2rayA</code>，我们访问 <code>ip:2017</code> ，前面是你云服务器的公网 <code>ip</code> 或者是自建服务器的局域网 <code>ip</code> ，我们就可以访问到对应的服务，界面大致如下：</p>
 <p><img src=https://www.zzsqwq.cn/usr/uploads/2021/09/2395630589.png alt=v2rayA界面></p>
@@ -236,7 +236,7 @@ sudo systemctl enable v2raya
 <p>说一下我现在用的设置，点击右上角设置，<strong>透明代理和规则端口的分流模式</strong>设置为<strong>大陆白名单</strong>，然后实现方式我用的是 <strong>redirect</strong>，每隔 24h 更新依次代理，左下角设置的地址与端口我用的是默认的，如下：</p>
 <p><img src=https://www.zzsqwq.cn/usr/uploads/2021/09/2537498828.png alt=地址与端口设置></p>
 <p>这样我们就可以愉快的上网了！！可以 <strong>ssh</strong> 到服务器试一下 <code>wget google.com</code>，正常结果如下：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>❯ wget google.com
+<pre tabindex=0><code>❯ wget google.com
 --2021-09-13 18:11:04--  http://google.com/
 Resolving google.com (google.com)... 93.46.8.90
 Connecting to google.com (google.com)|93.46.8.90|:80... connected.
@@ -252,7 +252,7 @@ Saving to: ‘index.html’
 index.html                        [  &lt;=&gt;                                             ]  13.42K  59.8KB/s    in 0.2s
 
 2021-09-13 18:11:06 (59.8 KB/s) - ‘index.html’ saved [13740]
-</code></pre></div><p>这代表着，我们下载到了 <strong>google.com</strong> 页面的源码，即可以连通 <strong>Google</strong> 服务。</p>
+</code></pre><p>这代表着，我们下载到了 <strong>google.com</strong> 页面的源码，即可以连通 <strong>Google</strong> 服务。</p>
 <h3 id=一些存在的小问题>
 一些存在的小问题
 <a class=heading-link href=#%e4%b8%80%e4%ba%9b%e5%ad%98%e5%9c%a8%e7%9a%84%e5%b0%8f%e9%97%ae%e9%a2%98>

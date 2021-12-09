@@ -169,7 +169,7 @@ CenterNet—Objects as Points介绍
 </h3>
 <p>​ 想要运行demo，首先要去 <a href=https://github.com/xingyizhou/CenterNet/blob/master/readme/MODEL_ZOO.md>Model zoo</a> 中下载一下我们需要使用的model，2D目标检测使用的是 <a href="https://drive.google.com/open?id=1pl_-ael8wERdUREEnaIfqOV_VF2bEVRT">ctdet_coco_dla_2x.pth</a> ，人体姿态评估使用的是 <a href="https://drive.google.com/open?id=1PO1Ax_GDtjiemEmDVD7oPWwqQkUu28PI">multi_pose_dla_3x.pth</a> ，下载后统一将他们放在CenterNet根目录中的model文件夹中。</p>
 <p>​ 然后使用conda切换到CenterNet的环境，在终端中运行：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>python demo.py ctdet --demo <span style=font-weight:700;font-style:italic>${</span>CenterNet_Root<span style=font-weight:700;font-style:italic>}</span>/images/17790319373_bd19b24cfc_k.jpg --load_model ../models/ctdet_coco_dla_2x.pth 
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>python demo.py ctdet --demo <span style=color:#e6db74>${</span>CenterNet_Root<span style=color:#e6db74>}</span>/images/17790319373_bd19b24cfc_k.jpg --load_model ../models/ctdet_coco_dla_2x.pth 
 </code></pre></div><p>​ 这里需要注意的是 <code>--demo</code> 后面的 <code>${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg</code> ，这里我使用的是官方给出的实例图片，它位于CenterNet根目录的images文件夹中，前面的 <code>${CenterNet_Root} </code> 代表的是 CenterNet根目录，好比我的就位于 <code>/home/zs/CenterNet</code> 。</p>
 <p>​ 如果不出意外的话效果应该如下图所示：</p>
 <p><img src=https://www.zzsqwq.cn/usr/uploads/2021/01/2469782097.jpg alt=2D目标检测效果></p>
@@ -191,7 +191,7 @@ CenterNet—Objects as Points介绍
 <ul>
 <li>
 <p>首先是配置数据集的过程中，我们需要配置的目录结构如图所示（官方给出的结构树有点模糊不清的感觉）</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>.
+<pre tabindex=0><code>.
 ├── ImageSets_3dop
 │   ├── test.txt
 │   ├── train.txt
@@ -206,12 +206,12 @@ CenterNet—Objects as Points介绍
        ├── calib
        ├── image_2
        └── label_2
-</code></pre></div></li>
+</code></pre></li>
 <li>
 <p>然后去到 <code>${CenterNet_ROOT}/src/tools</code>目录下，运行 <code>python convert_kitti_to_coco.py </code> 将 <strong>kitti</strong> 数据集转换为 <strong>coco</strong> 数据集的格式，不出意外应该会报错如下：</p>
 <p><img src=https://www.zzsqwq.cn/usr/uploads/2021/01/3420056939.png alt=转换时报错></p>
 <p>这里的解决方案参考CenterNet中的一个Issue , <a href=https://github.com/xingyizhou/CenterNet/issues/54>How to generate the image dir in kitti?</a> ，我们需要回到 <code>data/kitti</code> 目录下手动创建一个 <code>annotations</code> 文件夹，然后再回去运行转换程序。转换后目录结构如下：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>.
+<pre tabindex=0><code>.
 ├── annotations
 │   ├── kitti_3dop_train.json
 │   ├── kitti_3dop_val.json
@@ -231,7 +231,7 @@ CenterNet—Objects as Points介绍
        ├── calib
        ├── image_2
        └── label_2
-</code></pre></div></li>
+</code></pre></li>
 <li>
 <p>然后根据官方的教程，我们需要创建一个images文件夹，然后将其 <code>training/image_2</code> 链接到 <code>images/trainval</code>，我在实际的测试中，发现此方法并不可行。参考CenterNet中的一个Issue: <a href=https://github.com/xingyizhou/CenterNet/issues/575#>Evaluate kitti&ndash;AttributeError: &lsquo;NoneType&rsquo; object has no attribute &lsquo;shape&rsquo;</a> ，其中 juanmed给出了解决方案：</p>
 <blockquote>

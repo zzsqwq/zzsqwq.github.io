@@ -234,14 +234,14 @@ Redmi AC2100刷写Openwrt教程
 <p>在 <strong>Linux</strong> 用 <code>ifconfig</code> 或者在 <strong>Windows</strong> 中使用 <code>ipconfig</code> 来查看路由器分发的 <code>ip</code> 。</p>
 <p>好比如果是 <code>192.168.31.x </code> 那么我们就访问 <code>192.168.31.1</code> ，或者可以尝试直接访问 <code>miwifi.com</code> ，会进入到设置路由器的管理页面，我们填写一系列配置，然后登录。</p>
 <p>登录后，查看地址栏，一般地址如下，这里需要注意，我地址中的 <code>192.168.31.1 </code> 是我访问的地址为此，如果你那里 <code>ip</code> 不是这样，那么将下面所有的 <code>192.168.31.1</code> 替换成你当中对应的 <code>ip</code>：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>http://192.168.31.1/cgi-bin/luci/;stok=075a9192918557c27cdbcae2175281d9/web/home#router
-</code></pre></div><p>这里我们注意 <code>stok= </code> 到 <code>/web</code> 这一段中间的码值，好比设其为 <code>KEY</code></p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>KEY = 075a9192918557c27cdbcae2175281d9
-</code></pre></div><p>然后我们在地址栏输入如下地址并回车，地址中 <code>${KEY}</code> 的意思是这里就填入上面 <code>KEY</code> 对应的数值：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>http://192.168.31.1/cgi-bin/luci/;stok=${KEY}/api/misystem/set_config_iotdev?bssid=Xiaomi&amp;user_id=longdike&amp;ssid=-h%3B%20nvram%20set%20ssh_en%3D1%3B%20nvram%20commit%3B%20sed%20-i%20&#39;s%2Fchannel%3D.*%2Fchannel%3D%5C%22debug%5C%22%2Fg&#39;%20%2Fetc%2Finit.d%2Fdropbear%3B%20%2Fetc%2Finit.d%2Fdropbear%20start%3B
-</code></pre></div><p>这样就打开了路由器的 <strong>ssh</strong> ，我们接下来在地址栏打开：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>http://192.168.31.1/cgi-bin/luci/;stok=${KEY}/api/misystem/set_config_iotdev?bssid=Xiaomi&amp;user_id=longdike&amp;ssid=-h%3B%20echo%20-e%20&#39;admin%5Cnadmin&#39;%20%7C%20passwd%20root%3B
-</code></pre></div><p>这就将路由器的 <strong>ssh</strong> 密码设置为 <code>admin</code> 。</p>
+<pre tabindex=0><code>http://192.168.31.1/cgi-bin/luci/;stok=075a9192918557c27cdbcae2175281d9/web/home#router
+</code></pre><p>这里我们注意 <code>stok= </code> 到 <code>/web</code> 这一段中间的码值，好比设其为 <code>KEY</code></p>
+<pre tabindex=0><code>KEY = 075a9192918557c27cdbcae2175281d9
+</code></pre><p>然后我们在地址栏输入如下地址并回车，地址中 <code>${KEY}</code> 的意思是这里就填入上面 <code>KEY</code> 对应的数值：</p>
+<pre tabindex=0><code>http://192.168.31.1/cgi-bin/luci/;stok=${KEY}/api/misystem/set_config_iotdev?bssid=Xiaomi&amp;user_id=longdike&amp;ssid=-h%3B%20nvram%20set%20ssh_en%3D1%3B%20nvram%20commit%3B%20sed%20-i%20's%2Fchannel%3D.*%2Fchannel%3D%5C%22debug%5C%22%2Fg'%20%2Fetc%2Finit.d%2Fdropbear%3B%20%2Fetc%2Finit.d%2Fdropbear%20start%3B
+</code></pre><p>这样就打开了路由器的 <strong>ssh</strong> ，我们接下来在地址栏打开：</p>
+<pre tabindex=0><code>http://192.168.31.1/cgi-bin/luci/;stok=${KEY}/api/misystem/set_config_iotdev?bssid=Xiaomi&amp;user_id=longdike&amp;ssid=-h%3B%20echo%20-e%20'admin%5Cnadmin'%20%7C%20passwd%20root%3B
+</code></pre><p>这就将路由器的 <strong>ssh</strong> 密码设置为 <code>admin</code> 。</p>
 <h5 id=刷写-breed>
 刷写 breed
 <a class=heading-link href=#%e5%88%b7%e5%86%99-breed>
@@ -251,17 +251,17 @@ Redmi AC2100刷写Openwrt教程
 <p>首先我们下载一下适用于 <strong>Redmi AC2100</strong> 的 <strong>Breed</strong>，<a href=https://breed.hackpascal.net/breed-mt7621-xiaomi-r3g.bin>点此下载</a></p>
 <p>我们在 <strong>Windows</strong> 左下侧搜索框中搜索 <code>cmd</code> 然后打开。</p>
 <p>输入</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>ssh root@192.168.31.1
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>ssh root@192.168.31.1
 </code></pre></div><p>然后输入 <code>admin</code> ，回车。</p>
 <p>不出意外的话，我们就成功使用 <code>ssh</code> 登录了路由器中的系统。</p>
 <p>然后我们按 <code>Ctrl + D</code> 退出登录</p>
 <p>输入</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>scp /path-to-breed root@192.168.31.1:/tmp
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>scp /path-to-breed root@192.168.31.1:/tmp
 </code></pre></div><p>这里的 <code>/path-to-breed</code> 代表的是上面下载的 <strong>Breed</strong> 的路径，例如 <code>D:\Downloads\breed-mt7621-xiaomi-r3g.bin</code> ，这条命令即将下载的 <strong>Breed</strong> 传输到了路由器的 <code>/tmp</code> 目录中。</p>
 <p>接下来我们按上述过程重新登录路由器后，输入</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>cd /tmp
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>cd /tmp
 </code></pre></div><p>进入路由器中的 <code>/tmp</code> 目录，接下来运行</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>mtd -r write breed-mt7621-xiaomi-r3g.bin Bootloader
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>mtd -r write breed-mt7621-xiaomi-r3g.bin Bootloader
 </code></pre></div><p>这样我们就成功将 <strong>Breed</strong> 刷写到了路由器中！</p>
 <p>我们断掉路由器电源，重启一下，访问 <code>192.168.1.1</code> 即可打开 <strong>Breed</strong> 控制台。</p>
 <h3 id=三从-breed-刷写固件>

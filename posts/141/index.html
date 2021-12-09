@@ -168,7 +168,7 @@ Ubuntu界面的优化
 </h4>
 <p>​    如果要改主题，那么首先要有一个利器，这里我用的<code>Ubuntu18.04</code>，桌面环境为 <code>GNOME 3.28.2</code> ，因为我目前接触的只有GNOME桌面环境的，Ubuntu18.04本来的桌面环境就是GNOME，但是Ubuntu16.04好像没有自带，但是可以安装，这里大家可以自行百度了解。</p>
 <p>​    然后我们已经有了GNOME桌面环境后，安装主题配置工具 <code>GNOME Tweaks </code> ，在终端中输入如下内容：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo apt-get update
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo apt-get update
 sudo apt-get install gnome-tweak-tool 
 </code></pre></div><p>​    我们先更新软件源，然后安装后直接打开他就行，在系统软件中中文大概叫 <strong>优化</strong> 。</p>
 <h4 id=2拓展上述工具>
@@ -178,7 +178,7 @@ sudo apt-get install gnome-tweak-tool
 </a>
 </h4>
 <p>​    安装完上述工具后，我们可能发现了一个问题，就是外观那一栏目的Shell有一个感叹号，无法更改，这是因为我们没有安装拓展导致的。我们在终端中运行</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo apt-get install gnome-shell-extensions
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo apt-get install gnome-shell-extensions
 </code></pre></div><p>​    然后重启一下电脑。再打开软件找到左侧的拓展，把 <code>User themes</code> 那一栏目打开。切换回去就可以发现Shell那边的感叹号无了。</p>
 <h4 id=3寻找自己喜欢的主题>
 3.寻找自己喜欢的主题
@@ -205,9 +205,9 @@ sudo apt-get install gnome-tweak-tool
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>theme&amp;shell   Canta-light-compact
+<pre tabindex=0><code>theme&amp;shell   Canta-light-compact
 icons 01-McMojave-circle
-</code></pre></div><h4 id=6界面修改的参考链接>
+</code></pre><h4 id=6界面修改的参考链接>
 6.界面修改的参考链接
 <a class=heading-link href=#6%e7%95%8c%e9%9d%a2%e4%bf%ae%e6%94%b9%e7%9a%84%e5%8f%82%e8%80%83%e9%93%be%e6%8e%a5>
 <i class="fa fa-link" aria-hidden=true></i>
@@ -242,7 +242,7 @@ icons 01-McMojave-circle
 </a>
 </h4>
 <p>​    直接在终端执行下列语句</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo apt-get update
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo apt-get update
 sudo apt-get install zsh
 </code></pre></div><h4 id=2安装oh-my-zsh>
 2.安装oh my zsh
@@ -253,10 +253,10 @@ sudo apt-get install zsh
 <p>​    zsh其实配置起来很麻烦，这一点相比与fish不太行，fish下载下来就已经具备了常用的功能，例如代码补全等。</p>
 <p>​    但是我们有先人铺路，在Github上有一个开源的项目 <a href=https://github.com/ohmyzsh/ohmyzsh>oh my zsh</a>，就是专门用来导入这个zsh的配置的，</p>
 <p>​    我们直接运行如下代码，就可以直接安装了</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>wget sh -c <span style=font-style:italic>&#34;</span><span style=font-weight:700>$(</span>wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span style=font-weight:700>)</span><span style=font-style:italic>&#34;</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>wget sh -c <span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span>wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;</span>
 </code></pre></div><p>​    然后我们可以通过在终端中输入zsh来切换到zsh，也可以通过输入bash切换回去</p>
 <p>​    我们也可以通过如下命令来切换默认的终端系统，首先查找一下zsh的目录，然后切换过去。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>whereis zsh
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>whereis zsh
 chsh -s zsh路径
 </code></pre></div><h4 id=3配置插件>
 3.配置插件
@@ -281,10 +281,10 @@ chsh -s zsh路径
 <p>​    我觉得害挺好看的，效果就跟上图一样吧。</p>
 <p>​    安装方法就是先把pure下载到一个路径，然后编辑 <code>~/.zshrc</code></p>
 <p>​    在下面加入</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>fpath+=安装路径
+<pre tabindex=0><code>fpath+=安装路径
 autoload -U promptinit; promptinit
 prompt pure
-</code></pre></div><p>​    然后我们<code>source</code>一下<code>.zshrc</code> 就可以使用了。</p>
+</code></pre><p>​    然后我们<code>source</code>一下<code>.zshrc</code> 就可以使用了。</p>
 <p>​    但是如果是使用zsh本来自带的一些主题，和这个有些差别，只需要下载好主题然后放到 <code>~/.oh-my-zsh/themes</code> ，然后在 <code>.zshrc </code>中启用即可。</p>
 <h4 id=5参考链接>
 5.参考链接

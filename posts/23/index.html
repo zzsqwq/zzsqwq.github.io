@@ -227,55 +227,55 @@ A. <a href="http://poj.org/problem?id=2823">Sliding Window</a>
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
-</span><span>#include</span><span>&lt;cstring&gt;</span><span>
-</span><span>#include</span><span>&lt;algorithm&gt;</span><span>
-</span><span>#include</span><span>&lt;cmath&gt;</span><span>
-</span><span>#include</span><span>&lt;iostream&gt;</span><span>
-</span><span></span>
-<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
 
-<span style=font-weight:700>const</span> <span>int</span> maxn=1000005;
-<span>int</span> n,k;
-<span>int</span> head,tail,a[maxn];
-<span style=font-weight:700>struct</span> <span style=font-weight:700>node</span>
+<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>1000005</span>;
+<span style=color:#66d9ef>int</span> n,k;
+<span style=color:#66d9ef>int</span> head,tail,a[maxn];
+<span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>node</span>
 {
-	<span>int</span> pos,value;
+	<span style=color:#66d9ef>int</span> pos,value;
 }q[maxn];
-<span>void</span> getmax()
+<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>getmax</span>()
 {
-	head=tail=0;
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+	head<span style=color:#f92672>=</span>tail<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
 	{
-		<span style=font-weight:700>while</span>(head!=tail&amp;&amp;i-q[head].pos&gt;=k) head++;
-		<span style=font-weight:700>while</span>(head!=tail&amp;&amp;a[i]&lt;=q[tail-1].value) tail--;
-		q[tail].value=a[i],q[tail++].pos=i;
-		<span style=font-weight:700>if</span>(i&gt;=k) printf(<span style=font-style:italic>&#34;%d &#34;</span>,q[head].value);
+		<span style=color:#66d9ef>while</span>(head<span style=color:#f92672>!=</span>tail<span style=color:#f92672>&amp;&amp;</span>i<span style=color:#f92672>-</span>q[head].pos<span style=color:#f92672>&gt;=</span>k) head<span style=color:#f92672>++</span>;
+		<span style=color:#66d9ef>while</span>(head<span style=color:#f92672>!=</span>tail<span style=color:#f92672>&amp;&amp;</span>a[i]<span style=color:#f92672>&lt;=</span>q[tail<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>].value) tail<span style=color:#f92672>--</span>;
+		q[tail].value<span style=color:#f92672>=</span>a[i],q[tail<span style=color:#f92672>++</span>].pos<span style=color:#f92672>=</span>i;
+		<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>&gt;=</span>k) printf(<span style=color:#e6db74>&#34;%d &#34;</span>,q[head].value);
 	}
-	putchar(<span style=font-style:italic>&#39;\n&#39;</span>);
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++) q[i].value=q[i].pos=0;
+	putchar(<span style=color:#e6db74>&#39;\n&#39;</span>);
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>) q[i].value<span style=color:#f92672>=</span>q[i].pos<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
 }
-<span>void</span> getmin()
+<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>getmin</span>()
 {
-	head=tail=0;
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+	head<span style=color:#f92672>=</span>tail<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
 	{
-		<span style=font-weight:700>while</span>(head!=tail&amp;&amp;i-q[head].pos&gt;=k) head++;
-		<span style=font-weight:700>while</span>(head!=tail&amp;&amp;a[i]&gt;=q[tail-1].value) tail--;
-		q[tail].value=a[i],q[tail++].pos=i;
-		<span style=font-weight:700>if</span>(i&gt;=k) printf(<span style=font-style:italic>&#34;%d &#34;</span>,q[head].value);
+		<span style=color:#66d9ef>while</span>(head<span style=color:#f92672>!=</span>tail<span style=color:#f92672>&amp;&amp;</span>i<span style=color:#f92672>-</span>q[head].pos<span style=color:#f92672>&gt;=</span>k) head<span style=color:#f92672>++</span>;
+		<span style=color:#66d9ef>while</span>(head<span style=color:#f92672>!=</span>tail<span style=color:#f92672>&amp;&amp;</span>a[i]<span style=color:#f92672>&gt;=</span>q[tail<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>].value) tail<span style=color:#f92672>--</span>;
+		q[tail].value<span style=color:#f92672>=</span>a[i],q[tail<span style=color:#f92672>++</span>].pos<span style=color:#f92672>=</span>i;
+		<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>&gt;=</span>k) printf(<span style=color:#e6db74>&#34;%d &#34;</span>,q[head].value);
 	}
 }
-<span>int</span> main()
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-	scanf(<span style=font-style:italic>&#34;%d%d&#34;</span>,&amp;n,&amp;k);
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+	scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>k);
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
 	{
-	 	scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;a[i]);
+	 	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>a[i]);
 	}
 	getmax();
 	getmin();
-	<span style=font-weight:700>return</span> 0;
+	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
 } 
 </code></pre></div><h3 id=b-max-sum-of-max-k-sub-sequencehttpacmhdueducnshowproblemphppid3415>
 B. <a href="http://acm.hdu.edu.cn/showproblem.php?pid=3415">Max Sum of Max-K-sub-sequence</a>
@@ -303,64 +303,64 @@ B. <a href="http://acm.hdu.edu.cn/showproblem.php?pid=3415">Max Sum of Max-K-sub
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
-</span><span>#include</span><span>&lt;cstring&gt;</span><span>
-</span><span>#include</span><span>&lt;algorithm&gt;</span><span>
-</span><span>#include</span><span>&lt;cmath&gt;</span><span>
-</span><span>#include</span><span>&lt;iostream&gt;</span><span>
-</span><span></span>
-<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
 
-<span style=font-weight:700>const</span> <span>int</span> inf=1000000;
-<span style=font-weight:700>const</span> <span>int</span> maxn=200005;
-<span>int</span> t;
-<span>int</span> n,k,a[maxn],sum[maxn];
-<span>int</span> head,tail;
-<span style=font-weight:700>struct</span> <span style=font-weight:700>node</span>
+<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> inf<span style=color:#f92672>=</span><span style=color:#ae81ff>1000000</span>;
+<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>200005</span>;
+<span style=color:#66d9ef>int</span> t;
+<span style=color:#66d9ef>int</span> n,k,a[maxn],sum[maxn];
+<span style=color:#66d9ef>int</span> head,tail;
+<span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>node</span>
 {
-	<span>int</span> pos,value;
+	<span style=color:#66d9ef>int</span> pos,value;
 }q[maxn];
-<span>int</span> ans,l,r;
-<span>int</span> main()
+<span style=color:#66d9ef>int</span> ans,l,r;
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-<span style=font-style:italic>//	freopen(&#34;test.in&#34;,&#34;r&#34;,stdin);
-</span><span style=font-style:italic></span>	scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;t);
-	<span style=font-weight:700>while</span>(t--)
+<span style=color:#75715e>//	freopen(&#34;test.in&#34;,&#34;r&#34;,stdin);
+</span><span style=color:#75715e></span>	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>t);
+	<span style=color:#66d9ef>while</span>(t<span style=color:#f92672>--</span>)
 	{
-		l=r=0;
-		head=tail=0;
-		ans=-inf;
-		scanf(<span style=font-style:italic>&#34;%d%d&#34;</span>,&amp;n,&amp;k);
-		<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+		l<span style=color:#f92672>=</span>r<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+		head<span style=color:#f92672>=</span>tail<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+		ans<span style=color:#f92672>=-</span>inf;
+		scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>k);
+		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
 		{
-			scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;a[i]);
-			sum[i]=sum[i-1]+a[i];
+			scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>a[i]);
+			sum[i]<span style=color:#f92672>=</span>sum[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span>a[i];
 		}
-		<span style=font-weight:700>for</span>(<span>int</span> i=n+1;i&lt;=n+k-1;i++)
+		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>n<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n<span style=color:#f92672>+</span>k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>++</span>)
 		{
-			sum[i]=sum[i-1]+a[i-n];
+			sum[i]<span style=color:#f92672>=</span>sum[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span>a[i<span style=color:#f92672>-</span>n];
 		}
-		<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n+k-1;i++)
+		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n<span style=color:#f92672>+</span>k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>++</span>)
 		{
-			<span style=font-weight:700>while</span>(head!=tail&amp;&amp;i-q[head].pos&gt;k) head++;
-			<span style=font-weight:700>while</span>(head!=tail&amp;&amp;sum[i-1]&lt;=q[tail-1].value) tail--;
-			q[tail].pos=i-1,q[tail++].value=sum[i-1];
-<span style=font-style:italic>//			if(i!=q[head].pos)
-</span><span style=font-style:italic>//			{ 
-</span><span style=font-style:italic></span>				<span>int</span> p=sum[i]-q[head].value;
-				<span style=font-weight:700>if</span>(p&gt;ans)
+			<span style=color:#66d9ef>while</span>(head<span style=color:#f92672>!=</span>tail<span style=color:#f92672>&amp;&amp;</span>i<span style=color:#f92672>-</span>q[head].pos<span style=color:#f92672>&gt;</span>k) head<span style=color:#f92672>++</span>;
+			<span style=color:#66d9ef>while</span>(head<span style=color:#f92672>!=</span>tail<span style=color:#f92672>&amp;&amp;</span>sum[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>&lt;=</span>q[tail<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>].value) tail<span style=color:#f92672>--</span>;
+			q[tail].pos<span style=color:#f92672>=</span>i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>,q[tail<span style=color:#f92672>++</span>].value<span style=color:#f92672>=</span>sum[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>];
+<span style=color:#75715e>//			if(i!=q[head].pos)
+</span><span style=color:#75715e>//			{ 
+</span><span style=color:#75715e></span>				<span style=color:#66d9ef>int</span> p<span style=color:#f92672>=</span>sum[i]<span style=color:#f92672>-</span>q[head].value;
+				<span style=color:#66d9ef>if</span>(p<span style=color:#f92672>&gt;</span>ans)
 				{
-					ans=p;
-					<span>int</span> k=q[head].pos+1;
-					k&gt;n?l=k%n:l=k;
-					i&gt;n?r=i%n:r=i;
+					ans<span style=color:#f92672>=</span>p;
+					<span style=color:#66d9ef>int</span> k<span style=color:#f92672>=</span>q[head].pos<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
+					k<span style=color:#f92672>&gt;</span>n<span style=color:#f92672>?</span>l<span style=color:#f92672>=</span>k<span style=color:#f92672>%</span>n:l<span style=color:#f92672>=</span>k;
+					i<span style=color:#f92672>&gt;</span>n<span style=color:#f92672>?</span>r<span style=color:#f92672>=</span>i<span style=color:#f92672>%</span>n:r<span style=color:#f92672>=</span>i;
 				}
-<span style=font-style:italic>//			}
-</span><span style=font-style:italic></span>		}
-		printf(<span style=font-style:italic>&#34;%d %d %d</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>,ans,l,r);
-		<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n+k-1;i++) q[i].pos=q[i].value=-inf;
+<span style=color:#75715e>//			}
+</span><span style=color:#75715e></span>		}
+		printf(<span style=color:#e6db74>&#34;%d %d %d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,ans,l,r);
+		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n<span style=color:#f92672>+</span>k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>++</span>) q[i].pos<span style=color:#f92672>=</span>q[i].value<span style=color:#f92672>=-</span>inf;
 	}
-	<span style=font-weight:700>return</span> 0;
+	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
 } 
 </code></pre></div><h1 id=单调栈monotone-stack>
 单调栈(Monotone stack)
@@ -454,45 +454,45 @@ A. <a href=https://www.luogu.com.cn/problem/P5788>单调栈模板</a>
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
-</span><span>#include</span><span>&lt;cstring&gt;</span><span>
-</span><span>#include</span><span>&lt;algorithm&gt;</span><span>
-</span><span>#include</span><span>&lt;cmath&gt;</span><span>
-</span><span>#include</span><span>&lt;iostream&gt;</span><span>
-</span><span></span>
-<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
 
-<span style=font-weight:700>const</span> <span>int</span> maxn=3000005;
-<span>int</span> n,a[maxn];
-<span>int</span> stack[maxn];
-<span>int</span> top,ans[maxn];
-<span>int</span> main()
+<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>3000005</span>;
+<span style=color:#66d9ef>int</span> n,a[maxn];
+<span style=color:#66d9ef>int</span> stack[maxn];
+<span style=color:#66d9ef>int</span> top,ans[maxn];
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-	scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;n);
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
 	{
-		scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;a[i]);
+		scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>a[i]);
 	}
-	a[0]=1e9+5;
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+	a[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>=</span><span style=color:#ae81ff>1e9</span><span style=color:#f92672>+</span><span style=color:#ae81ff>5</span>;
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
 	{ 
-		<span style=font-weight:700>while</span>(top&gt;=0&amp;&amp;a[i]&gt;a[stack[top]])
+		<span style=color:#66d9ef>while</span>(top<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>a[i]<span style=color:#f92672>&gt;</span>a[stack[top]])
 		{
-			ans[stack[top]] = i;
-			top--;
+			ans[stack[top]] <span style=color:#f92672>=</span> i;
+			top<span style=color:#f92672>--</span>;
 		}
-		stack[++top]=i;
+		stack[<span style=color:#f92672>++</span>top]<span style=color:#f92672>=</span>i;
 	}
-	<span style=font-weight:700>while</span>(top)
+	<span style=color:#66d9ef>while</span>(top)
 	{
-		ans[stack[top]]=0;
-		top--;
+		ans[stack[top]]<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+		top<span style=color:#f92672>--</span>;
 	}
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
 	{
-		printf(<span style=font-style:italic>&#34;%d &#34;</span>,ans[i]);
+		printf(<span style=color:#e6db74>&#34;%d &#34;</span>,ans[i]);
 	}
-	<span style=font-weight:700>return</span> 0;
+	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
 }
 </code></pre></div><h3 id=b-发射站httpswwwluogucomcnproblemp1901>
 B. <a href=https://www.luogu.com.cn/problem/P1901>发射站</a>
@@ -520,38 +520,38 @@ B. <a href=https://www.luogu.com.cn/problem/P1901>发射站</a>
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
-</span><span>#include</span><span>&lt;cstring&gt;</span><span>
-</span><span>#include</span><span>&lt;algorithm&gt;</span><span>
-</span><span>#include</span><span>&lt;cmath&gt;</span><span>
-</span><span>#include</span><span>&lt;iostream&gt;</span><span>
-</span><span></span>
-<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
 
-<span style=font-weight:700>const</span> <span>int</span> maxn=1000005;
-<span>int</span> n,h[maxn],v[maxn];
-<span>int</span> stack[maxn],top,ans;
-<span>int</span> f[maxn];
-<span>int</span> main()
+<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>1000005</span>;
+<span style=color:#66d9ef>int</span> n,h[maxn],v[maxn];
+<span style=color:#66d9ef>int</span> stack[maxn],top,ans;
+<span style=color:#66d9ef>int</span> f[maxn];
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-	scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;n);
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
 	{
-		scanf(<span style=font-style:italic>&#34;%d%d&#34;</span>,&amp;h[i],&amp;v[i]);
+		scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>h[i],<span style=color:#f92672>&amp;</span>v[i]);
 	}
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
 	{
-		<span style=font-weight:700>while</span>(top&gt;=0&amp;&amp;h[i]&gt;h[stack[top]])
+		<span style=color:#66d9ef>while</span>(top<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>h[i]<span style=color:#f92672>&gt;</span>h[stack[top]])
 		{
-			f[i]+=v[stack[top]];
-			top--;
+			f[i]<span style=color:#f92672>+=</span>v[stack[top]];
+			top<span style=color:#f92672>--</span>;
 		}
-		f[stack[top]]+=v[i];
-		stack[++top]=i;
+		f[stack[top]]<span style=color:#f92672>+=</span>v[i];
+		stack[<span style=color:#f92672>++</span>top]<span style=color:#f92672>=</span>i;
 	}
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++) ans=max(ans,f[i]);
-	printf(<span style=font-style:italic>&#34;%d&#34;</span>,ans);
-	<span style=font-weight:700>return</span> 0; 
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>) ans<span style=color:#f92672>=</span>max(ans,f[i]);
+	printf(<span style=color:#e6db74>&#34;%d&#34;</span>,ans);
+	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>; 
 }
 </code></pre></div><h3 id=c-音乐会的等待httpswwwluogucomcnproblemp1823>
 C. <a href=https://www.luogu.com.cn/problem/P1823>音乐会的等待</a>
@@ -584,53 +584,53 @@ C. <a href=https://www.luogu.com.cn/problem/P1823>音乐会的等待</a>
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
-</span><span>#include</span><span>&lt;cstring&gt;</span><span>
-</span><span>#include</span><span>&lt;algorithm&gt;</span><span>
-</span><span>#include</span><span>&lt;cmath&gt;</span><span>
-</span><span>#include</span><span>&lt;iostream&gt;</span><span>
-</span><span></span>
-<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
-<span style=font-weight:700>typedef</span> <span>long</span> <span>long</span> ll;
-<span style=font-weight:700>const</span> <span>int</span> maxn=500005;
-<span>int</span> n;
-<span>int</span> h[maxn];
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+<span style=color:#66d9ef>typedef</span> <span style=color:#66d9ef>long</span> <span style=color:#66d9ef>long</span> ll;
+<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>500005</span>;
+<span style=color:#66d9ef>int</span> n;
+<span style=color:#66d9ef>int</span> h[maxn];
 ll ans;
-<span style=font-weight:700>struct</span> <span style=font-weight:700>node</span>
+<span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>node</span>
 {
-	ll cnt; <span style=font-style:italic>// num 
-</span><span style=font-style:italic></span>	ll p; <span style=font-style:italic>//height
-</span><span style=font-style:italic></span>}stack[maxn];
-<span>int</span> top;
-<span>int</span> main()
+	ll cnt; <span style=color:#75715e>// num 
+</span><span style=color:#75715e></span>	ll p; <span style=color:#75715e>//height
+</span><span style=color:#75715e></span>}stack[maxn];
+<span style=color:#66d9ef>int</span> top;
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-<span style=font-style:italic>//	freopen(&#34;test.in&#34;,&#34;r&#34;,stdin);
-</span><span style=font-style:italic></span>	scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;n);
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+<span style=color:#75715e>//	freopen(&#34;test.in&#34;,&#34;r&#34;,stdin);
+</span><span style=color:#75715e></span>	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
 	{
-		scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;h[i]);
+		scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>h[i]);
 	}
-	<span style=font-weight:700>for</span>(<span>int</span> i=1;i&lt;=n;i++)
+	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
 	{
 		node temp;
-		temp.cnt=1;
-		temp.p=h[i];
-		<span style=font-weight:700>while</span>(top&gt;=0&amp;&amp;h[i]&gt;stack[top].p)
+		temp.cnt<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;
+		temp.p<span style=color:#f92672>=</span>h[i];
+		<span style=color:#66d9ef>while</span>(top<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>h[i]<span style=color:#f92672>&gt;</span>stack[top].p)
 		{
-			ans+=stack[top].cnt;
-			top--;
+			ans<span style=color:#f92672>+=</span>stack[top].cnt;
+			top<span style=color:#f92672>--</span>;
 		}
-		<span style=font-weight:700>if</span>(h[i]==stack[top].p)
+		<span style=color:#66d9ef>if</span>(h[i]<span style=color:#f92672>==</span>stack[top].p)
 		{
-			ans+=stack[top].cnt;
-			temp.cnt+=stack[top].cnt;
-			top--;
+			ans<span style=color:#f92672>+=</span>stack[top].cnt;
+			temp.cnt<span style=color:#f92672>+=</span>stack[top].cnt;
+			top<span style=color:#f92672>--</span>;
 		}
-		stack[++top].cnt=temp.cnt;
-		stack[top].p=temp.p;
-		<span style=font-weight:700>if</span>(top!=0) ans+=1;
+		stack[<span style=color:#f92672>++</span>top].cnt<span style=color:#f92672>=</span>temp.cnt;
+		stack[top].p<span style=color:#f92672>=</span>temp.p;
+		<span style=color:#66d9ef>if</span>(top<span style=color:#f92672>!=</span><span style=color:#ae81ff>0</span>) ans<span style=color:#f92672>+=</span><span style=color:#ae81ff>1</span>;
 	}
-	printf(<span style=font-style:italic>&#34;%lld&#34;</span>,ans);
+	printf(<span style=color:#e6db74>&#34;%lld&#34;</span>,ans);
 }
 </code></pre></div><h1 id=参考链接>
 参考链接

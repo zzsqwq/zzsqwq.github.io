@@ -172,29 +172,29 @@ March 18, 2020
 <li>可以在主页点击新建脚本，即可创建脚本文件，并且打开MATLAB编辑器。</li>
 <li>在命令行窗口写 <code>edit test</code> 即可在当前文件下创建 <strong>test</strong> 脚本文件。</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=font-style:italic>%利用脚本文件求两矩阵乘积</span>
-<span style=font-style:italic>%脚本文件f1.m</span>
-A=[1:3;4:6];
-B=[1,2;3,4;5,6];
-C=A*B;
-<span style=font-style:italic>%在命令行窗口运行脚本文件</span>
-&gt;&gt; f1
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#75715e>%利用脚本文件求两矩阵乘积</span>
+<span style=color:#75715e>%脚本文件f1.m</span>
+A=[<span style=color:#ae81ff>1</span>:<span style=color:#ae81ff>3</span>;<span style=color:#ae81ff>4</span>:<span style=color:#ae81ff>6</span>];
+B=[<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>;<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>4</span>;<span style=color:#ae81ff>5</span>,<span style=color:#ae81ff>6</span>];
+C=A<span style=color:#f92672>*</span>B;
+<span style=color:#75715e>%在命令行窗口运行脚本文件</span>
+<span style=color:#f92672>&gt;&gt;</span> f1
 
 C =
 
-    22    28
-    49    64
-</code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=font-style:italic>%利用函数文件求两矩阵乘积</span>
-<span style=font-style:italic>%函数文件f1.m</span>
-<span style=font-weight:700>function</span> C=f2(A,B)
-C=A*B;
-<span style=font-weight:700>end</span>
-&gt;&gt; C=f1(A,B)
+    <span style=color:#ae81ff>22</span>    <span style=color:#ae81ff>28</span>
+    <span style=color:#ae81ff>49</span>    <span style=color:#ae81ff>64</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#75715e>%利用函数文件求两矩阵乘积</span>
+<span style=color:#75715e>%函数文件f1.m</span>
+<span style=color:#66d9ef>function</span> C=<span style=color:#a6e22e>f2</span>(A,B)
+C=A<span style=color:#f92672>*</span>B;
+<span style=color:#66d9ef>end</span>
+<span style=color:#f92672>&gt;&gt;</span> C=f1(A,B)
 
 C =
 
-    22    28
-    49    64
+    <span style=color:#ae81ff>22</span>    <span style=color:#ae81ff>28</span>
+    <span style=color:#ae81ff>49</span>    <span style=color:#ae81ff>64</span>
 </code></pre></div><h3 id=顺序结构>
 顺序结构
 <a class=heading-link href=#%e9%a1%ba%e5%ba%8f%e7%bb%93%e6%9e%84>
@@ -215,21 +215,21 @@ C =
 <ol>
 <li><strong>通过脚本文件和函数文件求一个向量的四舍五入向量。</strong></li>
 </ol>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>脚本
-A=[1.2,3.4,4.7,0.5];
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>脚本
+A=[<span style=color:#ae81ff>1.2</span>,<span style=color:#ae81ff>3.4</span>,<span style=color:#ae81ff>4.7</span>,<span style=color:#ae81ff>0.5</span>];
 B=round(A);
 disp(B)
 函数
-<span style=font-weight:700>function</span> B=f2(A)
+<span style=color:#66d9ef>function</span> B=<span style=color:#a6e22e>f2</span>(A)
 B=round(A);
-<span style=font-weight:700>end</span>
+<span style=color:#66d9ef>end</span>
 </code></pre></div><ol start=2>
 <li><strong>求两点之间距离以及黄金分割点坐标（其中点坐标通过复数形式输入）。</strong></li>
 </ol>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>a=input(<span style=font-style:italic>&#39;a=&#39;</span>);
-b=input(<span style=font-style:italic>&#39;b=&#39;</span>);
-c=a+0.618*(b-a);
-s=abs(b-a);
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>a=input(<span style=color:#e6db74>&#39;a=&#39;</span>);
+b=input(<span style=color:#e6db74>&#39;b=&#39;</span>);
+c=a<span style=color:#f92672>+</span><span style=color:#ae81ff>0.618</span><span style=color:#f92672>*</span>(b<span style=color:#f92672>-</span>a);
+s=abs(b<span style=color:#f92672>-</span>a);
 disp(s)
 disp(c)
 </code></pre></div><hr>
@@ -246,9 +246,9 @@ disp(c)
 </a>
 </h3>
 <p>​    <strong>如果成立执行语句组，如果不成立则跳出if，语句格式如下：</strong></p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=font-weight:700>if</span> 条件(关系运算或逻辑运算)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#66d9ef>if</span> 条件(关系运算或逻辑运算)
    语句组
-<span style=font-weight:700>end</span>
+<span style=color:#66d9ef>end</span>
 </code></pre></div><h3 id=双分支if语句>
 双分支if语句
 <a class=heading-link href=#%e5%8f%8c%e5%88%86%e6%94%afif%e8%af%ad%e5%8f%a5>
@@ -256,11 +256,11 @@ disp(c)
 </a>
 </h3>
 <p>​    <strong>如果成立执行语句组1，不成立执行语句组2，然后跳出if，语句格式如下：</strong></p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=font-weight:700>if</span> 条件(关系运算或逻辑运算)
-   语句组1
-<span style=font-weight:700>else</span>
-   语句组2
-<span style=font-weight:700>end</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#66d9ef>if</span> 条件(关系运算或逻辑运算)
+   语句组<span style=color:#ae81ff>1</span>
+<span style=color:#66d9ef>else</span>
+   语句组<span style=color:#ae81ff>2</span>
+<span style=color:#66d9ef>end</span>
 </code></pre></div><h3 id=多分支if语句>
 多分支if语句
 <a class=heading-link href=#%e5%a4%9a%e5%88%86%e6%94%afif%e8%af%ad%e5%8f%a5>
@@ -268,17 +268,17 @@ disp(c)
 </a>
 </h3>
 <p>​    <strong>根据上述双分支的类推，依次判断条件1~n，成立则执行对应语句组，然后跳出if，不成立则往下寻找，语句格式如下：</strong></p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=font-weight:700>if</span> 条件1
-   语句组1
-<span style=font-weight:700>elseif</span> 条件2
-   语句组2
-<span style=font-weight:700>elseif</span> 条件3
-   语句组3
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#66d9ef>if</span> 条件<span style=color:#ae81ff>1</span>
+   语句组<span style=color:#ae81ff>1</span>
+<span style=color:#66d9ef>elseif</span> 条件<span style=color:#ae81ff>2</span>
+   语句组<span style=color:#ae81ff>2</span>
+<span style=color:#66d9ef>elseif</span> 条件<span style=color:#ae81ff>3</span>
+   语句组<span style=color:#ae81ff>3</span>
 ···
-<span style=font-weight:700>elseif</span> 条件n-1
-   语句组n-1
-<span style=font-weight:700>else</span> 语句组n
-<span style=font-weight:700>end</span>
+<span style=color:#66d9ef>elseif</span> 条件n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
+   语句组n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
+<span style=color:#66d9ef>else</span> 语句组n
+<span style=color:#66d9ef>end</span>
 </code></pre></div><h3 id=条件成立的判断>
 条件成立的判断
 <a class=heading-link href=#%e6%9d%a1%e4%bb%b6%e6%88%90%e7%ab%8b%e7%9a%84%e5%88%a4%e6%96%ad>
@@ -303,17 +303,17 @@ switch语句的基本格式
 </a>
 </h3>
 <p>​    表示在C++里面就不喜欢用switch，感觉太麻烦了。这个和多分支if有点像吧，只是他的区别在于首先给出一个表达式，在下方每一个语句组对应着一个结果表，如果结果表对应着表达式的值，就执行当前语句组，<strong>执行完之后跳出switch语句，这个和C++的有所区别。<strong>此外，如果都不满足的话，我们还可以加入一个条件</strong>otherwise</strong>，顾名思义，如果上述结果都不满足，就执行这个otherwise下对应的语句，switch的语句格式如下：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=font-weight:700>switch</span> 表达式
-  <span style=font-weight:700>case</span> 结果表1
-     语句组1
-  <span style=font-weight:700>case</span> 结果表2
-     语句组2
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#66d9ef>switch</span> 表达式
+  <span style=color:#66d9ef>case</span> 结果表<span style=color:#ae81ff>1</span>
+     语句组<span style=color:#ae81ff>1</span>
+  <span style=color:#66d9ef>case</span> 结果表<span style=color:#ae81ff>2</span>
+     语句组<span style=color:#ae81ff>2</span>
 ···
-  <span style=font-weight:700>case</span> 结果表n
+  <span style=color:#66d9ef>case</span> 结果表n
      语句组n
-  <span style=font-weight:700>otherwise</span>
+  <span style=color:#66d9ef>otherwise</span>
      语句组k
-<span style=font-weight:700>end</span>
+<span style=color:#66d9ef>end</span>
 </code></pre></div><h3 id=switch的使用规则>
 switch的使用规则
 <a class=heading-link href=#switch%e7%9a%84%e4%bd%bf%e7%94%a8%e8%a7%84%e5%88%99>
@@ -336,10 +336,10 @@ switch的使用规则
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=font-style:italic>% for语句格式：</span>
-<span style=font-weight:700>for</span> 循环变量=表达式1:表达式2:表达式3
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#75715e>% for语句格式：</span>
+<span style=color:#66d9ef>for</span> 循环变量=表达式<span style=color:#ae81ff>1</span>:表达式<span style=color:#ae81ff>2</span>:表达式<span style=color:#ae81ff>3</span>
     循环体语句
-<span style=font-weight:700>end</span>
+<span style=color:#66d9ef>end</span>
 </code></pre></div><ul>
 <li>我们可以发现循环变量后面对应的是一个冒号表达式，分别是起始，步长，终止。</li>
 <li>循环执行时，先求出冒号表达式对应的行向量，然后依次遍历行向量中的每一个元素，执行循环体语句。</li>
@@ -352,9 +352,9 @@ switch的使用规则
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=font-weight:700>for</span> 循环变量=矩阵表达式
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#66d9ef>for</span> 循环变量=矩阵表达式
 	循环体语句
-<span style=font-weight:700>end</span>
+<span style=color:#66d9ef>end</span>
 </code></pre></div><ul>
 <li>更一般的for语句循环遍历后对应的是矩阵表达式，执行过程中将矩阵的各列元素，赋值给循环变量，这时候，循环变量为一个列向量，而不是上述常用for语句中的标量，可以发现，常用的for语句是一般格式下的特例。<strong>循环的次数为矩阵的列数。</strong></li>
 </ul>
@@ -371,21 +371,21 @@ switch的使用规则
 <p>$$
 1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\cdots+(-1)^{n+1}\frac{1}{2n-1} =\frac{\pi}{4}
 $$</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>y=0;
-g=-1;
-n=input(<span style=font-style:italic>&#39;n=&#39;</span>);
-<span style=font-weight:700>for</span> i=1:n
-	g=-g;
-	y=y+g*1/(2*i-1);
-<span style=font-weight:700>end</span>
-disp(4*y)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>y=<span style=color:#ae81ff>0</span>;
+g=<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;
+n=input(<span style=color:#e6db74>&#39;n=&#39;</span>);
+<span style=color:#66d9ef>for</span> i=<span style=color:#ae81ff>1</span>:n
+	g=<span style=color:#f92672>-</span>g;
+	y=y<span style=color:#f92672>+</span>g<span style=color:#f92672>*</span><span style=color:#ae81ff>1</span><span style=color:#f92672>/</span>(<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>);
+<span style=color:#66d9ef>end</span>
+disp(<span style=color:#ae81ff>4</span><span style=color:#f92672>*</span>y)
 </code></pre></div><ul>
 <li>利用矩阵求和求无穷级数展开求 $\pi$</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>n=input(<span style=font-style:italic>&#39;n=&#39;</span>);
-x=1:2:(2*n-1);
-y=(-1).^(2:n+1)./x;
-disp(sum(y)*4)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>n=input(<span style=color:#e6db74>&#39;n=&#39;</span>);
+x=<span style=color:#ae81ff>1</span>:<span style=color:#ae81ff>2</span>:(<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>);
+y=(<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>.^</span>(<span style=color:#ae81ff>2</span>:n<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>./</span>x;
+disp(sum(y)<span style=color:#f92672>*</span><span style=color:#ae81ff>4</span>)
 </code></pre></div><hr>
 <h2 id=35-用while语句实现循环结构>
 3.5 用while语句实现循环结构
@@ -400,9 +400,9 @@ while语句
 </a>
 </h3>
 <p>​    通过一个条件来判定是否执行循环体语句，当条件成立时，成立。不像是for循环先去设定循环多少次，循环变量依次取什么值，这个是根据条件限定，又叫<strong>条件循环语句</strong>。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=font-weight:700>while</span> 条件
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#66d9ef>while</span> 条件
      循环体语句
-<span style=font-weight:700>end</span>
+<span style=color:#66d9ef>end</span>
 </code></pre></div><h3 id=break语句和continue语句>
 break语句和continue语句
 <a class=heading-link href=#break%e8%af%ad%e5%8f%a5%e5%92%8ccontinue%e8%af%ad%e5%8f%a5>
@@ -429,30 +429,30 @@ break语句和continue语句
 <ol>
 <li>
 <p>从键盘输入若干数，<strong>当输入0时结束输入</strong>，求这些数的和和他们的平均值</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>msum=0;
-cnt=0;
-x=input(<span style=font-style:italic>&#39;Enter your numbers: &#39;</span>);
-<span style=font-weight:700>while</span> x~=0
-    msum=msum+x;
-    cnt=cnt+1;
-    x=input(<span style=font-style:italic>&#39;Enter your numbers: &#39;</span>);
-<span style=font-weight:700>end</span>
-<span style=font-weight:700>if</span> cnt&gt;0
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>msum=<span style=color:#ae81ff>0</span>;
+cnt=<span style=color:#ae81ff>0</span>;
+x=input(<span style=color:#e6db74>&#39;Enter your numbers: &#39;</span>);
+<span style=color:#66d9ef>while</span> x<span style=color:#f92672>~=</span><span style=color:#ae81ff>0</span>
+    msum=msum<span style=color:#f92672>+</span>x;
+    cnt=cnt<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
+    x=input(<span style=color:#e6db74>&#39;Enter your numbers: &#39;</span>);
+<span style=color:#66d9ef>end</span>
+<span style=color:#66d9ef>if</span> cnt<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>0</span>
     disp(msum);
-    disp(msum/cnt);
-<span style=font-weight:700>end</span>
+    disp(msum<span style=color:#f92672>/</span>cnt);
+<span style=color:#66d9ef>end</span>
 </code></pre></div></li>
 <li>
 <p>用筛法求 <strong>1~m</strong> 范围内的素数。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>m=input(<span style=font-style:italic>&#39;m=&#39;</span>);
-p=1:m;
-p(1)=0;
-<span style=font-weight:700>for</span> i=2:sqrt(m)
-	<span style=font-weight:700>for</span> j=2*i:i:m
-		p(j)=0;
-	<span style=font-weight:700>end</span>
-<span style=font-weight:700>end</span>
-n=find(p~=0);
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>m=input(<span style=color:#e6db74>&#39;m=&#39;</span>);
+p=<span style=color:#ae81ff>1</span>:m;
+p(<span style=color:#ae81ff>1</span>)=<span style=color:#ae81ff>0</span>;
+<span style=color:#66d9ef>for</span> i=<span style=color:#ae81ff>2</span>:sqrt(m)
+	<span style=color:#66d9ef>for</span> j=<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>i:i:m
+		p(j)=<span style=color:#ae81ff>0</span>;
+	<span style=color:#66d9ef>end</span>
+<span style=color:#66d9ef>end</span>
+n=find(p<span style=color:#f92672>~=</span><span style=color:#ae81ff>0</span>);
 p(n)
 </code></pre></div></li>
 </ol>
@@ -469,10 +469,10 @@ p(n)
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=font-weight:700>function</span> 输出参数表=函数名(输入形参表)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#66d9ef>function</span> 输出参数表=<span style=color:#a6e22e>函数名</span>(输入形参表)
 注释说明部分
 函数体语句
-<span style=font-weight:700>end</span>
+<span style=color:#66d9ef>end</span>
 </code></pre></div><ul>
 <li>当有多个形参时，形参之间用 <code>,</code> 逗号分隔，组成形参表。当输出形参多于一个，用方括号 <code>[]</code> 括起来，形成输出矩阵。</li>
 </ul>
@@ -496,7 +496,7 @@ p(n)
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>[输出实参表]=函数名(输入实参表)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>[输出实参表]=函数名(输入实参表)
 </code></pre></div><h3 id=匿名函数>
 匿名函数
 <a class=heading-link href=#%e5%8c%bf%e5%90%8d%e5%87%bd%e6%95%b0>
@@ -507,11 +507,11 @@ p(n)
 <ul>
 <li>
 <p><strong>函数定义的基本格式如下</strong>：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>函数句柄变量 = @(匿名函数输入参数) 匿名函数表达式
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>函数句柄变量 = @(匿名函数输入参数) 匿名函数表达式
 </code></pre></div></li>
 <li>
 <p><strong>函数调用的基本格式如下</strong>：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>函数句柄变量(匿名函数输入实参)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>函数句柄变量(匿名函数输入实参)
 </code></pre></div></li>
 <li>
 <p>特殊的，我们可以将一个已知的内部函数或者自定义函数，赋值给一个函数句柄变量，这样我们就可以通过函数句柄变量变量来简洁的调用函数。<strong>(类似于改个名字)</strong></p>
@@ -529,13 +529,13 @@ p(n)
 <ul>
 <li>函数文件</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>function z=f2(x,y)
+<pre tabindex=0><code>function z=f2(x,y)
     z=x^2+y^2;
 end
-</code></pre></div><ul>
+</code></pre><ul>
 <li>匿名函数</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>f=@(x,y) x^2+y^2
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab>f=@(x,y) x^<span style=color:#ae81ff>2</span><span style=color:#f92672>+</span>y^<span style=color:#ae81ff>2</span>
 </code></pre></div></li>
 </ul>
 <hr>
@@ -565,12 +565,12 @@ end
 <ul>
 <li>求 $n!=1\times2\times3\cdots \times n$</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=font-weight:700>function</span> f=fact(n)
-<span style=font-weight:700>if</span> n&lt;=1
-   f=1;
-<span style=font-weight:700>else</span>
-   f=fact(n-1)*n;
-<span style=font-weight:700>end</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#66d9ef>function</span> f=<span style=color:#a6e22e>fact</span>(n)
+<span style=color:#66d9ef>if</span> n<span style=color:#f92672>&lt;</span>=<span style=color:#ae81ff>1</span>
+   f=<span style=color:#ae81ff>1</span>;
+<span style=color:#66d9ef>else</span>
+   f=fact(n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>*</span>n;
+<span style=color:#66d9ef>end</span>
 </code></pre></div><hr>
 <h2 id=38-函数参数与变量的作用域>
 3.8 函数参数与变量的作用域
@@ -606,15 +606,15 @@ end
 <ul>
 <li>求 $x1\times x+y1\times y$ ，其中<strong>x1</strong> 和 <strong>y1</strong> 是全局工作区中全局变量的值。</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=font-style:italic>%函数文件</span>
-<span style=font-weight:700>function</span> f=solve(x,y)
-<span style=font-weight:700>global</span> x1 y1
-f=x1*x+y1*y
-<span style=font-style:italic>%工作区</span>
-<span style=font-weight:700>global</span> x1 y1;
-x1=1;
-y1=2;
-s=solve(1,2)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#75715e>%函数文件</span>
+<span style=color:#66d9ef>function</span> f=<span style=color:#a6e22e>solve</span>(x,y)
+<span style=color:#66d9ef>global</span> x1 y1
+f=x1<span style=color:#f92672>*</span>x<span style=color:#f92672>+</span>y1<span style=color:#f92672>*</span>y
+<span style=color:#75715e>%工作区</span>
+<span style=color:#66d9ef>global</span> x1 y1;
+x1=<span style=color:#ae81ff>1</span>;
+y1=<span style=color:#ae81ff>2</span>;
+s=solve(<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>)
 </code></pre></div>
 </div>
 <footer>

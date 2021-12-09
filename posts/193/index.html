@@ -128,16 +128,16 @@ June 16, 2021
 </a>
 </h3>
 <p>​    首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 <code>\usr\share\applications</code> 中，文件名为 <code>**.desktop</code> ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>[Desktop Entry]
-Name=Typora
-Comment=a minimal Markdown reading &amp; writing app. Change Log: (https://typora.io/windows/dev_release.html)
-GenericName=Markdown Editor
-Exec=typora %U
-Icon=typora
-Type=Application
-StartupNotify=true
-Categories=Office;WordProcessor;
-MimeType=text/markdown;text/x-markdown;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#f92672>[</span>Desktop Entry<span style=color:#f92672>]</span>
+Name<span style=color:#f92672>=</span>Typora
+Comment<span style=color:#f92672>=</span>a minimal Markdown reading &amp; writing app. Change Log: <span style=color:#f92672>(</span>https://typora.io/windows/dev_release.html<span style=color:#f92672>)</span>
+GenericName<span style=color:#f92672>=</span>Markdown Editor
+Exec<span style=color:#f92672>=</span>typora %U
+Icon<span style=color:#f92672>=</span>typora
+Type<span style=color:#f92672>=</span>Application
+StartupNotify<span style=color:#f92672>=</span>true
+Categories<span style=color:#f92672>=</span>Office;WordProcessor;
+MimeType<span style=color:#f92672>=</span>text/markdown;text/x-markdown;
 </code></pre></div><p>​    可以看到里面的内容写的非常清晰，其中比较重要的有以下几个</p>
 <table>
 <thead>
@@ -192,18 +192,18 @@ MimeType=text/markdown;text/x-markdown;
 </a>
 </h3>
 <p>​    明白以上原理，我们只需要创建一个 <code>qv2ray.desktop</code> ，文件内容如下：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>[Desktop Entry]
-Name=qv2ray
-Exec=/home/zs/proxy/v2ray/Qv2ray.v2.6.3.linux-x64.AppImage
-Icon=/home/zs/proxy/v2ray/qv2ray.512.png
-Type=Application
-StartupNotify=true
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#f92672>[</span>Desktop Entry<span style=color:#f92672>]</span>
+Name<span style=color:#f92672>=</span>qv2ray
+Exec<span style=color:#f92672>=</span>/home/zs/proxy/v2ray/Qv2ray.v2.6.3.linux-x64.AppImage
+Icon<span style=color:#f92672>=</span>/home/zs/proxy/v2ray/qv2ray.512.png
+Type<span style=color:#f92672>=</span>Application
+StartupNotify<span style=color:#f92672>=</span>true
 </code></pre></div><p>​    其中Exec为你AppImage的绝对路径，Icon为图标的绝对路径。</p>
 <p>​    其中各个大小的Qv2ray的icons可以在它的Github中找到，链接为：<a href=https://github.com/Qv2ray/Qv2ray/tree/master/assets/icons>Qv2ray/icons</a></p>
 <p>​    创建完后执行</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo chmod +x qv2ray.desktop
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo chmod +x qv2ray.desktop
 </code></pre></div><p>​    为文件添加可执行权限，然后执行</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo cp qv2ray.desktop /usr/share/applications
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo cp qv2ray.desktop /usr/share/applications
 </code></pre></div><p>​    将其加入到目录中，接下来我们就可以在应用库中找到对应的qv2ray了~</p>
 <h3 id=命令行快捷方式的创建>
 命令行快捷方式的创建
@@ -212,7 +212,7 @@ StartupNotify=true
 </a>
 </h3>
 <p>​    我们直接将AppImage加入到 <code>/usr/bin</code> 中即可，即执行以下命令：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo cp xxx.AppImage /usr/bin/qv2ray
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo cp xxx.AppImage /usr/bin/qv2ray
 </code></pre></div><p>​    接下来我们在终端中输入 <code>qv2ray</code> ，发现已经可以成功打开qv2ray，大功告成！~</p>
 </div>
 <footer>

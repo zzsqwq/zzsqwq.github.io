@@ -140,64 +140,64 @@ June 16, 2021
 <p>​    首先我们根据上文的启示，因为每一个应用程序对应了一个 <code>xxx.desktop</code> 文件，因此在应用库中的QQ一定也有一个对应的 <code>desktop</code> 文件</p>
 <p><img src=https://www.zzsqwq.cn/usr/uploads/2021/06/75817321.png alt=QQ的启动方式></p>
 <p>​    我们进入到 <code>/usr/share/applications</code> ，运行</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ ls | grep -i qq
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ ls | grep -i qq
 </code></pre></div><p>​    可以发现其中有一个名为 <code>deepin.com.qq.im.desktop</code> 的文件，我们打开后发现内容如下：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span>#!/usr/bin/env xdg-open
-</span><span></span>
-[Desktop Entry]
-Encoding=UTF-8
-Type=Application
-X-Created-By=Deepin WINE Team
-Categories=chat;
-Icon=deepin.com.qq.im
-Exec=<span style=font-style:italic>&#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&#34;</span> -u %u
-Name=QQ
-Name[zh_CN]=QQ
-Comment=Tencent QQ Client on Deepin Wine
-StartupWMClass=QQ.exe
-MimeType=
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#75715e>#!/usr/bin/env xdg-open
+</span><span style=color:#75715e></span>
+<span style=color:#f92672>[</span>Desktop Entry<span style=color:#f92672>]</span>
+Encoding<span style=color:#f92672>=</span>UTF-8
+Type<span style=color:#f92672>=</span>Application
+X-Created-By<span style=color:#f92672>=</span>Deepin WINE Team
+Categories<span style=color:#f92672>=</span>chat;
+Icon<span style=color:#f92672>=</span>deepin.com.qq.im
+Exec<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&#34;</span> -u %u
+Name<span style=color:#f92672>=</span>QQ
+Name<span style=color:#f92672>[</span>zh_CN<span style=color:#f92672>]=</span>QQ
+Comment<span style=color:#f92672>=</span>Tencent QQ Client on Deepin Wine
+StartupWMClass<span style=color:#f92672>=</span>QQ.exe
+MimeType<span style=color:#f92672>=</span>
 </code></pre></div><p>​    可以看到Exec那一栏为 <code>Exec="/opt/deepinwine/apps/Deepin-QQ/run.sh" -u %u</code> ，发现他是运行目录下的一个 <code>run.sh</code> 脚本来启动的。</p>
 <p>​    我们进入目录下直接运行该脚本，查看log信息：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>base ❯ ./run.sh                   
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>base ❯ ./run.sh                   
 Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.exe
 run Deepin-QQ progress pid 
 Gtk-Message: 01:16:58.069: GtkDialog mapped without a transient parent. This is discouraged.
-total 0
-lrwxrwxrwx 1 zs zs 10 6月  16 01:16 c: -&gt; ../drive_c
-lrwxrwxrwx 1 zs zs 10 6月  15 23:36 com1 -&gt; /dev/ttyS0
-lrwxrwxrwx 1 zs zs 10 6月  15 23:36 com10 -&gt; /dev/ttyS9
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com11 -&gt; /dev/ttyS10
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com12 -&gt; /dev/ttyS11
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com13 -&gt; /dev/ttyS12
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com14 -&gt; /dev/ttyS13
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com15 -&gt; /dev/ttyS14
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com16 -&gt; /dev/ttyS15
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com17 -&gt; /dev/ttyS16
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com18 -&gt; /dev/ttyS17
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com19 -&gt; /dev/ttyS18
-lrwxrwxrwx 1 zs zs 10 6月  15 23:36 com2 -&gt; /dev/ttyS1
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com20 -&gt; /dev/ttyS19
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com21 -&gt; /dev/ttyS20
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com22 -&gt; /dev/ttyS21
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com23 -&gt; /dev/ttyS22
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com24 -&gt; /dev/ttyS23
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com25 -&gt; /dev/ttyS24
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com26 -&gt; /dev/ttyS25
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com27 -&gt; /dev/ttyS26
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com28 -&gt; /dev/ttyS27
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com29 -&gt; /dev/ttyS28
-lrwxrwxrwx 1 zs zs 10 6月  15 23:36 com3 -&gt; /dev/ttyS2
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com30 -&gt; /dev/ttyS29
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com31 -&gt; /dev/ttyS30
-lrwxrwxrwx 1 zs zs 11 6月  15 23:36 com32 -&gt; /dev/ttyS31
-lrwxrwxrwx 1 zs zs 10 6月  15 23:36 com4 -&gt; /dev/ttyS3
-lrwxrwxrwx 1 zs zs 10 6月  15 23:36 com5 -&gt; /dev/ttyS4
-lrwxrwxrwx 1 zs zs 10 6月  15 23:36 com6 -&gt; /dev/ttyS5
-lrwxrwxrwx 1 zs zs 10 6月  15 23:36 com7 -&gt; /dev/ttyS6
-lrwxrwxrwx 1 zs zs 10 6月  15 23:36 com8 -&gt; /dev/ttyS7
-lrwxrwxrwx 1 zs zs 10 6月  15 23:36 com9 -&gt; /dev/ttyS8
-lrwxrwxrwx 1 zs zs  8 6月  16 01:16 y: -&gt; /home/zs
-lrwxrwxrwx 1 zs zs  1 6月  16 01:16 z: -&gt; /
+total <span style=color:#ae81ff>0</span>
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>16</span> 01:16 c: -&gt; ../drive_c
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com1 -&gt; /dev/ttyS0
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com10 -&gt; /dev/ttyS9
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com11 -&gt; /dev/ttyS10
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com12 -&gt; /dev/ttyS11
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com13 -&gt; /dev/ttyS12
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com14 -&gt; /dev/ttyS13
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com15 -&gt; /dev/ttyS14
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com16 -&gt; /dev/ttyS15
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com17 -&gt; /dev/ttyS16
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com18 -&gt; /dev/ttyS17
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com19 -&gt; /dev/ttyS18
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com2 -&gt; /dev/ttyS1
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com20 -&gt; /dev/ttyS19
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com21 -&gt; /dev/ttyS20
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com22 -&gt; /dev/ttyS21
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com23 -&gt; /dev/ttyS22
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com24 -&gt; /dev/ttyS23
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com25 -&gt; /dev/ttyS24
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com26 -&gt; /dev/ttyS25
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com27 -&gt; /dev/ttyS26
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com28 -&gt; /dev/ttyS27
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com29 -&gt; /dev/ttyS28
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com3 -&gt; /dev/ttyS2
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com30 -&gt; /dev/ttyS29
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com31 -&gt; /dev/ttyS30
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com32 -&gt; /dev/ttyS31
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com4 -&gt; /dev/ttyS3
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com5 -&gt; /dev/ttyS4
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com6 -&gt; /dev/ttyS5
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com7 -&gt; /dev/ttyS6
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com8 -&gt; /dev/ttyS7
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com9 -&gt; /dev/ttyS8
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs  <span style=color:#ae81ff>8</span> 6月  <span style=color:#ae81ff>16</span> 01:16 y: -&gt; /home/zs
+lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs  <span style=color:#ae81ff>1</span> 6月  <span style=color:#ae81ff>16</span> 01:16 z: -&gt; /
 CallApp Deepin-QQ c:/Program Files/Tencent/QQ/Bin/QQ.exe
 2021年 06月 16日 星期三 01:16:58 CST:kill QQ.exe block
 2021年 06月 16日 星期三 01:16:58 CST:No wine process found
@@ -205,24 +205,24 @@ CallApp Deepin-QQ c:/Program Files/Tencent/QQ/Bin/QQ.exe
 Starting process c:/Program Files/Tencent/QQ/Bin/QQ.exe ...
 
 /opt/deepinwine/apps/Deepin-QQ
-base ❯ wine: cannot find L<span style=font-style:italic>&#34;C:\\windows\\system32\\winemenubuilder.exe&#34;</span>
+base ❯ wine: cannot find L<span style=color:#e6db74>&#34;C:\\windows\\system32\\winemenubuilder.exe&#34;</span>
 wine version: 2.18
 libGL error: No matching fbConfigs or visuals found
 libGL error: failed to load driver: swrast
 X Error of failed request:  GLXBadContext
-  Major opcode of failed request:  152 (GLX)
-  Minor opcode of failed request:  6 (X_GLXIsDirect)
-  Serial number of failed request:  207
-  Current serial number in output stream:  206
+  Major opcode of failed request:  <span style=color:#ae81ff>152</span> <span style=color:#f92672>(</span>GLX<span style=color:#f92672>)</span>
+  Minor opcode of failed request:  <span style=color:#ae81ff>6</span> <span style=color:#f92672>(</span>X_GLXIsDirect<span style=color:#f92672>)</span>
+  Serial number of failed request:  <span style=color:#ae81ff>207</span>
+  Current serial number in output stream:  <span style=color:#ae81ff>206</span>
 </code></pre></div><p>​    可以发现最下面的log信息有一些异常，首先第一行是因为我们是Ubuntu系统，可以暂且不关注</p>
 <p>​    接下来可以看到有一个LibGL的错误，我们通过Google搜索</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>libGL error: No matching fbConfigs or visuals found
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>libGL error: No matching fbConfigs or visuals found
 libGL error: failed to load driver: swrast
 X Error of failed request:  GLXBadContext
-  Major opcode of failed request:  152 (GLX)
-  Minor opcode of failed request:  6 (X_GLXIsDirect)
-  Serial number of failed request:  207
-  Current serial number in output stream:  206
+  Major opcode of failed request:  <span style=color:#ae81ff>152</span> <span style=color:#f92672>(</span>GLX<span style=color:#f92672>)</span>
+  Minor opcode of failed request:  <span style=color:#ae81ff>6</span> <span style=color:#f92672>(</span>X_GLXIsDirect<span style=color:#f92672>)</span>
+  Serial number of failed request:  <span style=color:#ae81ff>207</span>
+  Current serial number in output stream:  <span style=color:#ae81ff>206</span>
 </code></pre></div><p>​    发现类似的错误及解决方案如下：</p>
 <ul>
 <li>

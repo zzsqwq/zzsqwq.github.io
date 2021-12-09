@@ -219,30 +219,30 @@ Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 <li>
 <p>在源文件中添加一个 <strong>C++</strong> 源程序，我添加的为 <code>main.cpp</code></p>
 <p>在其中输入如下测试代码</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span> <span>&lt;iostream&gt;</span><span>
-</span><span>#include</span> <span>&lt;opencv2/core.hpp&gt;</span><span>
-</span><span>#include</span> <span>&lt;opencv2/imgcodecs.hpp&gt;</span><span>
-</span><span>#include</span> <span>&lt;opencv2/highgui.hpp&gt;</span><span>
-</span><span></span>
-<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
-<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> cv;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;opencv2/core.hpp&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;opencv2/imgcodecs.hpp&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;opencv2/highgui.hpp&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> cv;
 
-<span>int</span> main(<span>int</span> argc, <span>char</span>** argv)
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(<span style=color:#66d9ef>int</span> argc, <span style=color:#66d9ef>char</span><span style=color:#f92672>**</span> argv)
 {
-    String imageName(<span style=font-style:italic>&#34;HappyFish.jpg&#34;</span>); <span style=font-style:italic>// by default
-</span><span style=font-style:italic></span>    <span style=font-weight:700>if</span> (argc &gt; 1)
-        imageName = argv[1];
+    String imageName(<span style=color:#e6db74>&#34;HappyFish.jpg&#34;</span>); <span style=color:#75715e>// by default
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (argc <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>)
+        imageName <span style=color:#f92672>=</span> argv[<span style=color:#ae81ff>1</span>];
 
-    Mat image = imread(samples::findFile(imageName), IMREAD_COLOR); <span style=font-style:italic>// Read the file
-</span><span style=font-style:italic></span>    <span style=font-weight:700>if</span> (image.empty()) {  <span style=font-style:italic>// Check for invalid input
-</span><span style=font-style:italic></span>        cout &lt;&lt; <span style=font-style:italic>&#34;Could not open or find the image&#34;</span> &lt;&lt; endl;
-        <span style=font-weight:700>return</span> -1;
+    Mat image <span style=color:#f92672>=</span> imread(samples<span style=color:#f92672>::</span>findFile(imageName), IMREAD_COLOR); <span style=color:#75715e>// Read the file
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (image.empty()) {  <span style=color:#75715e>// Check for invalid input
+</span><span style=color:#75715e></span>        cout <span style=color:#f92672>&lt;&lt;</span> <span style=color:#e6db74>&#34;Could not open or find the image&#34;</span> <span style=color:#f92672>&lt;&lt;</span> endl;
+        <span style=color:#66d9ef>return</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;
     }
-    namedWindow(<span style=font-style:italic>&#34;Display window&#34;</span>, WINDOW_AUTOSIZE); <span style=font-style:italic>// Create a window for display.
-</span><span style=font-style:italic></span>    imshow(<span style=font-style:italic>&#34;Display window&#34;</span>, image);                <span style=font-style:italic>// Show our image inside it.
-</span><span style=font-style:italic></span>    waitKey(0);   <span style=font-style:italic>// Wait for a keystroke in the window
-</span><span style=font-style:italic></span>
-    <span style=font-weight:700>return</span> 0;
+    namedWindow(<span style=color:#e6db74>&#34;Display window&#34;</span>, WINDOW_AUTOSIZE); <span style=color:#75715e>// Create a window for display.
+</span><span style=color:#75715e></span>    imshow(<span style=color:#e6db74>&#34;Display window&#34;</span>, image);                <span style=color:#75715e>// Show our image inside it.
+</span><span style=color:#75715e></span>    waitKey(<span style=color:#ae81ff>0</span>);   <span style=color:#75715e>// Wait for a keystroke in the window
+</span><span style=color:#75715e></span>
+    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
 }
 </code></pre></div><p><img src=https://www.zzsqwq.cn/usr/uploads/2020/10/1422866535.png alt=添加代码源文件></p>
 </li>

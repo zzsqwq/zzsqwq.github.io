@@ -203,11 +203,11 @@ February 4, 2020
 <ul>
 <li>矩阵：用法如下，元素中间使用&来分割同行元素，用\\来换行</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-latex data-lang=latex><span style=font-weight:700>\begin</span>{matrix}
-	1 &amp; 2 &amp; 3<span style=font-weight:700>\\</span>
-	4 &amp; 5 &amp; 6<span style=font-weight:700>\\</span>
-	7 &amp; 8 &amp; 9<span style=font-weight:700>\\</span>
-<span style=font-weight:700>\end</span>{matrix}
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-latex data-lang=latex><span style=color:#66d9ef>\begin</span>{matrix}
+	1 &amp; 2 &amp; 3<span style=color:#66d9ef>\\</span>
+	4 &amp; 5 &amp; 6<span style=color:#66d9ef>\\</span>
+	7 &amp; 8 &amp; 9<span style=color:#66d9ef>\\</span>
+<span style=color:#66d9ef>\end</span>{matrix}
 </code></pre></div><p>$$
 \begin{matrix}
 1 & 2 & 3\
@@ -218,13 +218,13 @@ $$</p>
 <ul>
 <li>行列式: 与矩阵相似，加上行列式的名字以及左右分割线即可</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-latex data-lang=latex>A=  <span style=font-weight:700>\left</span>|
-	<span style=font-weight:700>\begin</span>{matrix}
-	1 &amp; 2 &amp; 3 <span style=font-weight:700>\\</span>
-	4 &amp; 5 &amp; 6 <span style=font-weight:700>\\</span>
-	7 &amp; 8 &amp; 9 <span style=font-weight:700>\\</span>
-	<span style=font-weight:700>\end</span>{matrix}
-	<span style=font-weight:700>\right</span>|
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-latex data-lang=latex>A=  <span style=color:#66d9ef>\left</span>|
+	<span style=color:#66d9ef>\begin</span>{matrix}
+	1 &amp; 2 &amp; 3 <span style=color:#66d9ef>\\</span>
+	4 &amp; 5 &amp; 6 <span style=color:#66d9ef>\\</span>
+	7 &amp; 8 &amp; 9 <span style=color:#66d9ef>\\</span>
+	<span style=color:#66d9ef>\end</span>{matrix}
+	<span style=color:#66d9ef>\right</span>|
 </code></pre></div><p>$$
 A= \left|
 \begin{matrix}
@@ -244,12 +244,12 @@ $$</p>
 <ul>
 <li>分段函数：写法如下，每一个条件用 表达式和条件之间用 <strong>&</strong> 连接</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-latex data-lang=latex>f(x)=
-	<span style=font-weight:700>\begin</span>{cases}
-		x/2, &amp; {n&gt;2}<span style=font-weight:700>\\</span>
-		2x , &amp; {n=2}<span style=font-weight:700>\\</span>
-		3x , &amp; {n&lt;2}<span style=font-weight:700>\\</span>
-	<span style=font-weight:700>\end</span>{cases}
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-latex data-lang=latex>f(x)=
+	<span style=color:#66d9ef>\begin</span>{cases}
+		x/2, &amp; {n&gt;2}<span style=color:#66d9ef>\\</span>
+		2x , &amp; {n=2}<span style=color:#66d9ef>\\</span>
+		3x , &amp; {n&lt;2}<span style=color:#66d9ef>\\</span>
+	<span style=color:#66d9ef>\end</span>{cases}
 </code></pre></div><p>$$
 f(x)=
 \begin{cases}
@@ -261,13 +261,13 @@ $$</p>
 <ul>
 <li>方程组: 写法如下，不是一个对称的，注意left后面为{ ，right后面为. 用\\换行</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-latex data-lang=latex><span style=font-weight:700>\left\{</span>
-	<span style=font-weight:700>\begin</span>{array}{}
-		a_1x+b_1y+c_1z=d_1<span style=font-weight:700>\\</span>
-		a_2x+b_2y+c_2z=d_2<span style=font-weight:700>\\</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-latex data-lang=latex><span style=color:#66d9ef>\left\{</span>
+	<span style=color:#66d9ef>\begin</span>{array}{}
+		a_1x+b_1y+c_1z=d_1<span style=color:#66d9ef>\\</span>
+		a_2x+b_2y+c_2z=d_2<span style=color:#66d9ef>\\</span>
 		a_3x+b_3y+c_3z=d_3
-	<span style=font-weight:700>\end</span>{array}
-<span style=font-weight:700>\right</span>.
+	<span style=color:#66d9ef>\end</span>{array}
+<span style=color:#66d9ef>\right</span>.
 </code></pre></div><p>$$
 \left{
 \begin{array}{}

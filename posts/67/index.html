@@ -161,15 +161,15 @@ April 20, 2020
 </h4>
 <p>​    首先这道题是要求必须使用双向链表作为存储结构的，这个需要注意，而且也不能用数组计算完了之后挨个赋值给链表的每个节点，<del>这是耍赖</del> 。</p>
 <p>​    那么我们开始再想，用什么公式来求 <strong>PI</strong> 呢？这是一个问题。先没管题目的提示，我去百度了一通，发现了一个很神奇的算法，用三行就可以计算到圆周率小数点后800+位。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
-</span><span></span>
-<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
 
-<span>long</span> a=1000,b,c=2800,d,e,f[2801],g;
-<span>int</span> main(){
-    <span style=font-weight:700>for</span>(;b-c;) f[b++]=a/5;
-    <span style=font-weight:700>for</span>(;d=0,g=c*2;c-=14,printf(<span style=font-style:italic>&#34;%.3d&#34;</span>,e+d/a),e=d%a)
-    <span style=font-weight:700>for</span>(b=c;d+=f[b]*a,f[b]=d%--g,d/=g--,--b;d*=b);
+<span style=color:#66d9ef>long</span> a<span style=color:#f92672>=</span><span style=color:#ae81ff>1000</span>,b,c<span style=color:#f92672>=</span><span style=color:#ae81ff>2800</span>,d,e,f[<span style=color:#ae81ff>2801</span>],g;
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(){
+    <span style=color:#66d9ef>for</span>(;b<span style=color:#f92672>-</span>c;) f[b<span style=color:#f92672>++</span>]<span style=color:#f92672>=</span>a<span style=color:#f92672>/</span><span style=color:#ae81ff>5</span>;
+    <span style=color:#66d9ef>for</span>(;d<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>,g<span style=color:#f92672>=</span>c<span style=color:#f92672>*</span><span style=color:#ae81ff>2</span>;c<span style=color:#f92672>-=</span><span style=color:#ae81ff>14</span>,printf(<span style=color:#e6db74>&#34;%.3d&#34;</span>,e<span style=color:#f92672>+</span>d<span style=color:#f92672>/</span>a),e<span style=color:#f92672>=</span>d<span style=color:#f92672>%</span>a)
+    <span style=color:#66d9ef>for</span>(b<span style=color:#f92672>=</span>c;d<span style=color:#f92672>+=</span>f[b]<span style=color:#f92672>*</span>a,f[b]<span style=color:#f92672>=</span>d<span style=color:#f92672>%--</span>g,d<span style=color:#f92672>/=</span>g<span style=color:#f92672>--</span>,<span style=color:#f92672>--</span>b;d<span style=color:#f92672>*=</span>b);
 }
 </code></pre></div><p>​    实验了一下发现居然真的是，而且效率还挺高的？看了一会实现的原理一直没看懂，作罢。</p>
 <p>​    最后发现是找不到什么除了幂级展开还有啥高效率的算法了好像，还是考虑题目提示的 <strong>三角函数幂级展开</strong>。然后继续在网上搜索了一下，在学长的一个博客里发现了公式。
@@ -191,18 +191,18 @@ $$</p>
 </a>
 </h4>
 <p>​    双向链表，也就是每个节点有一个数据域，有前和后两个指针。我考虑到我们做加法和乘法是需要从后往前做，除法是需要从前往后做。因此需要双向遍历，我又添加了一个尾指针，记录当前链表的尾节点的地址，方便从后往前遍历，头节点可以保证从前往后遍历。设计如下：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=font-weight:700>typedef</span> <span style=font-weight:700>struct</span> <span style=font-weight:700>node</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#66d9ef>typedef</span> <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>node</span>
 {
-    <span>int</span> data;
-    <span style=font-weight:700>struct</span> <span style=font-weight:700>node</span> *nxt; 
-    <span style=font-weight:700>struct</span> <span style=font-weight:700>node</span> *pre;
-    <span style=font-weight:700>struct</span> <span style=font-weight:700>node</span> *tail;
-    node()   <span style=font-style:italic>//构造函数，用于初始化
-</span><span style=font-style:italic></span>    {
-        nxt = NULL;
-        pre = NULL;
-       	tail = <span style=font-weight:700>this</span>;
-        data = 0;
+    <span style=color:#66d9ef>int</span> data;
+    <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>node</span> <span style=color:#f92672>*</span>nxt; 
+    <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>node</span> <span style=color:#f92672>*</span>pre;
+    <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>node</span> <span style=color:#f92672>*</span>tail;
+    node()   <span style=color:#75715e>//构造函数，用于初始化
+</span><span style=color:#75715e></span>    {
+        nxt <span style=color:#f92672>=</span> NULL;
+        pre <span style=color:#f92672>=</span> NULL;
+       	tail <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>;
+        data <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
     }
 }
 </code></pre></div><p>​    数据域就用来存储每一位数字，好比 <strong>3.1415926</strong> 就从第一个节点到第八个节点依次存 <strong>31415926</strong> 。</p>
@@ -250,180 +250,180 @@ $$</p>
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span>#include</span><span>&lt;cstdio&gt;</span><span>
-</span><span>#include</span><span>&lt;cstring&gt;</span><span>
-</span><span>#include</span><span>&lt;cmath&gt;</span><span>
-</span><span>#include</span><span>&lt;iostream&gt;</span><span>
-</span><span>#include</span><span>&lt;algorithm&gt;</span><span>
-</span><span></span>
-<span style=font-weight:700>using</span> <span style=font-weight:700>namespace</span> std;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
 
-<span style=font-weight:700>const</span> <span>int</span> maxsize = 600;  <span style=font-style:italic>// 设定求小数点后多少位
-</span><span style=font-style:italic></span><span style=font-weight:700>typedef</span> <span style=font-weight:700>struct</span> <span style=font-weight:700>node</span>  <span style=font-style:italic>// 双向链表的结构体
-</span><span style=font-style:italic></span>{
+<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxsize <span style=color:#f92672>=</span> <span style=color:#ae81ff>600</span>;  <span style=color:#75715e>// 设定求小数点后多少位
+</span><span style=color:#75715e></span><span style=color:#66d9ef>typedef</span> <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>node</span>  <span style=color:#75715e>// 双向链表的结构体
+</span><span style=color:#75715e></span>{
     
-    <span>int</span> data;
-    <span style=font-weight:700>struct</span> <span style=font-weight:700>node</span> *nxt;
-    <span style=font-weight:700>struct</span> <span style=font-weight:700>node</span> *pre;
-    <span style=font-weight:700>struct</span> <span style=font-weight:700>node</span> *tail;
-    node()              <span style=font-style:italic>//构造函数，用于初始化
-</span><span style=font-style:italic></span>    {
-        data = 0;
-        tail  = <span style=font-weight:700>this</span>;
-        nxt = NULL;
-        pre = NULL;
+    <span style=color:#66d9ef>int</span> data;
+    <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>node</span> <span style=color:#f92672>*</span>nxt;
+    <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>node</span> <span style=color:#f92672>*</span>pre;
+    <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>node</span> <span style=color:#f92672>*</span>tail;
+    node()              <span style=color:#75715e>//构造函数，用于初始化
+</span><span style=color:#75715e></span>    {
+        data <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+        tail  <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>;
+        nxt <span style=color:#f92672>=</span> NULL;
+        pre <span style=color:#f92672>=</span> NULL;
     }
     
-}Node,*List;
+}Node,<span style=color:#f92672>*</span>List;
 
-<span>void</span> Mult(List Head,<span>int</span> k);      <span style=font-style:italic>// 对链表每一位 *k
-</span><span style=font-style:italic></span><span>void</span> Divi(List Head,<span>int</span> k);      <span style=font-style:italic>// 对链表每一位 ÷k
-</span><span style=font-style:italic></span><span>void</span> Sum(List a,List b);         <span style=font-style:italic>// 对两个链表的数求和，所得数放在前面链表中
-</span><span style=font-style:italic></span><span>void</span> InitList(List &amp;L);          <span style=font-style:italic>// 初始化链表，并把第一个节点值设为 1
-</span><span style=font-style:italic></span><span>void</span> InitSum(List &amp;L);           <span style=font-style:italic>// 初始化最后存和的链表，并把第一个节点置为1
-</span><span style=font-style:italic></span><span>void</span> Output(List L,<span>int</span> k);       <span style=font-style:italic>// 输出一个链表，保留 k 位小数
-</span><span style=font-style:italic></span>
+<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>Mult</span>(List Head,<span style=color:#66d9ef>int</span> k);      <span style=color:#75715e>// 对链表每一位 *k
+</span><span style=color:#75715e></span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>Divi</span>(List Head,<span style=color:#66d9ef>int</span> k);      <span style=color:#75715e>// 对链表每一位 ÷k
+</span><span style=color:#75715e></span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>Sum</span>(List a,List b);         <span style=color:#75715e>// 对两个链表的数求和，所得数放在前面链表中
+</span><span style=color:#75715e></span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>InitList</span>(List <span style=color:#f92672>&amp;</span>L);          <span style=color:#75715e>// 初始化链表，并把第一个节点值设为 1
+</span><span style=color:#75715e></span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>InitSum</span>(List <span style=color:#f92672>&amp;</span>L);           <span style=color:#75715e>// 初始化最后存和的链表，并把第一个节点置为1
+</span><span style=color:#75715e></span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>Output</span>(List L,<span style=color:#66d9ef>int</span> k);       <span style=color:#75715e>// 输出一个链表，保留 k 位小数
+</span><span style=color:#75715e></span>
 
-<span>int</span> main()
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-    <span>int</span> n = 0;
-    scanf(<span style=font-style:italic>&#34;%d&#34;</span>,&amp;n);             
+    <span style=color:#66d9ef>int</span> n <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+    scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);             
     List Head,S;
     InitList(Head); 
     InitSum(S);
-    <span style=font-weight:700>for</span>(<span>int</span> i=2;i&lt;=3000;i++)     <span style=font-style:italic>//计算pi值
-</span><span style=font-style:italic></span>    {
-        Mult(Head,i-1);
-        Divi(Head,2*i-1);
+    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>;i<span style=color:#f92672>&lt;=</span><span style=color:#ae81ff>3000</span>;i<span style=color:#f92672>++</span>)     <span style=color:#75715e>//计算pi值
+</span><span style=color:#75715e></span>    {
+        Mult(Head,i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>);
+        Divi(Head,<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>);
         Sum(S,Head);
     }
     
-    Mult(S,2);
+    Mult(S,<span style=color:#ae81ff>2</span>);
     Output(S,n);
-    <span style=font-weight:700>return</span> 0;
+    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
 }
 
-<span>void</span> Mult(List Head,<span>int</span> k)    <span style=font-style:italic>// 对以Head为头节点的链表中的每一位做乘法
-</span><span style=font-style:italic></span>{
-    List p = Head-&gt;tail;      <span style=font-style:italic>// 先把指针指向链表的末尾，方便从后往前做乘法
-</span><span style=font-style:italic></span>    <span style=font-weight:700>while</span>(p != Head)          <span style=font-style:italic>// 从前往后开始算乘法
-</span><span style=font-style:italic></span>    {
-        p-&gt;data *= k;
-        p = p-&gt;pre;
-<span style=font-style:italic>//      printf(&#34;I have done Multi.\n&#34;);
-</span><span style=font-style:italic></span>    }
-    p = Head-&gt;tail;
-    <span style=font-weight:700>while</span>(p != Head-&gt;nxt)     <span style=font-style:italic>//开始处理进位 
-</span><span style=font-style:italic></span>    {
-        p-&gt;pre-&gt;data += p-&gt;data /10;
-        p-&gt;data %= 10;
-        p = p-&gt;pre;
+<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>Mult</span>(List Head,<span style=color:#66d9ef>int</span> k)    <span style=color:#75715e>// 对以Head为头节点的链表中的每一位做乘法
+</span><span style=color:#75715e></span>{
+    List p <span style=color:#f92672>=</span> Head<span style=color:#f92672>-&gt;</span>tail;      <span style=color:#75715e>// 先把指针指向链表的末尾，方便从后往前做乘法
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>while</span>(p <span style=color:#f92672>!=</span> Head)          <span style=color:#75715e>// 从前往后开始算乘法
+</span><span style=color:#75715e></span>    {
+        p<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>*=</span> k;
+        p <span style=color:#f92672>=</span> p<span style=color:#f92672>-&gt;</span>pre;
+<span style=color:#75715e>//      printf(&#34;I have done Multi.\n&#34;);
+</span><span style=color:#75715e></span>    }
+    p <span style=color:#f92672>=</span> Head<span style=color:#f92672>-&gt;</span>tail;
+    <span style=color:#66d9ef>while</span>(p <span style=color:#f92672>!=</span> Head<span style=color:#f92672>-&gt;</span>nxt)     <span style=color:#75715e>//开始处理进位 
+</span><span style=color:#75715e></span>    {
+        p<span style=color:#f92672>-&gt;</span>pre<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>+=</span> p<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>/</span><span style=color:#ae81ff>10</span>;
+        p<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>%=</span> <span style=color:#ae81ff>10</span>;
+        p <span style=color:#f92672>=</span> p<span style=color:#f92672>-&gt;</span>pre;
     }
-    <span style=font-weight:700>while</span>( p-&gt;data &gt; 10)      <span style=font-style:italic>//一直处理最高位的进位 
-</span><span style=font-style:italic></span>    {
-        List s = (List)malloc(<span style=font-weight:700>sizeof</span>(Node));
-        s-&gt;data = p-&gt;data/10;
-        p-&gt;data %= 10;
-        s-&gt;pre = Head;
-        s-&gt;nxt = p;
-        p-&gt;pre = s;
-        Head-&gt;nxt = s;
-        p = s;
-    }
-}
-
-<span>void</span> Divi(List Head,<span>int</span> k) <span style=font-style:italic>// 对链表每一位除k
-</span><span style=font-style:italic></span>{
-    <span>int</span> temp = 0,depth = 0;     <span style=font-style:italic>//temp用于进位计算 ，depth 用于计算链表长度
-</span><span style=font-style:italic></span>    List p = Head-&gt;nxt;
-    List t;                     <span style=font-style:italic>// 存尾部节点
-</span><span style=font-style:italic></span>    <span style=font-weight:700>while</span>(p != NULL)            <span style=font-style:italic>//模拟做除法
-</span><span style=font-style:italic></span>    {
-        depth++; 
-        p-&gt;data += temp*10; 
-        temp = p-&gt;data % k;
-        p-&gt;data /= k;
-        t = p;
-        p = p-&gt;nxt;
-    }
-    p = t;
-    <span style=font-weight:700>while</span>(temp!=0 &amp;&amp; depth &lt;= maxsize)  <span style=font-style:italic>// 如果除不尽，就一直往后拓展节点，但注意不要超过最大位数
-</span><span style=font-style:italic></span>    {
-<span style=font-style:italic>//      printf(&#34;I have done Division!\n&#34;);
-</span><span style=font-style:italic></span>        depth++;
-        List s = (List)malloc(<span style=font-weight:700>sizeof</span>(Node));
-        s-&gt;data = temp*10;
-        s-&gt;nxt = NULL;
-        s-&gt;pre = p;
-        temp = s-&gt;data % k;
-        s-&gt;data /= k;
-        p-&gt;nxt = s;
-        p = s;
-    }
-    Head-&gt;tail = p;
-}
-
-<span>void</span> Sum(List a,List b)  <span style=font-style:italic>// 对两个链表的数求和，所得数放在前面链表中
-</span><span style=font-style:italic></span>{
-    List p = a-&gt;tail,k = b-&gt;tail;  <span style=font-style:italic>// 先指向各自的尾部，开始从前往后加
-</span><span style=font-style:italic></span>    <span style=font-weight:700>while</span>(p!=a &amp;&amp; k!=b)  <span style=font-style:italic>// 遍历到有一个到头节点为止
-</span><span style=font-style:italic></span>    {
-        p-&gt;data += k-&gt;data;
-        p-&gt;pre-&gt;data += p-&gt;data / 10;
-        p-&gt;data %= 10;
-        p = p-&gt;pre;
-        k = k-&gt;pre;
+    <span style=color:#66d9ef>while</span>( p<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>10</span>)      <span style=color:#75715e>//一直处理最高位的进位 
+</span><span style=color:#75715e></span>    {
+        List s <span style=color:#f92672>=</span> (List)malloc(<span style=color:#66d9ef>sizeof</span>(Node));
+        s<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>=</span> p<span style=color:#f92672>-&gt;</span>data<span style=color:#f92672>/</span><span style=color:#ae81ff>10</span>;
+        p<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>%=</span> <span style=color:#ae81ff>10</span>;
+        s<span style=color:#f92672>-&gt;</span>pre <span style=color:#f92672>=</span> Head;
+        s<span style=color:#f92672>-&gt;</span>nxt <span style=color:#f92672>=</span> p;
+        p<span style=color:#f92672>-&gt;</span>pre <span style=color:#f92672>=</span> s;
+        Head<span style=color:#f92672>-&gt;</span>nxt <span style=color:#f92672>=</span> s;
+        p <span style=color:#f92672>=</span> s;
     }
 }
 
-<span>void</span> InitList(List &amp;L) <span style=font-style:italic>// 初始化链表，并把第一个节点值设为 1
-</span><span style=font-style:italic></span>{
-   L = (List)malloc(<span style=font-weight:700>sizeof</span>(Node));
-   L-&gt;data = 0;
-   List s = (List)malloc(<span style=font-weight:700>sizeof</span>(Node));
-   s-&gt;data = 1;
-   s-&gt;pre = L;
-   L-&gt;nxt = s;
-   L-&gt;pre = NULL;
-   L-&gt;tail = s;
-   s-&gt;nxt = NULL; 
+<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>Divi</span>(List Head,<span style=color:#66d9ef>int</span> k) <span style=color:#75715e>// 对链表每一位除k
+</span><span style=color:#75715e></span>{
+    <span style=color:#66d9ef>int</span> temp <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>,depth <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;     <span style=color:#75715e>//temp用于进位计算 ，depth 用于计算链表长度
+</span><span style=color:#75715e></span>    List p <span style=color:#f92672>=</span> Head<span style=color:#f92672>-&gt;</span>nxt;
+    List t;                     <span style=color:#75715e>// 存尾部节点
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>while</span>(p <span style=color:#f92672>!=</span> NULL)            <span style=color:#75715e>//模拟做除法
+</span><span style=color:#75715e></span>    {
+        depth<span style=color:#f92672>++</span>; 
+        p<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>+=</span> temp<span style=color:#f92672>*</span><span style=color:#ae81ff>10</span>; 
+        temp <span style=color:#f92672>=</span> p<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>%</span> k;
+        p<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>/=</span> k;
+        t <span style=color:#f92672>=</span> p;
+        p <span style=color:#f92672>=</span> p<span style=color:#f92672>-&gt;</span>nxt;
+    }
+    p <span style=color:#f92672>=</span> t;
+    <span style=color:#66d9ef>while</span>(temp<span style=color:#f92672>!=</span><span style=color:#ae81ff>0</span> <span style=color:#f92672>&amp;&amp;</span> depth <span style=color:#f92672>&lt;=</span> maxsize)  <span style=color:#75715e>// 如果除不尽，就一直往后拓展节点，但注意不要超过最大位数
+</span><span style=color:#75715e></span>    {
+<span style=color:#75715e>//      printf(&#34;I have done Division!\n&#34;);
+</span><span style=color:#75715e></span>        depth<span style=color:#f92672>++</span>;
+        List s <span style=color:#f92672>=</span> (List)malloc(<span style=color:#66d9ef>sizeof</span>(Node));
+        s<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>=</span> temp<span style=color:#f92672>*</span><span style=color:#ae81ff>10</span>;
+        s<span style=color:#f92672>-&gt;</span>nxt <span style=color:#f92672>=</span> NULL;
+        s<span style=color:#f92672>-&gt;</span>pre <span style=color:#f92672>=</span> p;
+        temp <span style=color:#f92672>=</span> s<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>%</span> k;
+        s<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>/=</span> k;
+        p<span style=color:#f92672>-&gt;</span>nxt <span style=color:#f92672>=</span> s;
+        p <span style=color:#f92672>=</span> s;
+    }
+    Head<span style=color:#f92672>-&gt;</span>tail <span style=color:#f92672>=</span> p;
 }
 
-<span>void</span> InitSum(List &amp;L) <span style=font-style:italic>// 初始化最后存和的链表，并把第一个节点置为1
-</span><span style=font-style:italic></span>{
-    L = (List)malloc(<span style=font-weight:700>sizeof</span>(Node));
-    L-&gt;nxt = NULL;
-    L-&gt;pre = NULL;
-    L-&gt;data = 0;
-    List p = L;
-    <span>int</span> depth = 0;
-    <span style=font-weight:700>while</span>(depth &lt;= maxsize)
+<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>Sum</span>(List a,List b)  <span style=color:#75715e>// 对两个链表的数求和，所得数放在前面链表中
+</span><span style=color:#75715e></span>{
+    List p <span style=color:#f92672>=</span> a<span style=color:#f92672>-&gt;</span>tail,k <span style=color:#f92672>=</span> b<span style=color:#f92672>-&gt;</span>tail;  <span style=color:#75715e>// 先指向各自的尾部，开始从前往后加
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>while</span>(p<span style=color:#f92672>!=</span>a <span style=color:#f92672>&amp;&amp;</span> k<span style=color:#f92672>!=</span>b)  <span style=color:#75715e>// 遍历到有一个到头节点为止
+</span><span style=color:#75715e></span>    {
+        p<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>+=</span> k<span style=color:#f92672>-&gt;</span>data;
+        p<span style=color:#f92672>-&gt;</span>pre<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>+=</span> p<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>/</span> <span style=color:#ae81ff>10</span>;
+        p<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>%=</span> <span style=color:#ae81ff>10</span>;
+        p <span style=color:#f92672>=</span> p<span style=color:#f92672>-&gt;</span>pre;
+        k <span style=color:#f92672>=</span> k<span style=color:#f92672>-&gt;</span>pre;
+    }
+}
+
+<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>InitList</span>(List <span style=color:#f92672>&amp;</span>L) <span style=color:#75715e>// 初始化链表，并把第一个节点值设为 1
+</span><span style=color:#75715e></span>{
+   L <span style=color:#f92672>=</span> (List)malloc(<span style=color:#66d9ef>sizeof</span>(Node));
+   L<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+   List s <span style=color:#f92672>=</span> (List)malloc(<span style=color:#66d9ef>sizeof</span>(Node));
+   s<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+   s<span style=color:#f92672>-&gt;</span>pre <span style=color:#f92672>=</span> L;
+   L<span style=color:#f92672>-&gt;</span>nxt <span style=color:#f92672>=</span> s;
+   L<span style=color:#f92672>-&gt;</span>pre <span style=color:#f92672>=</span> NULL;
+   L<span style=color:#f92672>-&gt;</span>tail <span style=color:#f92672>=</span> s;
+   s<span style=color:#f92672>-&gt;</span>nxt <span style=color:#f92672>=</span> NULL; 
+}
+
+<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>InitSum</span>(List <span style=color:#f92672>&amp;</span>L) <span style=color:#75715e>// 初始化最后存和的链表，并把第一个节点置为1
+</span><span style=color:#75715e></span>{
+    L <span style=color:#f92672>=</span> (List)malloc(<span style=color:#66d9ef>sizeof</span>(Node));
+    L<span style=color:#f92672>-&gt;</span>nxt <span style=color:#f92672>=</span> NULL;
+    L<span style=color:#f92672>-&gt;</span>pre <span style=color:#f92672>=</span> NULL;
+    L<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+    List p <span style=color:#f92672>=</span> L;
+    <span style=color:#66d9ef>int</span> depth <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+    <span style=color:#66d9ef>while</span>(depth <span style=color:#f92672>&lt;=</span> maxsize)
     {
-        List s = (List)malloc(<span style=font-weight:700>sizeof</span>(Node));
-        s-&gt;data = 0;
-        s-&gt;pre = p;
-        p-&gt;nxt = s;
-        s-&gt;nxt = NULL;
-        p = s;
-        depth++;
+        List s <span style=color:#f92672>=</span> (List)malloc(<span style=color:#66d9ef>sizeof</span>(Node));
+        s<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+        s<span style=color:#f92672>-&gt;</span>pre <span style=color:#f92672>=</span> p;
+        p<span style=color:#f92672>-&gt;</span>nxt <span style=color:#f92672>=</span> s;
+        s<span style=color:#f92672>-&gt;</span>nxt <span style=color:#f92672>=</span> NULL;
+        p <span style=color:#f92672>=</span> s;
+        depth<span style=color:#f92672>++</span>;
     }
-    L-&gt;nxt-&gt;data = 1;
-    L-&gt;tail = p;
+    L<span style=color:#f92672>-&gt;</span>nxt<span style=color:#f92672>-&gt;</span>data <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+    L<span style=color:#f92672>-&gt;</span>tail <span style=color:#f92672>=</span> p;
 }
 
-<span>void</span> Output(List L,<span>int</span> k) <span style=font-style:italic>//输出一个列表，保留 k 位小数
-</span><span style=font-style:italic></span>{
-    List p = L-&gt;nxt;
-    printf(<span style=font-style:italic>&#34;%d.&#34;</span>,p-&gt;data);
-    p = p-&gt;nxt;
-    <span>int</span> t = 0;
-    <span style=font-weight:700>while</span>(p != NULL &amp;&amp; t&lt;k) 
+<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>Output</span>(List L,<span style=color:#66d9ef>int</span> k) <span style=color:#75715e>//输出一个列表，保留 k 位小数
+</span><span style=color:#75715e></span>{
+    List p <span style=color:#f92672>=</span> L<span style=color:#f92672>-&gt;</span>nxt;
+    printf(<span style=color:#e6db74>&#34;%d.&#34;</span>,p<span style=color:#f92672>-&gt;</span>data);
+    p <span style=color:#f92672>=</span> p<span style=color:#f92672>-&gt;</span>nxt;
+    <span style=color:#66d9ef>int</span> t <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+    <span style=color:#66d9ef>while</span>(p <span style=color:#f92672>!=</span> NULL <span style=color:#f92672>&amp;&amp;</span> t<span style=color:#f92672>&lt;</span>k) 
     {
-        t++;
-        printf(<span style=font-style:italic>&#34;%d&#34;</span>,p-&gt;data);
-        p = p-&gt;nxt;
+        t<span style=color:#f92672>++</span>;
+        printf(<span style=color:#e6db74>&#34;%d&#34;</span>,p<span style=color:#f92672>-&gt;</span>data);
+        p <span style=color:#f92672>=</span> p<span style=color:#f92672>-&gt;</span>nxt;
     }
-    printf(<span style=font-style:italic>&#34;</span><span style=font-weight:700;font-style:italic>\n</span><span style=font-style:italic>&#34;</span>);
+    printf(<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
 }
 </code></pre></div><h3 id=参考链接>
 参考链接

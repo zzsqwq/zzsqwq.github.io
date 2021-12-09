@@ -196,13 +196,13 @@ Git的基本使用
 <li>
 <p>表明身份</p>
 <p>         在Git所有仓库中我们都要有一个所有者的身份，用于标识是谁的仓库，用如下方式标识</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git config --global user.name <span style=font-style:italic>&#34;Your Name&#34;</span>
-git config --global user.email <span style=font-style:italic>&#34;Your email&#34;</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git config --global user.name <span style=color:#e6db74>&#34;Your Name&#34;</span>
+git config --global user.email <span style=color:#e6db74>&#34;Your email&#34;</span>
 </code></pre></div></li>
 <li>
 <p>创建版本库</p>
 <p>         我们想要把一个文件夹的内容用git来管理，只需要在文件夹目录运行</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git init
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git init
 </code></pre></div><p>         顾名思义这就是一个初始化的过程，运行以后在当前目录生成一个 <code>.git</code> 文件夹，里面是我们版本控制的数据，一般不要修改。</p>
 </li>
 <li>
@@ -216,22 +216,22 @@ git config --global user.email <span style=font-style:italic>&#34;Your email&#34
 <p>         贴一张廖雪峰老师教程中的一张图，我觉得还挺形象的。</p>
 <p><img src=https://static.liaoxuefeng.com/files/attachments/919020037470528/0 alt=git-repo></p>
 <p>         我们清楚了上面的三个分区，那么考虑一下如何把文件夹中的文件从工作区推到暂存区，通过如下命令</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git add filepath
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git add filepath
 </code></pre></div><p>         我们就可以把文件推到暂存区，最后的filepath就是我们需要推送的文件的路径，一般都用相对路径。</p>
 <p>         上面是添加单个文件的方法，我们也可以把目录中所有做过更改的文件都加到暂存区中，就用</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git add .
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git add .
 </code></pre></div></li>
 <li>
 <p>从暂存区推送到最后分支</p>
 <p>         我们可以把暂存区推送到最终分支，以完成我们的版本更新，通过</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git commit -m <span style=font-style:italic>&#34;description&#34;</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git commit -m <span style=color:#e6db74>&#34;description&#34;</span>
 </code></pre></div><p>         其中description的内容是我们对该次版本更新的一次描述，好比增加什么功能。</p>
 </li>
 <li>
 <p>版本回退</p>
 <p>         那么既然我们每次有更新版本，我们如何从最新的版本回退到之前的某个版本呢？</p>
 <p>         这里我们需要了解到，我们有一个指针 <code>HEAD</code> 来指向我们当前的版本，因此我们只需要指定HEAD指针指向的版本，就可以做到更改版本。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git reset --hard 版本号
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git reset --hard 版本号
 git reset --hard HEAD^
 git reset --hard HEAD~cnt
 </code></pre></div><p>         这里三个命令都可以回退版本，每一个版本有一个版本号，可以指定版本号直接回到对应的版本。此外，通过 <code>git reflog</code> 可以查看每个版本的版本号。</p>
@@ -242,12 +242,12 @@ git reset --hard HEAD~cnt
 <p>         Git支持分支结构，可以使我们的版本管理变得十分有序，以不至于逻辑混乱。</p>
 <p>         Git有一个初始主分支master，我们可以</p>
 <p>         创建分支</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git branch 分支名称
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git branch 分支名称
 </code></pre></div><p>         切换分支(两个命令都可以)</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git switch 分支名称
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git switch 分支名称
 git checkout 分支名称
 </code></pre></div><p>         创建并切换分支</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git checkout -b 分支名称
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git checkout -b 分支名称
 </code></pre></div></li>
 </ul>
 <p>​          好了，学了这些，其实就已经够让我们在日常生活中管理文件了，下面说一些用于团队合作的。</p>
@@ -270,14 +270,14 @@ Git与Github的协同
 <li>
 <p>从Github克隆代码</p>
 <p>         我们如果想要从一个公有仓库中，把它的代码克隆到自己的本地，然后对他做一些应用。我们可以使用</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git clone 仓库地址
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git clone 仓库地址
 </code></pre></div><p>         这样就可以克隆仓库到本地，这里的仓库地址支持 <code>https</code> 或者 <code>ssh</code> 协议。</p>
 </li>
 <li>
 <p>推送本地仓库到Github</p>
 <p>         首先我们要在Github上有一个自己的仓库，才能将自己的代码推送上去，因此需要在Github上创建自己的公有/私有仓库。</p>
 <p>         然后我们在本地仓库做完修改，<code>commit</code> 以后，输入如下命令</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git remote add origin 仓库地址
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git remote add origin 仓库地址
 git push -u origin master
 </code></pre></div><p>         这两步一个是与远程仓库建立关联，一个是将代码push上去。</p>
 <p>         通过这两步就可以把我们当地仓库推送到Github。</p>

@@ -181,9 +181,9 @@ July 18, 2021
 </h3>
 <p>    Ubuntu的server版本有个比较蛋疼的问题就是上网比较困难，如果是用的学校网线，必须要PPPOE拨号才能上网，但是server版本居然没有 <code>net-tools</code> 和 <code>network-manager</code> ，连接WiFi啥的试了很多办法但还是没有什么作用。</p>
 <p>    <strong>解决办法：用网线直接连接树莓派和有网的路由器，安装 <code>net-tools</code> 和 <code>network-manager</code> ，执行</strong></p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo nmtui
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo nmtui
 </code></pre></div><p>    选择 <code>Activate a connect </code> 连接无线的WiFi，执行</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo ifconfig
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo ifconfig
 </code></pre></div><p>    查看WiFi对应的IP，至此，树莓派可以摆脱屏幕，我们可以使用电脑进行使用 <code>ssh</code> 连接。</p>
 <p>    这里也可以使用网线进行连接，具体操作如下</p>
 <p>    1. 用网线连接树莓派和自己的电脑。</p>
@@ -219,14 +219,14 @@ July 18, 2021
 <ul>
 <li>首先更新源并安装Hp的打印机驱动 <code>hplip</code></li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo apt update
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo apt update
 $ sudo apt install hplip
 </code></pre></div><ul>
 <li>然后安装Apple开源的远程打印工具 <code>cups</code>，并配置相应权限</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo apt install cups  <span style=font-style:italic># Install cups package</span>
-$ sudo usermod -aG lpadmin pi <span style=font-style:italic># Add user to lpadmin group,pi is your user name</span>
-$ sudo cupsctl --remote-any <span style=font-style:italic># open remote access </span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo apt install cups  <span style=color:#75715e># Install cups package</span>
+$ sudo usermod -aG lpadmin pi <span style=color:#75715e># Add user to lpadmin group,pi is your user name</span>
+$ sudo cupsctl --remote-any <span style=color:#75715e># open remote access </span>
 </code></pre></div><ul>
 <li>然后使用在同一局域网的电脑，访问 <code>https://树莓派IP:631</code>，可以进入如下界面，按照下图设置右侧的<code>Server Settings</code></li>
 </ul>
@@ -244,7 +244,7 @@ $ sudo cupsctl --remote-any <span style=font-style:italic># open remote access <
 <ul>
 <li>首先我们查看一下版本，发现是3.20.3版本</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo apt show hplip 
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo apt show hplip 
 Package: hplip
 Version: 3.20.3+dfsg0-2
 Priority: optional
@@ -253,7 +253,7 @@ Origin: Ubuntu
 Maintainer: Ubuntu Developers &lt;ubuntu-devel-discuss@lists.ubuntu.com&gt;
 Original-Maintainer: Debian Printing Team &lt;debian-printing@lists.debian.org&gt;
 Bugs: https://bugs.launchpad.net/ubuntu/+filebug
-Installed-Size: 518 kB
+Installed-Size: <span style=color:#ae81ff>518</span> kB
 </code></pre></div><ul>
 <li>
 <p>然后在 <a href=https://developers.hp.com/hp-linux-imaging-and-printing/plugins>插件列表</a> 中找到 3.20.3 对应的<code>hplip-3.20.3-plugin.run</code>和<code>hplip-3.20.3-plugin.run.asc</code>，使用wget下载到树莓派本地。</p>

@@ -194,7 +194,7 @@ Ubuntu 20.04 相关
 <p>安装过程一般没啥问题，进入系统后我们就会发现一些问题，首先是你的**触摸板用不了，然后键盘也用不了。**再就是屏幕没法调节亮度（这个是小问题我觉得，好像也可以通过安装插件解决，大家可以自行搜索。）</p>
 <p>经过查询资料，这里有同学已经提出很好的解决方案：https://zhuanlan.zhihu.com/p/322377515</p>
 <p>简而言之，键盘用不了需要在 grub 启动项中加入 i8042.dumbkbd 参数，然后运行</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo update-grub2
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo update-grub2
 </code></pre></div><p>即可在每次启动后保证键盘可用。</p>
 <p>关于没法使用触摸板和调节亮度，办法就是升级内核，据说是内核升级到5.9.8以上可用，Ubuntu 18.04内置版本是5.4.0.84好像是，但是我在更新后会花屏、黑屏等来回鬼畜，试了好多四五个内核依旧不管用，我猜想是因为我是2.8K的屏幕而网上的教程多是基于2.2K屏幕的，锐炬显卡对于高分辨率的屏幕支持并没有那么优秀。</p>
 <p>于是一直被这个问题折磨，搜了很多的教程也没有解决办法，最后决定换Ubuntu 20.04 尝试一下，之前一直觉得系统版本是个不可逾越的鸿沟，但是随着实践的越来越多，发现很多版本不兼容的问题都是有可解决办法的，因此也下定决心尝试一下未曾试过的 20.04。</p>
@@ -222,7 +222,7 @@ Ubuntu 20.04 相关
 <p>这两个帖子都说了一个问题吧，就是如何在 Ubuntu 20.04 上更好的使用锐炬显卡</p>
 <p>这个问题实质解决的是没有在Ubuntu 20.04 上启动起来显卡，所以你会在你的 Ubuntu->Settings->About 页面看到的是 llvm 有关的字眼，而不是上面我截图所示的 <code>Mesa Intel® Xe Graphics (TGL GT2)</code>。</p>
 <p>解决这个问题比较关键的步骤是</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo apt update
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo apt update
 sudo apt install linux-oem-20.04
 sudo reboot
 </code></pre></div><p>这样开机再启动应该就会正常启动显卡了，这个方式在Ubuntu18.04是否奏效我没有实验过，可能可以安装对应的 <code>linux-oem-18.04</code> 包。</p>

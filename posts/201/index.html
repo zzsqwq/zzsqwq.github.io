@@ -145,22 +145,22 @@ Git中的分区
 <p>首先，Git中存在三大分区，分别是<strong>工作区、暂存区、版本库</strong>。其中，</p>
 <p><strong>工作区</strong>即我们工作的目录，<strong>暂存区</strong>是我们执行 <code>git add</code> 后文件存在的区域。</p>
 <p>我们可以通过 <code>git status</code> 对两种状态进行查看，例如：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>~/test master*
+<pre tabindex=0><code class=language-sheel data-lang=sheel>~/test master*
 base ❯ git status  
 On branch master
 Changes to be committed:
-  (use &#34;git restore --staged &lt;file&gt;...&#34; to unstage)
+  (use &quot;git restore --staged &lt;file&gt;...&quot; to unstage)
 	modified:   test
 
 Changes not staged for commit:
-  (use &#34;git add &lt;file&gt;...&#34; to update what will be committed)
-  (use &#34;git restore &lt;file&gt;...&#34; to discard changes in working directory)
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git restore &lt;file&gt;...&quot; to discard changes in working directory)
 	modified:   test
-</code></pre></div><p>上图中存在两部分， 分别为 <code>Changes to be committed</code> 这里是表示的版本库与暂存区的区别，还有<code>Changes not staged for commit</code> ，它表示的是工作区与暂存区的区别。</p>
+</code></pre><p>上图中存在两部分， 分别为 <code>Changes to be committed</code> 这里是表示的版本库与暂存区的区别，还有<code>Changes not staged for commit</code> ，它表示的是工作区与暂存区的区别。</p>
 <p><strong>版本库</strong>是我们执行 <code>git commit -m "xxx"</code> 后，文件存在的区域。在上述过程中，Git 记录暂存区与版本库的差异，生成版本号，记录下来。我们可以通过 <code>git log</code> 来查看我们产生的更改，内容如下：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>commit 9da52a0e4800547ca46bd6bb919d1105cea43f1e (HEAD -&gt; master)
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>commit 9da52a0e4800547ca46bd6bb919d1105cea43f1e <span style=color:#f92672>(</span>HEAD -&gt; master<span style=color:#f92672>)</span>
 Author: zs &lt;2459958352@qq.com&gt;
-Date:   Thu Jul 22 22:09:45 2021 +0800
+Date:   Thu Jul <span style=color:#ae81ff>22</span> 22:09:45 <span style=color:#ae81ff>2021</span> +0800
 
     test commit
 </code></pre></div><p>其中包含了版本号、当前节点上的 ref 记录、作者、邮箱、日期以及此次提交的注释。</p>
@@ -173,12 +173,12 @@ Git中的引用
 <p>在 Git 中，引用到处可见，引用类似于给某一个 <code>commit-id</code> 即某一次提交的 <code>SHA-1</code> 值起一个简单的名字，如 <code>branch</code> ，<code>tag</code> 这些都是引用。</p>
 <p>Git 中存在一个命令， <code>git update-ref</code> ，你可能几乎没见过，但可能天天在用。</p>
 <p>当运行类似于 <code>git branch &lt;branch></code> 这样的命令时，Git 实际上会运行 <code>git update-ref</code> 命令，例如，运行 <code>git branch zs</code>，就等效于</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git update-ref refs/heads/zs &lt;commit-id&gt;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git update-ref refs/heads/zs &lt;commit-id&gt;
 </code></pre></div><p>这里的 <code>commit-id</code> 就是当前提交的 <code>commit-id</code> ，那他是如何获得的呢？</p>
 <p>使用过 Git 的人一定知道，Git 中存在一个名叫 <code>HEAD</code> 的引用，它可能是引用，也可能是引用的引用。即它很多时候是指向某一个引用，如指向分支 <code>master</code> 这个引用。不过，它也可以与引用分离，称为<code>游离的HEAD</code>，即不指向某个引用，而指向单独的一个 <code>commit</code> 。</p>
 <p>可以通过 <code>git commit commit-id</code> 来实现，不过，我们一般<strong>不推荐这种操作</strong>。下面的讨论，我们都是基于 <code>HEAD</code> 是指向某一分支的。</p>
 <p>下面是关于一个引用的小例子：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>~/test master*
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>~/test master*
 base ❯ git branch zs                                                    
 
 ~/test master*
@@ -215,13 +215,13 @@ base ❯ cat .git/refs/heads/test
 <ul>
 <li>通过<strong>版本库</strong>撤销<strong>暂存区</strong>更改，<strong>工作区</strong>不改</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git reset HEAD^ <span style=font-style:italic>#撤销一次更改</span>
-$ git reset HEAD~nums <span style=font-style:italic>#撤销HEAD往前nums次更改</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git reset HEAD^ <span style=color:#75715e>#撤销一次更改</span>
+$ git reset HEAD~nums <span style=color:#75715e>#撤销HEAD往前nums次更改</span>
 </code></pre></div><ul>
 <li>直接通过<strong>版本库</strong>撤销<strong>工作区</strong>的更改</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git reset HEAD^ --hard     <span style=font-style:italic>#撤销一次更改</span>
-$ git reset HEAD~nums --hard <span style=font-style:italic>#撤销HEAD往前nums次更改</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git reset HEAD^ --hard     <span style=color:#75715e>#撤销一次更改</span>
+$ git reset HEAD~nums --hard <span style=color:#75715e>#撤销HEAD往前nums次更改</span>
 </code></pre></div><p>可以发现只要加了 <code>--hard</code> ，就可以直接也把工作区改掉，不过建议三思而后行！</p>
 <h2 id=撤销远程更改>
 撤销远程更改
@@ -234,8 +234,8 @@ $ git reset HEAD~nums --hard <span style=font-style:italic>#撤销HEAD往前nums
 <p>可能你会想，直接通过 <code>git reset</code> 切换到上面的某个需要的节点，然后再改？But，很容易想到这样会产生严重的冲突。<strong>一旦commit已经被push到远程仓库，那么是坚决不允许去reset它的。</strong></p>
 <p>还好，Git 给我们提供了一个更好的选择，你可以通过 <code>git revert</code> 产生一个类似于补丁的东西来消除掉更改，很容易理解，这样没有改变树的结构，相对于 <code>git reset</code> 他会往前走而不是回溯，这不会对之前的历史产生重要的影响。</p>
 <p>需要注意的是， <code>git revert </code> 的用法：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git revert HEAD <span style=font-style:italic>#撤销掉HEAD这次更改，回到HEAD的上次版本</span>
-$ git revert &lt;commit_id&gt; <span style=font-style:italic>#撤销掉这次cmmit的修改</span>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git revert HEAD <span style=color:#75715e>#撤销掉HEAD这次更改，回到HEAD的上次版本</span>
+$ git revert &lt;commit_id&gt; <span style=color:#75715e>#撤销掉这次cmmit的修改</span>
 </code></pre></div><h1 id=两种合并方式>
 两种合并方式
 <a class=heading-link href=#%e4%b8%a4%e7%a7%8d%e5%90%88%e5%b9%b6%e6%96%b9%e5%bc%8f>
@@ -247,9 +247,9 @@ $ git revert &lt;commit_id&gt; <span style=font-style:italic>#撤销掉这次cmm
 <p>很容易发现，<code>rebase</code> 产生的主分支提交记录会更加的详细，它记录了每一步小的改动。而 <code>merge</code> 产生的更简洁，有点类似于封装的意味，只是告诉你我这个提交完成了这个任务的开发，内部的实现细节却不会告诉你。</p>
 <p>而 <code>rebase</code> 相比与 <code>merge</code> 也会更加繁琐一些，你也可以通过 <code>git rebase -i</code> 来通过可视化界面（可视化文本列表）的方式，来对记录做取舍与改动，不过还是没有 <code>merge</code> 方便，远程仓库的合并操作一般都是使用 <code>merge</code> 。</p>
 <p>需要注意的是，两种方法的使用习惯很不一样：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git merge &lt;branch&gt;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git merge &lt;branch&gt;
 </code></pre></div><p>代表的是将 <code>&lt;branch></code> 分支合并到当前 <code>HEAD</code> 所在的分支。</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git rebase &lt;branch1&gt; &lt;branch2&gt;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git rebase &lt;branch1&gt; &lt;branch2&gt;
 </code></pre></div><p>代表的是将 <code>branch2</code> 合并到 <code>&lt;branch1></code> 的位置。如果省略 <code>&lt;branch2></code> ，那么就是合并 <code>HEAD</code> 所在分支到 <code>&lt;branch1></code> 分支。</p>
 <p>可以发现 <code>merge</code> 体现的是一种， <code>merge xx</code> 到当前位置。而 <code>rebase</code> 体现的是将自己合并到 <code>xx</code> 那里去。一个是别人过来，一个是自己过去。建议两个命令改成 <code>merge from</code> ，<code>rebase into</code>，哈哈。</p>
 <p>顺便提一下， <code>merge</code> 会导致一个节点有多个父节点，通过上文我们知道可以通过 <code>~</code> 在一条线上移动，在这里，我们可以通过 <code>^</code> 来指定第几个父节点，如 <code>HEAD^3</code> 就是指 <code>HEAD</code> 所在节点的第三个父节点。</p>
@@ -263,7 +263,7 @@ $ git revert &lt;commit_id&gt; <span style=font-style:italic>#撤销掉这次cmm
 <p>为了完成这件事，我们想到，这有点像合并分支，不过可能不需要某一个分支上的全部更改，只需要其中的一部分就可以了。</p>
 <p>上面提到，通过 <code>git rebase -i</code> 可以进行交互式的 <code>rebase</code> ，可以对提交记录进行取舍，因此这样就可以满足我们的需求，只不过可能合并的时候需要想明白是从哪里变到哪里，有一些烧脑。</p>
 <p>幸运的是，Git 还给我们提供了另一个更加简洁的方式——<code>git cherry-pick</code> ，语法如下：</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git cherry-pick &lt;commid-id&gt;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git cherry-pick &lt;commid-id&gt;
 </code></pre></div><p>你可以通过这种方式，将树上的任意一个节点的提交添加到当前 <code>HEAD</code> 所在分支的下方，这真是功能强大的命令！你也可以通过空格间隔，来顺序摘取多个提交。</p>
 <h1 id=两条万能指令>
 两条万能指令
@@ -275,12 +275,12 @@ $ git revert &lt;commit_id&gt; <span style=font-style:italic>#撤销掉这次cmm
 <ul>
 <li>移动分支</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git branch -f &lt;branch&gt; &lt;commit-id&gt;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git branch -f &lt;branch&gt; &lt;commit-id&gt;
 </code></pre></div><p>通过这条指令，你可以将 <code>&lt;branch></code> 的引用指向 <code>commit-id</code> ，如果你读懂了上面的内容，你会发现它只是通过 <code>update-ref</code> 更新了对应的引用。</p>
 <ul>
 <li>移动 HEAD</li>
 </ul>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git checkout &lt;branch&gt;
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ git checkout &lt;branch&gt;
 $ git checkout &lt;commit-id&gt;
 </code></pre></div><p>通过这条指令，你可以自由的移动 <code>HEAD</code> 引用，前者让他指向了 <code>&lt;branch></code> 分支，后者让他指向了SHA-1为 <code>&lt;commit-id></code> 的提交。</p>
 <h1 id=推荐的资料>
