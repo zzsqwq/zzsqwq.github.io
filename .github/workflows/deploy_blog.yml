@@ -38,7 +38,7 @@ jobs:
       - name: rsync deployments
         uses: burnett01/rsync-deployments@5.1
         with:
-          switches: -avzr --delete --exclude=".htaccess" --exclude="/uploads/"
+          switches: -avzr --delete --exclude=".htaccess" --exclude="/usr/"
           path: ./
           remote_path: /www/wwwroot/new_blog/
           remote_host: zzsqwq.cn
