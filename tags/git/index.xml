@@ -173,18 +173,18 @@ $ git checkout &amp;lt;commit-id&amp;gt;
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​          最近在复习Git，因此顺手做个笔记分享出来，方便大家学习和查阅。相信无论是以后的课程作业还是工作，我们都会或多或少的接触/用到Git。&lt;/p>
+&lt;p>​ 最近在复习Git，因此顺手做个笔记分享出来，方便大家学习和查阅。相信无论是以后的课程作业还是工作，我们都会或多或少的接触/用到Git。&lt;/p>
 &lt;h3 id="什么是git">
 什么是Git？
 &lt;a class="heading-link" href="#%e4%bb%80%e4%b9%88%e6%98%afgit">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​          Git你可能没听说过，但是我相信你应该听说过Github，&lt;del>毕竟是全球最大的同性交友网站&lt;/del>。他和Git有着密不可分的联系，我们后续再详细介绍。&lt;/p>
-&lt;p>​          Git的中文全称叫 &lt;strong>分布式版本控制系统&lt;/strong> ，版本控制系统是什么意思呢？我们举一个简单的例子，你在做一个大作业，很可能要写上千行的代码，但是你可能写完一个功能以后，对他不够满意，但是又害怕改了以后后悔了，又找不回来了，所以你可能就有很多版本，版本1，版本2，版本3等等等。Git就是解决这个问题的，让你文件能够保持最新，但是又能恢复到之前的版本。&lt;/p>
-&lt;p>​          那么既然有分布式版本控制系统，就有 &lt;strong>集中式版本控制系统&lt;/strong>，前者的代表是 &lt;strong>Git&lt;/strong> ，后者的代表有 &lt;strong>SVN、CVS&lt;/strong> 等。&lt;/p>
-&lt;p>​          关于两者的区别，对于集中式版本控制系统，如果你想要对做一个项目的内容做修改，那么你要先从中央服务器把最近的版本拉取(Pull)下来，然后修改完以后，把修改后的版本推送(Push)上去，你本地只有最新的版本，而没有完整的版本库，分布式版本控制系统所作的工作与集中式的相差不大，只是它的本地会有一个完整的版本库，因此它十分的安全。&lt;/p>
-&lt;p>​          这里贴一个他人总结的区别，供大家参考。&lt;/p>
+&lt;p>​ Git你可能没听说过，但是我相信你应该听说过Github，&lt;del>毕竟是全球最大的同性交友网站&lt;/del>。他和Git有着密不可分的联系，我们后续再详细介绍。&lt;/p>
+&lt;p>​ Git的中文全称叫 &lt;strong>分布式版本控制系统&lt;/strong> ，版本控制系统是什么意思呢？我们举一个简单的例子，你在做一个大作业，很可能要写上千行的代码，但是你可能写完一个功能以后，对他不够满意，但是又害怕改了以后后悔了，又找不回来了，所以你可能就有很多版本，版本1，版本2，版本3等等等。Git就是解决这个问题的，让你文件能够保持最新，但是又能恢复到之前的版本。&lt;/p>
+&lt;p>​ 那么既然有分布式版本控制系统，就有 &lt;strong>集中式版本控制系统&lt;/strong>，前者的代表是 &lt;strong>Git&lt;/strong> ，后者的代表有 &lt;strong>SVN、CVS&lt;/strong> 等。&lt;/p>
+&lt;p>​ 关于两者的区别，对于集中式版本控制系统，如果你想要对做一个项目的内容做修改，那么你要先从中央服务器把最近的版本拉取(Pull)下来，然后修改完以后，把修改后的版本推送(Push)上去，你本地只有最新的版本，而没有完整的版本库，分布式版本控制系统所作的工作与集中式的相差不大，只是它的本地会有一个完整的版本库，因此它十分的安全。&lt;/p>
+&lt;p>​ 这里贴一个他人总结的区别，供大家参考。&lt;/p>
 &lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/12/2911747011.png" alt="集中式与分布式版本控制系统的区别">&lt;/p>
 &lt;h3 id="git的安装">
 Git的安装
@@ -195,17 +195,17 @@ Git的安装
 &lt;ul>
 &lt;li>
 &lt;p>Linux系统&lt;/p>
-&lt;p>         因为我只用过Ubuntu，所以我只会Ubuntu的QAQ..&lt;/p>
-&lt;p>         Ubuntu中安装Git只需要在终端中输入 &lt;code>sudo apt-get install git&lt;/code> 即可。&lt;/p>
-&lt;p>         如果是其他的linux系统，我猜你在终端中输入git即可获得安装提示，不然的话借助搜索引擎也可以。&lt;/p>
+&lt;p>因为我只用过Ubuntu，所以我只会Ubuntu的QAQ..&lt;/p>
+&lt;p>Ubuntu中安装Git只需要在终端中输入 &lt;code>sudo apt-get install git&lt;/code> 即可。&lt;/p>
+&lt;p>如果是其他的linux系统，我猜你在终端中输入git即可获得安装提示，不然的话借助搜索引擎也可以。&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>Windows系统&lt;/p>
-&lt;p>         直接去 &lt;a href="https://git-scm.com/downloads">Git官网&lt;/a> 下载安装程序然后安装即可。关于安装时候的选项，我都是用的默认的。&lt;/p>
+&lt;p>直接去 &lt;a href="https://git-scm.com/downloads">Git官网&lt;/a> 下载安装程序然后安装即可。关于安装时候的选项，我都是用的默认的。&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>Mac OS&lt;/p>
-&lt;p>         太穷了，没用过Mac，但是参考链接中给出了方法，大家有需求可以参考。&lt;/p>
+&lt;p>太穷了，没用过Mac，但是参考链接中给出了方法，大家有需求可以参考。&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;h3 id="git的基本使用">
@@ -214,97 +214,97 @@ Git的基本使用
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​          Git可以做许多事情，好比版本更新，版本修改，提交到远程仓库等等，这里我们只写一写大概以后用的会比较多的。&lt;/p>
-&lt;p>​          需要注意的是，我们安装以后大概会有一个 &lt;strong>Git GUI&lt;/strong> 还有一个 &lt;strong>Git Bash&lt;/strong> ，开发中多用 &lt;strong>Git Bash&lt;/strong>，下面的教程也是基于&lt;strong>Git Bash&lt;/strong>的。&lt;/p>
+&lt;p>​ Git可以做许多事情，好比版本更新，版本修改，提交到远程仓库等等，这里我们只写一写大概以后用的会比较多的。&lt;/p>
+&lt;p>​ 需要注意的是，我们安装以后大概会有一个 &lt;strong>Git GUI&lt;/strong> 还有一个 &lt;strong>Git Bash&lt;/strong> ，开发中多用 &lt;strong>Git Bash&lt;/strong>，下面的教程也是基于&lt;strong>Git Bash&lt;/strong>的。&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>表明身份&lt;/p>
-&lt;p>         在Git所有仓库中我们都要有一个所有者的身份，用于标识是谁的仓库，用如下方式标识&lt;/p>
+&lt;p>在Git所有仓库中我们都要有一个所有者的身份，用于标识是谁的仓库，用如下方式标识&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">git config --global user.name &lt;span style="color:#e6db74">&amp;#34;Your Name&amp;#34;&lt;/span>
 git config --global user.email &lt;span style="color:#e6db74">&amp;#34;Your email&amp;#34;&lt;/span>
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>创建版本库&lt;/p>
-&lt;p>         我们想要把一个文件夹的内容用git来管理，只需要在文件夹目录运行&lt;/p>
+&lt;p>我们想要把一个文件夹的内容用git来管理，只需要在文件夹目录运行&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">git init
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>         顾名思义这就是一个初始化的过程，运行以后在当前目录生成一个 &lt;code>.git&lt;/code> 文件夹，里面是我们版本控制的数据，一般不要修改。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>顾名思义这就是一个初始化的过程，运行以后在当前目录生成一个 &lt;code>.git&lt;/code> 文件夹，里面是我们版本控制的数据，一般不要修改。&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>把文件添加到Git的暂存区&lt;/p>
-&lt;p>         这里出现了 &lt;strong>暂存区&lt;/strong> 这个名词，Git内部的逻辑大概把我们工作的过程分为了三部分&lt;/p>
+&lt;p>这里出现了 &lt;strong>暂存区&lt;/strong> 这个名词，Git内部的逻辑大概把我们工作的过程分为了三部分&lt;/p>
 &lt;ol>
 &lt;li>一个是 &lt;strong>工作区&lt;/strong> ，这个就是我们本地的文件夹。&lt;/li>
 &lt;li>一个是 &lt;strong>暂存区&lt;/strong> ，这是我们把文件暂时放到暂存区里，没有决定更新我们的版本。&lt;/li>
 &lt;li>一个是 &lt;strong>最终分支&lt;/strong>，这就是我们最终的版本存放的位置。&lt;/li>
 &lt;/ol>
-&lt;p>         贴一张廖雪峰老师教程中的一张图，我觉得还挺形象的。&lt;/p>
+&lt;p>贴一张廖雪峰老师教程中的一张图，我觉得还挺形象的。&lt;/p>
 &lt;p>&lt;img src="https://static.liaoxuefeng.com/files/attachments/919020037470528/0" alt="git-repo">&lt;/p>
-&lt;p>         我们清楚了上面的三个分区，那么考虑一下如何把文件夹中的文件从工作区推到暂存区，通过如下命令&lt;/p>
+&lt;p>我们清楚了上面的三个分区，那么考虑一下如何把文件夹中的文件从工作区推到暂存区，通过如下命令&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">git add filepath
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>         我们就可以把文件推到暂存区，最后的filepath就是我们需要推送的文件的路径，一般都用相对路径。&lt;/p>
-&lt;p>         上面是添加单个文件的方法，我们也可以把目录中所有做过更改的文件都加到暂存区中，就用&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>我们就可以把文件推到暂存区，最后的filepath就是我们需要推送的文件的路径，一般都用相对路径。&lt;/p>
+&lt;p>上面是添加单个文件的方法，我们也可以把目录中所有做过更改的文件都加到暂存区中，就用&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">git add .
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;li>
 &lt;p>从暂存区推送到最后分支&lt;/p>
-&lt;p>         我们可以把暂存区推送到最终分支，以完成我们的版本更新，通过&lt;/p>
+&lt;p>我们可以把暂存区推送到最终分支，以完成我们的版本更新，通过&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">git commit -m &lt;span style="color:#e6db74">&amp;#34;description&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>         其中description的内容是我们对该次版本更新的一次描述，好比增加什么功能。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>其中description的内容是我们对该次版本更新的一次描述，好比增加什么功能。&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>版本回退&lt;/p>
-&lt;p>         那么既然我们每次有更新版本，我们如何从最新的版本回退到之前的某个版本呢？&lt;/p>
-&lt;p>         这里我们需要了解到，我们有一个指针 &lt;code>HEAD&lt;/code> 来指向我们当前的版本，因此我们只需要指定HEAD指针指向的版本，就可以做到更改版本。&lt;/p>
+&lt;p>那么既然我们每次有更新版本，我们如何从最新的版本回退到之前的某个版本呢？&lt;/p>
+&lt;p>这里我们需要了解到，我们有一个指针 &lt;code>HEAD&lt;/code> 来指向我们当前的版本，因此我们只需要指定HEAD指针指向的版本，就可以做到更改版本。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">git reset --hard 版本号
 git reset --hard HEAD^
 git reset --hard HEAD~cnt
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>         这里三个命令都可以回退版本，每一个版本有一个版本号，可以指定版本号直接回到对应的版本。此外，通过 &lt;code>git reflog&lt;/code> 可以查看每个版本的版本号。&lt;/p>
-&lt;p>         第二个和第三个有点像，都是往前回退几个版本，有几个&lt;code>^&lt;/code>就是回退几个，后面&lt;code>cnt&lt;/code>是几就回退几个。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>这里三个命令都可以回退版本，每一个版本有一个版本号，可以指定版本号直接回到对应的版本。此外，通过 &lt;code>git reflog&lt;/code> 可以查看每个版本的版本号。&lt;/p>
+&lt;p>第二个和第三个有点像，都是往前回退几个版本，有几个&lt;code>^&lt;/code>就是回退几个，后面&lt;code>cnt&lt;/code>是几就回退几个。&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>分支结构&lt;/p>
-&lt;p>         Git支持分支结构，可以使我们的版本管理变得十分有序，以不至于逻辑混乱。&lt;/p>
-&lt;p>         Git有一个初始主分支master，我们可以&lt;/p>
-&lt;p>         创建分支&lt;/p>
+&lt;p>Git支持分支结构，可以使我们的版本管理变得十分有序，以不至于逻辑混乱。&lt;/p>
+&lt;p>Git有一个初始主分支master，我们可以&lt;/p>
+&lt;p>创建分支&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">git branch 分支名称
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>         切换分支(两个命令都可以)&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>切换分支(两个命令都可以)&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">git switch 分支名称
 git checkout 分支名称
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>         创建并切换分支&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>创建并切换分支&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">git checkout -b 分支名称
 &lt;/code>&lt;/pre>&lt;/div>&lt;/li>
 &lt;/ul>
-&lt;p>​          好了，学了这些，其实就已经够让我们在日常生活中管理文件了，下面说一些用于团队合作的。&lt;/p>
+&lt;p>​ 好了，学了这些，其实就已经够让我们在日常生活中管理文件了，下面说一些用于团队合作的。&lt;/p>
 &lt;h3 id="github的作用">
 Github的作用
 &lt;a class="heading-link" href="#github%e7%9a%84%e4%bd%9c%e7%94%a8">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​          众所周知，一个大项目，想要一个人完成是很难的，大多数优秀的项目都是集思广益，大家一起出力建造出来的。&lt;/p>
-&lt;p>​          我们上面提到的Github就是这样的一个平台，他是一个代码托管仓库，我们可以把新建一个仓库，然后把代码存储到上面，用的时候从上面Pull下来，而且只要经过你的同意，大家都可以为你的仓库贡献代码。由于这种开源的性质，Github有着许许多多优秀的项目，大家闲的没事可以去知乎搜搜Github上好玩的项目去玩一玩，好比 &lt;del>狗屁不通文章生成器&lt;/del> 。&lt;/p>
+&lt;p>​ 众所周知，一个大项目，想要一个人完成是很难的，大多数优秀的项目都是集思广益，大家一起出力建造出来的。&lt;/p>
+&lt;p>​ 我们上面提到的Github就是这样的一个平台，他是一个代码托管仓库，我们可以把新建一个仓库，然后把代码存储到上面，用的时候从上面Pull下来，而且只要经过你的同意，大家都可以为你的仓库贡献代码。由于这种开源的性质，Github有着许许多多优秀的项目，大家闲的没事可以去知乎搜搜Github上好玩的项目去玩一玩，好比 &lt;del>狗屁不通文章生成器&lt;/del> 。&lt;/p>
 &lt;h3 id="git与github的协同">
 Git与Github的协同
 &lt;a class="heading-link" href="#git%e4%b8%8egithub%e7%9a%84%e5%8d%8f%e5%90%8c">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​          Git和Github密不可分，我们可以使用Git往Github上推送代码，从上面拉取代码等。&lt;/p>
+&lt;p>​ Git和Github密不可分，我们可以使用Git往Github上推送代码，从上面拉取代码等。&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>从Github克隆代码&lt;/p>
-&lt;p>         我们如果想要从一个公有仓库中，把它的代码克隆到自己的本地，然后对他做一些应用。我们可以使用&lt;/p>
+&lt;p>我们如果想要从一个公有仓库中，把它的代码克隆到自己的本地，然后对他做一些应用。我们可以使用&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">git clone 仓库地址
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>         这样就可以克隆仓库到本地，这里的仓库地址支持 &lt;code>https&lt;/code> 或者 &lt;code>ssh&lt;/code> 协议。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>这样就可以克隆仓库到本地，这里的仓库地址支持 &lt;code>https&lt;/code> 或者 &lt;code>ssh&lt;/code> 协议。&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>推送本地仓库到Github&lt;/p>
-&lt;p>         首先我们要在Github上有一个自己的仓库，才能将自己的代码推送上去，因此需要在Github上创建自己的公有/私有仓库。&lt;/p>
-&lt;p>         然后我们在本地仓库做完修改，&lt;code>commit&lt;/code> 以后，输入如下命令&lt;/p>
+&lt;p>首先我们要在Github上有一个自己的仓库，才能将自己的代码推送上去，因此需要在Github上创建自己的公有/私有仓库。&lt;/p>
+&lt;p>然后我们在本地仓库做完修改，&lt;code>commit&lt;/code> 以后，输入如下命令&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">git remote add origin 仓库地址
 git push -u origin master
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>         这两步一个是与远程仓库建立关联，一个是将代码push上去。&lt;/p>
-&lt;p>         通过这两步就可以把我们当地仓库推送到Github。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>这两步一个是与远程仓库建立关联，一个是将代码push上去。&lt;/p>
+&lt;p>通过这两步就可以把我们当地仓库推送到Github。&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;h3 id="github的pull-request">
@@ -313,22 +313,22 @@ Github的Pull Request
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​          项目需要团队合作，&lt;strong>Pull Request&lt;/strong>就是为了团队协作而生的。&lt;/p>
-&lt;p>​          你可以把他人的代码clone下来做完修改以后，向仓库所有者提交Pull Request，请求将自己的代码与他的代码合并，如果所有者同意，即可把你的代码合并到他的仓库中，以完成版本的更新，而你，就对这个项目做了一份贡献。&lt;/p>
-&lt;p>​          那么如何提交Pull Request呢？&lt;/p>
-&lt;p>​          对于对仓库有所有权的人来说，只需要把代码clone下来，然后创建并切换到自己的分支，对当前分支进行修改后，push到仓库中，然后创建合并请求即可。&lt;/p>
-&lt;p>​          对于非仓库所有者而言，你需要先把代码 &lt;code>fork&lt;/code> 下来，然后clone你 &lt;code>fork&lt;/code> 的仓库，关联对方的远程仓库，修改后推上去，然后创建合并请求。&lt;/p>
-&lt;p>​          大家对开源项目的贡献多是用第二种，自己团队内的协作多是第一种。&lt;/p>
+&lt;p>​ 项目需要团队合作，&lt;strong>Pull Request&lt;/strong>就是为了团队协作而生的。&lt;/p>
+&lt;p>​ 你可以把他人的代码clone下来做完修改以后，向仓库所有者提交Pull Request，请求将自己的代码与他的代码合并，如果所有者同意，即可把你的代码合并到他的仓库中，以完成版本的更新，而你，就对这个项目做了一份贡献。&lt;/p>
+&lt;p>​ 那么如何提交Pull Request呢？&lt;/p>
+&lt;p>​ 对于对仓库有所有权的人来说，只需要把代码clone下来，然后创建并切换到自己的分支，对当前分支进行修改后，push到仓库中，然后创建合并请求即可。&lt;/p>
+&lt;p>​ 对于非仓库所有者而言，你需要先把代码 &lt;code>fork&lt;/code> 下来，然后clone你 &lt;code>fork&lt;/code> 的仓库，关联对方的远程仓库，修改后推上去，然后创建合并请求。&lt;/p>
+&lt;p>​ 大家对开源项目的贡献多是用第二种，自己团队内的协作多是第一种。&lt;/p>
 &lt;h3 id="一个总结">
 一个总结
 &lt;a class="heading-link" href="#%e4%b8%80%e4%b8%aa%e6%80%bb%e7%bb%93">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​          这篇文章讲的内容不多，QAQ只讲了部分我们可能用的比较多的。&lt;/p>
-&lt;p>​          关于Git的基本使用，还有很多内容，好比 &lt;code>git merge&lt;/code> ，&lt;code>git diff &lt;/code> 啥的，我们用的可能比较少，我就没提。大家如果有需求可以翻下面的参考链接进行学习。&lt;/p>
-&lt;p>​          之后的内容多是团队协作会用到的，大家可以有需要的时候再看。学会使用Git可以有效地帮助我们管理文件，进行团队协作，提高工作效率。&lt;/p>
-&lt;p>​          关于后续的学习，大家可以选择 &lt;strong>廖雪峰老师的Git教程&lt;/strong> ，实例丰富、简单易懂，此外还有 &lt;strong>Pro Git&lt;/strong> ，内容丰富，涵盖了基本所有的命令，以及Github上的一个开源项目 &lt;strong>learnGitBranching&lt;/strong> ，有着可视化的界面与闯关机制，趣味十足。&lt;/p>
+&lt;p>​ 这篇文章讲的内容不多，QAQ只讲了部分我们可能用的比较多的。&lt;/p>
+&lt;p>​ 关于Git的基本使用，还有很多内容，好比 &lt;code>git merge&lt;/code> ，&lt;code>git diff &lt;/code> 啥的，我们用的可能比较少，我就没提。大家如果有需求可以翻下面的参考链接进行学习。&lt;/p>
+&lt;p>​ 之后的内容多是团队协作会用到的，大家可以有需要的时候再看。学会使用Git可以有效地帮助我们管理文件，进行团队协作，提高工作效率。&lt;/p>
+&lt;p>​ 关于后续的学习，大家可以选择 &lt;strong>廖雪峰老师的Git教程&lt;/strong> ，实例丰富、简单易懂，此外还有 &lt;strong>Pro Git&lt;/strong> ，内容丰富，涵盖了基本所有的命令，以及Github上的一个开源项目 &lt;strong>learnGitBranching&lt;/strong> ，有着可视化的界面与闯关机制，趣味十足。&lt;/p>
 &lt;h3 id="参考文档">
 参考文档
 &lt;a class="heading-link" href="#%e5%8f%82%e8%80%83%e6%96%87%e6%a1%a3">

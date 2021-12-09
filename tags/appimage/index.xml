@@ -4,7 +4,7 @@
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：&lt;/p>
+&lt;p>​ 最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：&lt;/p>
 &lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/06/2642879187.png" alt="快捷方式效果图">&lt;/p>
 &lt;h3 id="原理">
 原理
@@ -12,7 +12,7 @@
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 &lt;code>\usr\share\applications&lt;/code> 中，文件名为 &lt;code>**.desktop&lt;/code> ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：&lt;/p>
+&lt;p>​ 首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 &lt;code>\usr\share\applications&lt;/code> 中，文件名为 &lt;code>**.desktop&lt;/code> ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#f92672">[&lt;/span>Desktop Entry&lt;span style="color:#f92672">]&lt;/span>
 Name&lt;span style="color:#f92672">=&lt;/span>Typora
 Comment&lt;span style="color:#f92672">=&lt;/span>a minimal Markdown reading &amp;amp; writing app. Change Log: &lt;span style="color:#f92672">(&lt;/span>https://typora.io/windows/dev_release.html&lt;span style="color:#f92672">)&lt;/span>
@@ -23,7 +23,7 @@ Type&lt;span style="color:#f92672">=&lt;/span>Application
 StartupNotify&lt;span style="color:#f92672">=&lt;/span>true
 Categories&lt;span style="color:#f92672">=&lt;/span>Office;WordProcessor;
 MimeType&lt;span style="color:#f92672">=&lt;/span>text/markdown;text/x-markdown;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    可以看到里面的内容写的非常清晰，其中比较重要的有以下几个&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 可以看到里面的内容写的非常清晰，其中比较重要的有以下几个&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -76,26 +76,26 @@ MimeType&lt;span style="color:#f92672">=&lt;/span>text/markdown;text/x-markdown;
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    明白以上原理，我们只需要创建一个 &lt;code>qv2ray.desktop&lt;/code> ，文件内容如下：&lt;/p>
+&lt;p>​ 明白以上原理，我们只需要创建一个 &lt;code>qv2ray.desktop&lt;/code> ，文件内容如下：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#f92672">[&lt;/span>Desktop Entry&lt;span style="color:#f92672">]&lt;/span>
 Name&lt;span style="color:#f92672">=&lt;/span>qv2ray
 Exec&lt;span style="color:#f92672">=&lt;/span>/home/zs/proxy/v2ray/Qv2ray.v2.6.3.linux-x64.AppImage
 Icon&lt;span style="color:#f92672">=&lt;/span>/home/zs/proxy/v2ray/qv2ray.512.png
 Type&lt;span style="color:#f92672">=&lt;/span>Application
 StartupNotify&lt;span style="color:#f92672">=&lt;/span>true
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    其中Exec为你AppImage的绝对路径，Icon为图标的绝对路径。&lt;/p>
-&lt;p>​    其中各个大小的Qv2ray的icons可以在它的Github中找到，链接为：&lt;a href="https://github.com/Qv2ray/Qv2ray/tree/master/assets/icons">Qv2ray/icons&lt;/a>&lt;/p>
-&lt;p>​    创建完后执行&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 其中Exec为你AppImage的绝对路径，Icon为图标的绝对路径。&lt;/p>
+&lt;p>​ 其中各个大小的Qv2ray的icons可以在它的Github中找到，链接为：&lt;a href="https://github.com/Qv2ray/Qv2ray/tree/master/assets/icons">Qv2ray/icons&lt;/a>&lt;/p>
+&lt;p>​ 创建完后执行&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ sudo chmod +x qv2ray.desktop
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    为文件添加可执行权限，然后执行&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 为文件添加可执行权限，然后执行&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ sudo cp qv2ray.desktop /usr/share/applications
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    将其加入到目录中，接下来我们就可以在应用库中找到对应的qv2ray了~&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 将其加入到目录中，接下来我们就可以在应用库中找到对应的qv2ray了~&lt;/p>
 &lt;h3 id="命令行快捷方式的创建">
 命令行快捷方式的创建
 &lt;a class="heading-link" href="#%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%bf%ab%e6%8d%b7%e6%96%b9%e5%bc%8f%e7%9a%84%e5%88%9b%e5%bb%ba">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    我们直接将AppImage加入到 &lt;code>/usr/bin&lt;/code> 中即可，即执行以下命令：&lt;/p>
+&lt;p>​ 我们直接将AppImage加入到 &lt;code>/usr/bin&lt;/code> 中即可，即执行以下命令：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ sudo cp xxx.AppImage /usr/bin/qv2ray
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    接下来我们在终端中输入 &lt;code>qv2ray&lt;/code> ，发现已经可以成功打开qv2ray，大功告成！~&lt;/p></description></item></channel></rss>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 接下来我们在终端中输入 &lt;code>qv2ray&lt;/code> ，发现已经可以成功打开qv2ray，大功告成！~&lt;/p></description></item></channel></rss>

@@ -4,17 +4,17 @@
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    最近使用Anaconda的时候遇到了一个很奇怪的问题，如当我新建环境 &lt;strong>condatest&lt;/strong> 后，使用 &lt;code>pip -V&lt;/code> 查看pip的路径指向，会发现pip指向的是另一个环境 &lt;strong>CenterNet&lt;/strong> 的路径。搜索了很久得到一个有一些用的解决方法&lt;/p>
+&lt;p>​ 最近使用Anaconda的时候遇到了一个很奇怪的问题，如当我新建环境 &lt;strong>condatest&lt;/strong> 后，使用 &lt;code>pip -V&lt;/code> 查看pip的路径指向，会发现pip指向的是另一个环境 &lt;strong>CenterNet&lt;/strong> 的路径。搜索了很久得到一个有一些用的解决方法&lt;/p>
 &lt;h3 id="解决方案">
 解决方案
 &lt;a class="heading-link" href="#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    设有问题的环境为 &lt;strong>condatest&lt;/strong> ，python版本为 &lt;strong>3.6&lt;/strong>&lt;/p>
-&lt;p>​    然后进入 &lt;code>~/anaconda3/envs/condatest/lib/python3.6&lt;/code>&lt;/p>
-&lt;p>​    编辑目录下的 &lt;code>site.py&lt;/code> 文件，将其中的 &lt;code>USER_SITE&lt;/code> 的值修改为 &lt;code>/home/zs/anaconda3/envs/condatest&lt;/code> ，注意这里路径里面的 &lt;code>zs&lt;/code> 是你的当前用户名， &lt;code>USER_BASE&lt;/code> 的值修改为 &lt;code>/home/zs/anaconda3/envs/condatest/lib/python3.6/site.py&lt;/code>，然后问题应该就解决了。&lt;/p>
-&lt;p>​    因为如果环境问题的话，上面两个字符串都为空，猜测的原因是因为有同python版本的环境导致默认指向错误，此方式为修改conda中pip的指向。&lt;/p>
+&lt;p>​ 设有问题的环境为 &lt;strong>condatest&lt;/strong> ，python版本为 &lt;strong>3.6&lt;/strong>&lt;/p>
+&lt;p>​ 然后进入 &lt;code>~/anaconda3/envs/condatest/lib/python3.6&lt;/code>&lt;/p>
+&lt;p>​ 编辑目录下的 &lt;code>site.py&lt;/code> 文件，将其中的 &lt;code>USER_SITE&lt;/code> 的值修改为 &lt;code>/home/zs/anaconda3/envs/condatest&lt;/code> ，注意这里路径里面的 &lt;code>zs&lt;/code> 是你的当前用户名， &lt;code>USER_BASE&lt;/code> 的值修改为 &lt;code>/home/zs/anaconda3/envs/condatest/lib/python3.6/site.py&lt;/code>，然后问题应该就解决了。&lt;/p>
+&lt;p>​ 因为如果环境问题的话，上面两个字符串都为空，猜测的原因是因为有同python版本的环境导致默认指向错误，此方式为修改conda中pip的指向。&lt;/p>
 &lt;h3 id="参考链接">
 参考链接
 &lt;a class="heading-link" href="#%e5%8f%82%e8%80%83%e9%93%be%e6%8e%a5">

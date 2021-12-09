@@ -10,24 +10,24 @@ Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    我这里配置用的是4.5.0版本，但实际配置过程中需要的大部分时间只是路径，因此和版本基本无关。&lt;/p>
-&lt;p>​    &lt;strong>只有一个地方是和版本有关系的，在配置链接器的 &lt;code>opencv_wordxyzd.lib&lt;/code> 时，大家一定要注意！！&lt;/strong>&lt;/p>
+&lt;p>​ 我这里配置用的是4.5.0版本，但实际配置过程中需要的大部分时间只是路径，因此和版本基本无关。&lt;/p>
+&lt;p>​ &lt;strong>只有一个地方是和版本有关系的，在配置链接器的 &lt;code>opencv_wordxyzd.lib&lt;/code> 时，大家一定要注意！！&lt;/strong>&lt;/p>
 &lt;h3 id="1下载opencv">
 1.下载OpenCV
 &lt;a class="heading-link" href="#1%e4%b8%8b%e8%bd%bdopencv">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    首先我们进入 &lt;a href="https://opencv.org/releases/">https://opencv.org/releases/&lt;/a> 在这其中下载OpenCV ，我这里下载的4.5.0 ，选择Windows下载即可。&lt;/p>
-&lt;p>​    下载结束后我们双击安装包，指定解压目录，我这里解压在了我的G盘，具体路径为 &lt;code>G:\Opencv450&lt;/code>&lt;/p>
+&lt;p>​ 首先我们进入 &lt;a href="https://opencv.org/releases/">https://opencv.org/releases/&lt;/a> 在这其中下载OpenCV ，我这里下载的4.5.0 ，选择Windows下载即可。&lt;/p>
+&lt;p>​ 下载结束后我们双击安装包，指定解压目录，我这里解压在了我的G盘，具体路径为 &lt;code>G:\Opencv450&lt;/code>&lt;/p>
 &lt;h3 id="2设置opencv的环境变量">
 2.设置OpenCV的环境变量
 &lt;a class="heading-link" href="#2%e8%ae%be%e7%bd%aeopencv%e7%9a%84%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    我们在 此电脑右键 -&amp;gt; 属性 -&amp;gt; 高级系统设置 -&amp;gt; 环境变量 -&amp;gt; 系统变量 -&amp;gt; 双击Path -&amp;gt;添加如下的环境&lt;/p>
-&lt;p>​    &lt;code>G:\Opencv450\build\x64\vc15\bin&lt;/code> ，这里的路径是根据上面那个路径来看的，如果你上面那个跟我不同，也请看请自己的路径。&lt;/p>
+&lt;p>​ 我们在 此电脑右键 -&amp;gt; 属性 -&amp;gt; 高级系统设置 -&amp;gt; 环境变量 -&amp;gt; 系统变量 -&amp;gt; 双击Path -&amp;gt;添加如下的环境&lt;/p>
+&lt;p>​ &lt;code>G:\Opencv450\build\x64\vc15\bin&lt;/code> ，这里的路径是根据上面那个路径来看的，如果你上面那个跟我不同，也请看请自己的路径。&lt;/p>
 &lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/10/1401048133.png" alt="此电脑属性中的高级系统设置">&lt;/p>
 &lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/10/705625531.png" alt="高级系统设置中的环境变量">&lt;/p>
 &lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/10/3556583146.png" alt="双击系统环境变量中的Path">&lt;/p>

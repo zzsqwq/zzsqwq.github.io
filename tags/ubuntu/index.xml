@@ -142,18 +142,18 @@ sudo reboot
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题&lt;/p>
+&lt;p>​ Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题&lt;/p>
 &lt;h3 id="解决方案">
 解决方案
 &lt;a class="heading-link" href="#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    首先我们根据上文的启示，因为每一个应用程序对应了一个 &lt;code>xxx.desktop&lt;/code> 文件，因此在应用库中的QQ一定也有一个对应的 &lt;code>desktop&lt;/code> 文件&lt;/p>
+&lt;p>​ 首先我们根据上文的启示，因为每一个应用程序对应了一个 &lt;code>xxx.desktop&lt;/code> 文件，因此在应用库中的QQ一定也有一个对应的 &lt;code>desktop&lt;/code> 文件&lt;/p>
 &lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/06/75817321.png" alt="QQ的启动方式">&lt;/p>
-&lt;p>​    我们进入到 &lt;code>/usr/share/applications&lt;/code> ，运行&lt;/p>
+&lt;p>​ 我们进入到 &lt;code>/usr/share/applications&lt;/code> ，运行&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ ls | grep -i qq
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    可以发现其中有一个名为 &lt;code>deepin.com.qq.im.desktop&lt;/code> 的文件，我们打开后发现内容如下：&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 可以发现其中有一个名为 &lt;code>deepin.com.qq.im.desktop&lt;/code> 的文件，我们打开后发现内容如下：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#75715e">#!/usr/bin/env xdg-open
 &lt;/span>&lt;span style="color:#75715e">&lt;/span>
 &lt;span style="color:#f92672">[&lt;/span>Desktop Entry&lt;span style="color:#f92672">]&lt;/span>
@@ -168,8 +168,8 @@ Name&lt;span style="color:#f92672">[&lt;/span>zh_CN&lt;span style="color:#f92672
 Comment&lt;span style="color:#f92672">=&lt;/span>Tencent QQ Client on Deepin Wine
 StartupWMClass&lt;span style="color:#f92672">=&lt;/span>QQ.exe
 MimeType&lt;span style="color:#f92672">=&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    可以看到Exec那一栏为 &lt;code>Exec=&amp;quot;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;quot; -u %u&lt;/code> ，发现他是运行目录下的一个 &lt;code>run.sh&lt;/code> 脚本来启动的。&lt;/p>
-&lt;p>​    我们进入目录下直接运行该脚本，查看log信息：&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 可以看到Exec那一栏为 &lt;code>Exec=&amp;quot;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;quot; -u %u&lt;/code> ，发现他是运行目录下的一个 &lt;code>run.sh&lt;/code> 脚本来启动的。&lt;/p>
+&lt;p>​ 我们进入目录下直接运行该脚本，查看log信息：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">base ❯ ./run.sh
 Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.exe
 run Deepin-QQ progress pid
@@ -225,8 +225,8 @@ Major opcode of failed request: &lt;span style="color:#ae81ff">152&lt;/span> &lt
 Minor opcode of failed request: &lt;span style="color:#ae81ff">6&lt;/span> &lt;span style="color:#f92672">(&lt;/span>X_GLXIsDirect&lt;span style="color:#f92672">)&lt;/span>
 Serial number of failed request: &lt;span style="color:#ae81ff">207&lt;/span>
 Current serial number in output stream: &lt;span style="color:#ae81ff">206&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    可以发现最下面的log信息有一些异常，首先第一行是因为我们是Ubuntu系统，可以暂且不关注&lt;/p>
-&lt;p>​    接下来可以看到有一个LibGL的错误，我们通过Google搜索&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 可以发现最下面的log信息有一些异常，首先第一行是因为我们是Ubuntu系统，可以暂且不关注&lt;/p>
+&lt;p>​ 接下来可以看到有一个LibGL的错误，我们通过Google搜索&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">libGL error: No matching fbConfigs or visuals found
 libGL error: failed to load driver: swrast
 X Error of failed request: GLXBadContext
@@ -234,7 +234,7 @@ Major opcode of failed request: &lt;span style="color:#ae81ff">152&lt;/span> &lt
 Minor opcode of failed request: &lt;span style="color:#ae81ff">6&lt;/span> &lt;span style="color:#f92672">(&lt;/span>X_GLXIsDirect&lt;span style="color:#f92672">)&lt;/span>
 Serial number of failed request: &lt;span style="color:#ae81ff">207&lt;/span>
 Current serial number in output stream: &lt;span style="color:#ae81ff">206&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    发现类似的错误及解决方案如下：&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 发现类似的错误及解决方案如下：&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>&lt;a href="https://bbs.archlinux.org/viewtopic.php?id=255385">SOLVED] LibGL errors with osu! and wine&lt;/a>&lt;/p>
@@ -243,8 +243,8 @@ Current serial number in output stream: &lt;span style="color:#ae81ff">206&lt;/s
 &lt;p>&lt;a href="https://askubuntu.com/questions/834254/steam-libgl-error-no-matching-fbconfigs-or-visuals-found-libgl-error-failed-t">Steam: libGL error: No matching fbConfigs or visuals found libGL error: failed to load driver: swrast&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;p>​    从搜索结果来看，这个问题还是非常常见的，用steam也会遇到，一般都是因为电脑安装了64位的NVIDIA显卡驱动，但是因为应用是32位的导致不能兼容，因此无法启动&lt;/p>
-&lt;p>​    最终解决方案有两个&lt;/p>
+&lt;p>​ 从搜索结果来看，这个问题还是非常常见的，用steam也会遇到，一般都是因为电脑安装了64位的NVIDIA显卡驱动，但是因为应用是32位的导致不能兼容，因此无法启动&lt;/p>
+&lt;p>​ 最终解决方案有两个&lt;/p>
 &lt;ul>
 &lt;li>如果是不常用NVIDIA驱动的人，普通的办公一下，可以搜索网上教程关闭独显，只启用集显，可以发现QQ可以正常启动，&lt;/li>
 &lt;li>重新安装32位的NVIDIA驱动&lt;/li>
@@ -255,14 +255,14 @@ Current serial number in output stream: &lt;span style="color:#ae81ff">206&lt;/s
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    虽然已经知道了解决方案，但是最终我还是选择卸载掉QQ，安装了wine版本的TIM，感觉和QQ没什么区别，而且更加简洁，而且可以流畅运行，没有N卡兼容问题！大家可以考虑一下~&lt;/p>
-&lt;p>​    而且QQ和TIM某些情况下会出现bug，字体全部变为方块，在 deepin-wine-ubuntu 的 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues">Issues&lt;/a> 中找到了解决方案 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/253">Ubuntu 安装QQ后中文方块解决方法&lt;/a> ，大家有同样困扰的也可以看一下~&lt;/p></description></item><item><title>Ubuntu如何利用AppImage创建Qv2ray快捷方式</title><link>https://www.zzsqwq.cn/posts/193/</link><pubDate>Wed, 16 Jun 2021 00:54:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/193/</guid><description>&lt;h3 id="前言">
+&lt;p>​ 虽然已经知道了解决方案，但是最终我还是选择卸载掉QQ，安装了wine版本的TIM，感觉和QQ没什么区别，而且更加简洁，而且可以流畅运行，没有N卡兼容问题！大家可以考虑一下~&lt;/p>
+&lt;p>​ 而且QQ和TIM某些情况下会出现bug，字体全部变为方块，在 deepin-wine-ubuntu 的 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues">Issues&lt;/a> 中找到了解决方案 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/253">Ubuntu 安装QQ后中文方块解决方法&lt;/a> ，大家有同样困扰的也可以看一下~&lt;/p></description></item><item><title>Ubuntu如何利用AppImage创建Qv2ray快捷方式</title><link>https://www.zzsqwq.cn/posts/193/</link><pubDate>Wed, 16 Jun 2021 00:54:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/193/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：&lt;/p>
+&lt;p>​ 最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：&lt;/p>
 &lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/06/2642879187.png" alt="快捷方式效果图">&lt;/p>
 &lt;h3 id="原理">
 原理
@@ -270,7 +270,7 @@ Current serial number in output stream: &lt;span style="color:#ae81ff">206&lt;/s
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 &lt;code>\usr\share\applications&lt;/code> 中，文件名为 &lt;code>**.desktop&lt;/code> ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：&lt;/p>
+&lt;p>​ 首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 &lt;code>\usr\share\applications&lt;/code> 中，文件名为 &lt;code>**.desktop&lt;/code> ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#f92672">[&lt;/span>Desktop Entry&lt;span style="color:#f92672">]&lt;/span>
 Name&lt;span style="color:#f92672">=&lt;/span>Typora
 Comment&lt;span style="color:#f92672">=&lt;/span>a minimal Markdown reading &amp;amp; writing app. Change Log: &lt;span style="color:#f92672">(&lt;/span>https://typora.io/windows/dev_release.html&lt;span style="color:#f92672">)&lt;/span>
@@ -281,7 +281,7 @@ Type&lt;span style="color:#f92672">=&lt;/span>Application
 StartupNotify&lt;span style="color:#f92672">=&lt;/span>true
 Categories&lt;span style="color:#f92672">=&lt;/span>Office;WordProcessor;
 MimeType&lt;span style="color:#f92672">=&lt;/span>text/markdown;text/x-markdown;
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    可以看到里面的内容写的非常清晰，其中比较重要的有以下几个&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 可以看到里面的内容写的非常清晰，其中比较重要的有以下几个&lt;/p>
 &lt;table>
 &lt;thead>
 &lt;tr>
@@ -334,36 +334,36 @@ MimeType&lt;span style="color:#f92672">=&lt;/span>text/markdown;text/x-markdown;
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    明白以上原理，我们只需要创建一个 &lt;code>qv2ray.desktop&lt;/code> ，文件内容如下：&lt;/p>
+&lt;p>​ 明白以上原理，我们只需要创建一个 &lt;code>qv2ray.desktop&lt;/code> ，文件内容如下：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#f92672">[&lt;/span>Desktop Entry&lt;span style="color:#f92672">]&lt;/span>
 Name&lt;span style="color:#f92672">=&lt;/span>qv2ray
 Exec&lt;span style="color:#f92672">=&lt;/span>/home/zs/proxy/v2ray/Qv2ray.v2.6.3.linux-x64.AppImage
 Icon&lt;span style="color:#f92672">=&lt;/span>/home/zs/proxy/v2ray/qv2ray.512.png
 Type&lt;span style="color:#f92672">=&lt;/span>Application
 StartupNotify&lt;span style="color:#f92672">=&lt;/span>true
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    其中Exec为你AppImage的绝对路径，Icon为图标的绝对路径。&lt;/p>
-&lt;p>​    其中各个大小的Qv2ray的icons可以在它的Github中找到，链接为：&lt;a href="https://github.com/Qv2ray/Qv2ray/tree/master/assets/icons">Qv2ray/icons&lt;/a>&lt;/p>
-&lt;p>​    创建完后执行&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 其中Exec为你AppImage的绝对路径，Icon为图标的绝对路径。&lt;/p>
+&lt;p>​ 其中各个大小的Qv2ray的icons可以在它的Github中找到，链接为：&lt;a href="https://github.com/Qv2ray/Qv2ray/tree/master/assets/icons">Qv2ray/icons&lt;/a>&lt;/p>
+&lt;p>​ 创建完后执行&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ sudo chmod +x qv2ray.desktop
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    为文件添加可执行权限，然后执行&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 为文件添加可执行权限，然后执行&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ sudo cp qv2ray.desktop /usr/share/applications
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    将其加入到目录中，接下来我们就可以在应用库中找到对应的qv2ray了~&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 将其加入到目录中，接下来我们就可以在应用库中找到对应的qv2ray了~&lt;/p>
 &lt;h3 id="命令行快捷方式的创建">
 命令行快捷方式的创建
 &lt;a class="heading-link" href="#%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%bf%ab%e6%8d%b7%e6%96%b9%e5%bc%8f%e7%9a%84%e5%88%9b%e5%bb%ba">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    我们直接将AppImage加入到 &lt;code>/usr/bin&lt;/code> 中即可，即执行以下命令：&lt;/p>
+&lt;p>​ 我们直接将AppImage加入到 &lt;code>/usr/bin&lt;/code> 中即可，即执行以下命令：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ sudo cp xxx.AppImage /usr/bin/qv2ray
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    接下来我们在终端中输入 &lt;code>qv2ray&lt;/code> ，发现已经可以成功打开qv2ray，大功告成！~&lt;/p></description></item><item><title>Ubuntu18.04优化教程</title><link>https://www.zzsqwq.cn/posts/141/</link><pubDate>Fri, 04 Dec 2020 01:39:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/141/</guid><description>&lt;h3 id="前言">
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 接下来我们在终端中输入 &lt;code>qv2ray&lt;/code> ，发现已经可以成功打开qv2ray，大功告成！~&lt;/p></description></item><item><title>Ubuntu18.04优化教程</title><link>https://www.zzsqwq.cn/posts/141/</link><pubDate>Fri, 04 Dec 2020 01:39:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/141/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    因为最近Ubuntu用的比较频繁，所以前一阵把Ubuntu16.04换成Ubuntu18.04了，并且囿于机械硬盘那启动速度，我忍痛割爱把我80G的固态硬盘分给了Ubuntu。&lt;/p>
-&lt;p>​    后来，用着用着就觉得这个Ubuntu的原始界面确实不是特别的好看，&lt;del>配色偏基佬紫的感觉&lt;/del>。“工欲善其事，必先利其器“，我们只有将自己的工作环境布置的舒心一些才能有做下去的动力！所以我想给Ubuntu换一个看起来舒服点的界面，然后上网找教程乱七八糟的倒腾了一会，感觉换完以后完全不一样了，这个界面真的好看！！用起来也特别的舒心，感觉自己马上就要告别Windows投奔Linux的怀抱了。后续还有一些其他的优化，例如装QQ、微信、配置终端等，一并写在这里吧。&lt;/p>
+&lt;p>​ 因为最近Ubuntu用的比较频繁，所以前一阵把Ubuntu16.04换成Ubuntu18.04了，并且囿于机械硬盘那启动速度，我忍痛割爱把我80G的固态硬盘分给了Ubuntu。&lt;/p>
+&lt;p>​ 后来，用着用着就觉得这个Ubuntu的原始界面确实不是特别的好看，&lt;del>配色偏基佬紫的感觉&lt;/del>。“工欲善其事，必先利其器“，我们只有将自己的工作环境布置的舒心一些才能有做下去的动力！所以我想给Ubuntu换一个看起来舒服点的界面，然后上网找教程乱七八糟的倒腾了一会，感觉换完以后完全不一样了，这个界面真的好看！！用起来也特别的舒心，感觉自己马上就要告别Windows投奔Linux的怀抱了。后续还有一些其他的优化，例如装QQ、微信、配置终端等，一并写在这里吧。&lt;/p>
 &lt;h3 id="ubuntu界面的优化">
 Ubuntu界面的优化
 &lt;a class="heading-link" href="#ubuntu%e7%95%8c%e9%9d%a2%e7%9a%84%e4%bc%98%e5%8c%96">
@@ -376,7 +376,7 @@ Ubuntu界面的优化
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​    先放几张效果图上来，是我改后的界面。大概就是这样(自我感觉挺好看的)，当然也有其他的主题可供选择。&lt;/p>
+&lt;p>​ 先放几张效果图上来，是我改后的界面。大概就是这样(自我感觉挺好看的)，当然也有其他的主题可供选择。&lt;/p>
 &lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/12/171170690.png" alt="桌面风格">&lt;/p>
 &lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/12/3724154221.png" alt="文件夹风格">&lt;/p>
 &lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/12/3559388649.png" alt="效果图">&lt;/p>
@@ -386,39 +386,39 @@ Ubuntu界面的优化
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​    如果要改主题，那么首先要有一个利器，这里我用的&lt;code>Ubuntu18.04&lt;/code>，桌面环境为 &lt;code>GNOME 3.28.2&lt;/code> ，因为我目前接触的只有GNOME桌面环境的，Ubuntu18.04本来的桌面环境就是GNOME，但是Ubuntu16.04好像没有自带，但是可以安装，这里大家可以自行百度了解。&lt;/p>
-&lt;p>​    然后我们已经有了GNOME桌面环境后，安装主题配置工具 &lt;code>GNOME Tweaks &lt;/code> ，在终端中输入如下内容：&lt;/p>
+&lt;p>​ 如果要改主题，那么首先要有一个利器，这里我用的&lt;code>Ubuntu18.04&lt;/code>，桌面环境为 &lt;code>GNOME 3.28.2&lt;/code> ，因为我目前接触的只有GNOME桌面环境的，Ubuntu18.04本来的桌面环境就是GNOME，但是Ubuntu16.04好像没有自带，但是可以安装，这里大家可以自行百度了解。&lt;/p>
+&lt;p>​ 然后我们已经有了GNOME桌面环境后，安装主题配置工具 &lt;code>GNOME Tweaks &lt;/code> ，在终端中输入如下内容：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">sudo apt-get update
 sudo apt-get install gnome-tweak-tool
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    我们先更新软件源，然后安装后直接打开他就行，在系统软件中中文大概叫 &lt;strong>优化&lt;/strong> 。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 我们先更新软件源，然后安装后直接打开他就行，在系统软件中中文大概叫 &lt;strong>优化&lt;/strong> 。&lt;/p>
 &lt;h4 id="2拓展上述工具">
 2.拓展上述工具
 &lt;a class="heading-link" href="#2%e6%8b%93%e5%b1%95%e4%b8%8a%e8%bf%b0%e5%b7%a5%e5%85%b7">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​    安装完上述工具后，我们可能发现了一个问题，就是外观那一栏目的Shell有一个感叹号，无法更改，这是因为我们没有安装拓展导致的。我们在终端中运行&lt;/p>
+&lt;p>​ 安装完上述工具后，我们可能发现了一个问题，就是外观那一栏目的Shell有一个感叹号，无法更改，这是因为我们没有安装拓展导致的。我们在终端中运行&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">sudo apt-get install gnome-shell-extensions
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    然后重启一下电脑。再打开软件找到左侧的拓展，把 &lt;code>User themes&lt;/code> 那一栏目打开。切换回去就可以发现Shell那边的感叹号无了。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 然后重启一下电脑。再打开软件找到左侧的拓展，把 &lt;code>User themes&lt;/code> 那一栏目打开。切换回去就可以发现Shell那边的感叹号无了。&lt;/p>
 &lt;h4 id="3寻找自己喜欢的主题">
 3.寻找自己喜欢的主题
 &lt;a class="heading-link" href="#3%e5%af%bb%e6%89%be%e8%87%aa%e5%b7%b1%e5%96%9c%e6%ac%a2%e7%9a%84%e4%b8%bb%e9%a2%98">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​    这里我大家可以去这个网址去找自己喜欢的 &lt;a href="https://www.gnome-look.org">GNOME-LOOK.ORG&lt;/a>&lt;/p>
-&lt;p>​    这里面包含了图标，主题这些，下面介绍一下如何安装。&lt;/p>
-&lt;p>​    好比我们找到一个自己喜欢的主题，然后我们点击下面的 &lt;strong>Files&lt;/strong> ，可能会有很多文件，但是多是同一个主题的不同风格，好比暗风格和亮风格这样的，还有不同的版本的，我多是安装那个下载量最多的，我们下载那个对应的文件(多是tar.xz安装包)。&lt;/p>
-&lt;p>​    对于主题的安装，我们只需要把解压出来的文件，移动或复制到 &lt;code>/usr/share/themes/&lt;/code> 目录下，如果是光标\图标的安装，那么就把文件夹移动到 &lt;code>/usr/share/icons&lt;/code> 目录下。&lt;/p>
-&lt;p>​    然后我们回到 &lt;code>GNOME Tweaks&lt;/code> 软件中就可以发现，我们已经可以在主题\图标\光标\Shell清单中找到我们移动到文件夹中的文件了，然后选择就可以切换了。这里需要注意的，很多主题都是自带Shell的，你下了一个主题，那么你可以在Shell和主题这两个栏目中都找到他们，是一个配套的。&lt;/p>
+&lt;p>​ 这里我大家可以去这个网址去找自己喜欢的 &lt;a href="https://www.gnome-look.org">GNOME-LOOK.ORG&lt;/a>&lt;/p>
+&lt;p>​ 这里面包含了图标，主题这些，下面介绍一下如何安装。&lt;/p>
+&lt;p>​ 好比我们找到一个自己喜欢的主题，然后我们点击下面的 &lt;strong>Files&lt;/strong> ，可能会有很多文件，但是多是同一个主题的不同风格，好比暗风格和亮风格这样的，还有不同的版本的，我多是安装那个下载量最多的，我们下载那个对应的文件(多是tar.xz安装包)。&lt;/p>
+&lt;p>​ 对于主题的安装，我们只需要把解压出来的文件，移动或复制到 &lt;code>/usr/share/themes/&lt;/code> 目录下，如果是光标\图标的安装，那么就把文件夹移动到 &lt;code>/usr/share/icons&lt;/code> 目录下。&lt;/p>
+&lt;p>​ 然后我们回到 &lt;code>GNOME Tweaks&lt;/code> 软件中就可以发现，我们已经可以在主题\图标\光标\Shell清单中找到我们移动到文件夹中的文件了，然后选择就可以切换了。这里需要注意的，很多主题都是自带Shell的，你下了一个主题，那么你可以在Shell和主题这两个栏目中都找到他们，是一个配套的。&lt;/p>
 &lt;h4 id="4一些后续的调整">
 4.一些后续的调整
 &lt;a class="heading-link" href="#4%e4%b8%80%e4%ba%9b%e5%90%8e%e7%bb%ad%e7%9a%84%e8%b0%83%e6%95%b4">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​    我们后续可以改变左边收藏夹的位置，我觉得放在左边有一丢丢的丑，所以我选择把它放在的下面。&lt;/p>
-&lt;p>​    我们去Ubuntu软件中搜索 Dash to dock，然后安装这个拓展，然后打开 &lt;code>GNOME Tweaks&lt;/code> 软件在拓展中找到他就可以随心所欲的调我们的收藏夹的位置了。&lt;/p>
+&lt;p>​ 我们后续可以改变左边收藏夹的位置，我觉得放在左边有一丢丢的丑，所以我选择把它放在的下面。&lt;/p>
+&lt;p>​ 我们去Ubuntu软件中搜索 Dash to dock，然后安装这个拓展，然后打开 &lt;code>GNOME Tweaks&lt;/code> 软件在拓展中找到他就可以随心所欲的调我们的收藏夹的位置了。&lt;/p>
 &lt;h4 id="5我自己的配置">
 5.我自己的配置
 &lt;a class="heading-link" href="#5%e6%88%91%e8%87%aa%e5%b7%b1%e7%9a%84%e9%85%8d%e7%bd%ae">
@@ -452,8 +452,8 @@ icons 01-McMojave-circle
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​    唔，终端本来用起来感觉也还行，感觉终端就是linux的灵魂，啥都能干。&lt;/p>
-&lt;p>​    但是听说有更好用的终端，现在ubuntu普遍用的好像都是bash，但是好像还有zsh，fish这样的，他们可以有一些代码补全，功能更强，可拓展性也高，大家都zsh和fish哪个好用一直争执不停，但是我发现ROS对 &lt;code>zsh&lt;/code> 支持的很好，但是对 &lt;code>fish&lt;/code> 的支持有点拉胯，考虑到以后可能ros会用的比较多，因此我选择使用zsh。效果图如下&lt;/p>
+&lt;p>​ 唔，终端本来用起来感觉也还行，感觉终端就是linux的灵魂，啥都能干。&lt;/p>
+&lt;p>​ 但是听说有更好用的终端，现在ubuntu普遍用的好像都是bash，但是好像还有zsh，fish这样的，他们可以有一些代码补全，功能更强，可拓展性也高，大家都zsh和fish哪个好用一直争执不停，但是我发现ROS对 &lt;code>zsh&lt;/code> 支持的很好，但是对 &lt;code>fish&lt;/code> 的支持有点拉胯，考虑到以后可能ros会用的比较多，因此我选择使用zsh。效果图如下&lt;/p>
 &lt;p>​ &lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/12/3375893306.png" alt="终端效果图">&lt;/p>
 &lt;h4 id="1下载zsh">
 1.下载zsh
@@ -461,7 +461,7 @@ icons 01-McMojave-circle
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​    直接在终端执行下列语句&lt;/p>
+&lt;p>​ 直接在终端执行下列语句&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">sudo apt-get update
 sudo apt-get install zsh
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="2安装oh-my-zsh">
@@ -470,12 +470,12 @@ sudo apt-get install zsh
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​    zsh其实配置起来很麻烦，这一点相比与fish不太行，fish下载下来就已经具备了常用的功能，例如代码补全等。&lt;/p>
-&lt;p>​    但是我们有先人铺路，在Github上有一个开源的项目 &lt;a href="https://github.com/ohmyzsh/ohmyzsh">oh my zsh&lt;/a>，就是专门用来导入这个zsh的配置的，&lt;/p>
-&lt;p>​    我们直接运行如下代码，就可以直接安装了&lt;/p>
+&lt;p>​ zsh其实配置起来很麻烦，这一点相比与fish不太行，fish下载下来就已经具备了常用的功能，例如代码补全等。&lt;/p>
+&lt;p>​ 但是我们有先人铺路，在Github上有一个开源的项目 &lt;a href="https://github.com/ohmyzsh/ohmyzsh">oh my zsh&lt;/a>，就是专门用来导入这个zsh的配置的，&lt;/p>
+&lt;p>​ 我们直接运行如下代码，就可以直接安装了&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">wget sh -c &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    然后我们可以通过在终端中输入zsh来切换到zsh，也可以通过输入bash切换回去&lt;/p>
-&lt;p>​    我们也可以通过如下命令来切换默认的终端系统，首先查找一下zsh的目录，然后切换过去。&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 然后我们可以通过在终端中输入zsh来切换到zsh，也可以通过输入bash切换回去&lt;/p>
+&lt;p>​ 我们也可以通过如下命令来切换默认的终端系统，首先查找一下zsh的目录，然后切换过去。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">whereis zsh
 chsh -s zsh路径
 &lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="3配置插件">
@@ -484,28 +484,28 @@ chsh -s zsh路径
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​    在zsh里面有许多好用的插件，在这里推荐两个&lt;/p>
+&lt;p>​ 在zsh里面有许多好用的插件，在这里推荐两个&lt;/p>
 &lt;ul>
 &lt;li>自动补全 &lt;a href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions&lt;/a>&lt;/li>
 &lt;li>语法高亮 &lt;a href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;p>​    关于下载的方法，在这两个项目里面都说了，我们只需要把下载的文件放到 &lt;code>~/.oh-my-zsh/plugins&lt;/code> 目录中，然后编辑 &lt;code>~/.zshrc&lt;/code> 在 &lt;code>plugin = (插件1 插件2)&lt;/code> 写上你所要启用的插件名称即可。&lt;/p>
-&lt;p>​    然后在终端中 &lt;code>source ~/.zshrc&lt;/code> 更新一下配置即可。&lt;/p>
+&lt;p>​ 关于下载的方法，在这两个项目里面都说了，我们只需要把下载的文件放到 &lt;code>~/.oh-my-zsh/plugins&lt;/code> 目录中，然后编辑 &lt;code>~/.zshrc&lt;/code> 在 &lt;code>plugin = (插件1 插件2)&lt;/code> 写上你所要启用的插件名称即可。&lt;/p>
+&lt;p>​ 然后在终端中 &lt;code>source ~/.zshrc&lt;/code> 更新一下配置即可。&lt;/p>
 &lt;h4 id="4配置主题">
 4.配置主题
 &lt;a class="heading-link" href="#4%e9%85%8d%e7%bd%ae%e4%b8%bb%e9%a2%98">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​    zsh有许多可用的主题选择，我自己最喜欢的一个叫 &lt;a href="https://github.com/sindresorhus/pure">pure&lt;/a>&lt;/p>
-&lt;p>​    我觉得害挺好看的，效果就跟上图一样吧。&lt;/p>
-&lt;p>​    安装方法就是先把pure下载到一个路径，然后编辑 &lt;code>~/.zshrc&lt;/code>&lt;/p>
-&lt;p>​    在下面加入&lt;/p>
+&lt;p>​ zsh有许多可用的主题选择，我自己最喜欢的一个叫 &lt;a href="https://github.com/sindresorhus/pure">pure&lt;/a>&lt;/p>
+&lt;p>​ 我觉得害挺好看的，效果就跟上图一样吧。&lt;/p>
+&lt;p>​ 安装方法就是先把pure下载到一个路径，然后编辑 &lt;code>~/.zshrc&lt;/code>&lt;/p>
+&lt;p>​ 在下面加入&lt;/p>
 &lt;pre tabindex="0">&lt;code>fpath+=安装路径
 autoload -U promptinit; promptinit
 prompt pure
-&lt;/code>&lt;/pre>&lt;p>​    然后我们&lt;code>source&lt;/code>一下&lt;code>.zshrc&lt;/code> 就可以使用了。&lt;/p>
-&lt;p>​    但是如果是使用zsh本来自带的一些主题，和这个有些差别，只需要下载好主题然后放到 &lt;code>~/.oh-my-zsh/themes&lt;/code> ，然后在 &lt;code>.zshrc &lt;/code>中启用即可。&lt;/p>
+&lt;/code>&lt;/pre>&lt;p>​ 然后我们&lt;code>source&lt;/code>一下&lt;code>.zshrc&lt;/code> 就可以使用了。&lt;/p>
+&lt;p>​ 但是如果是使用zsh本来自带的一些主题，和这个有些差别，只需要下载好主题然后放到 &lt;code>~/.oh-my-zsh/themes&lt;/code> ，然后在 &lt;code>.zshrc &lt;/code>中启用即可。&lt;/p>
 &lt;h4 id="5参考链接">
 5.参考链接
 &lt;a class="heading-link" href="#5%e5%8f%82%e8%80%83%e9%93%be%e6%8e%a5">

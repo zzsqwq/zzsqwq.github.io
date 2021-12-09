@@ -246,7 +246,7 @@ disp(c)
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<p>​    <strong>如果成立执行语句组，如果不成立则跳出if，语句格式如下：</strong></p>
+<p>​ <strong>如果成立执行语句组，如果不成立则跳出if，语句格式如下：</strong></p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#66d9ef>if</span> 条件(关系运算或逻辑运算)
    语句组
 <span style=color:#66d9ef>end</span>
@@ -256,7 +256,7 @@ disp(c)
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<p>​    <strong>如果成立执行语句组1，不成立执行语句组2，然后跳出if，语句格式如下：</strong></p>
+<p>​ <strong>如果成立执行语句组1，不成立执行语句组2，然后跳出if，语句格式如下：</strong></p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#66d9ef>if</span> 条件(关系运算或逻辑运算)
    语句组<span style=color:#ae81ff>1</span>
 <span style=color:#66d9ef>else</span>
@@ -268,7 +268,7 @@ disp(c)
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<p>​    <strong>根据上述双分支的类推，依次判断条件1~n，成立则执行对应语句组，然后跳出if，不成立则往下寻找，语句格式如下：</strong></p>
+<p>​ <strong>根据上述双分支的类推，依次判断条件1~n，成立则执行对应语句组，然后跳出if，不成立则往下寻找，语句格式如下：</strong></p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#66d9ef>if</span> 条件<span style=color:#ae81ff>1</span>
    语句组<span style=color:#ae81ff>1</span>
 <span style=color:#66d9ef>elseif</span> 条件<span style=color:#ae81ff>2</span>
@@ -303,7 +303,7 @@ switch语句的基本格式
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<p>​    表示在C++里面就不喜欢用switch，感觉太麻烦了。这个和多分支if有点像吧，只是他的区别在于首先给出一个表达式，在下方每一个语句组对应着一个结果表，如果结果表对应着表达式的值，就执行当前语句组，<strong>执行完之后跳出switch语句，这个和C++的有所区别。<strong>此外，如果都不满足的话，我们还可以加入一个条件</strong>otherwise</strong>，顾名思义，如果上述结果都不满足，就执行这个otherwise下对应的语句，switch的语句格式如下：</p>
+<p>​ 表示在C++里面就不喜欢用switch，感觉太麻烦了。这个和多分支if有点像吧，只是他的区别在于首先给出一个表达式，在下方每一个语句组对应着一个结果表，如果结果表对应着表达式的值，就执行当前语句组，<strong>执行完之后跳出switch语句，这个和C++的有所区别。<strong>此外，如果都不满足的话，我们还可以加入一个条件</strong>otherwise</strong>，顾名思义，如果上述结果都不满足，就执行这个otherwise下对应的语句，switch的语句格式如下：</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#66d9ef>switch</span> 表达式
   <span style=color:#66d9ef>case</span> 结果表<span style=color:#ae81ff>1</span>
      语句组<span style=color:#ae81ff>1</span>
@@ -400,7 +400,7 @@ while语句
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<p>​    通过一个条件来判定是否执行循环体语句，当条件成立时，成立。不像是for循环先去设定循环多少次，循环变量依次取什么值，这个是根据条件限定，又叫<strong>条件循环语句</strong>。</p>
+<p>​ 通过一个条件来判定是否执行循环体语句，当条件成立时，成立。不像是for循环先去设定循环多少次，循环变量依次取什么值，这个是根据条件限定，又叫<strong>条件循环语句</strong>。</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-matlab data-lang=matlab><span style=color:#66d9ef>while</span> 条件
      循环体语句
 <span style=color:#66d9ef>end</span>
@@ -420,7 +420,7 @@ break语句和continue语句
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<p>​    如果一个循环结构循环体又包括循环结构，那么就称为<strong>循环嵌套</strong>or<strong>多重循环结构</strong>。通过嵌套的层数不同来不同的命名，例如二重循环，三重循环等等。</p>
+<p>​ 如果一个循环结构循环体又包括循环结构，那么就称为<strong>循环嵌套</strong>or<strong>多重循环结构</strong>。通过嵌套的层数不同来不同的命名，例如二重循环，三重循环等等。</p>
 <h3 id=例程-2>
 例程
 <a class=heading-link href=#%e4%be%8b%e7%a8%8b-2>
@@ -504,7 +504,7 @@ p(n)
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<p>​    MATLAB提供了一种特殊的函数，函数句柄变量相当于这个函数的别名，通过函数句柄可以间接的调用函数，多个参数之间用逗号分隔。</p>
+<p>​ MATLAB提供了一种特殊的函数，函数句柄变量相当于这个函数的别名，通过函数句柄可以间接的调用函数，多个参数之间用逗号分隔。</p>
 <ul>
 <li>
 <p><strong>函数定义的基本格式如下</strong>：</p>
@@ -552,7 +552,7 @@ end
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<p>​    如果一个函数在函数体内部调用自己本身称为递归调用（如果是其他函数称为嵌套调用）。<strong>递归是把一个大型复杂的问题层层转化为一个与原问题相似的规模较小的问题来求解。</strong></p>
+<p>​ 如果一个函数在函数体内部调用自己本身称为递归调用（如果是其他函数称为嵌套调用）。<strong>递归是把一个大型复杂的问题层层转化为一个与原问题相似的规模较小的问题来求解。</strong></p>
 <ul>
 <li><strong>直接递归调用</strong>：在一个函数体内部直接调用自己本身。</li>
 <li><strong>简介递归调用</strong>：在一个函数体内不嵌套调用其他函数，其他函数又调用自己。</li>
@@ -585,7 +585,7 @@ end
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h3>
-<p>​    可调性顾名思义，就是可以调节的。MATLAB函数在调用过程中函数传递参数的数目是可以调节的。在调用时，函数有两个预定义变量，<strong>nargin</strong> 和 <strong>nargout</strong> ，前者记录调用函数时输入实参的个数，后者记录调用函数时输出实参的个数。通过这两个变量，可以针对不同的变量个数进行不同的处理。</p>
+<p>​ 可调性顾名思义，就是可以调节的。MATLAB函数在调用过程中函数传递参数的数目是可以调节的。在调用时，函数有两个预定义变量，<strong>nargin</strong> 和 <strong>nargout</strong> ，前者记录调用函数时输入实参的个数，后者记录调用函数时输出实参的个数。通过这两个变量，可以针对不同的变量个数进行不同的处理。</p>
 <h3 id=全局变量和局部变量>
 全局变量和局部变量
 <a class=heading-link href=#%e5%85%a8%e5%b1%80%e5%8f%98%e9%87%8f%e5%92%8c%e5%b1%80%e9%83%a8%e5%8f%98%e9%87%8f>

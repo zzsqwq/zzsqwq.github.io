@@ -142,19 +142,19 @@ A. <a href="https://www.luogu.com.cn/problem/U138527?contestId=36509">Zs的回�
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<p>​    读入一个整数 $n$ ，输出 $[1,n]$ 的所有回文质数，我们规定 $1\sim9$ 也是回文数。</p>
+<p>​ 读入一个整数 $n$ ，输出 $[1,n]$ 的所有回文质数，我们规定 $1\sim9$ 也是回文数。</p>
 <h4 id=思路>
 思路
 <a class=heading-link href=#%e6%80%9d%e8%b7%af>
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<p>​    首先我们需要了解什么是<a href=https://baike.baidu.com/item/%E5%9B%9E%E6%96%87%E6%95%B0>回文数</a>，以及什么是<a href=https://baike.baidu.com/item/%E8%B4%A8%E6%95%B0>质数</a>。</p>
-<p>​    简单点说，回文数就是正着读反着读都是一样的，也就是对称的，形如 $abcba $ 或者 $123321$ 这样的。</p>
-<p>​    质数的话，对于一个数 $n$ ，如果他是质数，那它除了 $1$ 和 $n$ 没有其他因子。例如 $2,3,5,7,11$ 这样的。</p>
-<p>​    那么接下来我们考虑一下解决这个问题应该怎么做，首先我们看一下数据范围，$[1,100000]$ ，还是挺小的，我们可以考虑直接枚举每一个数来判断它是不是回文数，然后再判断一下是不是质数，如果两个都满足，我们就输出它。</p>
-<p>​    判断回文数，我们可以考虑到 NOJ05 幸运数 一题的解题思路，也就是说我们把一个数倒置过来，好比一个数 $xyz$ 倒置成 $zyx$ ，然后判断是否 $xyz == zyx$ ，如果相等的话就是回文数，如果不相等就不是。</p>
-<p>​    判断质数，我们可以在 $[2,\lfloor\sqrt{n}\rfloor]$ 枚举它的因子，这个的完备性我上课的时候证明过，不再赘述。这里需要注意 $1,2$ 需要特判一下。</p>
+<p>​ 首先我们需要了解什么是<a href=https://baike.baidu.com/item/%E5%9B%9E%E6%96%87%E6%95%B0>回文数</a>，以及什么是<a href=https://baike.baidu.com/item/%E8%B4%A8%E6%95%B0>质数</a>。</p>
+<p>​ 简单点说，回文数就是正着读反着读都是一样的，也就是对称的，形如 $abcba $ 或者 $123321$ 这样的。</p>
+<p>​ 质数的话，对于一个数 $n$ ，如果他是质数，那它除了 $1$ 和 $n$ 没有其他因子。例如 $2,3,5,7,11$ 这样的。</p>
+<p>​ 那么接下来我们考虑一下解决这个问题应该怎么做，首先我们看一下数据范围，$[1,100000]$ ，还是挺小的，我们可以考虑直接枚举每一个数来判断它是不是回文数，然后再判断一下是不是质数，如果两个都满足，我们就输出它。</p>
+<p>​ 判断回文数，我们可以考虑到 NOJ05 幸运数 一题的解题思路，也就是说我们把一个数倒置过来，好比一个数 $xyz$ 倒置成 $zyx$ ，然后判断是否 $xyz == zyx$ ，如果相等的话就是回文数，如果不相等就不是。</p>
+<p>​ 判断质数，我们可以在 $[2,\lfloor\sqrt{n}\rfloor]$ 枚举它的因子，这个的完备性我上课的时候证明过，不再赘述。这里需要注意 $1,2$ 需要特判一下。</p>
 <h4 id=代码>
 代码
 <a class=heading-link href=#%e4%bb%a3%e7%a0%81>
@@ -209,7 +209,7 @@ A. <a href="https://www.luogu.com.cn/problem/U138527?contestId=36509">Zs的回�
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<p>​    因为我们讲到这里的时候，我们没讲函数，但是这道题如果我们把判断是否为回文数，判断是否为质数，都另成一个函数模块，将使得程序变得更加简洁。我在这里也将函数版本的贴出来，有兴趣的可以看一下。</p>
+<p>​ 因为我们讲到这里的时候，我们没讲函数，但是这道题如果我们把判断是否为回文数，判断是否为质数，都另成一个函数模块，将使得程序变得更加简洁。我在这里也将函数版本的贴出来，有兴趣的可以看一下。</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
 </span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;math.h&gt;</span><span style=color:#75715e>
 </span><span style=color:#75715e></span>
@@ -262,20 +262,20 @@ B. <a href="https://www.luogu.com.cn/problem/U138528?contestId=36509">Wcx的杨�
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<p>​    读入一个整数 $n$ ，输出杨辉三角的前 $n$ 行。</p>
+<p>​ 读入一个整数 $n$ ，输出杨辉三角的前 $n$ 行。</p>
 <h4 id=思路-1>
 思路
 <a class=heading-link href=#%e6%80%9d%e8%b7%af-1>
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<p>​    首先这道题我们需要了解一下<a href=https://baike.baidu.com/item/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92>杨辉三角</a> ，大家小学到高中应该都了解过。</p>
-<p>​    那么如何计算杨辉三角，首先我们可以知道的是杨辉三角的第 $i$ 行就是$C_i^0\sim C_i^i$ ，但是我们考虑一下如何计算组合数，是用阶乘对吧，但是阶乘就涉及到一个连乘，对于这个题，我数据范围写的是 $1\le n \le 40$ ，很明显，阶乘不可行。而且写起来挺麻烦的。</p>
-<p>​    那么我们考虑一个组合数的性质
+<p>​ 首先这道题我们需要了解一下<a href=https://baike.baidu.com/item/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92>杨辉三角</a> ，大家小学到高中应该都了解过。</p>
+<p>​ 那么如何计算杨辉三角，首先我们可以知道的是杨辉三角的第 $i$ 行就是$C_i^0\sim C_i^i$ ，但是我们考虑一下如何计算组合数，是用阶乘对吧，但是阶乘就涉及到一个连乘，对于这个题，我数据范围写的是 $1\le n \le 40$ ，很明显，阶乘不可行。而且写起来挺麻烦的。</p>
+<p>​ 那么我们考虑一个组合数的性质
 $$
 C_n^i = C_{n-1}^i + C_{n-1}^{i-1}
 $$</p>
-<p>​    看起来很高大上对吧，简单点说就是杨辉三角里面一个数的值等于两肩之和，那么基于这个性质，我们很容易想到，我们可以用一个二维数组，定义 $f[i][j]$ 为第 $i$ 行的第 $j$ 个数，那么可以得到</p>
+<p>​ 看起来很高大上对吧，简单点说就是杨辉三角里面一个数的值等于两肩之和，那么基于这个性质，我们很容易想到，我们可以用一个二维数组，定义 $f[i][j]$ 为第 $i$ 行的第 $j$ 个数，那么可以得到</p>
 <ul>
 <li>
 <p>当 $j==1$ 或 $j==i$ ，则 $f[i][j] = 1$ ，也就是，当它为这一行的第一个或者最后一个，那么它就是 $1$</p>
@@ -284,7 +284,7 @@ $$</p>
 <p>如果不是上述条件，则 $f[i][j] = f[i-1][j] + f[i-1][j-1]$ ，也就是等于两肩之和。</p>
 </li>
 </ul>
-<p>​    <strong>还有一个需要注意的问题就是，这个题的 $n$ 最大值是 40，这个时候已经超出了 $int$ 的范围，因此我们需要将二维数组定义为 $long: :long$ 。</strong></p>
+<p>​ <strong>还有一个需要注意的问题就是，这个题的 $n$ 最大值是 40，这个时候已经超出了 $int$ 的范围，因此我们需要将二维数组定义为 $long: :long$ 。</strong></p>
 <h4 id=代码-1>
 代码
 <a class=heading-link href=#%e4%bb%a3%e7%a0%81-1>
@@ -320,8 +320,8 @@ $$</p>
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<p>​    这道题主要是对二维数组的考察。</p>
-<p>​    注意我们遇到第五个点过不去的时候，应该试一下最大的值 $40$ ，会发现有负数，显然是溢出问题，我们就能知道问题的解决办法了。</p>
+<p>​ 这道题主要是对二维数组的考察。</p>
+<p>​ 注意我们遇到第五个点过不去的时候，应该试一下最大的值 $40$ ，会发现有负数，显然是溢出问题，我们就能知道问题的解决办法了。</p>
 <h3 id=c-zh的约瑟夫环问题httpswwwluogucomcnproblemu138529contestid36509>
 C. <a href="https://www.luogu.com.cn/problem/U138529?contestId=36509">Zh的约瑟夫环问题</a>
 <a class=heading-link href=#c-zh%e7%9a%84%e7%ba%a6%e7%91%9f%e5%a4%ab%e7%8e%af%e9%97%ae%e9%a2%98httpswwwluogucomcnproblemu138529contestid36509>
@@ -334,17 +334,17 @@ C. <a href="https://www.luogu.com.cn/problem/U138529?contestId=36509">Zh的约�
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<p>​    有 $n$ 个人围成一圈，顺序排号，从第一个开始报数(从 $1$ 到 $m$ 报数)，凡报到 $m$ 的人退出圈子，问最后留下的是几号.</p>
+<p>​ 有 $n$ 个人围成一圈，顺序排号，从第一个开始报数(从 $1$ 到 $m$ 报数)，凡报到 $m$ 的人退出圈子，问最后留下的是几号.</p>
 <h4 id=思路-2>
 思路
 <a class=heading-link href=#%e6%80%9d%e8%b7%af-2>
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<p>​    约瑟夫问题是个很经典的问题，可能又叫什么猴子选大王什么的，特多变体。</p>
-<p>​    这个题其实就是一个纯模拟题，主要是对数组的考察。我们可以考虑开一个布尔数组 <strong>vis</strong> 用来标记某个人是否出圈，如果出圈了我们给他设置为 <strong>true</strong> ，如果没有出圈就是 <strong>false</strong> 。</p>
-<p>​    然后开一个报数到多少的变量<strong>cnt</strong>，开一个当前谁报数的变量<strong>pot</strong>，然后来模拟这个过程。如果 <strong>cnt</strong> 增长到了 <strong>m</strong> ，我们将 <strong>pot</strong> 出圈，也就是 <strong>vis[pot] = true</strong> ，然后在场的人数减一，当只剩下一人的时候，我们遍历 <strong>vis</strong> 数组中的每个元素，如果它的 vis 值为 <strong>false</strong> ，即没有出队，则将他输出。</p>
-<p>​    还有一个要注意的问题就是这是一个环，那么我们只需要判断一下当 <strong>pot</strong> 为 $n+1$ 的时候将他置为 $1$ 即可，这就模拟了一个环的性质。</p>
+<p>​ 约瑟夫问题是个很经典的问题，可能又叫什么猴子选大王什么的，特多变体。</p>
+<p>​ 这个题其实就是一个纯模拟题，主要是对数组的考察。我们可以考虑开一个布尔数组 <strong>vis</strong> 用来标记某个人是否出圈，如果出圈了我们给他设置为 <strong>true</strong> ，如果没有出圈就是 <strong>false</strong> 。</p>
+<p>​ 然后开一个报数到多少的变量<strong>cnt</strong>，开一个当前谁报数的变量<strong>pot</strong>，然后来模拟这个过程。如果 <strong>cnt</strong> 增长到了 <strong>m</strong> ，我们将 <strong>pot</strong> 出圈，也就是 <strong>vis[pot] = true</strong> ，然后在场的人数减一，当只剩下一人的时候，我们遍历 <strong>vis</strong> 数组中的每个元素，如果它的 vis 值为 <strong>false</strong> ，即没有出队，则将他输出。</p>
+<p>​ 还有一个要注意的问题就是这是一个环，那么我们只需要判断一下当 <strong>pot</strong> 为 $n+1$ 的时候将他置为 $1$ 即可，这就模拟了一个环的性质。</p>
 <h4 id=代码-2>
 代码
 <a class=heading-link href=#%e4%bb%a3%e7%a0%81-2>
@@ -399,9 +399,9 @@ using namespace std;
 <i class="fa fa-link" aria-hidden=true></i>
 </a>
 </h4>
-<p>​    上面的想法是比较好理解的形式。</p>
-<p>​    我们考虑一下模拟环，也就是使得 <strong>pot</strong> 指针处在一定的范围内，如果超出了将他重新置到头部，那么我们可以联想到取模，在模拟环时使用取模来实现，大家可以下去自己尝试，这有点像魏辰旭第一节课讲的那个字符串的问题。</p>
-<p>​    因为这道题只关心谁活了下来，所以还有一个比较简单的解法，我看在作业中也有几位同学给出了这个较简单的解法，如果理解了上述思想，看这个代码应该不难理解，大家可以对照代码自行思考。</p>
+<p>​ 上面的想法是比较好理解的形式。</p>
+<p>​ 我们考虑一下模拟环，也就是使得 <strong>pot</strong> 指针处在一定的范围内，如果超出了将他重新置到头部，那么我们可以联想到取模，在模拟环时使用取模来实现，大家可以下去自己尝试，这有点像魏辰旭第一节课讲的那个字符串的问题。</p>
+<p>​ 因为这道题只关心谁活了下来，所以还有一个比较简单的解法，我看在作业中也有几位同学给出了这个较简单的解法，如果理解了上述思想，看这个代码应该不难理解，大家可以对照代码自行思考。</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
 </span><span style=color:#75715e></span>
 <span style=color:#66d9ef>int</span> n,m;
@@ -415,7 +415,7 @@ using namespace std;
     }
     printf(<span style=color:#e6db74>&#34;%d&#34;</span>,pot<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>);
 }
-</code></pre></div><p>​    <strong>提示：n个人的约瑟夫环杀掉一个人后组成一个新的人数为 n-1 的约瑟夫环</strong></p>
+</code></pre></div><p>​ <strong>提示：n个人的约瑟夫环杀掉一个人后组成一个新的人数为 n-1 的约瑟夫环</strong></p>
 </div>
 <footer>
 <script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=github-light crossorigin=anonymous async></script>

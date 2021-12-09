@@ -4,18 +4,18 @@
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题&lt;/p>
+&lt;p>​ Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题&lt;/p>
 &lt;h3 id="解决方案">
 解决方案
 &lt;a class="heading-link" href="#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    首先我们根据上文的启示，因为每一个应用程序对应了一个 &lt;code>xxx.desktop&lt;/code> 文件，因此在应用库中的QQ一定也有一个对应的 &lt;code>desktop&lt;/code> 文件&lt;/p>
+&lt;p>​ 首先我们根据上文的启示，因为每一个应用程序对应了一个 &lt;code>xxx.desktop&lt;/code> 文件，因此在应用库中的QQ一定也有一个对应的 &lt;code>desktop&lt;/code> 文件&lt;/p>
 &lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/06/75817321.png" alt="QQ的启动方式">&lt;/p>
-&lt;p>​    我们进入到 &lt;code>/usr/share/applications&lt;/code> ，运行&lt;/p>
+&lt;p>​ 我们进入到 &lt;code>/usr/share/applications&lt;/code> ，运行&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ ls | grep -i qq
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    可以发现其中有一个名为 &lt;code>deepin.com.qq.im.desktop&lt;/code> 的文件，我们打开后发现内容如下：&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 可以发现其中有一个名为 &lt;code>deepin.com.qq.im.desktop&lt;/code> 的文件，我们打开后发现内容如下：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#75715e">#!/usr/bin/env xdg-open
 &lt;/span>&lt;span style="color:#75715e">&lt;/span>
 &lt;span style="color:#f92672">[&lt;/span>Desktop Entry&lt;span style="color:#f92672">]&lt;/span>
@@ -30,8 +30,8 @@ Name&lt;span style="color:#f92672">[&lt;/span>zh_CN&lt;span style="color:#f92672
 Comment&lt;span style="color:#f92672">=&lt;/span>Tencent QQ Client on Deepin Wine
 StartupWMClass&lt;span style="color:#f92672">=&lt;/span>QQ.exe
 MimeType&lt;span style="color:#f92672">=&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    可以看到Exec那一栏为 &lt;code>Exec=&amp;quot;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;quot; -u %u&lt;/code> ，发现他是运行目录下的一个 &lt;code>run.sh&lt;/code> 脚本来启动的。&lt;/p>
-&lt;p>​    我们进入目录下直接运行该脚本，查看log信息：&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 可以看到Exec那一栏为 &lt;code>Exec=&amp;quot;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;quot; -u %u&lt;/code> ，发现他是运行目录下的一个 &lt;code>run.sh&lt;/code> 脚本来启动的。&lt;/p>
+&lt;p>​ 我们进入目录下直接运行该脚本，查看log信息：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">base ❯ ./run.sh
 Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.exe
 run Deepin-QQ progress pid
@@ -87,8 +87,8 @@ Major opcode of failed request: &lt;span style="color:#ae81ff">152&lt;/span> &lt
 Minor opcode of failed request: &lt;span style="color:#ae81ff">6&lt;/span> &lt;span style="color:#f92672">(&lt;/span>X_GLXIsDirect&lt;span style="color:#f92672">)&lt;/span>
 Serial number of failed request: &lt;span style="color:#ae81ff">207&lt;/span>
 Current serial number in output stream: &lt;span style="color:#ae81ff">206&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    可以发现最下面的log信息有一些异常，首先第一行是因为我们是Ubuntu系统，可以暂且不关注&lt;/p>
-&lt;p>​    接下来可以看到有一个LibGL的错误，我们通过Google搜索&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 可以发现最下面的log信息有一些异常，首先第一行是因为我们是Ubuntu系统，可以暂且不关注&lt;/p>
+&lt;p>​ 接下来可以看到有一个LibGL的错误，我们通过Google搜索&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">libGL error: No matching fbConfigs or visuals found
 libGL error: failed to load driver: swrast
 X Error of failed request: GLXBadContext
@@ -96,7 +96,7 @@ Major opcode of failed request: &lt;span style="color:#ae81ff">152&lt;/span> &lt
 Minor opcode of failed request: &lt;span style="color:#ae81ff">6&lt;/span> &lt;span style="color:#f92672">(&lt;/span>X_GLXIsDirect&lt;span style="color:#f92672">)&lt;/span>
 Serial number of failed request: &lt;span style="color:#ae81ff">207&lt;/span>
 Current serial number in output stream: &lt;span style="color:#ae81ff">206&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    发现类似的错误及解决方案如下：&lt;/p>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 发现类似的错误及解决方案如下：&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>&lt;a href="https://bbs.archlinux.org/viewtopic.php?id=255385">SOLVED] LibGL errors with osu! and wine&lt;/a>&lt;/p>
@@ -105,8 +105,8 @@ Current serial number in output stream: &lt;span style="color:#ae81ff">206&lt;/s
 &lt;p>&lt;a href="https://askubuntu.com/questions/834254/steam-libgl-error-no-matching-fbconfigs-or-visuals-found-libgl-error-failed-t">Steam: libGL error: No matching fbConfigs or visuals found libGL error: failed to load driver: swrast&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;p>​    从搜索结果来看，这个问题还是非常常见的，用steam也会遇到，一般都是因为电脑安装了64位的NVIDIA显卡驱动，但是因为应用是32位的导致不能兼容，因此无法启动&lt;/p>
-&lt;p>​    最终解决方案有两个&lt;/p>
+&lt;p>​ 从搜索结果来看，这个问题还是非常常见的，用steam也会遇到，一般都是因为电脑安装了64位的NVIDIA显卡驱动，但是因为应用是32位的导致不能兼容，因此无法启动&lt;/p>
+&lt;p>​ 最终解决方案有两个&lt;/p>
 &lt;ul>
 &lt;li>如果是不常用NVIDIA驱动的人，普通的办公一下，可以搜索网上教程关闭独显，只启用集显，可以发现QQ可以正常启动，&lt;/li>
 &lt;li>重新安装32位的NVIDIA驱动&lt;/li>
@@ -117,5 +117,5 @@ Current serial number in output stream: &lt;span style="color:#ae81ff">206&lt;/s
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    虽然已经知道了解决方案，但是最终我还是选择卸载掉QQ，安装了wine版本的TIM，感觉和QQ没什么区别，而且更加简洁，而且可以流畅运行，没有N卡兼容问题！大家可以考虑一下~&lt;/p>
-&lt;p>​    而且QQ和TIM某些情况下会出现bug，字体全部变为方块，在 deepin-wine-ubuntu 的 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues">Issues&lt;/a> 中找到了解决方案 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/253">Ubuntu 安装QQ后中文方块解决方法&lt;/a> ，大家有同样困扰的也可以看一下~&lt;/p></description></item></channel></rss>
+&lt;p>​ 虽然已经知道了解决方案，但是最终我还是选择卸载掉QQ，安装了wine版本的TIM，感觉和QQ没什么区别，而且更加简洁，而且可以流畅运行，没有N卡兼容问题！大家可以考虑一下~&lt;/p>
+&lt;p>​ 而且QQ和TIM某些情况下会出现bug，字体全部变为方块，在 deepin-wine-ubuntu 的 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues">Issues&lt;/a> 中找到了解决方案 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/253">Ubuntu 安装QQ后中文方块解决方法&lt;/a> ，大家有同样困扰的也可以看一下~&lt;/p></description></item></channel></rss>

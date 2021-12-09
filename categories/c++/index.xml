@@ -18,14 +18,14 @@ C++大数类设计思路
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    构造大数类名为 &lt;strong>BigNumber&lt;/strong> ,首先想法是用字符串读入大数，然后将其转化为vector数组倒序分位存储的整数，然后通过一个 &lt;strong>len&lt;/strong> 来记录数字的位数，便于做运算。还设计了一个标记变量，用于标记这数为正数还是负数。&lt;/p>
+&lt;p>​ 构造大数类名为 &lt;strong>BigNumber&lt;/strong> ,首先想法是用字符串读入大数，然后将其转化为vector数组倒序分位存储的整数，然后通过一个 &lt;strong>len&lt;/strong> 来记录数字的位数，便于做运算。还设计了一个标记变量，用于标记这数为正数还是负数。&lt;/p>
 &lt;h3 id="构造函数">
 构造函数
 &lt;a class="heading-link" href="#%e6%9e%84%e9%80%a0%e5%87%bd%e6%95%b0">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    我用了两种构造函数，一个是无参构造函数，一个是拷贝构造函数，当然还有一个有参构造函数，但是实际过程中我没有用到。无参构造函数用于上述类成员的初始化，拷贝构造函数用于复制一个相同的大数类进行运算。有参构造函数可以用于对类成员的复制。&lt;/p>
+&lt;p>​ 我用了两种构造函数，一个是无参构造函数，一个是拷贝构造函数，当然还有一个有参构造函数，但是实际过程中我没有用到。无参构造函数用于上述类成员的初始化，拷贝构造函数用于复制一个相同的大数类进行运算。有参构造函数可以用于对类成员的复制。&lt;/p>
 &lt;h3 id="重载运算符">
 重载运算符
 &lt;a class="heading-link" href="#%e9%87%8d%e8%bd%bd%e8%bf%90%e7%ae%97%e7%ac%a6">
@@ -69,7 +69,7 @@ Result.len&lt;span style="color:#f92672">=&lt;/span>Result.v.size();
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​    因为进行减法前需要比较两个大数类的大小，我就先重载了 &lt;strong>&amp;lt;&lt;/strong> 。思路就是先比较&lt;strong>a、b&lt;/strong>两个大数的长度，长的那个肯定比较大，如果两个长度相等。从尾部开始依次向前比较，如果不相等的话，就看两个数的相对大小，大的那个肯定整体比较大。如果总是相等，到了最后，就返回相应的值表示他们相等。&lt;strong>这里我的返回值为int类型，用的标记是：如果两个相等，返回-1，如果前者小于后者，返回1，如果前者大于后者，返回0.&lt;/strong>&lt;/p>
+&lt;p>​ 因为进行减法前需要比较两个大数类的大小，我就先重载了 &lt;strong>&amp;lt;&lt;/strong> 。思路就是先比较&lt;strong>a、b&lt;/strong>两个大数的长度，长的那个肯定比较大，如果两个长度相等。从尾部开始依次向前比较，如果不相等的话，就看两个数的相对大小，大的那个肯定整体比较大。如果总是相等，到了最后，就返回相应的值表示他们相等。&lt;strong>这里我的返回值为int类型，用的标记是：如果两个相等，返回-1，如果前者小于后者，返回1，如果前者大于后者，返回0.&lt;/strong>&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#66d9ef">int&lt;/span> BigNumber&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#66d9ef">operator&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span> (&lt;span style="color:#66d9ef">const&lt;/span> BigNumber &lt;span style="color:#f92672">&amp;amp;&lt;/span>b) &lt;span style="color:#75715e">// 重载 &amp;#34;&amp;lt;&amp;#34; 定义
 &lt;/span>&lt;span style="color:#75715e">&lt;/span>{
 BigNumber &lt;span style="color:#a6e22e">a&lt;/span>(&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#66d9ef">this&lt;/span>);
