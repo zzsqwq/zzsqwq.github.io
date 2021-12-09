@@ -40,7 +40,7 @@ googleAnalytics = 'G-Z6EM6V1PVC'
 
   maxSeeAlsoItems = 5
 
-  customCSS = []
+  customCSS = ["scss/css/adjust_width.css"]
 
   customSCSS = []
 
