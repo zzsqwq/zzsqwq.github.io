@@ -78,9 +78,15 @@ weight = 2
 url = "https://t.me/zzsqwq"
 
 [[params.social]]
+name = "LastBlog"
+icon = "fa fa-2x fa-backward"
+weight = 6
+url = "https://lastblog.zzsqwq.cn/"
+
+[[params.social]]
 name = "RSS"
 icon = "fa fa-2x fa-rss"
-weight = 6
+weight = 4
 url = "https://www.zzsqwq.cn/index.xml"
 rel = "alternate"
 type = "application/rss+xml"
