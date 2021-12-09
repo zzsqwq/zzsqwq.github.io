@@ -37,10 +37,10 @@ jobs:
           
       - name: rsync deployments
         uses: burnett01/rsync-deployments@5.1
-          with:
-            switches: -avzr --delete --exclude=".htaccess" --exclude="/uploads/"
-            path: ./
-            remote_path: /www/wwwroot/new_blog/
-            remote_host: zzsqwq.cn
-            remote_user: www
-            remote_key: ${{ secrets.SSH_KEY }}
+        with:
+          switches: -avzr --delete --exclude=".htaccess" --exclude="/uploads/"
+          path: ./
+          remote_path: /www/wwwroot/new_blog/
+          remote_host: zzsqwq.cn
+          remote_user: www
+          remote_key: ${{ secrets.SSH_KEY }}
