@@ -121,8 +121,6 @@ sudo reboot
 
 ![比例配置信息][2]
 
-
-
 但是还是有一个小瑕疵，就是在BIOS引导阶段与输入密码登录的界面，我仍旧是会花屏、闪屏，我考虑到这是还没有初始化屏幕设置的问题，尝试搜索了修改BIOS比例、提前初始化login界面的分辨率，依旧没有找到比较好的解决办法，
 
 因此最后只好启动自动登录来跳过登录界面，这样就**看上去算是一个完好的系统**了QAQ。。
@@ -155,7 +153,6 @@ sudo reboot
 4. [How to change the login screen resolution in Ubuntu 18.04](https://askubuntu.com/questions/1041677/how-to-change-the-login-screen-resolution-in-ubuntu-18-04)
 5. [Custom Resolution Ubuntu 20.04](https://askubuntu.com/questions/1252172/custom-resolution-ubuntu-20-04)
 6. [How can I change the resolution of the GRUB menu?](https://askubuntu.com/questions/1091778/how-can-i-change-the-resolution-of-the-grub-menu)
-
 
   [1]: https://www.zzsqwq.cn/usr/uploads/2021/11/3138090261.png
   [2]: https://www.zzsqwq.cn/usr/uploads/2021/11/3113030601.png
