@@ -3,6 +3,7 @@ title: "Markdown 编辑器推荐"
 categories: [ "随笔" ]
 tags: [ "markdown","marktext","typora" ]
 draft: false
+disableComments: false
 slug: "220"
 date: "2021-12-01 20:12:00"
 ---
