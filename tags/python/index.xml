@@ -1,12 +1,321 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on Zs's Blog</title><link>https://zzsqwq.github.io/tags/python/</link><description>Recent content in Python on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Sun, 16 May 2021 15:19:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>利用神经网络进行波士顿房价预测</title><link>https://zzsqwq.github.io/posts/182/</link><pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/182/</guid><description>前言 ​ 前一阵学校有五一数模节校赛，和朋友一起参加做B题，波士顿房价预测，算是第一次自己动手实现一个简单的小网络吧，虽然很简单，但还是想记录一下。
-题目介绍 ​ 波士顿住房数据由哈里森和鲁宾菲尔德于1978年Harrison and Rubinfeld1收集。它包括了波士顿大区每个调查行政区的506个观察值。1980年Belsley et al.2曾对此数据做过分析。
-​ 数据一共14列，每一列的含义分别如下：
-英文简称 详细含义 CRIM 城镇的人均犯罪率 ZN 大于25,000平方英尺的地块的住宅用地比例。 INDUS 每个镇的非零售业务英亩的比例。 CHAS 查尔斯河虚拟变量（如果环河，则等于1；否则等于0） NOX 一氧化氮的浓度（百万分之几） RM 每个住宅的平均房间数 AGE 1940年之前建造的自有住房的比例 DIS 到五个波士顿就业中心的加权距离 RAD 径向公路通达性的指标 TAX 每一万美元的全值财产税率 PTRATIO 各镇的师生比率 B 计算方法为 $1000(B_k-0.</description></item><item><title>关于Anaconda中pip路径指向问题</title><link>https://zzsqwq.github.io/posts/169/</link><pubDate>Sat, 06 Mar 2021 20:51:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/169/</guid><description>前言 ​ 最近使用Anaconda的时候遇到了一个很奇怪的问题，如当我新建环境 condatest 后，使用 pip -V 查看pip的路径指向，会发现pip指向的是另一个环境 CenterNet 的路径。搜索了很久得到一个有一些用的解决方法
-解决方案 ​ 设有问题的环境为 condatest ，python版本为 3.6
-​ 然后进入 ~/anaconda3/envs/condatest/lib/python3.6
-​ 编辑目录下的 site.py 文件，将其中的 USER_SITE 的值修改为 /home/zs/anaconda3/envs/condatest ，注意这里路径里面的 zs 是你的当前用户名， USER_BASE 的值修改为 /home/zs/anaconda3/envs/condatest/lib/python3.6/site.py，然后问题应该就解决了。
-​ 因为如果环境问题的话，上面两个字符串都为空，猜测的原因是因为有同python版本的环境导致默认指向错误，此方式为修改conda中pip的指向。
-参考链接 更改conda环境中的pip包安装的默认路径</description></item><item><title>Python初步学习</title><link>https://zzsqwq.github.io/posts/66/</link><pubDate>Sat, 18 Apr 2020 01:24:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/66/</guid><description>&lt;h1 id="python学习笔记">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on Zs's Blog</title><link>https://zzsqwq.github.io/tags/python/</link><description>Recent content in Python on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Sun, 16 May 2021 15:19:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>利用神经网络进行波士顿房价预测</title><link>https://zzsqwq.github.io/posts/182/</link><pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/182/</guid><description>&lt;h3 id="前言">
+前言
+&lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    前一阵学校有五一数模节校赛，和朋友一起参加做B题，波士顿房价预测，算是第一次自己动手实现一个简单的小网络吧，虽然很简单，但还是想记录一下。&lt;/p>
+&lt;h3 id="题目介绍">
+题目介绍
+&lt;a class="heading-link" href="#%e9%a2%98%e7%9b%ae%e4%bb%8b%e7%bb%8d">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    波士顿住房数据由哈里森和鲁宾菲尔德于1978年Harrison and Rubinfeld&lt;!-- raw HTML omitted -->&lt;a href="https://www.zzsqwq.cn/usr/uploads/2021/05/406125417.png">1&lt;/a>&lt;!-- raw HTML omitted -->收集。它包括了波士顿大区每个调查行政区的506个观察值。1980年Belsley et al.&lt;!-- raw HTML omitted -->&lt;a href="https://www.zzsqwq.cn/usr/uploads/2021/05/3238192089.png">2&lt;/a>&lt;!-- raw HTML omitted -->曾对此数据做过分析。&lt;/p>
+&lt;p>​    数据一共14列，每一列的含义分别如下：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>英文简称&lt;/th>
+&lt;th>详细含义&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>CRIM&lt;/td>
+&lt;td>城镇的人均犯罪率&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ZN&lt;/td>
+&lt;td>大于25,000平方英尺的地块的住宅用地比例。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>INDUS&lt;/td>
+&lt;td>每个镇的非零售业务英亩的比例。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CHAS&lt;/td>
+&lt;td>查尔斯河虚拟变量（如果环河，则等于1；否则等于0）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>NOX&lt;/td>
+&lt;td>一氧化氮的浓度（百万分之几）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>RM&lt;/td>
+&lt;td>每个住宅的平均房间数&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>AGE&lt;/td>
+&lt;td>1940年之前建造的自有住房的比例&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DIS&lt;/td>
+&lt;td>到五个波士顿就业中心的加权距离&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>RAD&lt;/td>
+&lt;td>径向公路通达性的指标&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>TAX&lt;/td>
+&lt;td>每一万美元的全值财产税率&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>PTRATIO&lt;/td>
+&lt;td>各镇的师生比率&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>B&lt;/td>
+&lt;td>计算方法为 $1000(B_k-0.63)^2$，其中Bk是按城镇划分的非裔美国人的比例&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>LSTAT&lt;/td>
+&lt;td>底层人口的百分比(%)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>price&lt;/strong>&lt;/td>
+&lt;td>自有住房数的中位数，单位（千美元）&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>​    基于上述数据，请完成以下问题：&lt;/p>
+&lt;p>​    &lt;strong>建立波士顿房价预测模型并对预测结果进行评价。&lt;/strong>&lt;/p>
+&lt;h3 id="问题分析">
+问题分析
+&lt;a class="heading-link" href="#%e9%97%ae%e9%a2%98%e5%88%86%e6%9e%90">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    首先这道题目的很明确，数据一共是 $506×14$ 的一个矩阵，有十三维的自变量，通过建立一个模型来拟合回归出最终的因变量 price，即户主拥有住房价值的中位数。这是一个回归问题，综合考虑有以下两个思路&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>通过各种回归算法（GradientBoostingRegressor，RandomForestRegressor，ExtraTreesRegressor，LinearRegressor等）结合全部或部分自变量来回归最终的price&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>建立前馈神经网络模型，根据通用逼近定理，我们可以拟合此回归模型。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>​    我们对上述模型来进行实现并确定评估标准来对他们进行比较，选择最优的模型作为预测模型。&lt;/p>
+&lt;h3 id="算法流程">
+算法流程
+&lt;a class="heading-link" href="#%e7%ae%97%e6%b3%95%e6%b5%81%e7%a8%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="传统的回归算法">
+传统的回归算法
+&lt;a class="heading-link" href="#%e4%bc%a0%e7%bb%9f%e7%9a%84%e5%9b%9e%e5%bd%92%e7%ae%97%e6%b3%95">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;h5 id="自变量的选择">
+自变量的选择
+&lt;a class="heading-link" href="#%e8%87%aa%e5%8f%98%e9%87%8f%e7%9a%84%e9%80%89%e6%8b%a9">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h5>
+&lt;p>​    首先，考虑到数据集中13列自变量其中某一些可能和最终的房价并无强相关性，如果全部使用进行预测可能会对模型引入噪声，因此我们首先计算了房价price与各个自变量之间的相关系数 $r$ ，其中 $r$ 计算公式如下：
+$$
+r = \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum(x_i-\bar{x})^2\sum(y_i-\bar{y})^2}}
+$$
+​    其中 $x_i,y_i$ 为数据的每个分量，$\bar{x}，\bar{y}$ 为数据的均值&lt;/p>
+&lt;p>​    该系数反映了两变量之间的相关性，$r$ 的绝对值介于 $[0,1]$ 区间内，$|r|$ 越接近1，表示两数据相关性越高，反之越低。计算后结果如下：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CRIM&lt;/th>
+&lt;th>ZN&lt;/th>
+&lt;th>INDUS&lt;/th>
+&lt;th>CHAS&lt;/th>
+&lt;th>NOX&lt;/th>
+&lt;th>RM&lt;/th>
+&lt;th>LSTAT&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>-0.385832&lt;/td>
+&lt;td>0.360445&lt;/td>
+&lt;td>-0.483725&lt;/td>
+&lt;td>0.175260&lt;/td>
+&lt;td>-0.427321&lt;/td>
+&lt;td>0.695360&lt;/td>
+&lt;td>-0.737663&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>AGE&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>DIS&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>RAD&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>TAX&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>PTRATIO&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>B&lt;/strong>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-0.376955&lt;/td>
+&lt;td>0.249929&lt;/td>
+&lt;td>-0.381626&lt;/td>
+&lt;td>-0.468536&lt;/td>
+&lt;td>-0.507787&lt;/td>
+&lt;td>0.333461&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>​    观察结果可以发现，在给定的十三个变量中，&lt;strong>LSTAT &lt;strong>与 &lt;strong>price&lt;/strong> 的相关程度最高$(|r|&amp;gt;0.7)$，其次是 &lt;strong>RM&lt;/strong> 与&lt;/strong>PTRATIO&lt;/strong> $(|r|&amp;gt;0.5)$，再者是 &lt;strong>TAX,INDUS,NOX&lt;/strong> $(|r|&amp;gt;0.4)$，除上述之外的七个变量都与 &lt;strong>price&lt;/strong> 无较强的相关性，因此我们考虑使用六个相关性较强变量和十三个变量分别来对房价进行预测，并对他们进行对比，来寻找最优的回归模型。&lt;/p>
+&lt;h5 id="模型的构建">
+模型的构建
+&lt;a class="heading-link" href="#%e6%a8%a1%e5%9e%8b%e7%9a%84%e6%9e%84%e5%bb%ba">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h5>
+&lt;ul>
+&lt;li>
+&lt;p>首先我们使用了sklearn中自带的 boston 数据集，并将整体数据集随机划分为了训练集和测试集两部分，所占比例分别为80%和20%。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>然后，我们利用Linear,Ridge,Lasso,ElasticNet,DecisionTree,GradientBoosting,RandomForest,ExtraTrees八种模型通过训练集对其进行训练。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>接下来，我们利用训练集拟合得到的模型，使用测试集对其进行测试，与 Ground Truth 进行对比，并通过 $R^2$ 来评价该预测结果，其中 $R^2$ 计算公式如下，其是衡量回归模型好坏的常见指标，其值一般处于[0,1]之间，$R^2$ 越接近1，说明模型的性能越好。
+$$
+R^2 = 1-\frac{\sum(\hat{y_i}-y_i)^2}{\sum(\bar{y}-y_i)^2}
+$$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>最后，考虑到模型的训练及预测可能具有偶然性，因此我们对于每一个模型进行20次训练及预测，利用20次的结果对其进行综合评价。利用得到的结果绘制 &lt;strong>箱线图&lt;/strong> 所得结果如下：&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/05/406125417.png" alt="使用六变量和十三个变量进行拟合的对比">&lt;/p>
+&lt;p>​&lt;/p>
+&lt;p>​    分析最终结果可以发现，无论是使用六个相关性较强变量还是十三个变量来进行预测，GradientBoost（梯度提升决策树）回归模型都是最好的，此外，我们可以发现，利用十三个变量要比利用六个主要变量来进行预测比有着更好的效果。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="前馈神经网络">
+前馈神经网络
+&lt;a class="heading-link" href="#%e5%89%8d%e9%a6%88%e7%a5%9e%e7%bb%8f%e7%bd%91%e7%bb%9c">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;h5 id="模型的构建-1">
+模型的构建
+&lt;a class="heading-link" href="#%e6%a8%a1%e5%9e%8b%e7%9a%84%e6%9e%84%e5%bb%ba-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h5>
+&lt;p>​    近年来，神经网络理论不断发展，前馈神经网络（多层感知机、全连接神经网络）越来越多的被利用到数据分析中，因此考虑使用前馈神经网络来解决此问题。&lt;/p>
+&lt;p>​    前馈神经网络（全连接神经网络）的网络结构一般由三部分构成，输入层，隐藏层，以及输出层，输入层与输出层一般只有一层，隐藏层可有多层。中间利用非线性函数作为激活函数可以使得网络具有拟合非线性函数的能力&lt;/p>
+&lt;p>​    根据通用近似定理:&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>通用近似定理&lt;/strong>&lt;/p>
+&lt;p>对于具有线性输出层和至少一个使用“挤压”性质的激活函数的隐藏层组成的前馈神经网络，只要其隐藏层神经元的数量足够，它可以以任意精度来近似任何从一个定义在实数空间中的有界闭集函数。&lt;/p>
+&lt;/blockquote>
+&lt;p>​    只要隐藏层网络维度够高，就可以拟合任意的函数。&lt;/p>
+&lt;p>​    考虑到我们的模型有六维or十三维的数据输入，因此我们建立两层前馈神经网络，中间具有一层隐藏层，维度为1000维，激活函数使用Relu，Relu函数有以下优点:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Relu相比于传统的Sigmoid、Tanh，导数更加好求，反向传播就是不断的更新参数的过程，因为其导数不复杂形式简单，可以使得网络训练更快速。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>此外，当数值过大或者过小，Sigmoid，Tanh的导数接近于0，Relu为非饱和激活函数则不存在这种现象，可以很好的解决梯度消失的问题&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>​    Relu函数及网络结构图如图所示：&lt;/p>
+&lt;p>$$
+Relu:f(x) = max(0,x)
+$$&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/05/3238192089.png" alt="构建的前馈神经网络结构图">&lt;/p>
+&lt;h5 id="具体实现">
+具体实现
+&lt;a class="heading-link" href="#%e5%85%b7%e4%bd%93%e5%ae%9e%e7%8e%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h5>
+&lt;p>​    利用流行的深度学习框架 &lt;strong>Pytorch&lt;/strong> 来对模型进行实现。&lt;/p>
+&lt;ul>
+&lt;li>首先，将数据集随机划分为训练集和测试集两部分，分别占80%和20%，并将其转化为Pytorch中的张量形式。&lt;/li>
+&lt;li>然后，利用MinMaxScaler对输入数据进行归一化，利用下列公式将其统一归一化为 $[0,1]$ 之间，以求模型能够更快的收敛。&lt;/li>
+&lt;/ul>
+&lt;p>$$
+MinMaxScaler:x^{*} = \frac{x-min(x)}{max(x)-min(x)}
+$$&lt;/p>
+&lt;ul>
+&lt;li>接下来，构建网络模型，利用 mseloss 作为损失函数，在训练过程中利用反向传播使其最终收敛为0。&lt;/li>
+&lt;/ul>
+&lt;p>$$
+MseLoss = \frac{1}{2n}\sum||y(x)-a^L(x)||^2
+$$&lt;/p>
+&lt;ul>
+&lt;li>最后，我们设置网络的学习率为0.01，训练10000个epoch，发现其loss最终降低到0.3%左右，我们利用上文提到的 $R^2$ 对结果进行评估并与回归模型进行对比，通过观察图片可以发现，前馈神经网络相比于传统的回归模型有着更好的拟合效果， 20次预测得到的$R^2$平均值达到了0.95，此外中位数，最大值，最小值也要比回归模型更加优秀，因此我们采用前馈神经网络模型来对最后的房价进行预测。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/05/2897732866.png" alt="添加前馈神经网络后与其他模型进行比较">&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/05/3640570809.jpg" alt="训练过程中的loss曲线">&lt;/p>
+&lt;h3 id="最终预测">
+最终预测
+&lt;a class="heading-link" href="#%e6%9c%80%e7%bb%88%e9%a2%84%e6%b5%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    最终我们利用构建的前馈神经网络模型进行预测，利用测试集对其进行对比，绘制预测如下：&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/05/1130005314.png" alt="predict_groundtruth.png">&lt;/p>
+&lt;p>​&lt;/p>
+&lt;p>​    可以看到其中很多点都覆盖的很好，即预测准确。&lt;/p>
+&lt;p>​    通过理论对模型进行量化分析，计算预测的 $R^2$
+$$
+R^2 = 1-\frac{\sum(\hat{y_i}-y_i)^2}{\sum(\bar{y}-y_i)^2} = 1-0.01357 = 0.98643=98.643%
+$$
+​    可以发现 $R^2$ 十分接近1，说明回归模型性能良好，符合要求。&lt;/p>
+&lt;h3 id="实现代码">
+实现代码
+&lt;a class="heading-link" href="#%e5%ae%9e%e7%8e%b0%e4%bb%a3%e7%a0%81">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    代码放在我的Github了，其中写了较详细的README，链接为 &lt;a href="https://github.com/zzsqwq/BostonPredict">BostonPredict &lt;/a>&lt;/p>
+&lt;h3 id="参考链接">
+参考链接
+&lt;a class="heading-link" href="#%e5%8f%82%e8%80%83%e9%93%be%e6%8e%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/89873990">很系统的波士顿房价预测研究报告（期中作业）&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://www.cnblogs.com/gwj23/p/10604611.html">作业-机器学习-波士顿房价预测 四种回归算法&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/48702850">基于Python预测波士顿房价&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://cloud.tencent.com/developer/article/1574255">波士顿房价预测——回归分析案例（献给初学者）&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>关于Anaconda中pip路径指向问题</title><link>https://zzsqwq.github.io/posts/169/</link><pubDate>Sat, 06 Mar 2021 20:51:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/169/</guid><description>&lt;h3 id="前言">
+前言
+&lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    最近使用Anaconda的时候遇到了一个很奇怪的问题，如当我新建环境 &lt;strong>condatest&lt;/strong> 后，使用 &lt;code>pip -V&lt;/code> 查看pip的路径指向，会发现pip指向的是另一个环境 &lt;strong>CenterNet&lt;/strong> 的路径。搜索了很久得到一个有一些用的解决方法&lt;/p>
+&lt;h3 id="解决方案">
+解决方案
+&lt;a class="heading-link" href="#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    设有问题的环境为 &lt;strong>condatest&lt;/strong> ，python版本为 &lt;strong>3.6&lt;/strong>&lt;/p>
+&lt;p>​    然后进入 &lt;code>~/anaconda3/envs/condatest/lib/python3.6&lt;/code>&lt;/p>
+&lt;p>​    编辑目录下的 &lt;code>site.py&lt;/code> 文件，将其中的 &lt;code>USER_SITE&lt;/code> 的值修改为 &lt;code>/home/zs/anaconda3/envs/condatest&lt;/code> ，注意这里路径里面的 &lt;code>zs&lt;/code> 是你的当前用户名， &lt;code>USER_BASE&lt;/code> 的值修改为 &lt;code>/home/zs/anaconda3/envs/condatest/lib/python3.6/site.py&lt;/code>，然后问题应该就解决了。&lt;/p>
+&lt;p>​    因为如果环境问题的话，上面两个字符串都为空，猜测的原因是因为有同python版本的环境导致默认指向错误，此方式为修改conda中pip的指向。&lt;/p>
+&lt;h3 id="参考链接">
+参考链接
+&lt;a class="heading-link" href="#%e5%8f%82%e8%80%83%e9%93%be%e6%8e%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.pythonf.cn/read/51713">更改conda环境中的pip包安装的默认路径&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Python初步学习</title><link>https://zzsqwq.github.io/posts/66/</link><pubDate>Sat, 18 Apr 2020 01:24:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/66/</guid><description>&lt;h1 id="python学习笔记">
 Python学习笔记
 &lt;a class="heading-link" href="#python%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -31,4 +340,680 @@ Python的不同解释器
 &lt;p>&lt;strong>PyPy&lt;/strong>&lt;/p>
 &lt;p>它的目标是执行速度。PyPy采用&lt;a href="http://en.wikipedia.org/wiki/Just-in-time_compilation">JIT技术&lt;/a>，对Python代码进行动态编译（注意不是解释），所以可以显著提高Python代码的执行速度。他与CPython略有不同。&lt;/p>
 &lt;/li>
-&lt;/ol></description></item></channel></rss>
+&lt;/ol>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Jython&lt;/strong>&lt;/p>
+&lt;p>这是运行在Java平台上的Python解释器，可以直接把Python代码编译成Java字节码执行。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>IronPython&lt;/strong>&lt;/p>
+&lt;p>这是运行在微软.Net平台上的Python解释器，可以直接把Python代码编译成.Net的字节码。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="python基础">
+Python基础
+&lt;a class="heading-link" href="#python%e5%9f%ba%e7%a1%80">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="简单的输入和输出io">
+简单的输入和输出(I/O)
+&lt;a class="heading-link" href="#%e7%ae%80%e5%8d%95%e7%9a%84%e8%be%93%e5%85%a5%e5%92%8c%e8%be%93%e5%87%baio">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="输入">
+输入
+&lt;a class="heading-link" href="#%e8%be%93%e5%85%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    python提供了一个 &lt;code>input()&lt;/code> 函数供我们输入使用，这读入的是字符串数据，并返回，可以将返回值存放在一个变量中。&lt;strong>input&lt;/strong>函数中可以带字符串，这段字符串在输入前会打印在屏幕上，这使得我们具有很好的交互性，好比我们写:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">name &lt;span style="color:#f92672">=&lt;/span> input(&lt;span style="color:#e6db74">&amp;#34;hello,friend! please input your name&amp;#34;&lt;/span>)
+print(&lt;span style="color:#e6db74">&amp;#34;The input name is &amp;#34;&lt;/span>,name)
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    那么这时候我们运行上述程序，就会提示 &lt;code>hello , friend! please input your name&lt;/code> ，这就提示我们应该输入名字。&lt;/p>
+&lt;p>​    这里需要注意的是，&lt;code>input()&lt;/code> 函数读入的是一个字符串 &lt;code>str&lt;/code> ，就算我们输入了整数他也是一个字符串，如果我们要用真正的整数，那么就需要用 &lt;code>int()&lt;/code> 进行类型强制转换。如果其中不是合法的整数，那么会报错。&lt;/p>
+&lt;h4 id="输出">
+输出
+&lt;a class="heading-link" href="#%e8%be%93%e5%87%ba">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    python中的输出函数是 &lt;code>print()&lt;/code> ，这和 &lt;strong>C++&lt;/strong> 的&lt;code>printf&lt;/code> 差了一个f。我们在函数的参数中传入什么，他就会打印什么。好比我们写 &lt;code>print(&amp;quot;heelo,world&amp;quot;) &lt;/code> ，那么运行就会打印 &lt;code>hello,world&lt;/code> 在屏幕上。&lt;code>print&lt;/code> 支持我们传入多个参数，好比 &lt;code>printf(&amp;quot;my name is&amp;quot;,&amp;quot;zs&amp;quot;)&lt;/code> ，两两之间用逗号隔开，这在输出时会被解析成空格，也就是说两段字符串之间有一个空格。当然此函数也可以打印整数等。&lt;/p>
+&lt;h3 id="一些规则">
+一些规则
+&lt;a class="heading-link" href="#%e4%b8%80%e4%ba%9b%e8%a7%84%e5%88%99">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="缩进">
+缩进
+&lt;a class="heading-link" href="#%e7%bc%a9%e8%bf%9b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    Python中对代码块的区分，不是用C++的大括号，而是用缩进。处于连续同一缩进的是一个代码块，这也是为什么Python又被戏称为&lt;strong>游标卡尺语言&lt;/strong>的原因。&lt;strong>当语句以冒号&lt;code>:&lt;/code>结尾时，缩进的语句视为代码块。&lt;strong>我们通常用&lt;/strong>一个Tab / 四个空格&lt;/strong> 的缩进。&lt;/p>
+&lt;h4 id="注释">
+注释
+&lt;a class="heading-link" href="#%e6%b3%a8%e9%87%8a">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    Python的注释用的是 &lt;code>#&lt;/code> ，而 C++ 中的注释用的是 &lt;code>\\&lt;/code> 。&lt;/p>
+&lt;h4 id="case-sensitive">
+Case Sensitive
+&lt;a class="heading-link" href="#case-sensitive">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    Python中是大小写敏感的，也就是 a 和 A 不是同一个东西。&lt;/p>
+&lt;h3 id="数据类型">
+数据类型
+&lt;a class="heading-link" href="#%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="1-整数">
+1. 整数
+&lt;a class="heading-link" href="#1-%e6%95%b4%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    Python一个很大的好处就是可以处理任意大小的整数，包括负整数。这也是为什么很多大数题大家都喜欢用Python，hhhh。多数地方都用十进制，但是也是支持其他进制的哈~好比 &lt;code>0x&lt;/code> 前缀就是16进制。&lt;/p>
+&lt;h4 id="2-浮点数">
+2. 浮点数
+&lt;a class="heading-link" href="#2-%e6%b5%ae%e7%82%b9%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    浮点数是小数，之所以称为浮点数，是因为小数点位置在科学计数法中是可变的。这里需要注意，整数和浮点数在计算机内部存储方式不同，浮点数应该都是 &lt;code>IEEE754&lt;/code> 标准吧？整数之间的运算永远都是精确的，包括除法。而浮点数的运算则会有一定的误差。Python的浮点数也没有大小限制，但是超出一定范围就直接表示为&lt;code>inf&lt;/code>（无限大）。&lt;/p>
+&lt;h4 id="3-字符串">
+3. 字符串
+&lt;a class="heading-link" href="#3-%e5%ad%97%e7%ac%a6%e4%b8%b2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    字符串是以单引号 &lt;code>''&lt;/code> 或者双引号 &lt;code>&amp;quot;&amp;quot;&lt;/code> 括起来的任意文本。我们注意到&lt;strong>Python&lt;/strong>中&lt;strong>没有单个字符的概念&lt;/strong>，就算是单个字符也是一个字符串。如果&lt;code>''&lt;/code> 括起来的字符串内部出现 &lt;code>''&lt;/code> 需要使用&lt;code>\&lt;/code>转义，相同的，如果 &lt;code>&amp;quot;&amp;quot;&lt;/code> 括起来的字符串内部出现 &lt;code>&amp;quot;&amp;quot;&lt;/code> 需要转义。好比下面的程序&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">print(&lt;span style="color:#e6db74">&amp;#34;My name is &amp;#39;zs&amp;#39;&amp;#34;&lt;/span>) &lt;span style="color:#75715e">#合法 My name is &amp;#39;zs&amp;#39;&lt;/span>
+print(&lt;span style="color:#e6db74">&amp;#34;My name is &amp;#34;&lt;/span>zs&lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>) &lt;span style="color:#75715e">#不合法 invalid syntax&lt;/span>
+print(&lt;span style="color:#e6db74">&amp;#34;My name is &lt;/span>&lt;span style="color:#ae81ff">\&amp;#34;&lt;/span>&lt;span style="color:#e6db74">zs&lt;/span>&lt;span style="color:#ae81ff">\&amp;#34;&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>) &lt;span style="color:#75715e">#合法 My name is &amp;#34;zs&amp;#34; &lt;/span>
+print(&lt;span style="color:#e6db74">&amp;#39;My name is &amp;#34;zs&amp;#34;&amp;#39;&lt;/span>) &lt;span style="color:#75715e">#合法 My name is &amp;#34;zs&amp;#34;&lt;/span>
+print(&lt;span style="color:#e6db74">&amp;#39;My name is &amp;#39;&lt;/span>zs&lt;span style="color:#e6db74">&amp;#39;&amp;#39;&lt;/span>) &lt;span style="color:#75715e">#不合法 invalid syntax&lt;/span>
+print(&lt;span style="color:#e6db74">&amp;#39;My name is &lt;/span>&lt;span style="color:#ae81ff">\&amp;#39;&lt;/span>&lt;span style="color:#e6db74">zs&lt;/span>&lt;span style="color:#ae81ff">\&amp;#39;&lt;/span>&lt;span style="color:#e6db74">&amp;#39;&lt;/span>) &lt;span style="color:#75715e">#合法 My name is &amp;#39;zs&amp;#39;&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    Python中也有很多转义字符，跟C++的很类似。&lt;code>\n&lt;/code>,&lt;code>\t&lt;/code>,&lt;code>\\&lt;/code> 分别代表换行，横向制表，字符&lt;code>\&lt;/code> 。在python中还支持用 &lt;code>r' '&lt;/code> 表示 &lt;code>''&lt;/code> 内部的字符默认不转义。&lt;/p>
+&lt;p>​    Python在输出多行语句时，可以用 &lt;code>print('''content''')&lt;/code> 其中content中的内容，支持用直觉上的换行。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">print(&lt;span style="color:#e6db74">&amp;#39;&amp;#39;&amp;#39;python
+&lt;/span>&lt;span style="color:#e6db74">name
+&lt;/span>&lt;span style="color:#e6db74">zs&amp;#39;&amp;#39;&amp;#39;&lt;/span>)
+&lt;span style="color:#75715e"># The output&lt;/span>
+python
+name
+zs
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="4-布尔值">
+4. 布尔值
+&lt;a class="heading-link" href="#4-%e5%b8%83%e5%b0%94%e5%80%bc">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    含有 &lt;strong>Ture&lt;/strong> 和 &lt;strong>False&lt;/strong> 两种类型，代表真和假。支持 &lt;code>and&lt;/code> , &lt;code>or&lt;/code> ,&lt;code>not&lt;/code> 三种运算。&lt;/p>
+&lt;h4 id="5-空值">
+5. 空值
+&lt;a class="heading-link" href="#5-%e7%a9%ba%e5%80%bc">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    空值是Python中的一个特殊值，用 &lt;code>None&lt;/code> 表示。 &lt;code>None&lt;/code>不能理解为&lt;code>0&lt;/code>，因为&lt;code>0&lt;/code>是有意义的，而&lt;code>None&lt;/code>是一个特殊的空值。&lt;/p>
+&lt;h3 id="变量">
+变量
+&lt;a class="heading-link" href="#%e5%8f%98%e9%87%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    变量在程序中就是用一个变量名表示了，变量名必须是大小写英文、数字和&lt;code>_&lt;/code>的组合，且不能用数字开头。&lt;/p>
+&lt;p>​    变量命名时最好能做到顾名思义，当然也有很多规范的命名规则，可以自行百度。&lt;/p>
+&lt;p>​    在 &lt;strong>Python&lt;/strong> 中我们不需要指定一个变量是特定的类型，它可以在不同的类型之间变来变去，这确实很方便，不过感觉也是很占内存和时间的。&lt;/p>
+&lt;p>​    这种变量本身类型不固定的语言称之为&lt;strong>动态语言&lt;/strong>，与之对应的是&lt;strong>静态语言&lt;/strong>。静态语言在定义变量时必须指定变量类型，如果赋值的时候类型不匹配，就会报错&lt;/p>
+&lt;h3 id="常量">
+常量
+&lt;a class="heading-link" href="#%e5%b8%b8%e9%87%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    Python中没有C++中的const来限制常量，但是通常用&lt;strong>变量名全大写来代表这个变量为一个常量&lt;/strong>，但是这玩意是个约定俗成的，并不是说你这么写他就真是个常量了。&lt;/p>
+&lt;h3 id="字符串和编码">
+字符串和编码
+&lt;a class="heading-link" href="#%e5%ad%97%e7%ac%a6%e4%b8%b2%e5%92%8c%e7%bc%96%e7%a0%81">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="字符编码">
+字符编码
+&lt;a class="heading-link" href="#%e5%ad%97%e7%ac%a6%e7%bc%96%e7%a0%81">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    字符编码有很多种，不同的语言也对应着不同的字符编码。常见的几个是 &lt;code>ASCII&lt;/code> ,&lt;code>Unicode&lt;/code> ,&lt;code>UTF-8&lt;/code>,&lt;code>GB2313&lt;/code> 他们分别是英文和特殊字符的编码，统一的一套编码，可变长的统一编码，常用的中文编码。&lt;/p>
+&lt;h4 id="python的字符串存储">
+Python的字符串存储
+&lt;a class="heading-link" href="#python%e7%9a%84%e5%ad%97%e7%ac%a6%e4%b8%b2%e5%ad%98%e5%82%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    Python 3的的字符串是 &lt;code>Unicode&lt;/code> 编码的，也就是说Python的字符串支持多语言，因为这是一套统一的编码。&lt;/p>
+&lt;p>​    对于单个字符的编码，Python提供了 &lt;code>Ord()&lt;/code> 函数获取字符的整数表示，&lt;code>chr()&lt;/code> 函数通过整数获取对应字符。&lt;/p>
+&lt;p>​    Python中的字符串类型为 &lt;code>str&lt;/code> ，一个字符对应若干字节。**如果要在网络上传输，或者保存到磁盘上，就需要把&lt;code>str&lt;/code>变为以字节为单位的&lt;code>bytes&lt;/code>。**Python对&lt;code>bytes&lt;/code>类型的数据用带&lt;code>b&lt;/code>前缀的单引号或双引号表示。&lt;/p>
+&lt;p>​    我们可以通过&lt;code>encode('编码方式')&lt;/code> 将 &lt;strong>str&lt;/strong> 转变成 &lt;strong>bytes&lt;/strong> 。我们也可以通过 &lt;code>decode('编码方式')&lt;/code> 将 &lt;strong>bytes&lt;/strong> 转变为 &lt;strong>str&lt;/strong> 。&lt;/p>
+&lt;p>​    Python为我们提供了一个 &lt;code>len()&lt;/code> 函数，如果字符串是 &lt;strong>str&lt;/strong> ，那么计算出的是字符数，如果是 &lt;strong>bytes&lt;/strong> ，那么计算的是字节数。我们为了防止乱码问题，在两者相互转换时推荐用 &lt;strong>utf-8&lt;/strong> 编码。&lt;/p>
+&lt;p>​    由于Python源代码也是一个文本文件，所以，当你的源代码中包含中文的时候，在保存源代码时，就需要务必指定保存为UTF-8编码。当Python解释器读取源代码时，为了让它按UTF-8编码读取，我们通常在文件开头写上这两行：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#75715e">#!/usr/bin/env python3&lt;/span>
+&lt;span style="color:#75715e"># -*- coding: utf-8 -*-&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>第一行注释是为了告诉Linux/OS X系统，这是一个Python可执行程序，Windows系统会忽略这个注释；&lt;/p>
+&lt;p>第二行注释是为了告诉Python解释器，按照UTF-8编码读取源代码，否则，你在源代码中写的中文输出可能会有乱码。而且需要你的编辑器支持 UTF-8编码。&lt;/p>
+&lt;h4 id="字符串的格式化输出">
+字符串的格式化输出
+&lt;a class="heading-link" href="#%e5%ad%97%e7%ac%a6%e4%b8%b2%e7%9a%84%e6%a0%bc%e5%bc%8f%e5%8c%96%e8%be%93%e5%87%ba">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;h5 id="第一种方式">
+第一种方式
+&lt;a class="heading-link" href="#%e7%ac%ac%e4%b8%80%e7%a7%8d%e6%96%b9%e5%bc%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h5>
+&lt;p>​    Python的 &lt;code>print()&lt;/code> 格式化输出和C语言的很像，也是 &lt;code>%d&lt;/code> 代表整数，&lt;code>%f&lt;/code> 代表浮点数， &lt;code>%s&lt;/code> 代表字符串，&lt;code>%s&lt;/code>代表十六进制整数。关于格式的指定，好比补0什么的也和C的很像。具体格式如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">print(&lt;span style="color:#e6db74">&amp;#39;&lt;/span>&lt;span style="color:#e6db74">%2d&lt;/span>&lt;span style="color:#e6db74">-&lt;/span>&lt;span style="color:#e6db74">%02d&lt;/span>&lt;span style="color:#e6db74">&amp;#39;&lt;/span> &lt;span style="color:#f92672">%&lt;/span> (&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>)) &lt;span style="color:#75715e"># 输出 3-01&lt;/span>
+print(&lt;span style="color:#e6db74">&amp;#39;my name is &lt;/span>&lt;span style="color:#e6db74">%s&lt;/span>&lt;span style="color:#e6db74">&amp;#39;&lt;/span> &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>) &lt;span style="color:#75715e"># 输出 my name is zs&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    如果我们要在字符串里面输出 &lt;code>%&lt;/code> ，那么就需要用 &lt;code>%%&lt;/code> 来转义表示 &lt;code>%&lt;/code> 。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">print(&lt;span style="color:#e6db74">&amp;#34;This is a common &lt;/span>&lt;span style="color:#e6db74">%%&lt;/span>&lt;span style="color:#e6db74"> &lt;/span>&lt;span style="color:#e6db74">%s&lt;/span>&lt;span style="color:#e6db74"> &amp;#34;&lt;/span> &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#e6db74">&amp;#34;字符&amp;#34;&lt;/span>) &lt;span style="color:#75715e"># 输出 This is a common % 字符&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h5 id="第二种方式">
+第二种方式
+&lt;a class="heading-link" href="#%e7%ac%ac%e4%ba%8c%e7%a7%8d%e6%96%b9%e5%bc%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h5>
+&lt;p>​    除了上面的方法，&lt;code>print&lt;/code> 还可以用 .format 的方法进行格式化输出。例如下例子&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">print(&lt;span style="color:#e6db74">&amp;#39;&lt;/span>&lt;span style="color:#e6db74">{0}&lt;/span>&lt;span style="color:#e6db74"> name is &lt;/span>&lt;span style="color:#e6db74">{1}&lt;/span>&lt;span style="color:#e6db74">&amp;#39;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>format(&lt;span style="color:#e6db74">&amp;#34;who&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>)) &lt;span style="color:#75715e">#输出 who name is zs&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="list--tuple-列表和元组">
+List &amp;amp; tuple (列表和元组)
+&lt;a class="heading-link" href="#list--tuple-%e5%88%97%e8%a1%a8%e5%92%8c%e5%85%83%e7%bb%84">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="list列表">
+List(列表)
+&lt;a class="heading-link" href="#list%e5%88%97%e8%a1%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    List像是一个大杂烩，里面可以有各种类型的东西，是一个有序的集合，也就是说可以通过下标索引。&lt;/p>
+&lt;p>​    我们创建一个列表可以用中括号， &lt;code>Mylist = [&amp;quot;zs&amp;quot;,&amp;quot;wx&amp;quot;]&lt;/code> ，这就创建了具有两个元素的列表，第一个元素是字符串 &lt;strong>zs&lt;/strong> 第二个元素是字符串 &lt;strong>wx&lt;/strong> 。这个列表的名字就是 &lt;strong>Mylist&lt;/strong> 。&lt;/p>
+&lt;p>​    我们可以通过 &lt;code>len()&lt;/code> 来获取列表中元素的个数，也可以通过下表索引列表的元素，但是要注意下标是从0开始计数的，如果索引出界会报 &lt;code>IndexError&lt;/code> 。有趣的是，我们可以通过负的下表来访问元素，是倒着访问的，好比上述列表中 &lt;code>Mylist[-1]&lt;/code> 就代表元素 &lt;strong>&amp;ldquo;wx&amp;rdquo;&lt;/strong> 。&lt;/p>
+&lt;p>​    我们可以通过 &lt;code>listk = []&lt;/code> ，来创建一个空列表 &lt;strong>listk&lt;/strong> ，如果用 &lt;code>len()&lt;/code> 查看长度那么长度为&lt;strong>0&lt;/strong>.&lt;/p>
+&lt;p>​    此外列表中的元素也可以是列表，可以通过&lt;strong>类似于二维数组的形式索引&lt;/strong>。&lt;/p>
+&lt;p>​    列表中，有许多的&lt;strong>方法&lt;/strong>。就像是相对于这个类型内置的一些函数，用法如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">Mylist &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;wx&amp;#34;&lt;/span>]
+print(Mylist) &lt;span style="color:#75715e"># 输出 [&amp;#39;zs&amp;#39;, &amp;#39;wx&amp;#39;]&lt;/span>
+Mylist&lt;span style="color:#f92672">.&lt;/span>append(&lt;span style="color:#e6db74">&amp;#39;Better&amp;#39;&lt;/span>) &lt;span style="color:#75715e"># 用于在列表后面追加一个元素&lt;/span>
+print(Mylist) &lt;span style="color:#75715e"># 输出 [&amp;#39;zs&amp;#39;, &amp;#39;wx&amp;#39;, &amp;#39;Better&amp;#39;]&lt;/span>
+Mylist&lt;span style="color:#f92672">.&lt;/span>insert(&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#e6db74">&amp;#39;Good&amp;#39;&lt;/span>) &lt;span style="color:#75715e"># 用于在下标为1的位置，插入一个元素&lt;/span>
+print(Mylist) &lt;span style="color:#75715e"># 输出 [&amp;#39;zs&amp;#39;, &amp;#39;Good&amp;#39;, &amp;#39;wx&amp;#39;, &amp;#39;Better&amp;#39;]&lt;/span>
+popx &lt;span style="color:#f92672">=&lt;/span> Mylist&lt;span style="color:#f92672">.&lt;/span>pop() &lt;span style="color:#75715e"># 用于删除列表中最后一个元素，并返回元素的值&lt;/span>
+print(Mylist,popx) &lt;span style="color:#75715e"># 输出 [&amp;#39;zs&amp;#39;, &amp;#39;Good&amp;#39;, &amp;#39;wx&amp;#39;] Better&lt;/span>
+popx &lt;span style="color:#f92672">=&lt;/span> Mylist&lt;span style="color:#f92672">.&lt;/span>pop(&lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#75715e"># 用于删除列表中下标为1的元素，并返回元素的值&lt;/span>
+print(Mylist,popx) &lt;span style="color:#75715e"># 输出 [&amp;#39;zs&amp;#39;, &amp;#39;wx&amp;#39;] Good&lt;/span>
+L &lt;span style="color:#f92672">=&lt;/span> [] &lt;span style="color:#75715e"># 创建了一个空列表 L&lt;/span>
+print(len(L)) &lt;span style="color:#75715e">#输出0&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="tuple元组">
+Tuple(元组)
+&lt;a class="heading-link" href="#tuple%e5%85%83%e7%bb%84">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    元组跟上面的链表差不多，只不过是&lt;strong>不可变的，一旦初始化就不能修改&lt;/strong>，也是可以通过下标访问元素。&lt;/p>
+&lt;p>​    不同的的是，我们定义一个元组是用 &lt;code>()&lt;/code> ，好比我们定义 &lt;code>Mytuple = (&amp;quot;zs&amp;quot;,&amp;quot;wx&amp;quot;)&lt;/code> ，这是含有两个字符串元素的元组，我们可以通过 &lt;code>Mytuple = ()&lt;/code> 来定义一个空的元组。&lt;/p>
+&lt;p>​    需要注意的是，当我们定义一个只有一个元素的元组，如果我们写成 &lt;code>Mytuple = (&amp;quot;zs&amp;quot;)&lt;/code> ，那么Python会默认解析为这是一个字符串，把括号当初普通的括号，不解释成元组。 那么我们如何定义只有一个元素的元组呢，我们应该写 &lt;code>Mytuple = (&amp;quot;zs&amp;quot;,)&lt;/code> 这样就是只有一个元素的元组。&lt;/p>
+&lt;p>​    &lt;strong>元组中的不可变，是指它的指向不变&lt;/strong>，那么如果好比元组的元素中有一个列表，那么其实这个元组中的列表的元素还是可以改变的。&lt;/p>
+&lt;h3 id="条件判断">
+条件判断
+&lt;a class="heading-link" href="#%e6%9d%a1%e4%bb%b6%e5%88%a4%e6%96%ad">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    条件判断是一个经典的语句。用于分支结构。&lt;/p>
+&lt;p>​    用法跟C很像，不过 &lt;strong>else if&lt;/strong> 可以缩写为 &lt;strong>elif&lt;/strong> ，并且因为 &lt;strong>if&lt;/strong> ，&lt;strong>else&lt;/strong> , &lt;strong>elif&lt;/strong> 后面接的都是语句块，因此要加 &lt;code>:&lt;/code> 。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">weight &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">120&lt;/span>
+&lt;span style="color:#66d9ef">if&lt;/span> weight&lt;span style="color:#f92672">&amp;gt;=&lt;/span>&lt;span style="color:#ae81ff">200&lt;/span>:
+print(&lt;span style="color:#e6db74">&amp;#34;too fat&amp;#34;&lt;/span>)
+&lt;span style="color:#66d9ef">elif&lt;/span> weight&lt;span style="color:#f92672">&amp;lt;=&lt;/span>&lt;span style="color:#ae81ff">100&lt;/span>:
+print(&lt;span style="color:#e6db74">&amp;#34;too thin&amp;#34;&lt;/span>)
+&lt;span style="color:#66d9ef">else&lt;/span>:
+print(&lt;span style="color:#e6db74">&amp;#34;Good&amp;#34;&lt;/span>)
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="循环语句">
+循环语句
+&lt;a class="heading-link" href="#%e5%be%aa%e7%8e%af%e8%af%ad%e5%8f%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    循环结构也是三大结构之一。&lt;/p>
+&lt;h4 id="for">
+for
+&lt;a class="heading-link" href="#for">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    for语句是我C++中最喜欢循环语句。在Python中，他的写法变成了 &lt;code>for x in something:&lt;/code> ，下面接相应的循环语句块。这个 &lt;strong>x&lt;/strong> 是变量的名字，&lt;strong>something&lt;/strong> 是某一个容器，可以是列表可以是元组啥的，这个写法的意思就是 遍历 &lt;strong>something&lt;/strong> 中的每个元素，带入变量 &lt;strong>x&lt;/strong> 中，执行循环操作。&lt;/p>
+&lt;p>​    我们通常配合 &lt;code>range()&lt;/code> 函数来执行循环操作，通过 &lt;code>range(n)&lt;/code> 可以生成从 &lt;strong>[0,n)&lt;/strong> 的整数。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#66d9ef">for&lt;/span> x &lt;span style="color:#f92672">in&lt;/span> list(range(&lt;span style="color:#ae81ff">11&lt;/span>)):
+print(x) &lt;span style="color:#75715e">#输出 0~10&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="while">
+while
+&lt;a class="heading-link" href="#while">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    while语句也是和C语言差不多，当型循环，当满足条件时就执行循环，也记住不要忘记加 &lt;code>:&lt;/code> 。&lt;/p>
+&lt;h4 id="break--continue">
+break &amp;amp; continue
+&lt;a class="heading-link" href="#break--continue">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    &lt;strong>break&lt;/strong> 的作用是结束整个循环。&lt;/p>
+&lt;p>​    &lt;strong>continue&lt;/strong> 的作用是跳过这一次循环。&lt;/p>
+&lt;h3 id="dict--set-字典和集合">
+Dict &amp;amp; Set (字典和集合)
+&lt;a class="heading-link" href="#dict--set-%e5%ad%97%e5%85%b8%e5%92%8c%e9%9b%86%e5%90%88">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="dict">
+Dict
+&lt;a class="heading-link" href="#dict">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    这个字典其实就是C语言中的 &lt;strong>map&lt;/strong> ，人家 Python 直接内置了，属实业界良心。其实就是利用键值对匹配，一个键对应一个值。实现方式为哈希 &lt;strong>(Hash)&lt;/strong> 。&lt;/p>
+&lt;p>​    创建就是 &lt;code>Mydict = {&amp;quot;zs&amp;quot;:250 , &amp;quot;wx&amp;quot;:666&lt;/code>} 这样第一个元素的键为 &amp;ldquo;zs&amp;rdquo; ，对应值为 250 。第二个值与这个的解读类似。我们也可以通过类似于数组的形式往字典里面加元素. &lt;code>Mydict[&amp;quot;jjh&amp;quot;] = 100&lt;/code> ，那么这时候就往里面加入了一个键值对。&lt;/p>
+&lt;p>​    字典中每个键值是唯一的，但是值可以相同，类似于函数。我们也可以通过类似于数组的形式，下标为键来访问值。当我们下标在字典中不存在，利用下标访问就会直接报错。&lt;strong>Python&lt;/strong> 为我们提供了另一种方法来满足我们的需求，利用 &lt;code>Mydict.get(键)&lt;/code> 可以获得对应的值，当不存在这个键，会返回 &lt;code>None&lt;/code> 。此外，我们也可以指定其返回值，&lt;code>Mydict.get(键,something)&lt;/code> ，这样当不存在的时候就会返回这个 &lt;strong>something&lt;/strong> 。&lt;/p>
+&lt;p>​     最后，&lt;strong>字典中的 Key 只能是不可变对象。&lt;/strong>&lt;/p>
+&lt;h4 id="set">
+Set
+&lt;a class="heading-link" href="#set">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    set 就是数学中的集合，具有无序性和唯一性。里面元素不重复，并且无序导致没法通过下标访问。可以用来给一组数据去重。通过 &lt;code>add(key) remove(key)&lt;/code> 等函数去除对应值的元素。&lt;/p>
+&lt;p>​    可以通过 &lt;code>&amp;amp;&lt;/code> 求交集， &lt;code>|&lt;/code> 求并集， &lt;code>-&lt;/code> 求差集等。&lt;/p>
+&lt;p>​    &lt;strong>set 中的元素也只能是不可变对象。&lt;/strong>&lt;/p>
+&lt;h2 id="函数">
+函数
+&lt;a class="heading-link" href="#%e5%87%bd%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="调用函数">
+调用函数
+&lt;a class="heading-link" href="#%e8%b0%83%e7%94%a8%e5%87%bd%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    调用函数的时候要保证&lt;strong>参数个数、参数顺序、参数类型&lt;/strong>满足函数的定义。然后正确的处理好返回值。&lt;/p>
+&lt;h3 id="定义函数">
+定义函数
+&lt;a class="heading-link" href="#%e5%ae%9a%e4%b9%89%e5%87%bd%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="函数的定义">
+函数的定义
+&lt;a class="heading-link" href="#%e5%87%bd%e6%95%b0%e7%9a%84%e5%ae%9a%e4%b9%89">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    普通函数的定义通过 &lt;code>def&lt;/code> 来进行，好比我们要写一个求绝对值的函数，那么就可以如下定义&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">myabs&lt;/span>(x):
+&lt;span style="color:#66d9ef">if&lt;/span> x&lt;span style="color:#f92672">&amp;gt;=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>:
+&lt;span style="color:#66d9ef">return&lt;/span> x
+&lt;span style="color:#66d9ef">else&lt;/span>:
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#f92672">-&lt;/span>x
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    这样我们就可以类似调用 &lt;code>myabs(-5)&lt;/code> 来获得 -5 的绝对值。&lt;/p>
+&lt;p>​    如果我们想要定义一个&lt;strong>空的函数&lt;/strong>，也就是什么都不做，那么函数内部的语句可以写 &lt;code>pass&lt;/code> 。这类似于C++中的分号的作用？大概是。&lt;/p>
+&lt;p>​    通过 &lt;code>函数.__name__&lt;/code> 可以获得函数的真实名字。&lt;/p>
+&lt;h4 id="多个返回值的函数">
+多个返回值的函数
+&lt;a class="heading-link" href="#%e5%a4%9a%e4%b8%aa%e8%bf%94%e5%9b%9e%e5%80%bc%e7%9a%84%e5%87%bd%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    我们可以在 &lt;strong>return&lt;/strong> 后面写多个参数，这样在返回的时候会返回一个元组。我们接受返回值的时候，也可以并拍写多个变量，这样就会把返回值的元组中的各个值依次赋给每个变量。&lt;/p>
+&lt;h3 id="函数的参数">
+函数的参数
+&lt;a class="heading-link" href="#%e5%87%bd%e6%95%b0%e7%9a%84%e5%8f%82%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    Python的函数定义非常简单，但灵活度却非常大。除了正常定义的必选参数外，还可以使用默认参数，可变参数，关键字参数，这使得函数定义出来的接口，不但能处理复杂的参数，还可以简化调用者的代码。&lt;/p>
+&lt;h4 id="默认参数">
+默认参数
+&lt;a class="heading-link" href="#%e9%bb%98%e8%ae%a4%e5%8f%82%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    当我们调用一个函数，有几个参数大多数情况下是一个默认的值，少数时候是变的，那么我们可以用到默认参数，默认参数的使用我们可以在那个参数的后面加上 &lt;code>=something&lt;/code> ，这意思说是，这个参数默认为 &lt;strong>something&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">poww&lt;/span>(x,n&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>):
+k &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;span style="color:#66d9ef">while&lt;/span> n&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>:
+n &lt;span style="color:#f92672">=&lt;/span> n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>
+k &lt;span style="color:#f92672">=&lt;/span> k&lt;span style="color:#f92672">*&lt;/span>x
+&lt;span style="color:#66d9ef">return&lt;/span> k
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    例如上面这个例子，我们要求 $2^5$ ，那么可以调用 &lt;code>poww(2,5)&lt;/code> 。那么我们如果要求 $2^2$ ，那么就可以直接调用&lt;code>poww(2)&lt;/code> ，另一个参数可以不写，那么就是默认的2。&lt;/p>
+&lt;p>​    需要注意的是，&lt;strong>必选参数在前，默认参数要在后&lt;/strong>。否则话会产生歧义，因为解释器不知道你到底传入的参数是默认参数还是必选参数。&lt;/p>
+&lt;p>​    此外，当我们有多个默认参数的时候，我们要在前面几个默认参数使用默认值，而后面那个用传入参数的时候，我们需要加上参数名，也就是 &lt;code>参数名 = value&lt;/code> 这样传入。例子如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">poww&lt;/span>(x,n&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>,z&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>):
+k &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+f &lt;span style="color:#f92672">=&lt;/span> n&lt;span style="color:#f92672">+&lt;/span>z
+&lt;span style="color:#66d9ef">while&lt;/span> n&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>:
+f &lt;span style="color:#f92672">=&lt;/span> f&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>
+k &lt;span style="color:#f92672">=&lt;/span> k&lt;span style="color:#f92672">*&lt;/span>x
+&lt;span style="color:#66d9ef">return&lt;/span> k
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    这时候，我们如果要调用 &lt;code>poww(5,4)&lt;/code> ，代表求的是 $5^{4+3}$ ，如果我们要求 $5^{2+7}$ ，可以按照如下方法调用，使用 &lt;code>poww(5,z=7)&lt;/code> 。&lt;/p>
+&lt;p>​    最后还有一点很重要，默认参数要指向 &lt;strong>不变对象&lt;/strong> 。否则当我们重复调用会发生错误。&lt;/p>
+&lt;h4 id="可变参数">
+可变参数
+&lt;a class="heading-link" href="#%e5%8f%af%e5%8f%98%e5%8f%82%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    我们很多时候可能需要一个函数内传入不定量个数的参数，这就要用到可变参数，可变参数就是数量可变。&lt;/p>
+&lt;p>​    我们很容易想到，可以往里面传&lt;strong>列表或者元组&lt;/strong> ，不过这样当我们传之前还有要把所有的参数归到一个列表和元素中，这样太麻烦。Python给出了一个简便写法，我们只需要在参数面前加一个 &lt;code>*&lt;/code> ，这样我们就可以传入可变个参数。而且调用的时候，按普通的调用方法来即可，不需要传入元组。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">test&lt;/span>(&lt;span style="color:#f92672">*&lt;/span>numbers):
+sum &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;span style="color:#66d9ef">for&lt;/span> i &lt;span style="color:#f92672">in&lt;/span> numbers:
+sum &lt;span style="color:#f92672">=&lt;/span> sum &lt;span style="color:#f92672">+&lt;/span> i&lt;span style="color:#f92672">*&lt;/span>i
+&lt;span style="color:#66d9ef">return&lt;/span> sum
+print(test(&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>)) &lt;span style="color:#75715e"># 输出 14&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    那么当这时候我们想往里面传一个元组，或者列表。当然可以挨个用数组访问然后写，不过Python也给了我们一个简便做法，只需要在列表或者元组前面加一个 &lt;code>*&lt;/code> ，就可以把它结构解开，然后挨个元素传入函数中。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">test&lt;/span>(&lt;span style="color:#f92672">*&lt;/span>numbers):
+sum &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;span style="color:#66d9ef">for&lt;/span> i &lt;span style="color:#f92672">in&lt;/span> numbers:
+sum &lt;span style="color:#f92672">=&lt;/span> sum &lt;span style="color:#f92672">+&lt;/span> i&lt;span style="color:#f92672">*&lt;/span>i
+&lt;span style="color:#66d9ef">return&lt;/span> sum
+Mylist &lt;span style="color:#f92672">=&lt;/span> list(range(&lt;span style="color:#ae81ff">5&lt;/span>))
+print(test(&lt;span style="color:#f92672">*&lt;/span>Mylist)) &lt;span style="color:#75715e">#输出30&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="关键词参数">
+关键词参数
+&lt;a class="heading-link" href="#%e5%85%b3%e9%94%ae%e8%af%8d%e5%8f%82%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    可变参数允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple。而关键字参数允许你传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">myfun&lt;/span>(&lt;span style="color:#f92672">**&lt;/span>kw):
+print(kw)
+myfun(city &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;jz&amp;#34;&lt;/span>,name &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>) &lt;span style="color:#75715e"># 输出 {&amp;#39;city&amp;#39;: &amp;#39;jz&amp;#39;, &amp;#39;name&amp;#39;: &amp;#39;zs&amp;#39;}&lt;/span>
+Mydict &lt;span style="color:#f92672">=&lt;/span> {&lt;span style="color:#e6db74">&amp;#34;city&amp;#34;&lt;/span>:&lt;span style="color:#e6db74">&amp;#34;jz&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;name&amp;#34;&lt;/span>:&lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>}
+myfun(&lt;span style="color:#f92672">**&lt;/span>Mydict) &lt;span style="color:#75715e"># 输出 {&amp;#39;city&amp;#39;: &amp;#39;jz&amp;#39;, &amp;#39;name&amp;#39;: &amp;#39;zs&amp;#39;}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    参数前面加 &lt;code>**&lt;/code> 即是关键词参数。当然我们也可以传入参数时，用dict，然后加 &lt;code>**&lt;/code> 解开结构传入。&lt;/p>
+&lt;h4 id="命名关键词参数">
+命名关键词参数
+&lt;a class="heading-link" href="#%e5%91%bd%e5%90%8d%e5%85%b3%e9%94%ae%e8%af%8d%e5%8f%82%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    我们可以在上述的基础上，传入特定的参数，给相应的参数命名。这需要我们在定义各个参数之前，在参数之前加上 &lt;code>*&lt;/code> ，好比 &lt;code>def person(name,age,*,city,job)&lt;/code> 规定了，我们传入的两个关键词参数名字只能是 &lt;strong>city&lt;/strong> 和和 &lt;strong>job&lt;/strong> 。不过，当我们前面有一个参数是可变参数，那么就可以不用加那个 &lt;code>*&lt;/code> 。好比像如下方法定义上面那个函数， &lt;code>def person(name,age,*city,job)&lt;/code> 。在这里 &lt;strong>city&lt;/strong> 是一个可变参数，后面的 &lt;strong>job&lt;/strong> 就是一个命名关键词参数。&lt;/p>
+&lt;h4 id="参数调用顺序">
+参数调用顺序
+&lt;a class="heading-link" href="#%e5%8f%82%e6%95%b0%e8%b0%83%e7%94%a8%e9%a1%ba%e5%ba%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    在函数的参数中，上述各类参数可以组合使用。但是要注意顺序必须是：&lt;strong>必选参数、默认参数、可变参数、命名关键字参数和关键字参数。&lt;/strong>&lt;/p>
+&lt;h3 id="函数的递归调用">
+函数的递归调用
+&lt;a class="heading-link" href="#%e5%87%bd%e6%95%b0%e7%9a%84%e9%80%92%e5%bd%92%e8%b0%83%e7%94%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    函数的递归调用就是自己调用自己，QAQ，C++里面搞得也挺多的，就不赘述了。&lt;/p>
+&lt;h2 id="高级特性">
+高级特性
+&lt;a class="heading-link" href="#%e9%ab%98%e7%ba%a7%e7%89%b9%e6%80%a7">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="切片">
+切片
+&lt;a class="heading-link" href="#%e5%88%87%e7%89%87">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    切片操作感觉真的是Python很方便的一个特性了。&lt;/p>
+&lt;p>​    &lt;strong>字符串，列表，元组支持切片。&lt;/strong>&lt;/p>
+&lt;p>​    好比我们有一个列表，里面有数，0~100，我们要取其中的奇数，那么我们就需要每隔一个数取一个数，我们可以通过for循环来实现这个操作，但是呢，Python有一种更便利的方法来实现，那就是切片。他的用法类似于matlab中的冒号表达式，&lt;code>begin🔚step&lt;/code> 这三个变量分别代表起始，终止和步长，也就是每个多少取一个，这三个参数都可以省略，&lt;strong>省略时默认为序列起始点，序列终止点，1。这里要注意&lt;/strong>，&lt;strong>序列范围为 &lt;code>[begin,end)&lt;/code> ，前闭后开&lt;/strong>，例子：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">L &lt;span style="color:#f92672">=&lt;/span> list(range(&lt;span style="color:#ae81ff">101&lt;/span>))
+print(L[&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">💯&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>]) &lt;span style="color:#75715e"># 输出0~100所有的奇数&lt;/span>
+print(L[&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>::&lt;span style="color:#ae81ff">2&lt;/span>]) &lt;span style="color:#75715e"># 从倒数第十个数开始输出奇数，输出 [91, 93, 95, 97, 99]&lt;/span>
+print(L[&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">50&lt;/span>:&lt;span style="color:#ae81ff">0&lt;/span>:&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>]) &lt;span style="color:#75715e"># 从倒数第50个数，往前开始输出奇数，为 51~0中所有奇数&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="迭代">
+迭代
+&lt;a class="heading-link" href="#%e8%bf%ad%e4%bb%a3">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    迭代就是类似于遍历吧，通过 &lt;strong>for&lt;/strong> 可以迭代遍历一个容器内的所有元素。&lt;/p>
+&lt;p>​    字符串和列表，元组，集合，字典这些都是可以用&lt;strong>for&lt;/strong>遍历的，这也叫做可迭代对象。需要注意的是，我们在遍历字典和集合时，因为是无序的，所以两次遍历顺序可能不太一样。&lt;/p>
+&lt;p>​    当我们遍历字典时，默认遍历的是键值。例如下面这样&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">L &lt;span style="color:#f92672">=&lt;/span> {&lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>:&lt;span style="color:#e6db74">&amp;#34;rj&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;jjh&amp;#34;&lt;/span>:&lt;span style="color:#e6db74">&amp;#34;nb&amp;#34;&lt;/span>}
+&lt;span style="color:#66d9ef">for&lt;/span> key &lt;span style="color:#f92672">in&lt;/span> L:
+print(key) &lt;span style="color:#75715e"># 输出 zs jjh&lt;/span>
+&lt;span style="color:#66d9ef">for&lt;/span> value &lt;span style="color:#f92672">in&lt;/span> L&lt;span style="color:#f92672">.&lt;/span>values():
+print(value) &lt;span style="color:#75715e"># 输出 rj nb&lt;/span>
+&lt;span style="color:#66d9ef">for&lt;/span> k,v &lt;span style="color:#f92672">in&lt;/span> L&lt;span style="color:#f92672">.&lt;/span>items():
+print(k,v) &lt;span style="color:#75715e"># 输出 zs rj jjh nb&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    可以注意到，可以同时迭代两个数，或者多个数。&lt;/p>
+&lt;h3 id="列表生成器">
+列表生成器
+&lt;a class="heading-link" href="#%e5%88%97%e8%a1%a8%e7%94%9f%e6%88%90%e5%99%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    列表生成式即List Comprehensions，是Python内置的非常简单却强大的可以用来创建list的生成式。&lt;/p>
+&lt;p>​    好比我们生成 &lt;code>[1*1,2*2,3*3,···,n*n]&lt;/code> 这样的列表，可以用循环实现，也可以用列表生成式。&lt;/p>
+&lt;p>​    列表生成式格式大概是 &lt;code>[元素 规则]&lt;/code> 就是前面是要往里面加的元素的表达式，后面是生成的规则。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">L &lt;span style="color:#f92672">=&lt;/span> [x&lt;span style="color:#f92672">*&lt;/span>x &lt;span style="color:#66d9ef">for&lt;/span> x &lt;span style="color:#f92672">in&lt;/span> range(&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">11&lt;/span>)]
+print(L) &lt;span style="color:#75715e"># 输出[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]&lt;/span>
+D &lt;span style="color:#f92672">=&lt;/span> [x&lt;span style="color:#f92672">*&lt;/span>x &lt;span style="color:#66d9ef">for&lt;/span> x &lt;span style="color:#f92672">in&lt;/span> range(&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">11&lt;/span>) &lt;span style="color:#66d9ef">if&lt;/span> x &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>]
+print(D) &lt;span style="color:#75715e"># 输出[4, 16, 36, 64, 100]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="生成器">
+生成器
+&lt;a class="heading-link" href="#%e7%94%9f%e6%88%90%e5%99%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    我们将上述列表生成式外面的 &lt;code>[]&lt;/code> 改成 &lt;code>()&lt;/code> ，就变成了一个列表生成器。列表生成器里面每个元素不是原来就存在的，而是你要用的时候他按照规则去生成，可以节省空间。他也是一个可迭代对象，可以通过for循环来访问，此外也可以用 &lt;code>next(迭代器)&lt;/code> 来获取下一个元素。&lt;/p>
+&lt;p>​    除了上述方法，我们也可以用函数的方法来定义生成器，当一个函数中有了关键字 ： &lt;code>yield&lt;/code> 他就不是一个普通的函数了，就变成了一个生成器，按照函数的规则来生成相应数据。规则如下：当我们进入函数的时候，开始从头开始执行，执行到 &lt;strong>yield&lt;/strong> ，函数结束，返回 &lt;strong>yield&lt;/strong> 后面接的内容。然后下次进入函数的时候，从上次结束的地方继续开始，然后这样一直循环，直到再不能取数为止。&lt;/p>
+&lt;h3 id="迭代器">
+迭代器
+&lt;a class="heading-link" href="#%e8%bf%ad%e4%bb%a3%e5%99%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    凡是可作用于&lt;code>for&lt;/code>循环的对象都是&lt;code>Iterable&lt;/code>类型，就是可迭代对象；&lt;/p>
+&lt;p>​    凡是可作用于&lt;code>next()&lt;/code>函数的对象都是&lt;code>Iterator&lt;/code>类型，它们表示一个惰性计算的序列，&lt;strong>这感觉就像是一个指针呀其实（自我认为），可以通过指针访问可迭代对象中的元素&lt;/strong>；&lt;/p>
+&lt;p>​    集合数据类型如&lt;code>list&lt;/code>、&lt;code>dict&lt;/code>、&lt;code>str&lt;/code>等是&lt;code>Iterable&lt;/code>但不是&lt;code>Iterator&lt;/code>，不过可以通过&lt;code>iter()&lt;/code>函数获得一个&lt;code>Iterator&lt;/code>对象。&lt;/p>
+&lt;p>​    Python的&lt;code>for&lt;/code>循环本质上就是通过不断调用&lt;code>next()&lt;/code>函数实现的，例如：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#66d9ef">for&lt;/span> x &lt;span style="color:#f92672">in&lt;/span> [&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>, &lt;span style="color:#ae81ff">5&lt;/span>]:
+&lt;span style="color:#66d9ef">pass&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>实际上完全等价于：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#75715e"># 首先获得Iterator对象:&lt;/span>
+it &lt;span style="color:#f92672">=&lt;/span> iter([&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>, &lt;span style="color:#ae81ff">5&lt;/span>])
+&lt;span style="color:#75715e"># 循环:&lt;/span>
+&lt;span style="color:#66d9ef">while&lt;/span> &lt;span style="color:#66d9ef">True&lt;/span>:
+&lt;span style="color:#66d9ef">try&lt;/span>:
+&lt;span style="color:#75715e"># 获得下一个值:&lt;/span>
+x &lt;span style="color:#f92672">=&lt;/span> next(it)
+&lt;span style="color:#66d9ef">except&lt;/span> &lt;span style="color:#a6e22e">StopIteration&lt;/span>:
+&lt;span style="color:#75715e"># 遇到StopIteration就退出循环&lt;/span>
+&lt;span style="color:#66d9ef">break&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="函数式编程">
+函数式编程
+&lt;a class="heading-link" href="#%e5%87%bd%e6%95%b0%e5%bc%8f%e7%bc%96%e7%a8%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="高阶函数">
+高阶函数
+&lt;a class="heading-link" href="#%e9%ab%98%e9%98%b6%e5%87%bd%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="mapreduce">
+map/reduce
+&lt;a class="heading-link" href="#mapreduce">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    &lt;code>map()&lt;/code> 函数包括两个参数，第一个参数是一个函数，第二个参数是一个序列。&lt;strong>map&lt;/strong> 的作用就是将序列中的每个元素代入到函数中并且求出每个元素对应的值，然后会返回一个相应的 &lt;code>Iterator &lt;/code> ，我们可以通过对应的语句，好比 &lt;code>list()&lt;/code> ，&lt;code>tuple()&lt;/code> 啥的转成对应的序列。&lt;/p>
+&lt;p>​    &lt;code>reduce()&lt;/code> 函数也是包括两个参数，一个是函数，一个是序列。&lt;strong>reduce&lt;/strong> 的作用是类似于一个递归的感觉吧大概，好比序列是 &lt;code>L = [1,2,3,4,5]&lt;/code> ，有一个函数是 &lt;code>f&lt;/code> ，我们暂且不管这个函数的作用是什么，那么如果我们现在调用 &lt;code>reduce(f,L)&lt;/code> ，他返回一个 &lt;code>f&lt;/code> 函数的返回值，值为 &lt;code>f(f(f(1,2),3),4)&lt;/code> 。就是类似于这种嵌套的结构。&lt;/p>
+&lt;h4 id="filter">
+filter
+&lt;a class="heading-link" href="#filter">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    &lt;code>filter()&lt;/code> 函数也包括两个参数，一个是函数，一个是序列。他是通过那个函数的返回值是 &lt;code>True&lt;/code> or &lt;code>False&lt;/code> 来判断是否保留那个序列中的每个元素。返回值也是 &lt;code>Iterator&lt;/code> 。&lt;/p>
+&lt;h4 id="sorted">
+sorted
+&lt;a class="heading-link" href="#sorted">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    &lt;code>sorted()&lt;/code> 顾名思义，这是一个排序函数，我们往里面传入一个序列，那么他就会默认的对序列按升序排序，并且返回一个这个排序后序列。&lt;strong>但是我们传入的序列不会有变动。&lt;/strong>&lt;/p>
+&lt;p>​    此外，&lt;code>sorted()&lt;/code> 里面还可以加关键词 key 键值来确定规则，好比我们可以加 &lt;code>key=abs&lt;/code> 这样就可以将序列中所有的元素按照绝对值从小到大的顺序。我们也可以加 &lt;code>reverse=True&lt;/code> 来变成降序排序。&lt;/p>
+&lt;h3 id="返回函数">
+返回函数
+&lt;a class="heading-link" href="#%e8%bf%94%e5%9b%9e%e5%87%bd%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    我们知道，函数名只是一个指向函数的变量，我们也可以用另一个变量指向这个函数来引用函数，相当于起了一个别名。因此，我们也可以在函数的返回值中返回一个函数，然后将返回值赋值给一个变量，这样就可以通过这个变量来调用返回的函数。&lt;/p>
+&lt;blockquote>
+&lt;p>我们在一个函数中又定义了一个函数，并且，内部函数可以引用外部函数的参数和局部变量，当外部函数返回内部函数时，相关参数和变量都保存在返回的函数中，这种称为“闭包**（Closure）**”的程序结构拥有极大的威力。&lt;/p>
+&lt;/blockquote>
+&lt;p>​    返回闭包时牢记一点：返回函数不要引用任何循环变量，或者后续会发生变化的变量。因为这个变量相当于一个静态变量，现在变了，前面相应的结果也会变。&lt;/p>
+&lt;blockquote>
+&lt;p>返回闭包时牢记一点：返回函数不要引用任何循环变量，或者后续会发生变化的变量。&lt;/p>
+&lt;/blockquote>
+&lt;p>​    通过 &lt;code>函数.__name__&lt;/code> 可以获得函数的真实名字。&lt;/p>
+&lt;h3 id="匿名函数">
+匿名函数
+&lt;a class="heading-link" href="#%e5%8c%bf%e5%90%8d%e5%87%bd%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    通过 &lt;code>lambda&lt;/code> 可以创建匿名函数，这个就类似于matlab里面的那个 &lt;code>@&lt;/code> 创建的匿名函数。&lt;/p>
+&lt;p>​    格式为： &lt;code>lambda 变量: 返回值&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">print(list(map(&lt;span style="color:#66d9ef">lambda&lt;/span> x: x&lt;span style="color:#f92672">*&lt;/span>x,range(&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">11&lt;/span>)))) &lt;span style="color:#75715e"># [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    我们也可以把匿名函数当作函数的返回值返回。&lt;/p>
+&lt;h3 id="装饰器">
+装饰器
+&lt;a class="heading-link" href="#%e8%a3%85%e9%a5%b0%e5%99%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    我们可能想在调用函数之前在前面打印一下函数的运行日志，或者其他的一些内容，其他的操作。&lt;/p>
+&lt;p>​    这样我们就可以通过装饰器来实现，装饰器是为了给函数加一些其他的修饰，但是不需要在原本函数的基础上做改变。&lt;/p>
+&lt;p>​    本质上，&lt;strong>装饰器(decorator)&lt;/strong> 是一个返回函数的高阶函数，一个能打印日志的 &lt;strong>decorator&lt;/strong> 可以如下定义：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">log&lt;/span>(func):
+&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">wrapper&lt;/span>(&lt;span style="color:#f92672">*&lt;/span>args,&lt;span style="color:#f92672">**&lt;/span>kw):
+print(&lt;span style="color:#e6db74">&amp;#34;call &lt;/span>&lt;span style="color:#e6db74">%s&lt;/span>&lt;span style="color:#e6db74">()&amp;#34;&lt;/span> &lt;span style="color:#f92672">%&lt;/span> func&lt;span style="color:#f92672">.&lt;/span>__name__)
+&lt;span style="color:#66d9ef">return&lt;/span> func(&lt;span style="color:#f92672">*&lt;/span>args,&lt;span style="color:#f92672">**&lt;/span>kw)
+&lt;span style="color:#66d9ef">return&lt;/span> wrapper
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    调用如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#a6e22e">@log&lt;/span>
+&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">now&lt;/span>():
+print(&lt;span style="color:#e6db74">&amp;#39;2020-4-18&amp;#39;&lt;/span>)
+print(now()) &lt;span style="color:#75715e"># 输出 call now() 2020-4-18&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    在这里， &lt;code>@log&lt;/code> 可以等效为 &lt;code>now = log(now)&lt;/code> ，那么我们应该怎么理解呢，首先，在我们调用之前，我们就把这个函数传入这个&lt;code>log&lt;/code>函数，然后进入 &lt;code>wrapper&lt;/code> 函数，先输出了日志，然后返回了一个 &lt;code>func()&lt;/code> 函数，然后结束这个函数的定义，又返回了 &lt;code>wrapper&lt;/code> 函数，这样就是将日志和原函数组合在一起了。所以最后一起输出&lt;/p>
+&lt;h3 id="偏函数">
+偏函数
+&lt;a class="heading-link" href="#%e5%81%8f%e5%87%bd%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    偏函数可以看做一个函数其中某一个参数固定，然后另成一个新函数，这样到时候我们重复调用的时候就会比较方便了。&lt;/p>
+&lt;blockquote>
+&lt;p>当函数的参数个数太多，需要简化时，使用&lt;code>functools.partial&lt;/code>可以创建一个新的函数，这个新函数可以固定住原函数的部分参数，从而在调用时更简单。&lt;/p>
+&lt;/blockquote>
+&lt;p>​ &lt;strong>当用 &lt;code>functools.partial&lt;/code> 之前我们需要引入 &lt;code>functools&lt;/code> 模块。&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-python" data-lang="python">&lt;span style="color:#f92672">import&lt;/span> functools
+int2 &lt;span style="color:#f92672">=&lt;/span> functools&lt;span style="color:#f92672">.&lt;/span>partial(int,base&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>)
+print(int(&lt;span style="color:#e6db74">&amp;#39;10110&amp;#39;&lt;/span>,base&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>)) &lt;span style="color:#75715e"># 以二进制来转化这个字符串，得到22&lt;/span>
+print(int2(&lt;span style="color:#e6db74">&amp;#39;10110&amp;#39;&lt;/span>)) &lt;span style="color:#75715e"># 和上述等价&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="模块">
+模块
+&lt;a class="heading-link" href="#%e6%a8%a1%e5%9d%97">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>​    这个就是类似于头文件的感觉，模块里面包含了很多别人已经写好了的函数，你引入之后可以直接拿来用，能够大大提高自己的编程效率。&lt;/p>
+&lt;p>​    模块是放在包里的，这样可以避免不同模块之间的冲突，包中可以有很多的模块，并且所有包里都有一个相同名字的模块 ， &lt;code>__init__.py&lt;/code> ，这个文件说明这个目录是一个包，里面的其他的内容是模块。&lt;/p>
+&lt;p>​    模块命名为 &lt;code>包名.模块名&lt;/code> ，这样就有效避免了模块与模块之间的冲突&lt;/p>
+&lt;blockquote>
+&lt;p>模块是一组Python代码的集合，可以使用其他模块，也可以被其他模块使用。&lt;/p>
+&lt;p>创建自己的模块时，要注意：&lt;/p>
+&lt;ul>
+&lt;li>模块名要遵循Python变量命名规范，不要使用中文、特殊字符；&lt;/li>
+&lt;li>模块名不要和系统模块名冲突，最好先查看系统是否已存在该模块，检查方法是在Python交互环境执行&lt;code>import abc&lt;/code>，若成功则说明系统存在此模块。&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h3 id="使用模块">
+使用模块
+&lt;a class="heading-link" href="#%e4%bd%bf%e7%94%a8%e6%a8%a1%e5%9d%97">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    在使用模块之前只需要 &lt;code>import 模块名&lt;/code> ，就可以通过 &lt;strong>模块名.方法&lt;/strong> 的方式来调用这个模块里面的方法。&lt;/p>
+&lt;p>​    当我们在命令行运行模块文件时，Python解释器把一个特殊变量&lt;code>__name__&lt;/code>置为&lt;code>__main__&lt;/code>，而如果在其他地方导入模块时，&lt;code>if&lt;/code>判断将失败，因此，这种&lt;code>if&lt;/code>测试可以让一个模块通过命令行运行时执行一些额外的代码，最常见的就是运行测试。&lt;/p>
+&lt;h4 id="封装">
+封装
+&lt;a class="heading-link" href="#%e5%b0%81%e8%a3%85">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    在一个模块中，我们可能会定义很多函数和变量，但有的函数和变量我们希望给别人使用，有的函数和变量我们希望仅仅在模块内部使用。在Python中，是通过&lt;code>_&lt;/code>前缀来实现的。&lt;/p>
+&lt;p>​    正常的函数和变量名是公开的（public）。但是外部不需要引用的函数全部定义成private，只有外部需要引用的函数才定义为public。&lt;/p>
+&lt;h3 id="安装第三方模块">
+安装第三方模块
+&lt;a class="heading-link" href="#%e5%ae%89%e8%a3%85%e7%ac%ac%e4%b8%89%e6%96%b9%e6%a8%a1%e5%9d%97">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    我们用包管理工具 &lt;code>pip&lt;/code> 来安装第三方模块。&lt;/p>
+&lt;p>​    安装一个模块只需要 &lt;code>pip install 库名&lt;/code> ，这样就成功安装了一个包了。&lt;/p>
+&lt;p>​    此外，我们也可以直接安装 &lt;a href="https://www.anaconda.com/">Anaconda&lt;/a> ，这是一个基于Python的数据处理和科学计算平台，它已经内置了许多非常有用的第三方库，我们装上Anaconda，就相当于把数十个第三方模块自动安装好了，非常简单易用。&lt;/p>
+&lt;p>​    下载地址为 ： &lt;a href="https://www.anaconda.com/download/">Anaconda官网&lt;/a>&lt;/p>
+&lt;h3 id="模块搜索路径">
+模块搜索路径
+&lt;a class="heading-link" href="#%e6%a8%a1%e5%9d%97%e6%90%9c%e7%b4%a2%e8%b7%af%e5%be%84">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    当我们加载一个模块时，Python会在指定路径搜索对应的模块文件，如果找不到就会返回错误。&lt;/p>
+&lt;p>​    默认情况下，Python解释器会搜索当前目录，所有已安装的内置模块和第三方模块，搜索路径存放在 &lt;code>sys&lt;/code> 模块的 &lt;code>path&lt;/code> 变量中。我们可以通过 &lt;code>sys.path&lt;/code> 来查看。&lt;/p>
+&lt;p>​    我们要改动这个目录，往里面添加我们需要的，有两个方法。&lt;/p>
+&lt;ul>
+&lt;li>直接通过 &lt;code>sys.path.append()&lt;/code> 添加对应的路径，但是运行结束后会失效。&lt;/li>
+&lt;li>设置环境变量&lt;code>PYTHONPATH&lt;/code>，该环境变量的内容会被自动添加到模块搜索路径中。设置方式与设置Path环境变量类似。注意只需要添加你自己的搜索路径，Python自己本身的搜索路径不受影响。&lt;/li>
+&lt;/ul>
+&lt;h2 id="资料补充">
+资料补充
+&lt;a class="heading-link" href="#%e8%b5%84%e6%96%99%e8%a1%a5%e5%85%85">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://www.liaoxuefeng.com/wiki/1016959663602400">廖雪峰的Python教程&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.jianshu.com/p/62f155eb6ac5">Anaconda介绍、安装及使用教程&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

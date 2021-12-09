@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MATLAB on Zs's Blog</title><link>https://zzsqwq.github.io/tags/matlab/</link><description>Recent content in MATLAB on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Mon, 23 Mar 2020 01:14:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/matlab/index.xml" rel="self" type="application/rss+xml"/><item><title>专题四:MATLAB绘图</title><link>https://zzsqwq.github.io/posts/51/</link><pubDate>Mon, 23 Mar 2020 01:14:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/51/</guid><description>&lt;h2 id="41-二维曲线">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MATLAB on Zs's Blog</title><link>https://zzsqwq.github.io/tags/matlab/</link><description>Recent content in MATLAB on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Mon, 23 Mar 2020 01:14:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/matlab/index.xml" rel="self" type="application/rss+xml"/><item><title>专题四:MATLAB绘图</title><link>https://zzsqwq.github.io/posts/51/</link><pubDate>Mon, 23 Mar 2020 01:14:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/51/</guid><description>&lt;h2 id="41-二维曲线">
 4.1 二维曲线
 &lt;a class="heading-link" href="#41-%e4%ba%8c%e7%bb%b4%e6%9b%b2%e7%ba%bf">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -18,7 +18,495 @@
 &lt;li>&lt;strong>当x为复向量时&lt;/strong>，则以&lt;strong>实部&lt;/strong>和&lt;strong>虚部&lt;/strong>分别为横纵坐标绘制曲线。&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>专题三:MATLAB程序流程控制</title><link>https://zzsqwq.github.io/posts/36/</link><pubDate>Wed, 18 Mar 2020 01:09:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/36/</guid><description>&lt;h2 id="31-顺序结构程序">
+&lt;/ul>
+&lt;ul>
+&lt;li>&lt;strong>plot(x,y)函数参数的变化形式&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>当x为向量，y为矩阵&lt;/strong>：这时x的长度和y的列数（或行数）必须相等。这时候绘制多条曲线，分别是x为横坐标，取与x长度相等的那一个参数作为纵坐标，另一个参数为曲线的条数。&lt;strong>如果y的行、列两个参数相等，那么用y的每一列作为纵坐标，曲线条数等于矩阵列数。&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>当x和y为同型矩阵&lt;/strong>：这时以x，y对应列元素为横、纵坐标绘制曲线，曲线条数等于矩阵列数。&lt;/li>
+&lt;li>&lt;strong>含多个输入参数&lt;/strong>：形如 &lt;code>plot(x1,y1,x2,y2,···,xn,yn)&lt;/code> ，那么就是以每一个向量对组成一个点，绘制曲线。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>含选项的plot函数，plot(x,y,选项)&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>线型&lt;/strong> ：通过&lt;code>&amp;quot;-&amp;quot;,&amp;quot;:&amp;quot;,&amp;quot;-.&amp;quot;,&amp;quot;--&amp;quot;&lt;/code> 等参数来实现实线，虚线，点画线，双画线。&lt;/li>
+&lt;li>&lt;strong>颜色&lt;/strong> ：通过 &lt;code>&amp;quot;r&amp;quot;,&amp;quot;g&amp;quot;&lt;/code> 等实现曲线颜色的切换。当颜色选项省略，绘图自动循环使用。&lt;/li>
+&lt;li>&lt;strong>数据点标记&lt;/strong> ：通过 &lt;code>&amp;quot;*&amp;quot;,&amp;quot;o&amp;quot;,&amp;quot;s&amp;quot;&lt;/code> 等来实现将数据点用星号，圆圈，方块标记。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="span-idjump2fplot函数span">
+&lt;!-- raw HTML omitted -->fplot函数&lt;!-- raw HTML omitted -->
+&lt;a class="heading-link" href="#span-idjump2fplot%e5%87%bd%e6%95%b0span">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​ 可根据参数函数的变化特性自适应地设置采样间隔，当函数值变化缓慢，采样间隔大，当变化快的时候，采样间隔小。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>基本用法&lt;/strong>：&lt;code>fplot(f,lims,选项)&lt;/code> ，参数分别函数（一般采用函数句柄表示），lims为x轴的取值范围，采用二元向量 &lt;code>[xmin,xmax]&lt;/code> 来表示，默认值为 &lt;code>[-5,5]&lt;/code> 。选项参数与plot函数相同。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>双输入参数函数的用法&lt;/strong>：&lt;code>fplot(funx,funy,tlims,选项)&lt;/code> ，前两个分别为x，y的参数表示，通常以函数句柄的形式给出。tlims为前方函数参数 &lt;strong>t&lt;/strong> 的取值范围，用二元向量 &lt;code>[tmin,tmax]&lt;/code> 表示，默认的值为 &lt;code>[-5,5]&lt;/code> ，选项参数与上述相同。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="例程">
+例程
+&lt;a class="heading-link" href="#%e4%be%8b%e7%a8%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>利用不同的线型和颜色在同一坐标内绘制曲线 $y=2e^{-0.5x}sin(2\pi x)$ 以及其包络线。（包络线：在&lt;a href="https://baike.baidu.com/item/%E5%87%A0%E4%BD%95%E5%AD%A6/342546">几何学&lt;/a>，某个曲线族的&lt;strong>包络线&lt;/strong>（&lt;a href="https://baike.baidu.com/item/Envelope/7364077">Envelope&lt;/a>），是跟该曲线族的每条线都有至少一点相切的一条曲线。）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">x=(&lt;span style="color:#ae81ff">0&lt;/span>:pi&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">50&lt;/span>:&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>pi)&lt;span style="color:#f92672">&amp;#39;&lt;/span>;
+y1=&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>exp(&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">0.5&lt;/span>&lt;span style="color:#f92672">*&lt;/span>x)&lt;span style="color:#f92672">*&lt;/span>[&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]; &lt;span style="color:#75715e">%这里绘制的是上下两条包络线，是有两行的矩阵。&lt;/span>
+y2=&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>exp(&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">0.5&lt;/span>&lt;span style="color:#f92672">*&lt;/span>x)&lt;span style="color:#f92672">.*&lt;/span>sin(&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>pi&lt;span style="color:#f92672">*&lt;/span>x); &lt;span style="color:#75715e">%这里绘制的是曲线本身&lt;/span>
+x1=&lt;span style="color:#ae81ff">0&lt;/span>:&lt;span style="color:#ae81ff">0.5&lt;/span>:&lt;span style="color:#ae81ff">6&lt;/span>;
+y3=&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>exp(&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">0.5&lt;/span>&lt;span style="color:#f92672">*&lt;/span>x1)&lt;span style="color:#f92672">.*&lt;/span>sin(&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>pi&lt;span style="color:#f92672">*&lt;/span>x1); &lt;span style="color:#75715e">%这里标记的是正弦函数和x轴的交点。&lt;/span>
+plot(x, y1, &lt;span style="color:#e6db74">&amp;#39;k:&amp;#39;&lt;/span>, x, y2, &lt;span style="color:#e6db74">&amp;#39;b--&amp;#39;&lt;/span>, x1, y3, &lt;span style="color:#e6db74">&amp;#39;rp&amp;#39;&lt;/span>)
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/997434957.png" alt="plot1.png">&lt;/p>
+&lt;ul>
+&lt;li>利用fplot函数绘制 $y=sin{\frac{1}{x}}$ 在区间 $[0,0.2]$ 的图像。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">fplot(@x sin(&lt;span style="color:#ae81ff">1.&lt;/span>&lt;span style="color:#f92672">/&lt;/span>x),[&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">0.2&lt;/span>])
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1197666753.png" alt="plot2.png">&lt;/p>
+&lt;hr>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="42-绘制图形的辅助操作">
+4.2 绘制图形的辅助操作
+&lt;a class="heading-link" href="#42-%e7%bb%98%e5%88%b6%e5%9b%be%e5%bd%a2%e7%9a%84%e8%be%85%e5%8a%a9%e6%93%8d%e4%bd%9c">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="添加图形标注">
+添加图形标注
+&lt;a class="heading-link" href="#%e6%b7%bb%e5%8a%a0%e5%9b%be%e5%bd%a2%e6%a0%87%e6%b3%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>title函数&lt;/strong>：用于给图形添加标题说明&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>基本用法&lt;/strong>：&lt;code>title('图形标题')&lt;/code> ，如果是有多行，就用逗号分隔，大括号&lt;code>{}&lt;/code>括起来。&lt;/li>
+&lt;li>&lt;strong>LaTeX排版&lt;/strong>：可在在图形标题中使用LaTeX格式控制符，要用LaTeX时将其控制字符用大括号&lt;code>{}&lt;/code>括起来。&lt;/li>
+&lt;li>&lt;strong>控制字体&lt;/strong>：用 &lt;code>&amp;quot;\bf&amp;quot;&lt;/code> ,&lt;code>&amp;quot;\it&amp;quot;&lt;/code>，&lt;code>&amp;quot;\rm&amp;quot;&lt;/code> 分别控制字体加粗，斜体以及正体。&lt;/li>
+&lt;li>&lt;strong>设置title函数属性&lt;/strong> ： &lt;code>title(图形标题，属性名，属性值)&lt;/code> 其中属性名和属性值对应成对出现。
+&lt;ul>
+&lt;li>&lt;strong>Color属性&lt;/strong>：用于设置图形标题文本的颜色，缺省时为黑色。&lt;/li>
+&lt;li>&lt;strong>FontSize属性&lt;/strong> ：用于设置标题文字字号，缺省时为11。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>xlable和ylable函数&lt;/strong>：给x轴和y轴添加说明&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>基本用法&lt;/strong>： &lt;code>xlable(x轴说明)&lt;/code> ，&lt;code>ylable(y轴说明)&lt;/code> ，同样还有 zlable等。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>text函数和gtext函数&lt;/strong>：给特定位置说明&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>基本用法&lt;/strong>：
+&lt;ul>
+&lt;li>&lt;code>text(x,y,说明)&lt;/code>，x、y参数用来指明说明的位置，&lt;strong>后面的说明和title函数类似&lt;/strong>。&lt;/li>
+&lt;li>&lt;code>gtext(说明)&lt;/code> 这里没有坐标指定位置，通过鼠标的点击来指定位置。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>legend函数&lt;/strong>：用于给图形添加图例&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>基本用法&lt;/strong>：&lt;code>legend(图例1，图例2,···)&lt;/code> 其中图例顺序要与plot函数中参数顺序相对应，&lt;strong>图例的说明方式与tiele函数标题说明类似&lt;/strong>。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="坐标控制">
+坐标控制
+&lt;a class="heading-link" href="#%e5%9d%90%e6%a0%87%e6%8e%a7%e5%88%b6">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>axis函数&lt;/strong>：用于设置坐标轴的范围&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>基本用法&lt;/strong>：&lt;code>axis([xmin,xmax,ymin,ymax,zmin,zmax])&lt;/code> ，分别代表了x，y，z轴范围。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>其他用法&lt;/strong>：通过在axis函数下面加语句来实现控制其他格式。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>axis equal&lt;/strong>：横纵坐标刻度等长。&lt;/li>
+&lt;li>&lt;strong>axis square&lt;/strong>：采用正方形坐标系（默认为矩形）。&lt;/li>
+&lt;li>&lt;strong>axis auto&lt;/strong>：使用默认设置。&lt;/li>
+&lt;li>&lt;strong>axis off/on&lt;/strong>：不显示/显示坐标轴。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>给坐标系加网格和边框&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>添加网格&lt;/strong>：通过 &lt;code>grid on/off&lt;/code> 控制显示和不显示网格线，而直接用 &lt;code>grid&lt;/code> 用于切换两种形式，如果是带网格则切换为不带，反之亦然。如果不添加语句，则默认不带。&lt;/li>
+&lt;li>&lt;strong>添加边框&lt;/strong>：通过 &lt;code>box on/off&lt;/code> 控制显示不显示边框，用法与 &lt;strong>grid&lt;/strong> 类似，如果不添加语句，则默认带网格。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="图形保持">
+图形保持
+&lt;a class="heading-link" href="#%e5%9b%be%e5%bd%a2%e4%bf%9d%e6%8c%81">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​ 一般情况下绘图命令每执行一次，图形界面就刷新一次，去掉原有图形，绘制新图形，如果要保留原有图形，可使用图形保持命令。通过&lt;code>hold on\off&lt;/code> 来控制是否保留，通过 &lt;code>hold&lt;/code> 切换保留和不保留两种选择。&lt;/p>
+&lt;h3 id="图形窗口分割">
+图形窗口分割
+&lt;a class="heading-link" href="#%e5%9b%be%e5%bd%a2%e7%aa%97%e5%8f%a3%e5%88%86%e5%89%b2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>子图&lt;/strong>：同一图形窗口中的不同坐标系下的图形称为子图。&lt;/li>
+&lt;li>&lt;strong>subplot函数&lt;/strong> ：&lt;code>subplot(m,n,p)&lt;/code> 意思是将图形窗口分成 $m\times n$ 个子图区域，当前绘制的是第p个子图，区号按行编号。我们在一个图形窗口内，绘制不同的图可以采用不同的分割。&lt;/li>
+&lt;/ul>
+&lt;h3 id="例程-1">
+例程
+&lt;a class="heading-link" href="#%e4%be%8b%e7%a8%8b-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>绘制 $sinx$ 、$sin2x$ 、$sin(\frac{x}{2})$ 的图像，并添加相应的图形标注。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">x=linspace(&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">6&lt;/span>&lt;span style="color:#f92672">*&lt;/span>pi,&lt;span style="color:#ae81ff">100&lt;/span>);
+y=[sin(x);sin(&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>x);sin(x&lt;span style="color:#f92672">./&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>)];
+plot(x,y);
+axis([&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">6&lt;/span>&lt;span style="color:#f92672">*&lt;/span>pi,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1.1&lt;/span>,&lt;span style="color:#ae81ff">1.1&lt;/span>]);
+title(&lt;span style="color:#e6db74">&amp;#39;不同频率正弦函数曲线&amp;#39;&lt;/span>);
+xlabel(&lt;span style="color:#e6db74">&amp;#39;X-axis&amp;#39;&lt;/span>);
+ylabel(&lt;span style="color:#e6db74">&amp;#39;Y-axis&amp;#39;&lt;/span>);
+text(&lt;span style="color:#ae81ff">2.5&lt;/span>,sin(&lt;span style="color:#ae81ff">2.5&lt;/span>),&lt;span style="color:#e6db74">&amp;#39;sin(x)&amp;#39;&lt;/span>);
+text(&lt;span style="color:#ae81ff">1.5&lt;/span>,sin(&lt;span style="color:#ae81ff">3&lt;/span>),&lt;span style="color:#e6db74">&amp;#39;sin(2*x)&amp;#39;&lt;/span>);
+text(&lt;span style="color:#ae81ff">5.5&lt;/span>,sin(&lt;span style="color:#ae81ff">0.5&lt;/span>&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">5.5&lt;/span>),&lt;span style="color:#e6db74">&amp;#39;sin(x/2)&amp;#39;&lt;/span>);
+legend(&lt;span style="color:#e6db74">&amp;#39;sin(x)&amp;#39;&lt;/span>,&lt;span style="color:#e6db74">&amp;#39;sin(2x)&amp;#39;&lt;/span>,&lt;span style="color:#e6db74">&amp;#39;sin(x/2)&amp;#39;&lt;/span>);
+grid on
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1478197073.png" alt="plot3.png">&lt;/p>
+&lt;ul>
+&lt;li>利用子图函数在不同区域绘出不同图形。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">x=linspace(&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>pi,&lt;span style="color:#ae81ff">100&lt;/span>);
+subplot(&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>);
+plot(x,sin(x));
+title(&lt;span style="color:#e6db74">&amp;#39;sin(x)&amp;#39;&lt;/span>);
+axis([&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>pi,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>]);
+subplot(&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>);
+plot(x,cos(x));
+title(&lt;span style="color:#e6db74">&amp;#39;cos(x)&amp;#39;&lt;/span>);
+axis([&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>pi,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>]);
+subplot(&lt;span style="color:#ae81ff">4&lt;/span>,&lt;span style="color:#ae81ff">4&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>);
+plot(x,tan(x));
+title(&lt;span style="color:#e6db74">&amp;#39;tan(x)&amp;#39;&lt;/span>);
+subplot(&lt;span style="color:#ae81ff">4&lt;/span>,&lt;span style="color:#ae81ff">4&lt;/span>,&lt;span style="color:#ae81ff">8&lt;/span>);
+plot(x,cot(x));
+title(&lt;span style="color:#e6db74">&amp;#39;cot(x)&amp;#39;&lt;/span>);
+axis([&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>pi,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">35&lt;/span>,&lt;span style="color:#ae81ff">35&lt;/span>]);
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/4053281797.png" alt="plot4.png">&lt;/p>
+&lt;hr>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="43-其他形式的二维曲线">
+4.3 其他形式的二维曲线
+&lt;a class="heading-link" href="#43-%e5%85%b6%e4%bb%96%e5%bd%a2%e5%bc%8f%e7%9a%84%e4%ba%8c%e7%bb%b4%e6%9b%b2%e7%ba%bf">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="其他坐标系下的二维曲线图">
+其他坐标系下的二维曲线图
+&lt;a class="heading-link" href="#%e5%85%b6%e4%bb%96%e5%9d%90%e6%a0%87%e7%b3%bb%e4%b8%8b%e7%9a%84%e4%ba%8c%e7%bb%b4%e6%9b%b2%e7%ba%bf%e5%9b%be">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>对数坐标图&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>semilogx&lt;/strong> 函数：调用形式与plot函数类似，&lt;code>semilogx(x,y,选项)&lt;/code>为其中一种调用格式，其他的可参考plot函数，此函数绘图采用半对数坐标，x轴采用常用对数刻度，y轴为线性刻度。&lt;/li>
+&lt;li>&lt;strong>semilogy&lt;/strong> 函数：调用形式与plot函数类似，&lt;code>semilogy(x,y,选项)&lt;/code>为其中一种调用格式，其他的可参考plot函数，此函数绘图采用半对数坐标，y轴采用常用对数刻度，x轴为线性刻度。&lt;/li>
+&lt;li>&lt;strong>loglog&lt;/strong> 函数：调用函数与上述类似，x和y都为常用对数刻度。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>极坐标图&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>基本调用格式：&lt;code>polar(theta,rho,选项)&lt;/code> &lt;strong>theta&lt;/strong>为极角，&lt;strong>rho&lt;/strong> 为极径，选项与plot函数类似。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="统计图">
+统计图
+&lt;a class="heading-link" href="#%e7%bb%9f%e8%ae%a1%e5%9b%be">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>条形类图形&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>条形图&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>bar&lt;/strong> 函数：绘制二维垂直条形图&lt;/p>
+&lt;ul>
+&lt;li>调用格式为&lt;code>bar(y,style)&lt;/code> ：y如果为向量，则以每个元素值作为每一个柱的高度，元素下标代表横坐标。如果y为矩阵，则以每一行作为一组，以行号作为组号绘图。后方的 &lt;strong>style&lt;/strong> 有 &lt;code>&amp;quot;grouped&amp;quot;&lt;/code> 和&lt;code>&amp;quot;stacked&amp;quot;&lt;/code> 两种模式，分别为簇状分组和堆积分组。默认为簇状分组。&lt;/li>
+&lt;li>调用格式为&lt;code>bar(x,y,style)&lt;/code> ：其中x存储横坐标，y为矩阵，存储每一个横坐标对应的数据，y的行数必须与x的长度相对应。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>barh&lt;/strong> 函数：绘制二维水平条形图。调用格式与&lt;strong>bar&lt;/strong>函数相同。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>直方图&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>hist&lt;/strong> 函数：绘制直角坐标系下的直方图。&lt;/p>
+&lt;ul>
+&lt;li>调用格式为 &lt;code>hist(y)&lt;/code> ，y为向量，绘图时将 $[miny,maxy]$ 区间等分成十组，并求出每个区间内对应元素的个数，然后绘出直方图。&lt;/li>
+&lt;li>调用格式为&lt;code>hist(y,x)&lt;/code>，如果x为标量，则将y区间分成x个区间，如果x为向量，则向量中的每一个数指定分组的中心值，元素的个数为指定分成的组数，x缺省默认均分十组。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>rose&lt;/strong> 函数：用于绘制极坐标系下的直方图。&lt;/p>
+&lt;ul>
+&lt;li>调用格式为 &lt;code>rose(theta,x)&lt;/code> 其中参数 &lt;strong>theta&lt;/strong> 用于确定每一数据与圆点的角度，如果x为标量，则x代表均分组数，缺省默认为20。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>面积类图形&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>扇形图/饼图&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>pie&lt;/strong> 函数：调用格式为 &lt;code>pie(x,explode)&lt;/code> 其中参数x为待统计的数据，通常为向量，其中每一个数据在整体中占用的比例在扇形图中表示出来，后续的 &lt;strong>explode&lt;/strong> 为每个x对应的分离参数，如果非0，则将其分离出来。&lt;strong>explode&lt;/strong> 缺省则饼图为一个整体。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>面积图&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>area&lt;/strong> 函数：与plot函数类似，下方与坐标轴围成的区域进行填充。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>散点类图形&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>散点图&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>scatter&lt;/strong> 函数：&lt;code>scatter(x,y,选项,'filled')&lt;/code> ，其中x和y通常为同等大小向量，代表了一定数量的点。选项与&lt;a href="#jump">plot函数&lt;/a>类似，用于限制颜色，线型，以及数据点标记，如果采用数据点标记，则可以用 &lt;strong>&amp;lsquo;filled&amp;rsquo;&lt;/strong> 参数来填充数据点，如果缺省，则标记数据点为空心。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>阶梯图&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>stairs&lt;/strong> 函数：使用方法与上述 &lt;strong>scatter&lt;/strong> 函数类似。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>杆图&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>stem&lt;/strong> 函数： 使用方法与上述 &lt;strong>scatter&lt;/strong> 函数类似。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>矢量类图形&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>箭头图&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>quiver&lt;/strong> 函数：常用此绘制磁力线，矢量。调用格式为&lt;code>quiver(x,y,u,v)&lt;/code> ， 其中 &lt;strong>(x,y)&lt;/strong> 为矢量起点，&lt;strong>(u,v)&lt;/strong> 为矢量终点，如果x，y省略，则均匀取若干个点作为起点。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>罗盘图&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>compasser&lt;/strong>函数：与 &lt;a href="#jump">&lt;strong>plot&lt;/strong> 函数&lt;/a>类似。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>羽毛图&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>feather&lt;/strong> 函数：与 &lt;a href="#jump">&lt;strong>plot&lt;/strong> 函数&lt;/a>类似。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="例程-2">
+例程
+&lt;a class="heading-link" href="#%e4%be%8b%e7%a8%8b-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>某次考试成绩优秀，良好，中等，及格，不及格人数分别为：7、13，23，9，4，用扇形统计图作成绩统计。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">score = [&lt;span style="color:#ae81ff">7&lt;/span>,&lt;span style="color:#ae81ff">13&lt;/span>,&lt;span style="color:#ae81ff">23&lt;/span>,&lt;span style="color:#ae81ff">9&lt;/span>,&lt;span style="color:#ae81ff">4&lt;/span>];
+tag = [&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>];
+pie(score,tag);
+legend(&amp;#34;Excellent&amp;#34;,&amp;#34;Good&amp;#34;,&amp;#34;Middle&amp;#34;,&amp;#34;Qualified&amp;#34;,&amp;#34;Bad&amp;#34;,&lt;span style="color:#e6db74">&amp;#39;Location&amp;#39;&lt;/span>,&lt;span style="color:#e6db74">&amp;#39;eastoutside&amp;#39;&lt;/span>);
+&lt;span style="color:#75715e">%上方legend中的location是用于指定图例出现位置的，如果不指定，会与统计图重合&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>不加location参数&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1604792788.png" alt="pie.png">&lt;/p>
+&lt;blockquote>
+&lt;p>加入location参数&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/200869395.png" alt="pie2.png">&lt;/p>
+&lt;hr>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="44-三维曲线">
+4.4 三维曲线
+&lt;a class="heading-link" href="#44-%e4%b8%89%e7%bb%b4%e6%9b%b2%e7%ba%bf">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="plot3函数绘制三维曲线最常用的函数">
+plot3函数：绘制三维曲线最常用的函数。
+&lt;a class="heading-link" href="#plot3%e5%87%bd%e6%95%b0%e7%bb%98%e5%88%b6%e4%b8%89%e7%bb%b4%e6%9b%b2%e7%ba%bf%e6%9c%80%e5%b8%b8%e7%94%a8%e7%9a%84%e5%87%bd%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>基本用法&lt;/strong>：&lt;code>plot3(x,y,z)&lt;/code> 其中三个参数分别为坐标对，一般为等长向量，plot3函数用直线将所有点连起来。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>变化形式&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>当&lt;code>plot(x,y,z)&lt;/code> 当x，y，z为同型矩阵，则绘制多条曲线，曲线条数等于矩阵列数。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>当x，y，z中有向量也有矩阵的时候，向量的长度应与矩阵相符，如果是行向量，那么行向量的长度应与矩阵列数相同，如果是列向量，那么列向量的长度应与矩阵行数相同。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>也可以用多组向量对来绘制多组曲线，&lt;code>plot(x1,y1,z1,x2,y2,z2···,xn,yn,zn)&lt;/code> ；&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>含选项的plot3函数&lt;/strong>：&lt;code>plot(x,y,z,选项)&lt;/code> 选项与功能与&lt;a href="#jump">plot函数&lt;/a>类似。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="fplot3函数">
+fplot3函数
+&lt;a class="heading-link" href="#fplot3%e5%87%bd%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>基本用法&lt;/strong>：与&lt;a href="#jump2">fplot函数&lt;/a>类似&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="45-三维曲面">
+4.5 三维曲面
+&lt;a class="heading-link" href="#45-%e4%b8%89%e7%bb%b4%e6%9b%b2%e9%9d%a2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="生成平面网格数据">
+生成平面网格数据
+&lt;a class="heading-link" href="#%e7%94%9f%e6%88%90%e5%b9%b3%e9%9d%a2%e7%bd%91%e6%a0%bc%e6%95%b0%e6%8d%ae">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>meshgrid&lt;/strong> 函数：调用格式 &lt;code>[X,Y]=meshgrid(x,y)&lt;/code> ，其中x，y为向量，X，Y为存储网格坐标系横纵坐标的矩阵。如果只填一个 &lt;strong>x&lt;/strong> ，那么就相当于 &lt;strong>x=y&lt;/strong> 。&lt;/li>
+&lt;/ul>
+&lt;h3 id="绘制三维曲面的函数">
+绘制三维曲面的函数
+&lt;a class="heading-link" href="#%e7%bb%98%e5%88%b6%e4%b8%89%e7%bb%b4%e6%9b%b2%e9%9d%a2%e7%9a%84%e5%87%bd%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>mesh&lt;/strong> 函数 &amp;amp; &lt;strong>surf&lt;/strong> 函数&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>基本调用格式&lt;/strong>：&lt;code>mesh(x,y,z,c) &amp;amp; surf(x,y,z,c)&lt;/code>，两者可以用来绘制三维曲面，其中&lt;strong>x，y&lt;/strong>为网格坐标矩阵，&lt;strong>z&lt;/strong> 是网格点上的高度矩阵，&lt;strong>c&lt;/strong> 用于指定在不同高度下的曲面颜色。如果 &lt;strong>c&lt;/strong> 缺省，则默认 &lt;strong>c=z&lt;/strong> ，也就是说颜色正比于高度。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>其他调用格式&lt;/strong>： &lt;code>mesh(z,c) &amp;amp; surf(z,c)&lt;/code> 这样的话就用z矩阵的&lt;strong>列，行&lt;/strong>坐标代表&lt;strong>x，y&lt;/strong>的值，z的值代表高度，c的意义与上面相同。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>其他花里胡哨的&lt;/strong> ：&lt;/p>
+&lt;ul>
+&lt;li>带等高线的三维网格曲面函数 &lt;code>meshc&lt;/code> 和 带底座的三维网格曲面函数&lt;code>meshz&lt;/code> ，用法与 &lt;strong>mesh&lt;/strong> 函数相同。前者带等高线，后者带底座（就是说下面是实体的）。&lt;/li>
+&lt;li>带等高线的曲面函数 &lt;code>surfc&lt;/code> 和具有光照效果的曲面函数 &lt;code>surfl&lt;/code> 。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="标准三维曲面">
+标准三维曲面
+&lt;a class="heading-link" href="#%e6%a0%87%e5%87%86%e4%b8%89%e7%bb%b4%e6%9b%b2%e9%9d%a2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>sphere&lt;/strong> 函数：生成三维球面对应坐标。格式&lt;code>[x,y,z]=sphere(n)&lt;/code> ，这将产生x，y，z三个(n+1)阶的方阵，通过这三个方针结合绘制三维曲面的函数 (&lt;strong>surf&lt;/strong>或者&lt;strong>mesh&lt;/strong>)，可以绘制出圆心在圆点，半径为一的单位球面。如果不加输出参数&lt;strong>x,y,z&lt;/strong>，则直接绘制球面。n的值代表&lt;strong>圆滑程度&lt;/strong>，默认为&lt;strong>20&lt;/strong>.&lt;/li>
+&lt;li>&lt;strong>cylinder&lt;/strong> 函数：生成三维柱面对应坐标。格式为 &lt;code>[x,y,z]=cylinder(R,n)&lt;/code> R为一个向量，存放柱面各个等间隔高度上的半径，n表示圆柱圆周上的间隔点个数，默认为20。如果R为标量，则生成一个柱面。&lt;/li>
+&lt;/ul>
+&lt;h3 id="fsurf和fmesh函数">
+fsurf和fmesh函数
+&lt;a class="heading-link" href="#fsurf%e5%92%8cfmesh%e5%87%bd%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​ 用于绘制参数方程表示的函数，并且有两个变参。调用格式为 &lt;code>fsurf(funx,funy,funz,uvlims)&lt;/code>，其中前三个通常为函数句柄形式给出的函数，&lt;strong>uvlims&lt;/strong> 表示前三个函数自变量取值范围，用四元向量组来进行描述，形如&lt;code>[umin,umax,vmin,vmax]&lt;/code>，默认值为&lt;code>[-5,5,-5,5]&lt;/code> 。&lt;/p>
+&lt;h3 id="例程-3">
+例程
+&lt;a class="heading-link" href="#%e4%be%8b%e7%a8%8b-3">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>绘制螺旋曲面。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">funx = @(u,v) u&lt;span style="color:#f92672">.*&lt;/span>sin(v);
+funy = @(u,v) &lt;span style="color:#f92672">-&lt;/span>u&lt;span style="color:#f92672">.*&lt;/span>cos(v);
+funz = @(u,v) v;
+fsurf(funx,funy,funz,[&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">5&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">5&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>])
+hold on
+fmesh(funx,funy,funz,[&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">5&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>])
+hold off
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1198437028.png" alt="luoxuan.png">&lt;/p>
+&lt;ul>
+&lt;li>绘制函数$z=(x-1)^2+(y-2)^2-1$ 的曲面图，分别用带等高线的mesh函数，带底座的mesh函数，带等高线的surf函数，带光照效果的surf函数绘制。$x\in[0,2],y\in[1,3]$&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">[x,y]=meshgrid(&lt;span style="color:#ae81ff">0&lt;/span>:&lt;span style="color:#ae81ff">0.1&lt;/span>:&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>:&lt;span style="color:#ae81ff">0.1&lt;/span>:&lt;span style="color:#ae81ff">3&lt;/span>);
+z=(x&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>)&lt;span style="color:#f92672">.^&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">+&lt;/span>(y&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>)&lt;span style="color:#f92672">.^&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+subplot(&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>);
+meshc(x,y,z);title(&lt;span style="color:#e6db74">&amp;#39;meshc(x,y,z)&amp;#39;&lt;/span>)
+subplot(&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>);
+meshz(x,y,z);title(&lt;span style="color:#e6db74">&amp;#39;meshz(x,y,z)&amp;#39;&lt;/span>)
+subplot(&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>);
+surfc(x,y,z);title(&lt;span style="color:#e6db74">&amp;#39;surfc(x,y,z)&amp;#39;&lt;/span>)
+subplot(&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">4&lt;/span>);
+surfl(x,y,z); title(&lt;span style="color:#e6db74">&amp;#39;surfl(x,y,z)&amp;#39;&lt;/span>)
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/4183580283.png" alt="mesh.png">&lt;/p></description></item><item><title>专题三:MATLAB程序流程控制</title><link>https://zzsqwq.github.io/posts/36/</link><pubDate>Wed, 18 Mar 2020 01:09:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/36/</guid><description>&lt;h2 id="31-顺序结构程序">
 3.1 顺序结构程序
 &lt;a class="heading-link" href="#31-%e9%a1%ba%e5%ba%8f%e7%bb%93%e6%9e%84%e7%a8%8b%e5%ba%8f">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -30,7 +518,472 @@
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2521586228.png" alt="step.png">&lt;/p></description></item><item><title>专题二:MATLAB矩阵处理</title><link>https://zzsqwq.github.io/posts/34/</link><pubDate>Sun, 15 Mar 2020 01:07:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/34/</guid><description>&lt;h2 id="21-特殊矩阵">
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2521586228.png" alt="step.png">&lt;/p>
+&lt;h3 id="程序">
+程序
+&lt;a class="heading-link" href="#%e7%a8%8b%e5%ba%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>在matlab中程序文件扩展名为**.m** ，因此程序文件又叫 &lt;strong>M文件&lt;/strong>。&lt;/li>
+&lt;li>程序文件分&lt;strong>两种&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>脚本文件&lt;/strong>：是可以在命令行窗口直接执行的文件，也叫命令文件。&lt;/li>
+&lt;li>&lt;strong>函数文件&lt;/strong>：定义一个函数，以函数调用方式来调用，不能单独执行。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="文件的建立">
+文件的建立
+&lt;a class="heading-link" href="#%e6%96%87%e4%bb%b6%e7%9a%84%e5%bb%ba%e7%ab%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>可以在主页点击新建脚本，即可创建脚本文件，并且打开MATLAB编辑器。&lt;/li>
+&lt;li>在命令行窗口写 &lt;code>edit test&lt;/code> 即可在当前文件下创建 &lt;strong>test&lt;/strong> 脚本文件。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#75715e">%利用脚本文件求两矩阵乘积&lt;/span>
+&lt;span style="color:#75715e">%脚本文件f1.m&lt;/span>
+A=[&lt;span style="color:#ae81ff">1&lt;/span>:&lt;span style="color:#ae81ff">3&lt;/span>;&lt;span style="color:#ae81ff">4&lt;/span>:&lt;span style="color:#ae81ff">6&lt;/span>];
+B=[&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>;&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#ae81ff">4&lt;/span>;&lt;span style="color:#ae81ff">5&lt;/span>,&lt;span style="color:#ae81ff">6&lt;/span>];
+C=A&lt;span style="color:#f92672">*&lt;/span>B;
+&lt;span style="color:#75715e">%在命令行窗口运行脚本文件&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> f1
+C =
+&lt;span style="color:#ae81ff">22&lt;/span> &lt;span style="color:#ae81ff">28&lt;/span>
+&lt;span style="color:#ae81ff">49&lt;/span> &lt;span style="color:#ae81ff">64&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#75715e">%利用函数文件求两矩阵乘积&lt;/span>
+&lt;span style="color:#75715e">%函数文件f1.m&lt;/span>
+&lt;span style="color:#66d9ef">function&lt;/span> C=&lt;span style="color:#a6e22e">f2&lt;/span>(A,B)
+C=A&lt;span style="color:#f92672">*&lt;/span>B;
+&lt;span style="color:#66d9ef">end&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> C=f1(A,B)
+C =
+&lt;span style="color:#ae81ff">22&lt;/span> &lt;span style="color:#ae81ff">28&lt;/span>
+&lt;span style="color:#ae81ff">49&lt;/span> &lt;span style="color:#ae81ff">64&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="顺序结构">
+顺序结构
+&lt;a class="heading-link" href="#%e9%a1%ba%e5%ba%8f%e7%bb%93%e6%9e%84">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>数据的输入 ： &lt;code>A=input(提示信息，参数选项)&lt;/code> ，输入时会将提示信息打印出来，后面的参数选项用于限定输入数据的类型等。&lt;/li>
+&lt;li>数据的输出： &lt;code>disp(输出项)&lt;/code>&lt;/li>
+&lt;li>程序的暂停： &lt;code>pause(延迟秒数)&lt;/code> ，&lt;strong>如果延迟秒数省略，那么就会一直暂停直到用户下次动作&lt;/strong>。如果程序运行中要强行暂停可以通过 &lt;strong>Ctrl+C&lt;/strong> 实现。&lt;/li>
+&lt;/ul>
+&lt;h3 id="例程">
+例程
+&lt;a class="heading-link" href="#%e4%be%8b%e7%a8%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>&lt;strong>通过脚本文件和函数文件求一个向量的四舍五入向量。&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">脚本
+A=[&lt;span style="color:#ae81ff">1.2&lt;/span>,&lt;span style="color:#ae81ff">3.4&lt;/span>,&lt;span style="color:#ae81ff">4.7&lt;/span>,&lt;span style="color:#ae81ff">0.5&lt;/span>];
+B=round(A);
+disp(B)
+函数
+&lt;span style="color:#66d9ef">function&lt;/span> B=&lt;span style="color:#a6e22e">f2&lt;/span>(A)
+B=round(A);
+&lt;span style="color:#66d9ef">end&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>&lt;strong>求两点之间距离以及黄金分割点坐标（其中点坐标通过复数形式输入）。&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">a=input(&lt;span style="color:#e6db74">&amp;#39;a=&amp;#39;&lt;/span>);
+b=input(&lt;span style="color:#e6db74">&amp;#39;b=&amp;#39;&lt;/span>);
+c=a&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">0.618&lt;/span>&lt;span style="color:#f92672">*&lt;/span>(b&lt;span style="color:#f92672">-&lt;/span>a);
+s=abs(b&lt;span style="color:#f92672">-&lt;/span>a);
+disp(s)
+disp(c)
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="32-用if语句实现选择结构">
+3.2 用if语句实现选择结构
+&lt;a class="heading-link" href="#32-%e7%94%a8if%e8%af%ad%e5%8f%a5%e5%ae%9e%e7%8e%b0%e9%80%89%e6%8b%a9%e7%bb%93%e6%9e%84">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="单分支if语句">
+单分支if语句
+&lt;a class="heading-link" href="#%e5%8d%95%e5%88%86%e6%94%afif%e8%af%ad%e5%8f%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    &lt;strong>如果成立执行语句组，如果不成立则跳出if，语句格式如下：&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#66d9ef">if&lt;/span> 条件(关系运算或逻辑运算)
+语句组
+&lt;span style="color:#66d9ef">end&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="双分支if语句">
+双分支if语句
+&lt;a class="heading-link" href="#%e5%8f%8c%e5%88%86%e6%94%afif%e8%af%ad%e5%8f%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    &lt;strong>如果成立执行语句组1，不成立执行语句组2，然后跳出if，语句格式如下：&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#66d9ef">if&lt;/span> 条件(关系运算或逻辑运算)
+语句组&lt;span style="color:#ae81ff">1&lt;/span>
+&lt;span style="color:#66d9ef">else&lt;/span>
+语句组&lt;span style="color:#ae81ff">2&lt;/span>
+&lt;span style="color:#66d9ef">end&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="多分支if语句">
+多分支if语句
+&lt;a class="heading-link" href="#%e5%a4%9a%e5%88%86%e6%94%afif%e8%af%ad%e5%8f%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    &lt;strong>根据上述双分支的类推，依次判断条件1~n，成立则执行对应语句组，然后跳出if，不成立则往下寻找，语句格式如下：&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#66d9ef">if&lt;/span> 条件&lt;span style="color:#ae81ff">1&lt;/span>
+语句组&lt;span style="color:#ae81ff">1&lt;/span>
+&lt;span style="color:#66d9ef">elseif&lt;/span> 条件&lt;span style="color:#ae81ff">2&lt;/span>
+语句组&lt;span style="color:#ae81ff">2&lt;/span>
+&lt;span style="color:#66d9ef">elseif&lt;/span> 条件&lt;span style="color:#ae81ff">3&lt;/span>
+语句组&lt;span style="color:#ae81ff">3&lt;/span>
+···
+&lt;span style="color:#66d9ef">elseif&lt;/span> 条件n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>
+语句组n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>
+&lt;span style="color:#66d9ef">else&lt;/span> 语句组n
+&lt;span style="color:#66d9ef">end&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="条件成立的判断">
+条件成立的判断
+&lt;a class="heading-link" href="#%e6%9d%a1%e4%bb%b6%e6%88%90%e7%ab%8b%e7%9a%84%e5%88%a4%e6%96%ad">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>当条件结果为标量，非零表示真，零表示假。&lt;/li>
+&lt;li>当条件为矩阵，如果&lt;strong>矩阵非空且不包含零元素&lt;/strong>，则条件成立，否则不成立。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="33-用switch语句实现选择结构">
+3.3 用switch语句实现选择结构
+&lt;a class="heading-link" href="#33-%e7%94%a8switch%e8%af%ad%e5%8f%a5%e5%ae%9e%e7%8e%b0%e9%80%89%e6%8b%a9%e7%bb%93%e6%9e%84">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="switch语句的基本格式">
+switch语句的基本格式
+&lt;a class="heading-link" href="#switch%e8%af%ad%e5%8f%a5%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%a0%bc%e5%bc%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    表示在C++里面就不喜欢用switch，感觉太麻烦了。这个和多分支if有点像吧，只是他的区别在于首先给出一个表达式，在下方每一个语句组对应着一个结果表，如果结果表对应着表达式的值，就执行当前语句组，&lt;strong>执行完之后跳出switch语句，这个和C++的有所区别。&lt;strong>此外，如果都不满足的话，我们还可以加入一个条件&lt;/strong>otherwise&lt;/strong>，顾名思义，如果上述结果都不满足，就执行这个otherwise下对应的语句，switch的语句格式如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#66d9ef">switch&lt;/span> 表达式
+&lt;span style="color:#66d9ef">case&lt;/span> 结果表&lt;span style="color:#ae81ff">1&lt;/span>
+语句组&lt;span style="color:#ae81ff">1&lt;/span>
+&lt;span style="color:#66d9ef">case&lt;/span> 结果表&lt;span style="color:#ae81ff">2&lt;/span>
+语句组&lt;span style="color:#ae81ff">2&lt;/span>
+···
+&lt;span style="color:#66d9ef">case&lt;/span> 结果表n
+语句组n
+&lt;span style="color:#66d9ef">otherwise&lt;/span>
+语句组k
+&lt;span style="color:#66d9ef">end&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="switch的使用规则">
+switch的使用规则
+&lt;a class="heading-link" href="#switch%e7%9a%84%e4%bd%bf%e7%94%a8%e8%a7%84%e5%88%99">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>case结果表为switch表达式的取值，&lt;strong>当取值有多个时，我们可以用单元数据表示&lt;/strong>。将这多个结果用大括号&lt;code>{}&lt;/code>括起来，如果表达式值满足其中一个，就执行相应语句组。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="用for语句实现循环结构">
+用for语句实现循环结构
+&lt;a class="heading-link" href="#%e7%94%a8for%e8%af%ad%e5%8f%a5%e5%ae%9e%e7%8e%b0%e5%be%aa%e7%8e%af%e7%bb%93%e6%9e%84">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="常用的for语句">
+常用的for语句
+&lt;a class="heading-link" href="#%e5%b8%b8%e7%94%a8%e7%9a%84for%e8%af%ad%e5%8f%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#75715e">% for语句格式：&lt;/span>
+&lt;span style="color:#66d9ef">for&lt;/span> 循环变量=表达式&lt;span style="color:#ae81ff">1&lt;/span>:表达式&lt;span style="color:#ae81ff">2&lt;/span>:表达式&lt;span style="color:#ae81ff">3&lt;/span>
+循环体语句
+&lt;span style="color:#66d9ef">end&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>我们可以发现循环变量后面对应的是一个冒号表达式，分别是起始，步长，终止。&lt;/li>
+&lt;li>循环执行时，先求出冒号表达式对应的行向量，然后依次遍历行向量中的每一个元素，执行循环体语句。&lt;/li>
+&lt;li>for语句针对向量每一个元素执行一次循环体，有几个元素执行几次，当冒号表达式对应的向量为空向量，则一次也不执行。&lt;/li>
+&lt;li>当退出循环后，循环变量值为行向量组中的最后一个元素。&lt;/li>
+&lt;/ul>
+&lt;h3 id="更一般的for语句">
+更一般的for语句
+&lt;a class="heading-link" href="#%e6%9b%b4%e4%b8%80%e8%88%ac%e7%9a%84for%e8%af%ad%e5%8f%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#66d9ef">for&lt;/span> 循环变量=矩阵表达式
+循环体语句
+&lt;span style="color:#66d9ef">end&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>更一般的for语句循环遍历后对应的是矩阵表达式，执行过程中将矩阵的各列元素，赋值给循环变量，这时候，循环变量为一个列向量，而不是上述常用for语句中的标量，可以发现，常用的for语句是一般格式下的特例。&lt;strong>循环的次数为矩阵的列数。&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h3 id="例程-1">
+例程
+&lt;a class="heading-link" href="#%e4%be%8b%e7%a8%8b-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>计算圆周率 $\pi$&lt;/p>
+&lt;ul>
+&lt;li>利用循环求无穷级数展开求 $\pi$&lt;/li>
+&lt;/ul>
+&lt;p>$$
+1-\frac{1}{3}+\frac{1}{5}-\frac{1}{7}+\cdots+(-1)^{n+1}\frac{1}{2n-1} =\frac{\pi}{4}
+$$&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">y=&lt;span style="color:#ae81ff">0&lt;/span>;
+g=&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+n=input(&lt;span style="color:#e6db74">&amp;#39;n=&amp;#39;&lt;/span>);
+&lt;span style="color:#66d9ef">for&lt;/span> i=&lt;span style="color:#ae81ff">1&lt;/span>:n
+g=&lt;span style="color:#f92672">-&lt;/span>g;
+y=y&lt;span style="color:#f92672">+&lt;/span>g&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">/&lt;/span>(&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;span style="color:#66d9ef">end&lt;/span>
+disp(&lt;span style="color:#ae81ff">4&lt;/span>&lt;span style="color:#f92672">*&lt;/span>y)
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>利用矩阵求和求无穷级数展开求 $\pi$&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">n=input(&lt;span style="color:#e6db74">&amp;#39;n=&amp;#39;&lt;/span>);
+x=&lt;span style="color:#ae81ff">1&lt;/span>:&lt;span style="color:#ae81ff">2&lt;/span>:(&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+y=(&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>)&lt;span style="color:#f92672">.^&lt;/span>(&lt;span style="color:#ae81ff">2&lt;/span>:n&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>)&lt;span style="color:#f92672">./&lt;/span>x;
+disp(sum(y)&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>)
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="35-用while语句实现循环结构">
+3.5 用while语句实现循环结构
+&lt;a class="heading-link" href="#35-%e7%94%a8while%e8%af%ad%e5%8f%a5%e5%ae%9e%e7%8e%b0%e5%be%aa%e7%8e%af%e7%bb%93%e6%9e%84">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="while语句">
+while语句
+&lt;a class="heading-link" href="#while%e8%af%ad%e5%8f%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    通过一个条件来判定是否执行循环体语句，当条件成立时，成立。不像是for循环先去设定循环多少次，循环变量依次取什么值，这个是根据条件限定，又叫&lt;strong>条件循环语句&lt;/strong>。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#66d9ef">while&lt;/span> 条件
+循环体语句
+&lt;span style="color:#66d9ef">end&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="break语句和continue语句">
+break语句和continue语句
+&lt;a class="heading-link" href="#break%e8%af%ad%e5%8f%a5%e5%92%8ccontinue%e8%af%ad%e5%8f%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>break语句&lt;/strong>：当循环执行到break语句会跳出当前循环，进行循环外的语句。&lt;/li>
+&lt;li>&lt;strong>continue语句&lt;/strong>：当循环执行到continue语句，会结束本次循环，进行下一次判断是否继续循环体。&lt;/li>
+&lt;/ul>
+&lt;h3 id="循环嵌套">
+循环嵌套
+&lt;a class="heading-link" href="#%e5%be%aa%e7%8e%af%e5%b5%8c%e5%a5%97">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    如果一个循环结构循环体又包括循环结构，那么就称为&lt;strong>循环嵌套&lt;/strong>or&lt;strong>多重循环结构&lt;/strong>。通过嵌套的层数不同来不同的命名，例如二重循环，三重循环等等。&lt;/p>
+&lt;h3 id="例程-2">
+例程
+&lt;a class="heading-link" href="#%e4%be%8b%e7%a8%8b-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>从键盘输入若干数，&lt;strong>当输入0时结束输入&lt;/strong>，求这些数的和和他们的平均值&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">msum=&lt;span style="color:#ae81ff">0&lt;/span>;
+cnt=&lt;span style="color:#ae81ff">0&lt;/span>;
+x=input(&lt;span style="color:#e6db74">&amp;#39;Enter your numbers: &amp;#39;&lt;/span>);
+&lt;span style="color:#66d9ef">while&lt;/span> x&lt;span style="color:#f92672">~=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>
+msum=msum&lt;span style="color:#f92672">+&lt;/span>x;
+cnt=cnt&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+x=input(&lt;span style="color:#e6db74">&amp;#39;Enter your numbers: &amp;#39;&lt;/span>);
+&lt;span style="color:#66d9ef">end&lt;/span>
+&lt;span style="color:#66d9ef">if&lt;/span> cnt&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>
+disp(msum);
+disp(msum&lt;span style="color:#f92672">/&lt;/span>cnt);
+&lt;span style="color:#66d9ef">end&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>用筛法求 &lt;strong>1~m&lt;/strong> 范围内的素数。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">m=input(&lt;span style="color:#e6db74">&amp;#39;m=&amp;#39;&lt;/span>);
+p=&lt;span style="color:#ae81ff">1&lt;/span>:m;
+p(&lt;span style="color:#ae81ff">1&lt;/span>)=&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">for&lt;/span> i=&lt;span style="color:#ae81ff">2&lt;/span>:sqrt(m)
+&lt;span style="color:#66d9ef">for&lt;/span> j=&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>i:i:m
+p(j)=&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">end&lt;/span>
+&lt;span style="color:#66d9ef">end&lt;/span>
+n=find(p&lt;span style="color:#f92672">~=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>);
+p(n)
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="36-函数文件的定义与调用">
+3.6 函数文件的定义与调用
+&lt;a class="heading-link" href="#36-%e5%87%bd%e6%95%b0%e6%96%87%e4%bb%b6%e7%9a%84%e5%ae%9a%e4%b9%89%e4%b8%8e%e8%b0%83%e7%94%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="函数文件的基本结构">
+函数文件的基本结构
+&lt;a class="heading-link" href="#%e5%87%bd%e6%95%b0%e6%96%87%e4%bb%b6%e7%9a%84%e5%9f%ba%e6%9c%ac%e7%bb%93%e6%9e%84">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#66d9ef">function&lt;/span> 输出参数表=&lt;span style="color:#a6e22e">函数名&lt;/span>(输入形参表)
+注释说明部分
+函数体语句
+&lt;span style="color:#66d9ef">end&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>当有多个形参时，形参之间用 &lt;code>,&lt;/code> 逗号分隔，组成形参表。当输出形参多于一个，用方括号 &lt;code>[]&lt;/code> 括起来，形成输出矩阵。&lt;/li>
+&lt;/ul>
+&lt;h3 id="函数使用中的一些规定">
+函数使用中的一些规定
+&lt;a class="heading-link" href="#%e5%87%bd%e6%95%b0%e4%bd%bf%e7%94%a8%e4%b8%ad%e7%9a%84%e4%b8%80%e4%ba%9b%e8%a7%84%e5%ae%9a">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>函数文件名通常由 &lt;strong>函数名再加上拓展名.m&lt;/strong> 组成，函数文件名与函数名也可以不同，当两者不同时，MATLAB默认忽视函数名，调用时使用函数文件名。&lt;strong>但一般我们将函数名和函数文件名进行统一&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如果函数文件中有 &lt;strong>return&lt;/strong> 语句，就结束函数的执行，返回栈底。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="函数调用">
+函数调用
+&lt;a class="heading-link" href="#%e5%87%bd%e6%95%b0%e8%b0%83%e7%94%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">[输出实参表]=函数名(输入实参表)
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="匿名函数">
+匿名函数
+&lt;a class="heading-link" href="#%e5%8c%bf%e5%90%8d%e5%87%bd%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    MATLAB提供了一种特殊的函数，函数句柄变量相当于这个函数的别名，通过函数句柄可以间接的调用函数，多个参数之间用逗号分隔。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>函数定义的基本格式如下&lt;/strong>：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">函数句柄变量 = @(匿名函数输入参数) 匿名函数表达式
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>函数调用的基本格式如下&lt;/strong>：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">函数句柄变量(匿名函数输入实参)
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>特殊的，我们可以将一个已知的内部函数或者自定义函数，赋值给一个函数句柄变量，这样我们就可以通过函数句柄变量变量来简洁的调用函数。&lt;strong>(类似于改个名字)&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="例程-3">
+例程
+&lt;a class="heading-link" href="#%e4%be%8b%e7%a8%8b-3">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>通过函数文件和匿名函数两个形式，求出 $x^2+y^2$ 的值。&lt;/p>
+&lt;ul>
+&lt;li>函数文件&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>function z=f2(x,y)
+z=x^2+y^2;
+end
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>匿名函数&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">f=@(x,y) x^&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">+&lt;/span>y^&lt;span style="color:#ae81ff">2&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="37-函数的递归调用">
+3.7 函数的递归调用
+&lt;a class="heading-link" href="#37-%e5%87%bd%e6%95%b0%e7%9a%84%e9%80%92%e5%bd%92%e8%b0%83%e7%94%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="函数的递归调用">
+函数的递归调用
+&lt;a class="heading-link" href="#%e5%87%bd%e6%95%b0%e7%9a%84%e9%80%92%e5%bd%92%e8%b0%83%e7%94%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    如果一个函数在函数体内部调用自己本身称为递归调用（如果是其他函数称为嵌套调用）。&lt;strong>递归是把一个大型复杂的问题层层转化为一个与原问题相似的规模较小的问题来求解。&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>直接递归调用&lt;/strong>：在一个函数体内部直接调用自己本身。&lt;/li>
+&lt;li>&lt;strong>简介递归调用&lt;/strong>：在一个函数体内不嵌套调用其他函数，其他函数又调用自己。&lt;/li>
+&lt;/ul>
+&lt;h3 id="例程-4">
+例程
+&lt;a class="heading-link" href="#%e4%be%8b%e7%a8%8b-4">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>求 $n!=1\times2\times3\cdots \times n$&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#66d9ef">function&lt;/span> f=&lt;span style="color:#a6e22e">fact&lt;/span>(n)
+&lt;span style="color:#66d9ef">if&lt;/span> n&lt;span style="color:#f92672">&amp;lt;&lt;/span>=&lt;span style="color:#ae81ff">1&lt;/span>
+f=&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;span style="color:#66d9ef">else&lt;/span>
+f=fact(n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>)&lt;span style="color:#f92672">*&lt;/span>n;
+&lt;span style="color:#66d9ef">end&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="38-函数参数与变量的作用域">
+3.8 函数参数与变量的作用域
+&lt;a class="heading-link" href="#38-%e5%87%bd%e6%95%b0%e5%8f%82%e6%95%b0%e4%b8%8e%e5%8f%98%e9%87%8f%e7%9a%84%e4%bd%9c%e7%94%a8%e5%9f%9f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="函数参数的可调性">
+函数参数的可调性
+&lt;a class="heading-link" href="#%e5%87%bd%e6%95%b0%e5%8f%82%e6%95%b0%e7%9a%84%e5%8f%af%e8%b0%83%e6%80%a7">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    可调性顾名思义，就是可以调节的。MATLAB函数在调用过程中函数传递参数的数目是可以调节的。在调用时，函数有两个预定义变量，&lt;strong>nargin&lt;/strong> 和 &lt;strong>nargout&lt;/strong> ，前者记录调用函数时输入实参的个数，后者记录调用函数时输出实参的个数。通过这两个变量，可以针对不同的变量个数进行不同的处理。&lt;/p>
+&lt;h3 id="全局变量和局部变量">
+全局变量和局部变量
+&lt;a class="heading-link" href="#%e5%85%a8%e5%b1%80%e5%8f%98%e9%87%8f%e5%92%8c%e5%b1%80%e9%83%a8%e5%8f%98%e9%87%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>函数中定义的变量是局部变量，不能被其他函数引用&lt;/li>
+&lt;li>我们可以通过 &lt;code>global 变量名&lt;/code> 来定义一个全局变量，如果不加 &lt;strong>global&lt;/strong> ，默认是局部变量。&lt;/li>
+&lt;li>全局变量的作用域是整个MATLAB工作空间，全程有效，所有函数都可以对他进行存取和修改。&lt;/li>
+&lt;li>但是要注意的是，这里的全局变量使用方式和C++的有所区别，如果你要在函数中调用工作区中的全局变量，那么你需要在函数体内部定义相同的全局变量，这样才可以对其进行引用，函数体内部和工作区中的变量值是共享的。&lt;/li>
+&lt;/ul>
+&lt;h3 id="例程-5">
+例程
+&lt;a class="heading-link" href="#%e4%be%8b%e7%a8%8b-5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>求 $x1\times x+y1\times y$ ，其中&lt;strong>x1&lt;/strong> 和 &lt;strong>y1&lt;/strong> 是全局工作区中全局变量的值。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#75715e">%函数文件&lt;/span>
+&lt;span style="color:#66d9ef">function&lt;/span> f=&lt;span style="color:#a6e22e">solve&lt;/span>(x,y)
+&lt;span style="color:#66d9ef">global&lt;/span> x1 y1
+f=x1&lt;span style="color:#f92672">*&lt;/span>x&lt;span style="color:#f92672">+&lt;/span>y1&lt;span style="color:#f92672">*&lt;/span>y
+&lt;span style="color:#75715e">%工作区&lt;/span>
+&lt;span style="color:#66d9ef">global&lt;/span> x1 y1;
+x1=&lt;span style="color:#ae81ff">1&lt;/span>;
+y1=&lt;span style="color:#ae81ff">2&lt;/span>;
+s=solve(&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>)
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>专题二:MATLAB矩阵处理</title><link>https://zzsqwq.github.io/posts/34/</link><pubDate>Sun, 15 Mar 2020 01:07:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/34/</guid><description>&lt;h2 id="21-特殊矩阵">
 2.1 特殊矩阵
 &lt;a class="heading-link" href="#21-%e7%89%b9%e6%ae%8a%e7%9f%a9%e9%98%b5">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -64,6 +1017,309 @@
 &lt;li>通过 $\mu+\sigma x$ 来得到均值为 $\mu$ ，方差为 $\sigma{^2}$ 的随机数据。&lt;strong>(高中数学知识，证明可百度)&lt;/strong>&lt;/li>
 &lt;/ul>
 &lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>对于上述函数的调用格式，我们都有如下规定，&lt;code>zeros(m)&lt;/code>为产生 $m\times m$ 的零矩阵，&lt;code>zeros(m,n)&lt;/code>为产生类型为 $m\times n$ 的零矩阵， &lt;code>zeros(size(A))&lt;/code> 为产生和 &lt;strong>A&lt;/strong> 同类型的零矩阵，其余函数和此类似。&lt;/li>
+&lt;/ul>
+&lt;h3 id="用于专门学科的特殊矩阵">
+用于专门学科的特殊矩阵
+&lt;a class="heading-link" href="#%e7%94%a8%e4%ba%8e%e4%b8%93%e9%97%a8%e5%ad%a6%e7%a7%91%e7%9a%84%e7%89%b9%e6%ae%8a%e7%9f%a9%e9%98%b5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>魔方/幻方矩阵 (Magic Square)&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>n阶幻方矩阵每行，每列，主副对角线的和相等。&lt;/li>
+&lt;li>n阶幻方矩阵每行每列的元素之和为 $(1+2+3+\cdots+n^2)/n=(n+n^3)/2$&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>范德蒙矩阵 (Vandermonde)&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>利用 &lt;strong>Vander(V)&lt;/strong> 生成以向量 V 为基础的**范德蒙(Vandermonde)**矩阵。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/881557732.png" alt="Vander.png">&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">A=vander(&lt;span style="color:#ae81ff">1&lt;/span>:&lt;span style="color:#ae81ff">5&lt;/span>)
+A =
+&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;span style="color:#ae81ff">16&lt;/span> &lt;span style="color:#ae81ff">8&lt;/span> &lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;span style="color:#ae81ff">81&lt;/span> &lt;span style="color:#ae81ff">27&lt;/span> &lt;span style="color:#ae81ff">9&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;span style="color:#ae81ff">256&lt;/span> &lt;span style="color:#ae81ff">64&lt;/span> &lt;span style="color:#ae81ff">16&lt;/span> &lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;span style="color:#ae81ff">625&lt;/span> &lt;span style="color:#ae81ff">125&lt;/span> &lt;span style="color:#ae81ff">25&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>希尔伯特矩阵 (Hilbert)&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>利用 &lt;strong>hilb(n)&lt;/strong> 可以生成n阶希尔伯特矩阵。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2952928869.png" alt="Hilbert.png">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>伴随矩阵&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>通过 &lt;strong>compan(p)&lt;/strong> 可以生成向量p对应的多项式的伴随矩阵。&lt;strong>p向量中高次系数在前，低次系数在后。&lt;/strong>(我感觉我学过伴随矩阵，但看了之后又感觉没学过QAQ)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2172119825.png" alt="Company.png">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>帕斯卡矩阵&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>通过 &lt;strong>pascal(n)&lt;/strong> 生成一个n阶帕斯卡矩阵。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/3001100753.png" alt="Pascal1.png">&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/3347696985.png" alt="Pascal2.png">&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="22-矩阵变换">
+2.2 矩阵变换
+&lt;a class="heading-link" href="#22-%e7%9f%a9%e9%98%b5%e5%8f%98%e6%8d%a2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="对角阵">
+对角阵
+&lt;a class="heading-link" href="#%e5%af%b9%e8%a7%92%e9%98%b5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>对角矩阵：只有对角线上有非0元素的矩阵是对角矩阵。如果对角线上元素相等，则称为数量矩阵。当对角线上元素相等且为1，称为单位矩阵。&lt;/li>
+&lt;li>提取矩阵的对角线元素
+&lt;ul>
+&lt;li>&lt;strong>diag(A):&lt;/strong> 提取矩阵A主对角线元素，产生一个列向量。&lt;/li>
+&lt;li>&lt;strong>diag(A,k):&lt;/strong> 提取矩阵A第k条对角线元素，产生一个列向量。主对角线为第0条，往上依次为1，2···n，往下依次为-1，-2 ··· -n。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>构造对角矩阵
+&lt;ul>
+&lt;li>&lt;strong>diag(V):&lt;/strong> 以向量V为主对角线元素，产生对角矩阵。&lt;/li>
+&lt;li>&lt;strong>diag(V,k):&lt;/strong> 以向量V为第k条对角线元素，产生对角矩阵。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="三角阵">
+三角阵
+&lt;a class="heading-link" href="#%e4%b8%89%e8%a7%92%e9%98%b5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>矩阵对角线以上元素全为0为上三角矩阵，以下全为0为下三角矩阵。&lt;/li>
+&lt;li>上，下三角矩阵 &lt;strong>(上 up，下 low)&lt;/strong>，关于下三角的只需要把 &lt;strong>triu&lt;/strong> 换为 &lt;strong>tril&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>triu(A):&lt;/strong> 提取矩阵A的主对角线及以上的元素。&lt;/li>
+&lt;li>&lt;strong>triu(A,k):&lt;/strong> 提取矩阵A的第k条对角线及以上的元素。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="矩阵的转置">
+矩阵的转置
+&lt;a class="heading-link" href="#%e7%9f%a9%e9%98%b5%e7%9a%84%e8%bd%ac%e7%bd%ae">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>普通转置运算符为 &lt;code>.'&lt;/code> ，共轭转置为 &lt;code>'&lt;/code> ，它在转置的基础上还会求每个数的复共轭。&lt;/li>
+&lt;/ul>
+&lt;h3 id="矩阵的旋转">
+矩阵的旋转
+&lt;a class="heading-link" href="#%e7%9f%a9%e9%98%b5%e7%9a%84%e6%97%8b%e8%bd%ac">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>rot90(A,k):&lt;/strong> 将矩阵A逆时针方向旋转 $90^{\circ}$ 的k倍，当k为1时可以省略。&lt;/li>
+&lt;/ul>
+&lt;h3 id="矩阵的翻转">
+矩阵的翻转
+&lt;a class="heading-link" href="#%e7%9f%a9%e9%98%b5%e7%9a%84%e7%bf%bb%e8%bd%ac">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>fliplr(A):&lt;/strong> 对矩阵A实施左右翻转。&lt;/li>
+&lt;li>&lt;strong>flipud(A):&lt;/strong> 对矩阵A进行上下反转。&lt;/li>
+&lt;/ul>
+&lt;h3 id="矩阵的求逆">
+矩阵的求逆
+&lt;a class="heading-link" href="#%e7%9f%a9%e9%98%b5%e7%9a%84%e6%b1%82%e9%80%86">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>inv(A):&lt;/strong> 求A的逆阵。&lt;/li>
+&lt;/ul>
+&lt;h3 id="矩阵的阶梯状">
+矩阵的阶梯状
+&lt;a class="heading-link" href="#%e7%9f%a9%e9%98%b5%e7%9a%84%e9%98%b6%e6%a2%af%e7%8a%b6">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>rref(A):&lt;/strong> 将矩阵A化为阶梯状（具体不再解释，不懂可百度）&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="23-矩阵求值">
+2.3 矩阵求值
+&lt;a class="heading-link" href="#23-%e7%9f%a9%e9%98%b5%e6%b1%82%e5%80%bc">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="方阵的行列式">
+方阵的行列式
+&lt;a class="heading-link" href="#%e6%96%b9%e9%98%b5%e7%9a%84%e8%a1%8c%e5%88%97%e5%bc%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>通过 &lt;strong>det(A)&lt;/strong> 可以求A矩阵的行列式值。&lt;/li>
+&lt;/ul>
+&lt;h3 id="矩阵的秩">
+矩阵的秩
+&lt;a class="heading-link" href="#%e7%9f%a9%e9%98%b5%e7%9a%84%e7%a7%a9">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>通过 &lt;strong>rank(A)&lt;/strong> 可以求A矩阵的秩。&lt;/li>
+&lt;/ul>
+&lt;h3 id="矩阵的迹">
+矩阵的迹
+&lt;a class="heading-link" href="#%e7%9f%a9%e9%98%b5%e7%9a%84%e8%bf%b9">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>矩阵的迹等于对角线元素之和，也等于特征值之和。通过 &lt;strong>trace(A)&lt;/strong> 可以求A矩阵的迹。&lt;/li>
+&lt;/ul>
+&lt;h3 id="向量和矩阵的范数">
+向量和矩阵的范数
+&lt;a class="heading-link" href="#%e5%90%91%e9%87%8f%e5%92%8c%e7%9f%a9%e9%98%b5%e7%9a%84%e8%8c%83%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>范数用来度量矩阵或向量在某种意义下的长度。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>向量的范数&lt;/p>
+&lt;ul>
+&lt;li>向量 1-范数 : 为向量元素的绝对值之和。通过 &lt;strong>norm(V,1)计算V的1-范数&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>$$
+||V||{_1}=\sum\limits^n_{i=1}|v_i|
+$$&lt;/p>
+&lt;ul>
+&lt;li>向量 2-范数 : 为向量元素绝对值的平方和的平方根。通过&lt;strong>norm(V)或者norm(V,2)计算向量V的2-范数&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>$$
+||V||_2=\sqrt{\sum\limits^n_{i=1}|v_i|^2}
+$$&lt;/p>
+&lt;ul>
+&lt;li>向量 ∞-范数 : 所有向量元素绝对值中的最大值。通过&lt;strong>norm(V,inf)计算向量V的∞-范数&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>$$
+||V||_{\infty}=\mathop{max}\limits_{0&amp;lt;=i&amp;lt;=n}{|v_i|}
+$$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>矩阵的范数**（对不起我实在不想写latex了，直接截图了）**&lt;/p>
+&lt;ul>
+&lt;li>矩阵的范数求法和向量的一样一样滴&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/3797164482.png" alt="fanshu.png">&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="矩阵的条件数">
+矩阵的条件数
+&lt;a class="heading-link" href="#%e7%9f%a9%e9%98%b5%e7%9a%84%e6%9d%a1%e4%bb%b6%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>用于描述矩阵性能的数，等于矩阵的范数乘逆阵的范数，条件数约接近一，矩阵性能越好。&lt;/li>
+&lt;li>通过 &lt;strong>cond(A,1)&lt;/strong> ，&lt;strong>cond(A)或cond(A,2) ，cond(A,inf)&lt;/strong> 分别求矩阵A三种范数下的条件数。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="24-矩阵的特征值与特征向量">
+2.4 矩阵的特征值与特征向量
+&lt;a class="heading-link" href="#24-%e7%9f%a9%e9%98%b5%e7%9a%84%e7%89%b9%e5%be%81%e5%80%bc%e4%b8%8e%e7%89%b9%e5%be%81%e5%90%91%e9%87%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="求矩阵的特征值">
+求矩阵的特征值
+&lt;a class="heading-link" href="#%e6%b1%82%e7%9f%a9%e9%98%b5%e7%9a%84%e7%89%b9%e5%be%81%e5%80%bc">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>E=eig(A)&lt;/strong> ：求矩阵A的全部特征值，构成向量E。&lt;/li>
+&lt;li>&lt;strong>[X,D]=eig(A)&lt;/strong> ：求矩阵A的全部特征值，构成对角阵D，并产生矩阵X，X各列为相应特征值对应的特征向量。&lt;/li>
+&lt;/ul>
+&lt;h3 id="特征值的几何意义">
+特征值的几何意义
+&lt;a class="heading-link" href="#%e7%89%b9%e5%be%81%e5%80%bc%e7%9a%84%e5%87%a0%e4%bd%95%e6%84%8f%e4%b9%89">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​ 这里没太听懂，回头来补，咕咕咕QAQ。&lt;/p>
+&lt;hr>
+&lt;h2 id="25-稀疏矩阵">
+2.5 稀疏矩阵
+&lt;a class="heading-link" href="#25-%e7%a8%80%e7%96%8f%e7%9f%a9%e9%98%b5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>​ &lt;strong>稀疏矩阵就是零元素个数远远大于非0元素个数的矩阵&lt;/strong>。&lt;/p>
+&lt;h3 id="矩阵的存储方式">
+矩阵的存储方式
+&lt;a class="heading-link" href="#%e7%9f%a9%e9%98%b5%e7%9a%84%e5%ad%98%e5%82%a8%e6%96%b9%e5%bc%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>完全存储方式&lt;/strong>：把所以元素按列依次存储&lt;/li>
+&lt;li>&lt;strong>稀疏存储方式&lt;/strong>：只存储非0元素的行列下标和数值，不改变存储顺序，依次按列存储。&lt;/li>
+&lt;/ul>
+&lt;h3 id="稀疏存储方式的产生">
+稀疏存储方式的产生
+&lt;a class="heading-link" href="#%e7%a8%80%e7%96%8f%e5%ad%98%e5%82%a8%e6%96%b9%e5%bc%8f%e7%9a%84%e4%ba%a7%e7%94%9f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>完全存储方式与稀疏存储方式的转化&lt;/p>
+&lt;ul>
+&lt;li>通过 &lt;strong>A=sparse(S)&lt;/strong> 可以将矩阵S转化为稀疏存储方式的矩阵A&lt;/li>
+&lt;li>通过 &lt;strong>S=full(A)&lt;/strong> 可以将矩阵A转化为完全存储方式的矩阵S。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>直接建立稀疏存储矩阵&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>sparse(m,n)&lt;/strong> 可以建立一个 $m\times n$ 的所有元素都为0的稀疏矩阵。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>sparse(u,v,S)&lt;/strong> 其中u，v，S为3个等长向量，分别表示行下标，列下标，非零元素。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>B=spconvert(A)&lt;/strong> ，A是一个 $m\times 3$ 或 $m\times4$ 的矩阵，每一行元素依次表示一个稀疏矩阵的非零元素，从1~4列分别为，行下标，列下标，元素实部，元素虚部，若元素为实数，则第四列省略。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>单位矩阵的稀疏存储&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>speye(m,n)&lt;/strong> 可返回一个 $m\times n$ 的稀疏存储单位矩阵。&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul></description></item><item><title>专题一:MATLAB基础知识</title><link>https://zzsqwq.github.io/posts/33/</link><pubDate>Sat, 14 Mar 2020 01:05:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/33/</guid><description>&lt;h2 id="11-matlab系统环境">
 1.1 MATLAB系统环境
 &lt;a class="heading-link" href="#11-matlab%e7%b3%bb%e7%bb%9f%e7%8e%af%e5%a2%83">
@@ -94,4 +1350,516 @@ MATLAB操作界面的组成
 &lt;li>可用于变量的显示和操作，可显示你当前创建的变量。并且可对其保存，修改，删除。&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ol></description></item></channel></rss>
+&lt;/ol>
+&lt;h3 id="matlab的搜索路径">
+MATLAB的搜索路径
+&lt;a class="heading-link" href="#matlab%e7%9a%84%e6%90%9c%e7%b4%a2%e8%b7%af%e5%be%84">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>检索命令对象的顺序如下&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2254286890.png" alt="search.png">&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>设置文件搜索路径&lt;/strong>
+&lt;ul>
+&lt;li>用path命令设置文件搜索路径。例如： path{path,`e:\work`}&lt;/li>
+&lt;li>用对话框设置文件搜索路径。在MATLAB主窗口的主页中设置。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="12-matlab数值数据">
+1.2 MATLAB数值数据
+&lt;a class="heading-link" href="#12-matlab%e6%95%b0%e5%80%bc%e6%95%b0%e6%8d%ae">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="数值数据类型的分类">
+数值数据类型的分类
+&lt;a class="heading-link" href="#%e6%95%b0%e5%80%bc%e6%95%b0%e6%8d%ae%e7%b1%bb%e5%9e%8b%e7%9a%84%e5%88%86%e7%b1%bb">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>整型&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>无符号整数：含有8，16，32，64四种&lt;/li>
+&lt;li>带符号整数：含有8，16，32，64四种&lt;/li>
+&lt;/ul>
+&lt;p>范围和C语言一样,通过&lt;code>类型(数据)&lt;/code> 来进行强转。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>浮点型&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>单精度：占四字节&lt;/li>
+&lt;li>双精度：占八字节，数值数据默认为双精度&lt;/li>
+&lt;/ul>
+&lt;p>通过single和double函数进行强转。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>复型&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>复型数据包括实部和虚部两部分，都默认为浮点型，虚数单位用&lt;strong>i&lt;/strong>或&lt;strong>j&lt;/strong>来表示。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>通过read和imag函数来求复型数据的实部和虚部。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>字符型&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>字符在内部作为数字存储，而不会采用浮点格式存储。&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="数值数据的输出格式">
+数值数据的输出格式
+&lt;a class="heading-link" href="#%e6%95%b0%e5%80%bc%e6%95%b0%e6%8d%ae%e7%9a%84%e8%be%93%e5%87%ba%e6%a0%bc%e5%bc%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>format命令的格式，使用方法 &lt;code>format 格式符&lt;/code>，不带格式符的format会恢复默认格式。&lt;strong>ps：format只影响数据的输出，不影响数据的存储和计算。&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h3 id="常用数学函数">
+常用数学函数
+&lt;a class="heading-link" href="#%e5%b8%b8%e7%94%a8%e6%95%b0%e5%ad%a6%e5%87%bd%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>函数的调用格式为&lt;/strong>： &lt;strong>函数名(函数自变量的值)&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>函数自变量规定为矩阵变量，也可以为标量（为矩阵的特例）。&lt;/li>
+&lt;li>函数在运算时将函数逐项作用在每个元素上，最后运算出来是一个与自变量同类型矩阵。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>常用函数的应用&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>三角函数有两类，例如sin和sind两种，前面是弧度制，后面是角度制，其余cos等类似。&lt;/li>
+&lt;li>abs函数可以求实数的绝对值、复数的模、字符串的ASCII码值。&lt;/li>
+&lt;li>用于取整的函数有fix，floor，ceil，round。分别为靠0取整，向下取整，向上取整，四舍五入取整。&lt;/li>
+&lt;li>判断是否为素数的函数isprime，是素数返回1，不是返回0。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> x=[&lt;span style="color:#ae81ff">1&lt;/span>:&lt;span style="color:#ae81ff">100&lt;/span>];
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> k=isprime(x);
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> k1=find(k);
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> p=x(k1)
+p =
+&lt;span style="color:#ae81ff">1&lt;/span> 至 &lt;span style="color:#ae81ff">16&lt;/span> 列
+&lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span> &lt;span style="color:#ae81ff">7&lt;/span> &lt;span style="color:#ae81ff">11&lt;/span> &lt;span style="color:#ae81ff">13&lt;/span> &lt;span style="color:#ae81ff">17&lt;/span> &lt;span style="color:#ae81ff">19&lt;/span> &lt;span style="color:#ae81ff">23&lt;/span> &lt;span style="color:#ae81ff">29&lt;/span> &lt;span style="color:#ae81ff">31&lt;/span> &lt;span style="color:#ae81ff">37&lt;/span> &lt;span style="color:#ae81ff">41&lt;/span> &lt;span style="color:#ae81ff">43&lt;/span> &lt;span style="color:#ae81ff">47&lt;/span> &lt;span style="color:#ae81ff">53&lt;/span>
+&lt;span style="color:#ae81ff">17&lt;/span> 至 &lt;span style="color:#ae81ff">25&lt;/span> 列
+&lt;span style="color:#ae81ff">59&lt;/span> &lt;span style="color:#ae81ff">61&lt;/span> &lt;span style="color:#ae81ff">67&lt;/span> &lt;span style="color:#ae81ff">71&lt;/span> &lt;span style="color:#ae81ff">73&lt;/span> &lt;span style="color:#ae81ff">79&lt;/span> &lt;span style="color:#ae81ff">83&lt;/span> &lt;span style="color:#ae81ff">89&lt;/span> &lt;span style="color:#ae81ff">97&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="13-变量及其操作">
+1.3 变量及其操作
+&lt;a class="heading-link" href="#13-%e5%8f%98%e9%87%8f%e5%8f%8a%e5%85%b6%e6%93%8d%e4%bd%9c">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="变量与赋值语句">
+变量与赋值语句
+&lt;a class="heading-link" href="#%e5%8f%98%e9%87%8f%e4%b8%8e%e8%b5%8b%e5%80%bc%e8%af%ad%e5%8f%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>变量本质是一个内存单元的抽象，变量名以字母开头，后接数字、字母或下划线，最多63个字符。&lt;/li>
+&lt;li>变量名区分字母大小写(case sensitive)，&lt;strong>标准函数名以及命令名必须用小写字母&lt;/strong>。&lt;/li>
+&lt;li>赋值语句有两种格式
+&lt;ul>
+&lt;li>变量 = 表达式&lt;/li>
+&lt;li>表达式的值赋值MATLAB预定义变量ans&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>如果赋值后不加分号，会显示变量的结果，如果加了分号，则不显示。&lt;/li>
+&lt;/ul>
+&lt;h3 id="预定义变量">
+预定义变量
+&lt;a class="heading-link" href="#%e9%a2%84%e5%ae%9a%e4%b9%89%e5%8f%98%e9%87%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>预定义变量是系统自身定义的变量&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>ans&lt;/strong> 是默认赋值变量，命令行表达式值默认赋值给 &lt;strong>ans&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>i&lt;/strong> 和 &lt;strong>j&lt;/strong> 代表虚数单位&lt;/li>
+&lt;li>&lt;strong>pi&lt;/strong> 表示圆周率&lt;/li>
+&lt;li>&lt;strong>NaN&lt;/strong> 代表非数&lt;/li>
+&lt;/ul>
+&lt;h3 id="变量的管理">
+变量的管理
+&lt;a class="heading-link" href="#%e5%8f%98%e9%87%8f%e7%9a%84%e7%ae%a1%e7%90%86">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>&lt;strong>变量的删除和修改&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>在工作区进行变量的删除和修改
+&lt;ul>
+&lt;li>通过 &lt;strong>who&lt;/strong> 和 &lt;strong>whose&lt;/strong> 命令来查看变量清单，前者只显示名称，后者显示各种信息&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;ol start="2">
+&lt;li>&lt;strong>内存变量文件&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>用于保存MATLAB工作区变量的文件交内存变量文件，扩展名为.mat，也叫MAT文件，是一种二进制文件。
+&lt;ul>
+&lt;li>save命令：创建内存变量文件，load命令：载入内存变量文件&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="14-matlab矩阵的表示">
+1.4 MATLAB矩阵的表示
+&lt;a class="heading-link" href="#14-matlab%e7%9f%a9%e9%98%b5%e7%9a%84%e8%a1%a8%e7%a4%ba">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="矩阵的建立">
+矩阵的建立
+&lt;a class="heading-link" href="#%e7%9f%a9%e9%98%b5%e7%9a%84%e5%bb%ba%e7%ab%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>直接输入法建立矩阵&lt;/strong>&lt;/p>
+&lt;p>将矩阵的元素用中括号&lt;code>[]&lt;/code> 括起来，按行输入元素，同一行元素用逗号或者空格分隔，用分号换行。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>利用已有矩阵建立更大矩阵&lt;/strong>&lt;/p>
+&lt;p>个人感觉类似于分块矩阵，例子如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> A=[&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>;&lt;span style="color:#ae81ff">4&lt;/span>,&lt;span style="color:#ae81ff">5&lt;/span>,&lt;span style="color:#ae81ff">6&lt;/span>;&lt;span style="color:#ae81ff">7&lt;/span>,&lt;span style="color:#ae81ff">8&lt;/span>,&lt;span style="color:#ae81ff">9&lt;/span>];
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> B=[&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>;&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">5&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">6&lt;/span>;&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">7&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">8&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">9&lt;/span>];
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> C=[A,B;B,A]
+C =
+&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>
+&lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span> &lt;span style="color:#ae81ff">6&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">5&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">6&lt;/span>
+&lt;span style="color:#ae81ff">7&lt;/span> &lt;span style="color:#ae81ff">8&lt;/span> &lt;span style="color:#ae81ff">9&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">7&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">8&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">9&lt;/span>
+&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>
+&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">5&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">6&lt;/span> &lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span> &lt;span style="color:#ae81ff">6&lt;/span>
+&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">7&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">8&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">9&lt;/span> &lt;span style="color:#ae81ff">7&lt;/span> &lt;span style="color:#ae81ff">8&lt;/span> &lt;span style="color:#ae81ff">9&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>用两个实矩阵矩阵通过矩阵的运算可以建立复数矩阵&lt;/strong>，&lt;strong>要确保两个矩阵同类型&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> B=[&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>;&lt;span style="color:#ae81ff">4&lt;/span>,&lt;span style="color:#ae81ff">5&lt;/span>,&lt;span style="color:#ae81ff">6&lt;/span>];
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> C=[&lt;span style="color:#ae81ff">7&lt;/span>,&lt;span style="color:#ae81ff">8&lt;/span>,&lt;span style="color:#ae81ff">9&lt;/span>;&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>];
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> D=B&lt;span style="color:#f92672">+&lt;/span>i&lt;span style="color:#f92672">*&lt;/span>C
+D =
+&lt;span style="color:#ae81ff">1.0000&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">7.0000&lt;/span>i &lt;span style="color:#ae81ff">2.0000&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">8.0000&lt;/span>i &lt;span style="color:#ae81ff">3.0000&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">9.0000&lt;/span>i
+&lt;span style="color:#ae81ff">4.0000&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1.0000&lt;/span>i &lt;span style="color:#ae81ff">5.0000&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">2.0000&lt;/span>i &lt;span style="color:#ae81ff">6.0000&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">3.0000&lt;/span>i
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="冒号表达式">
+冒号表达式
+&lt;a class="heading-link" href="#%e5%86%92%e5%8f%b7%e8%a1%a8%e8%be%be%e5%bc%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>通过冒号表达式可以产生行向量&lt;/strong>&lt;/p>
+&lt;p>一般格式为&lt;code>e1:e2:e3&lt;/code> 分别是初始值，步长，终止值。可以省略e2，省略时步长为默认为1。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> t=&lt;span style="color:#ae81ff">0&lt;/span>:&lt;span style="color:#ae81ff">1&lt;/span>:&lt;span style="color:#ae81ff">5&lt;/span>
+t=
+&lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> s=&lt;span style="color:#ae81ff">0&lt;/span>:&lt;span style="color:#ae81ff">5&lt;/span>
+s
+&lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>通过linspace函数产生行向量&lt;/strong>&lt;/p>
+&lt;p>linspace(a,b,n) 代表首元素为a，末尾元素为b，产生n个元素，相应的，步长为(b-a)/(n-1)。当n可以省略，省略时默认n为100。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> x=linspace(&lt;span style="color:#ae81ff">0&lt;/span>,pi,&lt;span style="color:#ae81ff">5&lt;/span>)
+x=
+&lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0.7854&lt;/span> &lt;span style="color:#ae81ff">1.5708&lt;/span> &lt;span style="color:#ae81ff">2.3562&lt;/span> &lt;span style="color:#ae81ff">3.1416&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="结构矩阵和单元矩阵">
+结构矩阵和单元矩阵
+&lt;a class="heading-link" href="#%e7%bb%93%e6%9e%84%e7%9f%a9%e9%98%b5%e5%92%8c%e5%8d%95%e5%85%83%e7%9f%a9%e9%98%b5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>结构矩阵&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>类似于C语言的结构体，把很多个数据写成一个结构体，矩阵里的每个元素个元素都是结构体变量。给对应元素赋值格式为 &lt;strong>结构体元素.成员名=表达式&lt;/strong> 。我们应该注意到，当一个结构体内没有我们赋值的成员，那么他会自动扩充矩阵来满足你的要求。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>我们可以通过 &lt;code>s=struct('name',{'next','what'},'sex',{'male','unknow'})&lt;/code> 来创建一个包含 &lt;strong>name&lt;/strong> 和 &lt;strong>sex&lt;/strong> 两个成员的结构体。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>单元矩阵&lt;/strong>&lt;/p>
+&lt;p>矩阵里的每个元素的类型可以不同，通过直接输入法建立，所有元素用大括号&lt;code>{}&lt;/code>而不是中括号&lt;code>[]&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="15-矩阵元素的引用">
+1.5 矩阵元素的引用
+&lt;a class="heading-link" href="#15-%e7%9f%a9%e9%98%b5%e5%85%83%e7%b4%a0%e7%9a%84%e5%bc%95%e7%94%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="矩阵元素的引用方式">
+矩阵元素的引用方式
+&lt;a class="heading-link" href="#%e7%9f%a9%e9%98%b5%e5%85%83%e7%b4%a0%e7%9a%84%e5%bc%95%e7%94%a8%e6%96%b9%e5%bc%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>通过下标来引用矩阵，例如A(3,2)表示A矩阵第三列第二个元素。如果我们引用的元素超出矩阵范围，那么会默认扩充矩阵至满足要求，拓展元素默认为0。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> A=[&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>;&lt;span style="color:#ae81ff">4&lt;/span>,&lt;span style="color:#ae81ff">5&lt;/span>,&lt;span style="color:#ae81ff">6&lt;/span>];
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> A(&lt;span style="color:#ae81ff">4&lt;/span>,&lt;span style="color:#ae81ff">5&lt;/span>)=&lt;span style="color:#ae81ff">10&lt;/span>
+A=
+&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span> &lt;span style="color:#ae81ff">6&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
+&lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>
+&lt;p>通过序号来引用，&lt;strong>注意矩阵元素按列存储&lt;/strong>，依次存放第一列，第二列···最后一列。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>矩阵元素的序号和下标可以通过 &lt;code>sub2ind&lt;/code> 和 &lt;code>ind2sub&lt;/code> 两个函数完成相互转化&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>sub2ind&lt;/strong> 函数：将矩阵中指定元素的行列下标转换成存储的序号，格式为&lt;code>D=sub2ind(S,I,J)&lt;/code>，三个参数依次为&lt;strong>行数和列数组成的二维向量(可以通过size函数获取)&lt;/strong>，&lt;strong>转换矩阵元素的行下标&lt;/strong>，&lt;strong>转换矩阵元素的列下标&lt;/strong>。如果I，J为矩阵的话，那么就说明要将对应的一个下标矩阵求对应序号。注意结合下例来进行理解，我们注意到A(1,1)的序号为1，A(2,1)的序号为2，那么就是给定下标矩阵的顺序来生产的这个序号矩阵，类型相同。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> A=[&lt;span style="color:#ae81ff">1&lt;/span>:&lt;span style="color:#ae81ff">3&lt;/span>;&lt;span style="color:#ae81ff">4&lt;/span>:&lt;span style="color:#ae81ff">6&lt;/span>]
+A=
+&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>
+&lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span> &lt;span style="color:#ae81ff">6&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> D=sub2ind(size(A),[&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>;&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>],[&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>;&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>])
+D=
+&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>
+&lt;span style="color:#ae81ff">6&lt;/span> &lt;span style="color:#ae81ff">4&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;strong>ind2sub&lt;/strong> 函数：将矩阵元素的序号转换成下标，格式为 &lt;code>[I,J]=ind2sub(S,D)&lt;/code> ，S,D分别为&lt;strong>行数和列数组成的二维向量(可以通过size函数获取)&lt;/strong>，&lt;strong>要获取下标的元素的序号(可以是一个向量，标志要获取多个元素的下标)&lt;/strong> ，那么前方的 I和J就是对应的行下标和列下标，类似于一个 &lt;strong>sub2ind&lt;/strong> 函数的逆用。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> [I,J]=ind2sub([&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>],[&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#ae81ff">5&lt;/span>])
+I=
+&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>
+J=
+&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h3 id="利用冒号表达式获得子矩阵">
+利用冒号表达式获得子矩阵
+&lt;a class="heading-link" href="#%e5%88%a9%e7%94%a8%e5%86%92%e5%8f%b7%e8%a1%a8%e8%be%be%e5%bc%8f%e8%8e%b7%e5%be%97%e5%ad%90%e7%9f%a9%e9%98%b5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>我们可以用冒号表达式作为矩阵的行或列下标，也可以用单个&lt;code>:&lt;/code>来当行或列下标，这代表取遍全部行或列。&lt;strong>end运算符：&lt;/strong> 表示某一维的末尾元素下标。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">A(i,:) 表示第i行的全部元素
+A(:,j) 表示第j行的全部元素
+A(i:i&lt;span style="color:#f92672">+&lt;/span>m,j:j&lt;span style="color:#f92672">+&lt;/span>m) 表示第i&lt;span style="color:#f92672">~&lt;/span>i&lt;span style="color:#f92672">+&lt;/span>m行和j&lt;span style="color:#f92672">~&lt;/span>j&lt;span style="color:#f92672">+&lt;/span>m列全部元素
+A(i:i&lt;span style="color:#f92672">+&lt;/span>m,:) 表示第i&lt;span style="color:#f92672">~&lt;/span>i&lt;span style="color:#f92672">+&lt;/span>m行全部元素
+A(&lt;span style="color:#ae81ff">1&lt;/span>:&lt;span style="color:#ae81ff">3&lt;/span>;&lt;span style="color:#ae81ff">1&lt;/span>:&lt;span style="color:#66d9ef">end&lt;/span>) 这代表取&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">~&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>行和&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">~&lt;/span>最后一列元素
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="利用空矩阵删除矩阵元素">
+利用空矩阵删除矩阵元素
+&lt;a class="heading-link" href="#%e5%88%a9%e7%94%a8%e7%a9%ba%e7%9f%a9%e9%98%b5%e5%88%a0%e9%99%a4%e7%9f%a9%e9%98%b5%e5%85%83%e7%b4%a0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>空矩阵就是不含任何元素的矩阵，例如&lt;code>x=[]&lt;/code> 就建立了一个空矩阵x。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> C=[&lt;span style="color:#ae81ff">4&lt;/span>,&lt;span style="color:#ae81ff">5&lt;/span>,&lt;span style="color:#ae81ff">6&lt;/span>;&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>]
+C =
+&lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span> &lt;span style="color:#ae81ff">6&lt;/span>
+&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> C(:,&lt;span style="color:#ae81ff">1&lt;/span>:&lt;span style="color:#ae81ff">2&lt;/span>)=[]
+C =
+&lt;span style="color:#ae81ff">6&lt;/span>
+&lt;span style="color:#ae81ff">3&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="改变矩阵的形状">
+改变矩阵的形状
+&lt;a class="heading-link" href="#%e6%94%b9%e5%8f%98%e7%9f%a9%e9%98%b5%e7%9a%84%e5%bd%a2%e7%8a%b6">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>通过reshape函数可以在矩阵元素个数不变的情况下改变矩阵形状，例如 &lt;code>reshape(A,m,n)&lt;/code> 就是将A矩阵变成m行n列的矩阵，&lt;strong>不改变矩阵元素的存储顺序，也就是依次按列存储，对应序号相同。&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h3 id="特殊的约定">
+特殊的约定
+&lt;a class="heading-link" href="#%e7%89%b9%e6%ae%8a%e7%9a%84%e7%ba%a6%e5%ae%9a">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>通过指令&lt;code>A(:)&lt;/code> 可以将所有元素堆叠成一个列向量，不改变存储顺序。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="16--matlab基本运算">
+1.6 MATLAB基本运算
+&lt;a class="heading-link" href="#16--matlab%e5%9f%ba%e6%9c%ac%e8%bf%90%e7%ae%97">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="算数运算">
+算数运算
+&lt;a class="heading-link" href="#%e7%ae%97%e6%95%b0%e8%bf%90%e7%ae%97">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>基本算术运算：&lt;strong>+(加)，-(减)，*(乘)，/(右除)，\(左除)，^(乘方)&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>MATLAB的算数运算在矩阵意义下进行&lt;/strong>，单个数据运算是矩阵的特例。&lt;/li>
+&lt;li>&lt;strong>加减运算&lt;/strong>
+&lt;ul>
+&lt;li>两矩阵同型，对应元素相加减。&lt;strong>不同型，发生错误。&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>一个标量可以和矩阵进行运算，这时把标量对全体矩阵元素进行操作。&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>乘法运算&lt;/strong>
+&lt;ul>
+&lt;li>很明显必须满足矩阵乘的条件，也就是当&lt;code>A*B&lt;/code>时必须满足A的行数等于B的列数，此时称A，B矩阵是可乘的，或称两矩阵维数和大小相容。&lt;strong>不相容就会发生错误&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>除法运算&lt;/strong>
+&lt;ul>
+&lt;li>如果A是**非奇异矩阵(A的行列式不为0) **,则B/A等效于B*inv(A)，A\B等效为inv(A)*B。&lt;strong>inv(A)是指A的逆阵&lt;/strong> 。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>乘法运算&lt;/strong>
+&lt;ul>
+&lt;li>A矩阵的x次方可以表示成&lt;strong>A^x&lt;/strong> ，要求A为&lt;strong>方阵&lt;/strong>，x为&lt;strong>标量&lt;/strong>。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>点运算&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>点运算符&lt;/strong>：在相应算术运算符前面加.，有点乘，点右除，点左除，点乘方。&lt;/li>
+&lt;li>&lt;strong>点运算&lt;/strong>：两个同型矩阵对应元素进行相关运算。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> A=[&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>;&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#ae81ff">4&lt;/span>];
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> A^&lt;span style="color:#ae81ff">2&lt;/span>
+ans =
+&lt;span style="color:#ae81ff">7&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>
+&lt;span style="color:#ae81ff">15&lt;/span> &lt;span style="color:#ae81ff">22&lt;/span>
+&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> A&lt;span style="color:#f92672">.^&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>
+ans =
+&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#ae81ff">4&lt;/span>
+&lt;span style="color:#ae81ff">9&lt;/span> &lt;span style="color:#ae81ff">16&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h3 id="关系运算">
+关系运算
+&lt;a class="heading-link" href="#%e5%85%b3%e7%b3%bb%e8%bf%90%e7%ae%97">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>关系运算符： &amp;lt; ，&amp;lt;=，&amp;gt;，&amp;gt;=，==(等于)，~=(不等于)&lt;/strong>&lt;/li>
+&lt;li>两个比较量为&lt;strong>标量&lt;/strong>，直接比较两个数大小，如果成立表达式值为1，否则为0。&lt;/li>
+&lt;li>如果两个矩阵是&lt;strong>同型矩阵&lt;/strong>，对每两个对应元素进行比较，形成一个由0，1构成的同型矩阵。&lt;/li>
+&lt;li>如果一个是&lt;strong>标量&lt;/strong>一个是&lt;strong>矩阵&lt;/strong>，则用标量和每个矩阵元素比较，形成一个同型矩阵。&lt;/li>
+&lt;/ul>
+&lt;h3 id="逻辑运算">
+逻辑运算
+&lt;a class="heading-link" href="#%e9%80%bb%e8%be%91%e8%bf%90%e7%ae%97">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>逻辑运算符： &amp;amp;(与)，|(或)，~(非)。各自对应的运算法则和C语言类似，不再赘述。&lt;/li>
+&lt;li>标量，矩阵之间进行运算，对应规则和关系运算类似，不再赘述。&lt;/li>
+&lt;/ul>
+&lt;h3 id="运算符的优先级">
+运算符的优先级
+&lt;a class="heading-link" href="#%e8%bf%90%e7%ae%97%e7%ac%a6%e7%9a%84%e4%bc%98%e5%85%88%e7%ba%a7">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​ 算术运算优先级最高，逻辑运算优先级最低，但是逻辑非运算是单目运算符，优先级比双目运算符高。&lt;/p>
+&lt;hr>
+&lt;h2 id="17-字符串处理">
+1.7 字符串处理
+&lt;a class="heading-link" href="#17-%e5%ad%97%e7%ac%a6%e4%b8%b2%e5%a4%84%e7%90%86">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="字符串的表达">
+字符串的表达
+&lt;a class="heading-link" href="#%e5%ad%97%e7%ac%a6%e4%b8%b2%e7%9a%84%e8%a1%a8%e8%be%be">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>用单引号括起来的字符序列就是字符串，MATLAB把他当成一个行向量。若字符串中含有单引号，则单引号字符要用两个单引号表示。&lt;/li>
+&lt;li>可以建立多行字符串，建立字符矩阵**（注意每一行的字符串长度要相等）**。和数值矩阵无异。&lt;/li>
+&lt;/ul>
+&lt;h3 id="字符串的操作">
+字符串的操作
+&lt;a class="heading-link" href="#%e5%ad%97%e7%ac%a6%e4%b8%b2%e7%9a%84%e6%93%8d%e4%bd%9c">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>字符串的执行&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>通过&lt;code>eval(s)&lt;/code> 函数可以执行字符串 &lt;strong>s&lt;/strong> 对应的命令行命令。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>字串与数值之间的转换&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>abs&lt;/strong> 和 &lt;strong>double&lt;/strong> 函数都可以获取字符串矩阵对应的&lt;strong>ASCII码&lt;/strong>矩阵。&lt;/li>
+&lt;li>&lt;strong>char&lt;/strong> 函数可以把&lt;strong>ASCII码&lt;/strong>矩阵转换成字符串矩阵。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>字符串的比较&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>关系运算符比较&lt;/strong>：两个等长字符串比较，两两对应字符比较，成立为1，不成立为0，得到是一个含0，1的行向量。&lt;/li>
+&lt;li>&lt;strong>字符串比较函数比较&lt;/strong>
+&lt;ul>
+&lt;li>strcmp(s1,s2)：比较s1和s2是否相等，返回值为一个标量，相等为0，不等为1。后缀加i表示比较时忽略大小写。&lt;/li>
+&lt;li>strncmp(s1,s2,n)：比较s1和s2前n个字符是否相等，返回值为一个标量。相等为0，不等为1。后缀加i表示比较时忽略大小写。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>字符串的查找和替换&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>findstr(s1,s2)：返回短字符串在长字符串中的开始位置。如果出现多次，则返回一个行向量。&lt;/li>
+&lt;li>strrep(s1,s2,s3)：将s1中所有子字符串s2替换为s3。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>数值转换为字符&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>通过 &lt;strong>num2str&lt;/strong> 或 &lt;strong>int2str&lt;/strong> 等函数可以将数字转换为字符&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>

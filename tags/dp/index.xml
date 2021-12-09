@@ -1,10 +1,267 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>dp on Zs's Blog</title><link>https://zzsqwq.github.io/tags/dp/</link><description>Recent content in dp on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Thu, 20 Feb 2020 01:04:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/dp/index.xml" rel="self" type="application/rss+xml"/><item><title>树形dp例题</title><link>https://zzsqwq.github.io/posts/31/</link><pubDate>Thu, 20 Feb 2020 01:04:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/31/</guid><description>&lt;h2 id="前言">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>dp on Zs's Blog</title><link>https://zzsqwq.github.io/tags/dp/</link><description>Recent content in dp on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Thu, 20 Feb 2020 01:04:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/dp/index.xml" rel="self" type="application/rss+xml"/><item><title>树形dp例题</title><link>https://zzsqwq.github.io/posts/31/</link><pubDate>Thu, 20 Feb 2020 01:04:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/31/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
-&lt;p>​    学OI的时候就做过树形dp的题，不过那时候全在划水。看了看题解还不太懂就直接照着题解写了，现在再回来看还是不会QAQ，所以就再看看然后自己写了一遍。&lt;/p></description></item><item><title>dp练习</title><link>https://zzsqwq.github.io/posts/29/</link><pubDate>Tue, 18 Feb 2020 01:00:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/29/</guid><description>&lt;h2 id="a-矩阵取数游戏httpswwwluogucomcnproblemp1005">
+&lt;p>​    学OI的时候就做过树形dp的题，不过那时候全在划水。看了看题解还不太懂就直接照着题解写了，现在再回来看还是不会QAQ，所以就再看看然后自己写了一遍。&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="a-没有上司的舞会httpswwwluogucomcnproblemp1352">
+A. &lt;a href="https://www.luogu.com.cn/problem/P1352">没有上司的舞会&lt;/a>
+&lt;a class="heading-link" href="#a-%e6%b2%a1%e6%9c%89%e4%b8%8a%e5%8f%b8%e7%9a%84%e8%88%9e%e4%bc%9ahttpswwwluogucomcnproblemp1352">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="题意">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    有 $N$ 个职员被邀请去参加公司的舞会，他们每个人对应着一个快乐指数 $h_i$ ，如果该职员来了就会为舞会增加$h_i$ 点快乐指数。这 $N$ 个职员之间有从属关系，也就是说他们的关系就像一棵以顶级上司为根的树，父结点就是子结点的直接上司。如果一个职员的&lt;strong>直接&lt;/strong>上司来到了舞会，那么他本人就不会再来。问邀请哪些职员可获得最大的快乐指数，最大为多少。&lt;/p>
+&lt;h3 id="思路">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    职员之间的关系是以树的形式给出的，所以先用链式前向星来存储数。存的时候我们用vis数组记录一下如何那个人有上司，就将他标记一下，最终没有标记的就是没有上司的，也就是顶级上司，也就是我们的根节点root。
+​    树形dp，顾名思义，在树上进行dp，通过递归dfs，先算出子树的状态，再通过递归的回溯来合并。那么我们考虑一下设计状态，很明显一个人的状态有来和不来，两个情况。所以我们设计状态 $dp[i][0/1]$ 来表示职员 &lt;strong>i&lt;/strong> 来或者不来，我们用u来表示当前节点，用v来表示当前节点的子节点，那么状态转移如下：&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>$dp[u][0]=max(dp[v][0],dp[v][1]) $ （上司u没有来，那么下属v可以来，也可以不来，选一个大的策略）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>$dp[u][1]=dp[v][0]+h[u]$ （上司u来了，下属v肯定不来）&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>​    最终的答案就是 $max(dp[root][0],dp[root][1])$ ，上司来和不来两种策略中的最大一种。&lt;/p>
+&lt;h3 id="代码实现">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">6005&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> head[maxn];
+&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">edge&lt;/span>
+{
+&lt;span style="color:#66d9ef">int&lt;/span> next;
+&lt;span style="color:#66d9ef">int&lt;/span> to;
+}e[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> cnt,n,l,k,vis[maxn],root;
+&lt;span style="color:#66d9ef">int&lt;/span> r[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> dp[maxn][&lt;span style="color:#ae81ff">2&lt;/span>];
+&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> l,&lt;span style="color:#66d9ef">int&lt;/span> k)
+{
+e[&lt;span style="color:#f92672">++&lt;/span>cnt].next&lt;span style="color:#f92672">=&lt;/span>head[l];
+e[cnt].to&lt;span style="color:#f92672">=&lt;/span>k;
+head[l]&lt;span style="color:#f92672">=&lt;/span>cnt;
+}
+&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">dfs&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> u)
+{
+dp[u][&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+dp[u][&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">=&lt;/span>r[u];
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>head[u];i;i&lt;span style="color:#f92672">=&lt;/span>e[i].next)
+{
+&lt;span style="color:#66d9ef">int&lt;/span> v&lt;span style="color:#f92672">=&lt;/span>e[i].to;
+dfs(v);
+dp[u][&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+=&lt;/span>dp[v][&lt;span style="color:#ae81ff">0&lt;/span>];
+dp[u][&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">+=&lt;/span>max(dp[v][&lt;span style="color:#ae81ff">1&lt;/span>],dp[v][&lt;span style="color:#ae81ff">0&lt;/span>]);
+}
+}
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>) scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>r[i]);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>l,&lt;span style="color:#f92672">&amp;amp;&lt;/span>k);
+add(k,l);
+vis[l]&lt;span style="color:#f92672">++&lt;/span>;
+}
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>l,&lt;span style="color:#f92672">&amp;amp;&lt;/span>k);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#f92672">!&lt;/span>vis[i]) root&lt;span style="color:#f92672">=&lt;/span>i;
+}
+dfs(root);
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,max(dp[root][&lt;span style="color:#ae81ff">0&lt;/span>],dp[root][&lt;span style="color:#ae81ff">1&lt;/span>]));
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;h2 id="b-战略游戏httpswwwluogucomcnproblemp2016">
+B. &lt;a href="https://www.luogu.com.cn/problem/P2016">战略游戏&lt;/a>
+&lt;a class="heading-link" href="#b-%e6%88%98%e7%95%a5%e6%b8%b8%e6%88%8fhttpswwwluogucomcnproblemp2016">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="题意-1">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    小姜老师要建立一个树，树节点两两之间通过道路连接，他要在这些节点上放一些小人，每个小人可监管与该节点相连的道路，问最少放置多少小人可以监管所有道路。（数据保证0为根节点）&lt;/p>
+&lt;h3 id="思路-1">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    这个题跟上个题有点像，首先我们也是用链式前向星把树给存下来，不过这个题的输入跟上道题有点不一样，本质都是一样的。因为我们只需要dfs下去，然后向上回溯的时候合并，所以只需要存单向边即可。
+​    对于一个节点我们也是有两种策略，选或者不选，那么我们也可以把状态写成 $dp[i][1/0]$ ，对应着 &lt;strong>i&lt;/strong> 这个节点选或者不选，我们把当前节点看作u，子节点看作v，状态转移如下：&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>$dp[u][1]+=\Sigma (dp[v][0],dp[v][1]) +1$ （u选了，v选不选都可以，加上自身的1）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>$dp[u][0]+=\Sigma dp[v][1]$ （如果u没有选，那么v一定要选，才能监管到u的道路）&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>​    很显然这个答案是 $min(dp[0][0],dp[0][1])$&lt;/p>
+&lt;h3 id="代码实现-1">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1505&lt;/span>;
+&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">edge&lt;/span>
+{
+&lt;span style="color:#66d9ef">int&lt;/span> next,to;
+}e[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> u,v;
+&lt;span style="color:#66d9ef">int&lt;/span> head[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> dp[maxn][&lt;span style="color:#ae81ff">2&lt;/span>];
+&lt;span style="color:#66d9ef">int&lt;/span> num;
+&lt;span style="color:#66d9ef">int&lt;/span> n,cnt;
+&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> u,&lt;span style="color:#66d9ef">int&lt;/span> v)
+{
+e[&lt;span style="color:#f92672">++&lt;/span>cnt].next&lt;span style="color:#f92672">=&lt;/span>head[u];
+e[cnt].to&lt;span style="color:#f92672">=&lt;/span>v;
+head[u]&lt;span style="color:#f92672">=&lt;/span>cnt;
+}
+&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">dfs&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> u)
+{
+dp[u][&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>head[u];i;i&lt;span style="color:#f92672">=&lt;/span>e[i].next)
+{
+&lt;span style="color:#66d9ef">int&lt;/span> v&lt;span style="color:#f92672">=&lt;/span>e[i].to;
+dfs(v);
+dp[u][&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+=&lt;/span>min(dp[v][&lt;span style="color:#ae81ff">1&lt;/span>],dp[v][&lt;span style="color:#ae81ff">0&lt;/span>]);
+dp[u][&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">+=&lt;/span>dp[v][&lt;span style="color:#ae81ff">1&lt;/span>];
+}
+}
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>u,&lt;span style="color:#f92672">&amp;amp;&lt;/span>num);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>num;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>v);
+add(u,v);
+}
+}
+dfs(&lt;span style="color:#ae81ff">0&lt;/span>);
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,min(dp[&lt;span style="color:#ae81ff">0&lt;/span>][&lt;span style="color:#ae81ff">0&lt;/span>],dp[&lt;span style="color:#ae81ff">0&lt;/span>][&lt;span style="color:#ae81ff">1&lt;/span>]));
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;h2 id="c-二叉苹果树httpswwwluogucomcnproblemp2015">
+C. &lt;a href="https://www.luogu.com.cn/problem/P2015">二叉苹果树&lt;/a>
+&lt;a class="heading-link" href="#c-%e4%ba%8c%e5%8f%89%e8%8b%b9%e6%9e%9c%e6%a0%91httpswwwluogucomcnproblemp2015">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="题意-2">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    有一颗二叉苹果树，也就是说树枝如果分叉，一定是分二叉。苹果树有 $n$ 个节点，树根编号为 1 。每个树枝上都有一定数量的苹果，如果最终保留 $q$ 根树枝，问最多能够保留多少苹果。&lt;/p>
+&lt;h3 id="思路-2">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    这个树形dp要比上面的还要难一些，因为我们的状态不能够只考虑是否保留当前的树枝了，因为保留当前树枝也会有很多种关于保留子树枝选择。看了题解大佬的说法是，可以定义成 $f[u][j]$ 来表示 u 的子树上保留 j 条边时所能获得最大的苹果数。所以我们考虑一下转移方程，首先我们能保留的最大边数是当前子树所具有的所有树枝，对于一个节点下的两个树枝，我们可以选择取，或者不取，那么这就类似于一个背包问题，对于一定的容量（一定量的树枝），我们取几个树枝才能获得最大的价值。但是我们注意，对于一个节点u，我们如果要取他的节点v，那么我们u-v之间这个树枝一定要保留，不然会不能取得v，这是一个隐藏的条件。
+​    因此转移方程： $dp[u][i]=max(dp[u][i],dp[u][i-j-1]+dp[v][j]+w[u][v] $ ，$w[u][v]$为当前u-v树枝的苹果数。代码里面因为我懒得计算子树的树枝数了，所以就直接从最大的q来枚举了，就没考虑那么多，可能复杂度稍微高一点，但是高不到哪去其实QAQ&amp;hellip;&lt;/p>
+&lt;h3 id="代码实现-2">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">105&lt;/span>;
+&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">edge&lt;/span>
+{
+&lt;span style="color:#66d9ef">int&lt;/span> next,to,w;
+}e[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> n,cnt,q;
+&lt;span style="color:#66d9ef">int&lt;/span> u,v,w;
+&lt;span style="color:#66d9ef">int&lt;/span> dp[maxn][maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> head[maxn];
+&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">add&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> u,&lt;span style="color:#66d9ef">int&lt;/span> v,&lt;span style="color:#66d9ef">int&lt;/span> w)
+{
+e[&lt;span style="color:#f92672">++&lt;/span>cnt].next&lt;span style="color:#f92672">=&lt;/span>head[u];
+e[cnt].to&lt;span style="color:#f92672">=&lt;/span>v;
+e[cnt].w&lt;span style="color:#f92672">=&lt;/span>w;
+head[u]&lt;span style="color:#f92672">=&lt;/span>cnt;
+}
+&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">dfs&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> u)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>head[u];i;i&lt;span style="color:#f92672">=&lt;/span>e[i].next)
+{
+&lt;span style="color:#66d9ef">int&lt;/span> v&lt;span style="color:#f92672">=&lt;/span>e[i].to;
+dfs(v);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>q;j&lt;span style="color:#f92672">&amp;gt;=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;j&lt;span style="color:#f92672">--&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;k&lt;span style="color:#f92672">&amp;lt;=&lt;/span>j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;k&lt;span style="color:#f92672">++&lt;/span>)
+{
+dp[u][j]&lt;span style="color:#f92672">=&lt;/span>max(dp[u][j],dp[u][j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">-&lt;/span>k]&lt;span style="color:#f92672">+&lt;/span>dp[v][k]&lt;span style="color:#f92672">+&lt;/span>e[i].w);
+}
+}
+}
+}
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n,&lt;span style="color:#f92672">&amp;amp;&lt;/span>q);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>u,&lt;span style="color:#f92672">&amp;amp;&lt;/span>v,&lt;span style="color:#f92672">&amp;amp;&lt;/span>w);
+add(u,v,w);
+}
+dfs(&lt;span style="color:#ae81ff">1&lt;/span>);
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,dp[&lt;span style="color:#ae81ff">1&lt;/span>][q]);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>dp练习</title><link>https://zzsqwq.github.io/posts/29/</link><pubDate>Tue, 18 Feb 2020 01:00:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/29/</guid><description>&lt;h2 id="a-矩阵取数游戏httpswwwluogucomcnproblemp1005">
 A. &lt;a href="https://www.luogu.com.cn/problem/P1005">矩阵取数游戏&lt;/a>
 &lt;a class="heading-link" href="#a-%e7%9f%a9%e9%98%b5%e5%8f%96%e6%95%b0%e6%b8%b8%e6%88%8fhttpswwwluogucomcnproblemp1005">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -16,7 +273,227 @@ A. &lt;a href="https://www.luogu.com.cn/problem/P1005">矩阵取数游戏&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    给定一个 $n\times m$ 的矩阵，其中每个元素为非负整数。每次你可以从每行的行首或行末取一个元素，得到的分数为当前元素的值 $a_{ij}\times 2^k$ ，$k$ 为当前是第几次取该行上的元素。 问最大得分为多少。&lt;/p></description></item><item><title>dp习题练习</title><link>https://zzsqwq.github.io/posts/24/</link><pubDate>Wed, 12 Feb 2020 00:45:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/24/</guid><description>&lt;h2 id="a-方格取数httpswwwluogucomcnproblemp1004">
+&lt;p>​    给定一个 $n\times m$ 的矩阵，其中每个元素为非负整数。每次你可以从每行的行首或行末取一个元素，得到的分数为当前元素的值 $a_{ij}\times 2^k$ ，$k$ 为当前是第几次取该行上的元素。 问最大得分为多少。&lt;/p>
+&lt;h3 id="思路">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    首先我们发现，虽然答案问的是 $n$ 行，但是我们发现，不同行之间是不会相互影响的，我们只需要讨论一行的情况，然后对每行都处理一遍就可以了。
+​    那么对于一行上的 $m$ 个元素，我们每一次取都有两种选择，一个是取行首，一个是取行尾。我们发现这是一个区间问题，对于区间 $[i,j]$ 的最优情况，我们可以从 $[i+1,j]$ 和 $[i,j-1]$ 这两个的最优情况转移过来，因此我们可以定义 $f[i][j]$ 是从第 $i$ 个元素到第 $j$ 的元素得分的最大值，然后从上述两个状态转移过来。
+​    还有一个问题就是我们的 $2^k$ 问题，我们考虑到大区间的最优值是从小区间转移来，也就是说小区间乘的指数高，大区间乘的指数低，我们又是从小区间推到大区间，转移一次就乘一次，最后肯定是大区间的少，小区间的多了。qwq因为这个题的次数可能很高，会爆long long，实在是不想写高精度，就用了__int128，第一次用，感觉还不错QAQ..&lt;/p>
+&lt;h3 id="代码实现">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">85&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> n,m;
+__int128 map[maxn][maxn];
+__int128 dp[maxn][maxn],ans;
+&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">read&lt;/span>(__int128 &lt;span style="color:#f92672">&amp;amp;&lt;/span>x)
+{
+x&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">char&lt;/span> ch;
+ch&lt;span style="color:#f92672">=&lt;/span>getchar();
+&lt;span style="color:#66d9ef">while&lt;/span>(ch&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#e6db74">&amp;#39;0&amp;#39;&lt;/span>&lt;span style="color:#f92672">||&lt;/span>ch&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#e6db74">&amp;#39;0&amp;#39;&lt;/span>) ch&lt;span style="color:#f92672">=&lt;/span>getchar();
+&lt;span style="color:#66d9ef">while&lt;/span>(ch&lt;span style="color:#f92672">&amp;gt;=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;0&amp;#39;&lt;/span>&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>ch&lt;span style="color:#f92672">&amp;lt;=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;9&amp;#39;&lt;/span>)
+{
+x&lt;span style="color:#f92672">=&lt;/span>x&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>&lt;span style="color:#f92672">+&lt;/span>ch&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#e6db74">&amp;#39;0&amp;#39;&lt;/span>;
+ch&lt;span style="color:#f92672">=&lt;/span>getchar();
+}
+}
+&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">out&lt;/span>(__int128 x)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(x&lt;span style="color:#f92672">&amp;gt;=&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>) out(x&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>);
+putchar(x&lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#e6db74">&amp;#39;0&amp;#39;&lt;/span>);
+}
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n,&lt;span style="color:#f92672">&amp;amp;&lt;/span>m);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;j&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;j&lt;span style="color:#f92672">++&lt;/span>) read(map[i][j]);
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> f&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;f&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;f&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;j&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;j&lt;span style="color:#f92672">++&lt;/span>) dp[f][j]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> len&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;len&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;len&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;j&lt;span style="color:#f92672">+&lt;/span>len&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;j&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">int&lt;/span> k&lt;span style="color:#f92672">=&lt;/span>j&lt;span style="color:#f92672">+&lt;/span>len&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+dp[j][k]&lt;span style="color:#f92672">=&lt;/span>max(dp[j&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][k]&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">+&lt;/span>map[i][j]&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>,dp[j][k&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">+&lt;/span>map[i][k]&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>);
+}
+}
+ans&lt;span style="color:#f92672">+=&lt;/span>dp[&lt;span style="color:#ae81ff">1&lt;/span>][m];
+}
+out(ans);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;h2 id="b-关路灯httpswwwluogucomcnproblemp1220">
+B. &lt;a href="https://www.luogu.com.cn/problem/P1220">关路灯&lt;/a>
+&lt;a class="heading-link" href="#b-%e5%85%b3%e8%b7%af%e7%81%afhttpswwwluogucomcnproblemp1220">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="题意-1">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    在一条街道上有 $n$ 个路灯开着，他们可以看作分布在 $x$ 轴上，每个路灯有一定的坐标，也就是代表他们的位置。每个路灯也有一定的功率 $x$ ，代表一秒钟消耗多少电能。姜大佬初始位置在 $c$ ，他每天早晨出来关掉路灯。它可以先关左边的也可以先关右边的，他的行走速率是 $1m/s$ ，问最少消耗多少电能能关掉所有路灯。&lt;/p>
+&lt;h3 id="思路-1">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    又是一道区间dp的题，那么我们可以思考一下，首先小姜老师肯定不能跳着关路灯，也就是说这个区间内中间的路灯都被关闭了，他会关一个区间的左端点或者右端点，而不会关这个区间外面的。那么我们就可以枚举区间长度来解决这个问题，从小的枚举到大的。
+​    那么我们思考一下如何定义这个状态。我们可以定义关闭区间 $[i,j]$ 的路灯，最少消耗电能为 $f[i][j]$ ，如果需要转移状态的话，我们想到，对于一个方向，小姜老师可以继续往前走，关掉前面那盏灯，也可以返回去，关闭它屁股后面那盏灯。因为是有两个方向的，所以我们可以拓宽一维，用 $f[i][j][0/1]$ 来表示小姜老师现在是在往左走还是往右走，那么很明显 $f[i][j][0]$ 这个状态可以从 $f[i+1][j][0/1]$ 来转移分别对应着小姜老师继续往前走关眼前的，和返回关屁股后的。相应的 $f[i][j][1]$ 就可以从 $f[i][j-1][0/1]$ ，转移的时候再加上消耗的电能即可！&lt;/p>
+&lt;h3 id="代码实现-1">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">55&lt;/span>;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> inf&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">100000000&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> n,c;
+&lt;span style="color:#66d9ef">int&lt;/span> lt[maxn]; &lt;span style="color:#75715e">//lantern pos
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span> en[maxn]; &lt;span style="color:#75715e">//energy
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span> sum[maxn]; &lt;span style="color:#75715e">//prefix sum
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span> dp[maxn][maxn][&lt;span style="color:#ae81ff">2&lt;/span>];
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">calc&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i,&lt;span style="color:#66d9ef">int&lt;/span> j)
+{
+&lt;span style="color:#66d9ef">return&lt;/span> sum[n]&lt;span style="color:#f92672">-&lt;/span>(sum[j]&lt;span style="color:#f92672">-&lt;/span>sum[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]);
+}
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n,&lt;span style="color:#f92672">&amp;amp;&lt;/span>c);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;j&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;j&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;k&lt;span style="color:#f92672">&amp;lt;=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;k&lt;span style="color:#f92672">++&lt;/span>) dp[i][j][k]&lt;span style="color:#f92672">=&lt;/span>inf;
+}
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>lt[i],&lt;span style="color:#f92672">&amp;amp;&lt;/span>en[i]);
+sum[i]&lt;span style="color:#f92672">=&lt;/span>en[i]&lt;span style="color:#f92672">+&lt;/span>sum[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>];
+}
+dp[c][c][&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">=&lt;/span>dp[c][c][&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> len&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;len&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;len&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">+&lt;/span>len&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>i&lt;span style="color:#f92672">+&lt;/span>len&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+dp[i][j][&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">=&lt;/span>min(dp[i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j][&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>(lt[i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">-&lt;/span>lt[i])&lt;span style="color:#f92672">*&lt;/span>calc(i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,j),dp[i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j][&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>(lt[j]&lt;span style="color:#f92672">-&lt;/span>lt[i])&lt;span style="color:#f92672">*&lt;/span>calc(i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,j));
+dp[i][j][&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">=&lt;/span>min(dp[i][j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>(lt[j]&lt;span style="color:#f92672">-&lt;/span>lt[i])&lt;span style="color:#f92672">*&lt;/span>calc(i,j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>),dp[i][j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>(lt[j]&lt;span style="color:#f92672">-&lt;/span>lt[j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>])&lt;span style="color:#f92672">*&lt;/span>calc(i,j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>));
+}
+}
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,min(dp[&lt;span style="color:#ae81ff">1&lt;/span>][n][&lt;span style="color:#ae81ff">0&lt;/span>],dp[&lt;span style="color:#ae81ff">1&lt;/span>][n][&lt;span style="color:#ae81ff">1&lt;/span>]));
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;h2 id="c-小a和uim之大逃离httpswwwluogucomcnproblemp1373">
+C. &lt;a href="https://www.luogu.com.cn/problem/P1373">小a和uim之大逃离&lt;/a>
+&lt;a class="heading-link" href="#c-%e5%b0%8fa%e5%92%8cuim%e4%b9%8b%e5%a4%a7%e9%80%83%e7%a6%bbhttpswwwluogucomcnproblemp1373">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="题意-2">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    给定一个 $n\times m$ 的矩阵，每个格子中有 $0\sim k$ 滴魔液，小姜老师和它朋友可以从任意地点开始，一起向右或者向下走，他们每个人有一个容量为 $k$ 的瓶子，由小姜老师开始轮流收集地上的魔液，当收集魔液大于 $k$ 的时候，会对 $k+1$ 取模，问他们有多少种方法使得收集的魔液数量相同。&lt;/p>
+&lt;h3 id="思路-2">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    很显然我们可以写一个5维dp，用 $f[i][j][p][l][0/1]$ 来表示，当到了坐标为 $(i,j)$ 的格子的时候，小姜老师拥有魔液 $p$ 滴，他的朋友拥有魔液 $l$ 滴，并且这一次是由小姜老师采集的/由他的朋友采集的。这样的话，感觉比较好些，但是。。空间占用非常的高，我们优化一下，因为问的是收集相等，所以只需要维护他们的差就可以了，也就是说，只需要将 $(p-l+k)\%k$ 维护一下就可以了，因此循环枚举坐标以及他们的差，从低的向高的转移就可以了。&lt;/p>
+&lt;h3 id="代码实现-2">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">805&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> map[maxn][maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> dp[maxn][maxn][&lt;span style="color:#ae81ff">16&lt;/span>][&lt;span style="color:#ae81ff">2&lt;/span>];
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> mod&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1e9&lt;/span>&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">7&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> n,m,k;
+&lt;span style="color:#66d9ef">long&lt;/span> &lt;span style="color:#66d9ef">long&lt;/span> ans;
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+&lt;span style="color:#75715e">// freopen(&amp;#34;test.in&amp;#34;,&amp;#34;r&amp;#34;,stdin);
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n,&lt;span style="color:#f92672">&amp;amp;&lt;/span>m,&lt;span style="color:#f92672">&amp;amp;&lt;/span>k);
+k&lt;span style="color:#f92672">++&lt;/span>;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;j&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;j&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>map[i][j]);
+dp[i][j][map[i][j]&lt;span style="color:#f92672">%&lt;/span>k][&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+}
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;j&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;j&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> t&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;t&lt;span style="color:#f92672">&amp;lt;=&lt;/span>k;t&lt;span style="color:#f92672">++&lt;/span>)
+{
+dp[i][j][t&lt;span style="color:#f92672">%&lt;/span>k][&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">+=&lt;/span>dp[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j][(t&lt;span style="color:#f92672">-&lt;/span>map[i][j]&lt;span style="color:#f92672">+&lt;/span>k)&lt;span style="color:#f92672">%&lt;/span>k][&lt;span style="color:#ae81ff">1&lt;/span>];dp[i][j][t&lt;span style="color:#f92672">%&lt;/span>k][&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">%=&lt;/span>mod;
+dp[i][j][t&lt;span style="color:#f92672">%&lt;/span>k][&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">+=&lt;/span>dp[i][j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][(t&lt;span style="color:#f92672">-&lt;/span>map[i][j]&lt;span style="color:#f92672">+&lt;/span>k)&lt;span style="color:#f92672">%&lt;/span>k][&lt;span style="color:#ae81ff">1&lt;/span>];dp[i][j][t&lt;span style="color:#f92672">%&lt;/span>k][&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">%=&lt;/span>mod;
+dp[i][j][t&lt;span style="color:#f92672">%&lt;/span>k][&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+=&lt;/span>dp[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j][(t&lt;span style="color:#f92672">+&lt;/span>map[i][j])&lt;span style="color:#f92672">%&lt;/span>k][&lt;span style="color:#ae81ff">0&lt;/span>];dp[i][j][t&lt;span style="color:#f92672">%&lt;/span>k][&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">%=&lt;/span>mod;
+dp[i][j][t&lt;span style="color:#f92672">%&lt;/span>k][&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+=&lt;/span>dp[i][j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][(t&lt;span style="color:#f92672">+&lt;/span>map[i][j])&lt;span style="color:#f92672">%&lt;/span>k][&lt;span style="color:#ae81ff">0&lt;/span>];dp[i][j][t&lt;span style="color:#f92672">%&lt;/span>k][&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">%=&lt;/span>mod;
+}
+}
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;j&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;j&lt;span style="color:#f92672">++&lt;/span>)
+{
+ans&lt;span style="color:#f92672">+=&lt;/span>dp[i][j][&lt;span style="color:#ae81ff">0&lt;/span>][&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">%&lt;/span>mod;
+ans&lt;span style="color:#f92672">%=&lt;/span>mod;
+}
+}
+printf(&lt;span style="color:#e6db74">&amp;#34;%lld&amp;#34;&lt;/span>,ans);
+}
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>dp习题练习</title><link>https://zzsqwq.github.io/posts/24/</link><pubDate>Wed, 12 Feb 2020 00:45:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/24/</guid><description>&lt;h2 id="a-方格取数httpswwwluogucomcnproblemp1004">
 A. &lt;a href="https://www.luogu.com.cn/problem/P1004">方格取数&lt;/a>
 &lt;a class="heading-link" href="#a-%e6%96%b9%e6%a0%bc%e5%8f%96%e6%95%b0httpswwwluogucomcnproblemp1004">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -28,7 +505,304 @@ A. &lt;a href="https://www.luogu.com.cn/problem/P1004">方格取数&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    有一个 $N*N$ 的整数方阵，每个点初始值为0，在一些点上放上数，一个人从左上角走到右下角，规定只能向下或向右走，当他经过的点上有数时会取走它，问走两遍最多能取的数的和最大为多少。&lt;/p></description></item><item><title>背包进阶</title><link>https://zzsqwq.github.io/posts/21/</link><pubDate>Sun, 09 Feb 2020 00:38:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/21/</guid><description>&lt;h3 id="1-分组背包httpswwwluogucomcnproblemp1757">
+&lt;p>​    有一个 $N*N$ 的整数方阵，每个点初始值为0，在一些点上放上数，一个人从左上角走到右下角，规定只能向下或向右走，当他经过的点上有数时会取走它，问走两遍最多能取的数的和最大为多少。&lt;/p>
+&lt;h3 id="思路">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    也就是说我们要找两条路径使他取数最大，首先我一开始想法是先走一遍，找到最大的那个路径，将这条路径上所有点设为0，然后再回来找这个方阵中最大的那个路径，两个加起来就行。但是路径上所有的点设为0这个地方不是很好实现，因此我们可以考虑另一个思路，两次同时走。我们把这两次看成两个人走的，表述方便。
+​    我们用 $dp[i][j][k][l]$ 来表示当第一个人走到 $(i,j)$ 第二个人走到 $(k,l)$ 时做能取数最多为多少 ，那么我们就可以考虑一下转移怎么转移，因为到达一个点只能是从左边来，或者是从上边来，因此第一个人从 $(i-1,j)$ 或者 $(i,j-1)$ 转移来，那么第二个人就从 $(k-1,l)$ 或者 $(k,l-1)$ 转移来，那么这个转移方程就是四种转移方式。我们需要保证一个问题，就是他俩经过同一个点的判定情况。我们需要将第二个人的坐标通过第一个人来限制，也就是说要确保第二个人和第一个人步数是相同的，当他们步数相同的时候，那么就不存在他们经过同一个点但是时间却是不同的情况了，因为到达一个点的步数是一定的。
+​    再就是这个状态数组其实还是可以压缩到三维和二维的，这个就先不谈了，可以看洛谷的题解区。
+​    这个题是一个经典的多维dp的题目，感觉还是挺有意义的。而且这个题和 &lt;a href="https://www.luogu.com.cn/problem/P1006">传纸条&lt;/a> 很像，可以双倍经验。&lt;/p>
+&lt;h3 id="代码实现">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">15&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> map[maxn][maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> n,x,y,z;
+&lt;span style="color:#66d9ef">int&lt;/span> m;
+&lt;span style="color:#66d9ef">int&lt;/span> dp[maxn][maxn][maxn][maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n);
+&lt;span style="color:#66d9ef">while&lt;/span>(&lt;span style="color:#ae81ff">1&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>x,&lt;span style="color:#f92672">&amp;amp;&lt;/span>y,&lt;span style="color:#f92672">&amp;amp;&lt;/span>z);
+&lt;span style="color:#66d9ef">if&lt;/span>(x&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>y&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>z&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>) &lt;span style="color:#66d9ef">break&lt;/span>;
+map[x][y]&lt;span style="color:#f92672">=&lt;/span>z;
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;j&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;j&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;k&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;k&lt;span style="color:#f92672">++&lt;/span>)
+{
+m&lt;span style="color:#f92672">=&lt;/span>i&lt;span style="color:#f92672">+&lt;/span>j&lt;span style="color:#f92672">-&lt;/span>k;
+&lt;span style="color:#66d9ef">if&lt;/span>(m&lt;span style="color:#f92672">&amp;lt;=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>) &lt;span style="color:#66d9ef">continue&lt;/span>;
+&lt;span style="color:#66d9ef">if&lt;/span>(i&lt;span style="color:#f92672">==&lt;/span>k&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>j&lt;span style="color:#f92672">==&lt;/span>m) dp[i][j][k][m]&lt;span style="color:#f92672">=&lt;/span>max(max(dp[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j][k&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][m],dp[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j][k][m&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]),max(dp[i][j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][k&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][m],dp[i][j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][k][m&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]))&lt;span style="color:#f92672">+&lt;/span>map[i][j];
+&lt;span style="color:#66d9ef">else&lt;/span> dp[i][j][k][m]&lt;span style="color:#f92672">=&lt;/span>max(max(dp[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j][k&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][m],dp[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j][k][m&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]),max(dp[i][j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][k&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][m],dp[i][j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][k][m&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]))&lt;span style="color:#f92672">+&lt;/span>map[i][j]&lt;span style="color:#f92672">+&lt;/span>map[k][m];
+}
+}
+}
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,dp[n][n][n][n]);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;h2 id="b-创意吃鱼法httpswwwluogucomcnproblemp1736">
+B. &lt;a href="https://www.luogu.com.cn/problem/P1736">创意吃鱼法&lt;/a>
+&lt;a class="heading-link" href="#b-%e5%88%9b%e6%84%8f%e5%90%83%e9%b1%bc%e6%b3%95httpswwwluogucomcnproblemp1736">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="题意-1">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    给出一个 $N*M$ 的只包含0和1的数阵，求只有对角线为1，其余位置为0的子方阵的最大边长。&lt;/p>
+&lt;h3 id="思路-1">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    这个题我们需要考虑两个方向，这个对角线既可以是斜向左上，也可以是斜向右上的。我们先考虑前者，后者同理即可。我们可以用两个数组 $col[i][j]$ 和 $row[i][j]$ 分别来表示，包含 $(i,j)$ 这个点往上一列有多少个0，以及包含这个点往左一行有多少个0，（这个在程序里好像我写反了，但是没啥区别说实话）。然后我们用 $f[i][j]$ 来表示，从这个点左上走满足条件的方阵的最大边长。那么很显然这个值和上方的0，左方的0，以及左上的状态有关，这个点是1的话，转移方程就是 $f[i][j]=min(f[i-1][j-1],min(col[i-1][j],row[i][j-1]))+1$ 。如果是0的话我们就更新 $col$ 和 $row$ 数组的值。然后求完斜向左上的再求一遍斜向右上的，取一个最大值即可。&lt;/p>
+&lt;h3 id="代码实现-1">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2505&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> n,m;
+&lt;span style="color:#66d9ef">int&lt;/span> map[maxn][maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> col[maxn][maxn],row[maxn][maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> dp[maxn][maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> ans;
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+&lt;span style="color:#75715e">// freopen(&amp;#34;test.in&amp;#34;,&amp;#34;r&amp;#34;,stdin);
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n,&lt;span style="color:#f92672">&amp;amp;&lt;/span>m);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;j&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;j&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>map[i][j]);
+&lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#f92672">!&lt;/span>map[i][j])
+{
+row[i][j]&lt;span style="color:#f92672">=&lt;/span>row[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j]&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+col[i][j]&lt;span style="color:#f92672">=&lt;/span>col[i][j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+}
+&lt;span style="color:#66d9ef">else&lt;/span>
+{
+dp[i][j]&lt;span style="color:#f92672">=&lt;/span>min(dp[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>],min(row[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j],col[i][j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]))&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+ans&lt;span style="color:#f92672">=&lt;/span>max(dp[i][j],ans);
+}
+}
+}
+memset(row,&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#66d9ef">sizeof&lt;/span>(row));
+memset(col,&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#66d9ef">sizeof&lt;/span>(col));
+memset(dp,&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#66d9ef">sizeof&lt;/span>(dp));
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>m;j&lt;span style="color:#f92672">&amp;gt;=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;j&lt;span style="color:#f92672">--&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#f92672">!&lt;/span>map[i][j])
+{
+row[i][j]&lt;span style="color:#f92672">=&lt;/span>row[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j]&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+col[i][j]&lt;span style="color:#f92672">=&lt;/span>col[i][j&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+}
+&lt;span style="color:#66d9ef">else&lt;/span>
+{
+dp[i][j]&lt;span style="color:#f92672">=&lt;/span>min(dp[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>],min(row[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j],col[i][j&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]))&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+ans&lt;span style="color:#f92672">=&lt;/span>max(ans,dp[i][j]);
+}
+}
+}
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,ans);
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;h2 id="c-乌龟棋httpswwwluogucomcnproblemp1541">
+C. &lt;a href="https://www.luogu.com.cn/problem/P1541">乌龟棋&lt;/a>
+&lt;a class="heading-link" href="#c-%e4%b9%8c%e9%be%9f%e6%a3%8bhttpswwwluogucomcnproblemp1541">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="题意-2">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    给出标号分别为1，2，3，4的四种卡片若干张，分别可以移动1，2，3，4步，玩家初始处于坐标为1的位置。玩家出一张牌，可移动相应的步数。移动到不同的坐标会加不同的分数，很明显不同的出牌顺序会对应着不同的分数，求玩家能获得的最大分数为多少。&lt;/p>
+&lt;h3 id="思路-2">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    很显然我们可以通过已经出的牌计算出现在已经到达到哪个位置。我们可以用一个四重循环，来循环每张牌用的数量，很明显我们到达一个目标位置所用的最后一张牌可以是1，2，3，4的任何一个，因此我们可以从这个四个状态转移过来，找其中最大那个就可以了，注意要判断一下要转移过来的状态是否合法。&lt;/p>
+&lt;h3 id="代码实现-2">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">355&lt;/span>;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxm&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">125&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> n,m,pos;
+&lt;span style="color:#66d9ef">int&lt;/span> w[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> x,num[&lt;span style="color:#ae81ff">5&lt;/span>];
+&lt;span style="color:#66d9ef">int&lt;/span> dp[&lt;span style="color:#ae81ff">42&lt;/span>][&lt;span style="color:#ae81ff">42&lt;/span>][&lt;span style="color:#ae81ff">42&lt;/span>][&lt;span style="color:#ae81ff">42&lt;/span>];
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n,&lt;span style="color:#f92672">&amp;amp;&lt;/span>m);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>) scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>w[i]);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>x);
+num[x]&lt;span style="color:#f92672">++&lt;/span>;
+}
+memset(dp,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#66d9ef">sizeof&lt;/span>(dp));
+dp[&lt;span style="color:#ae81ff">0&lt;/span>][&lt;span style="color:#ae81ff">0&lt;/span>][&lt;span style="color:#ae81ff">0&lt;/span>][&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">=&lt;/span>w[&lt;span style="color:#ae81ff">1&lt;/span>];
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> a&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;a&lt;span style="color:#f92672">&amp;lt;=&lt;/span>num[&lt;span style="color:#ae81ff">1&lt;/span>];a&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> b&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;b&lt;span style="color:#f92672">&amp;lt;=&lt;/span>num[&lt;span style="color:#ae81ff">2&lt;/span>];b&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> c&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;c&lt;span style="color:#f92672">&amp;lt;=&lt;/span>num[&lt;span style="color:#ae81ff">3&lt;/span>];c&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> d&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;d&lt;span style="color:#f92672">&amp;lt;=&lt;/span>num[&lt;span style="color:#ae81ff">4&lt;/span>];d&lt;span style="color:#f92672">++&lt;/span>)
+{
+pos&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">+&lt;/span>a&lt;span style="color:#f92672">+&lt;/span>(b&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>)&lt;span style="color:#f92672">+&lt;/span>c&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>&lt;span style="color:#f92672">+&lt;/span>(d&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>);
+&lt;span style="color:#66d9ef">if&lt;/span>(a&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>dp[a&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][b][c][d]&lt;span style="color:#f92672">!=-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>)
+{
+dp[a][b][c][d]&lt;span style="color:#f92672">=&lt;/span>max(dp[a][b][c][d],dp[a&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][b][c][d]&lt;span style="color:#f92672">+&lt;/span>w[pos]);
+}
+&lt;span style="color:#66d9ef">if&lt;/span>(b&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>dp[a][b&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][c][d]&lt;span style="color:#f92672">!=-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>)
+{
+dp[a][b][c][d]&lt;span style="color:#f92672">=&lt;/span>max(dp[a][b][c][d],dp[a][b&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][c][d]&lt;span style="color:#f92672">+&lt;/span>w[pos]);
+}
+&lt;span style="color:#66d9ef">if&lt;/span>(c&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>dp[a][b][c&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][d]&lt;span style="color:#f92672">!=-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>)
+{
+dp[a][b][c][d]&lt;span style="color:#f92672">=&lt;/span>max(dp[a][b][c][d],dp[a][b][c&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][d]&lt;span style="color:#f92672">+&lt;/span>w[pos]);
+}
+&lt;span style="color:#66d9ef">if&lt;/span>(d&lt;span style="color:#f92672">&amp;gt;&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>dp[a][b][c][d&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">!=-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>)
+{
+dp[a][b][c][d]&lt;span style="color:#f92672">=&lt;/span>max(dp[a][b][c][d],dp[a][b][c][d&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>w[pos]);
+}
+}
+}
+}
+}
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,dp[num[&lt;span style="color:#ae81ff">1&lt;/span>]][num[&lt;span style="color:#ae81ff">2&lt;/span>]][num[&lt;span style="color:#ae81ff">3&lt;/span>]][num[&lt;span style="color:#ae81ff">4&lt;/span>]]);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;h2 id="d-能量项链httpswwwluogucomcnproblemp1063">
+D. &lt;a href="https://www.luogu.com.cn/problem/P1063">能量项链&lt;/a>
+&lt;a class="heading-link" href="#d-%e8%83%bd%e9%87%8f%e9%a1%b9%e9%93%behttpswwwluogucomcnproblemp1063">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="题意-3">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f-3">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    给出一段含有 $n$ 个珠子的环状项链，对于相邻的两个珠子，前一颗珠子的尾标记等于后方珠子的头标记。
+​    例如项链为 $[2,4,6,8]$ ， 那么用加入标记表示就是 $[(2,4),(4,6),(6,8),(8,2)]$ 。当两个珠子两两合并的时候会产生的能量大小为 前方珠子头标记 $\times$ 前方珠子尾标记 $\times$ 后方珠子尾标记。显然合并的顺序不同最终会产生不同的能量值，问能产生的最大能量值为多少。&lt;/p>
+&lt;h3 id="思路-3">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-3">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    这道题和合并石子很像，也是一个区间dp的例题，我们也是通过枚举区间长度，然后枚举区间断点来分割区间。这个题也是一个环状，我们也是断环为链，不过处理释放的能量值的问题，我是用了一个结构体，来表示每一颗珠子的标记，通过这个来计算释放能量。不过记得处理子区间也要从处理到 $1\sim 2n$， 这个地方卡了我巨长时间，因为你后面要用到这个状态，如果不计算子区间无法转移到后面。&lt;/p>
+&lt;h3 id="代码实现-3">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-3">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">typedef&lt;/span> &lt;span style="color:#66d9ef">long&lt;/span> &lt;span style="color:#66d9ef">long&lt;/span> ll;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">105&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> n;
+ll dp[maxn&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][maxn&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>];
+&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">node&lt;/span>
+{
+ll w;
+ll nxt;
+}a[maxn&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>];
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+&lt;span style="color:#75715e">// freopen(&amp;#34;test.in&amp;#34;,&amp;#34;r&amp;#34;,stdin);
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%lld&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>a[i].w);
+a[i&lt;span style="color:#f92672">+&lt;/span>n].w&lt;span style="color:#f92672">=&lt;/span>a[i].w;
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+a[i].nxt&lt;span style="color:#f92672">=&lt;/span>a[i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>].w;
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>) dp[i][i]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> p&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;p&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;p&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>n&lt;span style="color:#f92672">-&lt;/span>p&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">++&lt;/span>) &lt;span style="color:#75715e">//重要(卡我巨长时间)
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> {
+&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>i&lt;span style="color:#f92672">+&lt;/span>p&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k&lt;span style="color:#f92672">=&lt;/span>i;k&lt;span style="color:#f92672">&amp;lt;&lt;/span>j;k&lt;span style="color:#f92672">++&lt;/span>)
+{
+dp[i][j]&lt;span style="color:#f92672">=&lt;/span>max(dp[i][j],dp[i][k]&lt;span style="color:#f92672">+&lt;/span>dp[k&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j]&lt;span style="color:#f92672">+&lt;/span>a[i].w&lt;span style="color:#f92672">*&lt;/span>a[k].nxt&lt;span style="color:#f92672">*&lt;/span>a[j].nxt);
+}
+}
+}
+&lt;span style="color:#75715e">// for(int i=1;i&amp;lt;=n;i++)
+&lt;/span>&lt;span style="color:#75715e">// {
+&lt;/span>&lt;span style="color:#75715e">// printf(&amp;#34;%d &amp;#34;,dp[i][i+1]);
+&lt;/span>&lt;span style="color:#75715e">// }
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> ll ans&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>) ans&lt;span style="color:#f92672">=&lt;/span>max(ans,dp[i][i&lt;span style="color:#f92672">+&lt;/span>n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]);
+printf(&lt;span style="color:#e6db74">&amp;#34;%lld&amp;#34;&lt;/span>,ans);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>背包进阶</title><link>https://zzsqwq.github.io/posts/21/</link><pubDate>Sun, 09 Feb 2020 00:38:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/21/</guid><description>&lt;h3 id="1-分组背包httpswwwluogucomcnproblemp1757">
 1. &lt;a href="https://www.luogu.com.cn/problem/P1757">分组背包&lt;/a>
 &lt;a class="heading-link" href="#1-%e5%88%86%e7%bb%84%e8%83%8c%e5%8c%85httpswwwluogucomcnproblemp1757">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -41,7 +815,267 @@ A. &lt;a href="https://www.luogu.com.cn/problem/P1004">方格取数&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​       在01背包基础上，将其中的物体分成 $k$ 组，每组内的物品相互冲突，即只能取其中一个，问最大价值。&lt;/p></description></item><item><title>一些关于背包的题</title><link>https://zzsqwq.github.io/posts/20/</link><pubDate>Sat, 08 Feb 2020 00:33:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/20/</guid><description>&lt;h3 id="前言">
+&lt;p>​       在01背包基础上，将其中的物体分成 $k$ 组，每组内的物品相互冲突，即只能取其中一个，问最大价值。&lt;/p>
+&lt;hr>
+&lt;h4 id="思路">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       同一组中各个物品是相互排斥的，那么我们对于处理可以外层循环组别，然后循环体积，最后循环组内的物品，然后套用01背包的转移方程 $dp[i]=max(dp[i],dp[i-v[k]]+w[k])$ 即可。我们来思考一下他的正确性，为什么只要这样循环就能确保每个组最多只取用一种呢？很明显组内的我们对于同一个体积 $V$ ，求体积 $V$ 对应的最大价值的时候，是从这个组内所有物品中取了能获得最大价值的策略，很明显当我们转移任何一个 $dp[i-v[k]]$ 的状态的时候，他们其中都不包含第 $i$ 组的物品，都是只包含了前 $i-1$ 组的物品，因为我们最终取得最大价值的路径是确定的，因此通过这个方式我们就可以确保每个组内只取一种，但是如果体积和组内物品的循环调换过来，就不行了，因为之前的状态就会包含当前组内的其他物品。&lt;/p>
+&lt;hr>
+&lt;h4 id="代码实现">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn &lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1005&lt;/span>;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxt &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">105&lt;/span>;
+&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">item&lt;/span>
+{
+&lt;span style="color:#66d9ef">int&lt;/span> a,b;
+}p[maxt][maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> cnt[maxt];
+&lt;span style="color:#66d9ef">int&lt;/span> n,m;
+&lt;span style="color:#66d9ef">int&lt;/span> dp[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> q,w,e,maxe;
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>m,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>q,&lt;span style="color:#f92672">&amp;amp;&lt;/span>w,&lt;span style="color:#f92672">&amp;amp;&lt;/span>e);
+cnt[e]&lt;span style="color:#f92672">++&lt;/span>;
+p[e][cnt[e]].a&lt;span style="color:#f92672">=&lt;/span>q;
+p[e][cnt[e]].b&lt;span style="color:#f92672">=&lt;/span>w;
+maxe&lt;span style="color:#f92672">=&lt;/span>max(maxe,e);
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>maxe;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>m;j&lt;span style="color:#f92672">&amp;gt;=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;j&lt;span style="color:#f92672">--&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;k&lt;span style="color:#f92672">&amp;lt;=&lt;/span>cnt[i];k&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(j&lt;span style="color:#f92672">&amp;gt;=&lt;/span>p[i][k].a)
+dp[j]&lt;span style="color:#f92672">=&lt;/span>max(dp[j],dp[j&lt;span style="color:#f92672">-&lt;/span>p[i][k].a]&lt;span style="color:#f92672">+&lt;/span>p[i][k].b);
+}
+}
+}
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,dp[m]);
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h3 id="2-有依赖的背包httpswwwluogucomcnproblemu65320">
+2. &lt;a href="https://www.luogu.com.cn/problem/U65320">有依赖的背包&lt;/a>
+&lt;a class="heading-link" href="#2-%e6%9c%89%e4%be%9d%e8%b5%96%e7%9a%84%e8%83%8c%e5%8c%85httpswwwluogucomcnproblemu65320">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;hr>
+&lt;h4 id="题意-1">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       在01背包的基础上给物品加上依赖，某个物品可能为附件，必须买了主件之后才能买。规定一个物品最多有两个附件，并且附件不会再有附件，也不存在循环依赖（附件再依赖于主件）。问能获得的最大价值为多少。&lt;/p>
+&lt;hr>
+&lt;h4 id="思路-1">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       这道题有三种思路，难度依次递增。&lt;/p>
+&lt;ul>
+&lt;li>这道题的附件很少，可能为0，1，2。那么我们就在01背包的基础上，分五种情况来转移，分别是都不买，只买一个主件，只买主件和附件1，只买主件和附件2，买主件和两个附件。然后在这个基础上取一个最大的即可。但是这个思路对于附件可以很多的情况，就会特别麻烦。&lt;/li>
+&lt;li>第二种思路是转化成分组背包，我们注意到对于每一个主件和附件的搭配都是唯一的，也就是每种方案都是互斥的。好比最多那五种情况，我们就可以分成一组。然后进行分组背包即可。那么我们分组的时候，可以考虑到一个优化，也就是如果他们的体积相同，我们只需要选价值大的那个就可以啦。所以我们先对主件和附件这个集合，进行01背包，然后背出来相同体积下最大价值的方案，分到对应组里。这个思路对于附件也有附件的情况，就不好写了，不能直接01背包。&lt;/li>
+&lt;li>第三种思路可以应对附件也有附件的情况，可以用森林来表示所有物品之间的关系，然后树上dp做。然而，我不会。QAQ&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="代码实现-1">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">32005&lt;/span>;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxm&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">65&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> n,m;
+&lt;span style="color:#66d9ef">int&lt;/span> num[maxm];
+&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">Item&lt;/span>
+{
+&lt;span style="color:#66d9ef">int&lt;/span> v,p,q;
+}item[maxm],minor[maxm][maxm];
+&lt;span style="color:#66d9ef">int&lt;/span> dp[maxn],cnt[maxm];
+&lt;span style="color:#66d9ef">int&lt;/span> vi[maxm][maxm],pi[maxm][maxm];
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n,&lt;span style="color:#f92672">&amp;amp;&lt;/span>m);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>item[i].v,&lt;span style="color:#f92672">&amp;amp;&lt;/span>item[i].p,&lt;span style="color:#f92672">&amp;amp;&lt;/span>item[i].q);
+&lt;span style="color:#66d9ef">if&lt;/span>(item[i].q)
+{
+num[item[i].q]&lt;span style="color:#f92672">++&lt;/span>;
+minor[item[i].q][num[item[i].q]].v&lt;span style="color:#f92672">=&lt;/span>item[i].v;
+minor[item[i].q][num[item[i].q]].p&lt;span style="color:#f92672">=&lt;/span>item[i].v&lt;span style="color:#f92672">*&lt;/span>item[i].p;
+}
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(num[i])
+{
+memset(dp,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#66d9ef">sizeof&lt;/span>(dp));
+dp[&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;j&lt;span style="color:#f92672">&amp;lt;=&lt;/span>num[i];j&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k&lt;span style="color:#f92672">=&lt;/span>n&lt;span style="color:#f92672">-&lt;/span>item[i].v;k&lt;span style="color:#f92672">&amp;gt;=&lt;/span>minor[i][j].v;k&lt;span style="color:#f92672">--&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(dp[k&lt;span style="color:#f92672">-&lt;/span>minor[i][j].v]&lt;span style="color:#f92672">!=-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>)
+{
+dp[k]&lt;span style="color:#f92672">=&lt;/span>max(dp[k],dp[k&lt;span style="color:#f92672">-&lt;/span>minor[i][j].v]&lt;span style="color:#f92672">+&lt;/span>minor[i][j].p);
+}
+}
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;k&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n&lt;span style="color:#f92672">-&lt;/span>item[i].v;k&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(dp[k]&lt;span style="color:#f92672">!=-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>)
+{
+cnt[i]&lt;span style="color:#f92672">++&lt;/span>;
+vi[i][cnt[i]]&lt;span style="color:#f92672">=&lt;/span>k&lt;span style="color:#f92672">+&lt;/span>item[i].v;
+pi[i][cnt[i]]&lt;span style="color:#f92672">=&lt;/span>dp[k]&lt;span style="color:#f92672">+&lt;/span>item[i].v&lt;span style="color:#f92672">*&lt;/span>item[i].p;
+}
+}
+}
+&lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#f92672">!&lt;/span>item[i].q)
+{
+cnt[i]&lt;span style="color:#f92672">++&lt;/span>;
+vi[i][cnt[i]]&lt;span style="color:#f92672">=&lt;/span>item[i].v;
+pi[i][cnt[i]]&lt;span style="color:#f92672">=&lt;/span>item[i].v&lt;span style="color:#f92672">*&lt;/span>item[i].p;
+}
+}
+memset(dp,&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#66d9ef">sizeof&lt;/span>(dp));
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#f92672">!&lt;/span>cnt[i]) &lt;span style="color:#66d9ef">continue&lt;/span>;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>n;j&lt;span style="color:#f92672">&amp;gt;=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;j&lt;span style="color:#f92672">--&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;k&lt;span style="color:#f92672">&amp;lt;=&lt;/span>cnt[i];k&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(j&lt;span style="color:#f92672">&amp;gt;=&lt;/span>vi[i][k])
+{
+dp[j]&lt;span style="color:#f92672">=&lt;/span>max(dp[j],dp[j&lt;span style="color:#f92672">-&lt;/span>vi[i][k]]&lt;span style="color:#f92672">+&lt;/span>pi[i][k]);
+}
+}
+}
+}
+&lt;span style="color:#75715e">// int ans;
+&lt;/span>&lt;span style="color:#75715e">// for(int i=1;i&amp;lt;=n;i++) ans=max(ans,dp[i]);
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,dp[n]);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h3 id="3-多米诺骨牌隐式背包httpswwwluogucomcnproblemp1282">
+3. &lt;a href="https://www.luogu.com.cn/problem/P1282">多米诺骨牌(隐式背包)&lt;/a>
+&lt;a class="heading-link" href="#3-%e5%a4%9a%e7%b1%b3%e8%af%ba%e9%aa%a8%e7%89%8c%e9%9a%90%e5%bc%8f%e8%83%8c%e5%8c%85httpswwwluogucomcnproblemp1282">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;hr>
+&lt;h4 id="题意-2">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       多米诺骨牌有上下两个部分，分别具有一定点数。所有多米诺骨牌上部分点数之和与下部分点数之和差的绝对值为 $x$ ，多米诺骨牌可以进行上下翻转，问当 $x$ 最小的时候最少翻转几次。&lt;/p>
+&lt;hr>
+&lt;h4 id="思路-2">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       害，本来好像没有隐式背包这个说法，我自己瞎起的名字。。其实就是没那么裸的背包，实际上转化一下还是道背包的题。这道题本来其实看起来和背包没有什么关系，但是实际想一想，假如我们把所有多米诺骨牌一开始都调成上面大下面小的情况，然后调整过的把他的消耗值设为-1，没有调整过的把消耗值设为1。达成上大下小目的需要消耗的次数为n。调整后的上下点数差为V。我们每次调整之后 $V$ 会减少牌的上下点数之差，这就是我们需要的体积。然后一开始把 $dp[V]$ 设为n。然后转移方程为 $dp[i]=min(dp[i],dp[i+v[i]]+w[i]) $ 最后只需要求从 $0\sim V$ 最小的那个点数差对应的翻转次数值就可以了。&lt;/p>
+&lt;hr>
+&lt;h4 id="代码实现-2">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1005&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> ini;
+&lt;span style="color:#66d9ef">int&lt;/span> n;
+&lt;span style="color:#66d9ef">int&lt;/span> up[maxn],down[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> v[maxn],w[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> dp[&lt;span style="color:#ae81ff">10005&lt;/span>];
+&lt;span style="color:#66d9ef">int&lt;/span> V;
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>up[i],&lt;span style="color:#f92672">&amp;amp;&lt;/span>down[i]);
+&lt;span style="color:#66d9ef">if&lt;/span>(up[i]&lt;span style="color:#f92672">&amp;gt;=&lt;/span>down[i])
+{
+V&lt;span style="color:#f92672">+=&lt;/span>up[i]&lt;span style="color:#f92672">-&lt;/span>down[i];
+v[i]&lt;span style="color:#f92672">=&lt;/span>(up[i]&lt;span style="color:#f92672">-&lt;/span>down[i])&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;
+w[i]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+}
+&lt;span style="color:#66d9ef">else&lt;/span>
+{
+V&lt;span style="color:#f92672">+=&lt;/span>down[i]&lt;span style="color:#f92672">-&lt;/span>up[i];
+ini&lt;span style="color:#f92672">++&lt;/span>;
+v[i]&lt;span style="color:#f92672">=&lt;/span>(down[i]&lt;span style="color:#f92672">-&lt;/span>up[i])&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;
+w[i]&lt;span style="color:#f92672">=-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+}
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>V;i&lt;span style="color:#f92672">++&lt;/span>) dp[i]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">233333&lt;/span>;
+&lt;span style="color:#75715e">// dp[V]=ini;
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> dp[V]&lt;span style="color:#f92672">=&lt;/span>ini;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;j&lt;span style="color:#f92672">&amp;lt;=&lt;/span>V&lt;span style="color:#f92672">-&lt;/span>v[i];j&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(dp[j&lt;span style="color:#f92672">+&lt;/span>v[i]]&lt;span style="color:#f92672">!=&lt;/span>&lt;span style="color:#ae81ff">233333&lt;/span>)
+dp[j]&lt;span style="color:#f92672">=&lt;/span>min(dp[j],dp[j&lt;span style="color:#f92672">+&lt;/span>v[i]]&lt;span style="color:#f92672">+&lt;/span>w[i]);
+}
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>V;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(dp[i]&lt;span style="color:#f92672">!=&lt;/span>&lt;span style="color:#ae81ff">233333&lt;/span>)
+{
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,dp[i]);
+&lt;span style="color:#66d9ef">break&lt;/span>;
+}
+}
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>一些关于背包的题</title><link>https://zzsqwq.github.io/posts/20/</link><pubDate>Sat, 08 Feb 2020 00:33:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/20/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -62,7 +1096,181 @@ A. &lt;a href="https://www.luogu.com.cn/problem/P1004">方格取数&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​       有 $n$ 个价值为 $w_i$ ，体积为 $v_i$ 的物品，装入体积为 $V$ 的背包中，问能获得的最大为多少。&lt;/p></description></item><item><title>基础线性dp例题 #2</title><link>https://zzsqwq.github.io/posts/19/</link><pubDate>Fri, 07 Feb 2020 00:22:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/19/</guid><description>&lt;h3 id="1-石子归并httpswww51nodcomchallengeproblemhtmlproblemid1021">
+&lt;p>​       有 $n$ 个价值为 $w_i$ ，体积为 $v_i$ 的物品，装入体积为 $V$ 的背包中，问能获得的最大为多少。&lt;/p>
+&lt;hr>
+&lt;h4 id="思路">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       首先我们可以用 $f[i][j]$ 来定义前 $i$ 个物品放入体积为 $j$ 的背包中能获得最大体积，对于每一个物品，我们可以分两种情况来讨论，分别是装和不装，然后取他们两个的最大值。已经正确的定义了状态，转移方程就不难写出来了，是 $f[i][j]=max(f[i-1][j],f[i-1][j-v[i]]+w[i])$ ，然后推的话就直接外层循环物品，内层循环体积递推即可。最后 $f[n][V]$ 就是我们需要的答案。&lt;/p>
+&lt;p>​       但是看了大佬们的题解，他们说，空间复杂度还可以再优化，那么我们可以看看如果优化的话，肯定是不能去掉体积那一维的，所以就是去掉第几个物品那一维。所以从 $f[i][j]$ 变成了 $f[j]$ 。那么我们想想，当我们推第 $i$ 个物体的状态的时候，我们需要已知第 $i-1$ 个的状态，我们物体循环是 $1\sim n$ 那么肯定 $f[i][j]$ 一开始对应的是 $f[i-1][j]$ ，那么如果顺推体积 $0\sim V$ 的话我们可以发现，当我们推 $f[i][j]$ 需要状态 $f[i-1][j-v[i]]$ 的时候，这时候如果直接调用 $f[j-v[i]]$ 对应的是 $f[i][j-v[i]]$ 也就是说，这不是我们需要的结果，这时候的状态可能已经取过一次i了，那么我们就可以逆推体积 $V\sim c[i]$ ，这样我们调用 $f[j-v[i]]$ 就刚好对应的是没取过 $i$ 的情况了！最后推出来 $f[V]$ 就是对应的答案了！&lt;/p>
+&lt;hr>
+&lt;h4 id="代码实现">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">105&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> t,m;
+&lt;span style="color:#66d9ef">int&lt;/span> f[&lt;span style="color:#ae81ff">1005&lt;/span>];
+&lt;span style="color:#66d9ef">int&lt;/span> a[maxn],b[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>t,&lt;span style="color:#f92672">&amp;amp;&lt;/span>m);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>a[i],&lt;span style="color:#f92672">&amp;amp;&lt;/span>b[i]);
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>t;j&lt;span style="color:#f92672">&amp;gt;=&lt;/span>a[i];j&lt;span style="color:#f92672">--&lt;/span>)
+{
+f[j]&lt;span style="color:#f92672">=&lt;/span>max(f[j],f[j&lt;span style="color:#f92672">-&lt;/span>a[i]]&lt;span style="color:#f92672">+&lt;/span>b[i]);
+}
+}
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,f[t]);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h3 id="2-疯狂的采药完全背包httpswwwluogucomcnproblemp1616">
+2. &lt;a href="https://www.luogu.com.cn/problem/P1616">疯狂的采药(完全背包)&lt;/a>
+&lt;a class="heading-link" href="#2-%e7%96%af%e7%8b%82%e7%9a%84%e9%87%87%e8%8d%af%e5%ae%8c%e5%85%a8%e8%83%8c%e5%8c%85httpswwwluogucomcnproblemp1616">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;hr>
+&lt;h4 id="题意-1">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       有 $n$ 种价值为 $w_i$ ，体积为 $v_i$ 的物品，每一种物品有无数个，装入体积为 $V$ 的背包中，问能获得的最大为多少。&lt;/p>
+&lt;hr>
+&lt;h4 id="思路-1">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       那么很显然我们可以把一个它转化成 $\sum_{i=1}^n \lfloor{\frac{V}{v_i}}\rfloor$ 个物品的01背包，也可以在取每个物体的时候循环 $\lfloor{\frac{V}{v_i}}\rfloor$ 次，但是我们可以思考对上述01背包的优化，我们发现如果顺着取，刚好对应的就是我们需要的状态，也就是说我们只需要将 $V$ 的循环正过来就可以了！&lt;/p>
+&lt;hr>
+&lt;h4 id="代码实现-1">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">100005&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> t,m;
+&lt;span style="color:#66d9ef">int&lt;/span> f[&lt;span style="color:#ae81ff">100005&lt;/span>];
+&lt;span style="color:#66d9ef">int&lt;/span> a[maxn],b[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>t,&lt;span style="color:#f92672">&amp;amp;&lt;/span>m);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>a[i],&lt;span style="color:#f92672">&amp;amp;&lt;/span>b[i]);
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>a[i];j&lt;span style="color:#f92672">&amp;lt;=&lt;/span>t;j&lt;span style="color:#f92672">++&lt;/span>)
+{
+f[j]&lt;span style="color:#f92672">=&lt;/span>max(f[j],f[j&lt;span style="color:#f92672">-&lt;/span>a[i]]&lt;span style="color:#f92672">+&lt;/span>b[i]);
+}
+}
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,f[t]);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h3 id="3-宝物筛选多重背包httpswwwluogucomcnproblemp1776">
+3. &lt;a href="https://www.luogu.com.cn/problem/P1776">宝物筛选(多重背包)&lt;/a>
+&lt;a class="heading-link" href="#3-%e5%ae%9d%e7%89%a9%e7%ad%9b%e9%80%89%e5%a4%9a%e9%87%8d%e8%83%8c%e5%8c%85httpswwwluogucomcnproblemp1776">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;hr>
+&lt;h4 id="题意-2">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       有 $N$ 种物品和一个容量为 $V$ 的背包。第 $i$ 种物品最多有 $m_i$ 件可用，每件耗费的空间是 $v_i$，价值是 $w_i$ 。求解将哪些物品装入背包可使这些物品的耗费的空间总和不超过背包容量，且价值总和最大。&lt;/p>
+&lt;hr>
+&lt;h4 id="思路-2">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       那么这道题裸的做法就是对于转移 $f[v]$ 这个方程的时候，考虑取多少个物品，可以取一个，可以取两个，在不超过体积情况下最多取 $m[i]$ 个，转移方程 $f[v]=max(f[v],f[v-k*v[i]])\quad k\in[1,m_i]$ 。那么这样其实时间复杂度还是很高的，所以大佬们给出了优化方案&lt;/p>
+&lt;ul>
+&lt;li>第一种就是把 $m_i$ 个物品进行二进制拆分，把他们拆成 $1$，$2^1$，$2^2$ ····等等，一直拆到不能再拆，这样我们就能够将 $m_i$ 个物品拆成 $log(m_i)$ 个物品，但是他们还是能够表示出所有的情况。然后就继续01背包背一下就可以了。&lt;/li>
+&lt;li>单调队列优化，我不会，我太菜了。。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h4 id="代码实现-2">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">int&lt;/span> n,m,ans,cnt;
+&lt;span style="color:#66d9ef">int&lt;/span> a,b,c;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1000005&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> f[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> w[maxn],v[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n,&lt;span style="color:#f92672">&amp;amp;&lt;/span>m);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>a,&lt;span style="color:#f92672">&amp;amp;&lt;/span>b,&lt;span style="color:#f92672">&amp;amp;&lt;/span>c);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;j&lt;span style="color:#f92672">&amp;lt;=&lt;/span>c;j&lt;span style="color:#f92672">*=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>) &lt;span style="color:#75715e">//二进制拆分
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> {
+v[&lt;span style="color:#f92672">++&lt;/span>cnt]&lt;span style="color:#f92672">=&lt;/span>j&lt;span style="color:#f92672">*&lt;/span>a;
+w[cnt]&lt;span style="color:#f92672">=&lt;/span>j&lt;span style="color:#f92672">*&lt;/span>b;
+c&lt;span style="color:#f92672">-=&lt;/span>j;
+}
+&lt;span style="color:#66d9ef">if&lt;/span>(c)
+{
+v[&lt;span style="color:#f92672">++&lt;/span>cnt]&lt;span style="color:#f92672">=&lt;/span>a&lt;span style="color:#f92672">*&lt;/span>c;
+w[cnt]&lt;span style="color:#f92672">=&lt;/span>b&lt;span style="color:#f92672">*&lt;/span>c;
+}
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>cnt;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>m;j&lt;span style="color:#f92672">&amp;gt;=&lt;/span>w[i];j&lt;span style="color:#f92672">--&lt;/span>)
+{
+f[j]&lt;span style="color:#f92672">=&lt;/span>max(f[j],f[j&lt;span style="color:#f92672">-&lt;/span>w[i]]&lt;span style="color:#f92672">+&lt;/span>v[i]);
+}
+}
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,f[m]);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>基础线性dp例题 #2</title><link>https://zzsqwq.github.io/posts/19/</link><pubDate>Fri, 07 Feb 2020 00:22:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/19/</guid><description>&lt;h3 id="1-石子归并httpswww51nodcomchallengeproblemhtmlproblemid1021">
 1. &lt;a href="https://www.51nod.com/Challenge/Problem.html#problemId=1021">石子归并&lt;/a>
 &lt;a class="heading-link" href="#1-%e7%9f%b3%e5%ad%90%e5%bd%92%e5%b9%b6httpswww51nodcomchallengeproblemhtmlproblemid1021">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -83,7 +1291,275 @@ A. &lt;a href="https://www.luogu.com.cn/problem/P1004">方格取数&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​       很经典的区间dp例题，我们可以用 $dp[i][j]$ 来表示合并 $i\sim j$ 所需的最小代价，通过枚举中间的断点，来通过方程 $dp[i][j]=min(dp[i][j],dp[i][k]+dp[k+1][j]+cost[i][j])$ ，其中 $cost[i][j]$ 表示从 $i\sim j$ 的石子总数，通过前缀和很容易计算。在进行状态转移时需要前面状态已知，因为是枚举中间断点，所以断开区间的长度一定要小于原区间，因此在转移之前需要确保比他短的区间都已经达到了最小代价，因此我们可以通过枚举区间长度从 $2\sim N$ 来实现。&lt;/p></description></item><item><title>基础线性dp例题</title><link>https://zzsqwq.github.io/posts/18/</link><pubDate>Thu, 06 Feb 2020 00:09:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/18/</guid><description>&lt;h3 id="前言">
+&lt;p>​       很经典的区间dp例题，我们可以用 $dp[i][j]$ 来表示合并 $i\sim j$ 所需的最小代价，通过枚举中间的断点，来通过方程 $dp[i][j]=min(dp[i][j],dp[i][k]+dp[k+1][j]+cost[i][j])$ ，其中 $cost[i][j]$ 表示从 $i\sim j$ 的石子总数，通过前缀和很容易计算。在进行状态转移时需要前面状态已知，因为是枚举中间断点，所以断开区间的长度一定要小于原区间，因此在转移之前需要确保比他短的区间都已经达到了最小代价，因此我们可以通过枚举区间长度从 $2\sim N$ 来实现。&lt;/p>
+&lt;hr>
+&lt;h4 id="代码实现">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> inf&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1000005&lt;/span>;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">105&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> n;
+&lt;span style="color:#66d9ef">int&lt;/span> sum[maxn],a[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> dp[maxn][maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>a[i]);
+sum[i]&lt;span style="color:#f92672">=&lt;/span>sum[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>a[i];
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>) dp[i][i]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> p&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;p&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;p&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n&lt;span style="color:#f92672">-&lt;/span>p&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>i&lt;span style="color:#f92672">+&lt;/span>p&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+dp[i][j]&lt;span style="color:#f92672">=&lt;/span>inf;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k&lt;span style="color:#f92672">=&lt;/span>i;k&lt;span style="color:#f92672">&amp;lt;&lt;/span>j;k&lt;span style="color:#f92672">++&lt;/span>)
+{
+dp[i][j]&lt;span style="color:#f92672">=&lt;/span>min(dp[i][j],dp[i][k]&lt;span style="color:#f92672">+&lt;/span>dp[k&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j]&lt;span style="color:#f92672">+&lt;/span>sum[j]&lt;span style="color:#f92672">-&lt;/span>sum[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]);
+}
+}
+}
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,dp[&lt;span style="color:#ae81ff">1&lt;/span>][n]);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h3 id="2-p1880-noi1995石子合并httpswwwluogucomcnproblemp1880">
+2. &lt;a href="https://www.luogu.com.cn/problem/P1880">P1880 [NOI1995]石子合并&lt;/a>
+&lt;a class="heading-link" href="#2-p1880-noi1995%e7%9f%b3%e5%ad%90%e5%90%88%e5%b9%b6httpswwwluogucomcnproblemp1880">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;hr>
+&lt;h4 id="题意-1">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       $N$ 堆石子摆成一个环。现要将石子有次序地合并成一堆。规定每次只能选相邻的2堆石子合并成新的一堆，并将新的一堆石子数记为该次合并的代价。计算将 $N$ 堆石子合并成一堆的最小代价和最大代价。&lt;/p>
+&lt;hr>
+&lt;h4 id="思路-1">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       这个题和上个题只有两个地方不同，一个是从线到环，一个是同时求最大和最小代价。害，其实这样也没变什么东西，也是跟上面一样，枚举区间长度和切割点。我们可以把一个环想象成一个链，如果这个环是由 N 个元素构成，那么这个链就由 N+N 个元素构成，这么这样就能确保你每次枚举区间的时候能取到合法的值，好比你要可以合并最后一个和第一个，那么就是对应的 $dp[n][n]+dp[n+1][n+1]+cost[n][n+1]$ 。不过这样最后寻找答案的时候肯定不只是 $dp[i][n]$ 了，你要从 $dp[1][n]\sim dp[n][n*2]$ 中寻找最优的答案。同时求最大和最小代价就直接开两个数组记录就可以了。&lt;/p>
+&lt;hr>
+&lt;h4 id="代码实现-1">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> inf&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1000005&lt;/span>;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">105&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> n;
+&lt;span style="color:#66d9ef">int&lt;/span> sum[maxn&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>],a[maxn&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>];
+&lt;span style="color:#66d9ef">int&lt;/span> ansmax,ansmin&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">12345678&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> dp[maxn&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][maxn&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>],f[maxn&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][maxn&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]; &lt;span style="color:#75715e">//later is max , fromer is min
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>a[i]);
+a[i&lt;span style="color:#f92672">+&lt;/span>n]&lt;span style="color:#f92672">=&lt;/span>a[i];
+sum[i]&lt;span style="color:#f92672">=&lt;/span>sum[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>a[i];
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>n&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+sum[i]&lt;span style="color:#f92672">=&lt;/span>sum[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>a[i];
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;i&lt;span style="color:#f92672">++&lt;/span>) dp[i][i]&lt;span style="color:#f92672">=&lt;/span>f[i][i]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> p&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;p&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;p&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>n&lt;span style="color:#f92672">-&lt;/span>p&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>i&lt;span style="color:#f92672">+&lt;/span>p&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+dp[i][j]&lt;span style="color:#f92672">=&lt;/span>inf;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k&lt;span style="color:#f92672">=&lt;/span>i;k&lt;span style="color:#f92672">&amp;lt;&lt;/span>j;k&lt;span style="color:#f92672">++&lt;/span>)
+{
+dp[i][j]&lt;span style="color:#f92672">=&lt;/span>min(dp[i][j],dp[i][k]&lt;span style="color:#f92672">+&lt;/span>dp[k&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j]&lt;span style="color:#f92672">+&lt;/span>sum[j]&lt;span style="color:#f92672">-&lt;/span>sum[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]);
+f[i][j]&lt;span style="color:#f92672">=&lt;/span>max(f[i][j],f[i][k]&lt;span style="color:#f92672">+&lt;/span>f[k&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j]&lt;span style="color:#f92672">+&lt;/span>sum[j]&lt;span style="color:#f92672">-&lt;/span>sum[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]);
+}
+}
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>) ansmax&lt;span style="color:#f92672">=&lt;/span>max(ansmax,f[i][i&lt;span style="color:#f92672">+&lt;/span>n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>) ansmin&lt;span style="color:#f92672">=&lt;/span>min(ansmin,dp[i][i&lt;span style="color:#f92672">+&lt;/span>n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]);
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">%d&amp;#34;&lt;/span>,ansmin,ansmax);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h3 id="3-p1140-相似基因httpswwwluogucomcnproblemnewsolutionp1140">
+3. &lt;a href="https://www.luogu.com.cn/problemnew/solution/P1140">P1140 相似基因&lt;/a>
+&lt;a class="heading-link" href="#3-p1140-%e7%9b%b8%e4%bc%bc%e5%9f%ba%e5%9b%a0httpswwwluogucomcnproblemnewsolutionp1140">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;hr>
+&lt;h4 id="题意-2">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       有 $A : T :C : G $ 四种碱基，他们之间可以两两配对，特殊的，一个碱基也可以和空碱基配对，但是空碱基和空碱基配对是不被允许的，当不同的碱基间两两配对时，会具有一定的相似度，问给定两段序列 $s$，$t$ 能获得的最大相似度是多少。&lt;/p>
+&lt;ul>
+&lt;li>碱基配对时相似度的定义如下&lt;/li>
+&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">&lt;/th>
+&lt;th style="text-align:center">A&lt;/th>
+&lt;th style="text-align:center">C&lt;/th>
+&lt;th style="text-align:center">G&lt;/th>
+&lt;th style="text-align:center">T&lt;/th>
+&lt;th style="text-align:center">空&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">A&lt;/td>
+&lt;td style="text-align:center">5&lt;/td>
+&lt;td style="text-align:center">-1&lt;/td>
+&lt;td style="text-align:center">-2&lt;/td>
+&lt;td style="text-align:center">-1&lt;/td>
+&lt;td style="text-align:center">-3&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">C&lt;/td>
+&lt;td style="text-align:center">-1&lt;/td>
+&lt;td style="text-align:center">5&lt;/td>
+&lt;td style="text-align:center">-3&lt;/td>
+&lt;td style="text-align:center">-2&lt;/td>
+&lt;td style="text-align:center">-4&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">G&lt;/td>
+&lt;td style="text-align:center">-2&lt;/td>
+&lt;td style="text-align:center">-3&lt;/td>
+&lt;td style="text-align:center">5&lt;/td>
+&lt;td style="text-align:center">-2&lt;/td>
+&lt;td style="text-align:center">-2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">T&lt;/td>
+&lt;td style="text-align:center">-1&lt;/td>
+&lt;td style="text-align:center">-2&lt;/td>
+&lt;td style="text-align:center">-2&lt;/td>
+&lt;td style="text-align:center">5&lt;/td>
+&lt;td style="text-align:center">-1&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">空&lt;/td>
+&lt;td style="text-align:center">-3&lt;/td>
+&lt;td style="text-align:center">-4&lt;/td>
+&lt;td style="text-align:center">-2&lt;/td>
+&lt;td style="text-align:center">-1&lt;/td>
+&lt;td style="text-align:center">非法&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h4 id="思路-2">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       首先用一个二维数组来存储对应的相似值表。因为对应的两段序列，我感觉这种题一般都是用 $dp[i][j]$ 来表示第一段序列从 $1\sim i$ 对应第二段序列 $1\sim j$ 所能获得的最大相似度，那么思考一下状态转移。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>首先可以是碱基对空碱基，这时候 $s$ 要匹配碱基，$t$ 中匹配空碱基，这样的话就从应该从 $dp[i-1][j] $转移过来，对应的转移方程为 $dp[i][j]=max(dp[i][j],dp[i-1][j]+map[s[i]][blank])$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>也可以是空碱基对碱基，对应的转移方程为$dp[i][j]=max(dp[i][j],dp[i][j-1]+map[blank][t[j]])$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>也可以是碱基对碱基，对应的转移方程为$dp[i][j]=max(dp[i][j],dp[i-1][j-1]+map[s[i]][t[j]])$&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>​       害，想到这里我又突然懵逼了，我在想是否能确保两个序列所有的碱基都被用到，仔细想想确实是可以的，因为状态定义的就是用了前 $i$ 个碱基和前 $j$ 个碱基所获得的最大相似度。最后我们就处理一下边界就可以了，边界我们可以发现是 $dp[i][0]$ 和 $dp[0][i]$ ，这就是可以对应着空碱基和相应 $s[i]$ 和 $t[i]$ 的碱基，因此只需要用循环依次转移一遍就可以了。&lt;/p>
+&lt;hr>
+&lt;h4 id="代码实现-2">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> inf&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1000005&lt;/span>;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">105&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> n,m;
+&lt;span style="color:#66d9ef">int&lt;/span> a[maxn],b[maxn];
+&lt;span style="color:#66d9ef">char&lt;/span> s[maxn],c[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> dp[maxn][maxn];
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> map[&lt;span style="color:#ae81ff">5&lt;/span>][&lt;span style="color:#ae81ff">5&lt;/span>]&lt;span style="color:#f92672">=&lt;/span>{{&lt;span style="color:#ae81ff">5&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>},
+{&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">5&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>},
+{&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#ae81ff">5&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>},
+{&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">5&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>},
+{&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">4&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">0&lt;/span>}}; &lt;span style="color:#75715e">//A 0 C 1 G 2 T 3 blank 4
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%s%d%s&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n,s&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>m,c&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(s[i]&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#e6db74">&amp;#39;A&amp;#39;&lt;/span>) a[i]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">if&lt;/span>(s[i]&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#e6db74">&amp;#39;C&amp;#39;&lt;/span>) a[i]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;span style="color:#66d9ef">if&lt;/span>(s[i]&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#e6db74">&amp;#39;G&amp;#39;&lt;/span>) a[i]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;
+&lt;span style="color:#66d9ef">if&lt;/span>(s[i]&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#e6db74">&amp;#39;T&amp;#39;&lt;/span>) a[i]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>;
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(c[i]&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#e6db74">&amp;#39;A&amp;#39;&lt;/span>) b[i]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">if&lt;/span>(c[i]&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#e6db74">&amp;#39;C&amp;#39;&lt;/span>) b[i]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+&lt;span style="color:#66d9ef">if&lt;/span>(c[i]&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#e6db74">&amp;#39;G&amp;#39;&lt;/span>) b[i]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;
+&lt;span style="color:#66d9ef">if&lt;/span>(c[i]&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#e6db74">&amp;#39;T&amp;#39;&lt;/span>) b[i]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>;
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>) dp[i][&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">=&lt;/span>dp[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>map[a[i]][&lt;span style="color:#ae81ff">4&lt;/span>];
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;i&lt;span style="color:#f92672">++&lt;/span>) dp[&lt;span style="color:#ae81ff">0&lt;/span>][i]&lt;span style="color:#f92672">=&lt;/span>dp[&lt;span style="color:#ae81ff">0&lt;/span>][i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>map[&lt;span style="color:#ae81ff">4&lt;/span>][b[i]];
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;j&lt;span style="color:#f92672">&amp;lt;=&lt;/span>m;j&lt;span style="color:#f92672">++&lt;/span>)
+{
+dp[i][j]&lt;span style="color:#f92672">=-&lt;/span>inf;
+dp[i][j]&lt;span style="color:#f92672">=&lt;/span>max(dp[i][j],dp[i][j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>map[&lt;span style="color:#ae81ff">4&lt;/span>][b[j]]);
+dp[i][j]&lt;span style="color:#f92672">=&lt;/span>max(dp[i][j],dp[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j]&lt;span style="color:#f92672">+&lt;/span>map[a[i]][&lt;span style="color:#ae81ff">4&lt;/span>]);
+dp[i][j]&lt;span style="color:#f92672">=&lt;/span>max(dp[i][j],dp[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>map[a[i]][b[j]]);
+}
+}
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,dp[n][m]);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>基础线性dp例题</title><link>https://zzsqwq.github.io/posts/18/</link><pubDate>Thu, 06 Feb 2020 00:09:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/18/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -105,4 +1581,141 @@ A. &lt;a href="https://www.luogu.com.cn/problem/P1004">方格取数&lt;/a>
 &lt;/a>
 &lt;/h4>
 &lt;p>​       已知序列 $a$ 有 $n$ 个数，通过取出其中一些数可以使他满足严格的先增再减序列，问最少取出几个。&lt;/p>
-&lt;hr></description></item></channel></rss>
+&lt;hr>
+&lt;h4 id="思路">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       很显然想要求最少取出几个，我们就看严格先增再减的序列的最长长度即可。我们可以用 $g[i]$ 来存储到 $a[i]$ 为止的最长递增子序列的长度，然后用 $l[i]$ 来存储从 $a[i]$ 到序列末尾最长的递减子序列的长度。处理 $g[i]$ 从前往后扫，处理 $l[i]$ 需要从后往前扫。处理完 $f$ 和 $g$ 数组那么就从左到右扫一遍，$ans=max(ans,g[i]+l[i]-1)$ 。答案即是 $n-ans$ 。&lt;/p>
+&lt;hr>
+&lt;h4 id="代码实现">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">105&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> n;
+&lt;span style="color:#66d9ef">int&lt;/span> a[maxn],g[maxn],l[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>a[i]);
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;j&lt;span style="color:#f92672">&amp;lt;&lt;/span>i;j&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(a[i]&lt;span style="color:#f92672">&amp;gt;&lt;/span>a[j]) g[i]&lt;span style="color:#f92672">=&lt;/span>max(g[i],g[j]&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+}
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>n;i&lt;span style="color:#f92672">&amp;gt;=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">--&lt;/span>)
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>n&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;j&lt;span style="color:#f92672">&amp;gt;&lt;/span>i;j&lt;span style="color:#f92672">--&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(a[i]&lt;span style="color:#f92672">&amp;gt;&lt;/span>a[j]) l[i]&lt;span style="color:#f92672">=&lt;/span>max(l[i],l[j]&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+}
+}
+&lt;span style="color:#66d9ef">int&lt;/span> maxout&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+maxout&lt;span style="color:#f92672">=&lt;/span>max(maxout,g[i]&lt;span style="color:#f92672">+&lt;/span>l[i]&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+}
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,n&lt;span style="color:#f92672">-&lt;/span>maxout);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h3 id="2-p1280-尼克的任务httpswwwluogucomcnproblemp1280">
+2. &lt;a href="https://www.luogu.com.cn/problem/P1280">P1280 尼克的任务&lt;/a>
+&lt;a class="heading-link" href="#2-p1280-%e5%b0%bc%e5%85%8b%e7%9a%84%e4%bb%bb%e5%8a%a1httpswwwluogucomcnproblemp1280">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;hr>
+&lt;h4 id="题意-1">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       尼克的一个工作日为 $n$ 分钟，从第一分钟开始到第 $n$ 分钟结束。当尼克到达单位后他就开始干活。如果在同一时刻有多个任务需要完成，尼克可以任选其中的一个来做，而其余的则由他的同事完成，反之如果只有一个任务，则该任务必需由尼克去完成，假如某些任务开始时刻尼克正在工作，则这些任务也由尼克的同事完成。如果某任务于第 $p$ 分钟开始，持续时间为 $t$ 分钟，则该任务将在第 $p+t-1$ 分钟结束。（实在不会总结题意，就直接复制过来了）&lt;/p>
+&lt;hr>
+&lt;h4 id="思路-1">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       我们可以设 $f[i]$ 为时间从 $i\sim n$ 所能获得最长空闲时间，最终 $f[1]$ 对应的就是答案。假设在这个 $i$ 分钟有 $k[i]$ 个任务可以，那么我们可以分以下情况转移&lt;/p>
+&lt;ul>
+&lt;li>$k[i]=0$ ， 那么 $f[i]=f[i+1]+1$&lt;/li>
+&lt;li>$k[i]\not=0$ ，那么可以循环 $1 \sim k[i]$ 遍历这个时间点开始的任务，$f[i]=max(f[i],f[i+k[i].t])$&lt;/li>
+&lt;/ul>
+&lt;p>​       思路是这样的，但是我们记录 $k[i].t$ 并不好记录，因此我们可以先将任务开始时间按降序排序，用一个一个变量 $cnt$ 来代表已经取到第几个任务了，那么这样一直取下去，最终就能够遍历所有的任务。&lt;/p>
+&lt;hr>
+&lt;h4 id="代码实现-1">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">10005&lt;/span>;
+&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">task&lt;/span>
+{
+&lt;span style="color:#66d9ef">int&lt;/span> l,r;
+}t[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">cmp&lt;/span>(&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">task&lt;/span> a,&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">task&lt;/span> b)
+{
+&lt;span style="color:#66d9ef">return&lt;/span> a.l&lt;span style="color:#f92672">&amp;gt;&lt;/span>b.l;
+}
+&lt;span style="color:#66d9ef">int&lt;/span> dp[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> p[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> cnt&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,n,k;
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n,&lt;span style="color:#f92672">&amp;amp;&lt;/span>k);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>k;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>t[i].l,&lt;span style="color:#f92672">&amp;amp;&lt;/span>t[i].r);
+p[t[i].l]&lt;span style="color:#f92672">++&lt;/span>;
+}
+sort(t&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,t&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#f92672">+&lt;/span>k,cmp);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>n;i&lt;span style="color:#f92672">&amp;gt;=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">--&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#f92672">!&lt;/span>p[i])
+{
+dp[i]&lt;span style="color:#f92672">=&lt;/span>dp[i&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+}
+&lt;span style="color:#66d9ef">else&lt;/span>
+{
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;j&lt;span style="color:#f92672">&amp;lt;=&lt;/span>p[i];j&lt;span style="color:#f92672">++&lt;/span>)
+{
+dp[i]&lt;span style="color:#f92672">=&lt;/span>max(dp[i],dp[i&lt;span style="color:#f92672">+&lt;/span>t[cnt].r]);
+cnt&lt;span style="color:#f92672">++&lt;/span>;
+}
+}
+}
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,dp[&lt;span style="color:#ae81ff">1&lt;/span>]);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;p>​&lt;/p>
+&lt;p>​       我太懒了····就写了两道，明天继续加油吧。。&lt;/p></description></item></channel></rss>

@@ -1,9 +1,412 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>路由器 on Zs's Blog</title><link>https://zzsqwq.github.io/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/</link><description>Recent content in 路由器 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Sun, 01 Aug 2021 21:48:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/index.xml" rel="self" type="application/rss+xml"/><item><title>Redmi AC2100刷写OpenWrt教程</title><link>https://zzsqwq.github.io/posts/209/</link><pubDate>Sun, 01 Aug 2021 21:48:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/209/</guid><description>Redmi AC2100刷写Openwrt教程 前言 此教程的书写基于 Redmi AC2100 路由器，并不保证其他路由器可用。
-推荐使用的 Host 主机为 Windows 10/11 系统，当然，Linux 也可以，不过某些地方用的软件有差异，但是用 Linux 的人肯定不简单，就不用我多做说明了。
-理论上对其他型号路由器也通用，不过需要改一下固件的型号。本教程参考了多位前辈的文档与教程，其实虽说是教程，更像是一个整合，文章最后会给出过程中的参考链接，在此对他们一并感谢！
-教程 一、刷写官方固件 从官方固件刷入其他版本的官方固件 你可能会疑问，既然已经是官方固件了，为什么还需要刷写官方固件？
-对于此教程，这一步可能非必要。但是如果你是基于 telnet 来对固件进行刷写，那么可能需要重刷官方固件，截止目前这个节点 2021.8.1 官方最新的固件会出现在开启 telnet 时卡 shell 的情况。
-具体表现为无法在弹出的窗口中粘贴文本，并且不会有后续的反应。 这时候可以刷回官方原固件，常见比较稳定的有 2.0.7， 2.0.376， 1.0.14 啥的，这个大家可以自己尝试一下~ 不过，此教程不是基于 telnet 的，对于 Redmi AC2100 我也不推荐使用 telnet 这个方法，因为经过我的尝试发现，他的成功率比较低，而且异常繁琐！
-官方固件的刷写过程如下：
-首先在 此处 下载修复工具包与ROM包
-然后接通路由器电源，用网线将路由器的 LAN 口与电脑连接。</description></item></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>路由器 on Zs's Blog</title><link>https://zzsqwq.github.io/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/</link><description>Recent content in 路由器 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Sun, 01 Aug 2021 21:48:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/index.xml" rel="self" type="application/rss+xml"/><item><title>Redmi AC2100刷写OpenWrt教程</title><link>https://zzsqwq.github.io/posts/209/</link><pubDate>Sun, 01 Aug 2021 21:48:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/209/</guid><description>&lt;h1 id="redmi-ac2100刷写openwrt教程">
+Redmi AC2100刷写Openwrt教程
+&lt;a class="heading-link" href="#redmi-ac2100%e5%88%b7%e5%86%99openwrt%e6%95%99%e7%a8%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h1>
+&lt;h2 id="前言">
+前言
+&lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>此教程的书写基于 Redmi AC2100 路由器，并不保证其他路由器可用。&lt;/p>
+&lt;p>推荐使用的 Host 主机为 Windows 10/11 系统，当然，Linux 也可以，不过某些地方用的软件有差异，但是用 Linux 的人肯定不简单，就不用我多做说明了。&lt;/p>
+&lt;p>理论上对其他型号路由器也通用，不过需要改一下固件的型号。本教程参考了多位前辈的文档与教程，其实虽说是教程，更像是一个整合，文章最后会给出过程中的参考链接，在此对他们一并感谢！&lt;/p>
+&lt;h2 id="教程">
+教程
+&lt;a class="heading-link" href="#%e6%95%99%e7%a8%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="一刷写官方固件">
+一、刷写官方固件
+&lt;a class="heading-link" href="#%e4%b8%80%e5%88%b7%e5%86%99%e5%ae%98%e6%96%b9%e5%9b%ba%e4%bb%b6">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="从官方固件刷入其他版本的官方固件">
+从官方固件刷入其他版本的官方固件
+&lt;a class="heading-link" href="#%e4%bb%8e%e5%ae%98%e6%96%b9%e5%9b%ba%e4%bb%b6%e5%88%b7%e5%85%a5%e5%85%b6%e4%bb%96%e7%89%88%e6%9c%ac%e7%9a%84%e5%ae%98%e6%96%b9%e5%9b%ba%e4%bb%b6">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>你可能会疑问，既然已经是官方固件了，为什么还需要刷写官方固件？&lt;/p>
+&lt;p>对于此教程，这一步可能非必要。但是如果你是基于 &lt;strong>telnet&lt;/strong> 来对固件进行刷写，那么可能需要重刷官方固件，截止目前这个节点 &lt;strong>2021.8.1&lt;/strong> 官方最新的固件会出现在开启 &lt;strong>telnet&lt;/strong> 时卡 &lt;strong>shell&lt;/strong> 的情况。&lt;/p>
+&lt;p>具体表现为无法在弹出的窗口中粘贴文本，并且不会有后续的反应。 这时候可以刷回官方原固件，常见比较稳定的有 &lt;code>2.0.7&lt;/code>， &lt;code>2.0.376&lt;/code>， &lt;code>1.0.14&lt;/code> 啥的，这个大家可以自己尝试一下~ 不过，此教程不是基于 &lt;strong>telnet&lt;/strong> 的，对于 &lt;strong>Redmi AC2100&lt;/strong> 我也不推荐使用 &lt;strong>telnet&lt;/strong> 这个方法，因为经过我的尝试发现，他的成功率比较低，而且异常繁琐！&lt;/p>
+&lt;p>&lt;strong>官方固件的刷写过程如下：&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;ol>
+&lt;li>
+&lt;p>首先在 &lt;a href="http://openwrt.ink:8666/%E5%AE%98%E6%96%B9%E5%B7%A5%E5%85%B7%E5%8C%85/">此处&lt;/a> 下载修复工具包与ROM包&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>然后接通路由器电源，用网线将路由器的 &lt;code>LAN&lt;/code> 口与电脑连接。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>打开小米路由器修复工具，上传本地对应的刷机包。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>选择与路由器 &lt;code>LAN&lt;/code> 口相连的网卡（这里如果不清楚选哪一个，建议在网络设置中把其他的网卡都禁用掉）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>然后断开路由器电源，用牙签或者其他的按住 reset 键后，接通电源，直到路由器橙灯闪烁时松开 reset 键。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>等待到蓝灯闪烁时，即可访问网关或者 &lt;code>miwifi.com&lt;/code> 来设置路由器，固件刷写成功。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/blockquote>
+&lt;h4 id="从breed刷写官方固件">
+从Breed刷写官方固件
+&lt;a class="heading-link" href="#%e4%bb%8ebreed%e5%88%b7%e5%86%99%e5%ae%98%e6%96%b9%e5%9b%ba%e4%bb%b6">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>&lt;strong>Breed&lt;/strong> 是一个由 &lt;a href="https://www.right.com.cn/forum/space-uid-200302.html">hackpascal&lt;/a> 大神自写的与 &lt;strong>U-Boot&lt;/strong> 同级的 Bootloader。&lt;/p>
+&lt;p>每次我们刷写固件不会刷写此部分，我们通过 &lt;code>Reset&lt;/code> 键重置后，此部分不会被重置。像下面（这里因为我已经刷好了固件，不想 Reset 掉，因此用的其他大佬的截图，因此这里的型号不是 &lt;strong>Redmi AC2100&lt;/strong>）：&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/08/3364003385.png" alt="Breed的首页">&lt;/p>
+&lt;p>可以看到上图有一个固件更新部分，点开后详细信息如下：&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/08/402582447.png" alt="固件更新部分图示">&lt;/p>
+&lt;p>可以看到上图有包含三个部分的刷写，Bootloader、固件、EEPROM这三个部分，我们如果想要刷会官方的这两部分都要刷。&lt;/p>
+&lt;p>平时我们说的 openwrt，padavan 等都是固件部分，breed 是 Bootloader 部分。我们如果要完全刷回官方的部件，需要在这里的 Bootloader 部分刷写官方的 Bootloader，然后按照上述官方的方法来刷写整体后面的固件！**我测试时如果 Bootloader 部分是 breed，那么无法直接通过上面的方法进行重置。**官方的 Bootloader 可以在下方链接找到：&lt;/p>
+&lt;p>&lt;a href="http://openwrt.ink:88/upload/2020/12/bootloader-redmi-ac2100-928443369e734b72b9611377b94598bb.bin">红米 AC2100 官方 Bootloader&lt;/a>&lt;/p>
+&lt;p>&lt;a href="http://openwrt.ink:88/upload/2020/12/bootloader-xiaomi-ac2100-2ad34eb9357e4760948f797999b7e294.bin">小米 AC2100 官方 Bootloader&lt;/a>&lt;/p>
+&lt;h3 id="二从官方部件刷写-breed">
+二、从官方部件刷写 Breed
+&lt;a class="heading-link" href="#%e4%ba%8c%e4%bb%8e%e5%ae%98%e6%96%b9%e9%83%a8%e4%bb%b6%e5%88%b7%e5%86%99-breed">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="为什么需要刷-breed">
+为什么需要刷 Breed？
+&lt;a class="heading-link" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e9%9c%80%e8%a6%81%e5%88%b7-breed">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>我们注意到在 &lt;strong>Breed&lt;/strong> 过程中，&lt;strong>固件更新&lt;/strong> 部分也可以刷写固件，根据以往大家的经验来说，固件最好从 &lt;strong>Breed&lt;/strong> 部分刷写还是最保险的。&lt;/p>
+&lt;p>此外，&lt;strong>Breed&lt;/strong> 可以使你方便的更换其他的固件，因为 &lt;strong>Reset&lt;/strong> 不会重置 &lt;strong>Breed&lt;/strong> 而会重置固件，因此如果你想把 &lt;strong>Openwrt&lt;/strong> 换成 &lt;strong>Padavan&lt;/strong>，那么只需要 &lt;strong>Reset&lt;/strong> 一下，在 &lt;strong>Breed&lt;/strong> 重刷一下固件就可以了！&lt;/p>
+&lt;h4 id="刷写流程">
+刷写流程
+&lt;a class="heading-link" href="#%e5%88%b7%e5%86%99%e6%b5%81%e7%a8%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;h5 id="打开路由器-ssh">
+打开路由器 ssh
+&lt;a class="heading-link" href="#%e6%89%93%e5%bc%80%e8%b7%af%e7%94%b1%e5%99%a8-ssh">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h5>
+&lt;p>首先我们用网线将路由器 &lt;code>LAN&lt;/code> 口与电脑连接&lt;/p>
+&lt;p>在 &lt;strong>Linux&lt;/strong> 用 &lt;code>ifconfig&lt;/code> 或者在 &lt;strong>Windows&lt;/strong> 中使用 &lt;code>ipconfig&lt;/code> 来查看路由器分发的 &lt;code>ip&lt;/code> 。&lt;/p>
+&lt;p>好比如果是 &lt;code>192.168.31.x &lt;/code> 那么我们就访问 &lt;code>192.168.31.1&lt;/code> ，或者可以尝试直接访问 &lt;code>miwifi.com&lt;/code> ，会进入到设置路由器的管理页面，我们填写一系列配置，然后登录。&lt;/p>
+&lt;p>登录后，查看地址栏，一般地址如下，这里需要注意，我地址中的 &lt;code>192.168.31.1 &lt;/code> 是我访问的地址为此，如果你那里 &lt;code>ip&lt;/code> 不是这样，那么将下面所有的 &lt;code>192.168.31.1&lt;/code> 替换成你当中对应的 &lt;code>ip&lt;/code>：&lt;/p>
+&lt;pre tabindex="0">&lt;code>http://192.168.31.1/cgi-bin/luci/;stok=075a9192918557c27cdbcae2175281d9/web/home#router
+&lt;/code>&lt;/pre>&lt;p>这里我们注意 &lt;code>stok= &lt;/code> 到 &lt;code>/web&lt;/code> 这一段中间的码值，好比设其为 &lt;code>KEY&lt;/code>&lt;/p>
+&lt;pre tabindex="0">&lt;code>KEY = 075a9192918557c27cdbcae2175281d9
+&lt;/code>&lt;/pre>&lt;p>然后我们在地址栏输入如下地址并回车，地址中 &lt;code>${KEY}&lt;/code> 的意思是这里就填入上面 &lt;code>KEY&lt;/code> 对应的数值：&lt;/p>
+&lt;pre tabindex="0">&lt;code>http://192.168.31.1/cgi-bin/luci/;stok=${KEY}/api/misystem/set_config_iotdev?bssid=Xiaomi&amp;amp;user_id=longdike&amp;amp;ssid=-h%3B%20nvram%20set%20ssh_en%3D1%3B%20nvram%20commit%3B%20sed%20-i%20's%2Fchannel%3D.*%2Fchannel%3D%5C%22debug%5C%22%2Fg'%20%2Fetc%2Finit.d%2Fdropbear%3B%20%2Fetc%2Finit.d%2Fdropbear%20start%3B
+&lt;/code>&lt;/pre>&lt;p>这样就打开了路由器的 &lt;strong>ssh&lt;/strong> ，我们接下来在地址栏打开：&lt;/p>
+&lt;pre tabindex="0">&lt;code>http://192.168.31.1/cgi-bin/luci/;stok=${KEY}/api/misystem/set_config_iotdev?bssid=Xiaomi&amp;amp;user_id=longdike&amp;amp;ssid=-h%3B%20echo%20-e%20'admin%5Cnadmin'%20%7C%20passwd%20root%3B
+&lt;/code>&lt;/pre>&lt;p>这就将路由器的 &lt;strong>ssh&lt;/strong> 密码设置为 &lt;code>admin&lt;/code> 。&lt;/p>
+&lt;h5 id="刷写-breed">
+刷写 breed
+&lt;a class="heading-link" href="#%e5%88%b7%e5%86%99-breed">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h5>
+&lt;p>首先我们下载一下适用于 &lt;strong>Redmi AC2100&lt;/strong> 的 &lt;strong>Breed&lt;/strong>，&lt;a href="https://breed.hackpascal.net/breed-mt7621-xiaomi-r3g.bin">点此下载&lt;/a>&lt;/p>
+&lt;p>我们在 &lt;strong>Windows&lt;/strong> 左下侧搜索框中搜索 &lt;code>cmd&lt;/code> 然后打开。&lt;/p>
+&lt;p>输入&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">ssh root@192.168.31.1
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后输入 &lt;code>admin&lt;/code> ，回车。&lt;/p>
+&lt;p>不出意外的话，我们就成功使用 &lt;code>ssh&lt;/code> 登录了路由器中的系统。&lt;/p>
+&lt;p>然后我们按 &lt;code>Ctrl + D&lt;/code> 退出登录&lt;/p>
+&lt;p>输入&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">scp /path-to-breed root@192.168.31.1:/tmp
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>这里的 &lt;code>/path-to-breed&lt;/code> 代表的是上面下载的 &lt;strong>Breed&lt;/strong> 的路径，例如 &lt;code>D:\Downloads\breed-mt7621-xiaomi-r3g.bin&lt;/code> ，这条命令即将下载的 &lt;strong>Breed&lt;/strong> 传输到了路由器的 &lt;code>/tmp&lt;/code> 目录中。&lt;/p>
+&lt;p>接下来我们按上述过程重新登录路由器后，输入&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">cd /tmp
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>进入路由器中的 &lt;code>/tmp&lt;/code> 目录，接下来运行&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">mtd -r write breed-mt7621-xiaomi-r3g.bin Bootloader
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>这样我们就成功将 &lt;strong>Breed&lt;/strong> 刷写到了路由器中！&lt;/p>
+&lt;p>我们断掉路由器电源，重启一下，访问 &lt;code>192.168.1.1&lt;/code> 即可打开 &lt;strong>Breed&lt;/strong> 控制台。&lt;/p>
+&lt;h3 id="三从-breed-刷写固件">
+三、从 breed 刷写固件
+&lt;a class="heading-link" href="#%e4%b8%89%e4%bb%8e-breed-%e5%88%b7%e5%86%99%e5%9b%ba%e4%bb%b6">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>首先是下载我们需要的固件，在后面我会给出一系列现阶段尝试过的固件，并给出说明，大家可以自己选择合适自己的固件。&lt;/p>
+&lt;p>这部分很简单，我们只需要下载我们想要刷写的固件，进入 breed 控制台，点击固件更新，在固件那部分点击后面的 &lt;strong>浏览&lt;/strong> ，上传我们想要刷写的固件，点击 &lt;strong>上传&lt;/strong> ，验证后会弹出新的窗口，点击 &lt;strong>刷写&lt;/strong> 即可！&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/08/402582447.png" alt="在固件部分点击浏览选择固件后上传">&lt;/p>
+&lt;h3 id="四配置-openwrt-固件">
+四、配置 Openwrt 固件
+&lt;a class="heading-link" href="#%e5%9b%9b%e9%85%8d%e7%bd%ae-openwrt-%e5%9b%ba%e4%bb%b6">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>因为我自己在用 Openwrt ，所以这里只讲一下配置 Openwrt 的过程。&lt;/p>
+&lt;p>说明一下，这里我使用的是 &lt;code>small_5&lt;/code> 大佬的 Openwrt 固件，其他的固件可能界面有些差别，但是其实大同小异，可以类比着来做。&lt;/p>
+&lt;p>我用的固件网关为 &lt;code>10.0.0.1&lt;/code> ，这个一般都是固件作者自己设定的，比较简单地方式是将路由器 &lt;code>LAN&lt;/code> 口与电脑连接，查看自己的 &lt;code>ip&lt;/code> 地址，如果是 &lt;code>10.0.0.x&lt;/code> 的话就是 &lt;code>10.0.0.1&lt;/code> ，这里涉及到一个网关的概念，大家有兴趣的可以自行查找资料查看。&lt;/p>
+&lt;h4 id="配置-ipv4-网络">
+配置 IPv4 网络
+&lt;a class="heading-link" href="#%e9%85%8d%e7%bd%ae-ipv4-%e7%bd%91%e7%bb%9c">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>首先将网线与路由器的 &lt;code>WAN&lt;/code> 口连接。&lt;/p>
+&lt;p>现在网络无论是学校还是家里一般都是用的 &lt;code>PPPOE&lt;/code> 拨号上网。&lt;/p>
+&lt;p>我们打开 &lt;strong>网络&lt;/strong> 中的 &lt;strong>接口&lt;/strong> ，然后编辑 &lt;code>WAN&lt;/code> 口信息，将协议切换为 &lt;code>PPPoE&lt;/code> ，填写用户名和密码，其他一般不用管，直接保存即可。&lt;/p>
+&lt;p>可选：这里可以选择编辑 &lt;code>LAN&lt;/code> 口信息，这里涉及的是局域网的信息。&lt;/p>
+&lt;p>好比你现在 &lt;code>ip&lt;/code> 是 &lt;code>10.0.0.x&lt;/code> ，可以注意到协议为静态地址，然后 &lt;code>IPv4&lt;/code> 地址为 &lt;code>10.0.0.1/24&lt;/code> 这样的，我们如果是改成 &lt;code>192.168.1.1&lt;/code> ，那么后续我们的地址一般就是形如 &lt;code>192.168.1.x&lt;/code> 了。&lt;/p>
+&lt;p>因为局域网地址一般都是这样，我就也这么改了，不过这里改不改都行。&lt;strong>但是需要注意的是！我们如果改掉了，我们后续访问管理界面就不是 &lt;code>10.0.0.1&lt;/code> 了，而是 &lt;code>192.168.1.1&lt;/code> ！&lt;/strong>&lt;/p>
+&lt;h4 id="配置科学上网">
+配置科学上网
+&lt;a class="heading-link" href="#%e9%85%8d%e7%bd%ae%e7%a7%91%e5%ad%a6%e4%b8%8a%e7%bd%91">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>说实话，我学习刷机就是为了这个，估计大多数人也是。&lt;/p>
+&lt;p>不过现在 &lt;strong>Openwrt&lt;/strong> 中科学上网插件的种类繁多，如 &lt;code>Passwall&lt;/code> 、&lt;code>SSR+&lt;/code> 、&lt;code>Overwall&lt;/code> 等。这三个我都用过，用起来都差别不大，界面也是差不多的。此固件自带的 &lt;code>Overwall&lt;/code> 如下：&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/08/3556294066.png" alt="服务器节点订阅与管理部分">&lt;/p>
+&lt;p>我们只需要在 &lt;strong>订阅URL&lt;/strong> 部分填入我们的订阅链接，然后依次点击 &lt;strong>更新订阅设置&lt;/strong> 以及 &lt;strong>更新所有订阅服务器节点&lt;/strong> ，然后可以发现下方出现了我们的节点，点击 &lt;strong>使用&lt;/strong> ，然后 &lt;strong>保存及应用&lt;/strong> ，就完成了。&lt;/p>
+&lt;p>这里可以在页面调节一下设置，好比可以设置 &lt;strong>仅常用端口走代理&lt;/strong> 等。&lt;/p>
+&lt;h4 id="配置ddns">
+配置DDNS
+&lt;a class="heading-link" href="#%e9%85%8d%e7%bd%aeddns">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;h5 id="什么是ddns">
+什么是DDNS?
+&lt;a class="heading-link" href="#%e4%bb%80%e4%b9%88%e6%98%afddns">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h5>
+&lt;p>首先说一下什么是动态DNS，又叫 DDNS。下面是来自维基百科的解释：&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>动态DNS&lt;/strong>（英语：&lt;strong>Dynamic DNS&lt;/strong>，简称&lt;strong>DDNS&lt;/strong>）是&lt;a href="https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F">域名系统&lt;/a>（DNS）中的一种自动更新&lt;a href="https://zh.wikipedia.org/wiki/%E5%90%8D%E7%A8%B1%E4%BC%BA%E6%9C%8D%E5%99%A8">名称服务器&lt;/a>（Name server）内容的技术。根据互联网的域名订立规则，域名必须跟从固定的IP地址。但动态DNS系统为动态网域提供一个固定的&lt;a href="https://zh.wikipedia.org/wiki/%E5%90%8D%E7%A8%B1%E4%BC%BA%E6%9C%8D%E5%99%A8">名称服务器&lt;/a>（Name server），透过即时更新，使外界用户能够连上动态用户的网址。&lt;/p>
+&lt;p>这个术语被用来描述两种不同的概念。在&lt;a href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E9%9A%9B%E7%B6%B2%E8%B7%AF">互联网&lt;/a>的管理层面来说，动态DNS更新是指创建一个DNS系统，能够自动更新传统的DNS记录，而不需要手动编辑。这个机制在RFC 2136中被解释，利用&lt;a href="https://zh.wikipedia.org/w/index.php?title=TSIG&amp;amp;action=edit&amp;amp;redlink=1">TSIG&lt;/a>机制来提供安全性。&lt;/p>
+&lt;p>在客户端来说，动态DNS提供了一个轻量化机制，让本地DNS数据库可以即时的更新。它能把&lt;a href="https://zh.wikipedia.org/wiki/%E4%BA%92%E8%81%AF%E7%B6%B2">互联网&lt;/a>&lt;a href="https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D">域名&lt;/a>指往一个可能经常改变的&lt;a href="https://zh.wikipedia.org/wiki/IP%E5%9C%B0%E5%9D%80">IP地址&lt;/a>，让经常改变位置及配置的设备，能够持续性的更新IP地址。令互联网上的外界用户可以透过一个大家知道的域名，连接到一个可能经常动态改变&lt;a href="https://zh.wikipedia.org/wiki/IP%E5%9C%B0%E5%9D%80">IP地址&lt;/a>的机器。其中一个常用的用途是在使用动态IP地址连线（例如在每次接通连线就会被分配一个新的IP地址的拨号连线，或是偶尔会被ISP变更IP地址的DSL连线等）的电脑上运行&lt;a href="https://zh.wikipedia.org/wiki/%E4%BC%BA%E6%9C%8D%E5%99%A8">服务器&lt;/a>软件。&lt;/p>
+&lt;p>若要实现动态DNS，就需要将网域的“最大缓存时间”设置在一个非常短的时间（一般为数分钟）。此举可避免外界用户在缓存中保留了旧的IP地址，并且使每个新连线被创建时都会经过Name Server获取该机器的新地址。&lt;/p>
+&lt;p>各种机构都有大规模地提供动态DNS的服务。他们会利用&lt;a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库&lt;/a>存储用户当前的IP地址，并会对用户提供更新当前IP地址的方法。当一些&amp;quot;客户&amp;quot;程序被安装了之后，会在后台运行并每隔数分钟检查电脑的IP地址。当发现其IP地址有所变更，程序便会提交一个更新IP地址的请求至动态DNS的服务器。有很多&lt;a href="https://zh.wikipedia.org/wiki/%E8%B7%AF%E7%94%B1%E5%99%A8">路由器&lt;/a>和其他网络设备也在其&lt;a href="https://zh.wikipedia.org/wiki/%E9%9F%8C%E9%AB%94">固件&lt;/a>中包含了上述的功能。&lt;/p>
+&lt;/blockquote>
+&lt;p>举个例子：&lt;/p>
+&lt;p>好比我们一个公网 &lt;code>ip&lt;/code> 对于外网可见，我们想要在公司设置一下路由器，但是我们不知道路由器的准确 &lt;code>ip&lt;/code> 。那么我们可以通过一个域名解析为这个 &lt;code>ip&lt;/code> ，好比域名为 &lt;code>ddns.zzsqwq.cn&lt;/code> ，我们只需要访问 &lt;code>ddns.zzsqwq.cn&lt;/code> 即可访问管理页面或者 &lt;code>ssh&lt;/code> 过去对路由器更改。&lt;/p>
+&lt;p>但是这个公网 &lt;code>ip&lt;/code> 可能随时是变的，我们不能绑定死，那么即可利用动态 DNS 来监视 &lt;code>ip&lt;/code> 的变化，如果此 &lt;code>ip&lt;/code> 变化了，我们即向供应商发送更新 &lt;code>ip&lt;/code> 的请求，以保证我们每次访问 &lt;code>ddns.zzsqwq.cn&lt;/code> 都可以解析到正确的 &lt;code>ip&lt;/code> 。&lt;/p>
+&lt;h5 id="如何设置ddns">
+如何设置DDNS?
+&lt;a class="heading-link" href="#%e5%a6%82%e4%bd%95%e8%ae%be%e7%bd%aeddns">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h5>
+&lt;p>简单讲一下如何配置我所用固件的 &lt;strong>ddns&lt;/strong>，可能对其他固件并不通用，仅供参考！&lt;/p>
+&lt;p>大多数的 &lt;strong>Openwrt&lt;/strong> 固件中都带了 &lt;strong>ddns&lt;/strong>，我这里用的固件里面 &lt;strong>ddns&lt;/strong> 做了一个集成，如下图所示：&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/08/2555058433.png" alt="DDNS首页图示">&lt;/p>
+&lt;p>我们首先需要注册一个域名，大家如果有做博客或者搭建服务器啥的，应该都有域名。&lt;/p>
+&lt;p>没有的话可以尝试去阿里云或者腾讯云买一个，我这里是在腾讯云买的，因此使用的是腾讯的 &lt;code>dndpod&lt;/code> 的解析服务，首先在 &lt;code>dnspod&lt;/code> 中注册一个帐号，点击右上角头像，选择 &lt;code>API密钥&lt;/code> 。&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/08/3424062604.png" alt="选择API密钥">&lt;/p>
+&lt;p>选择 &lt;code>DNSPod Token&lt;/code> ，点击 &lt;strong>创建密钥&lt;/strong>。&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/08/2622435560.png" alt="创建密钥">&lt;/p>
+&lt;p>然后记下密钥的 &lt;code>ID&lt;/code> 与 &lt;code>Token&lt;/code> ，在 ddns 设置页面选择编辑对应的 ddns 服务，或者新建一个。&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/08/996774304.png" alt="IPv4 DDNS设置图示">&lt;/p>
+&lt;p>如上图所示，首先选择 DDNS 服务商，如 &lt;code>aliyun&lt;/code> 、&lt;code>dnspod&lt;/code> 等，然后查询主机名与域名如上图所示填写，注意域名那里要用 &lt;code>@&lt;/code> ，这可能是这个插件的特性，用其他固件的插件可能是 &lt;code>.&lt;/code> 。&lt;/p>
+&lt;p>然后用户名与密码处填写刚才生成密钥的 &lt;code>ID&lt;/code> 与 &lt;code>Token&lt;/code> ，保存即可。&lt;/p>
+&lt;p>设置 &lt;strong>IPv6&lt;/strong> 的 &lt;strong>ddns&lt;/strong> 同理，设置完成后重启一下 &lt;strong>ddns&lt;/strong> 才会生效。&lt;/p>
+&lt;h4 id="解析内网ip">
+解析内网IP
+&lt;a class="heading-link" href="#%e8%a7%a3%e6%9e%90%e5%86%85%e7%bd%91ip">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>之前配置完路由器，总是无法访问我们基地主机的服务。&lt;/p>
+&lt;p>后来查询了一下，才发现因为基地主机是内网 &lt;code>ip&lt;/code> ，Openwrt 一般用的 &lt;strong>dns&lt;/strong> 解析服务为 &lt;code>dnsmasq&lt;/code> ，他会有一个 &lt;code>重绑定保护&lt;/code> ，这个是为了防止 &lt;a href="https://zh.wikipedia.org/wiki/DNS%E9%87%8D%E6%96%B0%E7%BB%91%E5%AE%9A%E6%94%BB%E5%87%BB">DNS重绑定攻击&lt;/a> 而开启的，大家有兴趣的可以自行搜索。会自动屏蔽解析出的内网 &lt;code>ip&lt;/code> ，因此我们只要将其关掉，即可解析内网 &lt;code>ip&lt;/code> 。&lt;/p>
+&lt;p>当然，更保险的方法是通过 &lt;code>hosts&lt;/code> 或者其他方式指定。&lt;/p>
+&lt;p>这里附上 &lt;code>DNS重绑定攻击&lt;/code> 的维基百科解释：&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>DNS重新绑定&lt;/strong>是&lt;a href="https://zh.wikipedia.org/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AE%89%E5%85%A8">计算机攻击&lt;/a>的一种形式。 在这种攻击中，恶意&lt;a href="https://zh.wikipedia.org/wiki/%E7%BD%91%E9%A1%B5">网页&lt;/a>会导致访问者运行&lt;a href="https://zh.wikipedia.org/wiki/%E5%8B%95%E6%85%8B%E7%B6%B2%E9%A0%81">客户端脚本&lt;/a>，攻击网络上其他地方的计算机。 从理论上讲，&lt;a href="https://zh.wikipedia.org/wiki/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5">同源策略&lt;/a>可防止发生这种情况：客户端脚本只能访问为脚本提供服务的同一主机上的内容。 比较&lt;a href="https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D">域名&lt;/a>是实施此策略的重要部分，因此DNS重新绑定通过滥用域名系统（DNS）来绕过这种保护。&lt;/p>
+&lt;p>这种攻击可以通过让受害者的网络浏览器访问专用IP地址的机器并将结果返回给攻击者来破坏专用网络。 它也可以用于使用受害者机器发送垃圾邮件，分布式拒绝服务攻击或其他恶意活动。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="总结">
+总结
+&lt;a class="heading-link" href="#%e6%80%bb%e7%bb%93">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>本教程主要涉及了刷写原固件，breed，openwrt 的方案。&lt;/p>
+&lt;p>还介绍了一下关于 网络接口、科学上网、动态dns 等方面的设置方式。&lt;/p>
+&lt;p>容易注意到本教程未涉及 &lt;code>IPv6&lt;/code> 的设置，可能是因为学校网络的原因，我设置 &lt;code>IPv6&lt;/code> 久久没有成功，试了很多方法与固件，都没有成功。后来咨询了一下固件作者，猜测可能是因为学校网络的策略问题。分发 &lt;code>IPv6-PD&lt;/code> 有问题，这个还没有查证，后续有时间可以再试一试。&lt;/p>
+&lt;p>教程说的比较罗嗦，可能也比较详细。大家如果还有什么地方不懂，欢迎留言询问！记得留下您的邮箱，这样可以及时的收到回复提示。&lt;/p>
+&lt;p>特别鸣谢各位制作固件与插件的 &lt;a href="https://www.right.com.cn/forum/space-uid-530002.html">hfy&lt;/a>，&lt;a href="https://www.right.com.cn/forum/space-uid-357532.html">small_5&lt;/a>，&lt;a href="https://www.right.com.cn/forum/space-uid-200302.html">hackpascal&lt;/a>，&lt;a href="https://github.com/hanwckf">hanwckf&lt;/a> 等大佬！&lt;/p>
+&lt;p>下面给出一些现阶段比较好用的固件，都是我搜索筛选过的，评价看起来都不错~&lt;/p>
+&lt;h2 id="固件总览">
+固件总览
+&lt;a class="heading-link" href="#%e5%9b%ba%e4%bb%b6%e6%80%bb%e8%a7%88">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="openwrt">
+Openwrt
+&lt;a class="heading-link" href="#openwrt">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>small_5发布的固件，功能基本是最完备的版本，比较稳定，插件都自己加工过，并且 &lt;code>Overwall&lt;/code> 是独家的科学上网插件，不过基本没有什么教程，可以去群里问群主，人比较活跃（但是脾气有点暴躁）：&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>恩山发布地址：https://www.right.com.cn/forum/thread-4751462-1-1.html&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>固件下载链接：https://drive.google.com/drive/folders/1evev5nZet17WGozpvHg08SnIjuc-8Lq_&lt;/p>
+&lt;p>一些插件链接：https://drive.google.com/drive/folders/1MPQrvubdGDwpIyyA4ZfO-aCXqIQLkFkb&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>公告 tg 群：https://t.me/Firmware_Openwrt&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>基于 Github Action 的自编译插件，不过近期不怎么维护了，用起来还不错，之前因为用不了 IPv6 换掉了，现在感觉是自己的问题，插件应该没啥问题&lt;/p>
+&lt;ul>
+&lt;li>恩山发布地址：https://www.right.com.cn/forum/forum.php?mod=viewthread&amp;amp;tid=4048412&amp;amp;extra=page%3D2%26filter%3Dtypeid%26typeid%3D43&lt;/li>
+&lt;li>固件下载连接：https://down.cloudorz.com/Router/LEDE/XiaoMi/XiaoMi-AC2100/&lt;/li>
+&lt;li>Github仓库地址：https://github.com/1orz/My-action&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>功能很全的一个固件，但是其实我没用过，下面的评价看起来很不错：&lt;/p>
+&lt;ul>
+&lt;li>恩山发布地址：https://www.right.com.cn/FORUM/thread-4070200-1-1.html&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>恩山上评价不错的一个插件，具有常用功能，但是没有什么教程：&lt;/p>
+&lt;ul>
+&lt;li>恩山发布地址：https://www.right.com.cn/forum/thread-4107734-1-1.html&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>之前计划使用的插件，作者 hfy 做了很多的工作，好比制作网盘放各种固件、插件，写了很多教程，可是现在好像已经淡出了，固件无法使用，仅供参考&lt;/p>
+&lt;ul>
+&lt;li>恩山发布地址：https://www.right.com.cn/forum/thread-4027477-1-1.html&lt;/li>
+&lt;li>发布地址：http://openwrt.ink:88/archives/openwrt-ac2100&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="padavan">
+Padavan
+&lt;a class="heading-link" href="#padavan">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>稳定而简洁的 Padavan，大家看起来评价都不错！
+&lt;ul>
+&lt;li>恩山发布地址：https://www.right.com.cn/forum/thread-4532281-1-1.html&lt;/li>
+&lt;li>下载地址：https://pan.baidu.com/s/1gyL54MDYtm7gOEUwY1fdrQ 提取码：pad2&lt;/li>
+&lt;li>交流群：324762006&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>用的最多的 Padavan 发布，更新的比较多，同步最新源码，功能齐全！
+&lt;ul>
+&lt;li>发布地址：https://t.me/s/pdcn1&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="bootloader">
+Bootloader
+&lt;a class="heading-link" href="#bootloader">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://breed.hackpascal.net/breed-mt7621-xiaomi-r3g.bin">通用的breed&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="http://openwrt.ink:88/upload/2020/12/bootloader-redmi-ac2100-928443369e734b72b9611377b94598bb.bin">红米官方的 Bootloader&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="http://openwrt.ink:88/upload/2020/12/bootloader-xiaomi-ac2100-2ad34eb9357e4760948f797999b7e294.bin">小米官方的 Bootloader&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="http://openwrt.ink:8666/%E5%AE%98%E6%96%B9%E5%B7%A5%E5%85%B7%E5%8C%85/">刷机软件包等&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://www.right.com.cn/forum/thread-161906-1-1.html">breed源&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="http://openwrt.ink:88/upload/2020/12/miwifi_rm2100_firmware_d6234_2.0.7-f693369307724965af27d3eda2458ad7.bin">官方2.0.7全固件&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="http://openwrt.ink:8666/%E5%AE%98%E6%96%B9%E5%B7%A5%E5%85%B7%E5%8C%85/%E5%B0%8F%E7%B1%B3AC2100/%E5%AE%98%E6%96%B9%E5%9B%BA%E4%BB%B6/miwifi_r2100_firmware_64288_2.0.376.bin">官方2.0.376全固件&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="source-code">
+Source Code
+&lt;a class="heading-link" href="#source-code">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/coolsnowwolf/lede">lede&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/openwrt/openwrt">openwrt&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/hanwckf/rt-n56u/">handwckf/rt-n56u&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="参考链接">
+参考链接
+&lt;a class="heading-link" href="#%e5%8f%82%e8%80%83%e9%93%be%e6%8e%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://www.right.com.cn/forum/">恩山无线论坛&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="http://openwrt.ink:88/archives/mirouter-xiufu">【教程】红米&amp;amp;小米AC2100刷回官方固件方法及相关工具&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="http://openwrt.ink:88/archives/rm2100-shuaji">【教程】红米AC2100官方固件/OpenWrt/Padavan间互刷&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="http://openwrt.ink:88/archives/s-breed">【Breed】红米AC2100&amp;amp;小米AC2100一键SSH刷Breed和任意固件教程&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="http://openwrt.ink:88/archives/openwrt-ac2100">【0310更新】红米&amp;amp;小米AC2100多功能|精简|AP版下载&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://www.right.com.cn/forum/thread-4023907-1-1.html">红米/小米AC2100刷入r3g breed以及恢复官方boot详细教程（更新查坏块方法、pb-boot） - 小米无线路由器以及小米无线相关的设备 - 恩山无线论坛 - Powered by Discuz! (right.com.cn)&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://post.smzdm.com/p/aoo85457/">红米AC2100刷机Padavan固件全图解，超超超详细_路由器_什么值得买 (smzdm.com)&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://www.right.com.cn/forum/thread-4023403-1-2.html">小米AC2100和红米AC2100可以刷的breed。另附小米和红米官方的bootloader - 小米无线路由器以及小米无线相关的设备 - 恩山无线论坛 - Powered by Discuz! (right.com.cn)&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="http://openwrt.ink:88/archives/s-breed">【Breed】红米AC2100&amp;amp;小米AC2100一键SSH刷Breed和任意固件教程 - 寒枫叶 (openwrt.ink)&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://cyp0633.icu/archives/53">HNU校园网IPv6免流折腾实录 - cyp0633&amp;rsquo;s blog&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://www.right.com.cn/forum/forum.php?mod=viewthread&amp;amp;tid=4066963&amp;amp;extra=page%3D1%26filter%3Dtypeid%26typeid%3D43">小米 红米【AC2100】一键刷BREED【30秒刷完】小白脑残专用 无需工具TELNET + 检查坏块 - 小米无线路由器以及小米无线相关的设备 - 恩山无线论坛 - Powered by Discuz! (right.com.cn)&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://www.right.com.cn/forum/forum.php?mod=viewthread&amp;amp;tid=4054150&amp;amp;extra=page%3D1%26filter%3Dtypeid%26typeid%3D43">红米(小米)AC2100无需Telnet刷入Breed和Padavan固件教程 - 小米无线路由器以及小米无线相关的设备 - 恩山无线论坛 - Powered by Discuz! (right.com.cn)&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://www.right.com.cn/forum/forum.php?mod=viewthread&amp;amp;tid=4025861&amp;amp;extra=page%3D7%26filter%3Dtypeid%26typeid%3D43">2020-08-29更新] 教程：小米和红米AC2100用breed刷openwrt - 小米无线路由器以及小米无线相关的设备 - 恩山无线论坛 - Powered by Discuz! (right.com.cn)&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://p3terx.com/archives/openwrt-cloudflare-ddns.html">OpenWrt 配置 Cloudflare DDNS - P3TERX ZONE&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://biji.io/2017/4963.html">小米路由器青春版刷华硕固件&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>

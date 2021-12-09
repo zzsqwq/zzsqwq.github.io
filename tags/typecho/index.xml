@@ -1,8 +1,90 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Typecho on Zs's Blog</title><link>https://zzsqwq.github.io/tags/typecho/</link><description>Recent content in Typecho on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Wed, 26 Aug 2020 16:34:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/typecho/index.xml" rel="self" type="application/rss+xml"/><item><title>自买服务器建站教程</title><link>https://zzsqwq.github.io/posts/77/</link><pubDate>Wed, 26 Aug 2020 16:34:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/77/</guid><description>&lt;h2 id="引言">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Typecho on Zs's Blog</title><link>https://zzsqwq.github.io/tags/typecho/</link><description>Recent content in Typecho on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Wed, 26 Aug 2020 16:34:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/typecho/index.xml" rel="self" type="application/rss+xml"/><item><title>自买服务器建站教程</title><link>https://zzsqwq.github.io/posts/77/</link><pubDate>Wed, 26 Aug 2020 16:34:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/77/</guid><description>&lt;h2 id="引言">
 引言
 &lt;a class="heading-link" href="#%e5%bc%95%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>​    本来之前是用的 &lt;strong>Hexo + Github&lt;/strong> 搭建的，虽然用的是 &lt;strong>Github&lt;/strong> 的服务器，但是我用家里的移动网访问起来还是没什么压力，就是慢一点，可以接受。&lt;/p>
-&lt;p>​    后来到了学校，我们学校网访问 &lt;strong>Github&lt;/strong> 的速度简直可以用龟速来形容，白天可以说不开代理根本进不去，只有晚上了才能勉强进得去。然后我就寻思，能不能换成国内的服务器，然后就发现了 &lt;strong>Gitee&lt;/strong> ，这个可以算是中国版的 &lt;strong>Github&lt;/strong> ，他具有的服务 &lt;strong>Gitee Pages&lt;/strong> 在国内可以飞速的访问，But如果想要自定义域名/每次推送自动更新需要开 &lt;strong>Github Pages Pro&lt;/strong> ，还挺贵的，一年大概 &lt;strong>120￥&lt;/strong> 吧。此外，如果想要将域名解析到国内的服务器必须要备案，&lt;strong>备案又必须有服务器&lt;/strong>，那我有服务器了还费那些事了，于是考虑自己买服务器重构一下博客。&lt;/p></description></item></channel></rss>
+&lt;p>​    后来到了学校，我们学校网访问 &lt;strong>Github&lt;/strong> 的速度简直可以用龟速来形容，白天可以说不开代理根本进不去，只有晚上了才能勉强进得去。然后我就寻思，能不能换成国内的服务器，然后就发现了 &lt;strong>Gitee&lt;/strong> ，这个可以算是中国版的 &lt;strong>Github&lt;/strong> ，他具有的服务 &lt;strong>Gitee Pages&lt;/strong> 在国内可以飞速的访问，But如果想要自定义域名/每次推送自动更新需要开 &lt;strong>Github Pages Pro&lt;/strong> ，还挺贵的，一年大概 &lt;strong>120￥&lt;/strong> 吧。此外，如果想要将域名解析到国内的服务器必须要备案，&lt;strong>备案又必须有服务器&lt;/strong>，那我有服务器了还费那些事了，于是考虑自己买服务器重构一下博客。&lt;/p>
+&lt;h2 id="一些博客系统">
+一些博客系统
+&lt;a class="heading-link" href="#%e4%b8%80%e4%ba%9b%e5%8d%9a%e5%ae%a2%e7%b3%bb%e7%bb%9f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>​    搭博客，首先我们需要构思一下用什么博客系统，市面上比较广泛的有如下几个。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Wordpress&lt;/strong>&lt;/p>
+&lt;p>​    这个绝对是重量级的，在全球范围内也是十分出名的，他的作用也不仅仅局限于搭建个人博客，也有很多例如电商等官网也是基于此系统的，据说全球 &lt;strong>37%&lt;/strong> 的网站都是基于 &lt;strong>Wordpress&lt;/strong> 的，这统治地位，可见一斑。&lt;/p>
+&lt;p>​    &lt;strong>优点&lt;/strong>：博客主题多样，十分的大气，插件也是各种各样的应有尽有。里面的设置也是十分的多，特别特别多，这个可以说是既是优点又是缺点，很多东西如果是个人博客的话根本用不到。&lt;/p>
+&lt;p>​    &lt;strong>缺点&lt;/strong>：不是原生支持markdown，并且对LaTeX的支持十分拉胯。需要安装插件，但是显示效果也是不尽人意。此外，Wordpress相比于下面推出的几个十分的臃肿，因为多了很多东西，安装包挺大的（虽然也就几MB的感觉），而且我没有找到我喜欢的主题，于是装载后卸掉了。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Emlog&lt;/strong>&lt;/p>
+&lt;p>​    &lt;strong>Emlog&lt;/strong> 博客系统十分的简洁轻巧，安装包只有几百KB。&lt;/p>
+&lt;p>​    &lt;strong>优点&lt;/strong>：比较轻巧方便，主题和插件也还算多。&lt;/p>
+&lt;p>​    &lt;strong>缺点&lt;/strong>：其实主题我觉得，没有太好看的。所以没有考虑，大家可以去翻翻看看有没有钟意的主题再考虑是否安装这一个。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Typecho&lt;/strong>&lt;/p>
+&lt;p>​    这个博客系统是我现在正在用的，也是十分的轻巧简洁，是一个国产的博客系统。&lt;/p>
+&lt;p>​    &lt;strong>优点&lt;/strong>：自身对markdown的支持十分的友好，而且有一款插件对LaTeX的支持也是超级棒！因为我比较喜欢之前&lt;strong>Hexo&lt;/strong>里面的&lt;strong>NexT&lt;/strong>主题，而Typecho里面有这个的移植主题，所以最终还是选择的这个系统这个主题。而且他还有好几款例如 &lt;strong>Handsome，Aria&lt;/strong> 这样的我觉得不错的主题。&lt;strong>Ps: Handsome主题需要收费，而且现在还在更新，我觉得超值！&lt;/strong>&lt;/p>
+&lt;p>​    &lt;strong>缺点&lt;/strong>：正式版好久没更新了，上一次更新还是2017年。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="搭建过程">
+搭建过程
+&lt;a class="heading-link" href="#%e6%90%ad%e5%bb%ba%e8%bf%87%e7%a8%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="1-购买服务器">
+1. 购买服务器
+&lt;a class="heading-link" href="#1-%e8%b4%ad%e4%b9%b0%e6%9c%8d%e5%8a%a1%e5%99%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    首先我们去阿里云那边买一台学生机，一年也就 &lt;strong>120￥&lt;/strong> 的样子，很实惠。本来一年大概 &lt;strong>1600￥&lt;/strong> 的样子。&lt;/p>
+&lt;p>​    买学生机的话就买 &lt;strong>轻量应用服务器&lt;/strong> ，然后应用镜像选一下 &lt;strong>BT-Panel&lt;/strong> 即可。&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2971720137.png" alt="一些服务器类型">&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/559120068.png" alt="初始服务器的配置选择">&lt;/p>
+&lt;h3 id="2-登录服务器">
+2. 登录服务器
+&lt;a class="heading-link" href="#2-%e7%99%bb%e5%bd%95%e6%9c%8d%e5%8a%a1%e5%99%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    进去之后点击应用详情，看一下 &lt;strong>BT-Panel使用步骤&lt;/strong>。&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1152103512.png" alt="BT-Panel的使用步骤">&lt;/p>
+&lt;p>​    根据上面的指示获取登陆服务器的密码。然后点击左侧的 &lt;strong>防火墙&lt;/strong> ，在那里开启 &lt;strong>8888&lt;/strong> 端口。如下图所示。&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/3471176574.png" alt="添加规则">&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/972834655.png" alt="按如图设置开启8888端口">&lt;/p>
+&lt;h3 id="3-配置服务器">
+3. 配置服务器
+&lt;a class="heading-link" href="#3-%e9%85%8d%e7%bd%ae%e6%9c%8d%e5%8a%a1%e5%99%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    我们登录进入服务器后，点击左侧应用商城。依次安装 Apache、PHP-7.4、Mysql5.6。可能要等挺长时间。&lt;/p>
+&lt;h3 id="4-开启网站">
+4. 开启网站
+&lt;a class="heading-link" href="#4-%e5%bc%80%e5%90%af%e7%bd%91%e7%ab%99">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    安装完成后，我们去面板设置那边看一下自己的 &lt;strong>服务器ip&lt;/strong> ，记下来。&lt;/p>
+&lt;p>​    点击左侧网站，添加站点。域名那里写自己的 &lt;strong>服务器ip&lt;/strong> ，然后提交即可。&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2339810532.png" alt="新建站点">&lt;/p>
+&lt;p>​    然后点击左侧数据库，建立一个新的数据库，用于存放我们之后网站的信息。&lt;/p>
+&lt;p>​    我们访问到我们网站的根目录，然后将自己心仪的博客程序拷入，访问 &lt;strong>服务器ip/install.php&lt;/strong> 即可开启安装！&lt;/p>
+&lt;p>​    安装完成后我们就可以通过 &lt;strong>服务器ip&lt;/strong> 来访问我们的网站了！然后可以去网上找一下心仪的主题和插件来安装~&lt;/p>
+&lt;h2 id="一些后续工作">
+一些后续工作
+&lt;a class="heading-link" href="#%e4%b8%80%e4%ba%9b%e5%90%8e%e7%bb%ad%e5%b7%a5%e4%bd%9c">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>​    如果我们要自定义域名，首先我们可以去阿里云 / 腾讯云那边买一个域名，然后进行域名备案，你服务器是在哪边买的就在哪边备案即可。后续备案结束后在云解析那边添加域名解析（具体操作可以百度），然后在 &lt;strong>BT-Panel&lt;/strong> 这边也添加域名解析，这样即可使用我们的自定义域名访问博客了！&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1872130264.png" alt="添加域名解析">&lt;/p>
+&lt;p>​    还有一些后续的优化例如安装 &lt;strong>https安全证书（我自己现在还没搞好QAQ）&lt;/strong> ，加入 &lt;strong>SEO优化&lt;/strong> ，提交申请让 &lt;strong>搜索引擎收录&lt;/strong> 等等……大家有兴趣的可以自行探索！&lt;/p></description></item></channel></rss>

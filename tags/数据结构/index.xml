@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数据结构 on Zs's Blog</title><link>https://zzsqwq.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link><description>Recent content in 数据结构 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Mon, 20 Apr 2020 01:25:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml"/><item><title>高精度计算pi</title><link>https://zzsqwq.github.io/posts/67/</link><pubDate>Mon, 20 Apr 2020 01:25:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/67/</guid><description>&lt;h2 id="高精度计算pi值">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数据结构 on Zs's Blog</title><link>https://zzsqwq.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link><description>Recent content in 数据结构 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Mon, 20 Apr 2020 01:25:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml"/><item><title>高精度计算pi</title><link>https://zzsqwq.github.io/posts/67/</link><pubDate>Mon, 20 Apr 2020 01:25:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/67/</guid><description>&lt;h2 id="高精度计算pi值">
 高精度计算PI值
 &lt;a class="heading-link" href="#%e9%ab%98%e7%b2%be%e5%ba%a6%e8%ae%a1%e7%ae%97pi%e5%80%bc">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -10,16 +10,1182 @@
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​    使用双向链表作为存储结构，请根据用户输入的一个整数（该整数表示精确到小数点后的位数，可能要求精确到小数点后 &lt;strong>500&lt;/strong> 位），高精度计算PI值。&lt;strong>提示：可以利用反三角函数幂级展开式来进行计算。&lt;/strong>&lt;/p></description></item><item><title>关于STL的一些总结</title><link>https://zzsqwq.github.io/posts/28/</link><pubDate>Sun, 16 Feb 2020 00:55:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/28/</guid><description>&lt;h2 id="前言">
+&lt;p>​    使用双向链表作为存储结构，请根据用户输入的一个整数（该整数表示精确到小数点后的位数，可能要求精确到小数点后 &lt;strong>500&lt;/strong> 位），高精度计算PI值。&lt;strong>提示：可以利用反三角函数幂级展开式来进行计算。&lt;/strong>&lt;/p>
+&lt;h3 id="解题思路">
+解题思路
+&lt;a class="heading-link" href="#%e8%a7%a3%e9%a2%98%e6%80%9d%e8%b7%af">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="求pi的算法">
+求PI的算法
+&lt;a class="heading-link" href="#%e6%b1%82pi%e7%9a%84%e7%ae%97%e6%b3%95">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    首先这道题是要求必须使用双向链表作为存储结构的，这个需要注意，而且也不能用数组计算完了之后挨个赋值给链表的每个节点，&lt;del>这是耍赖&lt;/del> 。&lt;/p>
+&lt;p>​    那么我们开始再想，用什么公式来求 &lt;strong>PI&lt;/strong> 呢？这是一个问题。先没管题目的提示，我去百度了一通，发现了一个很神奇的算法，用三行就可以计算到圆周率小数点后800+位。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">long&lt;/span> a&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1000&lt;/span>,b,c&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2800&lt;/span>,d,e,f[&lt;span style="color:#ae81ff">2801&lt;/span>],g;
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(){
+&lt;span style="color:#66d9ef">for&lt;/span>(;b&lt;span style="color:#f92672">-&lt;/span>c;) f[b&lt;span style="color:#f92672">++&lt;/span>]&lt;span style="color:#f92672">=&lt;/span>a&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">5&lt;/span>;
+&lt;span style="color:#66d9ef">for&lt;/span>(;d&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>,g&lt;span style="color:#f92672">=&lt;/span>c&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;c&lt;span style="color:#f92672">-=&lt;/span>&lt;span style="color:#ae81ff">14&lt;/span>,printf(&lt;span style="color:#e6db74">&amp;#34;%.3d&amp;#34;&lt;/span>,e&lt;span style="color:#f92672">+&lt;/span>d&lt;span style="color:#f92672">/&lt;/span>a),e&lt;span style="color:#f92672">=&lt;/span>d&lt;span style="color:#f92672">%&lt;/span>a)
+&lt;span style="color:#66d9ef">for&lt;/span>(b&lt;span style="color:#f92672">=&lt;/span>c;d&lt;span style="color:#f92672">+=&lt;/span>f[b]&lt;span style="color:#f92672">*&lt;/span>a,f[b]&lt;span style="color:#f92672">=&lt;/span>d&lt;span style="color:#f92672">%--&lt;/span>g,d&lt;span style="color:#f92672">/=&lt;/span>g&lt;span style="color:#f92672">--&lt;/span>,&lt;span style="color:#f92672">--&lt;/span>b;d&lt;span style="color:#f92672">*=&lt;/span>b);
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    实验了一下发现居然真的是，而且效率还挺高的？看了一会实现的原理一直没看懂，作罢。&lt;/p>
+&lt;p>​    最后发现是找不到什么除了幂级展开还有啥高效率的算法了好像，还是考虑题目提示的 &lt;strong>三角函数幂级展开&lt;/strong>。然后继续在网上搜索了一下，在学长的一个博客里发现了公式。
+$$
+f_{i} =
+\begin{cases}
+1 &amp;amp; {i=1}\
+f_{i-1}\times \frac{i-1}{2\times i-1} &amp;amp; {i&amp;gt;1}
+\end{cases}
+$$&lt;/p>
+&lt;p>$$
+\frac{\pi}{2} = \sum_{i=1}^{\infty}{f_i}
+$$&lt;/p>
+&lt;p>​    那么拿到了这个式子，我们就可以分析一下，怎么和链表结合起来做了。&lt;/p>
+&lt;h4 id="链表的设计">
+链表的设计
+&lt;a class="heading-link" href="#%e9%93%be%e8%a1%a8%e7%9a%84%e8%ae%be%e8%ae%a1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    双向链表，也就是每个节点有一个数据域，有前和后两个指针。我考虑到我们做加法和乘法是需要从后往前做，除法是需要从前往后做。因此需要双向遍历，我又添加了一个尾指针，记录当前链表的尾节点的地址，方便从后往前遍历，头节点可以保证从前往后遍历。设计如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#66d9ef">typedef&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">node&lt;/span>
+{
+&lt;span style="color:#66d9ef">int&lt;/span> data;
+&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">node&lt;/span> &lt;span style="color:#f92672">*&lt;/span>nxt;
+&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">node&lt;/span> &lt;span style="color:#f92672">*&lt;/span>pre;
+&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">node&lt;/span> &lt;span style="color:#f92672">*&lt;/span>tail;
+node() &lt;span style="color:#75715e">//构造函数，用于初始化
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> {
+nxt &lt;span style="color:#f92672">=&lt;/span> NULL;
+pre &lt;span style="color:#f92672">=&lt;/span> NULL;
+tail &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">this&lt;/span>;
+data &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    数据域就用来存储每一位数字，好比 &lt;strong>3.1415926&lt;/strong> 就从第一个节点到第八个节点依次存 &lt;strong>31415926&lt;/strong> 。&lt;/p>
+&lt;h4 id="乘法的实现">
+乘法的实现
+&lt;a class="heading-link" href="#%e4%b9%98%e6%b3%95%e7%9a%84%e5%ae%9e%e7%8e%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    另出一个函数，函数声明类似于 &lt;code>void Multi(List L,int k)&lt;/code>&lt;/p>
+&lt;p>​    乘法我们模拟竖式的乘法运算，考虑到这是一个 &lt;strong>高精度大数 * 低精度整数&lt;/strong> ，因此我们只需要从尾部到头部依次对每一位做乘法即可，考虑到进位问题，可以有两种办法&lt;/p>
+&lt;ul>
+&lt;li>可以是先做完乘法，然后再回到尾部，再从尾到头依次处理进位，这样的好处是这两种操作分隔开了，操作起来难度不大，也比较好想。&lt;/li>
+&lt;li>可以是边做乘法边进位，我们定义一个 &lt;code>temp&lt;/code> 用来存储低位到高一位的进位，这里要注意的是，对于某一位的操作不是先加上进位再做乘法，是先做乘法，再加低位的进位。&lt;/li>
+&lt;/ul>
+&lt;p>​    但是有一个问题我们需要注意，就是好比 &lt;strong>52 * 3&lt;/strong> ，这时候原来的两位数变成三位数了，因此需要我们在头节点和第一个节点之间增加新的节点，并且可能增加的不只是一个，只要 &lt;code>temp&lt;/code> 这个进位大于等于10就需要一直创建新的节点来保证进位。&lt;/p>
+&lt;h4 id="除法的实现">
+除法的实现
+&lt;a class="heading-link" href="#%e9%99%a4%e6%b3%95%e7%9a%84%e5%ae%9e%e7%8e%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    另出一个函数，函数声明类似于 &lt;code>void Division(List L,int k)&lt;/code>&lt;/p>
+&lt;p>​    除法也是模拟竖式运算，这个是从头到尾进行处理，这一位的数据做完除法，余数作为下一位的**“进位”** ，这里可以边做边 &lt;strong>“进位”&lt;/strong> 。这里这个进位不是乘法的那种进位，注意区分。&lt;/p>
+&lt;p>​    需要注意的是最后可能有除不尽的情况，这样我们就可以一直在尾部插入节点，然后处理一直处理数据到&lt;strong>最大位数&lt;/strong> 或者 &lt;strong>到 “进位” 为0为止&lt;/strong> 。最后不要忘记重置一下尾指针，指向新的尾节点。&lt;/p>
+&lt;h4 id="加法的实现">
+加法的实现
+&lt;a class="heading-link" href="#%e5%8a%a0%e6%b3%95%e7%9a%84%e5%ae%9e%e7%8e%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    函数声明类似于 &lt;code>void Sum(List L,List p)&lt;/code> 。&lt;/p>
+&lt;p>​    加法的实现也是需要从后往前遍历，然后依次对每一位做加法。先取两个链表的尾节点出来，然后依次向前遍历相加，我们可以把相加的答案放在前面那个链表里面，注意这样是不需要返回值的，因为链表内部是通过地址索引的，我们改变的就是传入链表的值。&lt;/p>
+&lt;h4 id="最后的整合">
+最后的整合
+&lt;a class="heading-link" href="#%e6%9c%80%e5%90%8e%e7%9a%84%e6%95%b4%e5%90%88">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    最后我们总共需要一个和链表，一个 $f_{i}$。 和链表用于计算所有式子的累加和，而 $f_{i-1}$ 其实就是 $f_i$ 的上个阶段 。我们每次把 $f_i$ 和 和链表进行累加即可。&lt;/p>
+&lt;p>​    最后再对&lt;strong>和链表乘2&lt;/strong> 即可。&lt;/p>
+&lt;h3 id="代码实现">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxsize &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">600&lt;/span>; &lt;span style="color:#75715e">// 设定求小数点后多少位
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">typedef&lt;/span> &lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">node&lt;/span> &lt;span style="color:#75715e">// 双向链表的结构体
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>{
+&lt;span style="color:#66d9ef">int&lt;/span> data;
+&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">node&lt;/span> &lt;span style="color:#f92672">*&lt;/span>nxt;
+&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">node&lt;/span> &lt;span style="color:#f92672">*&lt;/span>pre;
+&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">node&lt;/span> &lt;span style="color:#f92672">*&lt;/span>tail;
+node() &lt;span style="color:#75715e">//构造函数，用于初始化
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> {
+data &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+tail &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">this&lt;/span>;
+nxt &lt;span style="color:#f92672">=&lt;/span> NULL;
+pre &lt;span style="color:#f92672">=&lt;/span> NULL;
+}
+}Node,&lt;span style="color:#f92672">*&lt;/span>List;
+&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">Mult&lt;/span>(List Head,&lt;span style="color:#66d9ef">int&lt;/span> k); &lt;span style="color:#75715e">// 对链表每一位 *k
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">Divi&lt;/span>(List Head,&lt;span style="color:#66d9ef">int&lt;/span> k); &lt;span style="color:#75715e">// 对链表每一位 ÷k
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">Sum&lt;/span>(List a,List b); &lt;span style="color:#75715e">// 对两个链表的数求和，所得数放在前面链表中
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">InitList&lt;/span>(List &lt;span style="color:#f92672">&amp;amp;&lt;/span>L); &lt;span style="color:#75715e">// 初始化链表，并把第一个节点值设为 1
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">InitSum&lt;/span>(List &lt;span style="color:#f92672">&amp;amp;&lt;/span>L); &lt;span style="color:#75715e">// 初始化最后存和的链表，并把第一个节点置为1
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">Output&lt;/span>(List L,&lt;span style="color:#66d9ef">int&lt;/span> k); &lt;span style="color:#75715e">// 输出一个链表，保留 k 位小数
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+&lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n);
+List Head,S;
+InitList(Head);
+InitSum(S);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>&lt;span style="color:#ae81ff">3000&lt;/span>;i&lt;span style="color:#f92672">++&lt;/span>) &lt;span style="color:#75715e">//计算pi值
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> {
+Mult(Head,i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+Divi(Head,&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+Sum(S,Head);
+}
+Mult(S,&lt;span style="color:#ae81ff">2&lt;/span>);
+Output(S,n);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">Mult&lt;/span>(List Head,&lt;span style="color:#66d9ef">int&lt;/span> k) &lt;span style="color:#75715e">// 对以Head为头节点的链表中的每一位做乘法
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>{
+List p &lt;span style="color:#f92672">=&lt;/span> Head&lt;span style="color:#f92672">-&amp;gt;&lt;/span>tail; &lt;span style="color:#75715e">// 先把指针指向链表的末尾，方便从后往前做乘法
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">while&lt;/span>(p &lt;span style="color:#f92672">!=&lt;/span> Head) &lt;span style="color:#75715e">// 从前往后开始算乘法
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> {
+p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">*=&lt;/span> k;
+p &lt;span style="color:#f92672">=&lt;/span> p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>pre;
+&lt;span style="color:#75715e">// printf(&amp;#34;I have done Multi.\n&amp;#34;);
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> }
+p &lt;span style="color:#f92672">=&lt;/span> Head&lt;span style="color:#f92672">-&amp;gt;&lt;/span>tail;
+&lt;span style="color:#66d9ef">while&lt;/span>(p &lt;span style="color:#f92672">!=&lt;/span> Head&lt;span style="color:#f92672">-&amp;gt;&lt;/span>nxt) &lt;span style="color:#75715e">//开始处理进位
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> {
+p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>pre&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">+=&lt;/span> p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>;
+p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">%=&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>;
+p &lt;span style="color:#f92672">=&lt;/span> p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>pre;
+}
+&lt;span style="color:#66d9ef">while&lt;/span>( p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>) &lt;span style="color:#75715e">//一直处理最高位的进位
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> {
+List s &lt;span style="color:#f92672">=&lt;/span> (List)malloc(&lt;span style="color:#66d9ef">sizeof&lt;/span>(Node));
+s&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">=&lt;/span> p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>;
+p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">%=&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>;
+s&lt;span style="color:#f92672">-&amp;gt;&lt;/span>pre &lt;span style="color:#f92672">=&lt;/span> Head;
+s&lt;span style="color:#f92672">-&amp;gt;&lt;/span>nxt &lt;span style="color:#f92672">=&lt;/span> p;
+p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>pre &lt;span style="color:#f92672">=&lt;/span> s;
+Head&lt;span style="color:#f92672">-&amp;gt;&lt;/span>nxt &lt;span style="color:#f92672">=&lt;/span> s;
+p &lt;span style="color:#f92672">=&lt;/span> s;
+}
+}
+&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">Divi&lt;/span>(List Head,&lt;span style="color:#66d9ef">int&lt;/span> k) &lt;span style="color:#75715e">// 对链表每一位除k
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>{
+&lt;span style="color:#66d9ef">int&lt;/span> temp &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>,depth &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; &lt;span style="color:#75715e">//temp用于进位计算 ，depth 用于计算链表长度
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> List p &lt;span style="color:#f92672">=&lt;/span> Head&lt;span style="color:#f92672">-&amp;gt;&lt;/span>nxt;
+List t; &lt;span style="color:#75715e">// 存尾部节点
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">while&lt;/span>(p &lt;span style="color:#f92672">!=&lt;/span> NULL) &lt;span style="color:#75715e">//模拟做除法
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> {
+depth&lt;span style="color:#f92672">++&lt;/span>;
+p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">+=&lt;/span> temp&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>;
+temp &lt;span style="color:#f92672">=&lt;/span> p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">%&lt;/span> k;
+p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">/=&lt;/span> k;
+t &lt;span style="color:#f92672">=&lt;/span> p;
+p &lt;span style="color:#f92672">=&lt;/span> p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>nxt;
+}
+p &lt;span style="color:#f92672">=&lt;/span> t;
+&lt;span style="color:#66d9ef">while&lt;/span>(temp&lt;span style="color:#f92672">!=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> depth &lt;span style="color:#f92672">&amp;lt;=&lt;/span> maxsize) &lt;span style="color:#75715e">// 如果除不尽，就一直往后拓展节点，但注意不要超过最大位数
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> {
+&lt;span style="color:#75715e">// printf(&amp;#34;I have done Division!\n&amp;#34;);
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> depth&lt;span style="color:#f92672">++&lt;/span>;
+List s &lt;span style="color:#f92672">=&lt;/span> (List)malloc(&lt;span style="color:#66d9ef">sizeof&lt;/span>(Node));
+s&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">=&lt;/span> temp&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>;
+s&lt;span style="color:#f92672">-&amp;gt;&lt;/span>nxt &lt;span style="color:#f92672">=&lt;/span> NULL;
+s&lt;span style="color:#f92672">-&amp;gt;&lt;/span>pre &lt;span style="color:#f92672">=&lt;/span> p;
+temp &lt;span style="color:#f92672">=&lt;/span> s&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">%&lt;/span> k;
+s&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">/=&lt;/span> k;
+p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>nxt &lt;span style="color:#f92672">=&lt;/span> s;
+p &lt;span style="color:#f92672">=&lt;/span> s;
+}
+Head&lt;span style="color:#f92672">-&amp;gt;&lt;/span>tail &lt;span style="color:#f92672">=&lt;/span> p;
+}
+&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">Sum&lt;/span>(List a,List b) &lt;span style="color:#75715e">// 对两个链表的数求和，所得数放在前面链表中
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>{
+List p &lt;span style="color:#f92672">=&lt;/span> a&lt;span style="color:#f92672">-&amp;gt;&lt;/span>tail,k &lt;span style="color:#f92672">=&lt;/span> b&lt;span style="color:#f92672">-&amp;gt;&lt;/span>tail; &lt;span style="color:#75715e">// 先指向各自的尾部，开始从前往后加
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">while&lt;/span>(p&lt;span style="color:#f92672">!=&lt;/span>a &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> k&lt;span style="color:#f92672">!=&lt;/span>b) &lt;span style="color:#75715e">// 遍历到有一个到头节点为止
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> {
+p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">+=&lt;/span> k&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data;
+p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>pre&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">+=&lt;/span> p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>;
+p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">%=&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>;
+p &lt;span style="color:#f92672">=&lt;/span> p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>pre;
+k &lt;span style="color:#f92672">=&lt;/span> k&lt;span style="color:#f92672">-&amp;gt;&lt;/span>pre;
+}
+}
+&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">InitList&lt;/span>(List &lt;span style="color:#f92672">&amp;amp;&lt;/span>L) &lt;span style="color:#75715e">// 初始化链表，并把第一个节点值设为 1
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>{
+L &lt;span style="color:#f92672">=&lt;/span> (List)malloc(&lt;span style="color:#66d9ef">sizeof&lt;/span>(Node));
+L&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+List s &lt;span style="color:#f92672">=&lt;/span> (List)malloc(&lt;span style="color:#66d9ef">sizeof&lt;/span>(Node));
+s&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+s&lt;span style="color:#f92672">-&amp;gt;&lt;/span>pre &lt;span style="color:#f92672">=&lt;/span> L;
+L&lt;span style="color:#f92672">-&amp;gt;&lt;/span>nxt &lt;span style="color:#f92672">=&lt;/span> s;
+L&lt;span style="color:#f92672">-&amp;gt;&lt;/span>pre &lt;span style="color:#f92672">=&lt;/span> NULL;
+L&lt;span style="color:#f92672">-&amp;gt;&lt;/span>tail &lt;span style="color:#f92672">=&lt;/span> s;
+s&lt;span style="color:#f92672">-&amp;gt;&lt;/span>nxt &lt;span style="color:#f92672">=&lt;/span> NULL;
+}
+&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">InitSum&lt;/span>(List &lt;span style="color:#f92672">&amp;amp;&lt;/span>L) &lt;span style="color:#75715e">// 初始化最后存和的链表，并把第一个节点置为1
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>{
+L &lt;span style="color:#f92672">=&lt;/span> (List)malloc(&lt;span style="color:#66d9ef">sizeof&lt;/span>(Node));
+L&lt;span style="color:#f92672">-&amp;gt;&lt;/span>nxt &lt;span style="color:#f92672">=&lt;/span> NULL;
+L&lt;span style="color:#f92672">-&amp;gt;&lt;/span>pre &lt;span style="color:#f92672">=&lt;/span> NULL;
+L&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+List p &lt;span style="color:#f92672">=&lt;/span> L;
+&lt;span style="color:#66d9ef">int&lt;/span> depth &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">while&lt;/span>(depth &lt;span style="color:#f92672">&amp;lt;=&lt;/span> maxsize)
+{
+List s &lt;span style="color:#f92672">=&lt;/span> (List)malloc(&lt;span style="color:#66d9ef">sizeof&lt;/span>(Node));
+s&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+s&lt;span style="color:#f92672">-&amp;gt;&lt;/span>pre &lt;span style="color:#f92672">=&lt;/span> p;
+p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>nxt &lt;span style="color:#f92672">=&lt;/span> s;
+s&lt;span style="color:#f92672">-&amp;gt;&lt;/span>nxt &lt;span style="color:#f92672">=&lt;/span> NULL;
+p &lt;span style="color:#f92672">=&lt;/span> s;
+depth&lt;span style="color:#f92672">++&lt;/span>;
+}
+L&lt;span style="color:#f92672">-&amp;gt;&lt;/span>nxt&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
+L&lt;span style="color:#f92672">-&amp;gt;&lt;/span>tail &lt;span style="color:#f92672">=&lt;/span> p;
+}
+&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">Output&lt;/span>(List L,&lt;span style="color:#66d9ef">int&lt;/span> k) &lt;span style="color:#75715e">//输出一个列表，保留 k 位小数
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>{
+List p &lt;span style="color:#f92672">=&lt;/span> L&lt;span style="color:#f92672">-&amp;gt;&lt;/span>nxt;
+printf(&lt;span style="color:#e6db74">&amp;#34;%d.&amp;#34;&lt;/span>,p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data);
+p &lt;span style="color:#f92672">=&lt;/span> p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>nxt;
+&lt;span style="color:#66d9ef">int&lt;/span> t &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">while&lt;/span>(p &lt;span style="color:#f92672">!=&lt;/span> NULL &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> t&lt;span style="color:#f92672">&amp;lt;&lt;/span>k)
+{
+t&lt;span style="color:#f92672">++&lt;/span>;
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>data);
+p &lt;span style="color:#f92672">=&lt;/span> p&lt;span style="color:#f92672">-&amp;gt;&lt;/span>nxt;
+}
+printf(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="参考链接">
+参考链接
+&lt;a class="heading-link" href="#%e5%8f%82%e8%80%83%e9%93%be%e6%8e%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://blog.csdn.net/FSAHFGSADHSAKNDAS/article/details/88745656">数据结构实验：高精度计算圆周率&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://blog.csdn.net/LittleWhiteLv/article/details/81587555">圆周率高精度算法&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>关于STL的一些总结</title><link>https://zzsqwq.github.io/posts/28/</link><pubDate>Sun, 16 Feb 2020 00:55:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/28/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
-&lt;p>​    STL之前只会用 stack 和 queue ，set 和 map 啥的也不太会用。学习一下。&lt;/p></description></item><item><title>单调队列和单调栈总结</title><link>https://zzsqwq.github.io/posts/23/</link><pubDate>Tue, 11 Feb 2020 00:40:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/23/</guid><description>&lt;h1 id="前言">
+&lt;p>​    STL之前只会用 stack 和 queue ，set 和 map 啥的也不太会用。学习一下。&lt;/p>
+&lt;hr>
+&lt;h2 id="队列queue">
+队列(queue)
+&lt;a class="heading-link" href="#%e9%98%9f%e5%88%97queue">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="概述">
+概述
+&lt;a class="heading-link" href="#%e6%a6%82%e8%bf%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    队列是一种特殊的线性表，是一种先进先出（FIFO）的数据结构。它只允许在表的前端（front）进行删除操作，而在表的后端（rear）进行插入操作。进行插入操作的端称为队尾，进行删除操作的端称为队头。队列中没有元素时，称为空队列。&lt;/p>
+&lt;h3 id="用法">
+用法
+&lt;a class="heading-link" href="#%e7%94%a8%e6%b3%95">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    首先使用之前需要声明头文件 &lt;code>#include&amp;lt;queue&amp;gt;&lt;/code> ，通过 &lt;code>queue&amp;lt;typename&amp;gt; q&lt;/code> 的形式来进行定义队列，上述为定义了一个队列元素类型为 typename 的队列，队列名称为 q，typename可以为C++原有数据类型，例如int，char，string这些，也可以是自定义的结构体类型等。&lt;/p>
+&lt;h3 id="主要函数及用途">
+主要函数及用途
+&lt;a class="heading-link" href="#%e4%b8%bb%e8%a6%81%e5%87%bd%e6%95%b0%e5%8f%8a%e7%94%a8%e9%80%94">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    使用下述函数都是用类似于 队列名称.函数名() 的形式，好比pop函数就是 q.pop()&lt;/p>
+&lt;blockquote>
+&lt;ol>
+&lt;li>push(x) 将元素x从队尾入队&lt;/li>
+&lt;li>front( ) &amp;amp; back( ) 分别为获取队首元素和队尾元素，使用的时候必须确保队列不为空&lt;/li>
+&lt;li>pop( ) 弹出队首元素，使用的时候必须确保队列不为空&lt;/li>
+&lt;li>empty( ) 判断队列是否为空，空返回true，不空返回false&lt;/li>
+&lt;li>size( ) 查询队列中有多少个元素&lt;/li>
+&lt;/ol>
+&lt;/blockquote>
+&lt;h3 id="应用实例">
+应用实例
+&lt;a class="heading-link" href="#%e5%ba%94%e7%94%a8%e5%ae%9e%e4%be%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;queue&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+queue&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> q;
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+q.push(&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#f92672">!&lt;/span>q.empty()) printf(&lt;span style="color:#e6db74">&amp;#34;%d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,q.front()); &lt;span style="color:#75715e">//
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> q.push(&lt;span style="color:#ae81ff">2&lt;/span>);
+&lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#f92672">!&lt;/span>q.empty()) printf(&lt;span style="color:#e6db74">&amp;#34;%d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,q.back());
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,q.size());
+&lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#f92672">!&lt;/span>q.empty()) q.pop();
+&lt;span style="color:#66d9ef">if&lt;/span>(q.empty()) printf(&lt;span style="color:#e6db74">&amp;#34;queue is empty&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">else&lt;/span> printf(&lt;span style="color:#e6db74">&amp;#34;queue is not empty&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#f92672">!&lt;/span>q.empty()) q.pop();
+&lt;span style="color:#66d9ef">if&lt;/span>(q.empty()) printf(&lt;span style="color:#e6db74">&amp;#34;queue is empty&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+}
+&lt;span style="color:#75715e">/*
+&lt;/span>&lt;span style="color:#75715e">运行结果
+&lt;/span>&lt;span style="color:#75715e">1
+&lt;/span>&lt;span style="color:#75715e">2
+&lt;/span>&lt;span style="color:#75715e">2
+&lt;/span>&lt;span style="color:#75715e">queue is not empty
+&lt;/span>&lt;span style="color:#75715e">queue is empty
+&lt;/span>&lt;span style="color:#75715e">*/&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="栈stack">
+栈(stack)
+&lt;a class="heading-link" href="#%e6%a0%88stack">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="概述-1">
+概述
+&lt;a class="heading-link" href="#%e6%a6%82%e8%bf%b0-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    与队列相对应，是一种先进后出（FILO）的数据结构，限定仅在表尾进行插入和删除操作的线性表。这一端被称为栈顶，相对地，把另一端称为栈底。向一个栈插入新元素又称作进栈、入栈或压栈，它是把新元素放到栈顶元素的上面，使之成为新的栈顶元素；从一个栈删除元素又称作出栈或退栈，它是把栈顶元素删除掉，使其相邻的元素成为新的栈顶元素。&lt;/p>
+&lt;h3 id="用法-1">
+用法
+&lt;a class="heading-link" href="#%e7%94%a8%e6%b3%95-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    首先使用之前需要声明头文件 &lt;code>#include&amp;lt;stack&amp;gt;&lt;/code> ，通过 &lt;code>stack&amp;lt;typename&amp;gt; s&lt;/code> 的形式来进行定义栈，上述为定义了一个队列元素类型为 typename 的栈，栈名称为 s，typename可以为C++原有数据类型，例如int，char，string这些，也可以是自定义的结构体类型等。&lt;/p>
+&lt;h3 id="主要函数及用途-1">
+主要函数及用途
+&lt;a class="heading-link" href="#%e4%b8%bb%e8%a6%81%e5%87%bd%e6%95%b0%e5%8f%8a%e7%94%a8%e9%80%94-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​ 使用下述函数都是用类似于 栈名称.函数名() 的形式，好比pop函数就是 s.pop()&lt;/p>
+&lt;blockquote>
+&lt;ol>
+&lt;li>push(x) 将元素x压栈&lt;/li>
+&lt;li>pop( ) 将栈顶元素出栈，使用时确保栈不为空&lt;/li>
+&lt;li>top( ) 获取栈顶元素的值，使用时要确保栈不为空&lt;/li>
+&lt;li>size( ) 返回栈中元素的个数&lt;/li>
+&lt;li>empty( ) 查询栈是否为空，空返回true，不空返回false&lt;/li>
+&lt;/ol>
+&lt;/blockquote>
+&lt;h3 id="应用实例-1">
+应用实例
+&lt;a class="heading-link" href="#%e5%ba%94%e7%94%a8%e5%ae%9e%e4%be%8b-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;stack&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+stack&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> s;
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+s.push(&lt;span style="color:#ae81ff">1&lt;/span>);
+s.push(&lt;span style="color:#ae81ff">2&lt;/span>);
+printf(&lt;span style="color:#e6db74">&amp;#34;Now the top element is %d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,s.top()); &lt;span style="color:#75715e">//Now the top element is 2
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> printf(&lt;span style="color:#e6db74">&amp;#34;Now the stack size is %d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,s.size()); &lt;span style="color:#75715e">//Now the stack size is 2
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#f92672">!&lt;/span>s.empty()) s.pop(); &lt;span style="color:#75715e">//元素2 弹出栈
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> printf(&lt;span style="color:#e6db74">&amp;#34;Now the top element is %d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,s.top()); &lt;span style="color:#75715e">//Now the top element is 1
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> printf(&lt;span style="color:#e6db74">&amp;#34;Now the stack size is %d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,s.size()); &lt;span style="color:#75715e">//Now the stack size is 1
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span>(s.empty()) printf(&lt;span style="color:#e6db74">&amp;#34;stack is empty&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">else&lt;/span> printf(&lt;span style="color:#e6db74">&amp;#34;stack is not empty&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>); &lt;span style="color:#75715e">//stack is not empty
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#f92672">!&lt;/span>s.empty()) s.pop(); &lt;span style="color:#75715e">//元素1 弹出栈
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span>(s.empty()) printf(&lt;span style="color:#e6db74">&amp;#34;stack is empty&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>); &lt;span style="color:#75715e">//stack is empty
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">else&lt;/span> printf(&lt;span style="color:#e6db74">&amp;#34;stack is not empty&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+}
+&lt;span style="color:#75715e">/*
+&lt;/span>&lt;span style="color:#75715e">运行结果
+&lt;/span>&lt;span style="color:#75715e">Now the top element is 2
+&lt;/span>&lt;span style="color:#75715e">Now the stack size is 2
+&lt;/span>&lt;span style="color:#75715e">Now the top element is 1
+&lt;/span>&lt;span style="color:#75715e">Now the stack size is 1
+&lt;/span>&lt;span style="color:#75715e">stack is not empty
+&lt;/span>&lt;span style="color:#75715e">stack is empty
+&lt;/span>&lt;span style="color:#75715e">*/&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="映射map">
+映射(map)
+&lt;a class="heading-link" href="#%e6%98%a0%e5%b0%84map">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="概述-2">
+概述
+&lt;a class="heading-link" href="#%e6%a6%82%e8%bf%b0-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    map是STL的一个关联容器，提供一对一的数据处理能力，可以建立两个数据之间一一映射关系，map的定义需要关键字和存储值两个参数，我们可以通过关键字来查找对应的存储值（感觉类似于下标可以为任何类型的数组）吧，因为map的底层实现为红黑树（虽然我没学过），所以具有自动排序功能，也就是说map内部有序。&lt;/p>
+&lt;h3 id="用法-2">
+用法
+&lt;a class="heading-link" href="#%e7%94%a8%e6%b3%95-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    使用之前声明头文件 &lt;code>#include&amp;lt;map&amp;gt;&lt;/code> ，通过 &lt;code>map&amp;lt;typename,typename&amp;gt; m&lt;/code> 的形式来定义映射，如果我们要建立string和int这两个类型之间的一一映射，就可以写成 &lt;code>map&amp;lt;string,int&amp;gt; m&lt;/code> ，我们可以通过关键字string来查找对应的int值。下述的讲述我们用这个m这个映射来进行。&lt;/p>
+&lt;h3 id="迭代器">
+迭代器
+&lt;a class="heading-link" href="#%e8%bf%ad%e4%bb%a3%e5%99%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    迭代器就是类似于指针吧，我们可以通过&lt;code>map&amp;lt;string,int&amp;gt;::iterator it&lt;/code> ，来定义一个对应映射的迭代器，他能够用来指向map中的元素，通过它们我们可以对map执行定点删除，遍历等操作。&lt;/p>
+&lt;h3 id="主要函数及用途-2">
+主要函数及用途
+&lt;a class="heading-link" href="#%e4%b8%bb%e8%a6%81%e5%87%bd%e6%95%b0%e5%8f%8a%e7%94%a8%e9%80%94-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="1-插入数据">
+1. 插入数据
+&lt;a class="heading-link" href="#1-%e6%8f%92%e5%85%a5%e6%95%b0%e6%8d%ae">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>通过insert函数进行插入
+&lt;ul>
+&lt;li>&lt;code>m.insert(pair&amp;lt;string,int&amp;gt;(&amp;quot;zs&amp;quot;,1))&lt;/code>&lt;/li>
+&lt;li>&lt;code>m.insert(make_pair(&amp;quot;zs&amp;quot;,2)) &lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>通过类似于数组的形式插入
+&lt;ul>
+&lt;li>&lt;code>m[&amp;quot;zs&amp;quot;] = 2&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>​    上述两种形式有一定的区别，因为集合中元素是唯一的，用insert函数插入的时候，如果已经有相应的关键字，那么就不会插入。而如果用类似于数组的方式进行插入，就会覆盖原关键字对应的值。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">map&lt;span style="color:#f92672">&amp;lt;&lt;/span>string,&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> m;
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+m.insert(pair&lt;span style="color:#f92672">&amp;lt;&lt;/span>string,&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>));
+printf(&lt;span style="color:#e6db74">&amp;#34;%d &amp;#34;&lt;/span>,m[&lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>]);
+m.insert(make_pair(&lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>));
+printf(&lt;span style="color:#e6db74">&amp;#34;%d &amp;#34;&lt;/span>,m[&lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>]);
+m[&lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;
+printf(&lt;span style="color:#e6db74">&amp;#34;%d &amp;#34;&lt;/span>,m[&lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>]);
+&lt;span style="color:#75715e">/*
+&lt;/span>&lt;span style="color:#75715e"> 输出结果 1 1 2
+&lt;/span>&lt;span style="color:#75715e"> */&lt;/span>
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="2-查找数据">
+2. 查找数据
+&lt;a class="heading-link" href="#2-%e6%9f%a5%e6%89%be%e6%95%b0%e6%8d%ae">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    通过find函数来查找关键字在map中的位置，如果找到了的话就返回对应的迭代器，如果没有找到的话就返回尾部的迭代器（end函数返回的值）。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">map&lt;span style="color:#f92672">&amp;lt;&lt;/span>string,&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> m;
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+map&lt;span style="color:#f92672">&amp;lt;&lt;/span>string,&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;::&lt;/span>iterator it;
+m[&lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+it&lt;span style="color:#f92672">=&lt;/span>m.find(&lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>);
+cout&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>it&lt;span style="color:#f92672">-&amp;gt;&lt;/span>first&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#e6db74">&amp;#34; &amp;#34;&lt;/span>&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>it&lt;span style="color:#f92672">-&amp;gt;&lt;/span>second;
+&lt;span style="color:#75715e">/*
+&lt;/span>&lt;span style="color:#75715e"> 输出结果 zs 1
+&lt;/span>&lt;span style="color:#75715e"> */&lt;/span>
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="3-删除数据">
+3. 删除数据
+&lt;a class="heading-link" href="#3-%e5%88%a0%e9%99%a4%e6%95%b0%e6%8d%ae">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>清空map，可以使用clear函数。&lt;/li>
+&lt;li>删除特定元素
+&lt;ul>
+&lt;li>先用find函数找到特定元素的迭代器，通过erase函数清除。&lt;/li>
+&lt;li>直接通过相应关键字清除。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>删除一串序列，通过erase(起始迭代器，终点迭代器) 来实现。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">map&lt;span style="color:#f92672">&amp;lt;&lt;/span>string,&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> m;
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+map&lt;span style="color:#f92672">&amp;lt;&lt;/span>string,&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;::&lt;/span>iterator it;
+m[&lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+it&lt;span style="color:#f92672">=&lt;/span>m.find(&lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>);
+m.erase(it);
+it&lt;span style="color:#f92672">=&lt;/span>m.find(&lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">if&lt;/span>(it&lt;span style="color:#f92672">==&lt;/span>m.end())
+printf(&lt;span style="color:#e6db74">&amp;#34;Not find zs&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+m[&lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;
+m.erase(&lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>);
+it&lt;span style="color:#f92672">=&lt;/span>m.find(&lt;span style="color:#e6db74">&amp;#34;zs&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">if&lt;/span>(it&lt;span style="color:#f92672">==&lt;/span>m.end())
+printf(&lt;span style="color:#e6db74">&amp;#34;Not find zs&amp;#34;&lt;/span>);
+&lt;span style="color:#75715e">/*
+&lt;/span>&lt;span style="color:#75715e"> 输出结果 Not find zs
+&lt;/span>&lt;span style="color:#75715e"> Not find zs
+&lt;/span>&lt;span style="color:#75715e"> */&lt;/span>
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="4-其他">
+4. 其他
+&lt;a class="heading-link" href="#4-%e5%85%b6%e4%bb%96">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;blockquote>
+&lt;ol>
+&lt;li>count(&amp;ldquo;关键字&amp;rdquo;) 查询相应关键字在map中是否出现过，出现过返回1，没出现返回0&lt;/li>
+&lt;li>empty( ) 判断是否为空，空返回true，不空返回false&lt;/li>
+&lt;li>begin( ) &amp;amp; end( ) 分别为返回头和尾迭代器，配合迭代器可实行遍历&lt;/li>
+&lt;li>iterator-&amp;gt;first &amp;amp; iterator-&amp;gt;second 分别对应相应迭代器指向的元素的关键字和值&lt;/li>
+&lt;/ol>
+&lt;/blockquote>
+&lt;hr>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="集合set">
+集合(set)
+&lt;a class="heading-link" href="#%e9%9b%86%e5%90%88set">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="概述-3">
+概述
+&lt;a class="heading-link" href="#%e6%a6%82%e8%bf%b0-3">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    set为一个容器，用来存储同一数据类型的数据，并且能从一个数据集合中取出数据，在set中每个元素的值都唯一（集合的唯一性），并且内部能根据元素的值自动进行排序。&lt;/p>
+&lt;h3 id="用法-3">
+用法
+&lt;a class="heading-link" href="#%e7%94%a8%e6%b3%95-3">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    使用之前需要声明头文件 &lt;code>#include&amp;lt;set&amp;gt;&lt;/code> ，通过 &lt;code>set&amp;lt;typename&amp;gt; s&lt;/code> 来定义一个存储数据类型为typename的集合，名字叫做s。下述实例用此做基础。&lt;/p>
+&lt;h3 id="迭代器-1">
+迭代器
+&lt;a class="heading-link" href="#%e8%bf%ad%e4%bb%a3%e5%99%a8-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    通过&lt;code>set&amp;lt;typename&amp;gt;::iterator it&lt;/code>，可以来定义一个相应的set的迭代器，用来遍历和指向其中元素。&lt;/p>
+&lt;h3 id="主要函数及用途-3">
+主要函数及用途
+&lt;a class="heading-link" href="#%e4%b8%bb%e8%a6%81%e5%87%bd%e6%95%b0%e5%8f%8a%e7%94%a8%e9%80%94-3">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="1-插入数据-1">
+1. 插入数据
+&lt;a class="heading-link" href="#1-%e6%8f%92%e5%85%a5%e6%95%b0%e6%8d%ae-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>插入特定元素可以通过 &lt;code>s.insert(3)&lt;/code> 插入对应键值，返回值为pair&amp;lt;set&lt;!-- raw HTML omitted -->::iterator,bool&amp;gt; ，后续bool变量标志是否成功，如果元素3已经存在，那么bool值为false，迭代器对应的是该元素在其中的位置，如果元素不存在其中，返回true，并且返回的迭代器对应的在集合中位置&lt;/li>
+&lt;li>插入一个区间的元素，例如有整数数组a ，可以用 &lt;code>s.insert(a,a+3)&lt;/code> ，可以将a中的 a[0] a[1] a[2] 插入到set中。&lt;/li>
+&lt;/ul>
+&lt;h4 id="2-删除数据">
+2. 删除数据
+&lt;a class="heading-link" href="#2-%e5%88%a0%e9%99%a4%e6%95%b0%e6%8d%ae">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    删除和map非常像，也是三种。具体可参考map讲解。&lt;/p>
+&lt;h4 id="3-查找元素">
+3. 查找元素
+&lt;a class="heading-link" href="#3-%e6%9f%a5%e6%89%be%e5%85%83%e7%b4%a0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    也是可以通过find函数，也是和map非常的像~&lt;/p>
+&lt;h4 id="4-其他-1">
+4. 其他
+&lt;a class="heading-link" href="#4-%e5%85%b6%e4%bb%96-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;blockquote>
+&lt;ol>
+&lt;li>begin() &amp;amp; end( ) 返回头尾迭代器，注意尾迭代器是尾元素的后一位。&lt;/li>
+&lt;li>clear( ) 清除set容器中所有元素&lt;/li>
+&lt;li>empty( ) 判断set容器是否为空，为空则返回true，不空返回false&lt;/li>
+&lt;li>size( ) 返回当前set容器中元素的个数&lt;/li>
+&lt;li>rebegin( ) &amp;amp; rend( ) 返回尾和头迭代器，配合reverse_iterator可以反序遍历set&lt;/li>
+&lt;/ol>
+&lt;/blockquote>
+&lt;hr>
+&lt;h2 id="关于vector和string等">
+关于vector和string等
+&lt;a class="heading-link" href="#%e5%85%b3%e4%ba%8evector%e5%92%8cstring%e7%ad%89">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>vector好的学习文章 ： &lt;a href="https://www.runoob.com/w3cnote/cpp-vector-container-analysis.html">C++ vector容器浅析&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>string好的学习文章 ： &lt;a href="https://www.cnblogs.com/fzxiaoyi/p/12083144.html">C++ STL(一)介绍及string&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>单调队列和单调栈总结</title><link>https://zzsqwq.github.io/posts/23/</link><pubDate>Tue, 11 Feb 2020 00:40:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/23/</guid><description>&lt;h1 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h1>
-&lt;p>​       最近感觉遇到了好多单调队列和单调栈的问题，但是因为以前没学好，所以遇见了就一脸懵逼，然后绝对下决心来学一下。。感觉遇到啥都不会，这可咋办呐。。补不完的漏洞。&lt;/p></description></item></channel></rss>
+&lt;p>​       最近感觉遇到了好多单调队列和单调栈的问题，但是因为以前没学好，所以遇见了就一脸懵逼，然后绝对下决心来学一下。。感觉遇到啥都不会，这可咋办呐。。补不完的漏洞。&lt;/p>
+&lt;hr>
+&lt;h1 id="单调队列monotone-queue">
+单调队列(Monotone queue)
+&lt;a class="heading-link" href="#%e5%8d%95%e8%b0%83%e9%98%9f%e5%88%97monotone-queue">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h1>
+&lt;p>​       单调队列，即单调递减或单调递增的队列。使用频率不高，但在有些程序中会有非同寻常的作用。&lt;/p>
+&lt;h2 id="理解">
+理解
+&lt;a class="heading-link" href="#%e7%90%86%e8%a7%a3">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>​       顾名思义，他就是一个单调的队列，那么我们可以规定他是单调递增的还是单调递减的，他和普通的队列有点区别，队列一般是尾进头出，而单调队列要实现的话要确保头和尾都可以出，尾可以进。如果要用STL库的话可以用里面的双端队列。
+​       跟普通队列相比他的进队需要确保一个条件就是要&lt;strong>不破坏原有序列的单调性&lt;/strong>，好比我们有一个单调递增的单调队列，也就是从队首到队尾是单调递增的，那么有一段序列是 $[2,3,1,5,8,7,4,2]$ ，我们从左到右依次入队。&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>队列中元素&lt;/th>
+&lt;th>关于元素进出的备注&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>2&lt;/td>
+&lt;td>2入队&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2，3&lt;/td>
+&lt;td>3比2大，可以满足递增性质，入队&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>1&lt;/td>
+&lt;td>因为1比2，3都小，要满足递增性质，先把2，3出队，再将1入队&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>1，5&lt;/td>
+&lt;td>5比1大，可以满足递增性质，入队&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>1，5，8&lt;/td>
+&lt;td>8比5大，可以满足递增性质，入队&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>1，5，7&lt;/td>
+&lt;td>7小于8，大于5，要满足递增性质，我们把8出队，然后将7入队&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>1，4&lt;/td>
+&lt;td>4小于5、7，但是大于1，因此7，5依次出队，4入队&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>1，2&lt;/td>
+&lt;td>2小于4，大于1，因此4出队，2入队&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>​       根据上述例子不难看出，我们要入队的时候首先要确保队尾元素要比想要入队的元素小，然后才能入队，否则的话就一直循环让尾部元素出队，直到能够满足单调性为止。&lt;/p>
+&lt;h2 id="单调队列的应用">
+单调队列的应用
+&lt;a class="heading-link" href="#%e5%8d%95%e8%b0%83%e9%98%9f%e5%88%97%e7%9a%84%e5%ba%94%e7%94%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>求区间的最值问题。下面写的两个例题都是这个用处。&lt;/li>
+&lt;li>优化dp，我现在能接触到的就是一个用单调队列优化多重背包的一个题，但是那个题我学了这个东西之后还是不理解为什么可以那么做。例题如下：&lt;a href="https://www.luogu.com.cn/problem/P1776">宝物筛选&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="单调队列的一些例题">
+单调队列的一些例题
+&lt;a class="heading-link" href="#%e5%8d%95%e8%b0%83%e9%98%9f%e5%88%97%e7%9a%84%e4%b8%80%e4%ba%9b%e4%be%8b%e9%a2%98">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="a-sliding-windowhttppojorgproblemid2823">
+A. &lt;a href="http://poj.org/problem?id=2823">Sliding Window&lt;/a>
+&lt;a class="heading-link" href="#a-sliding-windowhttppojorgproblemid2823">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;hr>
+&lt;h4 id="题意">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       给出一个含有 $n$ 个整数的序列 $a$ ，给出滑动窗口长度 $k$ ，窗口从序列最左端滑动到序列最右端，问滑动过程中每个时刻窗口中最大值和最小值是多少。&lt;/p>
+&lt;h4 id="思路">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       一道很经典的单调队列的模板题，用于解决定长区间的最大最小值。我们可以维护两个单调队列，一个是单调递增的，一个是单调递减的。因为两种情况类似，我们考虑一下求窗口中最大值的方案。&lt;/p>
+&lt;p>​       求最大值我们用的是单调递减的序列，这样就能够保证每次队首的就是答案，但是，这是为什么呢？我们来考虑一下，因为这是一个单调递减的序列，那么我们每次序列元素入队的时候，我们就去看当前队尾的元素是不是要比他大，如果比他还小，那么我们就直接将队尾元素出队，因为这时候要入队的元素（已经被窗口覆盖了）已经比他大了，那么在接下来的窗口中，肯定就没他什么事了，因为它一定不是最大的，那么如果一直将队尾元素出队到加入入队元素后还继续能保持队列的单调性了，但是这个元素还不是在队首，这就说明，队首的元素还是要比他大的（单调性易得）。&lt;/p>
+&lt;p>​       所以这时候队首元素就是这个窗口中最大的了吗？也还不能确定，因为我们还不能确保这个队首元素就在窗口中，因此我们需要看看这个元素的位置和当前入队元素的位置之差是不是要比窗口长度大了，如果大于窗口长度，那么就说明队首元素已经不在窗口了，我们就将队首元素出队，最后输出队首元素就能确保它既在窗口中，又是窗口中所有元素的最大值了！&lt;/p>
+&lt;h4 id="代码实现">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1000005&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> n,k;
+&lt;span style="color:#66d9ef">int&lt;/span> head,tail,a[maxn];
+&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">node&lt;/span>
+{
+&lt;span style="color:#66d9ef">int&lt;/span> pos,value;
+}q[maxn];
+&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">getmax&lt;/span>()
+{
+head&lt;span style="color:#f92672">=&lt;/span>tail&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">while&lt;/span>(head&lt;span style="color:#f92672">!=&lt;/span>tail&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>i&lt;span style="color:#f92672">-&lt;/span>q[head].pos&lt;span style="color:#f92672">&amp;gt;=&lt;/span>k) head&lt;span style="color:#f92672">++&lt;/span>;
+&lt;span style="color:#66d9ef">while&lt;/span>(head&lt;span style="color:#f92672">!=&lt;/span>tail&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>a[i]&lt;span style="color:#f92672">&amp;lt;=&lt;/span>q[tail&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>].value) tail&lt;span style="color:#f92672">--&lt;/span>;
+q[tail].value&lt;span style="color:#f92672">=&lt;/span>a[i],q[tail&lt;span style="color:#f92672">++&lt;/span>].pos&lt;span style="color:#f92672">=&lt;/span>i;
+&lt;span style="color:#66d9ef">if&lt;/span>(i&lt;span style="color:#f92672">&amp;gt;=&lt;/span>k) printf(&lt;span style="color:#e6db74">&amp;#34;%d &amp;#34;&lt;/span>,q[head].value);
+}
+putchar(&lt;span style="color:#e6db74">&amp;#39;\n&amp;#39;&lt;/span>);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>) q[i].value&lt;span style="color:#f92672">=&lt;/span>q[i].pos&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">getmin&lt;/span>()
+{
+head&lt;span style="color:#f92672">=&lt;/span>tail&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">while&lt;/span>(head&lt;span style="color:#f92672">!=&lt;/span>tail&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>i&lt;span style="color:#f92672">-&lt;/span>q[head].pos&lt;span style="color:#f92672">&amp;gt;=&lt;/span>k) head&lt;span style="color:#f92672">++&lt;/span>;
+&lt;span style="color:#66d9ef">while&lt;/span>(head&lt;span style="color:#f92672">!=&lt;/span>tail&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>a[i]&lt;span style="color:#f92672">&amp;gt;=&lt;/span>q[tail&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>].value) tail&lt;span style="color:#f92672">--&lt;/span>;
+q[tail].value&lt;span style="color:#f92672">=&lt;/span>a[i],q[tail&lt;span style="color:#f92672">++&lt;/span>].pos&lt;span style="color:#f92672">=&lt;/span>i;
+&lt;span style="color:#66d9ef">if&lt;/span>(i&lt;span style="color:#f92672">&amp;gt;=&lt;/span>k) printf(&lt;span style="color:#e6db74">&amp;#34;%d &amp;#34;&lt;/span>,q[head].value);
+}
+}
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n,&lt;span style="color:#f92672">&amp;amp;&lt;/span>k);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>a[i]);
+}
+getmax();
+getmin();
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="b-max-sum-of-max-k-sub-sequencehttpacmhdueducnshowproblemphppid3415">
+B. &lt;a href="http://acm.hdu.edu.cn/showproblem.php?pid=3415">Max Sum of Max-K-sub-sequence&lt;/a>
+&lt;a class="heading-link" href="#b-max-sum-of-max-k-sub-sequencehttpacmhdueducnshowproblemphppid3415">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="题意-1">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       给定长度为 $n$ 的整数循环序列 $a$ ，也就是$a[1],a[2],\cdots,a[n],a[1]\cdots$ 这样的序列，问最大连续长度为 $k$ 的连续子区间的序列和最大为多少，并且输出这个区间的左右坐标。&lt;/p>
+&lt;h4 id="思路-1">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       我们把这道题转换一下，我们先处理好前缀和，好比我们要求 $a[1],a[2],a[3]$ 的序列和，那么也就是 $sum[3]-sum[0]$ ，因此我们在求这个题的时候就可以循环遍历 $1\sim{n-k+1}$ ，求长度为 $k$ 的定长区间中前缀和数组的最小值即可。但是我们要注意前缀和数组要处理到 $n-k+1$ 。&lt;/p>
+&lt;h4 id="代码实现-1">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> inf&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1000000&lt;/span>;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">200005&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> t;
+&lt;span style="color:#66d9ef">int&lt;/span> n,k,a[maxn],sum[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> head,tail;
+&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">node&lt;/span>
+{
+&lt;span style="color:#66d9ef">int&lt;/span> pos,value;
+}q[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> ans,l,r;
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+&lt;span style="color:#75715e">// freopen(&amp;#34;test.in&amp;#34;,&amp;#34;r&amp;#34;,stdin);
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>t);
+&lt;span style="color:#66d9ef">while&lt;/span>(t&lt;span style="color:#f92672">--&lt;/span>)
+{
+l&lt;span style="color:#f92672">=&lt;/span>r&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+head&lt;span style="color:#f92672">=&lt;/span>tail&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+ans&lt;span style="color:#f92672">=-&lt;/span>inf;
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n,&lt;span style="color:#f92672">&amp;amp;&lt;/span>k);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>a[i]);
+sum[i]&lt;span style="color:#f92672">=&lt;/span>sum[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>a[i];
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>n&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n&lt;span style="color:#f92672">+&lt;/span>k&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+sum[i]&lt;span style="color:#f92672">=&lt;/span>sum[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>a[i&lt;span style="color:#f92672">-&lt;/span>n];
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n&lt;span style="color:#f92672">+&lt;/span>k&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">while&lt;/span>(head&lt;span style="color:#f92672">!=&lt;/span>tail&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>i&lt;span style="color:#f92672">-&lt;/span>q[head].pos&lt;span style="color:#f92672">&amp;gt;&lt;/span>k) head&lt;span style="color:#f92672">++&lt;/span>;
+&lt;span style="color:#66d9ef">while&lt;/span>(head&lt;span style="color:#f92672">!=&lt;/span>tail&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>sum[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">&amp;lt;=&lt;/span>q[tail&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>].value) tail&lt;span style="color:#f92672">--&lt;/span>;
+q[tail].pos&lt;span style="color:#f92672">=&lt;/span>i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>,q[tail&lt;span style="color:#f92672">++&lt;/span>].value&lt;span style="color:#f92672">=&lt;/span>sum[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>];
+&lt;span style="color:#75715e">// if(i!=q[head].pos)
+&lt;/span>&lt;span style="color:#75715e">// {
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> p&lt;span style="color:#f92672">=&lt;/span>sum[i]&lt;span style="color:#f92672">-&lt;/span>q[head].value;
+&lt;span style="color:#66d9ef">if&lt;/span>(p&lt;span style="color:#f92672">&amp;gt;&lt;/span>ans)
+{
+ans&lt;span style="color:#f92672">=&lt;/span>p;
+&lt;span style="color:#66d9ef">int&lt;/span> k&lt;span style="color:#f92672">=&lt;/span>q[head].pos&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+k&lt;span style="color:#f92672">&amp;gt;&lt;/span>n&lt;span style="color:#f92672">?&lt;/span>l&lt;span style="color:#f92672">=&lt;/span>k&lt;span style="color:#f92672">%&lt;/span>n:l&lt;span style="color:#f92672">=&lt;/span>k;
+i&lt;span style="color:#f92672">&amp;gt;&lt;/span>n&lt;span style="color:#f92672">?&lt;/span>r&lt;span style="color:#f92672">=&lt;/span>i&lt;span style="color:#f92672">%&lt;/span>n:r&lt;span style="color:#f92672">=&lt;/span>i;
+}
+&lt;span style="color:#75715e">// }
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> }
+printf(&lt;span style="color:#e6db74">&amp;#34;%d %d %d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,ans,l,r);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n&lt;span style="color:#f92672">+&lt;/span>k&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">++&lt;/span>) q[i].pos&lt;span style="color:#f92672">=&lt;/span>q[i].value&lt;span style="color:#f92672">=-&lt;/span>inf;
+}
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="单调栈monotone-stack">
+单调栈(Monotone stack)
+&lt;a class="heading-link" href="#%e5%8d%95%e8%b0%83%e6%a0%88monotone-stack">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h1>
+&lt;p>​       单调增或单调减的栈，跟单调队列差不多，但是只用到它的一端。&lt;/p>
+&lt;h2 id="理解-1">
+理解
+&lt;a class="heading-link" href="#%e7%90%86%e8%a7%a3-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>​       单调栈也是在普通栈的基础上加了单调性，一般是用从栈底到栈顶的单调性来命名，好比从栈底到栈顶是单调递增的，那么他就是单调增的栈。跟单调队列一样，他的入栈规则也是&lt;strong>要不破坏单调性&lt;/strong>，因此一个单调递增的栈如果有元素要入栈，如果他比栈顶的元素还要大，就可以直接入栈，如果他比栈顶的元素小，那么就要将栈顶的元素一直出栈到比要入栈元素小为止。如果序列为 $[2,3,1,5,4,7]$，要加入单调递增栈中，过程如下。&lt;strong>PS：注意从左到右对应栈底到栈顶。&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>栈中的元素&lt;/th>
+&lt;th>关于元素进出的备注&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>2&lt;/td>
+&lt;td>元素2压入栈中&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2，3&lt;/td>
+&lt;td>3大于2，压入栈中&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>1&lt;/td>
+&lt;td>1小于3、2，因此全部弹出将1入栈&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>1，5&lt;/td>
+&lt;td>5大于1，压入栈中&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>1，4&lt;/td>
+&lt;td>4比5小，比1大，弹出5，压入4&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>1，4，7&lt;/td>
+&lt;td>7大于4，压入栈中&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>​       根据上述描述不难看出，其实单调栈就是单调队列的半部分，他能完成的任务理论上单调队列都能够完成，但是有些时候不需要麻烦的去维护单调队列只需要维护单调栈即可完成。&lt;/p>
+&lt;h2 id="单调栈的应用">
+单调栈的应用
+&lt;a class="heading-link" href="#%e5%8d%95%e8%b0%83%e6%a0%88%e7%9a%84%e5%ba%94%e7%94%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>确定一个元素的左边区间第一个比它大的元素，第一个比它小的元素&lt;/li>
+&lt;li>确定右边区间第一个比他大or比他小的元素（根据单调性来看）&lt;/li>
+&lt;li>确定这个元素是否是一定区间内的最值，或者确定以他为最值的区间长度&lt;/li>
+&lt;/ul>
+&lt;h2 id="单调栈的一些例题">
+单调栈的一些例题
+&lt;a class="heading-link" href="#%e5%8d%95%e8%b0%83%e6%a0%88%e7%9a%84%e4%b8%80%e4%ba%9b%e4%be%8b%e9%a2%98">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="a-单调栈模板httpswwwluogucomcnproblemp5788">
+A. &lt;a href="https://www.luogu.com.cn/problem/P5788">单调栈模板&lt;/a>
+&lt;a class="heading-link" href="#a-%e5%8d%95%e8%b0%83%e6%a0%88%e6%a8%a1%e6%9d%bfhttpswwwluogucomcnproblemp5788">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="题意-2">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       给出含有 $n$ 个整数的序列 $a$ ，定义 $f(i)$ 为第 $i$ 个元素后第一个大于 $a_i$ 的下标，求 $f(1)\cdots f(n)$&lt;/p>
+&lt;h4 id="思路-2">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       直接就是模板，对应了上述应用里的第二个。&lt;/p>
+&lt;h4 id="代码实现-2">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">3000005&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> n,a[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> stack[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> top,ans[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>a[i]);
+}
+a[&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1e9&lt;/span>&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">5&lt;/span>;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">while&lt;/span>(top&lt;span style="color:#f92672">&amp;gt;=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>a[i]&lt;span style="color:#f92672">&amp;gt;&lt;/span>a[stack[top]])
+{
+ans[stack[top]] &lt;span style="color:#f92672">=&lt;/span> i;
+top&lt;span style="color:#f92672">--&lt;/span>;
+}
+stack[&lt;span style="color:#f92672">++&lt;/span>top]&lt;span style="color:#f92672">=&lt;/span>i;
+}
+&lt;span style="color:#66d9ef">while&lt;/span>(top)
+{
+ans[stack[top]]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+top&lt;span style="color:#f92672">--&lt;/span>;
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+printf(&lt;span style="color:#e6db74">&amp;#34;%d &amp;#34;&lt;/span>,ans[i]);
+}
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="b-发射站httpswwwluogucomcnproblemp1901">
+B. &lt;a href="https://www.luogu.com.cn/problem/P1901">发射站&lt;/a>
+&lt;a class="heading-link" href="#b-%e5%8f%91%e5%b0%84%e7%ab%99httpswwwluogucomcnproblemp1901">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="题意-3">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f-3">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       某地有 $N$ 个能量发射站排成一行，每个发射站 $i$ 都有不相同的高度 $H_i$，并能向两边（两端的发射站只能向一边）同时发射能量值为 $V_i$ 的能量，发出的能量只被两边&lt;strong>最近的且比它高&lt;/strong>的发射站接收。计算出接受能量最多的发射站接受的能量为多少。&lt;/p>
+&lt;h4 id="思路-3">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-3">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       维护一个单调递减栈，一个元素新加进来如果是大于栈顶元素的话，那么栈顶元素出栈，并给入栈元素加上能量值。如果不大于栈顶元素的话，就将栈顶元素加上发射能量，然后将元素入栈。&lt;/p>
+&lt;h4 id="代码实现-3">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-3">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1000005&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> n,h[maxn],v[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> stack[maxn],top,ans;
+&lt;span style="color:#66d9ef">int&lt;/span> f[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>h[i],&lt;span style="color:#f92672">&amp;amp;&lt;/span>v[i]);
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">while&lt;/span>(top&lt;span style="color:#f92672">&amp;gt;=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>h[i]&lt;span style="color:#f92672">&amp;gt;&lt;/span>h[stack[top]])
+{
+f[i]&lt;span style="color:#f92672">+=&lt;/span>v[stack[top]];
+top&lt;span style="color:#f92672">--&lt;/span>;
+}
+f[stack[top]]&lt;span style="color:#f92672">+=&lt;/span>v[i];
+stack[&lt;span style="color:#f92672">++&lt;/span>top]&lt;span style="color:#f92672">=&lt;/span>i;
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>) ans&lt;span style="color:#f92672">=&lt;/span>max(ans,f[i]);
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,ans);
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="c-音乐会的等待httpswwwluogucomcnproblemp1823">
+C. &lt;a href="https://www.luogu.com.cn/problem/P1823">音乐会的等待&lt;/a>
+&lt;a class="heading-link" href="#c-%e9%9f%b3%e4%b9%90%e4%bc%9a%e7%9a%84%e7%ad%89%e5%be%85httpswwwluogucomcnproblemp1823">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="题意-4">
+题意
+&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f-4">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       给出一段序列 $a$ 代表 $n$ 个人，在一个区间 $[l,r]$ 如果区间内没有大于 $min(a[i],a[r])$ 的那么两个人可以相互看到。问这个序列中有多少对人可以相互看到。&lt;/p>
+&lt;h4 id="思路-4">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-4">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​       我们可以维护一个单调递减栈，然后分情况讨论一下。&lt;/p>
+&lt;ul>
+&lt;li>如果要入栈元素大于当前元素，那么当前元素和入栈元素是可以相互看见的，因为这是找了左边区间第一个比它小的元素了，然后因为这是一个单调递减栈，所以我们可以一直出栈比入栈元素小的元素，可以发现这些都是可以互相看见的。而且最终的栈顶元素和要入栈元素也是可以看见的。&lt;/li>
+&lt;li>如果入栈元素小于当前元素，他可以和栈顶元素看见，而不能和后面的人看见，因为栈顶元素挡住他了。&lt;/li>
+&lt;li>如果入栈元素和当前元素高度相同，那么他们俩其实是等效的，如果有人比他们高，其实是可以直接看见两个，所以我们只需要将他们看成一个结构体，记录他们的数量和高度即可，每次统计的时候加上数量就行。&lt;/li>
+&lt;/ul>
+&lt;h4 id="代码实现-4">
+代码实现
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-4">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">using&lt;/span> &lt;span style="color:#66d9ef">namespace&lt;/span> std;
+&lt;span style="color:#66d9ef">typedef&lt;/span> &lt;span style="color:#66d9ef">long&lt;/span> &lt;span style="color:#66d9ef">long&lt;/span> ll;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> maxn&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">500005&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> n;
+&lt;span style="color:#66d9ef">int&lt;/span> h[maxn];
+ll ans;
+&lt;span style="color:#66d9ef">struct&lt;/span> &lt;span style="color:#a6e22e">node&lt;/span>
+{
+ll cnt; &lt;span style="color:#75715e">// num
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> ll p; &lt;span style="color:#75715e">//height
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>}stack[maxn];
+&lt;span style="color:#66d9ef">int&lt;/span> top;
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+&lt;span style="color:#75715e">// freopen(&amp;#34;test.in&amp;#34;,&amp;#34;r&amp;#34;,stdin);
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>h[i]);
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+node temp;
+temp.cnt&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+temp.p&lt;span style="color:#f92672">=&lt;/span>h[i];
+&lt;span style="color:#66d9ef">while&lt;/span>(top&lt;span style="color:#f92672">&amp;gt;=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span>h[i]&lt;span style="color:#f92672">&amp;gt;&lt;/span>stack[top].p)
+{
+ans&lt;span style="color:#f92672">+=&lt;/span>stack[top].cnt;
+top&lt;span style="color:#f92672">--&lt;/span>;
+}
+&lt;span style="color:#66d9ef">if&lt;/span>(h[i]&lt;span style="color:#f92672">==&lt;/span>stack[top].p)
+{
+ans&lt;span style="color:#f92672">+=&lt;/span>stack[top].cnt;
+temp.cnt&lt;span style="color:#f92672">+=&lt;/span>stack[top].cnt;
+top&lt;span style="color:#f92672">--&lt;/span>;
+}
+stack[&lt;span style="color:#f92672">++&lt;/span>top].cnt&lt;span style="color:#f92672">=&lt;/span>temp.cnt;
+stack[top].p&lt;span style="color:#f92672">=&lt;/span>temp.p;
+&lt;span style="color:#66d9ef">if&lt;/span>(top&lt;span style="color:#f92672">!=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>) ans&lt;span style="color:#f92672">+=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
+}
+printf(&lt;span style="color:#e6db74">&amp;#34;%lld&amp;#34;&lt;/span>,ans);
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="参考链接">
+参考链接
+&lt;a class="heading-link" href="#%e5%8f%82%e8%80%83%e9%93%be%e6%8e%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h1>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://endlesslethe.com/monotone-queue-and-stack-tutorial.html">单调队列和单调栈详解&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://blog.csdn.net/u013686535/article/details/76725379">[SMOJ2116]诺诺的队列&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://blog.csdn.net/dacc123/article/details/50545577">一些关于单调队列和单调栈优化dp的实例&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>

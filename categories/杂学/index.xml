@@ -1,44 +1,1055 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>杂学 on Zs's Blog</title><link>https://zzsqwq.github.io/categories/%E6%9D%82%E5%AD%A6/</link><description>Recent content in 杂学 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Sun, 18 Jul 2021 16:03:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/categories/%E6%9D%82%E5%AD%A6/index.xml" rel="self" type="application/rss+xml"/><item><title>利用树莓派为HP LaserJet 1020配置无线打印功能</title><link>https://zzsqwq.github.io/posts/198/</link><pubDate>Sun, 18 Jul 2021 16:03:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/198/</guid><description>前言  最近基地的打印机突然又好起来了。
- 因为基地的打印机型号比较老——HP LaserJet 1020，没有无线打印的功能。所以之前一位学长1 用树莓派配置了打印机的无线打印功能，但是后来发现有一些问题，有时候发送打印请求树莓派无法接收，而且不知道为何，学长之前用的是树莓派自己创建WiFi，连接对应WiFi才能打印，但是这个显然不是最优的解决办法。
- 考虑到之间已经配置好基地WiFi，我决定重新配置一下打印功能，使其连接基地WiFi即可实现局域网打印。
-配置过程 查看树莓派内容  通过ssh连接树莓派，发现里面除了Github上的一个开源项目create_ap ，就没有什么其他的内容了，连接屏幕后发现没有任何图像信号，无从下手，因此考虑重新刷机。
-对树莓派进行刷机  把数据备份了一下，看了一下树莓派版本是2015年生产的 Raspberry Pi 3 model B V1.2 ，是老古董了。
- 去官网看了一下，因为我对Ubuntu比较熟悉，我计划安装一个 Ubuntu20.04版本的，考虑到版本比较老，就装了server版本的，相比与desktop版本负担更小一些。
- 其实就是下一个官方的软件，Raspberry Pi Imager ，直接用读卡器对树莓派的存储卡刷机即可。
- 这里是对应的镜像以及教程： 镜像下载 安装教程
-配置网络相关  Ubuntu的server版本有个比较蛋疼的问题就是上网比较困难，如果是用的学校网线，必须要PPPOE拨号才能上网，但是server版本居然没有 net-tools 和 network-manager ，连接WiFi啥的试了很多办法但还是没有什么作用。
- 解决办法：用网线直接连接树莓派和有网的路由器，安装 net-tools 和 network-manager ，执行
-$ sudo nmtui  选择 Activate a connect 连接无线的WiFi，执行</description></item><item><title>Ubuntu如何利用AppImage创建Qv2ray快捷方式</title><link>https://zzsqwq.github.io/posts/193/</link><pubDate>Wed, 16 Jun 2021 00:54:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/193/</guid><description>前言 ​ 最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：
-原理 ​ 首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 \usr\share\applications 中，文件名为 **.desktop ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：
-[Desktop Entry] Name=Typora Comment=a minimal Markdown reading &amp;amp; writing app. Change Log: (https://typora.io/windows/dev_release.html) GenericName=Markdown Editor Exec=typora %U Icon=typora Type=Application StartupNotify=true Categories=Office;WordProcessor; MimeType=text/markdown;text/x-markdown; ​ 可以看到里面的内容写的非常清晰，其中比较重要的有以下几个
-关键词 意义 [Desktop Entry] 文件头 Name 应用名称 Comment 描述 Exec 执行的命令 Icon 图标路径 Type 启动器类型 Categories 应用的类型（内容相关） StartupNotify 启动时是否打印输出信息 Terminal 是否在终端中运行 快捷方式的创建 ​ 明白以上原理，我们只需要创建一个 qv2ray.</description></item><item><title>利用神经网络进行波士顿房价预测</title><link>https://zzsqwq.github.io/posts/182/</link><pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/182/</guid><description>前言 ​ 前一阵学校有五一数模节校赛，和朋友一起参加做B题，波士顿房价预测，算是第一次自己动手实现一个简单的小网络吧，虽然很简单，但还是想记录一下。
-题目介绍 ​ 波士顿住房数据由哈里森和鲁宾菲尔德于1978年Harrison and Rubinfeld1收集。它包括了波士顿大区每个调查行政区的506个观察值。1980年Belsley et al.2曾对此数据做过分析。
-​ 数据一共14列，每一列的含义分别如下：
-英文简称 详细含义 CRIM 城镇的人均犯罪率 ZN 大于25,000平方英尺的地块的住宅用地比例。 INDUS 每个镇的非零售业务英亩的比例。 CHAS 查尔斯河虚拟变量（如果环河，则等于1；否则等于0） NOX 一氧化氮的浓度（百万分之几） RM 每个住宅的平均房间数 AGE 1940年之前建造的自有住房的比例 DIS 到五个波士顿就业中心的加权距离 RAD 径向公路通达性的指标 TAX 每一万美元的全值财产税率 PTRATIO 各镇的师生比率 B 计算方法为 $1000(B_k-0.</description></item><item><title>如何使用CenterNet做3D目标检测测试</title><link>https://zzsqwq.github.io/posts/164/</link><pubDate>Wed, 27 Jan 2021 11:50:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/164/</guid><description>CenterNet—Objects as Points介绍 ​ CenterNet是一个anchor-free的目标检测网络，与YOLOv3相比，精度有所提升，此外他不仅能够用于2D目标检测，也能够用于人体姿态识别，3D目标检测等···
-安装CenterNet ​ 其实安装CenterNet的过程就是一个配置环境的问题，直接跟着官方给出的这里Install.md配置一下即可，十分推荐使用Conda来管理环境，这里给出我的环境给大家参考一下：
-Ubuntu = 18.04 LTS
-pytorch = 1.2.0
-python = 3.6.12
-torchvision = 0.4.0
-cuda = 10.2
-​ 需要注意的是：
-官方给出的教程里面使用的是 pytorch 0.4.1，但是我个人在实测过程中遇到了一些问题，遂安装网上的教程更改为 pytorch 1.2.0，并且需要把 ${CenterNet_Root}/src/lib/models/networks/DCNv2 中的这个DCNv2网络更改为官方的最新版。 这里使用的cuda版本最好和你的显卡匹配，之前因为显卡驱动的一些问题导致重装了电脑，根据我们学长学姐的建议，最好直接去cuda官网那边去下载deb包直接安装。 遇到环境配置问题可以先去Google一下，一般作者都在CenterNet&amp;rsquo;s Issues中给出了回复，如果没有，可以发邮件给作者询问，当然也可以发消息/邮箱给我，大家一起探讨一下~ 运行CenterNet的demo ​ 想要运行demo，首先要去 Model zoo 中下载一下我们需要使用的model，2D目标检测使用的是 ctdet_coco_dla_2x.pth ，人体姿态评估使用的是 multi_pose_dla_3x.pth ，下载后统一将他们放在CenterNet根目录中的model文件夹中。
-​ 然后使用conda切换到CenterNet的环境，在终端中运行：
-python demo.py ctdet --demo ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg --load_model ../models/ctdet_coco_dla_2x.pth ​ 这里需要注意的是 --demo 后面的 ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.</description></item><item><title>“程序星编程之路”第二次作业题解</title><link>https://zzsqwq.github.io/posts/136/</link><pubDate>Thu, 12 Nov 2020 23:13:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/136/</guid><description>“程序星编程之路”第二次作业题解 A. Zs的回文质数 题目描述 ​ 读入一个整数 $n$ ，输出 $[1,n]$ 的所有回文质数，我们规定 $1\sim9$ 也是回文数。
-思路 ​ 首先我们需要了解什么是回文数，以及什么是质数。
-​ 简单点说，回文数就是正着读反着读都是一样的，也就是对称的，形如 $abcba $ 或者 $123321$ 这样的。
-​ 质数的话，对于一个数 $n$ ，如果他是质数，那它除了 $1$ 和 $n$ 没有其他因子。例如 $2,3,5,7,11$ 这样的。
-​ 那么接下来我们考虑一下解决这个问题应该怎么做，首先我们看一下数据范围，$[1,100000]$ ，还是挺小的，我们可以考虑直接枚举每一个数来判断它是不是回文数，然后再判断一下是不是质数，如果两个都满足，我们就输出它。
-​ 判断回文数，我们可以考虑到 NOJ05 幸运数 一题的解题思路，也就是说我们把一个数倒置过来，好比一个数 $xyz$ 倒置成 $zyx$ ，然后判断是否 $xyz == zyx$ ，如果相等的话就是回文数，如果不相等就不是。
-​ 判断质数，我们可以在 $[2,\lfloor\sqrt{n}\rfloor]$ 枚举它的因子，这个的完备性我上课的时候证明过，不再赘述。这里需要注意 $1,2$ 需要特判一下。
-代码 #include&amp;lt;stdio.</description></item><item><title>自买服务器建站教程</title><link>https://zzsqwq.github.io/posts/77/</link><pubDate>Wed, 26 Aug 2020 16:34:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/77/</guid><description>&lt;h2 id="引言">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>杂学 on Zs's Blog</title><link>https://zzsqwq.github.io/categories/%E6%9D%82%E5%AD%A6/</link><description>Recent content in 杂学 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Sun, 18 Jul 2021 16:03:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/categories/%E6%9D%82%E5%AD%A6/index.xml" rel="self" type="application/rss+xml"/><item><title>利用树莓派为HP LaserJet 1020配置无线打印功能</title><link>https://zzsqwq.github.io/posts/198/</link><pubDate>Sun, 18 Jul 2021 16:03:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/198/</guid><description>&lt;h2 id="前言">
+前言
+&lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>    最近基地的打印机突然又好起来了。&lt;/p>
+&lt;p>    因为基地的打印机型号比较老——HP LaserJet 1020，没有无线打印的功能。所以之前一位学长&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> 用树莓派配置了打印机的无线打印功能，但是后来发现有一些问题，有时候发送打印请求树莓派无法接收，而且不知道为何，学长之前用的是树莓派自己创建WiFi，连接对应WiFi才能打印，但是这个显然不是最优的解决办法。&lt;/p>
+&lt;p>    考虑到之间已经配置好基地WiFi，我决定重新配置一下打印功能，使其连接基地WiFi即可实现局域网打印。&lt;/p>
+&lt;hr>
+&lt;h2 id="配置过程">
+配置过程
+&lt;a class="heading-link" href="#%e9%85%8d%e7%bd%ae%e8%bf%87%e7%a8%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="查看树莓派内容">
+查看树莓派内容
+&lt;a class="heading-link" href="#%e6%9f%a5%e7%9c%8b%e6%a0%91%e8%8e%93%e6%b4%be%e5%86%85%e5%ae%b9">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>    通过ssh连接树莓派，发现里面除了Github上的一个开源项目&lt;a href="https://github.com/oblique/create_ap">create_ap&lt;/a> ，就没有什么其他的内容了，连接屏幕后发现没有任何图像信号，无从下手，因此考虑重新刷机。&lt;/p>
+&lt;hr>
+&lt;h3 id="对树莓派进行刷机">
+对树莓派进行刷机
+&lt;a class="heading-link" href="#%e5%af%b9%e6%a0%91%e8%8e%93%e6%b4%be%e8%bf%9b%e8%a1%8c%e5%88%b7%e6%9c%ba">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>    把数据备份了一下，看了一下树莓派版本是2015年生产的 &lt;code>Raspberry Pi 3 model B V1.2&lt;/code> ，是老古董了。&lt;/p>
+&lt;p>    去官网看了一下，因为我对Ubuntu比较熟悉，我计划安装一个 Ubuntu20.04版本的，考虑到版本比较老，就装了&lt;strong>server&lt;/strong>版本的，相比与desktop版本负担更小一些。&lt;/p>
+&lt;p>    其实就是下一个官方的软件，&lt;code>Raspberry Pi Imager&lt;/code> ，直接用读卡器对树莓派的存储卡刷机即可。&lt;/p>
+&lt;p>    这里是对应的镜像以及教程： &lt;a href="https://ubuntu.com/download/raspberry-pi">镜像下载&lt;/a> &lt;a href="https://ubuntu.com/tutorials/how-to-install-ubuntu-desktop-on-raspberry-pi-4#1-overview">安装教程&lt;/a>&lt;/p>
+&lt;hr>
+&lt;h3 id="配置网络相关">
+配置网络相关
+&lt;a class="heading-link" href="#%e9%85%8d%e7%bd%ae%e7%bd%91%e7%bb%9c%e7%9b%b8%e5%85%b3">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>    Ubuntu的server版本有个比较蛋疼的问题就是上网比较困难，如果是用的学校网线，必须要PPPOE拨号才能上网，但是server版本居然没有 &lt;code>net-tools&lt;/code> 和 &lt;code>network-manager&lt;/code> ，连接WiFi啥的试了很多办法但还是没有什么作用。&lt;/p>
+&lt;p>    &lt;strong>解决办法：用网线直接连接树莓派和有网的路由器，安装 &lt;code>net-tools&lt;/code> 和 &lt;code>network-manager&lt;/code> ，执行&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ sudo nmtui
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>    选择 &lt;code>Activate a connect &lt;/code> 连接无线的WiFi，执行&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ sudo ifconfig
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>    查看WiFi对应的IP，至此，树莓派可以摆脱屏幕，我们可以使用电脑进行使用 &lt;code>ssh&lt;/code> 连接。&lt;/p>
+&lt;p>    这里也可以使用网线进行连接，具体操作如下&lt;/p>
+&lt;p>    1. 用网线连接树莓派和自己的电脑。&lt;/p>
+&lt;p>    2. 在树莓派的利用 &lt;code>nmtui&lt;/code> 选择 &lt;code>Edit a connection &lt;/code> ，Add一个Ethernet connect，对IPv4 CONFIGURATION进行设置，首先讲 &lt;code>Automatic&lt;/code> 设置为 &lt;code>Manual&lt;/code>，设置 &lt;code>Address&lt;/code> 为 &lt;strong>静态IP&lt;/strong> 如 &lt;code>192.168.3.2&lt;/code> ，&lt;code>Gateway&lt;/code> 设置为 &lt;code>192.168.3.1&lt;/code> 。&lt;/p>
+&lt;p>    3. 在自己电脑利用 &lt;code>nmtui&lt;/code> 同上不过设置 &lt;code>Address&lt;/code> 为 &lt;code>192.168.3.3&lt;/code> ，只要是位于同一网段即可。&lt;/p>
+&lt;p>    4. 这时候就可以通过网线进行 &lt;code>ssh&lt;/code> 连接了。&lt;/p>
+&lt;hr>
+&lt;h3 id="配置cups">
+配置cups
+&lt;a class="heading-link" href="#%e9%85%8d%e7%bd%aecups">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>    以下大多参考：&lt;a href="https://sspai.com/post/40997">如何正确地用树莓派共享打印机&lt;/a>&lt;/p>
+&lt;p>    大佬言：&lt;/p>
+&lt;blockquote>
+&lt;p>其实，这一步的工作量非常少，因为软件包 CUPS 就是为共享打印机而生。我们要做的只是将打印机用 USB 线缆连接树莓派，然后安装并配置 CUPS。&lt;/p>
+&lt;/blockquote>
+&lt;p>    然而，事实并非如此。&lt;/p>
+&lt;h4 id="换源">
+换源
+&lt;a class="heading-link" href="#%e6%8d%a2%e6%ba%90">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>    在安装之前需要换源，如果不换源的话，安装会十分缓慢，具体的流程可以看上面的blog，因为我们基地的WiFi自带代理，因此这一步我没有做。&lt;/p>
+&lt;h4 id="安装驱动及打印程序">
+安装驱动及打印程序
+&lt;a class="heading-link" href="#%e5%ae%89%e8%a3%85%e9%a9%b1%e5%8a%a8%e5%8f%8a%e6%89%93%e5%8d%b0%e7%a8%8b%e5%ba%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>首先更新源并安装Hp的打印机驱动 &lt;code>hplip&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ sudo apt update
+$ sudo apt install hplip
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>然后安装Apple开源的远程打印工具 &lt;code>cups&lt;/code>，并配置相应权限&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ sudo apt install cups &lt;span style="color:#75715e"># Install cups package&lt;/span>
+$ sudo usermod -aG lpadmin pi &lt;span style="color:#75715e"># Add user to lpadmin group,pi is your user name&lt;/span>
+$ sudo cupsctl --remote-any &lt;span style="color:#75715e"># open remote access &lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>然后使用在同一局域网的电脑，访问 &lt;code>https://树莓派IP:631&lt;/code>，可以进入如下界面，按照下图设置右侧的&lt;code>Server Settings&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/07/2334607761.png" alt="cups管理页面">&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>连接打印机和树莓派&lt;/strong>，点击Add Printer添加打印机，在弹出的窗口中输入对应的用户信息，使用在上一步中用户组中添加的用户&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/07/3556322742.png" alt="cups登录界面">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>然后按着一步步的指引，选择HP LaserJet 1020打印机，然后按照提示，选择和名称对应的驱动，我们会发现 &lt;strong>LaserJet 1020&lt;/strong> 对应驱动会提示：HP laserjet requires proprietary plugin，也就是我们不仅需要这个通用的驱动，而且需要一些额外的插件，打印机才能正常工作。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>查阅资料发现：HP官方已经给出了&lt;a href="https://developers.hp.com/hp-linux-imaging-and-printing/binary_plugin.html">说明&lt;/a>，我们需要查看hplip版本，然后安装对应的驱动插件。&lt;/p>
+&lt;ul>
+&lt;li>首先我们查看一下版本，发现是3.20.3版本&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ sudo apt show hplip
+Package: hplip
+Version: 3.20.3+dfsg0-2
+Priority: optional
+Section: utils
+Origin: Ubuntu
+Maintainer: Ubuntu Developers &amp;lt;ubuntu-devel-discuss@lists.ubuntu.com&amp;gt;
+Original-Maintainer: Debian Printing Team &amp;lt;debian-printing@lists.debian.org&amp;gt;
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: &lt;span style="color:#ae81ff">518&lt;/span> kB
+&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>
+&lt;p>然后在 &lt;a href="https://developers.hp.com/hp-linux-imaging-and-printing/plugins">插件列表&lt;/a> 中找到 3.20.3 对应的&lt;code>hplip-3.20.3-plugin.run&lt;/code>和&lt;code>hplip-3.20.3-plugin.run.asc&lt;/code>，使用wget下载到树莓派本地。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>运行 &lt;code>hp-setup -i&lt;/code> 使用命令行进行安装，按照提示命令，进行插件的安装。&lt;/p>
+&lt;p>[scode type=&amp;ldquo;yellow&amp;rdquo;]这里建议提前下好安装，而不是直接联网下载，速度较快，指定路径需要为绝对路径[/scode]&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>至此，我们可以尝试使用手机或者电脑搜索打印机来进行打印测试，没有其他意外的话，可以发现打印成功！&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="结语">
+结语
+&lt;a class="heading-link" href="#%e7%bb%93%e8%af%ad">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>    其实这个配置过程远没有这么简单，期间还有很多小问题，但是大致的流程大概就是如上述所示，全写出来可能太啰嗦，大家如果配置过程中遇到更多的疑问，可以在下方评论一起探讨~&lt;/p>
+&lt;h2 id="参考链接">
+参考链接
+&lt;a class="heading-link" href="#%e5%8f%82%e8%80%83%e9%93%be%e6%8e%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://developers.hp.com/hp-linux-imaging-and-printing/binary_plugin.html">What is the HPLIP Binary Plug-In and How Do I Install It?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developers.hp.com/hp-linux-imaging-and-printing/plugins">Plugins&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.openprinting.org/download/printdriver/auxfiles/HP/plugins/">Other Plugins&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/apple/cups">cups&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.jianshu.com/p/d3752c584e01">使用树莓派搭建无线打印机&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://sspai.com/post/40997">如何正确地用树莓派共享打印机&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;section class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1" role="doc-endnote">
+&lt;p>学长的博客在这里: &lt;a href="https://tec.blog.ykai.top/">dykai&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/section></description></item><item><title>Ubuntu如何利用AppImage创建Qv2ray快捷方式</title><link>https://zzsqwq.github.io/posts/193/</link><pubDate>Wed, 16 Jun 2021 00:54:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/193/</guid><description>&lt;h3 id="前言">
+前言
+&lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/06/2642879187.png" alt="快捷方式效果图">&lt;/p>
+&lt;h3 id="原理">
+原理
+&lt;a class="heading-link" href="#%e5%8e%9f%e7%90%86">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 &lt;code>\usr\share\applications&lt;/code> 中，文件名为 &lt;code>**.desktop&lt;/code> ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#f92672">[&lt;/span>Desktop Entry&lt;span style="color:#f92672">]&lt;/span>
+Name&lt;span style="color:#f92672">=&lt;/span>Typora
+Comment&lt;span style="color:#f92672">=&lt;/span>a minimal Markdown reading &amp;amp; writing app. Change Log: &lt;span style="color:#f92672">(&lt;/span>https://typora.io/windows/dev_release.html&lt;span style="color:#f92672">)&lt;/span>
+GenericName&lt;span style="color:#f92672">=&lt;/span>Markdown Editor
+Exec&lt;span style="color:#f92672">=&lt;/span>typora %U
+Icon&lt;span style="color:#f92672">=&lt;/span>typora
+Type&lt;span style="color:#f92672">=&lt;/span>Application
+StartupNotify&lt;span style="color:#f92672">=&lt;/span>true
+Categories&lt;span style="color:#f92672">=&lt;/span>Office;WordProcessor;
+MimeType&lt;span style="color:#f92672">=&lt;/span>text/markdown;text/x-markdown;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    可以看到里面的内容写的非常清晰，其中比较重要的有以下几个&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>关键词&lt;/th>
+&lt;th>意义&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>[Desktop Entry]&lt;/td>
+&lt;td>文件头&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Name&lt;/td>
+&lt;td>应用名称&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Comment&lt;/td>
+&lt;td>描述&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Exec&lt;/td>
+&lt;td>执行的命令&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Icon&lt;/td>
+&lt;td>图标路径&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Type&lt;/td>
+&lt;td>启动器类型&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Categories&lt;/td>
+&lt;td>应用的类型（内容相关）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>StartupNotify&lt;/td>
+&lt;td>启动时是否打印输出信息&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Terminal&lt;/td>
+&lt;td>是否在终端中运行&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="快捷方式的创建">
+快捷方式的创建
+&lt;a class="heading-link" href="#%e5%bf%ab%e6%8d%b7%e6%96%b9%e5%bc%8f%e7%9a%84%e5%88%9b%e5%bb%ba">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    明白以上原理，我们只需要创建一个 &lt;code>qv2ray.desktop&lt;/code> ，文件内容如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">&lt;span style="color:#f92672">[&lt;/span>Desktop Entry&lt;span style="color:#f92672">]&lt;/span>
+Name&lt;span style="color:#f92672">=&lt;/span>qv2ray
+Exec&lt;span style="color:#f92672">=&lt;/span>/home/zs/proxy/v2ray/Qv2ray.v2.6.3.linux-x64.AppImage
+Icon&lt;span style="color:#f92672">=&lt;/span>/home/zs/proxy/v2ray/qv2ray.512.png
+Type&lt;span style="color:#f92672">=&lt;/span>Application
+StartupNotify&lt;span style="color:#f92672">=&lt;/span>true
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    其中Exec为你AppImage的绝对路径，Icon为图标的绝对路径。&lt;/p>
+&lt;p>​    其中各个大小的Qv2ray的icons可以在它的Github中找到，链接为：&lt;a href="https://github.com/Qv2ray/Qv2ray/tree/master/assets/icons">Qv2ray/icons&lt;/a>&lt;/p>
+&lt;p>​    创建完后执行&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ sudo chmod +x qv2ray.desktop
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    为文件添加可执行权限，然后执行&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ sudo cp qv2ray.desktop /usr/share/applications
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    将其加入到目录中，接下来我们就可以在应用库中找到对应的qv2ray了~&lt;/p>
+&lt;h3 id="命令行快捷方式的创建">
+命令行快捷方式的创建
+&lt;a class="heading-link" href="#%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%bf%ab%e6%8d%b7%e6%96%b9%e5%bc%8f%e7%9a%84%e5%88%9b%e5%bb%ba">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    我们直接将AppImage加入到 &lt;code>/usr/bin&lt;/code> 中即可，即执行以下命令：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">$ sudo cp xxx.AppImage /usr/bin/qv2ray
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    接下来我们在终端中输入 &lt;code>qv2ray&lt;/code> ，发现已经可以成功打开qv2ray，大功告成！~&lt;/p></description></item><item><title>利用神经网络进行波士顿房价预测</title><link>https://zzsqwq.github.io/posts/182/</link><pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/182/</guid><description>&lt;h3 id="前言">
+前言
+&lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    前一阵学校有五一数模节校赛，和朋友一起参加做B题，波士顿房价预测，算是第一次自己动手实现一个简单的小网络吧，虽然很简单，但还是想记录一下。&lt;/p>
+&lt;h3 id="题目介绍">
+题目介绍
+&lt;a class="heading-link" href="#%e9%a2%98%e7%9b%ae%e4%bb%8b%e7%bb%8d">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    波士顿住房数据由哈里森和鲁宾菲尔德于1978年Harrison and Rubinfeld&lt;!-- raw HTML omitted -->&lt;a href="https://www.zzsqwq.cn/usr/uploads/2021/05/406125417.png">1&lt;/a>&lt;!-- raw HTML omitted -->收集。它包括了波士顿大区每个调查行政区的506个观察值。1980年Belsley et al.&lt;!-- raw HTML omitted -->&lt;a href="https://www.zzsqwq.cn/usr/uploads/2021/05/3238192089.png">2&lt;/a>&lt;!-- raw HTML omitted -->曾对此数据做过分析。&lt;/p>
+&lt;p>​    数据一共14列，每一列的含义分别如下：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>英文简称&lt;/th>
+&lt;th>详细含义&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>CRIM&lt;/td>
+&lt;td>城镇的人均犯罪率&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>ZN&lt;/td>
+&lt;td>大于25,000平方英尺的地块的住宅用地比例。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>INDUS&lt;/td>
+&lt;td>每个镇的非零售业务英亩的比例。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CHAS&lt;/td>
+&lt;td>查尔斯河虚拟变量（如果环河，则等于1；否则等于0）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>NOX&lt;/td>
+&lt;td>一氧化氮的浓度（百万分之几）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>RM&lt;/td>
+&lt;td>每个住宅的平均房间数&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>AGE&lt;/td>
+&lt;td>1940年之前建造的自有住房的比例&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>DIS&lt;/td>
+&lt;td>到五个波士顿就业中心的加权距离&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>RAD&lt;/td>
+&lt;td>径向公路通达性的指标&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>TAX&lt;/td>
+&lt;td>每一万美元的全值财产税率&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>PTRATIO&lt;/td>
+&lt;td>各镇的师生比率&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>B&lt;/td>
+&lt;td>计算方法为 $1000(B_k-0.63)^2$，其中Bk是按城镇划分的非裔美国人的比例&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>LSTAT&lt;/td>
+&lt;td>底层人口的百分比(%)&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>price&lt;/strong>&lt;/td>
+&lt;td>自有住房数的中位数，单位（千美元）&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>​    基于上述数据，请完成以下问题：&lt;/p>
+&lt;p>​    &lt;strong>建立波士顿房价预测模型并对预测结果进行评价。&lt;/strong>&lt;/p>
+&lt;h3 id="问题分析">
+问题分析
+&lt;a class="heading-link" href="#%e9%97%ae%e9%a2%98%e5%88%86%e6%9e%90">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    首先这道题目的很明确，数据一共是 $506×14$ 的一个矩阵，有十三维的自变量，通过建立一个模型来拟合回归出最终的因变量 price，即户主拥有住房价值的中位数。这是一个回归问题，综合考虑有以下两个思路&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>通过各种回归算法（GradientBoostingRegressor，RandomForestRegressor，ExtraTreesRegressor，LinearRegressor等）结合全部或部分自变量来回归最终的price&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>建立前馈神经网络模型，根据通用逼近定理，我们可以拟合此回归模型。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>​    我们对上述模型来进行实现并确定评估标准来对他们进行比较，选择最优的模型作为预测模型。&lt;/p>
+&lt;h3 id="算法流程">
+算法流程
+&lt;a class="heading-link" href="#%e7%ae%97%e6%b3%95%e6%b5%81%e7%a8%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="传统的回归算法">
+传统的回归算法
+&lt;a class="heading-link" href="#%e4%bc%a0%e7%bb%9f%e7%9a%84%e5%9b%9e%e5%bd%92%e7%ae%97%e6%b3%95">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;h5 id="自变量的选择">
+自变量的选择
+&lt;a class="heading-link" href="#%e8%87%aa%e5%8f%98%e9%87%8f%e7%9a%84%e9%80%89%e6%8b%a9">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h5>
+&lt;p>​    首先，考虑到数据集中13列自变量其中某一些可能和最终的房价并无强相关性，如果全部使用进行预测可能会对模型引入噪声，因此我们首先计算了房价price与各个自变量之间的相关系数 $r$ ，其中 $r$ 计算公式如下：
+$$
+r = \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum(x_i-\bar{x})^2\sum(y_i-\bar{y})^2}}
+$$
+​    其中 $x_i,y_i$ 为数据的每个分量，$\bar{x}，\bar{y}$ 为数据的均值&lt;/p>
+&lt;p>​    该系数反映了两变量之间的相关性，$r$ 的绝对值介于 $[0,1]$ 区间内，$|r|$ 越接近1，表示两数据相关性越高，反之越低。计算后结果如下：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>CRIM&lt;/th>
+&lt;th>ZN&lt;/th>
+&lt;th>INDUS&lt;/th>
+&lt;th>CHAS&lt;/th>
+&lt;th>NOX&lt;/th>
+&lt;th>RM&lt;/th>
+&lt;th>LSTAT&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>-0.385832&lt;/td>
+&lt;td>0.360445&lt;/td>
+&lt;td>-0.483725&lt;/td>
+&lt;td>0.175260&lt;/td>
+&lt;td>-0.427321&lt;/td>
+&lt;td>0.695360&lt;/td>
+&lt;td>-0.737663&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>AGE&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>DIS&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>RAD&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>TAX&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>PTRATIO&lt;/strong>&lt;/td>
+&lt;td>&lt;strong>B&lt;/strong>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-0.376955&lt;/td>
+&lt;td>0.249929&lt;/td>
+&lt;td>-0.381626&lt;/td>
+&lt;td>-0.468536&lt;/td>
+&lt;td>-0.507787&lt;/td>
+&lt;td>0.333461&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>​    观察结果可以发现，在给定的十三个变量中，&lt;strong>LSTAT &lt;strong>与 &lt;strong>price&lt;/strong> 的相关程度最高$(|r|&amp;gt;0.7)$，其次是 &lt;strong>RM&lt;/strong> 与&lt;/strong>PTRATIO&lt;/strong> $(|r|&amp;gt;0.5)$，再者是 &lt;strong>TAX,INDUS,NOX&lt;/strong> $(|r|&amp;gt;0.4)$，除上述之外的七个变量都与 &lt;strong>price&lt;/strong> 无较强的相关性，因此我们考虑使用六个相关性较强变量和十三个变量分别来对房价进行预测，并对他们进行对比，来寻找最优的回归模型。&lt;/p>
+&lt;h5 id="模型的构建">
+模型的构建
+&lt;a class="heading-link" href="#%e6%a8%a1%e5%9e%8b%e7%9a%84%e6%9e%84%e5%bb%ba">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h5>
+&lt;ul>
+&lt;li>
+&lt;p>首先我们使用了sklearn中自带的 boston 数据集，并将整体数据集随机划分为了训练集和测试集两部分，所占比例分别为80%和20%。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>然后，我们利用Linear,Ridge,Lasso,ElasticNet,DecisionTree,GradientBoosting,RandomForest,ExtraTrees八种模型通过训练集对其进行训练。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>接下来，我们利用训练集拟合得到的模型，使用测试集对其进行测试，与 Ground Truth 进行对比，并通过 $R^2$ 来评价该预测结果，其中 $R^2$ 计算公式如下，其是衡量回归模型好坏的常见指标，其值一般处于[0,1]之间，$R^2$ 越接近1，说明模型的性能越好。
+$$
+R^2 = 1-\frac{\sum(\hat{y_i}-y_i)^2}{\sum(\bar{y}-y_i)^2}
+$$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>最后，考虑到模型的训练及预测可能具有偶然性，因此我们对于每一个模型进行20次训练及预测，利用20次的结果对其进行综合评价。利用得到的结果绘制 &lt;strong>箱线图&lt;/strong> 所得结果如下：&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/05/406125417.png" alt="使用六变量和十三个变量进行拟合的对比">&lt;/p>
+&lt;p>​&lt;/p>
+&lt;p>​    分析最终结果可以发现，无论是使用六个相关性较强变量还是十三个变量来进行预测，GradientBoost（梯度提升决策树）回归模型都是最好的，此外，我们可以发现，利用十三个变量要比利用六个主要变量来进行预测比有着更好的效果。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="前馈神经网络">
+前馈神经网络
+&lt;a class="heading-link" href="#%e5%89%8d%e9%a6%88%e7%a5%9e%e7%bb%8f%e7%bd%91%e7%bb%9c">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;h5 id="模型的构建-1">
+模型的构建
+&lt;a class="heading-link" href="#%e6%a8%a1%e5%9e%8b%e7%9a%84%e6%9e%84%e5%bb%ba-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h5>
+&lt;p>​    近年来，神经网络理论不断发展，前馈神经网络（多层感知机、全连接神经网络）越来越多的被利用到数据分析中，因此考虑使用前馈神经网络来解决此问题。&lt;/p>
+&lt;p>​    前馈神经网络（全连接神经网络）的网络结构一般由三部分构成，输入层，隐藏层，以及输出层，输入层与输出层一般只有一层，隐藏层可有多层。中间利用非线性函数作为激活函数可以使得网络具有拟合非线性函数的能力&lt;/p>
+&lt;p>​    根据通用近似定理:&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>通用近似定理&lt;/strong>&lt;/p>
+&lt;p>对于具有线性输出层和至少一个使用“挤压”性质的激活函数的隐藏层组成的前馈神经网络，只要其隐藏层神经元的数量足够，它可以以任意精度来近似任何从一个定义在实数空间中的有界闭集函数。&lt;/p>
+&lt;/blockquote>
+&lt;p>​    只要隐藏层网络维度够高，就可以拟合任意的函数。&lt;/p>
+&lt;p>​    考虑到我们的模型有六维or十三维的数据输入，因此我们建立两层前馈神经网络，中间具有一层隐藏层，维度为1000维，激活函数使用Relu，Relu函数有以下优点:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Relu相比于传统的Sigmoid、Tanh，导数更加好求，反向传播就是不断的更新参数的过程，因为其导数不复杂形式简单，可以使得网络训练更快速。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>此外，当数值过大或者过小，Sigmoid，Tanh的导数接近于0，Relu为非饱和激活函数则不存在这种现象，可以很好的解决梯度消失的问题&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>​    Relu函数及网络结构图如图所示：&lt;/p>
+&lt;p>$$
+Relu:f(x) = max(0,x)
+$$&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/05/3238192089.png" alt="构建的前馈神经网络结构图">&lt;/p>
+&lt;h5 id="具体实现">
+具体实现
+&lt;a class="heading-link" href="#%e5%85%b7%e4%bd%93%e5%ae%9e%e7%8e%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h5>
+&lt;p>​    利用流行的深度学习框架 &lt;strong>Pytorch&lt;/strong> 来对模型进行实现。&lt;/p>
+&lt;ul>
+&lt;li>首先，将数据集随机划分为训练集和测试集两部分，分别占80%和20%，并将其转化为Pytorch中的张量形式。&lt;/li>
+&lt;li>然后，利用MinMaxScaler对输入数据进行归一化，利用下列公式将其统一归一化为 $[0,1]$ 之间，以求模型能够更快的收敛。&lt;/li>
+&lt;/ul>
+&lt;p>$$
+MinMaxScaler:x^{*} = \frac{x-min(x)}{max(x)-min(x)}
+$$&lt;/p>
+&lt;ul>
+&lt;li>接下来，构建网络模型，利用 mseloss 作为损失函数，在训练过程中利用反向传播使其最终收敛为0。&lt;/li>
+&lt;/ul>
+&lt;p>$$
+MseLoss = \frac{1}{2n}\sum||y(x)-a^L(x)||^2
+$$&lt;/p>
+&lt;ul>
+&lt;li>最后，我们设置网络的学习率为0.01，训练10000个epoch，发现其loss最终降低到0.3%左右，我们利用上文提到的 $R^2$ 对结果进行评估并与回归模型进行对比，通过观察图片可以发现，前馈神经网络相比于传统的回归模型有着更好的拟合效果， 20次预测得到的$R^2$平均值达到了0.95，此外中位数，最大值，最小值也要比回归模型更加优秀，因此我们采用前馈神经网络模型来对最后的房价进行预测。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/05/2897732866.png" alt="添加前馈神经网络后与其他模型进行比较">&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/05/3640570809.jpg" alt="训练过程中的loss曲线">&lt;/p>
+&lt;h3 id="最终预测">
+最终预测
+&lt;a class="heading-link" href="#%e6%9c%80%e7%bb%88%e9%a2%84%e6%b5%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    最终我们利用构建的前馈神经网络模型进行预测，利用测试集对其进行对比，绘制预测如下：&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/05/1130005314.png" alt="predict_groundtruth.png">&lt;/p>
+&lt;p>​&lt;/p>
+&lt;p>​    可以看到其中很多点都覆盖的很好，即预测准确。&lt;/p>
+&lt;p>​    通过理论对模型进行量化分析，计算预测的 $R^2$
+$$
+R^2 = 1-\frac{\sum(\hat{y_i}-y_i)^2}{\sum(\bar{y}-y_i)^2} = 1-0.01357 = 0.98643=98.643%
+$$
+​    可以发现 $R^2$ 十分接近1，说明回归模型性能良好，符合要求。&lt;/p>
+&lt;h3 id="实现代码">
+实现代码
+&lt;a class="heading-link" href="#%e5%ae%9e%e7%8e%b0%e4%bb%a3%e7%a0%81">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    代码放在我的Github了，其中写了较详细的README，链接为 &lt;a href="https://github.com/zzsqwq/BostonPredict">BostonPredict &lt;/a>&lt;/p>
+&lt;h3 id="参考链接">
+参考链接
+&lt;a class="heading-link" href="#%e5%8f%82%e8%80%83%e9%93%be%e6%8e%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/89873990">很系统的波士顿房价预测研究报告（期中作业）&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://www.cnblogs.com/gwj23/p/10604611.html">作业-机器学习-波士顿房价预测 四种回归算法&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/48702850">基于Python预测波士顿房价&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://cloud.tencent.com/developer/article/1574255">波士顿房价预测——回归分析案例（献给初学者）&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>如何使用CenterNet做3D目标检测测试</title><link>https://zzsqwq.github.io/posts/164/</link><pubDate>Wed, 27 Jan 2021 11:50:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/164/</guid><description>&lt;h2 id="centernetobjects-as-points介绍">
+CenterNet—Objects as Points介绍
+&lt;a class="heading-link" href="#centernetobjects-as-points%e4%bb%8b%e7%bb%8d">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>​ &lt;a href="https://github.com/xingyizhou/CenterNet">CenterNet&lt;/a>是一个anchor-free的目标检测网络，与YOLOv3相比，精度有所提升，此外他不仅能够用于2D目标检测，也能够用于人体姿态识别，3D目标检测等···&lt;/p>
+&lt;h3 id="安装centernet">
+安装CenterNet
+&lt;a class="heading-link" href="#%e5%ae%89%e8%a3%85centernet">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​ 其实安装&lt;a href="https://github.com/xingyizhou/CenterNet">CenterNet&lt;/a>的过程就是一个配置环境的问题，直接跟着官方给出的这里&lt;a href="https://github.com/xingyizhou/CenterNet/blob/master/readme/INSTALL.md">Install.md&lt;/a>配置一下即可，十分推荐使用Conda来管理环境，这里给出我的环境给大家参考一下：&lt;/p>
+&lt;blockquote>
+&lt;p>Ubuntu = 18.04 LTS&lt;/p>
+&lt;p>pytorch = 1.2.0&lt;/p>
+&lt;p>python = 3.6.12&lt;/p>
+&lt;p>torchvision = 0.4.0&lt;/p>
+&lt;p>cuda = 10.2&lt;/p>
+&lt;/blockquote>
+&lt;p>​ 需要注意的是：&lt;/p>
+&lt;ul>
+&lt;li>官方给出的教程里面使用的是 &lt;code>pytorch 0.4.1&lt;/code>，但是我个人在实测过程中遇到了一些问题，遂安装网上的教程更改为 &lt;code>pytorch 1.2.0&lt;/code>，并且需要把 &lt;code>${CenterNet_Root}/src/lib/models/networks/DCNv2&lt;/code> 中的这个&lt;a href="https://github.com/CharlesShang/DCNv2">DCNv2&lt;/a>网络更改为官方的最新版。&lt;/li>
+&lt;li>这里使用的cuda版本最好和你的显卡匹配，之前因为显卡驱动的一些问题导致重装了电脑，根据我们学长学姐的建议，最好直接去cuda官网那边去下载deb包直接安装。&lt;/li>
+&lt;li>遇到环境配置问题可以先去Google一下，一般作者都在CenterNet&amp;rsquo;s Issues中给出了回复，如果没有，可以发邮件给作者询问，当然也可以发消息/邮箱给我，大家一起探讨一下~&lt;/li>
+&lt;/ul>
+&lt;h3 id="运行centernet的demo">
+运行CenterNet的demo
+&lt;a class="heading-link" href="#%e8%bf%90%e8%a1%8ccenternet%e7%9a%84demo">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​ 想要运行demo，首先要去 &lt;a href="https://github.com/xingyizhou/CenterNet/blob/master/readme/MODEL_ZOO.md">Model zoo&lt;/a> 中下载一下我们需要使用的model，2D目标检测使用的是 &lt;a href="https://drive.google.com/open?id=1pl_-ael8wERdUREEnaIfqOV_VF2bEVRT">ctdet_coco_dla_2x.pth&lt;/a> ，人体姿态评估使用的是 &lt;a href="https://drive.google.com/open?id=1PO1Ax_GDtjiemEmDVD7oPWwqQkUu28PI">multi_pose_dla_3x.pth&lt;/a> ，下载后统一将他们放在CenterNet根目录中的model文件夹中。&lt;/p>
+&lt;p>​ 然后使用conda切换到CenterNet的环境，在终端中运行：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-shell" data-lang="shell">python demo.py ctdet --demo &lt;span style="color:#e6db74">${&lt;/span>CenterNet_Root&lt;span style="color:#e6db74">}&lt;/span>/images/17790319373_bd19b24cfc_k.jpg --load_model ../models/ctdet_coco_dla_2x.pth
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 这里需要注意的是 &lt;code>--demo&lt;/code> 后面的 &lt;code>${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg&lt;/code> ，这里我使用的是官方给出的实例图片，它位于CenterNet根目录的images文件夹中，前面的 &lt;code>${CenterNet_Root} &lt;/code> 代表的是 CenterNet根目录，好比我的就位于 &lt;code>/home/zs/CenterNet&lt;/code> 。&lt;/p>
+&lt;p>​ 如果不出意外的话效果应该如下图所示：&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/01/2469782097.jpg" alt="2D目标检测效果">&lt;/p>
+&lt;h3 id="运行centernet的3d目标检测">
+运行CenterNet的3D目标检测
+&lt;a class="heading-link" href="#%e8%bf%90%e8%a1%8ccenternet%e7%9a%843d%e7%9b%ae%e6%a0%87%e6%a3%80%e6%b5%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="配置数据集和模型">
+配置数据集和模型
+&lt;a class="heading-link" href="#%e9%85%8d%e7%bd%ae%e6%95%b0%e6%8d%ae%e9%9b%86%e5%92%8c%e6%a8%a1%e5%9e%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​ 我们可以直接参考官方的 &lt;code>DATA.md&lt;/code> 来配置我们的数据集。&lt;/p>
+&lt;p>​ 然后到 &lt;a href="https://github.com/xingyizhou/CenterNet/blob/master/readme/MODEL_ZOO.md">Model zoo&lt;/a> 下载3D检测使用的模型 &lt;a href="https://drive.google.com/open?id=1znsM6E-aVTkATreDuUVxoU0ajL1az8rz">ddd_3dop.pth&lt;/a> 。&lt;/p>
+&lt;p>​ 这里说一下遇到的几个坑：&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>首先是配置数据集的过程中，我们需要配置的目录结构如图所示（官方给出的结构树有点模糊不清的感觉）&lt;/p>
+&lt;pre tabindex="0">&lt;code>.
+├── ImageSets_3dop
+│   ├── test.txt
+│   ├── train.txt
+│   ├── trainval.txt
+│   └── val.txt
+├── ImageSets_subcnn
+│   ├── test.txt
+│   ├── train.txt
+│   ├── trainval.txt
+│   └── val.txt
+└── training
+├── calib
+├── image_2
+└── label_2
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>
+&lt;p>然后去到 &lt;code>${CenterNet_ROOT}/src/tools&lt;/code>目录下，运行 &lt;code>python convert_kitti_to_coco.py &lt;/code> 将 &lt;strong>kitti&lt;/strong> 数据集转换为 &lt;strong>coco&lt;/strong> 数据集的格式，不出意外应该会报错如下：&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/01/3420056939.png" alt="转换时报错">&lt;/p>
+&lt;p>这里的解决方案参考CenterNet中的一个Issue , &lt;a href="https://github.com/xingyizhou/CenterNet/issues/54">How to generate the image dir in kitti?&lt;/a> ，我们需要回到 &lt;code>data/kitti&lt;/code> 目录下手动创建一个 &lt;code>annotations&lt;/code> 文件夹，然后再回去运行转换程序。转换后目录结构如下：&lt;/p>
+&lt;pre tabindex="0">&lt;code>.
+├── annotations
+│   ├── kitti_3dop_train.json
+│   ├── kitti_3dop_val.json
+│   ├── kitti_subcnn_train.json
+│   └── kitti_subcnn_val.json
+├── ImageSets_3dop
+│   ├── test.txt
+│   ├── train.txt
+│   ├── trainval.txt
+│   └── val.txt
+├── ImageSets_subcnn
+│   ├── test.txt
+│   ├── train.txt
+│   ├── trainval.txt
+│   └── val.txt
+└── training
+├── calib
+├── image_2
+└── label_2
+&lt;/code>&lt;/pre>&lt;/li>
+&lt;li>
+&lt;p>然后根据官方的教程，我们需要创建一个images文件夹，然后将其 &lt;code>training/image_2&lt;/code> 链接到 &lt;code>images/trainval&lt;/code>，我在实际的测试中，发现此方法并不可行。参考CenterNet中的一个Issue: &lt;a href="https://github.com/xingyizhou/CenterNet/issues/575#">Evaluate kitti&amp;ndash;AttributeError: &amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;shape&amp;rsquo;&lt;/a> ，其中 juanmed给出了解决方案：&lt;/p>
+&lt;blockquote>
+&lt;p>I had the same problem. For some reason the simlinks that are created during the data preparation process described in DATA.md are not working. So instead of creating simlinks I simply copied the actual data into the directories indicated in DATA.md. In other words the folders &lt;code>data/kitti/images/test&lt;/code> and &lt;code>data/kitti/images/trainval&lt;/code> do contain the actual images.&lt;/p>
+&lt;/blockquote>
+&lt;p>意思就是说，我们在 &lt;strong>images&lt;/strong> 中的图片必须都是真实的照片，而不能只是软链接过去。&lt;/p>
+&lt;p>解决方案很显然，只需要在 &lt;strong>images&lt;/strong> 文件夹中建立一个 &lt;strong>trainval&lt;/strong> 文件夹，将 &lt;code>training/image_2&lt;/code> 中的所有图像都移入其中即可。如果有test的照片，那么也照规在 &lt;strong>images&lt;/strong> 新建一个 &lt;strong>test&lt;/strong> 文件夹，把测试的照片移入其中即可。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="运行测试程序">
+运行测试程序
+&lt;a class="heading-link" href="#%e8%bf%90%e8%a1%8c%e6%b5%8b%e8%af%95%e7%a8%8b%e5%ba%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​ 接下来我们就可以根据官方给出的 &lt;a href="https://github.com/xingyizhou/CenterNet/blob/master/readme/GETTING_STARTED.md">GETTING_STARTED.md&lt;/a> 来进行我们的检测了。&lt;/p>
+&lt;p>​ 即先编译一下评估工具，然后运行测试程序，但其实还是有一点点小问题。&lt;/p>
+&lt;p>​ 具体问题可以参考 Issus: &lt;a href="https://github.com/xingyizhou/CenterNet/issues/55">kitti test: Couldn&amp;rsquo;t read: 006042.txt of ground truth.&lt;/a>&lt;/p>
+&lt;p>​ Issue下 &lt;strong>lhyfst&lt;/strong> 已经给出了解决方案 ：&lt;/p>
+&lt;blockquote>
+&lt;p>The solution is quite simple.
+&lt;code>cd data/kitti&lt;/code>
+&lt;code>mv label_2 label_val&lt;/code>&lt;/p>
+&lt;/blockquote>
+&lt;p>​ 更改后，运行成功~&lt;/p>
+&lt;p>​ 我们应该可以在 &lt;code>${CenterNet_ROOT}/exp/ddd/3dop/results&lt;/code> 看到我们得到的结果，只不过运行得到的是点的坐标，而不是图像，如果需要图像的话可能还需要自己绘制一下。&lt;/p></description></item><item><title>“程序星编程之路”第二次作业题解</title><link>https://zzsqwq.github.io/posts/136/</link><pubDate>Thu, 12 Nov 2020 23:13:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/136/</guid><description>&lt;h2 id="程序星编程之路第二次作业httpswwwluogucomcncontest36509题解">
+&lt;a href="https://www.luogu.com.cn/contest/36509">“程序星编程之路”第二次作业&lt;/a>题解
+&lt;a class="heading-link" href="#%e7%a8%8b%e5%ba%8f%e6%98%9f%e7%bc%96%e7%a8%8b%e4%b9%8b%e8%b7%af%e7%ac%ac%e4%ba%8c%e6%ac%a1%e4%bd%9c%e4%b8%9ahttpswwwluogucomcncontest36509%e9%a2%98%e8%a7%a3">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="a-zs的回文质数httpswwwluogucomcnproblemu138527contestid36509">
+A. &lt;a href="https://www.luogu.com.cn/problem/U138527?contestId=36509">Zs的回文质数&lt;/a>
+&lt;a class="heading-link" href="#a-zs%e7%9a%84%e5%9b%9e%e6%96%87%e8%b4%a8%e6%95%b0httpswwwluogucomcnproblemu138527contestid36509">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="题目描述">
+题目描述
+&lt;a class="heading-link" href="#%e9%a2%98%e7%9b%ae%e6%8f%8f%e8%bf%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    读入一个整数 $n$ ，输出 $[1,n]$ 的所有回文质数，我们规定 $1\sim9$ 也是回文数。&lt;/p>
+&lt;h4 id="思路">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    首先我们需要了解什么是&lt;a href="https://baike.baidu.com/item/%E5%9B%9E%E6%96%87%E6%95%B0">回文数&lt;/a>，以及什么是&lt;a href="https://baike.baidu.com/item/%E8%B4%A8%E6%95%B0">质数&lt;/a>。&lt;/p>
+&lt;p>​    简单点说，回文数就是正着读反着读都是一样的，也就是对称的，形如 $abcba $ 或者 $123321$ 这样的。&lt;/p>
+&lt;p>​    质数的话，对于一个数 $n$ ，如果他是质数，那它除了 $1$ 和 $n$ 没有其他因子。例如 $2,3,5,7,11$ 这样的。&lt;/p>
+&lt;p>​    那么接下来我们考虑一下解决这个问题应该怎么做，首先我们看一下数据范围，$[1,100000]$ ，还是挺小的，我们可以考虑直接枚举每一个数来判断它是不是回文数，然后再判断一下是不是质数，如果两个都满足，我们就输出它。&lt;/p>
+&lt;p>​    判断回文数，我们可以考虑到 NOJ05 幸运数 一题的解题思路，也就是说我们把一个数倒置过来，好比一个数 $xyz$ 倒置成 $zyx$ ，然后判断是否 $xyz == zyx$ ，如果相等的话就是回文数，如果不相等就不是。&lt;/p>
+&lt;p>​    判断质数，我们可以在 $[2,\lfloor\sqrt{n}\rfloor]$ 枚举它的因子，这个的完备性我上课的时候证明过，不再赘述。这里需要注意 $1,2$ 需要特判一下。&lt;/p>
+&lt;h4 id="代码">
+代码
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-C++" data-lang="C++">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;math.h&amp;gt; //我们需要用到sqrt函数，因此需要引入数学库&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+&lt;span style="color:#66d9ef">int&lt;/span> n;
+&lt;span style="color:#66d9ef">bool&lt;/span> flag &lt;span style="color:#f92672">=&lt;/span> false; &lt;span style="color:#75715e">// 标记 i 是否满足条件
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+flag &lt;span style="color:#f92672">=&lt;/span> true;
+&lt;span style="color:#66d9ef">int&lt;/span> p&lt;span style="color:#f92672">=&lt;/span>i,j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">while&lt;/span>(p) &lt;span style="color:#75715e">// 将 p 反转为 j
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> {
+j&lt;span style="color:#f92672">=&lt;/span>j&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>&lt;span style="color:#f92672">+&lt;/span>p&lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>;
+p&lt;span style="color:#f92672">/=&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>;
+}
+&lt;span style="color:#66d9ef">if&lt;/span>(j&lt;span style="color:#f92672">==&lt;/span>i)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(j&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#66d9ef">continue&lt;/span>; &lt;span style="color:#75715e">// 特判 1
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span>(j&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>) &lt;span style="color:#75715e">// 特判 2
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> {
+printf(&lt;span style="color:#e6db74">&amp;#34;2&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+&lt;span style="color:#66d9ef">continue&lt;/span>;
+}
+&lt;span style="color:#66d9ef">int&lt;/span> sqrtj &lt;span style="color:#f92672">=&lt;/span> sqrt(j);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;k&lt;span style="color:#f92672">&amp;lt;=&lt;/span>sqrtj;k&lt;span style="color:#f92672">++&lt;/span>) &lt;span style="color:#75715e">// 枚举 [2,sqrt(n)]
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> {
+&lt;span style="color:#66d9ef">if&lt;/span>(j&lt;span style="color:#f92672">%&lt;/span>k&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>) &lt;span style="color:#75715e">// 如果能够整除(余数为0),那么是 j 的因子
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> {
+flag &lt;span style="color:#f92672">=&lt;/span> false;
+&lt;span style="color:#66d9ef">break&lt;/span>;
+}
+}
+&lt;span style="color:#66d9ef">if&lt;/span>(flag)
+{
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,j);
+}
+}
+}
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="其他">
+其他
+&lt;a class="heading-link" href="#%e5%85%b6%e4%bb%96">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    因为我们讲到这里的时候，我们没讲函数，但是这道题如果我们把判断是否为回文数，判断是否为质数，都另成一个函数模块，将使得程序变得更加简洁。我在这里也将函数版本的贴出来，有兴趣的可以看一下。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c" data-lang="c">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;math.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">bool&lt;/span> &lt;span style="color:#a6e22e">isprime&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k) &lt;span style="color:#75715e">//判断是否为质数，如果是质数返回true，如果不是返回false
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>{
+&lt;span style="color:#66d9ef">if&lt;/span>(k&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#66d9ef">return&lt;/span> false;
+&lt;span style="color:#66d9ef">if&lt;/span>(k&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>) &lt;span style="color:#66d9ef">return&lt;/span> true;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>sqrt(k);i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(k&lt;span style="color:#f92672">%&lt;/span>i&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>) &lt;span style="color:#66d9ef">return&lt;/span> false;
+}
+&lt;span style="color:#66d9ef">return&lt;/span> true;
+}
+&lt;span style="color:#66d9ef">bool&lt;/span> &lt;span style="color:#a6e22e">ishw&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> k) &lt;span style="color:#75715e">//判断是否为回文数，如果是返回true，如果不是返回false
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>{
+&lt;span style="color:#66d9ef">int&lt;/span> ans&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> temp &lt;span style="color:#f92672">=&lt;/span> k; &lt;span style="color:#75715e">//temp作为一个k的复制版，因为后续需要用到k，新定义一个作为备份
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">while&lt;/span>(k)
+{
+ans &lt;span style="color:#f92672">=&lt;/span> ans&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span> &lt;span style="color:#f92672">+&lt;/span> k&lt;span style="color:#f92672">%&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>;
+k&lt;span style="color:#f92672">/=&lt;/span>&lt;span style="color:#ae81ff">10&lt;/span>;
+}
+&lt;span style="color:#66d9ef">if&lt;/span>(temp &lt;span style="color:#f92672">==&lt;/span> ans)
+{
+&lt;span style="color:#66d9ef">return&lt;/span> true;
+}
+&lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">return&lt;/span> false;
+}
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+&lt;span style="color:#66d9ef">int&lt;/span> n;
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(isprime(i) &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> ishw(i)) &lt;span style="color:#75715e">//如果既是质数也是回文数
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> {
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,i);
+}
+}
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="b-wcx的杨辉三角httpswwwluogucomcnproblemu138528contestid36509">
+B. &lt;a href="https://www.luogu.com.cn/problem/U138528?contestId=36509">Wcx的杨辉三角&lt;/a>
+&lt;a class="heading-link" href="#b-wcx%e7%9a%84%e6%9d%a8%e8%be%89%e4%b8%89%e8%a7%92httpswwwluogucomcnproblemu138528contestid36509">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="题目描述-1">
+题目描述
+&lt;a class="heading-link" href="#%e9%a2%98%e7%9b%ae%e6%8f%8f%e8%bf%b0-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    读入一个整数 $n$ ，输出杨辉三角的前 $n$ 行。&lt;/p>
+&lt;h4 id="思路-1">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    首先这道题我们需要了解一下&lt;a href="https://baike.baidu.com/item/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92">杨辉三角&lt;/a> ，大家小学到高中应该都了解过。&lt;/p>
+&lt;p>​    那么如何计算杨辉三角，首先我们可以知道的是杨辉三角的第 $i$ 行就是$C_i^0\sim C_i^i$ ，但是我们考虑一下如何计算组合数，是用阶乘对吧，但是阶乘就涉及到一个连乘，对于这个题，我数据范围写的是 $1\le n \le 40$ ，很明显，阶乘不可行。而且写起来挺麻烦的。&lt;/p>
+&lt;p>​    那么我们考虑一个组合数的性质
+$$
+C_n^i = C_{n-1}^i + C_{n-1}^{i-1}
+$$&lt;/p>
+&lt;p>​    看起来很高大上对吧，简单点说就是杨辉三角里面一个数的值等于两肩之和，那么基于这个性质，我们很容易想到，我们可以用一个二维数组，定义 $f[i][j]$ 为第 $i$ 行的第 $j$ 个数，那么可以得到&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>当 $j==1$ 或 $j==i$ ，则 $f[i][j] = 1$ ，也就是，当它为这一行的第一个或者最后一个，那么它就是 $1$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如果不是上述条件，则 $f[i][j] = f[i-1][j] + f[i-1][j-1]$ ，也就是等于两肩之和。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>​    &lt;strong>还有一个需要注意的问题就是，这个题的 $n$ 最大值是 40，这个时候已经超出了 $int$ 的范围，因此我们需要将二维数组定义为 $long: :long$ 。&lt;/strong>&lt;/p>
+&lt;h4 id="代码-1">
+代码
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c" data-lang="c">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+&lt;span style="color:#66d9ef">long&lt;/span> &lt;span style="color:#66d9ef">long&lt;/span> a[&lt;span style="color:#ae81ff">105&lt;/span>][&lt;span style="color:#ae81ff">105&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> {&lt;span style="color:#ae81ff">0&lt;/span>}; &lt;span style="color:#75715e">//全都初始化为 0
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> n &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>) &lt;span style="color:#75715e">//这里我用的是 1~n 而不是 0~n-1
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> {
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> j&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;j&lt;span style="color:#f92672">&amp;lt;=&lt;/span>i;j&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(j&lt;span style="color:#f92672">==&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">||&lt;/span> j&lt;span style="color:#f92672">==&lt;/span>i)
+{
+printf(&lt;span style="color:#e6db74">&amp;#34;%lld &amp;#34;&lt;/span>,a[i][j]&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+}
+&lt;span style="color:#66d9ef">else&lt;/span>
+{
+printf(&lt;span style="color:#e6db74">&amp;#34;%lld &amp;#34;&lt;/span>,a[i][j]&lt;span style="color:#f92672">=&lt;/span>a[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>]&lt;span style="color:#f92672">+&lt;/span>a[i&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>][j]);
+}
+}
+printf(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+}
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="其他-1">
+其他
+&lt;a class="heading-link" href="#%e5%85%b6%e4%bb%96-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    这道题主要是对二维数组的考察。&lt;/p>
+&lt;p>​    注意我们遇到第五个点过不去的时候，应该试一下最大的值 $40$ ，会发现有负数，显然是溢出问题，我们就能知道问题的解决办法了。&lt;/p>
+&lt;h3 id="c-zh的约瑟夫环问题httpswwwluogucomcnproblemu138529contestid36509">
+C. &lt;a href="https://www.luogu.com.cn/problem/U138529?contestId=36509">Zh的约瑟夫环问题&lt;/a>
+&lt;a class="heading-link" href="#c-zh%e7%9a%84%e7%ba%a6%e7%91%9f%e5%a4%ab%e7%8e%af%e9%97%ae%e9%a2%98httpswwwluogucomcnproblemu138529contestid36509">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;h4 id="题目描述-2">
+题目描述
+&lt;a class="heading-link" href="#%e9%a2%98%e7%9b%ae%e6%8f%8f%e8%bf%b0-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    有 $n$ 个人围成一圈，顺序排号，从第一个开始报数(从 $1$ 到 $m$ 报数)，凡报到 $m$ 的人退出圈子，问最后留下的是几号.&lt;/p>
+&lt;h4 id="思路-2">
+思路
+&lt;a class="heading-link" href="#%e6%80%9d%e8%b7%af-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    约瑟夫问题是个很经典的问题，可能又叫什么猴子选大王什么的，特多变体。&lt;/p>
+&lt;p>​    这个题其实就是一个纯模拟题，主要是对数组的考察。我们可以考虑开一个布尔数组 &lt;strong>vis&lt;/strong> 用来标记某个人是否出圈，如果出圈了我们给他设置为 &lt;strong>true&lt;/strong> ，如果没有出圈就是 &lt;strong>false&lt;/strong> 。&lt;/p>
+&lt;p>​    然后开一个报数到多少的变量&lt;strong>cnt&lt;/strong>，开一个当前谁报数的变量&lt;strong>pot&lt;/strong>，然后来模拟这个过程。如果 &lt;strong>cnt&lt;/strong> 增长到了 &lt;strong>m&lt;/strong> ，我们将 &lt;strong>pot&lt;/strong> 出圈，也就是 &lt;strong>vis[pot] = true&lt;/strong> ，然后在场的人数减一，当只剩下一人的时候，我们遍历 &lt;strong>vis&lt;/strong> 数组中的每个元素，如果它的 vis 值为 &lt;strong>false&lt;/strong> ，即没有出队，则将他输出。&lt;/p>
+&lt;p>​    还有一个要注意的问题就是这是一个环，那么我们只需要判断一下当 &lt;strong>pot&lt;/strong> 为 $n+1$ 的时候将他置为 $1$ 即可，这就模拟了一个环的性质。&lt;/p>
+&lt;h4 id="代码-2">
+代码
+&lt;a class="heading-link" href="#%e4%bb%a3%e7%a0%81-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c" data-lang="c">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstdio&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cstring&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;algorithm&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;cmath&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+using namespace std;
+&lt;span style="color:#66d9ef">int&lt;/span> n,m;
+&lt;span style="color:#66d9ef">int&lt;/span> vis[&lt;span style="color:#ae81ff">1005&lt;/span>]; &lt;span style="color:#75715e">//vis[i] = true 已经淘汰 vis[i] = false 未被淘汰
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n,&lt;span style="color:#f92672">&amp;amp;&lt;/span>m);
+&lt;span style="color:#66d9ef">int&lt;/span> cnt &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>; &lt;span style="color:#75715e">//报数到多少
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> pot &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>; &lt;span style="color:#75715e">//当前是谁报数
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> exist &lt;span style="color:#f92672">=&lt;/span> n; &lt;span style="color:#75715e">//在场的人数
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">while&lt;/span>(exist &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>)
+{
+cnt&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">while&lt;/span>(&lt;span style="color:#ae81ff">1&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#f92672">!&lt;/span>vis[pot]) &lt;span style="color:#75715e">//如果没有出圈
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> {
+cnt&lt;span style="color:#f92672">++&lt;/span>;
+&lt;span style="color:#66d9ef">if&lt;/span>(cnt&lt;span style="color:#f92672">==&lt;/span>m)
+{
+vis[pot] &lt;span style="color:#f92672">=&lt;/span> true;
+exist&lt;span style="color:#f92672">--&lt;/span>;
+&lt;span style="color:#66d9ef">break&lt;/span>;
+}
+}
+pot&lt;span style="color:#f92672">++&lt;/span>;
+&lt;span style="color:#66d9ef">if&lt;/span>(pot&lt;span style="color:#f92672">==&lt;/span>n&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) pot&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>; &lt;span style="color:#75715e">//模拟环
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> }
+}
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+&lt;span style="color:#66d9ef">if&lt;/span>(vis[i] &lt;span style="color:#f92672">==&lt;/span> false) printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,i);
+}
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="其他-2">
+其他
+&lt;a class="heading-link" href="#%e5%85%b6%e4%bb%96-2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>​    上面的想法是比较好理解的形式。&lt;/p>
+&lt;p>​    我们考虑一下模拟环，也就是使得 &lt;strong>pot&lt;/strong> 指针处在一定的范围内，如果超出了将他重新置到头部，那么我们可以联想到取模，在模拟环时使用取模来实现，大家可以下去自己尝试，这有点像魏辰旭第一节课讲的那个字符串的问题。&lt;/p>
+&lt;p>​    因为这道题只关心谁活了下来，所以还有一个比较简单的解法，我看在作业中也有几位同学给出了这个较简单的解法，如果理解了上述思想，看这个代码应该不难理解，大家可以对照代码自行思考。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-c" data-lang="c">&lt;span style="color:#75715e">#include&lt;/span>&lt;span style="color:#75715e">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">int&lt;/span> n,m;
+&lt;span style="color:#66d9ef">int&lt;/span> pot &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>()
+{
+scanf(&lt;span style="color:#e6db74">&amp;#34;%d%d&amp;#34;&lt;/span>,&lt;span style="color:#f92672">&amp;amp;&lt;/span>n,&lt;span style="color:#f92672">&amp;amp;&lt;/span>m);
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>n;i&lt;span style="color:#f92672">++&lt;/span>)
+{
+pot &lt;span style="color:#f92672">=&lt;/span> (pot&lt;span style="color:#f92672">+&lt;/span>m)&lt;span style="color:#f92672">%&lt;/span>i;
+}
+printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,pot&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>​    &lt;strong>提示：n个人的约瑟夫环杀掉一个人后组成一个新的人数为 n-1 的约瑟夫环&lt;/strong>&lt;/p></description></item><item><title>自买服务器建站教程</title><link>https://zzsqwq.github.io/posts/77/</link><pubDate>Wed, 26 Aug 2020 16:34:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/77/</guid><description>&lt;h2 id="引言">
 引言
 &lt;a class="heading-link" href="#%e5%bc%95%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
 &lt;p>​    本来之前是用的 &lt;strong>Hexo + Github&lt;/strong> 搭建的，虽然用的是 &lt;strong>Github&lt;/strong> 的服务器，但是我用家里的移动网访问起来还是没什么压力，就是慢一点，可以接受。&lt;/p>
-&lt;p>​    后来到了学校，我们学校网访问 &lt;strong>Github&lt;/strong> 的速度简直可以用龟速来形容，白天可以说不开代理根本进不去，只有晚上了才能勉强进得去。然后我就寻思，能不能换成国内的服务器，然后就发现了 &lt;strong>Gitee&lt;/strong> ，这个可以算是中国版的 &lt;strong>Github&lt;/strong> ，他具有的服务 &lt;strong>Gitee Pages&lt;/strong> 在国内可以飞速的访问，But如果想要自定义域名/每次推送自动更新需要开 &lt;strong>Github Pages Pro&lt;/strong> ，还挺贵的，一年大概 &lt;strong>120￥&lt;/strong> 吧。此外，如果想要将域名解析到国内的服务器必须要备案，&lt;strong>备案又必须有服务器&lt;/strong>，那我有服务器了还费那些事了，于是考虑自己买服务器重构一下博客。&lt;/p></description></item><item><title>Linux和Vim入门</title><link>https://zzsqwq.github.io/posts/63/</link><pubDate>Mon, 30 Mar 2020 01:18:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/63/</guid><description>&lt;h2 id="linux系统常见命令">
+&lt;p>​    后来到了学校，我们学校网访问 &lt;strong>Github&lt;/strong> 的速度简直可以用龟速来形容，白天可以说不开代理根本进不去，只有晚上了才能勉强进得去。然后我就寻思，能不能换成国内的服务器，然后就发现了 &lt;strong>Gitee&lt;/strong> ，这个可以算是中国版的 &lt;strong>Github&lt;/strong> ，他具有的服务 &lt;strong>Gitee Pages&lt;/strong> 在国内可以飞速的访问，But如果想要自定义域名/每次推送自动更新需要开 &lt;strong>Github Pages Pro&lt;/strong> ，还挺贵的，一年大概 &lt;strong>120￥&lt;/strong> 吧。此外，如果想要将域名解析到国内的服务器必须要备案，&lt;strong>备案又必须有服务器&lt;/strong>，那我有服务器了还费那些事了，于是考虑自己买服务器重构一下博客。&lt;/p>
+&lt;h2 id="一些博客系统">
+一些博客系统
+&lt;a class="heading-link" href="#%e4%b8%80%e4%ba%9b%e5%8d%9a%e5%ae%a2%e7%b3%bb%e7%bb%9f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>​    搭博客，首先我们需要构思一下用什么博客系统，市面上比较广泛的有如下几个。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Wordpress&lt;/strong>&lt;/p>
+&lt;p>​    这个绝对是重量级的，在全球范围内也是十分出名的，他的作用也不仅仅局限于搭建个人博客，也有很多例如电商等官网也是基于此系统的，据说全球 &lt;strong>37%&lt;/strong> 的网站都是基于 &lt;strong>Wordpress&lt;/strong> 的，这统治地位，可见一斑。&lt;/p>
+&lt;p>​    &lt;strong>优点&lt;/strong>：博客主题多样，十分的大气，插件也是各种各样的应有尽有。里面的设置也是十分的多，特别特别多，这个可以说是既是优点又是缺点，很多东西如果是个人博客的话根本用不到。&lt;/p>
+&lt;p>​    &lt;strong>缺点&lt;/strong>：不是原生支持markdown，并且对LaTeX的支持十分拉胯。需要安装插件，但是显示效果也是不尽人意。此外，Wordpress相比于下面推出的几个十分的臃肿，因为多了很多东西，安装包挺大的（虽然也就几MB的感觉），而且我没有找到我喜欢的主题，于是装载后卸掉了。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Emlog&lt;/strong>&lt;/p>
+&lt;p>​    &lt;strong>Emlog&lt;/strong> 博客系统十分的简洁轻巧，安装包只有几百KB。&lt;/p>
+&lt;p>​    &lt;strong>优点&lt;/strong>：比较轻巧方便，主题和插件也还算多。&lt;/p>
+&lt;p>​    &lt;strong>缺点&lt;/strong>：其实主题我觉得，没有太好看的。所以没有考虑，大家可以去翻翻看看有没有钟意的主题再考虑是否安装这一个。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Typecho&lt;/strong>&lt;/p>
+&lt;p>​    这个博客系统是我现在正在用的，也是十分的轻巧简洁，是一个国产的博客系统。&lt;/p>
+&lt;p>​    &lt;strong>优点&lt;/strong>：自身对markdown的支持十分的友好，而且有一款插件对LaTeX的支持也是超级棒！因为我比较喜欢之前&lt;strong>Hexo&lt;/strong>里面的&lt;strong>NexT&lt;/strong>主题，而Typecho里面有这个的移植主题，所以最终还是选择的这个系统这个主题。而且他还有好几款例如 &lt;strong>Handsome，Aria&lt;/strong> 这样的我觉得不错的主题。&lt;strong>Ps: Handsome主题需要收费，而且现在还在更新，我觉得超值！&lt;/strong>&lt;/p>
+&lt;p>​    &lt;strong>缺点&lt;/strong>：正式版好久没更新了，上一次更新还是2017年。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="搭建过程">
+搭建过程
+&lt;a class="heading-link" href="#%e6%90%ad%e5%bb%ba%e8%bf%87%e7%a8%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="1-购买服务器">
+1. 购买服务器
+&lt;a class="heading-link" href="#1-%e8%b4%ad%e4%b9%b0%e6%9c%8d%e5%8a%a1%e5%99%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    首先我们去阿里云那边买一台学生机，一年也就 &lt;strong>120￥&lt;/strong> 的样子，很实惠。本来一年大概 &lt;strong>1600￥&lt;/strong> 的样子。&lt;/p>
+&lt;p>​    买学生机的话就买 &lt;strong>轻量应用服务器&lt;/strong> ，然后应用镜像选一下 &lt;strong>BT-Panel&lt;/strong> 即可。&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2971720137.png" alt="一些服务器类型">&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/559120068.png" alt="初始服务器的配置选择">&lt;/p>
+&lt;h3 id="2-登录服务器">
+2. 登录服务器
+&lt;a class="heading-link" href="#2-%e7%99%bb%e5%bd%95%e6%9c%8d%e5%8a%a1%e5%99%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    进去之后点击应用详情，看一下 &lt;strong>BT-Panel使用步骤&lt;/strong>。&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1152103512.png" alt="BT-Panel的使用步骤">&lt;/p>
+&lt;p>​    根据上面的指示获取登陆服务器的密码。然后点击左侧的 &lt;strong>防火墙&lt;/strong> ，在那里开启 &lt;strong>8888&lt;/strong> 端口。如下图所示。&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/3471176574.png" alt="添加规则">&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/972834655.png" alt="按如图设置开启8888端口">&lt;/p>
+&lt;h3 id="3-配置服务器">
+3. 配置服务器
+&lt;a class="heading-link" href="#3-%e9%85%8d%e7%bd%ae%e6%9c%8d%e5%8a%a1%e5%99%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    我们登录进入服务器后，点击左侧应用商城。依次安装 Apache、PHP-7.4、Mysql5.6。可能要等挺长时间。&lt;/p>
+&lt;h3 id="4-开启网站">
+4. 开启网站
+&lt;a class="heading-link" href="#4-%e5%bc%80%e5%90%af%e7%bd%91%e7%ab%99">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    安装完成后，我们去面板设置那边看一下自己的 &lt;strong>服务器ip&lt;/strong> ，记下来。&lt;/p>
+&lt;p>​    点击左侧网站，添加站点。域名那里写自己的 &lt;strong>服务器ip&lt;/strong> ，然后提交即可。&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2339810532.png" alt="新建站点">&lt;/p>
+&lt;p>​    然后点击左侧数据库，建立一个新的数据库，用于存放我们之后网站的信息。&lt;/p>
+&lt;p>​    我们访问到我们网站的根目录，然后将自己心仪的博客程序拷入，访问 &lt;strong>服务器ip/install.php&lt;/strong> 即可开启安装！&lt;/p>
+&lt;p>​    安装完成后我们就可以通过 &lt;strong>服务器ip&lt;/strong> 来访问我们的网站了！然后可以去网上找一下心仪的主题和插件来安装~&lt;/p>
+&lt;h2 id="一些后续工作">
+一些后续工作
+&lt;a class="heading-link" href="#%e4%b8%80%e4%ba%9b%e5%90%8e%e7%bb%ad%e5%b7%a5%e4%bd%9c">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>​    如果我们要自定义域名，首先我们可以去阿里云 / 腾讯云那边买一个域名，然后进行域名备案，你服务器是在哪边买的就在哪边备案即可。后续备案结束后在云解析那边添加域名解析（具体操作可以百度），然后在 &lt;strong>BT-Panel&lt;/strong> 这边也添加域名解析，这样即可使用我们的自定义域名访问博客了！&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1872130264.png" alt="添加域名解析">&lt;/p>
+&lt;p>​    还有一些后续的优化例如安装 &lt;strong>https安全证书（我自己现在还没搞好QAQ）&lt;/strong> ，加入 &lt;strong>SEO优化&lt;/strong> ，提交申请让 &lt;strong>搜索引擎收录&lt;/strong> 等等……大家有兴趣的可以自行探索！&lt;/p></description></item><item><title>Linux和Vim入门</title><link>https://zzsqwq.github.io/posts/63/</link><pubDate>Mon, 30 Mar 2020 01:18:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/63/</guid><description>&lt;h2 id="linux系统常见命令">
 Linux系统常见命令
 &lt;a class="heading-link" href="#linux%e7%b3%bb%e7%bb%9f%e5%b8%b8%e8%a7%81%e5%91%bd%e4%bb%a4">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -62,4 +1073,277 @@ Linux系统常见命令
 &lt;/ul>
 &lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1228769729.png" alt="image-20200330164354765.png">&lt;/p>
 &lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>ls (List)&lt;/strong> 命令：列出当前目录文件&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>ls&lt;/strong> ： 显示当前目录文件&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>ls -a&lt;/strong>：显示全部的文件及文件夹，包括隐藏的文件和文件夹。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>ls -l&lt;/strong> ： 显示较全的文件信息，包括权限，用户，用户组。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/364135134.png" alt="image-20200330164408910.png">&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Tab&lt;/strong> 键：通过按Tab可以进行自动补全。如果当前目录有前缀相同的文件，则按两下Tab可以显示出所有以具有该前缀的文件。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>mv (Move)&lt;/strong> 命令：移动（剪切）文件，也可以用作一个等效给文件或目录的重命名。&lt;/p>
+&lt;p>通过 &lt;code>mv 文件x 目录a&lt;/code> 可以将当前目录下的文件x移入目录k。&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2649793930.png" alt="image-20200330164434299.png">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>cp (Copy)&lt;/strong> 命令：拷贝，将一个文件或目录拷贝到另一个文件或目录。&lt;/p>
+&lt;p>通过 &lt;code>cp [options] 文件x 目录a&lt;/code> 可以将当前目录下的文件x复制到目录a。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>-a&lt;/strong>：此选项通常在复制目录时使用，它保留链接、文件属性，并复制目录下的所有内容。其作用等于dpR参数组合。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>-d&lt;/strong>：复制时保留链接。这里所说的链接相当于Windows系统中的快捷方式。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>-f&lt;/strong>：覆盖已经存在的目标文件而不给出提示。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>-i&lt;/strong>：与-f选项相反，在覆盖目标文件之前给出提示，要求用户确认是否覆盖，回答&amp;quot;y&amp;quot;时目标文件将被覆盖。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>-p&lt;/strong>：除复制文件的内容外，还把修改时间和访问权限也复制到新文件中。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>-r&lt;/strong>：若给出的源文件是一个目录文件，此时将复制该目录下所有的子目录和文件。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>-l&lt;/strong>：不复制文件，只是生成链接文件。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>pwd(Print Working Directory)&lt;/strong> 命令：打印出当前工作目录&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>mkdir&lt;/strong> 命令 ： &lt;code>mkdir name&lt;/code>创建一个名为name的文件夹&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>rm (Remove)&lt;/strong> 命令 ：删除文件，删除文件后不可恢复。特殊的 ，**rmdir ** 为删除文件夹命令，&lt;strong>rm -r&lt;/strong>是先删除目录内的内容，再删除目录。 &lt;strong>rm -i&lt;/strong> 为交互式进行删除，一个个确定。&lt;strong>rm -f&lt;/strong> 为强制删除（慎用）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>gedit&lt;/strong> 命令：&lt;code>gedit path&lt;/code> 打开编辑某个文件。path为绝对路径或相对路径。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>touch&lt;/strong> 命令：&lt;code>touch name&lt;/code> 创建一个文件，name包含拓展名。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>cat&lt;/strong> 命令：打开指定文件， 并显示其中内容在终端，并且可以将其复制到一个另文件中。如果cat后面加多个文件名，那么就会打开多个文件。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>tar&lt;/strong> 命令：压缩或解压命令。&lt;code>tar [参数] 打包文件名 要打包的各个文件 &lt;/code> 。&lt;/p>
+&lt;p>参数表：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>参数&lt;/th>
+&lt;th>含义&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>-c&lt;/td>
+&lt;td>生成档案文件，创建打包文件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-v&lt;/td>
+&lt;td>列出归档解档的详细过程，显示进度&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-f&lt;/td>
+&lt;td>指定档案文件名称，f后面一定是.tar文件，所以放选项最后&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-t&lt;/td>
+&lt;td>列出档案中包含的文件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-x&lt;/td>
+&lt;td>解开档案文件&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>   打包实例： &lt;code>tar -cvf 文件名 要打包的文件&lt;/code> 解压实例：&lt;code>tar -xvf 压缩包名&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2524054836.png" alt="image-20200330164654339.png">&lt;/p>
+&lt;h3 id="不同的查找方式">
+不同的查找方式
+&lt;a class="heading-link" href="#%e4%b8%8d%e5%90%8c%e7%9a%84%e6%9f%a5%e6%89%be%e6%96%b9%e5%bc%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>find&lt;/strong> ：使用方法为&lt;code>find &amp;lt;指定目录&amp;gt;&amp;lt;指定条件&amp;gt;&amp;lt;指定动作&amp;gt; &lt;/code> ，如何find后面不加任何参数，那么就默认搜索当前目录及其子目录，并显示在屏幕上。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&amp;lt;指定目录&amp;gt;：用于指定要搜索的目录，默认为当前所在目录。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&amp;lt;指定条件&amp;gt;：指定所要搜索文件的特征。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>-name&lt;/strong> ：按文件名查找&lt;/li>
+&lt;li>&lt;strong>-perm&lt;/strong>：按文件权限查找&lt;/li>
+&lt;li>&lt;strong>-depth&lt;/strong>：查找时先在当前目录查找，然后查找其他子目录。&lt;/li>
+&lt;li>&lt;strong>-prune&lt;/strong>：不在当前指定路径查找。如果同时指定-depth，则此选项被忽略。&lt;/li>
+&lt;li>&lt;strong>-user/-nouser&lt;/strong>：按照文件属主查找/查找无效属主文件&lt;/li>
+&lt;li>&lt;strong>-group/-nogroup&lt;/strong>：按照文件属组查找/查找无效属组文件&lt;/li>
+&lt;li>&lt;strong>-newer file1 !file2&lt;/strong>：查找更改时间比file1新比file2旧的文件。&lt;/li>
+&lt;li>&lt;strong>-type&lt;/strong>：查找某一类型文件，b：块设备文件，d：目录，c：字符设备文件，P：管道文件，l：符号链接文件，f：普通文件。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/3627533122.png" alt="image-20200330164709797.png">&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/13609959.png" alt="image-20200330164721033.png">&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>locate&lt;/strong> ：等价于 &lt;code>find -name&lt;/code> ，但是速度要快，因为locate在一个本地数据库中存放了所有本地文件信息，每天自动更新，我们查找之前需要通过 &lt;code>updatedb&lt;/code> 手动更新其中内容，不然可能会导致新改动的文件查找不到。&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/496389565.png" alt="image-20200330164733755.png">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>whereis&lt;/strong> ：whereis可以用于程序名的搜索，可以通过参数 &lt;strong>-s，-m，-s&lt;/strong> 分别搜索二进制文件，man说明文件，和源代码文件。如果省略参数，则返回所有信息。不过这个也是从本地数据库里面进行搜索。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>which&lt;/strong> ：只能用于寻找可执行文件，并通过path变量寻找。&lt;/p>
+&lt;p>&lt;strong>关于查找方式的总结，find命令非常强大，搜索全盘，而且可以配合多种参数进行各种各样的搜索。&lt;/strong>
+&lt;strong>而locate能做到搜索的更快，因为一种特殊的搜索位置，但是功能要略逊于find。whereis和which都是对于指定类型的搜索，专精某一方面。&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="软链接和硬链接">
+软链接和硬链接
+&lt;a class="heading-link" href="#%e8%bd%af%e9%93%be%e6%8e%a5%e5%92%8c%e7%a1%ac%e9%93%be%e6%8e%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    首先我了解到，linux文件系统中，每一个文件都会有一个编号，称为索引节点号inode。也就是i节点。&lt;/p>
+&lt;p>​    链接呢，我的感觉就是，建立一个源文件和链接文件的映射，两个之间会有一定的关系存在。&lt;/p>
+&lt;p>​    &lt;strong>创建链接&lt;/strong>的方式为 &lt;code>ln 源文件 目标文件&lt;/code> ，默认为硬链接，软链接为 &lt;code>ln -s 源文件 目标文件&lt;/code> 。&lt;/p>
+&lt;p>​    &lt;strong>对于软链接&lt;/strong>，很像快捷方式，可以跨文件系统（也就是说可以存在于不同的文件系统中），而且他有一个单独的inode，然后通过软连接可以打开源文件。&lt;/p>
+&lt;p>​    &lt;strong>对于硬链接&lt;/strong>，就像是整了一个毛一样的东西出来，很像备份吧，而且两者名字可不同，他们的inode是同一个，只是把&lt;strong>inode link count&lt;/strong> 域增加了1，也就是多了加了一个索引项，因为他们是一毛一样的东西，那么就肯定不能跨文件系统了，因为你这个东西在这个文件系统里面是代表这个东西，在另一个里面就不一定是了，会产生错误。&lt;/p>
+&lt;p>​ 关于他们的几点其他区别如下&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>软链接可以对一个不存在的文件名进行链接，如果用编辑器打开这个目标文件，那么会默认创建一个名为filename的文件，而硬链接肯定不行了，因为你文件不存在，他也就没有inode，无从创建链接。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>软链接可以跨文件系统，硬链接不行。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>软链接可以链接目录，硬链接不行。百度了解到，因为硬链接和源文件用的一个inode，用硬链接链接可以会形成循环依赖，导致系统死机。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>硬链接在源文件删除后依然可以访问，因为它具有源文件的inode，而软链接在源文件删除后无法对源文件进行访问，因为inode没有了，索引不到了。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>我们对硬链接文件中的内容进行修改也会影响到源文件，因为他们是同一个文件。当然软链接也可以，因为他就是相当于打开了源文件。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>其他常见操作&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>新建一个用户：通过&lt;code>sudo useradd -m name&lt;/code> 会创建一个名为name的用户，看/home文件下会显示名为name的用户，可以通过 &lt;code>sudo passwd name&lt;/code> 来为用户设置密码，通过&lt;code>su name&lt;/code>来切换用户，如果想要删除则通过&lt;code>sudo userdel [-r] name&lt;/code> 来删除，加上-r代表删除对应文件夹。我们可以通过命令来查看etc中的passwd文件，就能够看到是否创建成功。&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/4029946989.png" alt="image-20200330164751936.png">&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/3948877620.png" alt="image-20200330164808040.png">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>权限的修改：我们可以通过&lt;code>sudo gedit /etc/sudoers&lt;/code> 打开sudoers文件修改 # User privilege specification 下的目录，添加&lt;code>&amp;lt;用户名&amp;gt; ALL=(ALL:ALL) ALL&lt;/code> 来为用户添加sudo权限。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>连接网络&lt;/p>
+&lt;ul>
+&lt;li>无线网
+&lt;ul>
+&lt;li>&lt;code>nmcli dev wifi&lt;/code> 查看可连接的无线网络&lt;/li>
+&lt;li>&lt;code>nmcli dev wifi connect name password password&lt;/code> name为对应的wifi名称，而后面的password则是对应的密码。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>有线网拨号上网
+&lt;ul>
+&lt;li>&lt;code>sudo ifconfig eth0 down/up&lt;/code> 为关闭或者开启网卡驱动。&lt;/li>
+&lt;li>&lt;code>sudo pppoeconf&lt;/code> 建立拨号连接，对于有线网卡输入 &lt;code>sudo pppoeconf eth0&lt;/code> 然后输入拨号的用户名以及密码即可连接到网络。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>sudo和su一些区别&lt;/p>
+&lt;ul>
+&lt;li>su（substitute user）：切换用户。&lt;/li>
+&lt;li>sudo：sudo是通过另一个用户来执行命令，也就是说一个命令需要root权限，你并不需要直接跑到root用户下执行，只需要通过sudo然后输入root的密码即可执行相应的命令。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>apt-get&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>apt-get&lt;/em>，是一条linux命令，适用于deb包管理式的操作系统，主要用于自动从互联网的软件仓库中搜索、安装、升级、卸载软件或操作系统。通常搭配sudo命令使用。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="vim的常用操作">
+Vim的常用操作
+&lt;a class="heading-link" href="#vim%e7%9a%84%e5%b8%b8%e7%94%a8%e6%93%8d%e4%bd%9c">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>首先通过 &lt;code>sudo apt-get install vim&lt;/code> 来安装Vim&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1435335493.png" alt="image-20200330164821953.png">&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>通过 &lt;code>vim name&lt;/code> 来编辑name这个文件，如果不存在那么就会创建一个。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Vim的使用&lt;/p>
+&lt;p>Vim分为了三种模式，分别是&lt;strong>命令模式（Command mode）&lt;/strong>，&lt;strong>输入模式（Insert mode）&lt;/strong>，&lt;strong>底线命令模式（Last line mode）&lt;/strong>。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>命令模式&lt;/p>
+&lt;p>我们刚进入vim就是进入了命令模式，可以通过输入 &lt;strong>i或a或o&lt;/strong> 来切换到输入模式，也可以通过输入x来删除当前光标后的字符，还有一系列操作可以进行，也可以输入 &lt;strong>:&lt;/strong> 来进入底线命令模式。&lt;/p>
+&lt;p>一些常用命令&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>/word&lt;/strong> 或 &lt;strong>?word&lt;/strong> ：向光标之下 / 光标之上搜索word这个字符串。&lt;/li>
+&lt;li>&lt;strong>n / N&lt;/strong> ：继续上一个搜索操作 / 进行与上一个搜索操作相反的搜索&lt;/li>
+&lt;li>&lt;strong>ZZ&lt;/strong> ：按两下大写的Z，那么就是直接保存后离开。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>输入模式&lt;/p>
+&lt;p>输入模式也就是对文本进行编辑，和普通的类似。里面好像有挺多快捷键的，可以通过&lt;strong>Page Up/Page Down&lt;/strong> 来上下翻页，可以通过 &lt;strong>HOME/END&lt;/strong> 来将光标移到行首/行尾。通过 &lt;strong>Insert&lt;/strong> 可以将光标切换为&lt;strong>输入/替换模式&lt;/strong>，光标相应的变为&lt;strong>竖线/下划线&lt;/strong>。通过 &lt;strong>Esc&lt;/strong> 可以退出输入模式，切换到命令模式。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>底线命令模式&lt;/p>
+&lt;p>输入 &lt;code>:命令&lt;/code> 可以执行非常多的操作，一些常用命令如下。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>:set nu / :set nonu&lt;/strong> ： 设置行号，取消行号。&lt;/li>
+&lt;li>&lt;strong>:n1,n2s/word1/word2/g&lt;/strong> ：将n1~n2行中所有的word1替换为word2，g后加c则每次替换前需要用户手动确认，如果加上i则忽略大小写。&lt;/li>
+&lt;li>&lt;strong>:1,$s/word1/word2/g&lt;/strong> 或 &lt;strong>$s/word1/word2/g&lt;/strong> ：将第一行到最后一行中的word1替换为word2，g后加 &lt;strong>c&lt;/strong> 则每次替换前需要用户确认，如果加上 &lt;strong>i (ignore)&lt;/strong> 则忽略大小写。&lt;/li>
+&lt;li>&lt;strong>:w / :w!&lt;/strong> ：分别为保存，强制保存。&lt;/li>
+&lt;li>&lt;strong>:q / :q!&lt;/strong> ：分别为离开vim，强制离开vim，后者是不需要保存的时候可以选择直接退出。&lt;/li>
+&lt;li>&lt;strong>:wq / :wq!&lt;/strong> : 分别为存储后离开，强制存储后离开，我们发现加个叹号！一般就是强制的意思。&lt;/li>
+&lt;li>&lt;strong>:w [filename]&lt;/strong> ：将文本保存成一个叫filename的文件，类似于另存为。&lt;/li>
+&lt;li>&lt;strong>:r [filename]&lt;/strong> ：将文本文件filename读入写在光标之后。&lt;/li>
+&lt;li>&lt;strong>:n1,n2 w filename&lt;/strong> ：将文本n1~n2行保存在的filename中（新建一个文件保存）。&lt;/li>
+&lt;li>&lt;strong>:! command&lt;/strong> ：暂时离开vim到终端中&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2041226361.png" alt="vim.png">&lt;/p></description></item></channel></rss>

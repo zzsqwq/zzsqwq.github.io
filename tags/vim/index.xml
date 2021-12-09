@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vim on Zs's Blog</title><link>https://zzsqwq.github.io/tags/vim/</link><description>Recent content in Vim on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Mon, 30 Mar 2020 01:18:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux和Vim入门</title><link>https://zzsqwq.github.io/posts/63/</link><pubDate>Mon, 30 Mar 2020 01:18:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/63/</guid><description>&lt;h2 id="linux系统常见命令">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vim on Zs's Blog</title><link>https://zzsqwq.github.io/tags/vim/</link><description>Recent content in Vim on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>cn</language><lastBuildDate>Mon, 30 Mar 2020 01:18:00 +0000</lastBuildDate><atom:link href="https://zzsqwq.github.io/tags/vim/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux和Vim入门</title><link>https://zzsqwq.github.io/posts/63/</link><pubDate>Mon, 30 Mar 2020 01:18:00 +0000</pubDate><guid>https://zzsqwq.github.io/posts/63/</guid><description>&lt;h2 id="linux系统常见命令">
 Linux系统常见命令
 &lt;a class="heading-link" href="#linux%e7%b3%bb%e7%bb%9f%e5%b8%b8%e8%a7%81%e5%91%bd%e4%bb%a4">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -22,4 +22,277 @@ Linux系统常见命令
 &lt;/ul>
 &lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1228769729.png" alt="image-20200330164354765.png">&lt;/p>
 &lt;/li>
-&lt;/ul></description></item></channel></rss>
+&lt;/ul>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>ls (List)&lt;/strong> 命令：列出当前目录文件&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>ls&lt;/strong> ： 显示当前目录文件&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>ls -a&lt;/strong>：显示全部的文件及文件夹，包括隐藏的文件和文件夹。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>ls -l&lt;/strong> ： 显示较全的文件信息，包括权限，用户，用户组。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/364135134.png" alt="image-20200330164408910.png">&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Tab&lt;/strong> 键：通过按Tab可以进行自动补全。如果当前目录有前缀相同的文件，则按两下Tab可以显示出所有以具有该前缀的文件。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>mv (Move)&lt;/strong> 命令：移动（剪切）文件，也可以用作一个等效给文件或目录的重命名。&lt;/p>
+&lt;p>通过 &lt;code>mv 文件x 目录a&lt;/code> 可以将当前目录下的文件x移入目录k。&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2649793930.png" alt="image-20200330164434299.png">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>cp (Copy)&lt;/strong> 命令：拷贝，将一个文件或目录拷贝到另一个文件或目录。&lt;/p>
+&lt;p>通过 &lt;code>cp [options] 文件x 目录a&lt;/code> 可以将当前目录下的文件x复制到目录a。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>-a&lt;/strong>：此选项通常在复制目录时使用，它保留链接、文件属性，并复制目录下的所有内容。其作用等于dpR参数组合。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>-d&lt;/strong>：复制时保留链接。这里所说的链接相当于Windows系统中的快捷方式。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>-f&lt;/strong>：覆盖已经存在的目标文件而不给出提示。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>-i&lt;/strong>：与-f选项相反，在覆盖目标文件之前给出提示，要求用户确认是否覆盖，回答&amp;quot;y&amp;quot;时目标文件将被覆盖。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>-p&lt;/strong>：除复制文件的内容外，还把修改时间和访问权限也复制到新文件中。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>-r&lt;/strong>：若给出的源文件是一个目录文件，此时将复制该目录下所有的子目录和文件。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>-l&lt;/strong>：不复制文件，只是生成链接文件。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>pwd(Print Working Directory)&lt;/strong> 命令：打印出当前工作目录&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>mkdir&lt;/strong> 命令 ： &lt;code>mkdir name&lt;/code>创建一个名为name的文件夹&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>rm (Remove)&lt;/strong> 命令 ：删除文件，删除文件后不可恢复。特殊的 ，**rmdir ** 为删除文件夹命令，&lt;strong>rm -r&lt;/strong>是先删除目录内的内容，再删除目录。 &lt;strong>rm -i&lt;/strong> 为交互式进行删除，一个个确定。&lt;strong>rm -f&lt;/strong> 为强制删除（慎用）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>gedit&lt;/strong> 命令：&lt;code>gedit path&lt;/code> 打开编辑某个文件。path为绝对路径或相对路径。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>touch&lt;/strong> 命令：&lt;code>touch name&lt;/code> 创建一个文件，name包含拓展名。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>cat&lt;/strong> 命令：打开指定文件， 并显示其中内容在终端，并且可以将其复制到一个另文件中。如果cat后面加多个文件名，那么就会打开多个文件。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>tar&lt;/strong> 命令：压缩或解压命令。&lt;code>tar [参数] 打包文件名 要打包的各个文件 &lt;/code> 。&lt;/p>
+&lt;p>参数表：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>参数&lt;/th>
+&lt;th>含义&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>-c&lt;/td>
+&lt;td>生成档案文件，创建打包文件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-v&lt;/td>
+&lt;td>列出归档解档的详细过程，显示进度&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-f&lt;/td>
+&lt;td>指定档案文件名称，f后面一定是.tar文件，所以放选项最后&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-t&lt;/td>
+&lt;td>列出档案中包含的文件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-x&lt;/td>
+&lt;td>解开档案文件&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>   打包实例： &lt;code>tar -cvf 文件名 要打包的文件&lt;/code> 解压实例：&lt;code>tar -xvf 压缩包名&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2524054836.png" alt="image-20200330164654339.png">&lt;/p>
+&lt;h3 id="不同的查找方式">
+不同的查找方式
+&lt;a class="heading-link" href="#%e4%b8%8d%e5%90%8c%e7%9a%84%e6%9f%a5%e6%89%be%e6%96%b9%e5%bc%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>find&lt;/strong> ：使用方法为&lt;code>find &amp;lt;指定目录&amp;gt;&amp;lt;指定条件&amp;gt;&amp;lt;指定动作&amp;gt; &lt;/code> ，如何find后面不加任何参数，那么就默认搜索当前目录及其子目录，并显示在屏幕上。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&amp;lt;指定目录&amp;gt;：用于指定要搜索的目录，默认为当前所在目录。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&amp;lt;指定条件&amp;gt;：指定所要搜索文件的特征。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>-name&lt;/strong> ：按文件名查找&lt;/li>
+&lt;li>&lt;strong>-perm&lt;/strong>：按文件权限查找&lt;/li>
+&lt;li>&lt;strong>-depth&lt;/strong>：查找时先在当前目录查找，然后查找其他子目录。&lt;/li>
+&lt;li>&lt;strong>-prune&lt;/strong>：不在当前指定路径查找。如果同时指定-depth，则此选项被忽略。&lt;/li>
+&lt;li>&lt;strong>-user/-nouser&lt;/strong>：按照文件属主查找/查找无效属主文件&lt;/li>
+&lt;li>&lt;strong>-group/-nogroup&lt;/strong>：按照文件属组查找/查找无效属组文件&lt;/li>
+&lt;li>&lt;strong>-newer file1 !file2&lt;/strong>：查找更改时间比file1新比file2旧的文件。&lt;/li>
+&lt;li>&lt;strong>-type&lt;/strong>：查找某一类型文件，b：块设备文件，d：目录，c：字符设备文件，P：管道文件，l：符号链接文件，f：普通文件。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/3627533122.png" alt="image-20200330164709797.png">&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/13609959.png" alt="image-20200330164721033.png">&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>locate&lt;/strong> ：等价于 &lt;code>find -name&lt;/code> ，但是速度要快，因为locate在一个本地数据库中存放了所有本地文件信息，每天自动更新，我们查找之前需要通过 &lt;code>updatedb&lt;/code> 手动更新其中内容，不然可能会导致新改动的文件查找不到。&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/496389565.png" alt="image-20200330164733755.png">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>whereis&lt;/strong> ：whereis可以用于程序名的搜索，可以通过参数 &lt;strong>-s，-m，-s&lt;/strong> 分别搜索二进制文件，man说明文件，和源代码文件。如果省略参数，则返回所有信息。不过这个也是从本地数据库里面进行搜索。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>which&lt;/strong> ：只能用于寻找可执行文件，并通过path变量寻找。&lt;/p>
+&lt;p>&lt;strong>关于查找方式的总结，find命令非常强大，搜索全盘，而且可以配合多种参数进行各种各样的搜索。&lt;/strong>
+&lt;strong>而locate能做到搜索的更快，因为一种特殊的搜索位置，但是功能要略逊于find。whereis和which都是对于指定类型的搜索，专精某一方面。&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="软链接和硬链接">
+软链接和硬链接
+&lt;a class="heading-link" href="#%e8%bd%af%e9%93%be%e6%8e%a5%e5%92%8c%e7%a1%ac%e9%93%be%e6%8e%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>​    首先我了解到，linux文件系统中，每一个文件都会有一个编号，称为索引节点号inode。也就是i节点。&lt;/p>
+&lt;p>​    链接呢，我的感觉就是，建立一个源文件和链接文件的映射，两个之间会有一定的关系存在。&lt;/p>
+&lt;p>​    &lt;strong>创建链接&lt;/strong>的方式为 &lt;code>ln 源文件 目标文件&lt;/code> ，默认为硬链接，软链接为 &lt;code>ln -s 源文件 目标文件&lt;/code> 。&lt;/p>
+&lt;p>​    &lt;strong>对于软链接&lt;/strong>，很像快捷方式，可以跨文件系统（也就是说可以存在于不同的文件系统中），而且他有一个单独的inode，然后通过软连接可以打开源文件。&lt;/p>
+&lt;p>​    &lt;strong>对于硬链接&lt;/strong>，就像是整了一个毛一样的东西出来，很像备份吧，而且两者名字可不同，他们的inode是同一个，只是把&lt;strong>inode link count&lt;/strong> 域增加了1，也就是多了加了一个索引项，因为他们是一毛一样的东西，那么就肯定不能跨文件系统了，因为你这个东西在这个文件系统里面是代表这个东西，在另一个里面就不一定是了，会产生错误。&lt;/p>
+&lt;p>​ 关于他们的几点其他区别如下&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>软链接可以对一个不存在的文件名进行链接，如果用编辑器打开这个目标文件，那么会默认创建一个名为filename的文件，而硬链接肯定不行了，因为你文件不存在，他也就没有inode，无从创建链接。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>软链接可以跨文件系统，硬链接不行。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>软链接可以链接目录，硬链接不行。百度了解到，因为硬链接和源文件用的一个inode，用硬链接链接可以会形成循环依赖，导致系统死机。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>硬链接在源文件删除后依然可以访问，因为它具有源文件的inode，而软链接在源文件删除后无法对源文件进行访问，因为inode没有了，索引不到了。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>我们对硬链接文件中的内容进行修改也会影响到源文件，因为他们是同一个文件。当然软链接也可以，因为他就是相当于打开了源文件。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>其他常见操作&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>新建一个用户：通过&lt;code>sudo useradd -m name&lt;/code> 会创建一个名为name的用户，看/home文件下会显示名为name的用户，可以通过 &lt;code>sudo passwd name&lt;/code> 来为用户设置密码，通过&lt;code>su name&lt;/code>来切换用户，如果想要删除则通过&lt;code>sudo userdel [-r] name&lt;/code> 来删除，加上-r代表删除对应文件夹。我们可以通过命令来查看etc中的passwd文件，就能够看到是否创建成功。&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/4029946989.png" alt="image-20200330164751936.png">&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/3948877620.png" alt="image-20200330164808040.png">&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>权限的修改：我们可以通过&lt;code>sudo gedit /etc/sudoers&lt;/code> 打开sudoers文件修改 # User privilege specification 下的目录，添加&lt;code>&amp;lt;用户名&amp;gt; ALL=(ALL:ALL) ALL&lt;/code> 来为用户添加sudo权限。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>连接网络&lt;/p>
+&lt;ul>
+&lt;li>无线网
+&lt;ul>
+&lt;li>&lt;code>nmcli dev wifi&lt;/code> 查看可连接的无线网络&lt;/li>
+&lt;li>&lt;code>nmcli dev wifi connect name password password&lt;/code> name为对应的wifi名称，而后面的password则是对应的密码。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>有线网拨号上网
+&lt;ul>
+&lt;li>&lt;code>sudo ifconfig eth0 down/up&lt;/code> 为关闭或者开启网卡驱动。&lt;/li>
+&lt;li>&lt;code>sudo pppoeconf&lt;/code> 建立拨号连接，对于有线网卡输入 &lt;code>sudo pppoeconf eth0&lt;/code> 然后输入拨号的用户名以及密码即可连接到网络。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>sudo和su一些区别&lt;/p>
+&lt;ul>
+&lt;li>su（substitute user）：切换用户。&lt;/li>
+&lt;li>sudo：sudo是通过另一个用户来执行命令，也就是说一个命令需要root权限，你并不需要直接跑到root用户下执行，只需要通过sudo然后输入root的密码即可执行相应的命令。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>apt-get&lt;/p>
+&lt;ul>
+&lt;li>&lt;em>apt-get&lt;/em>，是一条linux命令，适用于deb包管理式的操作系统，主要用于自动从互联网的软件仓库中搜索、安装、升级、卸载软件或操作系统。通常搭配sudo命令使用。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="vim的常用操作">
+Vim的常用操作
+&lt;a class="heading-link" href="#vim%e7%9a%84%e5%b8%b8%e7%94%a8%e6%93%8d%e4%bd%9c">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>首先通过 &lt;code>sudo apt-get install vim&lt;/code> 来安装Vim&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1435335493.png" alt="image-20200330164821953.png">&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>通过 &lt;code>vim name&lt;/code> 来编辑name这个文件，如果不存在那么就会创建一个。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Vim的使用&lt;/p>
+&lt;p>Vim分为了三种模式，分别是&lt;strong>命令模式（Command mode）&lt;/strong>，&lt;strong>输入模式（Insert mode）&lt;/strong>，&lt;strong>底线命令模式（Last line mode）&lt;/strong>。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>命令模式&lt;/p>
+&lt;p>我们刚进入vim就是进入了命令模式，可以通过输入 &lt;strong>i或a或o&lt;/strong> 来切换到输入模式，也可以通过输入x来删除当前光标后的字符，还有一系列操作可以进行，也可以输入 &lt;strong>:&lt;/strong> 来进入底线命令模式。&lt;/p>
+&lt;p>一些常用命令&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>/word&lt;/strong> 或 &lt;strong>?word&lt;/strong> ：向光标之下 / 光标之上搜索word这个字符串。&lt;/li>
+&lt;li>&lt;strong>n / N&lt;/strong> ：继续上一个搜索操作 / 进行与上一个搜索操作相反的搜索&lt;/li>
+&lt;li>&lt;strong>ZZ&lt;/strong> ：按两下大写的Z，那么就是直接保存后离开。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>输入模式&lt;/p>
+&lt;p>输入模式也就是对文本进行编辑，和普通的类似。里面好像有挺多快捷键的，可以通过&lt;strong>Page Up/Page Down&lt;/strong> 来上下翻页，可以通过 &lt;strong>HOME/END&lt;/strong> 来将光标移到行首/行尾。通过 &lt;strong>Insert&lt;/strong> 可以将光标切换为&lt;strong>输入/替换模式&lt;/strong>，光标相应的变为&lt;strong>竖线/下划线&lt;/strong>。通过 &lt;strong>Esc&lt;/strong> 可以退出输入模式，切换到命令模式。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>底线命令模式&lt;/p>
+&lt;p>输入 &lt;code>:命令&lt;/code> 可以执行非常多的操作，一些常用命令如下。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>:set nu / :set nonu&lt;/strong> ： 设置行号，取消行号。&lt;/li>
+&lt;li>&lt;strong>:n1,n2s/word1/word2/g&lt;/strong> ：将n1~n2行中所有的word1替换为word2，g后加c则每次替换前需要用户手动确认，如果加上i则忽略大小写。&lt;/li>
+&lt;li>&lt;strong>:1,$s/word1/word2/g&lt;/strong> 或 &lt;strong>$s/word1/word2/g&lt;/strong> ：将第一行到最后一行中的word1替换为word2，g后加 &lt;strong>c&lt;/strong> 则每次替换前需要用户确认，如果加上 &lt;strong>i (ignore)&lt;/strong> 则忽略大小写。&lt;/li>
+&lt;li>&lt;strong>:w / :w!&lt;/strong> ：分别为保存，强制保存。&lt;/li>
+&lt;li>&lt;strong>:q / :q!&lt;/strong> ：分别为离开vim，强制离开vim，后者是不需要保存的时候可以选择直接退出。&lt;/li>
+&lt;li>&lt;strong>:wq / :wq!&lt;/strong> : 分别为存储后离开，强制存储后离开，我们发现加个叹号！一般就是强制的意思。&lt;/li>
+&lt;li>&lt;strong>:w [filename]&lt;/strong> ：将文本保存成一个叫filename的文件，类似于另存为。&lt;/li>
+&lt;li>&lt;strong>:r [filename]&lt;/strong> ：将文本文件filename读入写在光标之后。&lt;/li>
+&lt;li>&lt;strong>:n1,n2 w filename&lt;/strong> ：将文本n1~n2行保存在的filename中（新建一个文件保存）。&lt;/li>
+&lt;li>&lt;strong>:! command&lt;/strong> ：暂时离开vim到终端中&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2041226361.png" alt="vim.png">&lt;/p></description></item></channel></rss>
