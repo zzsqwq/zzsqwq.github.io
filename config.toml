@@ -5,9 +5,9 @@ languageCode = "cn"
 publishDir= "public"
 defaultContentLanguage = "cn"
 paginate = 20
-pygmentsStyle = "bw"
-pygmentsCodeFences = true
-pygmentsCodeFencesGuessSyntax = true
+# pygmentsStyle = "autumn"
+# pygmentsCodeFences = true
+# pygmentsCodeFencesGuessSyntax = true
 enableEmoji = true
 # Enable Disqus comments
 # disqusShortname = "yourdiscussshortname"
