@@ -9,11 +9,11 @@ date: "2021-07-18 16:03:00"
 
 ## 前言
 
-&nbsp;&nbsp;&nbsp;&nbsp;最近基地的打印机突然又好起来了。
+最近基地的打印机突然又好起来了。
 
-&nbsp;&nbsp;&nbsp;&nbsp;因为基地的打印机型号比较老——HP LaserJet 1020，没有无线打印的功能。所以之前一位学长[^1] 用树莓派配置了打印机的无线打印功能，但是后来发现有一些问题，有时候发送打印请求树莓派无法接收，而且不知道为何，学长之前用的是树莓派自己创建WiFi，连接对应WiFi才能打印，但是这个显然不是最优的解决办法。
+因为基地的打印机型号比较老——HP LaserJet 1020，没有无线打印的功能。所以之前一位学长[^1] 用树莓派配置了打印机的无线打印功能，但是后来发现有一些问题，有时候发送打印请求树莓派无法接收，而且不知道为何，学长之前用的是树莓派自己创建WiFi，连接对应WiFi才能打印，但是这个显然不是最优的解决办法。
 
-&nbsp;&nbsp;&nbsp;&nbsp;考虑到之间已经配置好基地WiFi，我决定重新配置一下打印功能，使其连接基地WiFi即可实现局域网打印。
+考虑到之间已经配置好基地WiFi，我决定重新配置一下打印功能，使其连接基地WiFi即可实现局域网打印。
 
 
 
@@ -25,7 +25,7 @@ date: "2021-07-18 16:03:00"
 
 ### 查看树莓派内容
 
-&nbsp;&nbsp;&nbsp;&nbsp;通过ssh连接树莓派，发现里面除了Github上的一个开源项目[create_ap](https://github.com/oblique/create_ap) ，就没有什么其他的内容了，连接屏幕后发现没有任何图像信号，无从下手，因此考虑重新刷机。
+通过ssh连接树莓派，发现里面除了Github上的一个开源项目[create_ap](https://github.com/oblique/create_ap) ，就没有什么其他的内容了，连接屏幕后发现没有任何图像信号，无从下手，因此考虑重新刷机。
 
 
 
@@ -35,13 +35,13 @@ date: "2021-07-18 16:03:00"
 
 ### 对树莓派进行刷机
 
-&nbsp;&nbsp;&nbsp;&nbsp;把数据备份了一下，看了一下树莓派版本是2015年生产的 `Raspberry Pi 3 model B V1.2` ，是老古董了。
+把数据备份了一下，看了一下树莓派版本是2015年生产的 `Raspberry Pi 3 model B V1.2` ，是老古董了。
 
-&nbsp;&nbsp;&nbsp;&nbsp;去官网看了一下，因为我对Ubuntu比较熟悉，我计划安装一个 Ubuntu20.04版本的，考虑到版本比较老，就装了**server**版本的，相比与desktop版本负担更小一些。
+去官网看了一下，因为我对Ubuntu比较熟悉，我计划安装一个 Ubuntu20.04版本的，考虑到版本比较老，就装了**server**版本的，相比与desktop版本负担更小一些。
 
-&nbsp;&nbsp;&nbsp;&nbsp;其实就是下一个官方的软件，`Raspberry Pi Imager` ，直接用读卡器对树莓派的存储卡刷机即可。
+其实就是下一个官方的软件，`Raspberry Pi Imager` ，直接用读卡器对树莓派的存储卡刷机即可。
 
-&nbsp;&nbsp;&nbsp;&nbsp;这里是对应的镜像以及教程： [镜像下载](https://ubuntu.com/download/raspberry-pi)   [安装教程](https://ubuntu.com/tutorials/how-to-install-ubuntu-desktop-on-raspberry-pi-4#1-overview)
+这里是对应的镜像以及教程： [镜像下载](https://ubuntu.com/download/raspberry-pi)   [安装教程](https://ubuntu.com/tutorials/how-to-install-ubuntu-desktop-on-raspberry-pi-4#1-overview)
 
 
 
@@ -51,31 +51,31 @@ date: "2021-07-18 16:03:00"
 
 ### 配置网络相关
 
-&nbsp;&nbsp;&nbsp;&nbsp;Ubuntu的server版本有个比较蛋疼的问题就是上网比较困难，如果是用的学校网线，必须要PPPOE拨号才能上网，但是server版本居然没有 `net-tools` 和 `network-manager` ，连接WiFi啥的试了很多办法但还是没有什么作用。
+Ubuntu的server版本有个比较蛋疼的问题就是上网比较困难，如果是用的学校网线，必须要PPPOE拨号才能上网，但是server版本居然没有 `net-tools` 和 `network-manager` ，连接WiFi啥的试了很多办法但还是没有什么作用。
 
-&nbsp;&nbsp;&nbsp;&nbsp;**解决办法：用网线直接连接树莓派和有网的路由器，安装 `net-tools` 和 `network-manager` ，执行**
+**解决办法：用网线直接连接树莓派和有网的路由器，安装 `net-tools` 和 `network-manager` ，执行**
 
 ```shell
 $ sudo nmtui
 ```
 
-&nbsp;&nbsp;&nbsp;&nbsp;选择 `Activate a connect ` 连接无线的WiFi，执行
+选择 `Activate a connect ` 连接无线的WiFi，执行
 
 ```shell
 $ sudo ifconfig
 ```
 
-&nbsp;&nbsp;&nbsp;&nbsp;查看WiFi对应的IP，至此，树莓派可以摆脱屏幕，我们可以使用电脑进行使用 `ssh` 连接。
+查看WiFi对应的IP，至此，树莓派可以摆脱屏幕，我们可以使用电脑进行使用 `ssh` 连接。
 
-&nbsp;&nbsp;&nbsp;&nbsp;这里也可以使用网线进行连接，具体操作如下
+这里也可以使用网线进行连接，具体操作如下
 
-&nbsp;&nbsp;&nbsp;&nbsp;1. 用网线连接树莓派和自己的电脑。
+1. 用网线连接树莓派和自己的电脑。
 
-&nbsp;&nbsp;&nbsp;&nbsp;2. 在树莓派的利用 `nmtui` 选择 `Edit a connection ` ，Add一个Ethernet connect，对IPv4 CONFIGURATION进行设置，首先讲 `Automatic` 设置为 `Manual`，设置 `Address` 为 **静态IP** 如 `192.168.3.2` ，`Gateway` 设置为 `192.168.3.1` 。
+2. 在树莓派的利用 `nmtui` 选择 `Edit a connection ` ，Add一个Ethernet connect，对IPv4 CONFIGURATION进行设置，首先讲 `Automatic` 设置为 `Manual`，设置 `Address` 为 **静态IP** 如 `192.168.3.2` ，`Gateway` 设置为 `192.168.3.1` 。
 
-&nbsp;&nbsp;&nbsp;&nbsp;3. 在自己电脑利用 `nmtui` 同上不过设置 `Address` 为 `192.168.3.3` ，只要是位于同一网段即可。
+3. 在自己电脑利用 `nmtui` 同上不过设置 `Address` 为 `192.168.3.3` ，只要是位于同一网段即可。
 
-&nbsp;&nbsp;&nbsp;&nbsp;4. 这时候就可以通过网线进行 `ssh` 连接了。
+4. 这时候就可以通过网线进行 `ssh` 连接了。
 
 
 
@@ -85,17 +85,17 @@ $ sudo ifconfig
 
 ### 配置cups
 
-&nbsp;&nbsp;&nbsp;&nbsp;以下大多参考：[如何正确地用树莓派共享打印机](https://sspai.com/post/40997)
+以下大多参考：[如何正确地用树莓派共享打印机](https://sspai.com/post/40997)
 
-&nbsp;&nbsp;&nbsp;&nbsp;大佬言：
+大佬言：
 
 > 其实，这一步的工作量非常少，因为软件包 CUPS 就是为共享打印机而生。我们要做的只是将打印机用 USB 线缆连接树莓派，然后安装并配置 CUPS。
 
-&nbsp;&nbsp;&nbsp;&nbsp;然而，事实并非如此。
+然而，事实并非如此。
 
 #### 换源
 
-&nbsp;&nbsp;&nbsp;&nbsp;在安装之前需要换源，如果不换源的话，安装会十分缓慢，具体的流程可以看上面的blog，因为我们基地的WiFi自带代理，因此这一步我没有做。
+在安装之前需要换源，如果不换源的话，安装会十分缓慢，具体的流程可以看上面的blog，因为我们基地的WiFi自带代理，因此这一步我没有做。
 
 #### 安装驱动及打印程序
 
@@ -156,7 +156,7 @@ $ sudo cupsctl --remote-any # open remote access
 
 ## 结语
 
-&nbsp;&nbsp;&nbsp;&nbsp;其实这个配置过程远没有这么简单，期间还有很多小问题，但是大致的流程大概就是如上述所示，全写出来可能太啰嗦，大家如果配置过程中遇到更多的疑问，可以在下方评论一起探讨~
+其实这个配置过程远没有这么简单，期间还有很多小问题，但是大致的流程大概就是如上述所示，全写出来可能太啰嗦，大家如果配置过程中遇到更多的疑问，可以在下方评论一起探讨~
 
 
 
