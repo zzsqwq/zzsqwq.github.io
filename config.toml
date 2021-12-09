@@ -80,7 +80,7 @@ url = "https://t.me/zzsqwq"
 name = "RSS"
 icon = "fa fa-2x fa-rss"
 weight = 6
-url = "https://zzsqwq.github.io/index.xml"
+url = "https://www.zzsqwq.cn/index.xml"
 rel = "alternate"
 type = "application/rss+xml"
 
