@@ -50,7 +50,7 @@ googleAnalytics = 'G-Z6EM6V1PVC'
   repo = "zzsqwq/hugo-blog-comment" # https://utteranc.es/#heading-repository
   issueTerm = "pathname" # https://utteranc.es/#heading-mapping
   label = "comment" # https://utteranc.es/#heading-issue-label
-  theme = "github-light" # https://utteranc.es/#heading-theme
+  theme = "preferred-color-scheme" # https://utteranc.es/#heading-theme
 
 
 [taxonomies]
