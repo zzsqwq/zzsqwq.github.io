@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>杂谈 on Zs's Blog</title><link>https://www.zzsqwq.cn/categories/%E6%9D%82%E8%B0%88/</link><description>Recent content in 杂谈 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 13 Dec 2021 02:59:00 +0000</lastBuildDate><atom:link href="https://www.zzsqwq.cn/categories/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml"/><item><title>记一次博客迁移记录</title><link>https://www.zzsqwq.cn/posts/221/</link><pubDate>Mon, 13 Dec 2021 02:59:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/221/</guid><description>前言 更换博客系统的想法已经萌生很久了，一个是感觉 Handsome 这个主题有点看腻了，但是在 Typecho 中好似已经没有更好的博客主题可选择了。
+有一个看起来貌似很不错，主题名叫 maupassant。效果如下图所示，顺附链接
+pagecho/maupassant(github.com)
+不过一直没有下定决心更换，后来也尝试过使用 WordPress，又觉得 WordPress 体量有点太大了。
+每天逛 Github 的时候看到了很多很不错的静态博客主题，那天看到一个学长分析学校校园网的博客，第一眼就感觉很不错，找寻了一下发现博客基于 Hugo，主题是 hugo-PaperMod。
+于是顺着寻找了一下，发现 Hugo 中很多博客主题非常的不错。此外，Hugo 相比于 Hexo 也有很多优点：博客构建速度快，基于模板的概念组织内容，环境配置容易，在 Ubuntu 下一行命令即可，而 Hexo 依赖于 Node.js，体量稍微有点大。
+于是决定把博客迁移到 Hugo，并且采用主题 Coder 。
+过程 Typecho 文章导出 这里采用了 lizheming 大大的迁移插件：lizheming/typecho-export-hugo
+具体导出为 zip 的时候可能会提示损坏，这样的话可以直接去服务器 \tmp\Export2Hugo 下面打包。
+安装 hugo 过程基于 Windows 平台，很简单，在 这里 下载 hugo 最新的 release 版本，找到对应自己系统的即可。下载后解压到某个目录下，设置一下环境变量即可。这里牵扯到 hugo 和 hugo_extended 两个版本的区别，以下是某个 issue 中的解释：</description></item></channel></rss>
