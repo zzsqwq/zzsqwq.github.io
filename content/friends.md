@@ -22,4 +22,4 @@ I plan to write a new style for the friendship link, but too busy lately…
 
 [@Warm_Congee](http://warmcongee.com/)：翁宝，我的翁宝，Ticer
 
-[@在花博客](https://www.vzaihua.com)：科技花交流地
+[@在花博客](https://www.vzaihua.com)：科技花交流地，[点此](https://t.me/TestFlightCN) 可加入在花的 (Testflight 新闻投稿🎗中文) Telegram 频道
