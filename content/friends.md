@@ -21,3 +21,5 @@ I plan to write a new style for the friendship link, but too busy lately…
 [@芃](https://bzpovo.xyz/)：努力向上的凡凡，Ticer
 
 [@Warm_Congee](http://warmcongee.com/)：翁宝，我的翁宝，Ticer
+
+[@在花博客](https://www.vzaihua.com)：科技花交流地
