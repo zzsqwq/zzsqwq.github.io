@@ -24,4 +24,6 @@ I plan to write a new style for the friendship link, but too busy lately…
 
 [@在花博客](https://www.vzaihua.com)：科技花交流地，[点此](https://t.me/TestFlightCN) 可加入在花的 (Testflight 新闻投稿🎗中文) Telegram 频道
 
-[@lollipopnoigat](https://www.lollipopnougat.top/)：实力强悍的学长！
+[@lollipopnoigat](https://www.lollipopnougat.top/)：实力强悍的学长
+
+[@Orangii 橙梓](https://orangii.cn/)：同级软工的同学，喜欢做一些小东西，比如设计制作网页等
