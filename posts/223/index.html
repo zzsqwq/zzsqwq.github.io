@@ -1,0 +1,265 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=content-language content="en">
+<meta name=color-scheme content="light dark">
+<meta name=author content="zzsqwq">
+<meta name=description content="前言    最近看了一些 js 有关的知识，其中令我这种初学者感到很头疼的一个问题就是异步问题。
+今天就我碰到的一个小问题详解一个关于异步的小技巧。
+背景    我在程序中需要鉴权，来判断一个用户是普通用户还是管理员，针对不同的用户渲染不同的页面。
+每个用户具有唯一的 ID，因此我只需要将管理员的 ID 放到数据库，然后加载程序的时候一一比对即可。
+但是我的主程序初始化与页面的初始化是异步的，管理员的判断逻辑我放在了主程序初始化中，这也就意味着很可能我页面在加载时，主程序还没有判断完用户的身份。
+每个人默认不是管理员，因此这就会导致一个问题——管理员可能也会显示成普通用户的页面，因为渲染页面的时候程序还不知道这个用户是管理员。
+方案    这个方案其实是我从官方的代码上学到的，其实就结合代码给大家讲一下。
+官方这里是在获取用户的 userInfo 时用到的。
+主程序初始化部分代码：
+这里主程序的逻辑就是在 getSetting 调用成功后，判断是否已经获得过 userInfo ，如果已经获得过，则可以直接调用 getUserInfo 函数获取值，赋值成一个主程序的全局变量，所有页面都可以用。
+接下来就是一个比较奇怪的点了
+可以看到官方的注释为
+ 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+所以此处加入 callback 以防止这种情况
+ 这里判断了主程序内是否含有 userInfoReadyCallback 这个函数，如果有的话就执行。
+qq.getSetting({ success: res => { if (res.authSetting['scope.userInfo']) { // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框  qq.getUserInfo({ success: res => { // 可以将 res 发送给后台解码出 unionId  this.">
+<meta name=keywords content="blog,developer,personal">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="一个 Javascript 中异步的小技巧">
+<meta name=twitter:description content="前言    最近看了一些 js 有关的知识，其中令我这种初学者感到很头疼的一个问题就是异步问题。
+今天就我碰到的一个小问题详解一个关于异步的小技巧。
+背景    我在程序中需要鉴权，来判断一个用户是普通用户还是管理员，针对不同的用户渲染不同的页面。
+每个用户具有唯一的 ID，因此我只需要将管理员的 ID 放到数据库，然后加载程序的时候一一比对即可。
+但是我的主程序初始化与页面的初始化是异步的，管理员的判断逻辑我放在了主程序初始化中，这也就意味着很可能我页面在加载时，主程序还没有判断完用户的身份。
+每个人默认不是管理员，因此这就会导致一个问题——管理员可能也会显示成普通用户的页面，因为渲染页面的时候程序还不知道这个用户是管理员。
+方案    这个方案其实是我从官方的代码上学到的，其实就结合代码给大家讲一下。
+官方这里是在获取用户的 userInfo 时用到的。
+主程序初始化部分代码：
+这里主程序的逻辑就是在 getSetting 调用成功后，判断是否已经获得过 userInfo ，如果已经获得过，则可以直接调用 getUserInfo 函数获取值，赋值成一个主程序的全局变量，所有页面都可以用。
+接下来就是一个比较奇怪的点了
+可以看到官方的注释为
+ 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+所以此处加入 callback 以防止这种情况
+ 这里判断了主程序内是否含有 userInfoReadyCallback 这个函数，如果有的话就执行。
+qq.getSetting({ success: res => { if (res.authSetting['scope.userInfo']) { // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框  qq.getUserInfo({ success: res => { // 可以将 res 发送给后台解码出 unionId  this.">
+<meta property="og:title" content="一个 Javascript 中异步的小技巧">
+<meta property="og:description" content="前言    最近看了一些 js 有关的知识，其中令我这种初学者感到很头疼的一个问题就是异步问题。
+今天就我碰到的一个小问题详解一个关于异步的小技巧。
+背景    我在程序中需要鉴权，来判断一个用户是普通用户还是管理员，针对不同的用户渲染不同的页面。
+每个用户具有唯一的 ID，因此我只需要将管理员的 ID 放到数据库，然后加载程序的时候一一比对即可。
+但是我的主程序初始化与页面的初始化是异步的，管理员的判断逻辑我放在了主程序初始化中，这也就意味着很可能我页面在加载时，主程序还没有判断完用户的身份。
+每个人默认不是管理员，因此这就会导致一个问题——管理员可能也会显示成普通用户的页面，因为渲染页面的时候程序还不知道这个用户是管理员。
+方案    这个方案其实是我从官方的代码上学到的，其实就结合代码给大家讲一下。
+官方这里是在获取用户的 userInfo 时用到的。
+主程序初始化部分代码：
+这里主程序的逻辑就是在 getSetting 调用成功后，判断是否已经获得过 userInfo ，如果已经获得过，则可以直接调用 getUserInfo 函数获取值，赋值成一个主程序的全局变量，所有页面都可以用。
+接下来就是一个比较奇怪的点了
+可以看到官方的注释为
+ 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+所以此处加入 callback 以防止这种情况
+ 这里判断了主程序内是否含有 userInfoReadyCallback 这个函数，如果有的话就执行。
+qq.getSetting({ success: res => { if (res.authSetting['scope.userInfo']) { // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框  qq.getUserInfo({ success: res => { // 可以将 res 发送给后台解码出 unionId  this.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.zzsqwq.cn/posts/223/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-01-19T00:24:00+00:00">
+<meta property="article:modified_time" content="2022-01-19T00:24:00+00:00">
+<title>
+一个 Javascript 中异步的小技巧 · Zs's Blog
+</title>
+<link rel=canonical href=https://www.zzsqwq.cn/posts/223/>
+<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
+<link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen>
+<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
+<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
+<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
+<meta name=generator content="Hugo 0.92.0">
+</head>
+<body class="preload-transitions colorscheme-auto">
+<div class=float-container>
+<a id=dark-mode-toggle class=colorscheme-toggle>
+<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
+</a>
+</div>
+<main class=wrapper>
+<nav class=navigation>
+<section class=container>
+<a class=navigation-title href=/>
+Zs's Blog
+</a>
+<input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle>
+<i class="fa fa-bars fa-fw" aria-hidden=true></i>
+</label>
+<ul class=navigation-list>
+<li class=navigation-item>
+<a class=navigation-link href=/about/>About</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/posts/>Blog</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/projects/>Projects</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/friends/>Friends</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/contact/>Contact Me</a>
+</li>
+</ul>
+</section>
+</nav>
+<div class=content>
+<section class="container post">
+<article>
+<header>
+<div class=post-title>
+<h1 class=title>
+<a class=title-link href=https://www.zzsqwq.cn/posts/223/>
+一个 Javascript 中异步的小技巧
+</a>
+</h1>
+</div>
+<div class=post-meta>
+<div class=date>
+<span class=posted-on>
+<i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2022-01-19T00:24:00Z>
+January 19, 2022
+</time>
+</span>
+<span class=reading-time>
+<i class="fa fa-clock-o" aria-hidden=true></i>
+One-minute read
+</span>
+</div>
+<div class=categories>
+<i class="fa fa-folder" aria-hidden=true></i>
+<a href=/categories/javascript/>Javascript</a></div>
+<div class=tags>
+<i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag>
+<a href=/tags/javascript/>Javascript</a>
+</span>
+<span class=separator>•</span>
+<span class=tag>
+<a href=/tags/%E5%BC%82%E6%AD%A5/>异步</a>
+</span></div>
+</div>
+</header>
+<div>
+<h2 id=前言>
+前言
+<a class=heading-link href=#%e5%89%8d%e8%a8%80>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<p>最近看了一些 js 有关的知识，其中令我这种初学者感到很头疼的一个问题就是异步问题。</p>
+<p>今天就我碰到的一个小问题详解一个关于异步的小技巧。</p>
+<h2 id=背景>
+背景
+<a class=heading-link href=#%e8%83%8c%e6%99%af>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<p>我在程序中需要鉴权，来判断一个用户是<strong>普通用户</strong>还是<strong>管理员</strong>，针对不同的用户渲染不同的页面。</p>
+<p>每个用户具有唯一的 ID，因此我只需要将管理员的 ID 放到数据库，然后加载程序的时候一一比对即可。</p>
+<p>但是我的主程序初始化与页面的初始化是异步的，管理员的判断逻辑我放在了主程序初始化中，这也就意味着很可能我页面在加载时，主程序还没有判断完用户的身份。</p>
+<p>每个人默认不是管理员，因此这就会导致一个问题——<strong>管理员可能也会显示成普通用户的页面</strong>，因为渲染页面的时候程序还不知道这个用户是管理员。</p>
+<h2 id=方案>
+方案
+<a class=heading-link href=#%e6%96%b9%e6%a1%88>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<p>这个方案其实是我从官方的代码上学到的，其实就结合代码给大家讲一下。</p>
+<p>官方这里是在获取用户的 userInfo 时用到的。</p>
+<p><strong>主程序初始化部分代码</strong>：</p>
+<p>这里主程序的逻辑就是在 <code>getSetting</code> 调用成功后，判断是否已经获得过 userInfo ，如果已经获得过，则可以直接调用 <code>getUserInfo</code> 函数获取值，赋值成一个主程序的全局变量，所有页面都可以用。</p>
+<p>接下来就是一个比较奇怪的点了</p>
+<p>可以看到官方的注释为</p>
+<blockquote>
+<p>由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回</p>
+<p>所以此处加入 callback 以防止这种情况</p>
+</blockquote>
+<p>这里判断了主程序内是否含有 <code>userInfoReadyCallback</code> 这个函数，如果有的话就执行。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#a6e22e>qq</span>.<span style=color:#a6e22e>getSetting</span>({
+            <span style=color:#a6e22e>success</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>res</span> =&gt; {
+                <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>authSetting</span>[<span style=color:#e6db74>&#39;scope.userInfo&#39;</span>]) {
+                    <span style=color:#75715e>// 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+</span><span style=color:#75715e></span>                    <span style=color:#a6e22e>qq</span>.<span style=color:#a6e22e>getUserInfo</span>({
+                        <span style=color:#a6e22e>success</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>res</span> =&gt; {
+                            <span style=color:#75715e>// 可以将 res 发送给后台解码出 unionId
+</span><span style=color:#75715e></span>                            <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>globalData</span>.<span style=color:#a6e22e>userInfo</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>userInfo</span>
+
+                            <span style=color:#75715e>// 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+</span><span style=color:#75715e></span>                            <span style=color:#75715e>// 所以此处加入 callback 以防止这种情况
+</span><span style=color:#75715e></span>                            <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>userInfoReadyCallback</span>) {
+                                <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>userInfoReadyCallback</span>(<span style=color:#a6e22e>res</span>)
+                            }
+                        }
+                    })
+                }
+            }
+        })
+</code></pre></div><p><strong>页面初始化部分代码：</strong></p>
+<p>页面初始化部分的逻辑首先判断全局变量中是否包含 <code>userInfo</code> 这个这个变量，我们从上文得知，如果我们在此段程序执行前主程序已经执行完毕，那么这里是包含 <code>userInfo</code> 这个函数的，我们直接赋值给当前的环境变量。</p>
+<p>而如果没有 <code>userInfo</code> 没有定义，也就是<strong>主程序还未完成变量的初始化</strong>，这就出现了我们之前提到的问题，页面加载时主程序未初始化完。</p>
+<p>定义了 <code>userInfoReadyCallback</code> 函数，接受 res 参数，进行赋值。</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>app</span>.<span style=color:#a6e22e>globalData</span>.<span style=color:#a6e22e>userInfo</span>) {
+            <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>setData</span>({
+                <span style=color:#a6e22e>userInfo</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>app</span>.<span style=color:#a6e22e>globalData</span>.<span style=color:#a6e22e>userInfo</span>,
+                <span style=color:#a6e22e>hasUserInfo</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>
+            })
+        } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>data</span>.<span style=color:#a6e22e>canIUse</span>) {
+            <span style=color:#75715e>// 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+</span><span style=color:#75715e></span>            <span style=color:#75715e>// 所以此处加入 callback 以防止这种情况
+</span><span style=color:#75715e></span>            <span style=color:#a6e22e>app</span>.<span style=color:#a6e22e>userInfoReadyCallback</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>res</span> =&gt; {
+                <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>setData</span>({
+                    <span style=color:#a6e22e>userInfo</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>userInfo</span>,
+                    <span style=color:#a6e22e>hasUserInfo</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>
+                })
+            }
+        } <span style=color:#66d9ef>else</span> { 
+<span style=color:#75715e>//......
+</span></code></pre></div><p>读完上面的程序大家应该已经可以搞懂了，其实类似于设置了两个标志(flag)。</p>
+<p>一个标志是全局变量 <code>userInfo</code>、一个是全局函数 <code>userInfoReadyCallback</code> 。</p>
+<p>如果 <code>userInfo</code> 已经定义，说明页面初始化前页面主程序变量已初始化完毕，渲染不会出问题。</p>
+<p>而如果 <code>userInfo</code> 未定义，说明与上面相反，则在页面中定义<code>userInfoReadyCallback</code> 函数，后续主程序初始化到最后得知该函数已定义，则调用其来进行初始化。</p>
+<p>这样就总能够保证局部 <code>userInfo</code> 这个变量的取值总是正确的，也即页面总是渲染正确的！</p>
+<h2 id=后记>
+后记
+<a class=heading-link href=#%e5%90%8e%e8%ae%b0>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<p>这个问题应该总是可以解决两个页面同时加载但却存在变量依赖的问题。</p>
+<p>大家如果有什么更加优秀的解决方案也希望不吝赐教。</p>
+</div>
+<footer>
+<script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=preferred-color-scheme crossorigin=anonymous async></script>
+</footer>
+</article>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:!0},{left:'$',right:'$',display:!1},{left:'\\(',right:'\\)',display:!1},{left:'\\[',right:'\\]',display:!0}]})"></script>
+</section>
+</div>
+<footer class=footer>
+<section class=container>
+<a href=http://beian.miit.gov.cn/ target=_blank> 鲁ICP备2020034310号</a>
+</br>
+©
+2019 -
+2022
+·
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
+</section>
+</footer>
+</main>
+<script src=/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6EM6V1PVC"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-Z6EM6V1PVC',{anonymize_ip:!1})}</script>
+</body>
+</html>

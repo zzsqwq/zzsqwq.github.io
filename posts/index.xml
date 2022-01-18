@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Zs's Blog</title><link>https://www.zzsqwq.cn/posts/</link><description>Recent content in Posts on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 13 Dec 2021 02:59:00 +0000</lastBuildDate><atom:link href="https://www.zzsqwq.cn/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>记一次博客迁移记录</title><link>https://www.zzsqwq.cn/posts/221/</link><pubDate>Mon, 13 Dec 2021 02:59:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/221/</guid><description>前言 更换博客系统的想法已经萌生很久了，一个是感觉 Handsome 这个主题有点看腻了，但是在 Typecho 中好似已经没有更好的博客主题可选择了。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Zs's Blog</title><link>https://www.zzsqwq.cn/posts/</link><description>Recent content in Posts on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 19 Jan 2022 00:24:00 +0000</lastBuildDate><atom:link href="https://www.zzsqwq.cn/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>一个 Javascript 中异步的小技巧</title><link>https://www.zzsqwq.cn/posts/223/</link><pubDate>Wed, 19 Jan 2022 00:24:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/223/</guid><description>前言 最近看了一些 js 有关的知识，其中令我这种初学者感到很头疼的一个问题就是异步问题。
+今天就我碰到的一个小问题详解一个关于异步的小技巧。
+背景 我在程序中需要鉴权，来判断一个用户是普通用户还是管理员，针对不同的用户渲染不同的页面。
+每个用户具有唯一的 ID，因此我只需要将管理员的 ID 放到数据库，然后加载程序的时候一一比对即可。
+但是我的主程序初始化与页面的初始化是异步的，管理员的判断逻辑我放在了主程序初始化中，这也就意味着很可能我页面在加载时，主程序还没有判断完用户的身份。
+每个人默认不是管理员，因此这就会导致一个问题——管理员可能也会显示成普通用户的页面，因为渲染页面的时候程序还不知道这个用户是管理员。
+方案 这个方案其实是我从官方的代码上学到的，其实就结合代码给大家讲一下。
+官方这里是在获取用户的 userInfo 时用到的。
+主程序初始化部分代码：
+这里主程序的逻辑就是在 getSetting 调用成功后，判断是否已经获得过 userInfo ，如果已经获得过，则可以直接调用 getUserInfo 函数获取值，赋值成一个主程序的全局变量，所有页面都可以用。
+接下来就是一个比较奇怪的点了
+可以看到官方的注释为
+由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+所以此处加入 callback 以防止这种情况
+这里判断了主程序内是否含有 userInfoReadyCallback 这个函数，如果有的话就执行。
+qq.getSetting({ success: res =&amp;gt; { if (res.authSetting[&amp;#39;scope.userInfo&amp;#39;]) { // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框 qq.getUserInfo({ success: res =&amp;gt; { // 可以将 res 发送给后台解码出 unionId this.</description></item><item><title>记一次博客迁移记录</title><link>https://www.zzsqwq.cn/posts/221/</link><pubDate>Mon, 13 Dec 2021 02:59:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/221/</guid><description>前言 更换博客系统的想法已经萌生很久了，一个是感觉 Handsome 这个主题有点看腻了，但是在 Typecho 中好似已经没有更好的博客主题可选择了。
 有一个看起来貌似很不错，主题名叫 maupassant。效果如下图所示，顺附链接
 pagecho/maupassant(github.com)
 不过一直没有下定决心更换，后来也尝试过使用 WordPress，又觉得 WordPress 体量有点太大了。
