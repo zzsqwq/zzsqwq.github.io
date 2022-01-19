@@ -27,3 +27,5 @@ I plan to write a new style for the friendship link, but too busy lately…
 [@lollipopnoigat](https://www.lollipopnougat.top/)：实力强悍的学长
 
 [@Orangii 橙梓](https://orangii.cn/)：同级软工的同学，喜欢做一些小东西，比如设计制作网页等
+
+[@Zhan Jiale](https://zjlzjl.com)：A robotics and AI enthusiast
