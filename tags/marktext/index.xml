@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>marktext on Zs's Blog</title><link>https://www.zzsqwq.cn/tags/marktext/</link><description>Recent content in marktext on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 01 Dec 2021 20:12:00 +0000</lastBuildDate><atom:link href="https://www.zzsqwq.cn/tags/marktext/index.xml" rel="self" type="application/rss+xml"/><item><title>Markdown 编辑器推荐</title><link>https://www.zzsqwq.cn/posts/220/</link><pubDate>Wed, 01 Dec 2021 20:12:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/220/</guid><description>前言 近期著名 Markdown 编辑器 Typora 宣布收费了，起初感觉很难受，后来感慨之余也觉得算是合理，毕竟 Typora 用起来感觉是真的很良心，也在考虑是否买一份支持一下。
-虽说左右分屏的设计可能更符合 Markdown 的初衷，但是像 Typora 这种所见即所得（WYSIWYG） 的书写体验确实是感觉习惯了就回不去了。
+Tip 已于2021/12/10购入，还是选择回归了 Typora 了哈哈哈 虽说左右分屏的设计可能更符合 Markdown 的初衷，但是像 Typora 这种所见即所得（WYSIWYG） 的书写体验确实是感觉习惯了就回不去了。
 因此近期也搜集了 Markdown 编辑器作为 Typora 的替代品，在这里给大家分享一下。
 特别声明，下面的分享多是我日常体验中的一些感受，可能不够客观，比较片面，大家可以自己使用体验一下！
 一、Obsidian 界面预览 特点 具有文档的双向链接
@@ -8,5 +8,4 @@
 可以购买 publish 服务将 markdown 发布为排版美观的界面
 有丰富的插件，例如日历、待办清单、Git同步等等。
 有Linux，Windows，iPad等多平台支持。
-使用体验 Obsidian 中文为黑曜石。我觉得它的图标很好看。
-在我使用的一段时间内，他给我的感觉是，功能十分丰富的一个 Markdown 文件管理工具。如果你购买了他的同步服务，那你可以很轻松的在各平台同步你的 Markdown 文件夹，并且基于他强大的插件，可以很完成很多 Markdown 文件份外的事，例如待办清单、日历等等。</description></item></channel></rss>
+使用体验 Obsidian 中文为黑曜石。我觉得它的图标很好看。</description></item></channel></rss>

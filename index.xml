@@ -23,7 +23,7 @@ pagecho/maupassant(github.com)
 过程 Typecho 文章导出 这里采用了 lizheming 大大的迁移插件：lizheming/typecho-export-hugo
 具体导出为 zip 的时候可能会提示损坏，这样的话可以直接去服务器 \tmp\Export2Hugo 下面打包。
 安装 hugo 过程基于 Windows 平台，很简单，在 这里 下载 hugo 最新的 release 版本，找到对应自己系统的即可。下载后解压到某个目录下，设置一下环境变量即可。这里牵扯到 hugo 和 hugo_extended 两个版本的区别，以下是某个 issue 中的解释：</description></item><item><title>Markdown 编辑器推荐</title><link>https://www.zzsqwq.cn/posts/220/</link><pubDate>Wed, 01 Dec 2021 20:12:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/220/</guid><description>前言 近期著名 Markdown 编辑器 Typora 宣布收费了，起初感觉很难受，后来感慨之余也觉得算是合理，毕竟 Typora 用起来感觉是真的很良心，也在考虑是否买一份支持一下。
-虽说左右分屏的设计可能更符合 Markdown 的初衷，但是像 Typora 这种所见即所得（WYSIWYG） 的书写体验确实是感觉习惯了就回不去了。
+Tip 已于2021/12/10购入，还是选择回归了 Typora 了哈哈哈 虽说左右分屏的设计可能更符合 Markdown 的初衷，但是像 Typora 这种所见即所得（WYSIWYG） 的书写体验确实是感觉习惯了就回不去了。
 因此近期也搜集了 Markdown 编辑器作为 Typora 的替代品，在这里给大家分享一下。
 特别声明，下面的分享多是我日常体验中的一些感受，可能不够客观，比较片面，大家可以自己使用体验一下！
 一、Obsidian 界面预览 特点 具有文档的双向链接
@@ -32,8 +32,7 @@ pagecho/maupassant(github.com)
 可以购买 publish 服务将 markdown 发布为排版美观的界面
 有丰富的插件，例如日历、待办清单、Git同步等等。
 有Linux，Windows，iPad等多平台支持。
-使用体验 Obsidian 中文为黑曜石。我觉得它的图标很好看。
-在我使用的一段时间内，他给我的感觉是，功能十分丰富的一个 Markdown 文件管理工具。如果你购买了他的同步服务，那你可以很轻松的在各平台同步你的 Markdown 文件夹，并且基于他强大的插件，可以很完成很多 Markdown 文件份外的事，例如待办清单、日历等等。</description></item><item><title>2021版小新Pro14 Ubuntu 20.04 配置指南</title><link>https://www.zzsqwq.cn/posts/215/</link><pubDate>Tue, 02 Nov 2021 01:16:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/215/</guid><description>2021版小新Pro14 Ubuntu 20.04 配置指南 前言 苦于沉重游戏本的迫害，新买了一台小新Pro14 2021款，上手感觉还挺不错的。如下是配置：
+使用体验 Obsidian 中文为黑曜石。我觉得它的图标很好看。</description></item><item><title>2021版小新Pro14 Ubuntu 20.04 配置指南</title><link>https://www.zzsqwq.cn/posts/215/</link><pubDate>Tue, 02 Nov 2021 01:16:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/215/</guid><description>2021版小新Pro14 Ubuntu 20.04 配置指南 前言 苦于沉重游戏本的迫害，新买了一台小新Pro14 2021款，上手感觉还挺不错的。如下是配置：
 CPU：酷睿 i5-11300H 显卡：集成显卡 Intel 锐炬Iris Xe 内存：16G 外存：512 SSD 屏幕：分辨率 2880x1800、400nits、100%sRGB 这里需要注意的是，不同时间出的小新Pro14配置是不太一样的，所以我这里列了一下配置。主要区别在于有一部分是2.2K分辨率+MX450显卡，而我这个是2.8K分辨率+锐炬Iris Xe显卡。
 为了工作的需要，要装一个Ubuntu，先是装了之前用过的 Ubuntu 18.04，安装后发现触摸板无法使用，一系列探索后无果，在朋友的推荐下，还是决定安装 Ubuntu 20.04 试一下，踩了一些坑，在这里记录一下。
 问题列表 如果你遇到了以下问题，那么这篇文章的方法可能会对你有益处：
