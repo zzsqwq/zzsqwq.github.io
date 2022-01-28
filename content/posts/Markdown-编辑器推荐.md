@@ -12,6 +12,8 @@ date: "2021-12-01 20:12:00"
 
 近期著名 Markdown 编辑器 [Typora](https://typora.io/) 宣布收费了，起初感觉很难受，后来感慨之余也觉得算是合理，毕竟 Typora 用起来感觉是真的很良心，也在考虑是否买一份支持一下。
 
+{{< notice tip >}} 已于2021/12/10购入，还是选择回归了 Typora 了哈哈哈 {{< /notice >}}
+
 虽说左右分屏的设计可能更符合 Markdown 的初衷，但是像 Typora 这种所见即所得（WYSIWYG） 的书写体验确实是感觉习惯了就回不去了。
 
 因此近期也搜集了 Markdown 编辑器作为 Typora 的替代品，在这里给大家分享一下。
@@ -138,7 +140,7 @@ date: "2021-12-01 20:12:00"
 
 如果大家有更好的 Markdown 编辑器推荐，欢迎在下面留言！
 
-  [1]: https://www.zzsqwq.cn/usr/uploads/2021/12/1150718291.png
-  [2]: https://www.zzsqwq.cn/usr/uploads/2021/12/3145024348.png
-  [3]: https://www.zzsqwq.cn/usr/uploads/2021/12/3408881163.png
-  [4]: https://www.zzsqwq.cn/usr/uploads/2021/12/1511072141.png
+[1]: https://www.zzsqwq.cn/usr/uploads/2021/12/1150718291.png
+[2]: https://www.zzsqwq.cn/usr/uploads/2021/12/3145024348.png
+[3]: https://www.zzsqwq.cn/usr/uploads/2021/12/3408881163.png
+[4]: https://www.zzsqwq.cn/usr/uploads/2021/12/1511072141.png
