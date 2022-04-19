@@ -1,11 +1,4 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=content-language content="en">
-<meta name=color-scheme content="light dark">
-<meta name=author content="zzsqwq">
-<meta name=description content="
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=content-language content="en"><meta name=color-scheme content="light dark"><meta name=author content="zzsqwq"><meta name=description content="
   C++大数类设计思路
   
     
@@ -18,11 +11,7 @@
   
 
 
-这个第四个点真的优化不过去了QAQ，24W的数据，丧心病狂">
-<meta name=keywords content="blog,developer,personal">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="C++大数类的实现">
-<meta name=twitter:description content="
+这个第四个点真的优化不过去了QAQ，24W的数据，丧心病狂"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="C++大数类的实现"><meta name=twitter:description content="
   C++大数类设计思路
   
     
@@ -35,9 +24,7 @@
   
 
 
-这个第四个点真的优化不过去了QAQ，24W的数据，丧心病狂">
-<meta property="og:title" content="C++大数类的实现">
-<meta property="og:description" content="
+这个第四个点真的优化不过去了QAQ，24W的数据，丧心病狂"><meta property="og:title" content="C++大数类的实现"><meta property="og:description" content="
   C++大数类设计思路
   
     
@@ -50,724 +37,519 @@
   
 
 
-这个第四个点真的优化不过去了QAQ，24W的数据，丧心病狂">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://www.zzsqwq.cn/posts/64/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2020-04-06T01:22:00+00:00">
-<meta property="article:modified_time" content="2020-04-06T01:22:00+00:00">
-<title>
-C++大数类的实现 · Zs's Blog
-</title>
-<link rel=canonical href=https://www.zzsqwq.cn/posts/64/>
-<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen>
-<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
-<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
-<meta name=generator content="Hugo 0.92.1">
-</head>
-<body class="preload-transitions colorscheme-auto">
-<div class=float-container>
-<a id=dark-mode-toggle class=colorscheme-toggle>
-<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
-</a>
-</div>
-<main class=wrapper>
-<nav class=navigation>
-<section class=container>
-<a class=navigation-title href=/>
-Zs's Blog
-</a>
+这个第四个点真的优化不过去了QAQ，24W的数据，丧心病狂"><meta property="og:type" content="article"><meta property="og:url" content="https://www.zzsqwq.cn/posts/64/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-04-06T01:22:00+00:00"><meta property="article:modified_time" content="2020-04-06T01:22:00+00:00"><title>C++大数类的实现 · Zs's Blog</title><link rel=canonical href=https://www.zzsqwq.cn/posts/64/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><meta name=generator content="Hugo 0.97.3"></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Zs's Blog</a>
 <input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle>
-<i class="fa fa-bars fa-fw" aria-hidden=true></i>
-</label>
-<ul class=navigation-list>
-<li class=navigation-item>
-<a class=navigation-link href=/about/>About</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/posts/>Blog</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/projects/>Projects</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/friends/>Friends</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/contact/>Contact Me</a>
-</li>
-</ul>
-</section>
-</nav>
-<div class=content>
-<section class="container post">
-<article>
-<header>
-<div class=post-title>
-<h1 class=title>
-<a class=title-link href=https://www.zzsqwq.cn/posts/64/>
-C++大数类的实现
-</a>
-</h1>
-</div>
-<div class=post-meta>
-<div class=date>
-<span class=posted-on>
-<i class="fa fa-calendar" aria-hidden=true></i>
-<time datetime=2020-04-06T01:22:00Z>
-April 6, 2020
-</time>
-</span>
-<span class=reading-time>
-<i class="fa fa-clock-o" aria-hidden=true></i>
-5-minute read
-</span>
-</div>
-<div class=categories>
-<i class="fa fa-folder" aria-hidden=true></i>
-<a href=/categories/c++/>C++</a></div>
-<div class=tags>
-<i class="fa fa-tag" aria-hidden=true></i>
-<span class=tag>
-<a href=/tags/c++/>C++</a>
-</span>
+<label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/about/>About</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/friends/>Friends</a></li><li class=navigation-item><a class=navigation-link href=/contact/>Contact Me</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://www.zzsqwq.cn/posts/64/>C++大数类的实现</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2020-04-06T01:22:00Z>April 6, 2020</time></span>
+<span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>
+5-minute read</span></div><div class=categories><i class="fa fa-folder" aria-hidden=true></i>
+<a href=/categories/c++/>C++</a></div><div class=tags><i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/c++/>C++</a></span>
 <span class=separator>•</span>
-<span class=tag>
-<a href=/tags/%E5%A4%A7%E6%95%B0%E7%B1%BB/>大数类</a>
-</span></div>
-</div>
-</header>
-<div>
-<h1 id=c大数类设计思路>
-C++大数类设计思路
-<a class=heading-link href=#c%e5%a4%a7%e6%95%b0%e7%b1%bb%e8%ae%be%e8%ae%a1%e6%80%9d%e8%b7%af>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h1>
-<h3 id=洛谷大数类httpswwwluogucomcnproblemu111551的评测结果开了氧气优化>
-<a href=https://www.luogu.com.cn/problem/U111551>洛谷大数类</a>的评测结果(开了氧气优化)
-<a class=heading-link href=#%e6%b4%9b%e8%b0%b7%e5%a4%a7%e6%95%b0%e7%b1%bbhttpswwwluogucomcnproblemu111551%e7%9a%84%e8%af%84%e6%b5%8b%e7%bb%93%e6%9e%9c%e5%bc%80%e4%ba%86%e6%b0%a7%e6%b0%94%e4%bc%98%e5%8c%96>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p><img src=https://www.zzsqwq.cn/usr/uploads/2020/08/4200651250.png alt=BigNumber.png></p>
-<p><strong>这个第四个点真的优化不过去了QAQ，24W的数据，<del>丧心病狂</del></strong></p>
-<h3 id=整体构思>
-整体构思
-<a class=heading-link href=#%e6%95%b4%e4%bd%93%e6%9e%84%e6%80%9d>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 构造大数类名为 <strong>BigNumber</strong> ,首先想法是用字符串读入大数，然后将其转化为vector数组倒序分位存储的整数，然后通过一个 <strong>len</strong> 来记录数字的位数，便于做运算。还设计了一个标记变量，用于标记这数为正数还是负数。</p>
-<h3 id=构造函数>
-构造函数
-<a class=heading-link href=#%e6%9e%84%e9%80%a0%e5%87%bd%e6%95%b0>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 我用了两种构造函数，一个是无参构造函数，一个是拷贝构造函数，当然还有一个有参构造函数，但是实际过程中我没有用到。无参构造函数用于上述类成员的初始化，拷贝构造函数用于复制一个相同的大数类进行运算。有参构造函数可以用于对类成员的复制。</p>
-<h3 id=重载运算符>
-重载运算符
-<a class=heading-link href=#%e9%87%8d%e8%bd%bd%e8%bf%90%e7%ae%97%e7%ac%a6>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<h4 id=重载->
-重载 &ldquo;+&rdquo;
-<a class=heading-link href=#%e9%87%8d%e8%bd%bd->
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h4>
-<ul>
-<li>首先在类中进行了声明, <code>BigNumber operator + (const BigNumber &b);</code> ，用当前类 *<strong>this</strong> 来和引入的类 <strong>b</strong> 进行加法运算，返回值为一个 <strong>BigNumber</strong> 类。</li>
-<li>在类的外部进行重载的定义，先将用拷贝构造函数将当前的类 *<strong>this</strong> 拷贝为 <strong>a</strong> ，然后对 <strong>a</strong> 和 <strong>b</strong> 进行加法运算，模拟竖式，对应位相加，大于10则进位，最后去掉尾部的 0 即可。</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>+</span> (<span style=color:#66d9ef>const</span> BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>//重载 &#34;+&#34; 定义 
-</span><span style=color:#75715e></span>{
-    
-	BigNumber Result;
-	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
-	Result.len <span style=color:#f92672>=</span> max(a.len,b.len)<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
-	<span style=color:#66d9ef>int</span> add<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>Result.len<span style=color:#f92672>||</span>add<span style=color:#f92672>!=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>++</span>)
-	{
-		<span style=color:#66d9ef>int</span> p<span style=color:#f92672>=</span>add;
-		<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>&lt;</span>a.len) p<span style=color:#f92672>+=</span>a.v[i];
-		<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>&lt;</span>b.len) p<span style=color:#f92672>+=</span>b.v[i];
-		add<span style=color:#f92672>=</span>p<span style=color:#f92672>/</span><span style=color:#ae81ff>10</span>;
-		Result.v.push_back(p<span style=color:#f92672>%</span><span style=color:#ae81ff>10</span>);
-	}
-	<span style=color:#66d9ef>while</span>(Result.v[Result.v.size()<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span> <span style=color:#f92672>&amp;&amp;</span> Result.v.size() <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>)
-	{
-		Result.v.pop_back();
-	}
-	Result.len<span style=color:#f92672>=</span>Result.v.size();
-	<span style=color:#66d9ef>return</span> Result;
-    
-}
-</code></pre></div><h4 id=重载--1>
-重载 &ldquo;&lt;&rdquo;
-<a class=heading-link href=#%e9%87%8d%e8%bd%bd--1>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h4>
-<p>​ 因为进行减法前需要比较两个大数类的大小，我就先重载了 <strong>&lt;</strong> 。思路就是先比较<strong>a、b</strong>两个大数的长度，长的那个肯定比较大，如果两个长度相等。从尾部开始依次向前比较，如果不相等的话，就看两个数的相对大小，大的那个肯定整体比较大。如果总是相等，到了最后，就返回相应的值表示他们相等。<strong>这里我的返回值为int类型，用的标记是：如果两个相等，返回-1，如果前者小于后者，返回1，如果前者大于后者，返回0.</strong></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#66d9ef>int</span>  BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>&lt;</span> (<span style=color:#66d9ef>const</span> BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>// 重载 &#34;&lt;&#34; 定义 
-</span><span style=color:#75715e></span>{
-	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
-	
-	<span style=color:#66d9ef>if</span>(a.len <span style=color:#f92672>&lt;</span> b.len) <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>;
-	<span style=color:#66d9ef>if</span>(a.len <span style=color:#f92672>&gt;</span> b.len) <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-	
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>a.len<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>--</span>)
-	{
-		<span style=color:#66d9ef>if</span>(a.v[i]<span style=color:#f92672>!=</span>b.v[i])
-		{
-			<span style=color:#66d9ef>return</span> a.v[i] <span style=color:#f92672>&lt;</span> b.v[i];
-		}
-	}
-	<span style=color:#66d9ef>return</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;
-}
-</code></pre></div><h4 id=重载-->
-重载 &ldquo;-&rdquo;
-<a class=heading-link href=#%e9%87%8d%e8%bd%bd-->
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h4>
-<ul>
-<li>首先在类中进行了声明, <code>BigNumber operator - (BigNumber &b);</code> ，用当前类 *<strong>this</strong> 来和引入的类 <strong>b</strong> 进行减法运算，返回值为一个 <strong>BigNumber</strong> 类。</li>
-<li>在类的外部进行重载的定义，先将用拷贝构造函数将当前的类 *<strong>this</strong> 拷贝为 <strong>a</strong> ，然后对 <strong>a</strong> 和 <strong>b</strong> 进行减法运算。如果 <strong>a&lt;b</strong> ，那么我们就把 <strong>flag</strong> 设为 <strong>true</strong> ，标志得数为一个负数，然后用 <strong>swap</strong> 交换两个类，保证总是大数减小数。减法的话就是从前往后扫，对应位相减，如果不够减的就进行借位。如果借完位当前位置小于0了，那么就再向前借位。最后要去掉结尾多于的0.</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>-</span> (BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>// 重载 &#34;-&#34; 定义 
-</span><span style=color:#75715e></span>{
-	BigNumber Result;
-	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
-	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b<span style=color:#f92672>==</span><span style=color:#ae81ff>1</span>)
-	{
-		swap(a,b);
-		Result.flag<span style=color:#f92672>=</span>true;
-	}
-	Result.len<span style=color:#f92672>=</span>a.len;
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.len;i<span style=color:#f92672>++</span>)
-	{
-		<span style=color:#66d9ef>if</span>(a.v[i]<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>0</span>)
-		{
-			a.v[i]<span style=color:#f92672>+=</span><span style=color:#ae81ff>10</span>;
-			a.v[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>--</span>;
-		} 
-		<span style=color:#66d9ef>if</span>(a.v[i] <span style=color:#f92672>&lt;</span> b.v[i]<span style=color:#f92672>&amp;&amp;</span>i<span style=color:#f92672>&lt;</span>b.len)
-		{
-			a.v[i]<span style=color:#f92672>+=</span><span style=color:#ae81ff>10</span>;
-			a.v[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>--</span>;
-		}
-		<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>&lt;</span>b.len)
-		Result.v.push_back(a.v[i]<span style=color:#f92672>-</span>b.v[i]);
-		<span style=color:#66d9ef>else</span> Result.v.push_back(a.v[i]);
-	}
-	<span style=color:#66d9ef>while</span>(Result.v[Result.len<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span> <span style=color:#f92672>&amp;&amp;</span> Result.len <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>)
-	{
-		Result.v.pop_back();
-		Result.len<span style=color:#f92672>--</span>;
-	}
-	<span style=color:#66d9ef>return</span> Result;
-}
-</code></pre></div><h4 id=重载--2>
-重载 &ldquo;*&rdquo;
-<a class=heading-link href=#%e9%87%8d%e8%bd%bd--2>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h4>
-<ul>
-<li>首先在类中进行了声明, <code>BigNumber operator * (BigNumber &b);</code>，用当前类 *<strong>this</strong> 来和引入的类 <strong>b</strong> 进行乘法运算，返回值为一个 <strong>BigNumber</strong> 类。</li>
-<li>在类的外部进行重载的定义，先将用拷贝构造函数将当前的类 *<strong>this</strong> 拷贝为 <strong>a</strong> ，然后对 <strong>a</strong> 和 <strong>b</strong> 进行乘法运算。乘法也是模拟竖式运算，两个位数相乘对应的得数中的哪一位不难发现，因此只需要边乘边进位即可，一开始想的是所有乘完之后再进位，后来想了想运算的次序不会影响除和模的运算，所以就可以边乘边取商和模，可以少掉两层循环。算是一个小小的优化。最后要去掉结尾多于的0.</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>*</span> (BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>// 重载 &#34;*&#34;  定义 
-</span><span style=color:#75715e></span>{
-	BigNumber Result;
-	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
-	Result.len<span style=color:#f92672>=</span>a.len<span style=color:#f92672>+</span>b.len;
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>Result.len;i<span style=color:#f92672>++</span>) Result.v.push_back(<span style=color:#ae81ff>0</span>);
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.len;i<span style=color:#f92672>++</span>)
-	{
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;j<span style=color:#f92672>&lt;</span>b.len;j<span style=color:#f92672>++</span>)
-		{
-			Result.v[i<span style=color:#f92672>+</span>j]<span style=color:#f92672>+=</span>a.v[i]<span style=color:#f92672>*</span>b.v[j];
-			Result.v[i<span style=color:#f92672>+</span>j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+=</span>Result.v[i<span style=color:#f92672>+</span>j]<span style=color:#f92672>/</span><span style=color:#ae81ff>10</span>;
-			Result.v[i<span style=color:#f92672>+</span>j]<span style=color:#f92672>%=</span><span style=color:#ae81ff>10</span>;
-		}
-	}
-	<span style=color:#66d9ef>while</span>(Result.v[Result.v.size()<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span> <span style=color:#f92672>&amp;&amp;</span> Result.v.size() <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>)
-	{
-		Result.v.pop_back();
-	}
-	Result.len<span style=color:#f92672>=</span>Result.v.size();
-	<span style=color:#66d9ef>return</span> Result;
-}
-</code></pre></div><h4 id=重载---1>
-重载 &ldquo;/&rdquo;
-<a class=heading-link href=#%e9%87%8d%e8%bd%bd---1>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h4>
-<ul>
-<li>
-<p>首先在类中进行了声明,<code>BigNumber operator / (BigNumber &b);</code>，用当前类 *<strong>this</strong> 来和引入的类 <strong>b</strong> 进行除法运算，返回值为一个 <strong>BigNumber</strong> 类。</p>
-</li>
-<li>
-<p>在类的外部进行重载的定义，先将用拷贝构造函数将当前的类 *<strong>this</strong> 拷贝为 <strong>a</strong> ，然后对 <strong>a</strong> 和 <strong>b</strong> 进行除法法运算。我选择了做除法的时候大数类中同时存储商和余数，这样可以加快效率，因为我自己的想法是把除法和取模一起处理，求得商的同时，模也能求出来。因此他们的框架肯定是相差无几的，所以我选择了一次性算出来两个，在大数类中用两个vector数组分别存商和余数，求商和余数我用的是减法的策略，分下面三种情况来讨论</p>
-<ul>
-<li><strong>a&lt;b</strong> ：很显然商为0，余数为a。</li>
-<li><strong>a==b</strong> ：很显然商为1，余数为0。</li>
-<li><strong>a>b</strong> ：这个是最难处理的，我们想想一下模拟除法的竖式运算，先在b的后面填0，让a和b的位数相同，然后再一直对a进行减法运算，将得到的数排列起来即可。里面细节还是挺多的，具体的看代码。最后要去掉结尾多于的0.</li>
-</ul>
-</li>
-</ul>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>/</span> (BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>// 重载 &#34;/&#34; 定义 
-</span><span style=color:#75715e></span>{
-	BigNumber Result;
-	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
-	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b<span style=color:#f92672>==</span><span style=color:#ae81ff>1</span>)
-	{
-		Result.v.push_back(<span style=color:#ae81ff>0</span>);
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.v.size();i<span style=color:#f92672>++</span>)
-		{
-			Result.m.push_back(a.v[i]);
-		}
-		<span style=color:#66d9ef>return</span> Result;
-	}
-	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b<span style=color:#f92672>==-</span><span style=color:#ae81ff>1</span>)
-	{
-		Result.v.push_back(<span style=color:#ae81ff>1</span>);
-		Result.m.push_back(<span style=color:#ae81ff>0</span>);
-		Result.len<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;
-	}
-	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>)
-	{
-		<span style=color:#66d9ef>int</span> size <span style=color:#f92672>=</span> a.len<span style=color:#f92672>-</span>b.len;
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>size;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>--</span>)
-		{
-			BigNumber <span style=color:#a6e22e>p</span>(b);
-			<span style=color:#66d9ef>int</span> cnt<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
-			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>i;j<span style=color:#f92672>++</span>)
-			{
-				p.v.insert(p.v.begin(),<span style=color:#ae81ff>0</span>);
-			}
-			p.len <span style=color:#f92672>=</span> p.v.size();
-			<span style=color:#66d9ef>while</span>((a<span style=color:#f92672>-</span>p).flag<span style=color:#f92672>==</span>false)
-			{
-				a<span style=color:#f92672>=</span>a<span style=color:#f92672>-</span>p;
-				cnt<span style=color:#f92672>++</span>;
-			}
-			<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>==</span>size)
-			{
-				<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>size;j<span style=color:#f92672>++</span>)
-				{
-					Result.v.push_back(<span style=color:#ae81ff>0</span>);
-				}
-				Result.v.push_back(cnt);
-			}
-			<span style=color:#66d9ef>else</span>
-			{
-				Result.v[i] <span style=color:#f92672>=</span> cnt;
-			}
-		}
-		<span style=color:#66d9ef>while</span>(Result.v[Result.v.size()<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span> <span style=color:#f92672>&amp;&amp;</span> Result.v.size() <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>)
-		{
-			Result.v.pop_back();
-		}
-		Result.len<span style=color:#f92672>=</span>Result.v.size();
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.v.size();i<span style=color:#f92672>++</span>)
-		{
-			Result.m.push_back(a.v[i]);
-		}
-	}
-	<span style=color:#66d9ef>return</span> Result;
-}
-</code></pre></div><h4 id=重载--3>
-重载 &ldquo;%&rdquo;
-<a class=heading-link href=#%e9%87%8d%e8%bd%bd--3>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h4>
-<p>​ 这个和除法的类似，我们除法的其实已经求出来模了，这个只是象征性的搞一搞。QAQ。</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>%</span> (BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>//重载 &#34;%&#34; 定义 
-</span><span style=color:#75715e></span>{
-	BigNumber Result;
-	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
-	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b)
-	{
-		Result.v.push_back(<span style=color:#ae81ff>0</span>);
-		<span style=color:#66d9ef>return</span> Result;
-	}
-	<span style=color:#66d9ef>else</span>
-	{
-		<span style=color:#66d9ef>int</span> size <span style=color:#f92672>=</span> a.len<span style=color:#f92672>-</span>b.len;
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>size;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>--</span>)
-		{
-			BigNumber <span style=color:#a6e22e>p</span>(b);
-			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>i;j<span style=color:#f92672>++</span>)
-			{
-				p.v.insert(p.v.begin(),<span style=color:#ae81ff>0</span>);
-			}
-			p.len <span style=color:#f92672>=</span> p.v.size();
-			<span style=color:#66d9ef>while</span>((a<span style=color:#f92672>-</span>p).flag<span style=color:#f92672>==</span>false)
-			{
-				a<span style=color:#f92672>=</span>a<span style=color:#f92672>-</span>p;
-			}
-		}
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.v.size();i<span style=color:#f92672>++</span>)
-		{
-			Result.v.push_back(a.v[i]);
-		}
-	}
-	<span style=color:#66d9ef>return</span> Result;
-} 
-</code></pre></div><h3 id=其中遇到的问题>
-其中遇到的问题
-<a class=heading-link href=#%e5%85%b6%e4%b8%ad%e9%81%87%e5%88%b0%e7%9a%84%e9%97%ae%e9%a2%98>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<ul>
-<li>在做减法的时候，会出现莫名奇怪的数据，后来发现是由于访问b数组的时候越界，而且vector数组的clear只是将数组的size置为了0，而不是将所有数据都莫抹除，而且vector通过下标访问越界还不会报错，我整个人都傻了，调了巨长时间。</li>
-<li>在做除法的时候，一度自闭。本来是只是一直减，这样效率真的巨tm慢。后来想到了用这个办法好像可以优化到 log 级别的，但是好难调试啊。。从昨天下午一直搞到现在。</li>
-<li>因为swap这个东西，好像会影响到类的源数据，所以我就多定义了几个数，分别对他们进行操作，这样就不会相互影响，虽然看起来挺丑的。</li>
-</ul>
-<h3 id=整体的代码实现>
-整体的代码实现
-<a class=heading-link href=#%e6%95%b4%e4%bd%93%e7%9a%84%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>/*
-</span><span style=color:#75715e>	Name: BigNumber Class
-</span><span style=color:#75715e>	Copyright: Zs
-</span><span style=color:#75715e>	Author: Zs
-</span><span style=color:#75715e>	Date: 04/04/20 09:08
-</span><span style=color:#75715e>	Description: A BigNumber Class
-</span><span style=color:#75715e>*/</span>
-
-<span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;vector&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
-
-<span style=color:#66d9ef>class</span> <span style=color:#a6e22e>BigNumber</span>
-{
-	<span style=color:#66d9ef>private</span><span style=color:#f92672>:</span>
-		vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> v; <span style=color:#75715e>// 和，差，积，商 
-</span><span style=color:#75715e></span>		vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> m; <span style=color:#75715e>// 余数，当无余数的时候 size 为0 
-</span><span style=color:#75715e></span>		<span style=color:#66d9ef>int</span> len;  <span style=color:#75715e>// 数字的长度 = v.size() 
-</span><span style=color:#75715e></span>		<span style=color:#66d9ef>bool</span> flag; <span style=color:#75715e>//是否为负数的标志 
-</span><span style=color:#75715e></span>	<span style=color:#66d9ef>public</span><span style=color:#f92672>:</span>
-		BigNumber();<span style=color:#75715e>//无参构造函数 
-</span><span style=color:#75715e></span>		BigNumber(string s)  <span style=color:#75715e>//带参数的构造函数 
-</span><span style=color:#75715e></span>		{
-			<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span><span style=color:#f92672>=</span>s;
-		}
-		BigNumber(<span style=color:#66d9ef>const</span> BigNumber <span style=color:#f92672>&amp;</span>); <span style=color:#75715e>// 拷贝构造函数 
-</span><span style=color:#75715e></span>		BigNumber <span style=color:#66d9ef>operator</span> <span style=color:#f92672>=</span> (<span style=color:#66d9ef>const</span> string s);  <span style=color:#75715e>// 重载 &#34;=&#34; 声明 
-</span><span style=color:#75715e></span>		BigNumber <span style=color:#66d9ef>operator</span> <span style=color:#f92672>=</span> (<span style=color:#66d9ef>int</span> k);  <span style=color:#75715e>// 重载输入的数为整型的时候的 &#34;=&#34; 声明
-</span><span style=color:#75715e></span>		
-		<span style=color:#66d9ef>int</span> <span style=color:#66d9ef>operator</span> <span style=color:#f92672>&lt;</span> (<span style=color:#66d9ef>const</span> BigNumber <span style=color:#f92672>&amp;</span>b);  <span style=color:#75715e>// 重载 &#34;&lt;&#34; 声明 
-</span><span style=color:#75715e></span>		BigNumber <span style=color:#66d9ef>operator</span> <span style=color:#f92672>+</span> (<span style=color:#66d9ef>const</span> BigNumber <span style=color:#f92672>&amp;</span>b); <span style=color:#75715e>// 重载 &#34;+&#34; 声明 
-</span><span style=color:#75715e></span>		BigNumber <span style=color:#66d9ef>operator</span> <span style=color:#f92672>-</span> (BigNumber <span style=color:#f92672>&amp;</span>b); <span style=color:#75715e>// 重载 &#34;-&#34; 声明 
-</span><span style=color:#75715e></span>		BigNumber <span style=color:#66d9ef>operator</span> <span style=color:#f92672>*</span> (BigNumber <span style=color:#f92672>&amp;</span>b);  <span style=color:#75715e>// 重载 &#34;*&#34; 声明 
-</span><span style=color:#75715e></span>		BigNumber <span style=color:#66d9ef>operator</span> <span style=color:#f92672>/</span> (BigNumber <span style=color:#f92672>&amp;</span>b); <span style=color:#75715e>//重载 &#34;/&#34; 声明 
-</span><span style=color:#75715e></span>		BigNumber <span style=color:#66d9ef>operator</span> <span style=color:#f92672>%</span> (BigNumber <span style=color:#f92672>&amp;</span>b); <span style=color:#75715e>//重载 &#34;%&#34; 声明 
-</span><span style=color:#75715e></span>		
-		<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>print</span>() <span style=color:#75715e>//输出函数 
-</span><span style=color:#75715e></span>		{
-			<span style=color:#66d9ef>if</span>(flag)
-			{
-				printf(<span style=color:#e6db74>&#34;-&#34;</span>);
-				flag<span style=color:#f92672>=</span>false;
-			}
-			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>v.size()<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>--</span>) printf(<span style=color:#e6db74>&#34;%d&#34;</span>,v[i]);
-			printf(<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
-			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>m.size()<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>--</span>) printf(<span style=color:#e6db74>&#34;%d&#34;</span>,m[i]);
-		}
-		
-};
-
-BigNumber<span style=color:#f92672>::</span>BigNumber() <span style=color:#75715e>//无参构造函数 
-</span><span style=color:#75715e></span>{
-	v.clear();
-	m.clear();
-	len <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
-	flag<span style=color:#f92672>=</span>false;
-}
-BigNumber<span style=color:#f92672>::</span>BigNumber(<span style=color:#66d9ef>const</span> BigNumber <span style=color:#f92672>&amp;</span>T) <span style=color:#75715e>// 拷贝构造函数 
-</span><span style=color:#75715e></span>{
-	v.assign(T.v.begin(),T.v.end());
-	len <span style=color:#f92672>=</span> T.len;
-	flag <span style=color:#f92672>=</span> T.flag;
-}
-
-BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>=</span> (<span style=color:#66d9ef>const</span> string s) <span style=color:#75715e>// 重载 &#34;=&#34; 定义 
-</span><span style=color:#75715e></span>{
-	len <span style=color:#f92672>=</span> s.length();
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>len;i<span style=color:#f92672>++</span>)
-	{
-		v.push_back(s[len<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span><span style=color:#f92672>-</span>i]<span style=color:#f92672>-</span><span style=color:#e6db74>&#39;0&#39;</span>);
-	}
-	<span style=color:#66d9ef>return</span> <span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>;
-}
-BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>=</span> (<span style=color:#66d9ef>int</span> k) <span style=color:#75715e>// 重载输入的数为整型的时候的 &#34;=&#34; 定义 
-</span><span style=color:#75715e></span>{
-	<span style=color:#66d9ef>while</span>(k)
-	{
-		v.push_back(k<span style=color:#f92672>%</span><span style=color:#ae81ff>10</span>);
-		k<span style=color:#f92672>/=</span><span style=color:#ae81ff>10</span>;
-		len<span style=color:#f92672>++</span>; 
-	}
-	len<span style=color:#f92672>--</span>;
-	<span style=color:#66d9ef>return</span> <span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>;
-}
-
-<span style=color:#66d9ef>int</span>  BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>&lt;</span> (<span style=color:#66d9ef>const</span> BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>// 重载 &#34;&lt;&#34; 定义 
-</span><span style=color:#75715e></span>{
-	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
-	
-	<span style=color:#66d9ef>if</span>(a.len <span style=color:#f92672>&lt;</span> b.len) <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>;
-	<span style=color:#66d9ef>if</span>(a.len <span style=color:#f92672>&gt;</span> b.len) <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-	
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>a.len<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>--</span>)
-	{
-		<span style=color:#66d9ef>if</span>(a.v[i]<span style=color:#f92672>!=</span>b.v[i])
-		{
-			<span style=color:#66d9ef>return</span> a.v[i] <span style=color:#f92672>&lt;</span> b.v[i];
-		}
-	}
-	<span style=color:#66d9ef>return</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;
-}
-BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>+</span> (<span style=color:#66d9ef>const</span> BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>//重载 &#34;+&#34; 定义 
-</span><span style=color:#75715e></span>{
-	
-	BigNumber Result;
-	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
-	Result.len <span style=color:#f92672>=</span> max(a.len,b.len)<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
-	<span style=color:#66d9ef>int</span> add<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>Result.len<span style=color:#f92672>||</span>add<span style=color:#f92672>!=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>++</span>)
-	{
-		<span style=color:#66d9ef>int</span> p<span style=color:#f92672>=</span>add;
-		<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>&lt;</span>a.len) p<span style=color:#f92672>+=</span>a.v[i];
-		<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>&lt;</span>b.len) p<span style=color:#f92672>+=</span>b.v[i];
-		add<span style=color:#f92672>=</span>p<span style=color:#f92672>/</span><span style=color:#ae81ff>10</span>;
-		Result.v.push_back(p<span style=color:#f92672>%</span><span style=color:#ae81ff>10</span>);
-	}
-	<span style=color:#66d9ef>while</span>(Result.v[Result.v.size()<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span> <span style=color:#f92672>&amp;&amp;</span> Result.v.size() <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>)
-	{
-		Result.v.pop_back();
-	}
-	Result.len<span style=color:#f92672>=</span>Result.v.size();
-	<span style=color:#66d9ef>return</span> Result;
-	
-}
-BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>-</span> (BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>// 重载 &#34;-&#34; 定义 
-</span><span style=color:#75715e></span>{
-	BigNumber Result;
-	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
-	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b<span style=color:#f92672>==</span><span style=color:#ae81ff>1</span>)
-	{
-		swap(a,b);
-		Result.flag<span style=color:#f92672>=</span>true;
-	}
-	Result.len<span style=color:#f92672>=</span>a.len;
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.len;i<span style=color:#f92672>++</span>)
-	{
-		<span style=color:#66d9ef>if</span>(a.v[i]<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>0</span>)
-		{
-			a.v[i]<span style=color:#f92672>+=</span><span style=color:#ae81ff>10</span>;
-			a.v[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>--</span>;
-		} 
-		<span style=color:#66d9ef>if</span>(a.v[i] <span style=color:#f92672>&lt;</span> b.v[i]<span style=color:#f92672>&amp;&amp;</span>i<span style=color:#f92672>&lt;</span>b.len)
-		{
-			a.v[i]<span style=color:#f92672>+=</span><span style=color:#ae81ff>10</span>;
-			a.v[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>--</span>;
-		}
-		<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>&lt;</span>b.len)
-		Result.v.push_back(a.v[i]<span style=color:#f92672>-</span>b.v[i]);
-		<span style=color:#66d9ef>else</span> Result.v.push_back(a.v[i]);
-	}
-	<span style=color:#66d9ef>while</span>(Result.v[Result.len<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span> <span style=color:#f92672>&amp;&amp;</span> Result.len <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>)
-	{
-		Result.v.pop_back();
-		Result.len<span style=color:#f92672>--</span>;
-	}
-	<span style=color:#66d9ef>return</span> Result;
-}
-
-BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>*</span> (BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>// 重载 &#34;*&#34;  定义 
-</span><span style=color:#75715e></span>{
-	BigNumber Result;
-	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
-	Result.len<span style=color:#f92672>=</span>a.len<span style=color:#f92672>+</span>b.len;
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>Result.len;i<span style=color:#f92672>++</span>) Result.v.push_back(<span style=color:#ae81ff>0</span>);
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.len;i<span style=color:#f92672>++</span>)
-	{
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;j<span style=color:#f92672>&lt;</span>b.len;j<span style=color:#f92672>++</span>)
-		{
-			Result.v[i<span style=color:#f92672>+</span>j]<span style=color:#f92672>+=</span>a.v[i]<span style=color:#f92672>*</span>b.v[j];
-			Result.v[i<span style=color:#f92672>+</span>j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+=</span>Result.v[i<span style=color:#f92672>+</span>j]<span style=color:#f92672>/</span><span style=color:#ae81ff>10</span>;
-			Result.v[i<span style=color:#f92672>+</span>j]<span style=color:#f92672>%=</span><span style=color:#ae81ff>10</span>;
-		}
-	}
-	<span style=color:#66d9ef>while</span>(Result.v[Result.v.size()<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span> <span style=color:#f92672>&amp;&amp;</span> Result.v.size() <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>)
-	{
-		Result.v.pop_back();
-	}
-	Result.len<span style=color:#f92672>=</span>Result.v.size();
-	<span style=color:#66d9ef>return</span> Result;
-}
-
-BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>/</span> (BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>// 重载 &#34;/&#34; 定义 
-</span><span style=color:#75715e></span>{
-	BigNumber Result;
-	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
-	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b<span style=color:#f92672>==</span><span style=color:#ae81ff>1</span>)
-	{
-		Result.v.push_back(<span style=color:#ae81ff>0</span>);
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.v.size();i<span style=color:#f92672>++</span>)
-		{
-			Result.m.push_back(a.v[i]);
-		}
-		<span style=color:#66d9ef>return</span> Result;
-	}
-	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b<span style=color:#f92672>==-</span><span style=color:#ae81ff>1</span>)
-	{
-		Result.v.push_back(<span style=color:#ae81ff>1</span>);
-		Result.m.push_back(<span style=color:#ae81ff>0</span>);
-		Result.len<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;
-	}
-	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>)
-	{
-		<span style=color:#66d9ef>int</span> size <span style=color:#f92672>=</span> a.len<span style=color:#f92672>-</span>b.len;
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>size;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>--</span>)
-		{
-			BigNumber <span style=color:#a6e22e>p</span>(b);
-			<span style=color:#66d9ef>int</span> cnt<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
-			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>i;j<span style=color:#f92672>++</span>)
-			{
-				p.v.insert(p.v.begin(),<span style=color:#ae81ff>0</span>);
-			}
-			p.len <span style=color:#f92672>=</span> p.v.size();
-			<span style=color:#66d9ef>while</span>((a<span style=color:#f92672>-</span>p).flag<span style=color:#f92672>==</span>false)
-			{
-				a<span style=color:#f92672>=</span>a<span style=color:#f92672>-</span>p;
-				cnt<span style=color:#f92672>++</span>;
-			}
-			<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>==</span>size)
-			{
-				<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>size;j<span style=color:#f92672>++</span>)
-				{
-					Result.v.push_back(<span style=color:#ae81ff>0</span>);
-				}
-				Result.v.push_back(cnt);
-			}
-			<span style=color:#66d9ef>else</span>
-			{
-				Result.v[i] <span style=color:#f92672>=</span> cnt;
-			}
-		}
-		<span style=color:#66d9ef>while</span>(Result.v[Result.v.size()<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span> <span style=color:#f92672>&amp;&amp;</span> Result.v.size() <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>)
-		{
-			Result.v.pop_back();
-		}
-		Result.len<span style=color:#f92672>=</span>Result.v.size();
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.v.size();i<span style=color:#f92672>++</span>)
-		{
-			Result.m.push_back(a.v[i]);
-		}
-	}
-	<span style=color:#66d9ef>return</span> Result;
-}
-BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>%</span> (BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>//重载 &#34;%&#34; 定义 
-</span><span style=color:#75715e></span>{
-	BigNumber Result;
-	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
-	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b)
-	{
-		Result.v.push_back(<span style=color:#ae81ff>0</span>);
-		<span style=color:#66d9ef>return</span> Result;
-	}
-	<span style=color:#66d9ef>else</span>
-	{
-		<span style=color:#66d9ef>int</span> size <span style=color:#f92672>=</span> a.len<span style=color:#f92672>-</span>b.len;
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>size;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>--</span>)
-		{
-			BigNumber <span style=color:#a6e22e>p</span>(b);
-			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>i;j<span style=color:#f92672>++</span>)
-			{
-				p.v.insert(p.v.begin(),<span style=color:#ae81ff>0</span>);
-			}
-			p.len <span style=color:#f92672>=</span> p.v.size();
-			<span style=color:#66d9ef>while</span>((a<span style=color:#f92672>-</span>p).flag<span style=color:#f92672>==</span>false)
-			{
-				a<span style=color:#f92672>=</span>a<span style=color:#f92672>-</span>p;
-			}
-		}
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.v.size();i<span style=color:#f92672>++</span>)
-		{
-			Result.v.push_back(a.v[i]);
-		}
-	}
-	<span style=color:#66d9ef>return</span> Result;
-} 
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-{
-<span style=color:#75715e>//	freopen(&#34;test.in&#34;,&#34;r&#34;,stdin);
-</span><span style=color:#75715e>//	freopen(&#34;test.out&#34;,&#34;w&#34;,stdout);
-</span><span style=color:#75715e></span>	string s1,s2;
-	cin<span style=color:#f92672>&gt;&gt;</span>s1<span style=color:#f92672>&gt;&gt;</span>s2;
-	BigNumber a,b,c,e,f,k,j;
-	a<span style=color:#f92672>=</span>s1,b<span style=color:#f92672>=</span>s2;
-	e<span style=color:#f92672>=</span>s1,f<span style=color:#f92672>=</span>s2;
-	k<span style=color:#f92672>=</span>s1,j<span style=color:#f92672>=</span>s2;
-	c<span style=color:#f92672>=</span>a<span style=color:#f92672>+</span>b;
-	c.print();
-	c<span style=color:#f92672>=</span>a<span style=color:#f92672>-</span>b;
-	c.print();
-	c<span style=color:#f92672>=</span>k<span style=color:#f92672>*</span>j;
-	c.print();
-	c<span style=color:#f92672>=</span>e<span style=color:#f92672>%</span>f;
-	c.print();
-	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-}
-</code></pre></div>
-</div>
-<footer>
-<script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=preferred-color-scheme crossorigin=anonymous async></script>
-</footer>
-</article>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:!0},{left:'$',right:'$',display:!1},{left:'\\(',right:'\\)',display:!1},{left:'\\[',right:'\\]',display:!0}]})"></script>
-</section>
-</div>
-<footer class=footer>
-<section class=container>
-<a href=http://beian.miit.gov.cn/ target=_blank> 鲁ICP备2020034310号</a>
-</br>
-©
+<span class=tag><a href=/tags/%E5%A4%A7%E6%95%B0%E7%B1%BB/>大数类</a></span></div></div></header><div><h1 id=c大数类设计思路>C++大数类设计思路
+<a class=heading-link href=#c%e5%a4%a7%e6%95%b0%e7%b1%bb%e8%ae%be%e8%ae%a1%e6%80%9d%e8%b7%af><i class="fa fa-link" aria-hidden=true></i></a></h1><h3 id=洛谷大数类httpswwwluogucomcnproblemu111551的评测结果开了氧气优化><a href=https://www.luogu.com.cn/problem/U111551>洛谷大数类</a>的评测结果(开了氧气优化)
+<a class=heading-link href=#%e6%b4%9b%e8%b0%b7%e5%a4%a7%e6%95%b0%e7%b1%bbhttpswwwluogucomcnproblemu111551%e7%9a%84%e8%af%84%e6%b5%8b%e7%bb%93%e6%9e%9c%e5%bc%80%e4%ba%86%e6%b0%a7%e6%b0%94%e4%bc%98%e5%8c%96><i class="fa fa-link" aria-hidden=true></i></a></h3><p><img src=https://www.zzsqwq.cn/usr/uploads/2020/08/4200651250.png alt=BigNumber.png></p><p><strong>这个第四个点真的优化不过去了QAQ，24W的数据，<del>丧心病狂</del></strong></p><h3 id=整体构思>整体构思
+<a class=heading-link href=#%e6%95%b4%e4%bd%93%e6%9e%84%e6%80%9d><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 构造大数类名为 <strong>BigNumber</strong> ,首先想法是用字符串读入大数，然后将其转化为vector数组倒序分位存储的整数，然后通过一个 <strong>len</strong> 来记录数字的位数，便于做运算。还设计了一个标记变量，用于标记这数为正数还是负数。</p><h3 id=构造函数>构造函数
+<a class=heading-link href=#%e6%9e%84%e9%80%a0%e5%87%bd%e6%95%b0><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 我用了两种构造函数，一个是无参构造函数，一个是拷贝构造函数，当然还有一个有参构造函数，但是实际过程中我没有用到。无参构造函数用于上述类成员的初始化，拷贝构造函数用于复制一个相同的大数类进行运算。有参构造函数可以用于对类成员的复制。</p><h3 id=重载运算符>重载运算符
+<a class=heading-link href=#%e9%87%8d%e8%bd%bd%e8%bf%90%e7%ae%97%e7%ac%a6><i class="fa fa-link" aria-hidden=true></i></a></h3><h4 id=重载->重载 &ldquo;+&rdquo;
+<a class=heading-link href=#%e9%87%8d%e8%bd%bd-><i class="fa fa-link" aria-hidden=true></i></a></h4><ul><li>首先在类中进行了声明, <code>BigNumber operator + (const BigNumber &b);</code> ，用当前类 *<strong>this</strong> 来和引入的类 <strong>b</strong> 进行加法运算，返回值为一个 <strong>BigNumber</strong> 类。</li><li>在类的外部进行重载的定义，先将用拷贝构造函数将当前的类 *<strong>this</strong> 拷贝为 <strong>a</strong> ，然后对 <strong>a</strong> 和 <strong>b</strong> 进行加法运算，模拟竖式，对应位相加，大于10则进位，最后去掉尾部的 0 即可。</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span>BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>+</span> (<span style=color:#66d9ef>const</span> BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>//重载 &#34;+&#34; 定义 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>	BigNumber Result;
+</span></span><span style=display:flex><span>	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span>	Result.len <span style=color:#f92672>=</span> max(a.len,b.len)<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>int</span> add<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>Result.len<span style=color:#f92672>||</span>add<span style=color:#f92672>!=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span> p<span style=color:#f92672>=</span>add;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>&lt;</span>a.len) p<span style=color:#f92672>+=</span>a.v[i];
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>&lt;</span>b.len) p<span style=color:#f92672>+=</span>b.v[i];
+</span></span><span style=display:flex><span>		add<span style=color:#f92672>=</span>p<span style=color:#f92672>/</span><span style=color:#ae81ff>10</span>;
+</span></span><span style=display:flex><span>		Result.v.push_back(p<span style=color:#f92672>%</span><span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>while</span>(Result.v[Result.v.size()<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span> <span style=color:#f92672>&amp;&amp;</span> Result.v.size() <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		Result.v.pop_back();
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	Result.len<span style=color:#f92672>=</span>Result.v.size();
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> Result;
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h4 id=重载--1>重载 &ldquo;&lt;&rdquo;
+<a class=heading-link href=#%e9%87%8d%e8%bd%bd--1><i class="fa fa-link" aria-hidden=true></i></a></h4><p>​ 因为进行减法前需要比较两个大数类的大小，我就先重载了 <strong>&lt;</strong> 。思路就是先比较<strong>a、b</strong>两个大数的长度，长的那个肯定比较大，如果两个长度相等。从尾部开始依次向前比较，如果不相等的话，就看两个数的相对大小，大的那个肯定整体比较大。如果总是相等，到了最后，就返回相应的值表示他们相等。<strong>这里我的返回值为int类型，用的标记是：如果两个相等，返回-1，如果前者小于后者，返回1，如果前者大于后者，返回0.</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#66d9ef>int</span>  BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>&lt;</span> (<span style=color:#66d9ef>const</span> BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>// 重载 &#34;&lt;&#34; 定义 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
+</span></span><span style=display:flex><span>	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span>	
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(a.len <span style=color:#f92672>&lt;</span> b.len) <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(a.len <span style=color:#f92672>&gt;</span> b.len) <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>	
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>a.len<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>--</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(a.v[i]<span style=color:#f92672>!=</span>b.v[i])
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> a.v[i] <span style=color:#f92672>&lt;</span> b.v[i];
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h4 id=重载-->重载 &ldquo;-&rdquo;
+<a class=heading-link href=#%e9%87%8d%e8%bd%bd--><i class="fa fa-link" aria-hidden=true></i></a></h4><ul><li>首先在类中进行了声明, <code>BigNumber operator - (BigNumber &b);</code> ，用当前类 *<strong>this</strong> 来和引入的类 <strong>b</strong> 进行减法运算，返回值为一个 <strong>BigNumber</strong> 类。</li><li>在类的外部进行重载的定义，先将用拷贝构造函数将当前的类 *<strong>this</strong> 拷贝为 <strong>a</strong> ，然后对 <strong>a</strong> 和 <strong>b</strong> 进行减法运算。如果 <strong>a&lt;b</strong> ，那么我们就把 <strong>flag</strong> 设为 <strong>true</strong> ，标志得数为一个负数，然后用 <strong>swap</strong> 交换两个类，保证总是大数减小数。减法的话就是从前往后扫，对应位相减，如果不够减的就进行借位。如果借完位当前位置小于0了，那么就再向前借位。最后要去掉结尾多于的0.</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span>BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>-</span> (BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>// 重载 &#34;-&#34; 定义 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
+</span></span><span style=display:flex><span>	BigNumber Result;
+</span></span><span style=display:flex><span>	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b<span style=color:#f92672>==</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		swap(a,b);
+</span></span><span style=display:flex><span>		Result.flag<span style=color:#f92672>=</span>true;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	Result.len<span style=color:#f92672>=</span>a.len;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.len;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(a.v[i]<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			a.v[i]<span style=color:#f92672>+=</span><span style=color:#ae81ff>10</span>;
+</span></span><span style=display:flex><span>			a.v[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>--</span>;
+</span></span><span style=display:flex><span>		} 
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(a.v[i] <span style=color:#f92672>&lt;</span> b.v[i]<span style=color:#f92672>&amp;&amp;</span>i<span style=color:#f92672>&lt;</span>b.len)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			a.v[i]<span style=color:#f92672>+=</span><span style=color:#ae81ff>10</span>;
+</span></span><span style=display:flex><span>			a.v[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>--</span>;
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>&lt;</span>b.len)
+</span></span><span style=display:flex><span>		Result.v.push_back(a.v[i]<span style=color:#f92672>-</span>b.v[i]);
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>else</span> Result.v.push_back(a.v[i]);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>while</span>(Result.v[Result.len<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span> <span style=color:#f92672>&amp;&amp;</span> Result.len <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		Result.v.pop_back();
+</span></span><span style=display:flex><span>		Result.len<span style=color:#f92672>--</span>;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> Result;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h4 id=重载--2>重载 &ldquo;*&rdquo;
+<a class=heading-link href=#%e9%87%8d%e8%bd%bd--2><i class="fa fa-link" aria-hidden=true></i></a></h4><ul><li>首先在类中进行了声明, <code>BigNumber operator * (BigNumber &b);</code>，用当前类 *<strong>this</strong> 来和引入的类 <strong>b</strong> 进行乘法运算，返回值为一个 <strong>BigNumber</strong> 类。</li><li>在类的外部进行重载的定义，先将用拷贝构造函数将当前的类 *<strong>this</strong> 拷贝为 <strong>a</strong> ，然后对 <strong>a</strong> 和 <strong>b</strong> 进行乘法运算。乘法也是模拟竖式运算，两个位数相乘对应的得数中的哪一位不难发现，因此只需要边乘边进位即可，一开始想的是所有乘完之后再进位，后来想了想运算的次序不会影响除和模的运算，所以就可以边乘边取商和模，可以少掉两层循环。算是一个小小的优化。最后要去掉结尾多于的0.</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span>BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>*</span> (BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>// 重载 &#34;*&#34;  定义 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
+</span></span><span style=display:flex><span>	BigNumber Result;
+</span></span><span style=display:flex><span>	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span>	Result.len<span style=color:#f92672>=</span>a.len<span style=color:#f92672>+</span>b.len;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>Result.len;i<span style=color:#f92672>++</span>) Result.v.push_back(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.len;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;j<span style=color:#f92672>&lt;</span>b.len;j<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			Result.v[i<span style=color:#f92672>+</span>j]<span style=color:#f92672>+=</span>a.v[i]<span style=color:#f92672>*</span>b.v[j];
+</span></span><span style=display:flex><span>			Result.v[i<span style=color:#f92672>+</span>j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+=</span>Result.v[i<span style=color:#f92672>+</span>j]<span style=color:#f92672>/</span><span style=color:#ae81ff>10</span>;
+</span></span><span style=display:flex><span>			Result.v[i<span style=color:#f92672>+</span>j]<span style=color:#f92672>%=</span><span style=color:#ae81ff>10</span>;
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>while</span>(Result.v[Result.v.size()<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span> <span style=color:#f92672>&amp;&amp;</span> Result.v.size() <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		Result.v.pop_back();
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	Result.len<span style=color:#f92672>=</span>Result.v.size();
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> Result;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h4 id=重载---1>重载 &ldquo;/&rdquo;
+<a class=heading-link href=#%e9%87%8d%e8%bd%bd---1><i class="fa fa-link" aria-hidden=true></i></a></h4><ul><li><p>首先在类中进行了声明,<code>BigNumber operator / (BigNumber &b);</code>，用当前类 *<strong>this</strong> 来和引入的类 <strong>b</strong> 进行除法运算，返回值为一个 <strong>BigNumber</strong> 类。</p></li><li><p>在类的外部进行重载的定义，先将用拷贝构造函数将当前的类 *<strong>this</strong> 拷贝为 <strong>a</strong> ，然后对 <strong>a</strong> 和 <strong>b</strong> 进行除法法运算。我选择了做除法的时候大数类中同时存储商和余数，这样可以加快效率，因为我自己的想法是把除法和取模一起处理，求得商的同时，模也能求出来。因此他们的框架肯定是相差无几的，所以我选择了一次性算出来两个，在大数类中用两个vector数组分别存商和余数，求商和余数我用的是减法的策略，分下面三种情况来讨论</p><ul><li><strong>a&lt;b</strong> ：很显然商为0，余数为a。</li><li><strong>a==b</strong> ：很显然商为1，余数为0。</li><li><strong>a>b</strong> ：这个是最难处理的，我们想想一下模拟除法的竖式运算，先在b的后面填0，让a和b的位数相同，然后再一直对a进行减法运算，将得到的数排列起来即可。里面细节还是挺多的，具体的看代码。最后要去掉结尾多于的0.</li></ul></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span>BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>/</span> (BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>// 重载 &#34;/&#34; 定义 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
+</span></span><span style=display:flex><span>	BigNumber Result;
+</span></span><span style=display:flex><span>	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b<span style=color:#f92672>==</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		Result.v.push_back(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.v.size();i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			Result.m.push_back(a.v[i]);
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> Result;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b<span style=color:#f92672>==-</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		Result.v.push_back(<span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>		Result.m.push_back(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>		Result.len<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span> size <span style=color:#f92672>=</span> a.len<span style=color:#f92672>-</span>b.len;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>size;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>--</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			BigNumber <span style=color:#a6e22e>p</span>(b);
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>int</span> cnt<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>i;j<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				p.v.insert(p.v.begin(),<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>			p.len <span style=color:#f92672>=</span> p.v.size();
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>while</span>((a<span style=color:#f92672>-</span>p).flag<span style=color:#f92672>==</span>false)
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				a<span style=color:#f92672>=</span>a<span style=color:#f92672>-</span>p;
+</span></span><span style=display:flex><span>				cnt<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>==</span>size)
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>size;j<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>				{
+</span></span><span style=display:flex><span>					Result.v.push_back(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>				}
+</span></span><span style=display:flex><span>				Result.v.push_back(cnt);
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				Result.v[i] <span style=color:#f92672>=</span> cnt;
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>while</span>(Result.v[Result.v.size()<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span> <span style=color:#f92672>&amp;&amp;</span> Result.v.size() <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			Result.v.pop_back();
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		Result.len<span style=color:#f92672>=</span>Result.v.size();
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.v.size();i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			Result.m.push_back(a.v[i]);
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> Result;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h4 id=重载--3>重载 &ldquo;%&rdquo;
+<a class=heading-link href=#%e9%87%8d%e8%bd%bd--3><i class="fa fa-link" aria-hidden=true></i></a></h4><p>​ 这个和除法的类似，我们除法的其实已经求出来模了，这个只是象征性的搞一搞。QAQ。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span>BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>%</span> (BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>//重载 &#34;%&#34; 定义 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
+</span></span><span style=display:flex><span>	BigNumber Result;
+</span></span><span style=display:flex><span>	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		Result.v.push_back(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> Result;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span> size <span style=color:#f92672>=</span> a.len<span style=color:#f92672>-</span>b.len;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>size;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>--</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			BigNumber <span style=color:#a6e22e>p</span>(b);
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>i;j<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				p.v.insert(p.v.begin(),<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>			p.len <span style=color:#f92672>=</span> p.v.size();
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>while</span>((a<span style=color:#f92672>-</span>p).flag<span style=color:#f92672>==</span>false)
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				a<span style=color:#f92672>=</span>a<span style=color:#f92672>-</span>p;
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.v.size();i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			Result.v.push_back(a.v[i]);
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> Result;
+</span></span><span style=display:flex><span>} 
+</span></span></code></pre></div><h3 id=其中遇到的问题>其中遇到的问题
+<a class=heading-link href=#%e5%85%b6%e4%b8%ad%e9%81%87%e5%88%b0%e7%9a%84%e9%97%ae%e9%a2%98><i class="fa fa-link" aria-hidden=true></i></a></h3><ul><li>在做减法的时候，会出现莫名奇怪的数据，后来发现是由于访问b数组的时候越界，而且vector数组的clear只是将数组的size置为了0，而不是将所有数据都莫抹除，而且vector通过下标访问越界还不会报错，我整个人都傻了，调了巨长时间。</li><li>在做除法的时候，一度自闭。本来是只是一直减，这样效率真的巨tm慢。后来想到了用这个办法好像可以优化到 log 级别的，但是好难调试啊。。从昨天下午一直搞到现在。</li><li>因为swap这个东西，好像会影响到类的源数据，所以我就多定义了几个数，分别对他们进行操作，这样就不会相互影响，虽然看起来挺丑的。</li></ul><h3 id=整体的代码实现>整体的代码实现
+<a class=heading-link href=#%e6%95%b4%e4%bd%93%e7%9a%84%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>/*
+</span></span></span><span style=display:flex><span><span style=color:#75715e>	Name: BigNumber Class
+</span></span></span><span style=display:flex><span><span style=color:#75715e>	Copyright: Zs
+</span></span></span><span style=display:flex><span><span style=color:#75715e>	Author: Zs
+</span></span></span><span style=display:flex><span><span style=color:#75715e>	Date: 04/04/20 09:08
+</span></span></span><span style=display:flex><span><span style=color:#75715e>	Description: A BigNumber Class
+</span></span></span><span style=display:flex><span><span style=color:#75715e>*/</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;vector&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>BigNumber</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>private</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>		vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> v; <span style=color:#75715e>// 和，差，积，商 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>		vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span> m; <span style=color:#75715e>// 余数，当无余数的时候 size 为0 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>		<span style=color:#66d9ef>int</span> len;  <span style=color:#75715e>// 数字的长度 = v.size() 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>		<span style=color:#66d9ef>bool</span> flag; <span style=color:#75715e>//是否为负数的标志 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#66d9ef>public</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>		BigNumber();<span style=color:#75715e>//无参构造函数 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>		BigNumber(string s)  <span style=color:#75715e>//带参数的构造函数 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>		{
+</span></span><span style=display:flex><span>			<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span><span style=color:#f92672>=</span>s;
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		BigNumber(<span style=color:#66d9ef>const</span> BigNumber <span style=color:#f92672>&amp;</span>); <span style=color:#75715e>// 拷贝构造函数 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>		BigNumber <span style=color:#66d9ef>operator</span> <span style=color:#f92672>=</span> (<span style=color:#66d9ef>const</span> string s);  <span style=color:#75715e>// 重载 &#34;=&#34; 声明 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>		BigNumber <span style=color:#66d9ef>operator</span> <span style=color:#f92672>=</span> (<span style=color:#66d9ef>int</span> k);  <span style=color:#75715e>// 重载输入的数为整型的时候的 &#34;=&#34; 声明
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>		
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span> <span style=color:#66d9ef>operator</span> <span style=color:#f92672>&lt;</span> (<span style=color:#66d9ef>const</span> BigNumber <span style=color:#f92672>&amp;</span>b);  <span style=color:#75715e>// 重载 &#34;&lt;&#34; 声明 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>		BigNumber <span style=color:#66d9ef>operator</span> <span style=color:#f92672>+</span> (<span style=color:#66d9ef>const</span> BigNumber <span style=color:#f92672>&amp;</span>b); <span style=color:#75715e>// 重载 &#34;+&#34; 声明 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>		BigNumber <span style=color:#66d9ef>operator</span> <span style=color:#f92672>-</span> (BigNumber <span style=color:#f92672>&amp;</span>b); <span style=color:#75715e>// 重载 &#34;-&#34; 声明 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>		BigNumber <span style=color:#66d9ef>operator</span> <span style=color:#f92672>*</span> (BigNumber <span style=color:#f92672>&amp;</span>b);  <span style=color:#75715e>// 重载 &#34;*&#34; 声明 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>		BigNumber <span style=color:#66d9ef>operator</span> <span style=color:#f92672>/</span> (BigNumber <span style=color:#f92672>&amp;</span>b); <span style=color:#75715e>//重载 &#34;/&#34; 声明 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>		BigNumber <span style=color:#66d9ef>operator</span> <span style=color:#f92672>%</span> (BigNumber <span style=color:#f92672>&amp;</span>b); <span style=color:#75715e>//重载 &#34;%&#34; 声明 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>		
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>print</span>() <span style=color:#75715e>//输出函数 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>		{
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>if</span>(flag)
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				printf(<span style=color:#e6db74>&#34;-&#34;</span>);
+</span></span><span style=display:flex><span>				flag<span style=color:#f92672>=</span>false;
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>v.size()<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>--</span>) printf(<span style=color:#e6db74>&#34;%d&#34;</span>,v[i]);
+</span></span><span style=display:flex><span>			printf(<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>m.size()<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>--</span>) printf(<span style=color:#e6db74>&#34;%d&#34;</span>,m[i]);
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>BigNumber<span style=color:#f92672>::</span>BigNumber() <span style=color:#75715e>//无参构造函数 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
+</span></span><span style=display:flex><span>	v.clear();
+</span></span><span style=display:flex><span>	m.clear();
+</span></span><span style=display:flex><span>	len <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>	flag<span style=color:#f92672>=</span>false;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>BigNumber<span style=color:#f92672>::</span>BigNumber(<span style=color:#66d9ef>const</span> BigNumber <span style=color:#f92672>&amp;</span>T) <span style=color:#75715e>// 拷贝构造函数 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
+</span></span><span style=display:flex><span>	v.assign(T.v.begin(),T.v.end());
+</span></span><span style=display:flex><span>	len <span style=color:#f92672>=</span> T.len;
+</span></span><span style=display:flex><span>	flag <span style=color:#f92672>=</span> T.flag;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>=</span> (<span style=color:#66d9ef>const</span> string s) <span style=color:#75715e>// 重载 &#34;=&#34; 定义 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
+</span></span><span style=display:flex><span>	len <span style=color:#f92672>=</span> s.length();
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>len;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		v.push_back(s[len<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span><span style=color:#f92672>-</span>i]<span style=color:#f92672>-</span><span style=color:#e6db74>&#39;0&#39;</span>);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>=</span> (<span style=color:#66d9ef>int</span> k) <span style=color:#75715e>// 重载输入的数为整型的时候的 &#34;=&#34; 定义 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>while</span>(k)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		v.push_back(k<span style=color:#f92672>%</span><span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span>		k<span style=color:#f92672>/=</span><span style=color:#ae81ff>10</span>;
+</span></span><span style=display:flex><span>		len<span style=color:#f92672>++</span>; 
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	len<span style=color:#f92672>--</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span>  BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>&lt;</span> (<span style=color:#66d9ef>const</span> BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>// 重载 &#34;&lt;&#34; 定义 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
+</span></span><span style=display:flex><span>	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span>	
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(a.len <span style=color:#f92672>&lt;</span> b.len) <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(a.len <span style=color:#f92672>&gt;</span> b.len) <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>	
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>a.len<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>--</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(a.v[i]<span style=color:#f92672>!=</span>b.v[i])
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> a.v[i] <span style=color:#f92672>&lt;</span> b.v[i];
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>+</span> (<span style=color:#66d9ef>const</span> BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>//重载 &#34;+&#34; 定义 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
+</span></span><span style=display:flex><span>	
+</span></span><span style=display:flex><span>	BigNumber Result;
+</span></span><span style=display:flex><span>	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span>	Result.len <span style=color:#f92672>=</span> max(a.len,b.len)<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>int</span> add<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>Result.len<span style=color:#f92672>||</span>add<span style=color:#f92672>!=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span> p<span style=color:#f92672>=</span>add;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>&lt;</span>a.len) p<span style=color:#f92672>+=</span>a.v[i];
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>&lt;</span>b.len) p<span style=color:#f92672>+=</span>b.v[i];
+</span></span><span style=display:flex><span>		add<span style=color:#f92672>=</span>p<span style=color:#f92672>/</span><span style=color:#ae81ff>10</span>;
+</span></span><span style=display:flex><span>		Result.v.push_back(p<span style=color:#f92672>%</span><span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>while</span>(Result.v[Result.v.size()<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span> <span style=color:#f92672>&amp;&amp;</span> Result.v.size() <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		Result.v.pop_back();
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	Result.len<span style=color:#f92672>=</span>Result.v.size();
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> Result;
+</span></span><span style=display:flex><span>	
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>-</span> (BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>// 重载 &#34;-&#34; 定义 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
+</span></span><span style=display:flex><span>	BigNumber Result;
+</span></span><span style=display:flex><span>	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b<span style=color:#f92672>==</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		swap(a,b);
+</span></span><span style=display:flex><span>		Result.flag<span style=color:#f92672>=</span>true;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	Result.len<span style=color:#f92672>=</span>a.len;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.len;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(a.v[i]<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			a.v[i]<span style=color:#f92672>+=</span><span style=color:#ae81ff>10</span>;
+</span></span><span style=display:flex><span>			a.v[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>--</span>;
+</span></span><span style=display:flex><span>		} 
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(a.v[i] <span style=color:#f92672>&lt;</span> b.v[i]<span style=color:#f92672>&amp;&amp;</span>i<span style=color:#f92672>&lt;</span>b.len)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			a.v[i]<span style=color:#f92672>+=</span><span style=color:#ae81ff>10</span>;
+</span></span><span style=display:flex><span>			a.v[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>--</span>;
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>&lt;</span>b.len)
+</span></span><span style=display:flex><span>		Result.v.push_back(a.v[i]<span style=color:#f92672>-</span>b.v[i]);
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>else</span> Result.v.push_back(a.v[i]);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>while</span>(Result.v[Result.len<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span> <span style=color:#f92672>&amp;&amp;</span> Result.len <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		Result.v.pop_back();
+</span></span><span style=display:flex><span>		Result.len<span style=color:#f92672>--</span>;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> Result;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>*</span> (BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>// 重载 &#34;*&#34;  定义 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
+</span></span><span style=display:flex><span>	BigNumber Result;
+</span></span><span style=display:flex><span>	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span>	Result.len<span style=color:#f92672>=</span>a.len<span style=color:#f92672>+</span>b.len;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>Result.len;i<span style=color:#f92672>++</span>) Result.v.push_back(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.len;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;j<span style=color:#f92672>&lt;</span>b.len;j<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			Result.v[i<span style=color:#f92672>+</span>j]<span style=color:#f92672>+=</span>a.v[i]<span style=color:#f92672>*</span>b.v[j];
+</span></span><span style=display:flex><span>			Result.v[i<span style=color:#f92672>+</span>j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+=</span>Result.v[i<span style=color:#f92672>+</span>j]<span style=color:#f92672>/</span><span style=color:#ae81ff>10</span>;
+</span></span><span style=display:flex><span>			Result.v[i<span style=color:#f92672>+</span>j]<span style=color:#f92672>%=</span><span style=color:#ae81ff>10</span>;
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>while</span>(Result.v[Result.v.size()<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span> <span style=color:#f92672>&amp;&amp;</span> Result.v.size() <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		Result.v.pop_back();
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	Result.len<span style=color:#f92672>=</span>Result.v.size();
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> Result;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>/</span> (BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>// 重载 &#34;/&#34; 定义 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
+</span></span><span style=display:flex><span>	BigNumber Result;
+</span></span><span style=display:flex><span>	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b<span style=color:#f92672>==</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		Result.v.push_back(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.v.size();i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			Result.m.push_back(a.v[i]);
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> Result;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b<span style=color:#f92672>==-</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		Result.v.push_back(<span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>		Result.m.push_back(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>		Result.len<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span> size <span style=color:#f92672>=</span> a.len<span style=color:#f92672>-</span>b.len;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>size;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>--</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			BigNumber <span style=color:#a6e22e>p</span>(b);
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>int</span> cnt<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>i;j<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				p.v.insert(p.v.begin(),<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>			p.len <span style=color:#f92672>=</span> p.v.size();
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>while</span>((a<span style=color:#f92672>-</span>p).flag<span style=color:#f92672>==</span>false)
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				a<span style=color:#f92672>=</span>a<span style=color:#f92672>-</span>p;
+</span></span><span style=display:flex><span>				cnt<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>==</span>size)
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>size;j<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>				{
+</span></span><span style=display:flex><span>					Result.v.push_back(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>				}
+</span></span><span style=display:flex><span>				Result.v.push_back(cnt);
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				Result.v[i] <span style=color:#f92672>=</span> cnt;
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>while</span>(Result.v[Result.v.size()<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span> <span style=color:#f92672>&amp;&amp;</span> Result.v.size() <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			Result.v.pop_back();
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		Result.len<span style=color:#f92672>=</span>Result.v.size();
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.v.size();i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			Result.m.push_back(a.v[i]);
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> Result;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>BigNumber BigNumber<span style=color:#f92672>::</span><span style=color:#66d9ef>operator</span> <span style=color:#f92672>%</span> (BigNumber <span style=color:#f92672>&amp;</span>b) <span style=color:#75715e>//重载 &#34;%&#34; 定义 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
+</span></span><span style=display:flex><span>	BigNumber Result;
+</span></span><span style=display:flex><span>	BigNumber <span style=color:#a6e22e>a</span>(<span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span>b)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		Result.v.push_back(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> Result;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span> size <span style=color:#f92672>=</span> a.len<span style=color:#f92672>-</span>b.len;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>size;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>--</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			BigNumber <span style=color:#a6e22e>p</span>(b);
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>i;j<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				p.v.insert(p.v.begin(),<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>			p.len <span style=color:#f92672>=</span> p.v.size();
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>while</span>((a<span style=color:#f92672>-</span>p).flag<span style=color:#f92672>==</span>false)
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				a<span style=color:#f92672>=</span>a<span style=color:#f92672>-</span>p;
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;</span>a.v.size();i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			Result.v.push_back(a.v[i]);
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> Result;
+</span></span><span style=display:flex><span>} 
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span><span style=color:#75715e>//	freopen(&#34;test.in&#34;,&#34;r&#34;,stdin);
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//	freopen(&#34;test.out&#34;,&#34;w&#34;,stdout);
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	string s1,s2;
+</span></span><span style=display:flex><span>	cin<span style=color:#f92672>&gt;&gt;</span>s1<span style=color:#f92672>&gt;&gt;</span>s2;
+</span></span><span style=display:flex><span>	BigNumber a,b,c,e,f,k,j;
+</span></span><span style=display:flex><span>	a<span style=color:#f92672>=</span>s1,b<span style=color:#f92672>=</span>s2;
+</span></span><span style=display:flex><span>	e<span style=color:#f92672>=</span>s1,f<span style=color:#f92672>=</span>s2;
+</span></span><span style=display:flex><span>	k<span style=color:#f92672>=</span>s1,j<span style=color:#f92672>=</span>s2;
+</span></span><span style=display:flex><span>	c<span style=color:#f92672>=</span>a<span style=color:#f92672>+</span>b;
+</span></span><span style=display:flex><span>	c.print();
+</span></span><span style=display:flex><span>	c<span style=color:#f92672>=</span>a<span style=color:#f92672>-</span>b;
+</span></span><span style=display:flex><span>	c.print();
+</span></span><span style=display:flex><span>	c<span style=color:#f92672>=</span>k<span style=color:#f92672>*</span>j;
+</span></span><span style=display:flex><span>	c.print();
+</span></span><span style=display:flex><span>	c<span style=color:#f92672>=</span>e<span style=color:#f92672>%</span>f;
+</span></span><span style=display:flex><span>	c.print();
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div><footer><script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=preferred-color-scheme crossorigin=anonymous async></script></footer></article><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})'></script></section></div><footer class=footer><section class=container><a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></br>©
 2019 -
 2022
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
-</section>
-</footer>
-</main>
-<script src=/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.f453d26c79f010446cf0d9770197f77de32c07b7a5512d141a286247fe154a22.js integrity="sha256-9FPSbHnwEERs8Nl3AZf3feMsB7elUS0UGihiR/4VSiI="></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6EM6V1PVC"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-Z6EM6V1PVC',{anonymize_ip:!1})}</script>
-</body>
-</html>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-Z6EM6V1PVC",{anonymize_ip:!1})}</script></body></html>

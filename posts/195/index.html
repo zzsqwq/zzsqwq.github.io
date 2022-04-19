@@ -1,277 +1,118 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=content-language content="en">
-<meta name=color-scheme content="light dark">
-<meta name=author content="zzsqwq">
-<meta name=description content="问题描述    ​	Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=content-language content="en"><meta name=color-scheme content="light dark"><meta name=author content="zzsqwq"><meta name=description content="问题描述    ​	Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题
 解决方案    ​	首先我们根据上文的启示，因为每一个应用程序对应了一个 xxx.desktop 文件，因此在应用库中的QQ一定也有一个对应的 desktop 文件
 ​	我们进入到 /usr/share/applications ，运行
 $ ls | grep -i qq ​	可以发现其中有一个名为 deepin.com.qq.im.desktop 的文件，我们打开后发现内容如下：
 #!/usr/bin/env xdg-open  [Desktop Entry] Encoding=UTF-8 Type=Application X-Created-By=Deepin WINE Team Categories=chat; Icon=deepin.com.qq.im Exec=&#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&#34; -u %u Name=QQ Name[zh_CN]=QQ Comment=Tencent QQ Client on Deepin Wine StartupWMClass=QQ.exe MimeType= ​	可以看到Exec那一栏为 Exec=&#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&#34; -u %u ，发现他是运行目录下的一个 run.sh 脚本来启动的。
 ​	我们进入目录下直接运行该脚本，查看log信息：
-base ❯ .">
-<meta name=keywords content="blog,developer,personal">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="deepin-wine-qq-9.1.8版本无法正常启动的解决方案">
-<meta name=twitter:description content="问题描述    ​	Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题
+base ❯ ."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="deepin-wine-qq-9.1.8版本无法正常启动的解决方案"><meta name=twitter:description content="问题描述    ​	Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题
 解决方案    ​	首先我们根据上文的启示，因为每一个应用程序对应了一个 xxx.desktop 文件，因此在应用库中的QQ一定也有一个对应的 desktop 文件
 ​	我们进入到 /usr/share/applications ，运行
 $ ls | grep -i qq ​	可以发现其中有一个名为 deepin.com.qq.im.desktop 的文件，我们打开后发现内容如下：
 #!/usr/bin/env xdg-open  [Desktop Entry] Encoding=UTF-8 Type=Application X-Created-By=Deepin WINE Team Categories=chat; Icon=deepin.com.qq.im Exec=&#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&#34; -u %u Name=QQ Name[zh_CN]=QQ Comment=Tencent QQ Client on Deepin Wine StartupWMClass=QQ.exe MimeType= ​	可以看到Exec那一栏为 Exec=&#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&#34; -u %u ，发现他是运行目录下的一个 run.sh 脚本来启动的。
 ​	我们进入目录下直接运行该脚本，查看log信息：
-base ❯ .">
-<meta property="og:title" content="deepin-wine-qq-9.1.8版本无法正常启动的解决方案">
-<meta property="og:description" content="问题描述    ​	Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题
+base ❯ ."><meta property="og:title" content="deepin-wine-qq-9.1.8版本无法正常启动的解决方案"><meta property="og:description" content="问题描述    ​	Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题
 解决方案    ​	首先我们根据上文的启示，因为每一个应用程序对应了一个 xxx.desktop 文件，因此在应用库中的QQ一定也有一个对应的 desktop 文件
 ​	我们进入到 /usr/share/applications ，运行
 $ ls | grep -i qq ​	可以发现其中有一个名为 deepin.com.qq.im.desktop 的文件，我们打开后发现内容如下：
 #!/usr/bin/env xdg-open  [Desktop Entry] Encoding=UTF-8 Type=Application X-Created-By=Deepin WINE Team Categories=chat; Icon=deepin.com.qq.im Exec=&#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&#34; -u %u Name=QQ Name[zh_CN]=QQ Comment=Tencent QQ Client on Deepin Wine StartupWMClass=QQ.exe MimeType= ​	可以看到Exec那一栏为 Exec=&#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&#34; -u %u ，发现他是运行目录下的一个 run.sh 脚本来启动的。
 ​	我们进入目录下直接运行该脚本，查看log信息：
-base ❯ .">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://www.zzsqwq.cn/posts/195/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-06-16T01:38:00+00:00">
-<meta property="article:modified_time" content="2021-06-16T01:38:00+00:00">
-<title>
-deepin-wine-qq-9.1.8版本无法正常启动的解决方案 · Zs's Blog
-</title>
-<link rel=canonical href=https://www.zzsqwq.cn/posts/195/>
-<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen>
-<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
-<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
-<meta name=generator content="Hugo 0.92.1">
-</head>
-<body class="preload-transitions colorscheme-auto">
-<div class=float-container>
-<a id=dark-mode-toggle class=colorscheme-toggle>
-<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
-</a>
-</div>
-<main class=wrapper>
-<nav class=navigation>
-<section class=container>
-<a class=navigation-title href=/>
-Zs's Blog
-</a>
+base ❯ ."><meta property="og:type" content="article"><meta property="og:url" content="https://www.zzsqwq.cn/posts/195/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-06-16T01:38:00+00:00"><meta property="article:modified_time" content="2021-06-16T01:38:00+00:00"><title>deepin-wine-qq-9.1.8版本无法正常启动的解决方案 · Zs's Blog</title><link rel=canonical href=https://www.zzsqwq.cn/posts/195/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><meta name=generator content="Hugo 0.97.3"></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Zs's Blog</a>
 <input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle>
-<i class="fa fa-bars fa-fw" aria-hidden=true></i>
-</label>
-<ul class=navigation-list>
-<li class=navigation-item>
-<a class=navigation-link href=/about/>About</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/posts/>Blog</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/projects/>Projects</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/friends/>Friends</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/contact/>Contact Me</a>
-</li>
-</ul>
-</section>
-</nav>
-<div class=content>
-<section class="container post">
-<article>
-<header>
-<div class=post-title>
-<h1 class=title>
-<a class=title-link href=https://www.zzsqwq.cn/posts/195/>
-deepin-wine-qq-9.1.8版本无法正常启动的解决方案
-</a>
-</h1>
-</div>
-<div class=post-meta>
-<div class=date>
-<span class=posted-on>
-<i class="fa fa-calendar" aria-hidden=true></i>
-<time datetime=2021-06-16T01:38:00Z>
-June 16, 2021
-</time>
-</span>
-<span class=reading-time>
-<i class="fa fa-clock-o" aria-hidden=true></i>
-4-minute read
-</span>
-</div>
-<div class=categories>
-<i class="fa fa-folder" aria-hidden=true></i>
-<a href=/categories/ubuntu/>Ubuntu</a></div>
-<div class=tags>
-<i class="fa fa-tag" aria-hidden=true></i>
-<span class=tag>
-<a href=/tags/ubuntu/>ubuntu</a>
-</span>
+<label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/about/>About</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/friends/>Friends</a></li><li class=navigation-item><a class=navigation-link href=/contact/>Contact Me</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://www.zzsqwq.cn/posts/195/>deepin-wine-qq-9.1.8版本无法正常启动的解决方案</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2021-06-16T01:38:00Z>June 16, 2021</time></span>
+<span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>
+4-minute read</span></div><div class=categories><i class="fa fa-folder" aria-hidden=true></i>
+<a href=/categories/ubuntu/>Ubuntu</a></div><div class=tags><i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/ubuntu/>ubuntu</a></span>
 <span class=separator>•</span>
-<span class=tag>
-<a href=/tags/qq/>QQ</a>
-</span>
+<span class=tag><a href=/tags/qq/>QQ</a></span>
 <span class=separator>•</span>
-<span class=tag>
-<a href=/tags/steam/>steam</a>
-</span></div>
-</div>
-</header>
-<div>
-<h3 id=问题描述>
-问题描述
-<a class=heading-link href=#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题</p>
-<h3 id=解决方案>
-解决方案
-<a class=heading-link href=#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 首先我们根据上文的启示，因为每一个应用程序对应了一个 <code>xxx.desktop</code> 文件，因此在应用库中的QQ一定也有一个对应的 <code>desktop</code> 文件</p>
-<p><img src=https://www.zzsqwq.cn/usr/uploads/2021/06/75817321.png alt=QQ的启动方式></p>
-<p>​ 我们进入到 <code>/usr/share/applications</code> ，运行</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ ls | grep -i qq
-</code></pre></div><p>​ 可以发现其中有一个名为 <code>deepin.com.qq.im.desktop</code> 的文件，我们打开后发现内容如下：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#75715e>#!/usr/bin/env xdg-open
-</span><span style=color:#75715e></span>
-<span style=color:#f92672>[</span>Desktop Entry<span style=color:#f92672>]</span>
-Encoding<span style=color:#f92672>=</span>UTF-8
-Type<span style=color:#f92672>=</span>Application
-X-Created-By<span style=color:#f92672>=</span>Deepin WINE Team
-Categories<span style=color:#f92672>=</span>chat;
-Icon<span style=color:#f92672>=</span>deepin.com.qq.im
-Exec<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&#34;</span> -u %u
-Name<span style=color:#f92672>=</span>QQ
-Name<span style=color:#f92672>[</span>zh_CN<span style=color:#f92672>]=</span>QQ
-Comment<span style=color:#f92672>=</span>Tencent QQ Client on Deepin Wine
-StartupWMClass<span style=color:#f92672>=</span>QQ.exe
-MimeType<span style=color:#f92672>=</span>
-</code></pre></div><p>​ 可以看到Exec那一栏为 <code>Exec="/opt/deepinwine/apps/Deepin-QQ/run.sh" -u %u</code> ，发现他是运行目录下的一个 <code>run.sh</code> 脚本来启动的。</p>
-<p>​ 我们进入目录下直接运行该脚本，查看log信息：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>base ❯ ./run.sh                   
-Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.exe
-run Deepin-QQ progress pid 
-Gtk-Message: 01:16:58.069: GtkDialog mapped without a transient parent. This is discouraged.
-total <span style=color:#ae81ff>0</span>
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>16</span> 01:16 c: -&gt; ../drive_c
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com1 -&gt; /dev/ttyS0
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com10 -&gt; /dev/ttyS9
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com11 -&gt; /dev/ttyS10
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com12 -&gt; /dev/ttyS11
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com13 -&gt; /dev/ttyS12
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com14 -&gt; /dev/ttyS13
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com15 -&gt; /dev/ttyS14
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com16 -&gt; /dev/ttyS15
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com17 -&gt; /dev/ttyS16
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com18 -&gt; /dev/ttyS17
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com19 -&gt; /dev/ttyS18
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com2 -&gt; /dev/ttyS1
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com20 -&gt; /dev/ttyS19
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com21 -&gt; /dev/ttyS20
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com22 -&gt; /dev/ttyS21
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com23 -&gt; /dev/ttyS22
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com24 -&gt; /dev/ttyS23
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com25 -&gt; /dev/ttyS24
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com26 -&gt; /dev/ttyS25
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com27 -&gt; /dev/ttyS26
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com28 -&gt; /dev/ttyS27
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com29 -&gt; /dev/ttyS28
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com3 -&gt; /dev/ttyS2
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com30 -&gt; /dev/ttyS29
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com31 -&gt; /dev/ttyS30
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com32 -&gt; /dev/ttyS31
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com4 -&gt; /dev/ttyS3
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com5 -&gt; /dev/ttyS4
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com6 -&gt; /dev/ttyS5
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com7 -&gt; /dev/ttyS6
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com8 -&gt; /dev/ttyS7
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com9 -&gt; /dev/ttyS8
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs  <span style=color:#ae81ff>8</span> 6月  <span style=color:#ae81ff>16</span> 01:16 y: -&gt; /home/zs
-lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs  <span style=color:#ae81ff>1</span> 6月  <span style=color:#ae81ff>16</span> 01:16 z: -&gt; /
-CallApp Deepin-QQ c:/Program Files/Tencent/QQ/Bin/QQ.exe
-2021年 06月 16日 星期三 01:16:58 CST:kill QQ.exe block
-2021年 06月 16日 星期三 01:16:58 CST:No wine process found
-/home/zs/.deepinwine/Deepin-QQ/drive_c/Program Files/Tencent/QQ/Bin
-Starting process c:/Program Files/Tencent/QQ/Bin/QQ.exe ...
-
-/opt/deepinwine/apps/Deepin-QQ
-base ❯ wine: cannot find L<span style=color:#e6db74>&#34;C:\\windows\\system32\\winemenubuilder.exe&#34;</span>
-wine version: 2.18
-libGL error: No matching fbConfigs or visuals found
-libGL error: failed to load driver: swrast
-X Error of failed request:  GLXBadContext
-  Major opcode of failed request:  <span style=color:#ae81ff>152</span> <span style=color:#f92672>(</span>GLX<span style=color:#f92672>)</span>
-  Minor opcode of failed request:  <span style=color:#ae81ff>6</span> <span style=color:#f92672>(</span>X_GLXIsDirect<span style=color:#f92672>)</span>
-  Serial number of failed request:  <span style=color:#ae81ff>207</span>
-  Current serial number in output stream:  <span style=color:#ae81ff>206</span>
-</code></pre></div><p>​ 可以发现最下面的log信息有一些异常，首先第一行是因为我们是Ubuntu系统，可以暂且不关注</p>
-<p>​ 接下来可以看到有一个LibGL的错误，我们通过Google搜索</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>libGL error: No matching fbConfigs or visuals found
-libGL error: failed to load driver: swrast
-X Error of failed request:  GLXBadContext
-  Major opcode of failed request:  <span style=color:#ae81ff>152</span> <span style=color:#f92672>(</span>GLX<span style=color:#f92672>)</span>
-  Minor opcode of failed request:  <span style=color:#ae81ff>6</span> <span style=color:#f92672>(</span>X_GLXIsDirect<span style=color:#f92672>)</span>
-  Serial number of failed request:  <span style=color:#ae81ff>207</span>
-  Current serial number in output stream:  <span style=color:#ae81ff>206</span>
-</code></pre></div><p>​ 发现类似的错误及解决方案如下：</p>
-<ul>
-<li>
-<p><a href="https://bbs.archlinux.org/viewtopic.php?id=255385">SOLVED] LibGL errors with osu! and wine</a></p>
-</li>
-<li>
-<p><a href=https://askubuntu.com/questions/834254/steam-libgl-error-no-matching-fbconfigs-or-visuals-found-libgl-error-failed-t>Steam: libGL error: No matching fbConfigs or visuals found libGL error: failed to load driver: swrast</a></p>
-</li>
-</ul>
-<p>​ 从搜索结果来看，这个问题还是非常常见的，用steam也会遇到，一般都是因为电脑安装了64位的NVIDIA显卡驱动，但是因为应用是32位的导致不能兼容，因此无法启动</p>
-<p>​ 最终解决方案有两个</p>
-<ul>
-<li>如果是不常用NVIDIA驱动的人，普通的办公一下，可以搜索网上教程关闭独显，只启用集显，可以发现QQ可以正常启动，</li>
-<li>重新安装32位的NVIDIA驱动</li>
-</ul>
-<h3 id=最后>
-最后
-<a class=heading-link href=#%e6%9c%80%e5%90%8e>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 虽然已经知道了解决方案，但是最终我还是选择卸载掉QQ，安装了wine版本的TIM，感觉和QQ没什么区别，而且更加简洁，而且可以流畅运行，没有N卡兼容问题！大家可以考虑一下~</p>
-<p>​ 而且QQ和TIM某些情况下会出现bug，字体全部变为方块，在 deepin-wine-ubuntu 的 <a href=https://github.com/wszqkzqk/deepin-wine-ubuntu/issues>Issues</a> 中找到了解决方案 <a href=https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/253>Ubuntu 安装QQ后中文方块解决方法</a> ，大家有同样困扰的也可以看一下~</p>
-</div>
-<footer>
-<script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=preferred-color-scheme crossorigin=anonymous async></script>
-</footer>
-</article>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:!0},{left:'$',right:'$',display:!1},{left:'\\(',right:'\\)',display:!1},{left:'\\[',right:'\\]',display:!0}]})"></script>
-</section>
-</div>
-<footer class=footer>
-<section class=container>
-<a href=http://beian.miit.gov.cn/ target=_blank> 鲁ICP备2020034310号</a>
-</br>
-©
+<span class=tag><a href=/tags/steam/>steam</a></span></div></div></header><div><h3 id=问题描述>问题描述
+<a class=heading-link href=#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题</p><h3 id=解决方案>解决方案
+<a class=heading-link href=#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 首先我们根据上文的启示，因为每一个应用程序对应了一个 <code>xxx.desktop</code> 文件，因此在应用库中的QQ一定也有一个对应的 <code>desktop</code> 文件</p><p><img src=https://www.zzsqwq.cn/usr/uploads/2021/06/75817321.png alt=QQ的启动方式></p><p>​ 我们进入到 <code>/usr/share/applications</code> ，运行</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ ls | grep -i qq
+</span></span></code></pre></div><p>​ 可以发现其中有一个名为 <code>deepin.com.qq.im.desktop</code> 的文件，我们打开后发现内容如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#75715e>#!/usr/bin/env xdg-open
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Desktop Entry<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>Encoding<span style=color:#f92672>=</span>UTF-8
+</span></span><span style=display:flex><span>Type<span style=color:#f92672>=</span>Application
+</span></span><span style=display:flex><span>X-Created-By<span style=color:#f92672>=</span>Deepin WINE Team
+</span></span><span style=display:flex><span>Categories<span style=color:#f92672>=</span>chat;
+</span></span><span style=display:flex><span>Icon<span style=color:#f92672>=</span>deepin.com.qq.im
+</span></span><span style=display:flex><span>Exec<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&#34;</span> -u %u
+</span></span><span style=display:flex><span>Name<span style=color:#f92672>=</span>QQ
+</span></span><span style=display:flex><span>Name<span style=color:#f92672>[</span>zh_CN<span style=color:#f92672>]=</span>QQ
+</span></span><span style=display:flex><span>Comment<span style=color:#f92672>=</span>Tencent QQ Client on Deepin Wine
+</span></span><span style=display:flex><span>StartupWMClass<span style=color:#f92672>=</span>QQ.exe
+</span></span><span style=display:flex><span>MimeType<span style=color:#f92672>=</span>
+</span></span></code></pre></div><p>​ 可以看到Exec那一栏为 <code>Exec="/opt/deepinwine/apps/Deepin-QQ/run.sh" -u %u</code> ，发现他是运行目录下的一个 <code>run.sh</code> 脚本来启动的。</p><p>​ 我们进入目录下直接运行该脚本，查看log信息：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>base ❯ ./run.sh                   
+</span></span><span style=display:flex><span>Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.exe
+</span></span><span style=display:flex><span>run Deepin-QQ progress pid 
+</span></span><span style=display:flex><span>Gtk-Message: 01:16:58.069: GtkDialog mapped without a transient parent. This is discouraged.
+</span></span><span style=display:flex><span>total <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>16</span> 01:16 c: -&gt; ../drive_c
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com1 -&gt; /dev/ttyS0
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com10 -&gt; /dev/ttyS9
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com11 -&gt; /dev/ttyS10
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com12 -&gt; /dev/ttyS11
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com13 -&gt; /dev/ttyS12
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com14 -&gt; /dev/ttyS13
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com15 -&gt; /dev/ttyS14
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com16 -&gt; /dev/ttyS15
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com17 -&gt; /dev/ttyS16
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com18 -&gt; /dev/ttyS17
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com19 -&gt; /dev/ttyS18
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com2 -&gt; /dev/ttyS1
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com20 -&gt; /dev/ttyS19
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com21 -&gt; /dev/ttyS20
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com22 -&gt; /dev/ttyS21
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com23 -&gt; /dev/ttyS22
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com24 -&gt; /dev/ttyS23
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com25 -&gt; /dev/ttyS24
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com26 -&gt; /dev/ttyS25
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com27 -&gt; /dev/ttyS26
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com28 -&gt; /dev/ttyS27
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com29 -&gt; /dev/ttyS28
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com3 -&gt; /dev/ttyS2
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com30 -&gt; /dev/ttyS29
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com31 -&gt; /dev/ttyS30
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>11</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com32 -&gt; /dev/ttyS31
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com4 -&gt; /dev/ttyS3
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com5 -&gt; /dev/ttyS4
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com6 -&gt; /dev/ttyS5
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com7 -&gt; /dev/ttyS6
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com8 -&gt; /dev/ttyS7
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs <span style=color:#ae81ff>10</span> 6月  <span style=color:#ae81ff>15</span> 23:36 com9 -&gt; /dev/ttyS8
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs  <span style=color:#ae81ff>8</span> 6月  <span style=color:#ae81ff>16</span> 01:16 y: -&gt; /home/zs
+</span></span><span style=display:flex><span>lrwxrwxrwx <span style=color:#ae81ff>1</span> zs zs  <span style=color:#ae81ff>1</span> 6月  <span style=color:#ae81ff>16</span> 01:16 z: -&gt; /
+</span></span><span style=display:flex><span>CallApp Deepin-QQ c:/Program Files/Tencent/QQ/Bin/QQ.exe
+</span></span><span style=display:flex><span>2021年 06月 16日 星期三 01:16:58 CST:kill QQ.exe block
+</span></span><span style=display:flex><span>2021年 06月 16日 星期三 01:16:58 CST:No wine process found
+</span></span><span style=display:flex><span>/home/zs/.deepinwine/Deepin-QQ/drive_c/Program Files/Tencent/QQ/Bin
+</span></span><span style=display:flex><span>Starting process c:/Program Files/Tencent/QQ/Bin/QQ.exe ...
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>/opt/deepinwine/apps/Deepin-QQ
+</span></span><span style=display:flex><span>base ❯ wine: cannot find L<span style=color:#e6db74>&#34;C:\\windows\\system32\\winemenubuilder.exe&#34;</span>
+</span></span><span style=display:flex><span>wine version: 2.18
+</span></span><span style=display:flex><span>libGL error: No matching fbConfigs or visuals found
+</span></span><span style=display:flex><span>libGL error: failed to load driver: swrast
+</span></span><span style=display:flex><span>X Error of failed request:  GLXBadContext
+</span></span><span style=display:flex><span>  Major opcode of failed request:  <span style=color:#ae81ff>152</span> <span style=color:#f92672>(</span>GLX<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>  Minor opcode of failed request:  <span style=color:#ae81ff>6</span> <span style=color:#f92672>(</span>X_GLXIsDirect<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>  Serial number of failed request:  <span style=color:#ae81ff>207</span>
+</span></span><span style=display:flex><span>  Current serial number in output stream:  <span style=color:#ae81ff>206</span>
+</span></span></code></pre></div><p>​ 可以发现最下面的log信息有一些异常，首先第一行是因为我们是Ubuntu系统，可以暂且不关注</p><p>​ 接下来可以看到有一个LibGL的错误，我们通过Google搜索</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>libGL error: No matching fbConfigs or visuals found
+</span></span><span style=display:flex><span>libGL error: failed to load driver: swrast
+</span></span><span style=display:flex><span>X Error of failed request:  GLXBadContext
+</span></span><span style=display:flex><span>  Major opcode of failed request:  <span style=color:#ae81ff>152</span> <span style=color:#f92672>(</span>GLX<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>  Minor opcode of failed request:  <span style=color:#ae81ff>6</span> <span style=color:#f92672>(</span>X_GLXIsDirect<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>  Serial number of failed request:  <span style=color:#ae81ff>207</span>
+</span></span><span style=display:flex><span>  Current serial number in output stream:  <span style=color:#ae81ff>206</span>
+</span></span></code></pre></div><p>​ 发现类似的错误及解决方案如下：</p><ul><li><p><a href="https://bbs.archlinux.org/viewtopic.php?id=255385">SOLVED] LibGL errors with osu! and wine</a></p></li><li><p><a href=https://askubuntu.com/questions/834254/steam-libgl-error-no-matching-fbconfigs-or-visuals-found-libgl-error-failed-t>Steam: libGL error: No matching fbConfigs or visuals found libGL error: failed to load driver: swrast</a></p></li></ul><p>​ 从搜索结果来看，这个问题还是非常常见的，用steam也会遇到，一般都是因为电脑安装了64位的NVIDIA显卡驱动，但是因为应用是32位的导致不能兼容，因此无法启动</p><p>​ 最终解决方案有两个</p><ul><li>如果是不常用NVIDIA驱动的人，普通的办公一下，可以搜索网上教程关闭独显，只启用集显，可以发现QQ可以正常启动，</li><li>重新安装32位的NVIDIA驱动</li></ul><h3 id=最后>最后
+<a class=heading-link href=#%e6%9c%80%e5%90%8e><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 虽然已经知道了解决方案，但是最终我还是选择卸载掉QQ，安装了wine版本的TIM，感觉和QQ没什么区别，而且更加简洁，而且可以流畅运行，没有N卡兼容问题！大家可以考虑一下~</p><p>​ 而且QQ和TIM某些情况下会出现bug，字体全部变为方块，在 deepin-wine-ubuntu 的 <a href=https://github.com/wszqkzqk/deepin-wine-ubuntu/issues>Issues</a> 中找到了解决方案 <a href=https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/253>Ubuntu 安装QQ后中文方块解决方法</a> ，大家有同样困扰的也可以看一下~</p></div><footer><script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=preferred-color-scheme crossorigin=anonymous async></script></footer></article><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})'></script></section></div><footer class=footer><section class=container><a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></br>©
 2019 -
 2022
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
-</section>
-</footer>
-</main>
-<script src=/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.f453d26c79f010446cf0d9770197f77de32c07b7a5512d141a286247fe154a22.js integrity="sha256-9FPSbHnwEERs8Nl3AZf3feMsB7elUS0UGihiR/4VSiI="></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6EM6V1PVC"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-Z6EM6V1PVC',{anonymize_ip:!1})}</script>
-</body>
-</html>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-Z6EM6V1PVC",{anonymize_ip:!1})}</script></body></html>

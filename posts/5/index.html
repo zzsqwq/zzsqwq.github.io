@@ -1,11 +1,4 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=content-language content="en">
-<meta name=color-scheme content="light dark">
-<meta name=author content="zzsqwq">
-<meta name=description content="
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=content-language content="en"><meta name=color-scheme content="light dark"><meta name=author content="zzsqwq"><meta name=description content="
   Day 1
   
     
@@ -23,11 +16,7 @@
     
   
 
-​	给定一个区间$[L,R]$ ，求从这个区间任意取两个整数(可以相同)，两者异或后能得到的最大值是多少？">
-<meta name=keywords content="blog,developer,personal">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="排位一和二记录">
-<meta name=twitter:description content="
+​	给定一个区间$[L,R]$ ，求从这个区间任意取两个整数(可以相同)，两者异或后能得到的最大值是多少？"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="排位一和二记录"><meta name=twitter:description content="
   Day 1
   
     
@@ -45,9 +34,7 @@
     
   
 
-​	给定一个区间$[L,R]$ ，求从这个区间任意取两个整数(可以相同)，两者异或后能得到的最大值是多少？">
-<meta property="og:title" content="排位一和二记录">
-<meta property="og:description" content="
+​	给定一个区间$[L,R]$ ，求从这个区间任意取两个整数(可以相同)，两者异或后能得到的最大值是多少？"><meta property="og:title" content="排位一和二记录"><meta property="og:description" content="
   Day 1
   
     
@@ -65,515 +52,279 @@
     
   
 
-​	给定一个区间$[L,R]$ ，求从这个区间任意取两个整数(可以相同)，两者异或后能得到的最大值是多少？">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://www.zzsqwq.cn/posts/5/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2020-08-17T20:04:00+00:00">
-<meta property="article:modified_time" content="2020-08-17T20:04:00+00:00">
-<title>
-排位一和二记录 · Zs's Blog
-</title>
-<link rel=canonical href=https://www.zzsqwq.cn/posts/5/>
-<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen>
-<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
-<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
-<meta name=generator content="Hugo 0.92.1">
-</head>
-<body class="preload-transitions colorscheme-auto">
-<div class=float-container>
-<a id=dark-mode-toggle class=colorscheme-toggle>
-<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
-</a>
-</div>
-<main class=wrapper>
-<nav class=navigation>
-<section class=container>
-<a class=navigation-title href=/>
-Zs's Blog
-</a>
+​	给定一个区间$[L,R]$ ，求从这个区间任意取两个整数(可以相同)，两者异或后能得到的最大值是多少？"><meta property="og:type" content="article"><meta property="og:url" content="https://www.zzsqwq.cn/posts/5/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-08-17T20:04:00+00:00"><meta property="article:modified_time" content="2020-08-17T20:04:00+00:00"><title>排位一和二记录 · Zs's Blog</title><link rel=canonical href=https://www.zzsqwq.cn/posts/5/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><meta name=generator content="Hugo 0.97.3"></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Zs's Blog</a>
 <input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle>
-<i class="fa fa-bars fa-fw" aria-hidden=true></i>
-</label>
-<ul class=navigation-list>
-<li class=navigation-item>
-<a class=navigation-link href=/about/>About</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/posts/>Blog</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/projects/>Projects</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/friends/>Friends</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/contact/>Contact Me</a>
-</li>
-</ul>
-</section>
-</nav>
-<div class=content>
-<section class="container post">
-<article>
-<header>
-<div class=post-title>
-<h1 class=title>
-<a class=title-link href=https://www.zzsqwq.cn/posts/5/>
-排位一和二记录
-</a>
-</h1>
-</div>
-<div class=post-meta>
-<div class=date>
-<span class=posted-on>
-<i class="fa fa-calendar" aria-hidden=true></i>
-<time datetime=2020-08-17T20:04:00Z>
-August 17, 2020
-</time>
-</span>
-<span class=reading-time>
-<i class="fa fa-clock-o" aria-hidden=true></i>
-3-minute read
-</span>
-</div>
-<div class=categories>
-<i class="fa fa-folder" aria-hidden=true></i>
-<a href=/categories/acm/>ACM</a></div>
-<div class=tags>
-<i class="fa fa-tag" aria-hidden=true></i>
-<span class=tag>
-<a href=/tags/nowcoder/>Nowcoder</a>
-</span></div>
-</div>
-</header>
-<div>
-<h1 id=day-1>
-Day 1
-<a class=heading-link href=#day-1>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h1>
-<h2 id=a-兔子的区间密码httpsacnowcodercomacmcontest6954a>
-A. <a href=https://ac.nowcoder.com/acm/contest/6954/A>兔子的区间密码</a>
-<a class=heading-link href=#a-%e5%85%94%e5%ad%90%e7%9a%84%e5%8c%ba%e9%97%b4%e5%af%86%e7%a0%81httpsacnowcodercomacmcontest6954a>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<h3 id=题意>
-题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 给定一个区间$[L,R]$ ，求从这个区间任意取两个整数(可以相同)，两者异或后能得到的最大值是多少？</p>
-<h3 id=思路>
-思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 首先我们想一下特例，当 $L==R$ 的时候，那么只能是L和他自己异或，就是0了。</p>
-<p>​ 然后可以分两部分来想，设区间端点 $L,R$ 的二进制最高位，从右往左开始数位置分别为 $p_1,p_2$</p>
-<ul>
-<li>如果 $p_1 \neq p_2 $ ，那么必然是 $p_1 &lt; p_2$ ，我们很容易发现这时候肯定可以取到 $2^{p_2-1}-1 和 2^{p_2-1}$ ，那么两者异或一下就是最大的，答案为 $2^{p_2}$</li>
-<li>如果 $p_1 == p_2$ ，那么我们可以转化为更小规模的问题，就是区间为 $[L-2^{p_1-1},R-2^{p_1-1}]$ 。</li>
-</ul>
-<h3 id=代码实现>
-代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
-
-<span style=color:#75715e>#define ll long long 
-</span><span style=color:#75715e></span>
-ll l,r;
-<span style=color:#66d9ef>int</span> t;
-
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-{
-    scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>t);
-    <span style=color:#66d9ef>while</span>(t<span style=color:#f92672>--</span>)
-    {
-        ll l,r;
-        scanf(<span style=color:#e6db74>&#34;%lld%lld&#34;</span>,<span style=color:#f92672>&amp;</span>l,<span style=color:#f92672>&amp;</span>r);
-        <span style=color:#66d9ef>if</span>(l <span style=color:#f92672>==</span> r)
-        {
-            printf(<span style=color:#e6db74>&#34;0</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
-        }
-        <span style=color:#66d9ef>else</span>
-        {
-            <span style=color:#66d9ef>int</span> p1 <span style=color:#f92672>=</span> log2(l),p2 <span style=color:#f92672>=</span> log2(r);
-            <span style=color:#66d9ef>while</span>(p1 <span style=color:#f92672>==</span> p2 <span style=color:#f92672>&amp;&amp;</span> l <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span>)
-            {
-                l<span style=color:#f92672>^=</span>(<span style=color:#ae81ff>1LL</span><span style=color:#f92672>&lt;&lt;</span>p1);
-                r<span style=color:#f92672>^=</span>(<span style=color:#ae81ff>1LL</span><span style=color:#f92672>&lt;&lt;</span>p1);
-                p1 <span style=color:#f92672>=</span> log2(l),p2<span style=color:#f92672>=</span>log2(r);
-            }
-            printf(<span style=color:#e6db74>&#34;%lld</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,((<span style=color:#ae81ff>1LL</span><span style=color:#f92672>&lt;&lt;</span>(p2<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>))<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>));
-        }
-    }
-    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-
-}
-</code></pre></div><h2 id=b-猴子排序的期望httpsacnowcodercomacmcontest6954b>
-B. <a href=https://ac.nowcoder.com/acm/contest/6954/B>猴子排序的期望</a>
-<a class=heading-link href=#b-%e7%8c%b4%e5%ad%90%e6%8e%92%e5%ba%8f%e7%9a%84%e6%9c%9f%e6%9c%9bhttpsacnowcodercomacmcontest6954b>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<h3 id=题意-1>
-题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f-1>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 有 $N$ 张卡片，每个上面都写着一个大写字母，问随便扔一次这 $N$ 张的卡片就已经按字典序排好的概率，答案用分字为1的形如 $1/x$ 的形式表示。$( 1&lt;N &lt; 100)$</p>
-<h3 id=思路-1>
-思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af-1>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 这题很显然是道数学排列组合题，我们设每个字母重复出现的次数为 $p[i]$ ，好比字母为$A$的卡片出现了两次，那么就 $p[&lsquo;A&rsquo;]$ 为2。</p>
-<p>​ 那么答案就是如下
+<label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/about/>About</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/friends/>Friends</a></li><li class=navigation-item><a class=navigation-link href=/contact/>Contact Me</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://www.zzsqwq.cn/posts/5/>排位一和二记录</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2020-08-17T20:04:00Z>August 17, 2020</time></span>
+<span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>
+3-minute read</span></div><div class=categories><i class="fa fa-folder" aria-hidden=true></i>
+<a href=/categories/acm/>ACM</a></div><div class=tags><i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/nowcoder/>Nowcoder</a></span></div></div></header><div><h1 id=day-1>Day 1
+<a class=heading-link href=#day-1><i class="fa fa-link" aria-hidden=true></i></a></h1><h2 id=a-兔子的区间密码httpsacnowcodercomacmcontest6954a>A. <a href=https://ac.nowcoder.com/acm/contest/6954/A>兔子的区间密码</a>
+<a class=heading-link href=#a-%e5%85%94%e5%ad%90%e7%9a%84%e5%8c%ba%e9%97%b4%e5%af%86%e7%a0%81httpsacnowcodercomacmcontest6954a><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=题意>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 给定一个区间$[L,R]$ ，求从这个区间任意取两个整数(可以相同)，两者异或后能得到的最大值是多少？</p><h3 id=思路>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 首先我们想一下特例，当 $L==R$ 的时候，那么只能是L和他自己异或，就是0了。</p><p>​ 然后可以分两部分来想，设区间端点 $L,R$ 的二进制最高位，从右往左开始数位置分别为 $p_1,p_2$</p><ul><li>如果 $p_1 \neq p_2 $ ，那么必然是 $p_1 &lt; p_2$ ，我们很容易发现这时候肯定可以取到 $2^{p_2-1}-1 和 2^{p_2-1}$ ，那么两者异或一下就是最大的，答案为 $2^{p_2}$</li><li>如果 $p_1 == p_2$ ，那么我们可以转化为更小规模的问题，就是区间为 $[L-2^{p_1-1},R-2^{p_1-1}]$ 。</li></ul><h3 id=代码实现>代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#define ll long long 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>ll l,r;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> t;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>t);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span>(t<span style=color:#f92672>--</span>)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        ll l,r;
+</span></span><span style=display:flex><span>        scanf(<span style=color:#e6db74>&#34;%lld%lld&#34;</span>,<span style=color:#f92672>&amp;</span>l,<span style=color:#f92672>&amp;</span>r);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span>(l <span style=color:#f92672>==</span> r)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            printf(<span style=color:#e6db74>&#34;0</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>int</span> p1 <span style=color:#f92672>=</span> log2(l),p2 <span style=color:#f92672>=</span> log2(r);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>while</span>(p1 <span style=color:#f92672>==</span> p2 <span style=color:#f92672>&amp;&amp;</span> l <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                l<span style=color:#f92672>^=</span>(<span style=color:#ae81ff>1LL</span><span style=color:#f92672>&lt;&lt;</span>p1);
+</span></span><span style=display:flex><span>                r<span style=color:#f92672>^=</span>(<span style=color:#ae81ff>1LL</span><span style=color:#f92672>&lt;&lt;</span>p1);
+</span></span><span style=display:flex><span>                p1 <span style=color:#f92672>=</span> log2(l),p2<span style=color:#f92672>=</span>log2(r);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            printf(<span style=color:#e6db74>&#34;%lld</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,((<span style=color:#ae81ff>1LL</span><span style=color:#f92672>&lt;&lt;</span>(p2<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>))<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>));
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=b-猴子排序的期望httpsacnowcodercomacmcontest6954b>B. <a href=https://ac.nowcoder.com/acm/contest/6954/B>猴子排序的期望</a>
+<a class=heading-link href=#b-%e7%8c%b4%e5%ad%90%e6%8e%92%e5%ba%8f%e7%9a%84%e6%9c%9f%e6%9c%9bhttpsacnowcodercomacmcontest6954b><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=题意-1>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f-1><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 有 $N$ 张卡片，每个上面都写着一个大写字母，问随便扔一次这 $N$ 张的卡片就已经按字典序排好的概率，答案用分字为1的形如 $1/x$ 的形式表示。$( 1&lt;N &lt; 100)$</p><h3 id=思路-1>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af-1><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 这题很显然是道数学排列组合题，我们设每个字母重复出现的次数为 $p[i]$ ，好比字母为$A$的卡片出现了两次，那么就 $p[&lsquo;A&rsquo;]$ 为2。</p><p>​ 那么答案就是如下
 $$
 ans = \frac{N!}{\Pi_{i=&lsquo;A&rsquo;}^{i=&lsquo;Z&rsquo;}(p[i]!)}
 $$
-​ 这题主要难点大概是在高精，因为可能会涉及到 $100!$ 这种丧心病狂的东西，所以就用笨比的方法写了一发python。<del>其实是高级的算法不会用python写，C++乘法的高精忘掉了</del>。</p>
-<h3 id=代码实现-1>
-代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>n <span style=color:#f92672>=</span> int(input())
-s <span style=color:#f92672>=</span> input()
-s[<span style=color:#ae81ff>0</span>:n:<span style=color:#ae81ff>1</span>]
-ans <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
-<span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1</span>,n<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>):
-    ans <span style=color:#f92672>=</span> ans<span style=color:#f92672>*</span>i
-<span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>0</span>,n):
-    count <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
-    <span style=color:#66d9ef>for</span> j <span style=color:#f92672>in</span> range(i,n):
-        <span style=color:#66d9ef>if</span> s[i] <span style=color:#f92672>==</span> s[j]:
-          count <span style=color:#f92672>=</span> count <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
-    <span style=color:#66d9ef>if</span> count <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>0</span>:
-        ans <span style=color:#f92672>=</span> ans<span style=color:#f92672>//</span>count  <span style=color:#75715e>#这里本来//写成了/,连WA3发</span>
-print(<span style=color:#e6db74>&#34;1/&#34;</span>,end<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;&#34;</span>)
-print(int(ans))
-</code></pre></div><hr>
-<h1 id=day-2>
-Day 2
-<a class=heading-link href=#day-2>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h1>
-<h2 id=a-愤怒的巨巨httpsacnowcodercomacmcontest6955a>
-A. <a href=https://ac.nowcoder.com/acm/contest/6955/A>愤怒的巨巨</a>
-<a class=heading-link href=#a-%e6%84%a4%e6%80%92%e7%9a%84%e5%b7%a8%e5%b7%a8httpsacnowcodercomacmcontest6955a>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<h3 id=题意-2>
-题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f-2>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 已知香蕉的次品率为 $p(0\le p\le 1)$ ，如果想要买到好香蕉则买香蕉个数的期望值是多少。如果买不到好香蕉，输出”Sorrry,JuJu!”(忽略双引号)。否则输出期望值的最简分数形式：c/d. $p$ 的最多位数为6。</p>
-<h3 id=思路-2>
-思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af-2>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 首先理解一下题意，好比次品率 $p$ 为0.5，则期望的个数为2个。如果次品率 $p$ 为 0.25，则可以说平均买四个有一个次品，那么最少需要的买的个数其实是 $3/4$ 。</p>
-<p>​ 再者特判一下 $p == 0$ 以及 $p==1$ 的情况，分别输出 <strong>1/1</strong> 和 <strong>Sorrry,JuJu!</strong> 。</p>
-<p>​ 然后其实可以看一下非次品率 $k = 1-p$ ，然后其实就是一个最大公约数问题了。只需要把 $k$ 转换成分数形式，然后用最大公约数约分一下，再取一个倒数即可。</p>
-<h3 id=代码实现-2>
-代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-2>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e></span> 
-<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
- 
-<span style=color:#66d9ef>char</span> str[<span style=color:#ae81ff>100</span>];
-<span style=color:#66d9ef>int</span> k <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
-<span style=color:#66d9ef>int</span> mod <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
-<span style=color:#66d9ef>bool</span> flag <span style=color:#f92672>=</span> false;
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>gcd</span>(<span style=color:#66d9ef>int</span> a,<span style=color:#66d9ef>int</span> b)
-{
-    <span style=color:#66d9ef>if</span>(b<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>) <span style=color:#66d9ef>return</span> a;
-    <span style=color:#66d9ef>return</span> gcd(b,a<span style=color:#f92672>%</span>b);
-}
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-{
-    scanf(<span style=color:#e6db74>&#34;%s&#34;</span>,str);
-    <span style=color:#66d9ef>int</span> len <span style=color:#f92672>=</span> strlen(str);
-    <span style=color:#66d9ef>if</span>(str[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;0&#39;</span>)
-    {
-        <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>;i<span style=color:#f92672>&lt;</span>len;i<span style=color:#f92672>++</span>)
-        {
-            <span style=color:#66d9ef>if</span>(str[i] <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#39;0&#39;</span>) flag <span style=color:#f92672>=</span> true;
-        }
-        <span style=color:#66d9ef>if</span>(flag <span style=color:#f92672>==</span> false)
-        {
-            printf(<span style=color:#e6db74>&#34;1/1&#34;</span>);
-            <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-        }
-    }
-    <span style=color:#66d9ef>if</span>(str[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;1&#39;</span>)
-    {
-        printf(<span style=color:#e6db74>&#34;Sorrry,JuJu!&#34;</span>);
-        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-    }
-    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>;i<span style=color:#f92672>&lt;</span>len;i<span style=color:#f92672>++</span>)
-    {
-        k <span style=color:#f92672>=</span> k<span style=color:#f92672>*</span><span style=color:#ae81ff>10</span><span style=color:#f92672>+</span>str[i]<span style=color:#f92672>-</span><span style=color:#e6db74>&#39;0&#39;</span>;
-        mod <span style=color:#f92672>*=</span> <span style=color:#ae81ff>10</span>;
-    }
-    <span style=color:#66d9ef>int</span> m <span style=color:#f92672>=</span> mod <span style=color:#f92672>-</span> k;
-    <span style=color:#66d9ef>int</span> p <span style=color:#f92672>=</span> gcd(m,mod);
-    printf(<span style=color:#e6db74>&#34;%d/%d&#34;</span>,mod<span style=color:#f92672>/</span>p,m<span style=color:#f92672>/</span>p);
-    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-}
-</code></pre></div><h2 id=b-兔子的逆序对httpsacnowcodercomacmcontest6955c>
-B. <a href=https://ac.nowcoder.com/acm/contest/6955/C>兔子的逆序对</a>
-<a class=heading-link href=#b-%e5%85%94%e5%ad%90%e7%9a%84%e9%80%86%e5%ba%8f%e5%af%b9httpsacnowcodercomacmcontest6955c>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<h3 id=题意-3>
-题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f-3>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 给定一个区间 $[L,R]$ ，然后给出 $m$ 次翻转操作，通过给出子区间左右端点，反转该区间。每翻转一次，要求给出区间 $[L,R]$ 逆序对的奇偶性，如果是奇数，输出 <strong>dislike</strong> ，如果是偶数，输出 <strong>like</strong> 。</p>
-<h3 id=思路-3>
-思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af-3>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 首先用归并 / 树状数组的方法，求出来区间 $[L,R]$ 的逆序对 $ans$。</p>
-<p>​ 然后我们考虑每一次翻转带来的影响。我们考虑一个子区间 $[l,r]$ ，设该区间逆序对为 $x$ ，那么反转后该区间的逆序对为 $C_n^2 -x$ 。翻转区间 $[l,r]$ 导致答案 $ans = ans + C_n^2 -x - x = ans + C_n^2-2x$</p>
-<p>​ 因为只需要奇偶性，那么 $2x$ 需要考虑，那么就每次看看 $C_n^2$ 的奇偶性即可。</p>
-<h3 id=代码实现-3>
-代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-3>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e></span> 
-<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
- 
-<span style=color:#75715e>#define lowbit(x) (x)&amp;(-x)
-</span><span style=color:#75715e></span><span style=color:#66d9ef>typedef</span> <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>Node</span>
-{
-    <span style=color:#66d9ef>int</span> val; <span style=color:#75715e>// value
-</span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> pos; <span style=color:#75715e>//postion
-</span><span style=color:#75715e></span>}node;
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>cmp</span>(node a,node b)
-{
-    <span style=color:#66d9ef>return</span> a.val<span style=color:#f92672>&lt;</span>b.val;
-}
-<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn <span style=color:#f92672>=</span> <span style=color:#ae81ff>1e5</span><span style=color:#f92672>+</span><span style=color:#ae81ff>5</span>;
-<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxm <span style=color:#f92672>=</span> <span style=color:#ae81ff>2e6</span><span style=color:#f92672>+</span><span style=color:#ae81ff>5</span>;
-node num[maxn];
-<span style=color:#66d9ef>int</span> tree[maxm];
-<span style=color:#66d9ef>int</span> n,m;
-<span style=color:#66d9ef>int</span> l,r;
- 
-<span style=color:#66d9ef>void</span> <span style=color:#a6e22e>add</span>(<span style=color:#66d9ef>int</span> x)
-{
-    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>x;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>+=</span>lowbit(i))
-    {
-        tree[i]<span style=color:#f92672>++</span>;
-    }
-}
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>find</span>(<span style=color:#66d9ef>int</span> x)
-{
-    <span style=color:#66d9ef>int</span> sum<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
-    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>x;i<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>-=</span>lowbit(i))
-    {
-        sum<span style=color:#f92672>+=</span>tree[i];
-    }
-    <span style=color:#66d9ef>return</span> sum;
-}
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-{
-    scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
-    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-    {
-        scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>num[i].val);
-        num[i].pos<span style=color:#f92672>=</span>i;
-    }
-    sort(num<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,num<span style=color:#f92672>+</span>n<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,cmp);
-    <span style=color:#66d9ef>int</span> ans <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
-    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-    {
-        ans<span style=color:#f92672>+=</span>find(num[i].pos);
-        add(num[i].pos);
-    }
-    scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>m);
-    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>m;i<span style=color:#f92672>++</span>)
-    {
-        scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>l,<span style=color:#f92672>&amp;</span>r);
-        <span style=color:#66d9ef>int</span> k <span style=color:#f92672>=</span> ((r<span style=color:#f92672>-</span>l<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>*</span>(r<span style=color:#f92672>-</span>l))<span style=color:#f92672>&gt;&gt;</span><span style=color:#ae81ff>1</span>;
-        <span style=color:#66d9ef>if</span>(k<span style=color:#f92672>&amp;</span><span style=color:#ae81ff>1</span>)
-        {
-            <span style=color:#66d9ef>if</span>(ans<span style=color:#f92672>%</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>)
-            {
-                printf(<span style=color:#e6db74>&#34;dislike</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
-                ans<span style=color:#f92672>++</span>;
-            }
-            <span style=color:#66d9ef>else</span>
-            {
-                printf(<span style=color:#e6db74>&#34;like</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
-                ans<span style=color:#f92672>++</span>;
-            }
-        }
-        <span style=color:#66d9ef>else</span>
-        {
-            <span style=color:#66d9ef>if</span>(ans<span style=color:#f92672>%</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>)
-            {
-                printf(<span style=color:#e6db74>&#34;like</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
-            }
-            <span style=color:#66d9ef>else</span>
-            {
-                printf(<span style=color:#e6db74>&#34;dislike</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
-            }
-        }
-    }
-}
-</code></pre></div><h2 id=c-butterflyhttpsacnowcodercomacmcontest6955f>
-C. <a href=https://ac.nowcoder.com/acm/contest/6955/F>Butterfly</a>
-<a class=heading-link href=#c-butterflyhttpsacnowcodercomacmcontest6955f>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<h3 id=题意-4>
-题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f-4>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 这题描述起来有点难，还是直接点链接去看比较好。</p>
-<p>​ 大概就是给定一个 由 <strong>X</strong> 和 <strong>O</strong> 构成的$n\times m$ 的矩阵，让你找出里面由 <strong>X</strong> 构成的蝴蝶的最大对角线长度。</p>
-<h3 id=思路-4>
-思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af-4>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 这题第一时间让我想到了我 <strong>2020/2/12</strong> 写的dp练习中的<strong>创意吃鱼法</strong>。</p>
-<p>​ 一开始想要考虑从中心开始考虑，但是需要维护的东西有点多，而且周围的判别不好判。因此可以考虑从<strong>右上/右下/左上/左下</strong> 这四个位置考虑，我这里是从左下考虑的。设我们要求的答案为 $ans$ 。</p>
-<p>​ 考虑维护三个数组，看 <strong>X</strong> 向上延伸，左上延伸，右上延伸的长度。所以我们依次遍历矩阵中的每一个元素，判定他是否可以作为蝴蝶的左下角，首先取一个向上延伸和右上延伸的最小值 $p$，然后从 $p$ 到 $ans$ 遍历，每次判定一下该答案是否合法，判定的话无非是从右下角判定一下就行，比较简单。如果答案合法，那么更新 $ans$。</p>
-<h3 id=代码实现-4>
-代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-4>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e></span> 
-<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
- 
-<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn <span style=color:#f92672>=</span> <span style=color:#ae81ff>2005</span>;
-<span style=color:#66d9ef>int</span> lr[maxn][maxn],rr[maxn][maxn],str[maxn][maxn]; <span style=color:#75715e>//分别为按左上、右上，向上延伸
-</span><span style=color:#75715e></span><span style=color:#66d9ef>char</span> x;
-<span style=color:#66d9ef>int</span> n,m;
-<span style=color:#66d9ef>int</span> ans;
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-{
-    scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>m);
-    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-    {
-        <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>m;j<span style=color:#f92672>++</span>)
-        {
-            cin<span style=color:#f92672>&gt;&gt;</span>x;
-            <span style=color:#66d9ef>if</span>(x <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;X&#39;</span>)
-            {
-                lr[i][j] <span style=color:#f92672>=</span> lr[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>;
-                rr[i][j] <span style=color:#f92672>=</span> rr[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>;
-                str[i][j] <span style=color:#f92672>=</span> str[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j] <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>;
-                ans <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
-            }
-        }
-    }
-    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-    {
-        <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>m;j<span style=color:#f92672>++</span>)
-        {
-            <span style=color:#66d9ef>int</span> p <span style=color:#f92672>=</span> min(str[i][j],rr[i][j]);
-            <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> k <span style=color:#f92672>=</span> p;k<span style=color:#f92672>&gt;</span>ans;k<span style=color:#f92672>--</span>)
-            {
-                <span style=color:#66d9ef>if</span>(k<span style=color:#f92672>&amp;</span><span style=color:#ae81ff>1</span>)
-                {
-                    <span style=color:#66d9ef>if</span>(str[i][j<span style=color:#f92672>+</span>k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>&gt;=</span>k <span style=color:#f92672>&amp;&amp;</span> lr[i][j<span style=color:#f92672>+</span>k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>&gt;=</span>k) ans <span style=color:#f92672>=</span> max(ans,k);
-                }
-            }
-        }
-    }
-    printf(<span style=color:#e6db74>&#34;%d&#34;</span>,ans);
-}
-</code></pre></div>
-</div>
-<footer>
-<script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=preferred-color-scheme crossorigin=anonymous async></script>
-</footer>
-</article>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:!0},{left:'$',right:'$',display:!1},{left:'\\(',right:'\\)',display:!1},{left:'\\[',right:'\\]',display:!0}]})"></script>
-</section>
-</div>
-<footer class=footer>
-<section class=container>
-<a href=http://beian.miit.gov.cn/ target=_blank> 鲁ICP备2020034310号</a>
-</br>
-©
+​ 这题主要难点大概是在高精，因为可能会涉及到 $100!$ 这种丧心病狂的东西，所以就用笨比的方法写了一发python。<del>其实是高级的算法不会用python写，C++乘法的高精忘掉了</del>。</p><h3 id=代码实现-1>代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>n <span style=color:#f92672>=</span> int(input())
+</span></span><span style=display:flex><span>s <span style=color:#f92672>=</span> input()
+</span></span><span style=display:flex><span>s[<span style=color:#ae81ff>0</span>:n:<span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>ans <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1</span>,n<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>):
+</span></span><span style=display:flex><span>    ans <span style=color:#f92672>=</span> ans<span style=color:#f92672>*</span>i
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>0</span>,n):
+</span></span><span style=display:flex><span>    count <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> j <span style=color:#f92672>in</span> range(i,n):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> s[i] <span style=color:#f92672>==</span> s[j]:
+</span></span><span style=display:flex><span>          count <span style=color:#f92672>=</span> count <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> count <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>        ans <span style=color:#f92672>=</span> ans<span style=color:#f92672>//</span>count  <span style=color:#75715e>#这里本来//写成了/,连WA3发</span>
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;1/&#34;</span>,end<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;&#34;</span>)
+</span></span><span style=display:flex><span>print(int(ans))
+</span></span></code></pre></div><hr><h1 id=day-2>Day 2
+<a class=heading-link href=#day-2><i class="fa fa-link" aria-hidden=true></i></a></h1><h2 id=a-愤怒的巨巨httpsacnowcodercomacmcontest6955a>A. <a href=https://ac.nowcoder.com/acm/contest/6955/A>愤怒的巨巨</a>
+<a class=heading-link href=#a-%e6%84%a4%e6%80%92%e7%9a%84%e5%b7%a8%e5%b7%a8httpsacnowcodercomacmcontest6955a><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=题意-2>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f-2><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 已知香蕉的次品率为 $p(0\le p\le 1)$ ，如果想要买到好香蕉则买香蕉个数的期望值是多少。如果买不到好香蕉，输出”Sorrry,JuJu!”(忽略双引号)。否则输出期望值的最简分数形式：c/d. $p$ 的最多位数为6。</p><h3 id=思路-2>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af-2><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 首先理解一下题意，好比次品率 $p$ 为0.5，则期望的个数为2个。如果次品率 $p$ 为 0.25，则可以说平均买四个有一个次品，那么最少需要的买的个数其实是 $3/4$ 。</p><p>​ 再者特判一下 $p == 0$ 以及 $p==1$ 的情况，分别输出 <strong>1/1</strong> 和 <strong>Sorrry,JuJu!</strong> 。</p><p>​ 然后其实可以看一下非次品率 $k = 1-p$ ，然后其实就是一个最大公约数问题了。只需要把 $k$ 转换成分数形式，然后用最大公约数约分一下，再取一个倒数即可。</p><h3 id=代码实现-2>代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-2><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span> 
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span><span style=color:#66d9ef>char</span> str[<span style=color:#ae81ff>100</span>];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> k <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> mod <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>bool</span> flag <span style=color:#f92672>=</span> false;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>gcd</span>(<span style=color:#66d9ef>int</span> a,<span style=color:#66d9ef>int</span> b)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(b<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>) <span style=color:#66d9ef>return</span> a;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> gcd(b,a<span style=color:#f92672>%</span>b);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    scanf(<span style=color:#e6db74>&#34;%s&#34;</span>,str);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> len <span style=color:#f92672>=</span> strlen(str);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(str[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;0&#39;</span>)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>;i<span style=color:#f92672>&lt;</span>len;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span>(str[i] <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#39;0&#39;</span>) flag <span style=color:#f92672>=</span> true;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span>(flag <span style=color:#f92672>==</span> false)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            printf(<span style=color:#e6db74>&#34;1/1&#34;</span>);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(str[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;1&#39;</span>)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        printf(<span style=color:#e6db74>&#34;Sorrry,JuJu!&#34;</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>;i<span style=color:#f92672>&lt;</span>len;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        k <span style=color:#f92672>=</span> k<span style=color:#f92672>*</span><span style=color:#ae81ff>10</span><span style=color:#f92672>+</span>str[i]<span style=color:#f92672>-</span><span style=color:#e6db74>&#39;0&#39;</span>;
+</span></span><span style=display:flex><span>        mod <span style=color:#f92672>*=</span> <span style=color:#ae81ff>10</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> m <span style=color:#f92672>=</span> mod <span style=color:#f92672>-</span> k;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> p <span style=color:#f92672>=</span> gcd(m,mod);
+</span></span><span style=display:flex><span>    printf(<span style=color:#e6db74>&#34;%d/%d&#34;</span>,mod<span style=color:#f92672>/</span>p,m<span style=color:#f92672>/</span>p);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=b-兔子的逆序对httpsacnowcodercomacmcontest6955c>B. <a href=https://ac.nowcoder.com/acm/contest/6955/C>兔子的逆序对</a>
+<a class=heading-link href=#b-%e5%85%94%e5%ad%90%e7%9a%84%e9%80%86%e5%ba%8f%e5%af%b9httpsacnowcodercomacmcontest6955c><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=题意-3>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f-3><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 给定一个区间 $[L,R]$ ，然后给出 $m$ 次翻转操作，通过给出子区间左右端点，反转该区间。每翻转一次，要求给出区间 $[L,R]$ 逆序对的奇偶性，如果是奇数，输出 <strong>dislike</strong> ，如果是偶数，输出 <strong>like</strong> 。</p><h3 id=思路-3>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af-3><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 首先用归并 / 树状数组的方法，求出来区间 $[L,R]$ 的逆序对 $ans$。</p><p>​ 然后我们考虑每一次翻转带来的影响。我们考虑一个子区间 $[l,r]$ ，设该区间逆序对为 $x$ ，那么反转后该区间的逆序对为 $C_n^2 -x$ 。翻转区间 $[l,r]$ 导致答案 $ans = ans + C_n^2 -x - x = ans + C_n^2-2x$</p><p>​ 因为只需要奇偶性，那么 $2x$ 需要考虑，那么就每次看看 $C_n^2$ 的奇偶性即可。</p><h3 id=代码实现-3>代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-3><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span> 
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span><span style=color:#75715e>#define lowbit(x) (x)&amp;(-x)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>typedef</span> <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>Node</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> val; <span style=color:#75715e>// value
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> pos; <span style=color:#75715e>//postion
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}node;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>cmp</span>(node a,node b)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> a.val<span style=color:#f92672>&lt;</span>b.val;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn <span style=color:#f92672>=</span> <span style=color:#ae81ff>1e5</span><span style=color:#f92672>+</span><span style=color:#ae81ff>5</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxm <span style=color:#f92672>=</span> <span style=color:#ae81ff>2e6</span><span style=color:#f92672>+</span><span style=color:#ae81ff>5</span>;
+</span></span><span style=display:flex><span>node num[maxn];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> tree[maxm];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> n,m;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> l,r;
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>add</span>(<span style=color:#66d9ef>int</span> x)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>x;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>+=</span>lowbit(i))
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        tree[i]<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>find</span>(<span style=color:#66d9ef>int</span> x)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> sum<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>x;i<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>-=</span>lowbit(i))
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        sum<span style=color:#f92672>+=</span>tree[i];
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> sum;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>num[i].val);
+</span></span><span style=display:flex><span>        num[i].pos<span style=color:#f92672>=</span>i;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    sort(num<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,num<span style=color:#f92672>+</span>n<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,cmp);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> ans <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        ans<span style=color:#f92672>+=</span>find(num[i].pos);
+</span></span><span style=display:flex><span>        add(num[i].pos);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>m);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>m;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>l,<span style=color:#f92672>&amp;</span>r);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> k <span style=color:#f92672>=</span> ((r<span style=color:#f92672>-</span>l<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>*</span>(r<span style=color:#f92672>-</span>l))<span style=color:#f92672>&gt;&gt;</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span>(k<span style=color:#f92672>&amp;</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span>(ans<span style=color:#f92672>%</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                printf(<span style=color:#e6db74>&#34;dislike</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+</span></span><span style=display:flex><span>                ans<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                printf(<span style=color:#e6db74>&#34;like</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+</span></span><span style=display:flex><span>                ans<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span>(ans<span style=color:#f92672>%</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                printf(<span style=color:#e6db74>&#34;like</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                printf(<span style=color:#e6db74>&#34;dislike</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=c-butterflyhttpsacnowcodercomacmcontest6955f>C. <a href=https://ac.nowcoder.com/acm/contest/6955/F>Butterfly</a>
+<a class=heading-link href=#c-butterflyhttpsacnowcodercomacmcontest6955f><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=题意-4>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f-4><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 这题描述起来有点难，还是直接点链接去看比较好。</p><p>​ 大概就是给定一个 由 <strong>X</strong> 和 <strong>O</strong> 构成的$n\times m$ 的矩阵，让你找出里面由 <strong>X</strong> 构成的蝴蝶的最大对角线长度。</p><h3 id=思路-4>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af-4><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 这题第一时间让我想到了我 <strong>2020/2/12</strong> 写的dp练习中的<strong>创意吃鱼法</strong>。</p><p>​ 一开始想要考虑从中心开始考虑，但是需要维护的东西有点多，而且周围的判别不好判。因此可以考虑从<strong>右上/右下/左上/左下</strong> 这四个位置考虑，我这里是从左下考虑的。设我们要求的答案为 $ans$ 。</p><p>​ 考虑维护三个数组，看 <strong>X</strong> 向上延伸，左上延伸，右上延伸的长度。所以我们依次遍历矩阵中的每一个元素，判定他是否可以作为蝴蝶的左下角，首先取一个向上延伸和右上延伸的最小值 $p$，然后从 $p$ 到 $ans$ 遍历，每次判定一下该答案是否合法，判定的话无非是从右下角判定一下就行，比较简单。如果答案合法，那么更新 $ans$。</p><h3 id=代码实现-4>代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-4><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span> 
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn <span style=color:#f92672>=</span> <span style=color:#ae81ff>2005</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> lr[maxn][maxn],rr[maxn][maxn],str[maxn][maxn]; <span style=color:#75715e>//分别为按左上、右上，向上延伸
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>char</span> x;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> n,m;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> ans;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>m);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>m;j<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            cin<span style=color:#f92672>&gt;&gt;</span>x;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span>(x <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;X&#39;</span>)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                lr[i][j] <span style=color:#f92672>=</span> lr[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>                rr[i][j] <span style=color:#f92672>=</span> rr[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>                str[i][j] <span style=color:#f92672>=</span> str[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j] <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>                ans <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>m;j<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>int</span> p <span style=color:#f92672>=</span> min(str[i][j],rr[i][j]);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> k <span style=color:#f92672>=</span> p;k<span style=color:#f92672>&gt;</span>ans;k<span style=color:#f92672>--</span>)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span>(k<span style=color:#f92672>&amp;</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>if</span>(str[i][j<span style=color:#f92672>+</span>k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>&gt;=</span>k <span style=color:#f92672>&amp;&amp;</span> lr[i][j<span style=color:#f92672>+</span>k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>&gt;=</span>k) ans <span style=color:#f92672>=</span> max(ans,k);
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    printf(<span style=color:#e6db74>&#34;%d&#34;</span>,ans);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div><footer><script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=preferred-color-scheme crossorigin=anonymous async></script></footer></article><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})'></script></section></div><footer class=footer><section class=container><a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></br>©
 2019 -
 2022
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
-</section>
-</footer>
-</main>
-<script src=/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.f453d26c79f010446cf0d9770197f77de32c07b7a5512d141a286247fe154a22.js integrity="sha256-9FPSbHnwEERs8Nl3AZf3feMsB7elUS0UGihiR/4VSiI="></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6EM6V1PVC"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-Z6EM6V1PVC',{anonymize_ip:!1})}</script>
-</body>
-</html>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-Z6EM6V1PVC",{anonymize_ip:!1})}</script></body></html>

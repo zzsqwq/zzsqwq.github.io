@@ -1,245 +1,51 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=content-language content="en">
-<meta name=color-scheme content="light dark">
-<meta name=author content="zzsqwq">
-<meta name=description content="前言    ​	最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=content-language content="en"><meta name=color-scheme content="light dark"><meta name=author content="zzsqwq"><meta name=description content="前言    ​	最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：
 原理    ​	首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 \usr\share\applications 中，文件名为 **.desktop ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：
 [Desktop Entry] Name=Typora Comment=a minimal Markdown reading & writing app. Change Log: (https://typora.io/windows/dev_release.html) GenericName=Markdown Editor Exec=typora %U Icon=typora Type=Application StartupNotify=true Categories=Office;WordProcessor; MimeType=text/markdown;text/x-markdown; ​	可以看到里面的内容写的非常清晰，其中比较重要的有以下几个
-   关键词 意义     [Desktop Entry] 文件头   Name 应用名称   Comment 描述   Exec 执行的命令   Icon 图标路径   Type 启动器类型   Categories 应用的类型（内容相关）   StartupNotify 启动时是否打印输出信息   Terminal 是否在终端中运行    快捷方式的创建    ​	明白以上原理，我们只需要创建一个 qv2ray.">
-<meta name=keywords content="blog,developer,personal">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Ubuntu如何利用AppImage创建Qv2ray快捷方式">
-<meta name=twitter:description content="前言    ​	最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：
+   关键词 意义     [Desktop Entry] 文件头   Name 应用名称   Comment 描述   Exec 执行的命令   Icon 图标路径   Type 启动器类型   Categories 应用的类型（内容相关）   StartupNotify 启动时是否打印输出信息   Terminal 是否在终端中运行    快捷方式的创建    ​	明白以上原理，我们只需要创建一个 qv2ray."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Ubuntu如何利用AppImage创建Qv2ray快捷方式"><meta name=twitter:description content="前言    ​	最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：
 原理    ​	首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 \usr\share\applications 中，文件名为 **.desktop ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：
 [Desktop Entry] Name=Typora Comment=a minimal Markdown reading & writing app. Change Log: (https://typora.io/windows/dev_release.html) GenericName=Markdown Editor Exec=typora %U Icon=typora Type=Application StartupNotify=true Categories=Office;WordProcessor; MimeType=text/markdown;text/x-markdown; ​	可以看到里面的内容写的非常清晰，其中比较重要的有以下几个
-   关键词 意义     [Desktop Entry] 文件头   Name 应用名称   Comment 描述   Exec 执行的命令   Icon 图标路径   Type 启动器类型   Categories 应用的类型（内容相关）   StartupNotify 启动时是否打印输出信息   Terminal 是否在终端中运行    快捷方式的创建    ​	明白以上原理，我们只需要创建一个 qv2ray.">
-<meta property="og:title" content="Ubuntu如何利用AppImage创建Qv2ray快捷方式">
-<meta property="og:description" content="前言    ​	最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：
+   关键词 意义     [Desktop Entry] 文件头   Name 应用名称   Comment 描述   Exec 执行的命令   Icon 图标路径   Type 启动器类型   Categories 应用的类型（内容相关）   StartupNotify 启动时是否打印输出信息   Terminal 是否在终端中运行    快捷方式的创建    ​	明白以上原理，我们只需要创建一个 qv2ray."><meta property="og:title" content="Ubuntu如何利用AppImage创建Qv2ray快捷方式"><meta property="og:description" content="前言    ​	最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：
 原理    ​	首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 \usr\share\applications 中，文件名为 **.desktop ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：
 [Desktop Entry] Name=Typora Comment=a minimal Markdown reading & writing app. Change Log: (https://typora.io/windows/dev_release.html) GenericName=Markdown Editor Exec=typora %U Icon=typora Type=Application StartupNotify=true Categories=Office;WordProcessor; MimeType=text/markdown;text/x-markdown; ​	可以看到里面的内容写的非常清晰，其中比较重要的有以下几个
-   关键词 意义     [Desktop Entry] 文件头   Name 应用名称   Comment 描述   Exec 执行的命令   Icon 图标路径   Type 启动器类型   Categories 应用的类型（内容相关）   StartupNotify 启动时是否打印输出信息   Terminal 是否在终端中运行    快捷方式的创建    ​	明白以上原理，我们只需要创建一个 qv2ray.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://www.zzsqwq.cn/posts/193/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-06-16T00:54:00+00:00">
-<meta property="article:modified_time" content="2021-06-16T00:54:00+00:00">
-<title>
-Ubuntu如何利用AppImage创建Qv2ray快捷方式 · Zs's Blog
-</title>
-<link rel=canonical href=https://www.zzsqwq.cn/posts/193/>
-<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen>
-<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
-<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
-<meta name=generator content="Hugo 0.92.1">
-</head>
-<body class="preload-transitions colorscheme-auto">
-<div class=float-container>
-<a id=dark-mode-toggle class=colorscheme-toggle>
-<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
-</a>
-</div>
-<main class=wrapper>
-<nav class=navigation>
-<section class=container>
-<a class=navigation-title href=/>
-Zs's Blog
-</a>
+   关键词 意义     [Desktop Entry] 文件头   Name 应用名称   Comment 描述   Exec 执行的命令   Icon 图标路径   Type 启动器类型   Categories 应用的类型（内容相关）   StartupNotify 启动时是否打印输出信息   Terminal 是否在终端中运行    快捷方式的创建    ​	明白以上原理，我们只需要创建一个 qv2ray."><meta property="og:type" content="article"><meta property="og:url" content="https://www.zzsqwq.cn/posts/193/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-06-16T00:54:00+00:00"><meta property="article:modified_time" content="2021-06-16T00:54:00+00:00"><title>Ubuntu如何利用AppImage创建Qv2ray快捷方式 · Zs's Blog</title><link rel=canonical href=https://www.zzsqwq.cn/posts/193/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><meta name=generator content="Hugo 0.97.3"></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Zs's Blog</a>
 <input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle>
-<i class="fa fa-bars fa-fw" aria-hidden=true></i>
-</label>
-<ul class=navigation-list>
-<li class=navigation-item>
-<a class=navigation-link href=/about/>About</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/posts/>Blog</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/projects/>Projects</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/friends/>Friends</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/contact/>Contact Me</a>
-</li>
-</ul>
-</section>
-</nav>
-<div class=content>
-<section class="container post">
-<article>
-<header>
-<div class=post-title>
-<h1 class=title>
-<a class=title-link href=https://www.zzsqwq.cn/posts/193/>
-Ubuntu如何利用AppImage创建Qv2ray快捷方式
-</a>
-</h1>
-</div>
-<div class=post-meta>
-<div class=date>
-<span class=posted-on>
-<i class="fa fa-calendar" aria-hidden=true></i>
-<time datetime=2021-06-16T00:54:00Z>
-June 16, 2021
-</time>
-</span>
-<span class=reading-time>
-<i class="fa fa-clock-o" aria-hidden=true></i>
-One-minute read
-</span>
-</div>
-<div class=categories>
-<i class="fa fa-folder" aria-hidden=true></i>
+<label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/about/>About</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/friends/>Friends</a></li><li class=navigation-item><a class=navigation-link href=/contact/>Contact Me</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://www.zzsqwq.cn/posts/193/>Ubuntu如何利用AppImage创建Qv2ray快捷方式</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2021-06-16T00:54:00Z>June 16, 2021</time></span>
+<span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>
+One-minute read</span></div><div class=categories><i class="fa fa-folder" aria-hidden=true></i>
 <a href=/categories/%E6%9D%82%E5%AD%A6/>杂学</a>
 <span class=separator>•</span>
-<a href=/categories/ubuntu/>Ubuntu</a></div>
-<div class=tags>
-<i class="fa fa-tag" aria-hidden=true></i>
-<span class=tag>
-<a href=/tags/ubuntu/>ubuntu</a>
-</span>
+<a href=/categories/ubuntu/>Ubuntu</a></div><div class=tags><i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/ubuntu/>ubuntu</a></span>
 <span class=separator>•</span>
-<span class=tag>
-<a href=/tags/appimage/>AppImage</a>
-</span></div>
-</div>
-</header>
-<div>
-<h3 id=前言>
-前言
-<a class=heading-link href=#%e5%89%8d%e8%a8%80>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：</p>
-<p><img src=https://www.zzsqwq.cn/usr/uploads/2021/06/2642879187.png alt=快捷方式效果图></p>
-<h3 id=原理>
-原理
-<a class=heading-link href=#%e5%8e%9f%e7%90%86>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 <code>\usr\share\applications</code> 中，文件名为 <code>**.desktop</code> ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#f92672>[</span>Desktop Entry<span style=color:#f92672>]</span>
-Name<span style=color:#f92672>=</span>Typora
-Comment<span style=color:#f92672>=</span>a minimal Markdown reading &amp; writing app. Change Log: <span style=color:#f92672>(</span>https://typora.io/windows/dev_release.html<span style=color:#f92672>)</span>
-GenericName<span style=color:#f92672>=</span>Markdown Editor
-Exec<span style=color:#f92672>=</span>typora %U
-Icon<span style=color:#f92672>=</span>typora
-Type<span style=color:#f92672>=</span>Application
-StartupNotify<span style=color:#f92672>=</span>true
-Categories<span style=color:#f92672>=</span>Office;WordProcessor;
-MimeType<span style=color:#f92672>=</span>text/markdown;text/x-markdown;
-</code></pre></div><p>​ 可以看到里面的内容写的非常清晰，其中比较重要的有以下几个</p>
-<table>
-<thead>
-<tr>
-<th>关键词</th>
-<th>意义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[Desktop Entry]</td>
-<td>文件头</td>
-</tr>
-<tr>
-<td>Name</td>
-<td>应用名称</td>
-</tr>
-<tr>
-<td>Comment</td>
-<td>描述</td>
-</tr>
-<tr>
-<td>Exec</td>
-<td>执行的命令</td>
-</tr>
-<tr>
-<td>Icon</td>
-<td>图标路径</td>
-</tr>
-<tr>
-<td>Type</td>
-<td>启动器类型</td>
-</tr>
-<tr>
-<td>Categories</td>
-<td>应用的类型（内容相关）</td>
-</tr>
-<tr>
-<td>StartupNotify</td>
-<td>启动时是否打印输出信息</td>
-</tr>
-<tr>
-<td>Terminal</td>
-<td>是否在终端中运行</td>
-</tr>
-</tbody>
-</table>
-<h3 id=快捷方式的创建>
-快捷方式的创建
-<a class=heading-link href=#%e5%bf%ab%e6%8d%b7%e6%96%b9%e5%bc%8f%e7%9a%84%e5%88%9b%e5%bb%ba>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 明白以上原理，我们只需要创建一个 <code>qv2ray.desktop</code> ，文件内容如下：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#f92672>[</span>Desktop Entry<span style=color:#f92672>]</span>
-Name<span style=color:#f92672>=</span>qv2ray
-Exec<span style=color:#f92672>=</span>/home/zs/proxy/v2ray/Qv2ray.v2.6.3.linux-x64.AppImage
-Icon<span style=color:#f92672>=</span>/home/zs/proxy/v2ray/qv2ray.512.png
-Type<span style=color:#f92672>=</span>Application
-StartupNotify<span style=color:#f92672>=</span>true
-</code></pre></div><p>​ 其中Exec为你AppImage的绝对路径，Icon为图标的绝对路径。</p>
-<p>​ 其中各个大小的Qv2ray的icons可以在它的Github中找到，链接为：<a href=https://github.com/Qv2ray/Qv2ray/tree/master/assets/icons>Qv2ray/icons</a></p>
-<p>​ 创建完后执行</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo chmod +x qv2ray.desktop
-</code></pre></div><p>​ 为文件添加可执行权限，然后执行</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo cp qv2ray.desktop /usr/share/applications
-</code></pre></div><p>​ 将其加入到目录中，接下来我们就可以在应用库中找到对应的qv2ray了~</p>
-<h3 id=命令行快捷方式的创建>
-命令行快捷方式的创建
-<a class=heading-link href=#%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%bf%ab%e6%8d%b7%e6%96%b9%e5%bc%8f%e7%9a%84%e5%88%9b%e5%bb%ba>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 我们直接将AppImage加入到 <code>/usr/bin</code> 中即可，即执行以下命令：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ sudo cp xxx.AppImage /usr/bin/qv2ray
-</code></pre></div><p>​ 接下来我们在终端中输入 <code>qv2ray</code> ，发现已经可以成功打开qv2ray，大功告成！~</p>
-</div>
-<footer>
-<script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=preferred-color-scheme crossorigin=anonymous async></script>
-</footer>
-</article>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:!0},{left:'$',right:'$',display:!1},{left:'\\(',right:'\\)',display:!1},{left:'\\[',right:'\\]',display:!0}]})"></script>
-</section>
-</div>
-<footer class=footer>
-<section class=container>
-<a href=http://beian.miit.gov.cn/ target=_blank> 鲁ICP备2020034310号</a>
-</br>
-©
+<span class=tag><a href=/tags/appimage/>AppImage</a></span></div></div></header><div><h3 id=前言>前言
+<a class=heading-link href=#%e5%89%8d%e8%a8%80><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：</p><p><img src=https://www.zzsqwq.cn/usr/uploads/2021/06/2642879187.png alt=快捷方式效果图></p><h3 id=原理>原理
+<a class=heading-link href=#%e5%8e%9f%e7%90%86><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 <code>\usr\share\applications</code> 中，文件名为 <code>**.desktop</code> ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#f92672>[</span>Desktop Entry<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>Name<span style=color:#f92672>=</span>Typora
+</span></span><span style=display:flex><span>Comment<span style=color:#f92672>=</span>a minimal Markdown reading &amp; writing app. Change Log: <span style=color:#f92672>(</span>https://typora.io/windows/dev_release.html<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>GenericName<span style=color:#f92672>=</span>Markdown Editor
+</span></span><span style=display:flex><span>Exec<span style=color:#f92672>=</span>typora %U
+</span></span><span style=display:flex><span>Icon<span style=color:#f92672>=</span>typora
+</span></span><span style=display:flex><span>Type<span style=color:#f92672>=</span>Application
+</span></span><span style=display:flex><span>StartupNotify<span style=color:#f92672>=</span>true
+</span></span><span style=display:flex><span>Categories<span style=color:#f92672>=</span>Office;WordProcessor;
+</span></span><span style=display:flex><span>MimeType<span style=color:#f92672>=</span>text/markdown;text/x-markdown;
+</span></span></code></pre></div><p>​ 可以看到里面的内容写的非常清晰，其中比较重要的有以下几个</p><table><thead><tr><th>关键词</th><th>意义</th></tr></thead><tbody><tr><td>[Desktop Entry]</td><td>文件头</td></tr><tr><td>Name</td><td>应用名称</td></tr><tr><td>Comment</td><td>描述</td></tr><tr><td>Exec</td><td>执行的命令</td></tr><tr><td>Icon</td><td>图标路径</td></tr><tr><td>Type</td><td>启动器类型</td></tr><tr><td>Categories</td><td>应用的类型（内容相关）</td></tr><tr><td>StartupNotify</td><td>启动时是否打印输出信息</td></tr><tr><td>Terminal</td><td>是否在终端中运行</td></tr></tbody></table><h3 id=快捷方式的创建>快捷方式的创建
+<a class=heading-link href=#%e5%bf%ab%e6%8d%b7%e6%96%b9%e5%bc%8f%e7%9a%84%e5%88%9b%e5%bb%ba><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 明白以上原理，我们只需要创建一个 <code>qv2ray.desktop</code> ，文件内容如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#f92672>[</span>Desktop Entry<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>Name<span style=color:#f92672>=</span>qv2ray
+</span></span><span style=display:flex><span>Exec<span style=color:#f92672>=</span>/home/zs/proxy/v2ray/Qv2ray.v2.6.3.linux-x64.AppImage
+</span></span><span style=display:flex><span>Icon<span style=color:#f92672>=</span>/home/zs/proxy/v2ray/qv2ray.512.png
+</span></span><span style=display:flex><span>Type<span style=color:#f92672>=</span>Application
+</span></span><span style=display:flex><span>StartupNotify<span style=color:#f92672>=</span>true
+</span></span></code></pre></div><p>​ 其中Exec为你AppImage的绝对路径，Icon为图标的绝对路径。</p><p>​ 其中各个大小的Qv2ray的icons可以在它的Github中找到，链接为：<a href=https://github.com/Qv2ray/Qv2ray/tree/master/assets/icons>Qv2ray/icons</a></p><p>​ 创建完后执行</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ sudo chmod +x qv2ray.desktop
+</span></span></code></pre></div><p>​ 为文件添加可执行权限，然后执行</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ sudo cp qv2ray.desktop /usr/share/applications
+</span></span></code></pre></div><p>​ 将其加入到目录中，接下来我们就可以在应用库中找到对应的qv2ray了~</p><h3 id=命令行快捷方式的创建>命令行快捷方式的创建
+<a class=heading-link href=#%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%bf%ab%e6%8d%b7%e6%96%b9%e5%bc%8f%e7%9a%84%e5%88%9b%e5%bb%ba><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 我们直接将AppImage加入到 <code>/usr/bin</code> 中即可，即执行以下命令：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ sudo cp xxx.AppImage /usr/bin/qv2ray
+</span></span></code></pre></div><p>​ 接下来我们在终端中输入 <code>qv2ray</code> ，发现已经可以成功打开qv2ray，大功告成！~</p></div><footer><script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=preferred-color-scheme crossorigin=anonymous async></script></footer></article><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})'></script></section></div><footer class=footer><section class=container><a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></br>©
 2019 -
 2022
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
-</section>
-</footer>
-</main>
-<script src=/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.f453d26c79f010446cf0d9770197f77de32c07b7a5512d141a286247fe154a22.js integrity="sha256-9FPSbHnwEERs8Nl3AZf3feMsB7elUS0UGihiR/4VSiI="></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6EM6V1PVC"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-Z6EM6V1PVC',{anonymize_ip:!1})}</script>
-</body>
-</html>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-Z6EM6V1PVC",{anonymize_ip:!1})}</script></body></html>

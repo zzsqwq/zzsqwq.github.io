@@ -1,11 +1,4 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=content-language content="en">
-<meta name=color-scheme content="light dark">
-<meta name=author content="zzsqwq">
-<meta name=description content="
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=content-language content="en"><meta name=color-scheme content="light dark"><meta name=author content="zzsqwq"><meta name=description content="
   前言
   
     
@@ -27,11 +20,7 @@
   
 
 ​	   已知序列 $a$ 有 $n$ 个数，通过取出其中一些数可以使他满足严格的先增再减序列，问最少取出几个。
-">
-<meta name=keywords content="blog,developer,personal">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="基础线性dp例题">
-<meta name=twitter:description content="
+"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="基础线性dp例题"><meta name=twitter:description content="
   前言
   
     
@@ -53,9 +42,7 @@
   
 
 ​	   已知序列 $a$ 有 $n$ 个数，通过取出其中一些数可以使他满足严格的先增再减序列，问最少取出几个。
-">
-<meta property="og:title" content="基础线性dp例题">
-<meta property="og:description" content="
+"><meta property="og:title" content="基础线性dp例题"><meta property="og:description" content="
   前言
   
     
@@ -77,285 +64,116 @@
   
 
 ​	   已知序列 $a$ 有 $n$ 个数，通过取出其中一些数可以使他满足严格的先增再减序列，问最少取出几个。
-">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://www.zzsqwq.cn/posts/18/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2020-02-06T00:09:00+00:00">
-<meta property="article:modified_time" content="2020-02-06T00:09:00+00:00">
-<title>
-基础线性dp例题 · Zs's Blog
-</title>
-<link rel=canonical href=https://www.zzsqwq.cn/posts/18/>
-<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen>
-<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
-<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
-<meta name=generator content="Hugo 0.92.1">
-</head>
-<body class="preload-transitions colorscheme-auto">
-<div class=float-container>
-<a id=dark-mode-toggle class=colorscheme-toggle>
-<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
-</a>
-</div>
-<main class=wrapper>
-<nav class=navigation>
-<section class=container>
-<a class=navigation-title href=/>
-Zs's Blog
-</a>
+"><meta property="og:type" content="article"><meta property="og:url" content="https://www.zzsqwq.cn/posts/18/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-02-06T00:09:00+00:00"><meta property="article:modified_time" content="2020-02-06T00:09:00+00:00"><title>基础线性dp例题 · Zs's Blog</title><link rel=canonical href=https://www.zzsqwq.cn/posts/18/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><meta name=generator content="Hugo 0.97.3"></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Zs's Blog</a>
 <input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle>
-<i class="fa fa-bars fa-fw" aria-hidden=true></i>
-</label>
-<ul class=navigation-list>
-<li class=navigation-item>
-<a class=navigation-link href=/about/>About</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/posts/>Blog</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/projects/>Projects</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/friends/>Friends</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/contact/>Contact Me</a>
-</li>
-</ul>
-</section>
-</nav>
-<div class=content>
-<section class="container post">
-<article>
-<header>
-<div class=post-title>
-<h1 class=title>
-<a class=title-link href=https://www.zzsqwq.cn/posts/18/>
-基础线性dp例题
-</a>
-</h1>
-</div>
-<div class=post-meta>
-<div class=date>
-<span class=posted-on>
-<i class="fa fa-calendar" aria-hidden=true></i>
-<time datetime=2020-02-06T00:09:00Z>
-February 6, 2020
-</time>
-</span>
-<span class=reading-time>
-<i class="fa fa-clock-o" aria-hidden=true></i>
-One-minute read
-</span>
-</div>
-<div class=categories>
-<i class="fa fa-folder" aria-hidden=true></i>
-<a href=/categories/dp/>dp</a></div>
-<div class=tags>
-<i class="fa fa-tag" aria-hidden=true></i>
-<span class=tag>
-<a href=/tags/luogu/>Luogu</a>
-</span>
+<label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/about/>About</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/friends/>Friends</a></li><li class=navigation-item><a class=navigation-link href=/contact/>Contact Me</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://www.zzsqwq.cn/posts/18/>基础线性dp例题</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2020-02-06T00:09:00Z>February 6, 2020</time></span>
+<span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>
+One-minute read</span></div><div class=categories><i class="fa fa-folder" aria-hidden=true></i>
+<a href=/categories/dp/>dp</a></div><div class=tags><i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/luogu/>Luogu</a></span>
 <span class=separator>•</span>
-<span class=tag>
-<a href=/tags/dp/>dp</a>
-</span></div>
-</div>
-</header>
-<div>
-<h3 id=前言>
-前言
-<a class=heading-link href=#%e5%89%8d%e8%a8%80>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<hr>
-<p>​ 某位大佬曾经说过，dp不会没问题，想不到状态转移方程没问题，多做题就会了。所以，我打算多刷点dp题。那么，先从基础刷起吧。</p>
-<h3 id=1-p1091-合唱队形httpswwwluogucomcnproblemp1091>
-1. <a href=https://www.luogu.com.cn/problem/P1091>P1091 合唱队形</a>
-<a class=heading-link href=#1-p1091-%e5%90%88%e5%94%b1%e9%98%9f%e5%bd%a2httpswwwluogucomcnproblemp1091>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<hr>
-<h4 id=题意>
-题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h4>
-<p>​ 已知序列 $a$ 有 $n$ 个数，通过取出其中一些数可以使他满足严格的先增再减序列，问最少取出几个。</p>
-<hr>
-<h4 id=思路>
-思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h4>
-<p>​ 很显然想要求最少取出几个，我们就看严格先增再减的序列的最长长度即可。我们可以用 $g[i]$ 来存储到 $a[i]$ 为止的最长递增子序列的长度，然后用 $l[i]$ 来存储从 $a[i]$ 到序列末尾最长的递减子序列的长度。处理 $g[i]$ 从前往后扫，处理 $l[i]$ 需要从后往前扫。处理完 $f$ 和 $g$ 数组那么就从左到右扫一遍，$ans=max(ans,g[i]+l[i]-1)$ 。答案即是 $n-ans$ 。</p>
-<hr>
-<h4 id=代码实现>
-代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h4>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
-
-<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>105</span>;
-<span style=color:#66d9ef>int</span> n;
-<span style=color:#66d9ef>int</span> a[maxn],g[maxn],l[maxn];
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-{
-	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-	{
-		scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>a[i]);
-	}
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-	{
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;j<span style=color:#f92672>&lt;</span>i;j<span style=color:#f92672>++</span>)
-		{
-			<span style=color:#66d9ef>if</span>(a[i]<span style=color:#f92672>&gt;</span>a[j]) g[i]<span style=color:#f92672>=</span>max(g[i],g[j]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>);
-		}
-	}
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>n;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>--</span>)
-	{
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span>n<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&gt;</span>i;j<span style=color:#f92672>--</span>)
-		{
-			<span style=color:#66d9ef>if</span>(a[i]<span style=color:#f92672>&gt;</span>a[j]) l[i]<span style=color:#f92672>=</span>max(l[i],l[j]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>);
-		}
-	}
-	<span style=color:#66d9ef>int</span> maxout<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-	{
-		maxout<span style=color:#f92672>=</span>max(maxout,g[i]<span style=color:#f92672>+</span>l[i]<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>);
-	}
-	printf(<span style=color:#e6db74>&#34;%d&#34;</span>,n<span style=color:#f92672>-</span>maxout);
-	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-} 
-</code></pre></div><hr>
-<h3 id=2-p1280-尼克的任务httpswwwluogucomcnproblemp1280>
-2. <a href=https://www.luogu.com.cn/problem/P1280>P1280 尼克的任务</a>
-<a class=heading-link href=#2-p1280-%e5%b0%bc%e5%85%8b%e7%9a%84%e4%bb%bb%e5%8a%a1httpswwwluogucomcnproblemp1280>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<hr>
-<h4 id=题意-1>
-题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f-1>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h4>
-<p>​ 尼克的一个工作日为 $n$ 分钟，从第一分钟开始到第 $n$ 分钟结束。当尼克到达单位后他就开始干活。如果在同一时刻有多个任务需要完成，尼克可以任选其中的一个来做，而其余的则由他的同事完成，反之如果只有一个任务，则该任务必需由尼克去完成，假如某些任务开始时刻尼克正在工作，则这些任务也由尼克的同事完成。如果某任务于第 $p$ 分钟开始，持续时间为 $t$ 分钟，则该任务将在第 $p+t-1$ 分钟结束。（实在不会总结题意，就直接复制过来了）</p>
-<hr>
-<h4 id=思路-1>
-思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af-1>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h4>
-<p>​ 我们可以设 $f[i]$ 为时间从 $i\sim n$ 所能获得最长空闲时间，最终 $f[1]$ 对应的就是答案。假设在这个 $i$ 分钟有 $k[i]$ 个任务可以，那么我们可以分以下情况转移</p>
-<ul>
-<li>$k[i]=0$ ， 那么 $f[i]=f[i+1]+1$</li>
-<li>$k[i]\not=0$ ，那么可以循环 $1 \sim k[i]$ 遍历这个时间点开始的任务，$f[i]=max(f[i],f[i+k[i].t])$</li>
-</ul>
-<p>​ 思路是这样的，但是我们记录 $k[i].t$ 并不好记录，因此我们可以先将任务开始时间按降序排序，用一个一个变量 $cnt$ 来代表已经取到第几个任务了，那么这样一直取下去，最终就能够遍历所有的任务。</p>
-<hr>
-<h4 id=代码实现-1>
-代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h4>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
-
-<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>10005</span>;
-<span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>task</span>
-{
-	<span style=color:#66d9ef>int</span> l,r;
-}t[maxn];
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>cmp</span>(<span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>task</span> a,<span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>task</span> b)
-{
-	<span style=color:#66d9ef>return</span> a.l<span style=color:#f92672>&gt;</span>b.l;
-}
-<span style=color:#66d9ef>int</span> dp[maxn];
-<span style=color:#66d9ef>int</span> p[maxn];
-<span style=color:#66d9ef>int</span> cnt<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>,n,k; 
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-{
-	scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>k);
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>k;i<span style=color:#f92672>++</span>)
-	{
-		scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>t[i].l,<span style=color:#f92672>&amp;</span>t[i].r);
-		p[t[i].l]<span style=color:#f92672>++</span>;
-	}
-	sort(t<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,t<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span><span style=color:#f92672>+</span>k,cmp);
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>n;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>--</span>)
-	{
-		<span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>p[i])
-		{
-			dp[i]<span style=color:#f92672>=</span>dp[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
-		}
-		<span style=color:#66d9ef>else</span> 
-		{
-			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>p[i];j<span style=color:#f92672>++</span>)
-			{
-				dp[i]<span style=color:#f92672>=</span>max(dp[i],dp[i<span style=color:#f92672>+</span>t[cnt].r]);
-				cnt<span style=color:#f92672>++</span>;
-			}
-		}
-	}
-	printf(<span style=color:#e6db74>&#34;%d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,dp[<span style=color:#ae81ff>1</span>]);
-	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-}
-</code></pre></div><hr>
-<p>​</p>
-<p>​ 我太懒了····就写了两道，明天继续加油吧。。</p>
-</div>
-<footer>
-<script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=preferred-color-scheme crossorigin=anonymous async></script>
-</footer>
-</article>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:!0},{left:'$',right:'$',display:!1},{left:'\\(',right:'\\)',display:!1},{left:'\\[',right:'\\]',display:!0}]})"></script>
-</section>
-</div>
-<footer class=footer>
-<section class=container>
-<a href=http://beian.miit.gov.cn/ target=_blank> 鲁ICP备2020034310号</a>
-</br>
-©
+<span class=tag><a href=/tags/dp/>dp</a></span></div></div></header><div><h3 id=前言>前言
+<a class=heading-link href=#%e5%89%8d%e8%a8%80><i class="fa fa-link" aria-hidden=true></i></a></h3><hr><p>​ 某位大佬曾经说过，dp不会没问题，想不到状态转移方程没问题，多做题就会了。所以，我打算多刷点dp题。那么，先从基础刷起吧。</p><h3 id=1-p1091-合唱队形httpswwwluogucomcnproblemp1091>1. <a href=https://www.luogu.com.cn/problem/P1091>P1091 合唱队形</a>
+<a class=heading-link href=#1-p1091-%e5%90%88%e5%94%b1%e9%98%9f%e5%bd%a2httpswwwluogucomcnproblemp1091><i class="fa fa-link" aria-hidden=true></i></a></h3><hr><h4 id=题意>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f><i class="fa fa-link" aria-hidden=true></i></a></h4><p>​ 已知序列 $a$ 有 $n$ 个数，通过取出其中一些数可以使他满足严格的先增再减序列，问最少取出几个。</p><hr><h4 id=思路>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af><i class="fa fa-link" aria-hidden=true></i></a></h4><p>​ 很显然想要求最少取出几个，我们就看严格先增再减的序列的最长长度即可。我们可以用 $g[i]$ 来存储到 $a[i]$ 为止的最长递增子序列的长度，然后用 $l[i]$ 来存储从 $a[i]$ 到序列末尾最长的递减子序列的长度。处理 $g[i]$ 从前往后扫，处理 $l[i]$ 需要从后往前扫。处理完 $f$ 和 $g$ 数组那么就从左到右扫一遍，$ans=max(ans,g[i]+l[i]-1)$ 。答案即是 $n-ans$ 。</p><hr><h4 id=代码实现>代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0><i class="fa fa-link" aria-hidden=true></i></a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>105</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> n;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> a[maxn],g[maxn],l[maxn];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>a[i]);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;j<span style=color:#f92672>&lt;</span>i;j<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>if</span>(a[i]<span style=color:#f92672>&gt;</span>a[j]) g[i]<span style=color:#f92672>=</span>max(g[i],g[j]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>n;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>--</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span>n<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&gt;</span>i;j<span style=color:#f92672>--</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>if</span>(a[i]<span style=color:#f92672>&gt;</span>a[j]) l[i]<span style=color:#f92672>=</span>max(l[i],l[j]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>int</span> maxout<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		maxout<span style=color:#f92672>=</span>max(maxout,g[i]<span style=color:#f92672>+</span>l[i]<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	printf(<span style=color:#e6db74>&#34;%d&#34;</span>,n<span style=color:#f92672>-</span>maxout);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>} 
+</span></span></code></pre></div><hr><h3 id=2-p1280-尼克的任务httpswwwluogucomcnproblemp1280>2. <a href=https://www.luogu.com.cn/problem/P1280>P1280 尼克的任务</a>
+<a class=heading-link href=#2-p1280-%e5%b0%bc%e5%85%8b%e7%9a%84%e4%bb%bb%e5%8a%a1httpswwwluogucomcnproblemp1280><i class="fa fa-link" aria-hidden=true></i></a></h3><hr><h4 id=题意-1>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f-1><i class="fa fa-link" aria-hidden=true></i></a></h4><p>​ 尼克的一个工作日为 $n$ 分钟，从第一分钟开始到第 $n$ 分钟结束。当尼克到达单位后他就开始干活。如果在同一时刻有多个任务需要完成，尼克可以任选其中的一个来做，而其余的则由他的同事完成，反之如果只有一个任务，则该任务必需由尼克去完成，假如某些任务开始时刻尼克正在工作，则这些任务也由尼克的同事完成。如果某任务于第 $p$ 分钟开始，持续时间为 $t$ 分钟，则该任务将在第 $p+t-1$ 分钟结束。（实在不会总结题意，就直接复制过来了）</p><hr><h4 id=思路-1>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af-1><i class="fa fa-link" aria-hidden=true></i></a></h4><p>​ 我们可以设 $f[i]$ 为时间从 $i\sim n$ 所能获得最长空闲时间，最终 $f[1]$ 对应的就是答案。假设在这个 $i$ 分钟有 $k[i]$ 个任务可以，那么我们可以分以下情况转移</p><ul><li>$k[i]=0$ ， 那么 $f[i]=f[i+1]+1$</li><li>$k[i]\not=0$ ，那么可以循环 $1 \sim k[i]$ 遍历这个时间点开始的任务，$f[i]=max(f[i],f[i+k[i].t])$</li></ul><p>​ 思路是这样的，但是我们记录 $k[i].t$ 并不好记录，因此我们可以先将任务开始时间按降序排序，用一个一个变量 $cnt$ 来代表已经取到第几个任务了，那么这样一直取下去，最终就能够遍历所有的任务。</p><hr><h4 id=代码实现-1>代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1><i class="fa fa-link" aria-hidden=true></i></a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>10005</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>task</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>int</span> l,r;
+</span></span><span style=display:flex><span>}t[maxn];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>cmp</span>(<span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>task</span> a,<span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>task</span> b)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> a.l<span style=color:#f92672>&gt;</span>b.l;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> dp[maxn];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> p[maxn];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> cnt<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>,n,k; 
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>k);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>k;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>t[i].l,<span style=color:#f92672>&amp;</span>t[i].r);
+</span></span><span style=display:flex><span>		p[t[i].l]<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	sort(t<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,t<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span><span style=color:#f92672>+</span>k,cmp);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>n;i<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>--</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>p[i])
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			dp[i]<span style=color:#f92672>=</span>dp[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>else</span> 
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>p[i];j<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				dp[i]<span style=color:#f92672>=</span>max(dp[i],dp[i<span style=color:#f92672>+</span>t[cnt].r]);
+</span></span><span style=display:flex><span>				cnt<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	printf(<span style=color:#e6db74>&#34;%d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,dp[<span style=color:#ae81ff>1</span>]);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><hr><p>​</p><p>​ 我太懒了····就写了两道，明天继续加油吧。。</p></div><footer><script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=preferred-color-scheme crossorigin=anonymous async></script></footer></article><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})'></script></section></div><footer class=footer><section class=container><a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></br>©
 2019 -
 2022
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
-</section>
-</footer>
-</main>
-<script src=/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.f453d26c79f010446cf0d9770197f77de32c07b7a5512d141a286247fe154a22.js integrity="sha256-9FPSbHnwEERs8Nl3AZf3feMsB7elUS0UGihiR/4VSiI="></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6EM6V1PVC"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-Z6EM6V1PVC',{anonymize_ip:!1})}</script>
-</body>
-</html>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-Z6EM6V1PVC",{anonymize_ip:!1})}</script></body></html>

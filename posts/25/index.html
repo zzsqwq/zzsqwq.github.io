@@ -1,447 +1,226 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=content-language content="en">
-<meta name=color-scheme content="light dark">
-<meta name=author content="zzsqwq">
-<meta name=description content="
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=content-language content="en"><meta name=color-scheme content="light dark"><meta name=author content="zzsqwq"><meta name=description content="
   前言
   
     
   
 
-​	今天又是颓废的一天，被大佬拉去跟他一起做牛客网的题，QAQ&mldr;那我会点啥嘛，就只能替大佬写两道水题了···">
-<meta name=keywords content="blog,developer,personal">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="日常水题">
-<meta name=twitter:description content="
+​	今天又是颓废的一天，被大佬拉去跟他一起做牛客网的题，QAQ&mldr;那我会点啥嘛，就只能替大佬写两道水题了···"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="日常水题"><meta name=twitter:description content="
   前言
   
     
   
 
-​	今天又是颓废的一天，被大佬拉去跟他一起做牛客网的题，QAQ&mldr;那我会点啥嘛，就只能替大佬写两道水题了···">
-<meta property="og:title" content="日常水题">
-<meta property="og:description" content="
+​	今天又是颓废的一天，被大佬拉去跟他一起做牛客网的题，QAQ&mldr;那我会点啥嘛，就只能替大佬写两道水题了···"><meta property="og:title" content="日常水题"><meta property="og:description" content="
   前言
   
     
   
 
-​	今天又是颓废的一天，被大佬拉去跟他一起做牛客网的题，QAQ&mldr;那我会点啥嘛，就只能替大佬写两道水题了···">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://www.zzsqwq.cn/posts/25/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2020-02-13T00:47:00+00:00">
-<meta property="article:modified_time" content="2020-02-13T00:47:00+00:00">
-<title>
-日常水题 · Zs's Blog
-</title>
-<link rel=canonical href=https://www.zzsqwq.cn/posts/25/>
-<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen>
-<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
-<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
-<meta name=generator content="Hugo 0.92.1">
-</head>
-<body class="preload-transitions colorscheme-auto">
-<div class=float-container>
-<a id=dark-mode-toggle class=colorscheme-toggle>
-<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
-</a>
-</div>
-<main class=wrapper>
-<nav class=navigation>
-<section class=container>
-<a class=navigation-title href=/>
-Zs's Blog
-</a>
+​	今天又是颓废的一天，被大佬拉去跟他一起做牛客网的题，QAQ&mldr;那我会点啥嘛，就只能替大佬写两道水题了···"><meta property="og:type" content="article"><meta property="og:url" content="https://www.zzsqwq.cn/posts/25/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-02-13T00:47:00+00:00"><meta property="article:modified_time" content="2020-02-13T00:47:00+00:00"><title>日常水题 · Zs's Blog</title><link rel=canonical href=https://www.zzsqwq.cn/posts/25/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><meta name=generator content="Hugo 0.97.3"></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Zs's Blog</a>
 <input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle>
-<i class="fa fa-bars fa-fw" aria-hidden=true></i>
-</label>
-<ul class=navigation-list>
-<li class=navigation-item>
-<a class=navigation-link href=/about/>About</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/posts/>Blog</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/projects/>Projects</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/friends/>Friends</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/contact/>Contact Me</a>
-</li>
-</ul>
-</section>
-</nav>
-<div class=content>
-<section class="container post">
-<article>
-<header>
-<div class=post-title>
-<h1 class=title>
-<a class=title-link href=https://www.zzsqwq.cn/posts/25/>
-日常水题
-</a>
-</h1>
-</div>
-<div class=post-meta>
-<div class=date>
-<span class=posted-on>
-<i class="fa fa-calendar" aria-hidden=true></i>
-<time datetime=2020-02-13T00:47:00Z>
-February 13, 2020
-</time>
-</span>
-<span class=reading-time>
-<i class="fa fa-clock-o" aria-hidden=true></i>
-2-minute read
-</span>
-</div>
-<div class=categories>
-<i class="fa fa-folder" aria-hidden=true></i>
-<a href=/categories/acm/>ACM</a></div>
-<div class=tags>
-<i class="fa fa-tag" aria-hidden=true></i>
-<span class=tag>
-<a href=/tags/nowcoder/>Nowcoder</a>
-</span></div>
-</div>
-</header>
-<div>
-<h2 id=前言>
-前言
-<a class=heading-link href=#%e5%89%8d%e8%a8%80>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<p>​ 今天又是颓废的一天，被大佬拉去跟他一起做牛客网的题，QAQ&mldr;那我会点啥嘛，就只能替大佬写两道水题了···</p>
-<h2 id=a-牛牛战队的比赛地httpsacnowcodercomacmcontest3006>
-A. <a href=https://ac.nowcoder.com/acm/contest/3006>牛牛战队的比赛地</a>
-<a class=heading-link href=#a-%e7%89%9b%e7%89%9b%e6%88%98%e9%98%9f%e7%9a%84%e6%af%94%e8%b5%9b%e5%9c%b0httpsacnowcodercomacmcontest3006>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<h3 id=题意>
-题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 由于牛牛战队经常要外出比赛，因此在全国各地建立了很多训练基地，每一个基地都有一个坐标 $(x,y)$ 。
-​ 这周末，牛牛队又要出去比赛了，各个比赛的赛点都在 $x$ 轴上。牛牛战队为了方便比赛，想找一个到达训练基地最大距离最小的地方作为比赛地。请你求出选择的比赛地距离各训练基地最大距离的最小值。</p>
-<h3 id=思路>
-思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 这个题首先一看到这种什么最大的最小，第一直觉就是二分。首先我们想一下应该二分什么，肯定先想的是枚举 $x$ 轴上的点，但是这样就会有个问题，二分要用的话必须是单调的，那么我们不能够确定越往右或者越往左，他们的这个值是单调的。因此我们可以用三分，一直向单峰逼近，最终寻找到那个极值点。（说实话这是我第一次接触到三分法，我太菜了。）</p>
-<h3 id=代码实现>
-代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
-
-<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>100005</span>;
-<span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>node</span>
-{
-	<span style=color:#66d9ef>int</span> x,y;
-}p[maxn]; <span style=color:#75715e>//point
-</span><span style=color:#75715e></span><span style=color:#66d9ef>int</span> n;
-<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>double</span> eps<span style=color:#f92672>=</span><span style=color:#ae81ff>1e-6</span>;
-<span style=color:#66d9ef>double</span> lmid,rmid,lans,rans;
-<span style=color:#66d9ef>double</span> <span style=color:#a6e22e>check</span>(<span style=color:#66d9ef>double</span> x)
-{
-	<span style=color:#66d9ef>double</span> ans<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-	{
-		<span style=color:#66d9ef>double</span> dis<span style=color:#f92672>=</span>(p[i].x<span style=color:#f92672>-</span>x)<span style=color:#f92672>*</span>(p[i].x<span style=color:#f92672>-</span>x)<span style=color:#f92672>+</span>p[i].y<span style=color:#f92672>*</span>p[i].y;
-		ans<span style=color:#f92672>=</span>max(ans,dis);
-	}
-	<span style=color:#66d9ef>return</span> ans;
-}
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-{
-	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-	{
-		scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>p[i].x,<span style=color:#f92672>&amp;</span>p[i].y);
-	}
-	<span style=color:#66d9ef>double</span> l<span style=color:#f92672>=-</span><span style=color:#ae81ff>10000</span>,r<span style=color:#f92672>=</span><span style=color:#ae81ff>10000</span>;
-	<span style=color:#66d9ef>double</span> ans<span style=color:#f92672>=</span><span style=color:#ae81ff>9999999999</span>;
-	<span style=color:#66d9ef>while</span>(r<span style=color:#f92672>-</span>l<span style=color:#f92672>&gt;=</span>eps)
-	{
-		lmid<span style=color:#f92672>=</span>(r<span style=color:#f92672>+</span>l)<span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>;
-		rmid<span style=color:#f92672>=</span>(r<span style=color:#f92672>+</span>lmid)<span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>;
-		lans<span style=color:#f92672>=</span>check(lmid);
-		rans<span style=color:#f92672>=</span>check(rmid);
-		<span style=color:#66d9ef>if</span>(lans<span style=color:#f92672>&lt;</span>rans)
-		{
-			ans<span style=color:#f92672>=</span>min(ans,lans);
-			r<span style=color:#f92672>=</span>rmid;
-		}
-		<span style=color:#66d9ef>else</span> 
-		{
-			ans<span style=color:#f92672>=</span>min(ans,rans);
-			l<span style=color:#f92672>=</span>lmid;
-		}
-	}
-	printf(<span style=color:#e6db74>&#34;%lf&#34;</span>,sqrt(ans));
-	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-} 
-</code></pre></div>
-<h2 id=b-牛牛与牛妹的约会httpsacnowcodercomacmcontest3006d>
-B. <a href=https://ac.nowcoder.com/acm/contest/3006/D>牛牛与牛妹的约会</a>
-<a class=heading-link href=#b-%e7%89%9b%e7%89%9b%e4%b8%8e%e7%89%9b%e5%a6%b9%e7%9a%84%e7%ba%a6%e4%bc%9ahttpsacnowcodercomacmcontest3006d>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<h3 id=题意-1>
-题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f-1>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 你想从 $(a,0)$ 点到 $(b,0)$ 点，你可以除了可以以 $1m/s$ 的速度奔跑，还可以用1秒的时间来引导闪现，这将使你从 $(x,0)$ 点闪现到 $(\sqrt[3]{x},0)$ 点，问最少需要多长时间到达 $(b,0)$ 点。$(Ps:a,b \in[-10^6,10^6])$</p>
-<h3 id=思路-1>
-思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af-1>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 一道贪心的题目，当闪现所能贡献的距离大于 $1m$ ，那么我就选择用闪现，不然就直接奔跑。那么我们可以用距离的变化来体现闪现贡献的距离，一直用闪现到不能用之后，就直接加上最后剩下的距离即可。注意pow这个函数有点坑？如果底数是负数并且指数不是整数的话好像会返回很奇怪的值···（跟大佬调了好长时间都卡在这了）</p>
-<h3 id=代码实现-1>
-代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
-
-<span style=color:#66d9ef>int</span> t,x,y;
-<span style=color:#66d9ef>double</span> ans,a,b;
-<span style=color:#66d9ef>double</span> dis,cdis;
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(<span style=color:#66d9ef>void</span>)
-{
-	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>t);
-	<span style=color:#66d9ef>while</span>(t<span style=color:#f92672>--</span>)
-	{
-		scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>x,<span style=color:#f92672>&amp;</span>y);
-		a <span style=color:#f92672>=</span>(<span style=color:#66d9ef>double</span>)x;
-		b<span style=color:#f92672>=</span>(<span style=color:#66d9ef>double</span>)y;
-		dis <span style=color:#f92672>=</span> abs(a<span style=color:#f92672>-</span>b);
-		<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>0</span>)
-		{
-			cdis<span style=color:#f92672>=</span>abs(<span style=color:#f92672>-</span>pow(<span style=color:#f92672>-</span>a,<span style=color:#ae81ff>1.0</span><span style=color:#f92672>/</span><span style=color:#ae81ff>3.0</span>)<span style=color:#f92672>-</span>b);
-		}
-		<span style=color:#66d9ef>else</span> cdis <span style=color:#f92672>=</span> abs(pow(a,<span style=color:#ae81ff>1.0</span><span style=color:#f92672>/</span><span style=color:#ae81ff>3.0</span>)<span style=color:#f92672>-</span>b);
-		ans <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
-		<span style=color:#66d9ef>while</span>(dis<span style=color:#f92672>-</span>cdis<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>1.0</span>)
-		{
-			<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>0</span>)
-			{
-				a<span style=color:#f92672>=-</span>pow(<span style=color:#f92672>-</span>a,<span style=color:#ae81ff>1.0</span><span style=color:#f92672>/</span><span style=color:#ae81ff>3.0</span>);
-			}
-			<span style=color:#66d9ef>else</span> a<span style=color:#f92672>=</span>pow(a,<span style=color:#ae81ff>1.0</span><span style=color:#f92672>/</span><span style=color:#ae81ff>3.0</span>);
-			ans<span style=color:#f92672>+=</span><span style=color:#ae81ff>1</span>;
-			dis <span style=color:#f92672>=</span> cdis;
-			<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>0</span>)
-			{
-				cdis <span style=color:#f92672>=</span> abs(<span style=color:#f92672>-</span>pow(<span style=color:#f92672>-</span>a,<span style=color:#ae81ff>1.0</span><span style=color:#f92672>/</span><span style=color:#ae81ff>3.0</span>)<span style=color:#f92672>-</span>b);
-			}
-			<span style=color:#66d9ef>else</span> cdis <span style=color:#f92672>=</span> abs(pow(a,<span style=color:#ae81ff>1.0</span><span style=color:#f92672>/</span><span style=color:#ae81ff>3.0</span>)<span style=color:#f92672>-</span>b);
-		}
-		ans<span style=color:#f92672>+=</span>dis;
-		printf(<span style=color:#e6db74>&#34;%.9lf</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,ans);
-	}
-	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-}
-</code></pre></div>
-<h2 id=c-碎碎念httpsacnowcodercomacmcontest3006f>
-C. <a href=https://ac.nowcoder.com/acm/contest/3006/F>碎碎念</a>
-<a class=heading-link href=#c-%e7%a2%8e%e7%a2%8e%e5%bf%b5httpsacnowcodercomacmcontest3006f>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<h3 id=题意-2>
-题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f-2>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 大佬豪和弱鸡战合作做题，如果大佬豪AC掉题目，那么弱鸡战会说 “宁好强啊！”，如果大佬豪WA掉了题目，那么弱鸡战会嘲讽大佬豪 $k$ 句 “宁好弱啊！” 。我们规定大佬豪提交只有AC和WA两种状态。因为大佬豪非常的强，如果一道题他WA掉了一发，那么他的下一发一定会AC。如果已知最终弱鸡战嘲讽了 $x$ 句，那么很明显可以对应很多的提交序列。现在想问你如果弱鸡战嘲讽数在 $[l,r]$ 这个区间，一共会有多少种提交序列。答案对 $1e9+7$ 取模。</p>
-<h3 id=思路-2>
-思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af-2>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 首先原始题面不是这样，我把名字改了一下，QAQ&mldr;
+<label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/about/>About</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/friends/>Friends</a></li><li class=navigation-item><a class=navigation-link href=/contact/>Contact Me</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://www.zzsqwq.cn/posts/25/>日常水题</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2020-02-13T00:47:00Z>February 13, 2020</time></span>
+<span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>
+2-minute read</span></div><div class=categories><i class="fa fa-folder" aria-hidden=true></i>
+<a href=/categories/acm/>ACM</a></div><div class=tags><i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/nowcoder/>Nowcoder</a></span></div></div></header><div><h2 id=前言>前言
+<a class=heading-link href=#%e5%89%8d%e8%a8%80><i class="fa fa-link" aria-hidden=true></i></a></h2><p>​ 今天又是颓废的一天，被大佬拉去跟他一起做牛客网的题，QAQ&mldr;那我会点啥嘛，就只能替大佬写两道水题了···</p><h2 id=a-牛牛战队的比赛地httpsacnowcodercomacmcontest3006>A. <a href=https://ac.nowcoder.com/acm/contest/3006>牛牛战队的比赛地</a>
+<a class=heading-link href=#a-%e7%89%9b%e7%89%9b%e6%88%98%e9%98%9f%e7%9a%84%e6%af%94%e8%b5%9b%e5%9c%b0httpsacnowcodercomacmcontest3006><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=题意>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 由于牛牛战队经常要外出比赛，因此在全国各地建立了很多训练基地，每一个基地都有一个坐标 $(x,y)$ 。
+​ 这周末，牛牛队又要出去比赛了，各个比赛的赛点都在 $x$ 轴上。牛牛战队为了方便比赛，想找一个到达训练基地最大距离最小的地方作为比赛地。请你求出选择的比赛地距离各训练基地最大距离的最小值。</p><h3 id=思路>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 这个题首先一看到这种什么最大的最小，第一直觉就是二分。首先我们想一下应该二分什么，肯定先想的是枚举 $x$ 轴上的点，但是这样就会有个问题，二分要用的话必须是单调的，那么我们不能够确定越往右或者越往左，他们的这个值是单调的。因此我们可以用三分，一直向单峰逼近，最终寻找到那个极值点。（说实话这是我第一次接触到三分法，我太菜了。）</p><h3 id=代码实现>代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>100005</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>node</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>int</span> x,y;
+</span></span><span style=display:flex><span>}p[maxn]; <span style=color:#75715e>//point
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>int</span> n;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>double</span> eps<span style=color:#f92672>=</span><span style=color:#ae81ff>1e-6</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>double</span> lmid,rmid,lans,rans;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>double</span> <span style=color:#a6e22e>check</span>(<span style=color:#66d9ef>double</span> x)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>double</span> ans<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>double</span> dis<span style=color:#f92672>=</span>(p[i].x<span style=color:#f92672>-</span>x)<span style=color:#f92672>*</span>(p[i].x<span style=color:#f92672>-</span>x)<span style=color:#f92672>+</span>p[i].y<span style=color:#f92672>*</span>p[i].y;
+</span></span><span style=display:flex><span>		ans<span style=color:#f92672>=</span>max(ans,dis);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> ans;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>p[i].x,<span style=color:#f92672>&amp;</span>p[i].y);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>double</span> l<span style=color:#f92672>=-</span><span style=color:#ae81ff>10000</span>,r<span style=color:#f92672>=</span><span style=color:#ae81ff>10000</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>double</span> ans<span style=color:#f92672>=</span><span style=color:#ae81ff>9999999999</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>while</span>(r<span style=color:#f92672>-</span>l<span style=color:#f92672>&gt;=</span>eps)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		lmid<span style=color:#f92672>=</span>(r<span style=color:#f92672>+</span>l)<span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>		rmid<span style=color:#f92672>=</span>(r<span style=color:#f92672>+</span>lmid)<span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>		lans<span style=color:#f92672>=</span>check(lmid);
+</span></span><span style=display:flex><span>		rans<span style=color:#f92672>=</span>check(rmid);
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(lans<span style=color:#f92672>&lt;</span>rans)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			ans<span style=color:#f92672>=</span>min(ans,lans);
+</span></span><span style=display:flex><span>			r<span style=color:#f92672>=</span>rmid;
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>else</span> 
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			ans<span style=color:#f92672>=</span>min(ans,rans);
+</span></span><span style=display:flex><span>			l<span style=color:#f92672>=</span>lmid;
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	printf(<span style=color:#e6db74>&#34;%lf&#34;</span>,sqrt(ans));
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>} 
+</span></span></code></pre></div><h2 id=b-牛牛与牛妹的约会httpsacnowcodercomacmcontest3006d>B. <a href=https://ac.nowcoder.com/acm/contest/3006/D>牛牛与牛妹的约会</a>
+<a class=heading-link href=#b-%e7%89%9b%e7%89%9b%e4%b8%8e%e7%89%9b%e5%a6%b9%e7%9a%84%e7%ba%a6%e4%bc%9ahttpsacnowcodercomacmcontest3006d><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=题意-1>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f-1><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 你想从 $(a,0)$ 点到 $(b,0)$ 点，你可以除了可以以 $1m/s$ 的速度奔跑，还可以用1秒的时间来引导闪现，这将使你从 $(x,0)$ 点闪现到 $(\sqrt[3]{x},0)$ 点，问最少需要多长时间到达 $(b,0)$ 点。$(Ps:a,b \in[-10^6,10^6])$</p><h3 id=思路-1>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af-1><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 一道贪心的题目，当闪现所能贡献的距离大于 $1m$ ，那么我就选择用闪现，不然就直接奔跑。那么我们可以用距离的变化来体现闪现贡献的距离，一直用闪现到不能用之后，就直接加上最后剩下的距离即可。注意pow这个函数有点坑？如果底数是负数并且指数不是整数的话好像会返回很奇怪的值···（跟大佬调了好长时间都卡在这了）</p><h3 id=代码实现-1>代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> t,x,y;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>double</span> ans,a,b;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>double</span> dis,cdis;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(<span style=color:#66d9ef>void</span>)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>t);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>while</span>(t<span style=color:#f92672>--</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>x,<span style=color:#f92672>&amp;</span>y);
+</span></span><span style=display:flex><span>		a <span style=color:#f92672>=</span>(<span style=color:#66d9ef>double</span>)x;
+</span></span><span style=display:flex><span>		b<span style=color:#f92672>=</span>(<span style=color:#66d9ef>double</span>)y;
+</span></span><span style=display:flex><span>		dis <span style=color:#f92672>=</span> abs(a<span style=color:#f92672>-</span>b);
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			cdis<span style=color:#f92672>=</span>abs(<span style=color:#f92672>-</span>pow(<span style=color:#f92672>-</span>a,<span style=color:#ae81ff>1.0</span><span style=color:#f92672>/</span><span style=color:#ae81ff>3.0</span>)<span style=color:#f92672>-</span>b);
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>else</span> cdis <span style=color:#f92672>=</span> abs(pow(a,<span style=color:#ae81ff>1.0</span><span style=color:#f92672>/</span><span style=color:#ae81ff>3.0</span>)<span style=color:#f92672>-</span>b);
+</span></span><span style=display:flex><span>		ans <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>while</span>(dis<span style=color:#f92672>-</span>cdis<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>1.0</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				a<span style=color:#f92672>=-</span>pow(<span style=color:#f92672>-</span>a,<span style=color:#ae81ff>1.0</span><span style=color:#f92672>/</span><span style=color:#ae81ff>3.0</span>);
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>else</span> a<span style=color:#f92672>=</span>pow(a,<span style=color:#ae81ff>1.0</span><span style=color:#f92672>/</span><span style=color:#ae81ff>3.0</span>);
+</span></span><span style=display:flex><span>			ans<span style=color:#f92672>+=</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>			dis <span style=color:#f92672>=</span> cdis;
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				cdis <span style=color:#f92672>=</span> abs(<span style=color:#f92672>-</span>pow(<span style=color:#f92672>-</span>a,<span style=color:#ae81ff>1.0</span><span style=color:#f92672>/</span><span style=color:#ae81ff>3.0</span>)<span style=color:#f92672>-</span>b);
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>else</span> cdis <span style=color:#f92672>=</span> abs(pow(a,<span style=color:#ae81ff>1.0</span><span style=color:#f92672>/</span><span style=color:#ae81ff>3.0</span>)<span style=color:#f92672>-</span>b);
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		ans<span style=color:#f92672>+=</span>dis;
+</span></span><span style=display:flex><span>		printf(<span style=color:#e6db74>&#34;%.9lf</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,ans);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=c-碎碎念httpsacnowcodercomacmcontest3006f>C. <a href=https://ac.nowcoder.com/acm/contest/3006/F>碎碎念</a>
+<a class=heading-link href=#c-%e7%a2%8e%e7%a2%8e%e5%bf%b5httpsacnowcodercomacmcontest3006f><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=题意-2>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f-2><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 大佬豪和弱鸡战合作做题，如果大佬豪AC掉题目，那么弱鸡战会说 “宁好强啊！”，如果大佬豪WA掉了题目，那么弱鸡战会嘲讽大佬豪 $k$ 句 “宁好弱啊！” 。我们规定大佬豪提交只有AC和WA两种状态。因为大佬豪非常的强，如果一道题他WA掉了一发，那么他的下一发一定会AC。如果已知最终弱鸡战嘲讽了 $x$ 句，那么很明显可以对应很多的提交序列。现在想问你如果弱鸡战嘲讽数在 $[l,r]$ 这个区间，一共会有多少种提交序列。答案对 $1e9+7$ 取模。</p><h3 id=思路-2>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af-2><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 首先原始题面不是这样，我把名字改了一下，QAQ&mldr;
 ​ QAQ刷了这么多天的dp好像终于有点作用了，我终于看出来这是一道dp题了，还找对了他们的状态，不过转移方程却写错了。那么首先我们可以用 $f[i]$ 来表示，如果说了 $i$ 句话，那么一共有多少种可能的序列，但是这样的话我们发现没法确保上文上的如果WA掉了，下一发一定是AC。
-​ 所以我们可以考虑加一维状态来表示是通过哪种提交状态到达第 $i$ 句话的，也就是写成 $dp[0/1][i]$ 这个状态，$dp[0][i]$ 代表是从 $i-1$ 句话直接AC转移过来的，$dp[1][i]$ 是从 $i-k$ 句话通过WA转移过来的。所以这样的话转移方程就可以写出来了。</p>
-<ul>
-<li>
-<p>$dp[0][i] = dp[0][i-1]+dp[1][i-1]$ （可以从WA和AC转移过来）</p>
-</li>
-<li>
-<p>$dp[1][i]=dp[0][i-k]$ （只能从第 $i-k$ 状态是AC的时候转移，不能连续两次WA）</p>
-</li>
-</ul>
-<p>​ 因为最终是一个区间查询，那么我们可以用前缀和来优化。</p>
-<h3 id=代码实现-2>
-代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-2>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
-
-<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>100005</span>;
-<span style=color:#66d9ef>int</span> k,q;
-<span style=color:#66d9ef>int</span> l,r;
-<span style=color:#66d9ef>int</span> mod <span style=color:#f92672>=</span><span style=color:#ae81ff>1e9</span><span style=color:#f92672>+</span><span style=color:#ae81ff>7</span>;
-<span style=color:#66d9ef>int</span> dp[<span style=color:#ae81ff>2</span>][maxn];
-<span style=color:#66d9ef>int</span> sum[maxn];
-<span style=color:#66d9ef>int</span> ans[maxn];
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-{
-	scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>k,<span style=color:#f92672>&amp;</span>q);
-	dp[<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>0</span>]<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span><span style=color:#ae81ff>100000</span>;i<span style=color:#f92672>++</span>)
-	{
-		dp[<span style=color:#ae81ff>0</span>][i]<span style=color:#f92672>=</span>dp[<span style=color:#ae81ff>0</span>][i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span>dp[<span style=color:#ae81ff>1</span>][i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>];
-		dp[<span style=color:#ae81ff>0</span>][i]<span style=color:#f92672>%=</span>mod;
-		<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>&gt;=</span>k)
-		{
-			dp[<span style=color:#ae81ff>1</span>][i]<span style=color:#f92672>=</span>dp[<span style=color:#ae81ff>0</span>][i<span style=color:#f92672>-</span>k];
-			dp[<span style=color:#ae81ff>1</span>][i]<span style=color:#f92672>%=</span>mod;
-		}
-		ans[i]<span style=color:#f92672>=</span>dp[<span style=color:#ae81ff>0</span>][i]<span style=color:#f92672>+</span>dp[<span style=color:#ae81ff>1</span>][i];
-		ans[i]<span style=color:#f92672>%=</span>mod; 
-		sum[i]<span style=color:#f92672>=</span>sum[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span>ans[i];
-		sum[i]<span style=color:#f92672>%=</span>mod;
-	}
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>q;i<span style=color:#f92672>++</span>)
-	{
-		scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>l,<span style=color:#f92672>&amp;</span>r);
-		printf(<span style=color:#e6db74>&#34;%d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,(sum[r]<span style=color:#f92672>-</span>sum[l<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span>mod)<span style=color:#f92672>%</span>mod);
-	}
-	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-}
-</code></pre></div>
-<h2 id=d-牛牛战队的秀场httpsacnowcodercomacmcontest3006j>
-D. <a href=https://ac.nowcoder.com/acm/contest/3006/J>牛牛战队的秀场</a>
-<a class=heading-link href=#d-%e7%89%9b%e7%89%9b%e6%88%98%e9%98%9f%e7%9a%84%e7%a7%80%e5%9c%bahttpsacnowcodercomacmcontest3006j>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<h3 id=题意-3>
-题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f-3>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 在半径为 $r$ 的圆内有一个正接 $n$ 边形，随便选取一个顶点编号为 $1$ ，顺时针编号为 $2\sim n$ ，规定只能沿多边形边走，问从顶点 $i$ 到顶点 $j$ 最短路径为多少。</p>
-<h3 id=思路-3>
-思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af-3>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 很显然只有两条路可以走，我们只需要算出正多边形的每条边的边长，然后比较两条路径的大小，哪一个短就走哪一个就行，不过如果用了<code>cos()</code> 函数记得特判一下 $n=4$ 的情况，不然会发生错误。</p>
-<h3 id=代码实现-3>
-代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-3>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
-
-<span style=color:#66d9ef>int</span> n,ri;
-<span style=color:#66d9ef>double</span> r;
-<span style=color:#66d9ef>int</span> i,j;
-<span style=color:#66d9ef>double</span> pi <span style=color:#f92672>=</span> <span style=color:#ae81ff>3.1415926535898</span>;
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-{
-	scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>ri);
-	scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>i,<span style=color:#f92672>&amp;</span>j);
-	<span style=color:#66d9ef>double</span> k<span style=color:#f92672>=</span>(<span style=color:#66d9ef>double</span>)<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>pi<span style=color:#f92672>/</span>(<span style=color:#66d9ef>double</span>)n;
-	<span style=color:#66d9ef>double</span> s;
-	r<span style=color:#f92672>=</span>(<span style=color:#66d9ef>double</span>)ri;
-	<span style=color:#66d9ef>if</span>(n<span style=color:#f92672>==</span><span style=color:#ae81ff>4</span>)
-	{
-		s<span style=color:#f92672>=</span>sqrt(<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>r<span style=color:#f92672>*</span>r);
-	}
-	<span style=color:#66d9ef>else</span> s<span style=color:#f92672>=</span>sqrt((<span style=color:#66d9ef>double</span>)<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>r<span style=color:#f92672>*</span>r<span style=color:#f92672>-</span><span style=color:#ae81ff>2.0</span><span style=color:#f92672>*</span>r<span style=color:#f92672>*</span>r<span style=color:#f92672>*</span>cos(k));
-	<span style=color:#66d9ef>int</span> p<span style=color:#f92672>=</span>abs(i<span style=color:#f92672>-</span>j);
-	<span style=color:#66d9ef>if</span>(p<span style=color:#f92672>&gt;</span>n<span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>)
-	{
-		printf(<span style=color:#e6db74>&#34;%lf&#34;</span>,s<span style=color:#f92672>*</span>(n<span style=color:#f92672>-</span>p));
-	}
-	<span style=color:#66d9ef>else</span> printf(<span style=color:#e6db74>&#34;%lf&#34;</span>,s<span style=color:#f92672>*</span>p);
-	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-} 
-</code></pre></div>
-</div>
-<footer>
-<script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=preferred-color-scheme crossorigin=anonymous async></script>
-</footer>
-</article>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:!0},{left:'$',right:'$',display:!1},{left:'\\(',right:'\\)',display:!1},{left:'\\[',right:'\\]',display:!0}]})"></script>
-</section>
-</div>
-<footer class=footer>
-<section class=container>
-<a href=http://beian.miit.gov.cn/ target=_blank> 鲁ICP备2020034310号</a>
-</br>
-©
+​ 所以我们可以考虑加一维状态来表示是通过哪种提交状态到达第 $i$ 句话的，也就是写成 $dp[0/1][i]$ 这个状态，$dp[0][i]$ 代表是从 $i-1$ 句话直接AC转移过来的，$dp[1][i]$ 是从 $i-k$ 句话通过WA转移过来的。所以这样的话转移方程就可以写出来了。</p><ul><li><p>$dp[0][i] = dp[0][i-1]+dp[1][i-1]$ （可以从WA和AC转移过来）</p></li><li><p>$dp[1][i]=dp[0][i-k]$ （只能从第 $i-k$ 状态是AC的时候转移，不能连续两次WA）</p></li></ul><p>​ 因为最终是一个区间查询，那么我们可以用前缀和来优化。</p><h3 id=代码实现-2>代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-2><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>100005</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> k,q;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> l,r;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> mod <span style=color:#f92672>=</span><span style=color:#ae81ff>1e9</span><span style=color:#f92672>+</span><span style=color:#ae81ff>7</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> dp[<span style=color:#ae81ff>2</span>][maxn];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> sum[maxn];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> ans[maxn];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>k,<span style=color:#f92672>&amp;</span>q);
+</span></span><span style=display:flex><span>	dp[<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>0</span>]<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span><span style=color:#ae81ff>100000</span>;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		dp[<span style=color:#ae81ff>0</span>][i]<span style=color:#f92672>=</span>dp[<span style=color:#ae81ff>0</span>][i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span>dp[<span style=color:#ae81ff>1</span>][i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>];
+</span></span><span style=display:flex><span>		dp[<span style=color:#ae81ff>0</span>][i]<span style=color:#f92672>%=</span>mod;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>&gt;=</span>k)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			dp[<span style=color:#ae81ff>1</span>][i]<span style=color:#f92672>=</span>dp[<span style=color:#ae81ff>0</span>][i<span style=color:#f92672>-</span>k];
+</span></span><span style=display:flex><span>			dp[<span style=color:#ae81ff>1</span>][i]<span style=color:#f92672>%=</span>mod;
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		ans[i]<span style=color:#f92672>=</span>dp[<span style=color:#ae81ff>0</span>][i]<span style=color:#f92672>+</span>dp[<span style=color:#ae81ff>1</span>][i];
+</span></span><span style=display:flex><span>		ans[i]<span style=color:#f92672>%=</span>mod; 
+</span></span><span style=display:flex><span>		sum[i]<span style=color:#f92672>=</span>sum[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span>ans[i];
+</span></span><span style=display:flex><span>		sum[i]<span style=color:#f92672>%=</span>mod;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>q;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>l,<span style=color:#f92672>&amp;</span>r);
+</span></span><span style=display:flex><span>		printf(<span style=color:#e6db74>&#34;%d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,(sum[r]<span style=color:#f92672>-</span>sum[l<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span>mod)<span style=color:#f92672>%</span>mod);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=d-牛牛战队的秀场httpsacnowcodercomacmcontest3006j>D. <a href=https://ac.nowcoder.com/acm/contest/3006/J>牛牛战队的秀场</a>
+<a class=heading-link href=#d-%e7%89%9b%e7%89%9b%e6%88%98%e9%98%9f%e7%9a%84%e7%a7%80%e5%9c%bahttpsacnowcodercomacmcontest3006j><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=题意-3>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f-3><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 在半径为 $r$ 的圆内有一个正接 $n$ 边形，随便选取一个顶点编号为 $1$ ，顺时针编号为 $2\sim n$ ，规定只能沿多边形边走，问从顶点 $i$ 到顶点 $j$ 最短路径为多少。</p><h3 id=思路-3>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af-3><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 很显然只有两条路可以走，我们只需要算出正多边形的每条边的边长，然后比较两条路径的大小，哪一个短就走哪一个就行，不过如果用了<code>cos()</code> 函数记得特判一下 $n=4$ 的情况，不然会发生错误。</p><h3 id=代码实现-3>代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-3><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> n,ri;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>double</span> r;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> i,j;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>double</span> pi <span style=color:#f92672>=</span> <span style=color:#ae81ff>3.1415926535898</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>ri);
+</span></span><span style=display:flex><span>	scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>i,<span style=color:#f92672>&amp;</span>j);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>double</span> k<span style=color:#f92672>=</span>(<span style=color:#66d9ef>double</span>)<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>pi<span style=color:#f92672>/</span>(<span style=color:#66d9ef>double</span>)n;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>double</span> s;
+</span></span><span style=display:flex><span>	r<span style=color:#f92672>=</span>(<span style=color:#66d9ef>double</span>)ri;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(n<span style=color:#f92672>==</span><span style=color:#ae81ff>4</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		s<span style=color:#f92672>=</span>sqrt(<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>r<span style=color:#f92672>*</span>r);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>else</span> s<span style=color:#f92672>=</span>sqrt((<span style=color:#66d9ef>double</span>)<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>r<span style=color:#f92672>*</span>r<span style=color:#f92672>-</span><span style=color:#ae81ff>2.0</span><span style=color:#f92672>*</span>r<span style=color:#f92672>*</span>r<span style=color:#f92672>*</span>cos(k));
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>int</span> p<span style=color:#f92672>=</span>abs(i<span style=color:#f92672>-</span>j);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(p<span style=color:#f92672>&gt;</span>n<span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		printf(<span style=color:#e6db74>&#34;%lf&#34;</span>,s<span style=color:#f92672>*</span>(n<span style=color:#f92672>-</span>p));
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>else</span> printf(<span style=color:#e6db74>&#34;%lf&#34;</span>,s<span style=color:#f92672>*</span>p);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>} 
+</span></span></code></pre></div></div><footer><script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=preferred-color-scheme crossorigin=anonymous async></script></footer></article><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})'></script></section></div><footer class=footer><section class=container><a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></br>©
 2019 -
 2022
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
-</section>
-</footer>
-</main>
-<script src=/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.f453d26c79f010446cf0d9770197f77de32c07b7a5512d141a286247fe154a22.js integrity="sha256-9FPSbHnwEERs8Nl3AZf3feMsB7elUS0UGihiR/4VSiI="></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6EM6V1PVC"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-Z6EM6V1PVC',{anonymize_ip:!1})}</script>
-</body>
-</html>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-Z6EM6V1PVC",{anonymize_ip:!1})}</script></body></html>

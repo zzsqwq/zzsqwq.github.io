@@ -1,11 +1,4 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=content-language content="en">
-<meta name=color-scheme content="light dark">
-<meta name=author content="zzsqwq">
-<meta name=description content="
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=content-language content="en"><meta name=color-scheme content="light dark"><meta name=author content="zzsqwq"><meta name=description content="
   A. 方格取数
   
     
@@ -17,11 +10,7 @@
     
   
 
-​	有一个 $N*N$ 的整数方阵，每个点初始值为0，在一些点上放上数，一个人从左上角走到右下角，规定只能向下或向右走，当他经过的点上有数时会取走它，问走两遍最多能取的数的和最大为多少。">
-<meta name=keywords content="blog,developer,personal">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="dp习题练习">
-<meta name=twitter:description content="
+​	有一个 $N*N$ 的整数方阵，每个点初始值为0，在一些点上放上数，一个人从左上角走到右下角，规定只能向下或向右走，当他经过的点上有数时会取走它，问走两遍最多能取的数的和最大为多少。"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="dp习题练习"><meta name=twitter:description content="
   A. 方格取数
   
     
@@ -33,9 +22,7 @@
     
   
 
-​	有一个 $N*N$ 的整数方阵，每个点初始值为0，在一些点上放上数，一个人从左上角走到右下角，规定只能向下或向右走，当他经过的点上有数时会取走它，问走两遍最多能取的数的和最大为多少。">
-<meta property="og:title" content="dp习题练习">
-<meta property="og:description" content="
+​	有一个 $N*N$ 的整数方阵，每个点初始值为0，在一些点上放上数，一个人从左上角走到右下角，规定只能向下或向右走，当他经过的点上有数时会取走它，问走两遍最多能取的数的和最大为多少。"><meta property="og:title" content="dp习题练习"><meta property="og:description" content="
   A. 方格取数
   
     
@@ -47,437 +34,242 @@
     
   
 
-​	有一个 $N*N$ 的整数方阵，每个点初始值为0，在一些点上放上数，一个人从左上角走到右下角，规定只能向下或向右走，当他经过的点上有数时会取走它，问走两遍最多能取的数的和最大为多少。">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://www.zzsqwq.cn/posts/24/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2020-02-12T00:45:00+00:00">
-<meta property="article:modified_time" content="2020-02-12T00:45:00+00:00">
-<title>
-dp习题练习 · Zs's Blog
-</title>
-<link rel=canonical href=https://www.zzsqwq.cn/posts/24/>
-<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen>
-<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
-<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
-<meta name=generator content="Hugo 0.92.1">
-</head>
-<body class="preload-transitions colorscheme-auto">
-<div class=float-container>
-<a id=dark-mode-toggle class=colorscheme-toggle>
-<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
-</a>
-</div>
-<main class=wrapper>
-<nav class=navigation>
-<section class=container>
-<a class=navigation-title href=/>
-Zs's Blog
-</a>
+​	有一个 $N*N$ 的整数方阵，每个点初始值为0，在一些点上放上数，一个人从左上角走到右下角，规定只能向下或向右走，当他经过的点上有数时会取走它，问走两遍最多能取的数的和最大为多少。"><meta property="og:type" content="article"><meta property="og:url" content="https://www.zzsqwq.cn/posts/24/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-02-12T00:45:00+00:00"><meta property="article:modified_time" content="2020-02-12T00:45:00+00:00"><title>dp习题练习 · Zs's Blog</title><link rel=canonical href=https://www.zzsqwq.cn/posts/24/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><meta name=generator content="Hugo 0.97.3"></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Zs's Blog</a>
 <input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle>
-<i class="fa fa-bars fa-fw" aria-hidden=true></i>
-</label>
-<ul class=navigation-list>
-<li class=navigation-item>
-<a class=navigation-link href=/about/>About</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/posts/>Blog</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/projects/>Projects</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/friends/>Friends</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/contact/>Contact Me</a>
-</li>
-</ul>
-</section>
-</nav>
-<div class=content>
-<section class="container post">
-<article>
-<header>
-<div class=post-title>
-<h1 class=title>
-<a class=title-link href=https://www.zzsqwq.cn/posts/24/>
-dp习题练习
-</a>
-</h1>
-</div>
-<div class=post-meta>
-<div class=date>
-<span class=posted-on>
-<i class="fa fa-calendar" aria-hidden=true></i>
-<time datetime=2020-02-12T00:45:00Z>
-February 12, 2020
-</time>
-</span>
-<span class=reading-time>
-<i class="fa fa-clock-o" aria-hidden=true></i>
-2-minute read
-</span>
-</div>
-<div class=categories>
-<i class="fa fa-folder" aria-hidden=true></i>
-<a href=/categories/dp/>dp</a></div>
-<div class=tags>
-<i class="fa fa-tag" aria-hidden=true></i>
-<span class=tag>
-<a href=/tags/luogu/>Luogu</a>
-</span>
+<label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/about/>About</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/friends/>Friends</a></li><li class=navigation-item><a class=navigation-link href=/contact/>Contact Me</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://www.zzsqwq.cn/posts/24/>dp习题练习</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2020-02-12T00:45:00Z>February 12, 2020</time></span>
+<span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>
+2-minute read</span></div><div class=categories><i class="fa fa-folder" aria-hidden=true></i>
+<a href=/categories/dp/>dp</a></div><div class=tags><i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/luogu/>Luogu</a></span>
 <span class=separator>•</span>
-<span class=tag>
-<a href=/tags/dp/>dp</a>
-</span></div>
-</div>
-</header>
-<div>
-<h2 id=a-方格取数httpswwwluogucomcnproblemp1004>
-A. <a href=https://www.luogu.com.cn/problem/P1004>方格取数</a>
-<a class=heading-link href=#a-%e6%96%b9%e6%a0%bc%e5%8f%96%e6%95%b0httpswwwluogucomcnproblemp1004>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<h3 id=题意>
-题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 有一个 $N*N$ 的整数方阵，每个点初始值为0，在一些点上放上数，一个人从左上角走到右下角，规定只能向下或向右走，当他经过的点上有数时会取走它，问走两遍最多能取的数的和最大为多少。</p>
-<h3 id=思路>
-思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 也就是说我们要找两条路径使他取数最大，首先我一开始想法是先走一遍，找到最大的那个路径，将这条路径上所有点设为0，然后再回来找这个方阵中最大的那个路径，两个加起来就行。但是路径上所有的点设为0这个地方不是很好实现，因此我们可以考虑另一个思路，两次同时走。我们把这两次看成两个人走的，表述方便。
+<span class=tag><a href=/tags/dp/>dp</a></span></div></div></header><div><h2 id=a-方格取数httpswwwluogucomcnproblemp1004>A. <a href=https://www.luogu.com.cn/problem/P1004>方格取数</a>
+<a class=heading-link href=#a-%e6%96%b9%e6%a0%bc%e5%8f%96%e6%95%b0httpswwwluogucomcnproblemp1004><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=题意>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 有一个 $N*N$ 的整数方阵，每个点初始值为0，在一些点上放上数，一个人从左上角走到右下角，规定只能向下或向右走，当他经过的点上有数时会取走它，问走两遍最多能取的数的和最大为多少。</p><h3 id=思路>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 也就是说我们要找两条路径使他取数最大，首先我一开始想法是先走一遍，找到最大的那个路径，将这条路径上所有点设为0，然后再回来找这个方阵中最大的那个路径，两个加起来就行。但是路径上所有的点设为0这个地方不是很好实现，因此我们可以考虑另一个思路，两次同时走。我们把这两次看成两个人走的，表述方便。
 ​ 我们用 $dp[i][j][k][l]$ 来表示当第一个人走到 $(i,j)$ 第二个人走到 $(k,l)$ 时做能取数最多为多少 ，那么我们就可以考虑一下转移怎么转移，因为到达一个点只能是从左边来，或者是从上边来，因此第一个人从 $(i-1,j)$ 或者 $(i,j-1)$ 转移来，那么第二个人就从 $(k-1,l)$ 或者 $(k,l-1)$ 转移来，那么这个转移方程就是四种转移方式。我们需要保证一个问题，就是他俩经过同一个点的判定情况。我们需要将第二个人的坐标通过第一个人来限制，也就是说要确保第二个人和第一个人步数是相同的，当他们步数相同的时候，那么就不存在他们经过同一个点但是时间却是不同的情况了，因为到达一个点的步数是一定的。
 ​ 再就是这个状态数组其实还是可以压缩到三维和二维的，这个就先不谈了，可以看洛谷的题解区。
-​ 这个题是一个经典的多维dp的题目，感觉还是挺有意义的。而且这个题和 <a href=https://www.luogu.com.cn/problem/P1006>传纸条</a> 很像，可以双倍经验。</p>
-<h3 id=代码实现>
-代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
-
-<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>15</span>;
-<span style=color:#66d9ef>int</span> map[maxn][maxn];
-<span style=color:#66d9ef>int</span> n,x,y,z;
-<span style=color:#66d9ef>int</span> m;
-<span style=color:#66d9ef>int</span> dp[maxn][maxn][maxn][maxn];
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-{
-	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
-	<span style=color:#66d9ef>while</span>(<span style=color:#ae81ff>1</span>)
-	{
-		scanf(<span style=color:#e6db74>&#34;%d%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>x,<span style=color:#f92672>&amp;</span>y,<span style=color:#f92672>&amp;</span>z);
-		<span style=color:#66d9ef>if</span>(x<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>y<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>z<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>) <span style=color:#66d9ef>break</span>;
-		map[x][y]<span style=color:#f92672>=</span>z;
-	}
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-	{
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>n;j<span style=color:#f92672>++</span>)
-		{
-			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> k<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;k<span style=color:#f92672>&lt;=</span>n;k<span style=color:#f92672>++</span>)
-			{
-				m<span style=color:#f92672>=</span>i<span style=color:#f92672>+</span>j<span style=color:#f92672>-</span>k;
-				<span style=color:#66d9ef>if</span>(m<span style=color:#f92672>&lt;=</span><span style=color:#ae81ff>0</span>) <span style=color:#66d9ef>continue</span>;
-				<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>==</span>k<span style=color:#f92672>&amp;&amp;</span>j<span style=color:#f92672>==</span>m) dp[i][j][k][m]<span style=color:#f92672>=</span>max(max(dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j][k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][m],dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j][k][m<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]),max(dp[i][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][m],dp[i][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][k][m<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]))<span style=color:#f92672>+</span>map[i][j];
-				<span style=color:#66d9ef>else</span> dp[i][j][k][m]<span style=color:#f92672>=</span>max(max(dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j][k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][m],dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j][k][m<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]),max(dp[i][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][m],dp[i][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][k][m<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]))<span style=color:#f92672>+</span>map[i][j]<span style=color:#f92672>+</span>map[k][m];
-			}
-		}
-	}
-	printf(<span style=color:#e6db74>&#34;%d&#34;</span>,dp[n][n][n][n]);
-	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-} 
-</code></pre></div>
-<h2 id=b-创意吃鱼法httpswwwluogucomcnproblemp1736>
-B. <a href=https://www.luogu.com.cn/problem/P1736>创意吃鱼法</a>
-<a class=heading-link href=#b-%e5%88%9b%e6%84%8f%e5%90%83%e9%b1%bc%e6%b3%95httpswwwluogucomcnproblemp1736>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<h3 id=题意-1>
-题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f-1>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 给出一个 $N*M$ 的只包含0和1的数阵，求只有对角线为1，其余位置为0的子方阵的最大边长。</p>
-<h3 id=思路-1>
-思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af-1>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 这个题我们需要考虑两个方向，这个对角线既可以是斜向左上，也可以是斜向右上的。我们先考虑前者，后者同理即可。我们可以用两个数组 $col[i][j]$ 和 $row[i][j]$ 分别来表示，包含 $(i,j)$ 这个点往上一列有多少个0，以及包含这个点往左一行有多少个0，（这个在程序里好像我写反了，但是没啥区别说实话）。然后我们用 $f[i][j]$ 来表示，从这个点左上走满足条件的方阵的最大边长。那么很显然这个值和上方的0，左方的0，以及左上的状态有关，这个点是1的话，转移方程就是 $f[i][j]=min(f[i-1][j-1],min(col[i-1][j],row[i][j-1]))+1$ 。如果是0的话我们就更新 $col$ 和 $row$ 数组的值。然后求完斜向左上的再求一遍斜向右上的，取一个最大值即可。</p>
-<h3 id=代码实现-1>
-代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
-
-<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>2505</span>;
-<span style=color:#66d9ef>int</span> n,m;
-<span style=color:#66d9ef>int</span> map[maxn][maxn];
-<span style=color:#66d9ef>int</span> col[maxn][maxn],row[maxn][maxn];
-<span style=color:#66d9ef>int</span> dp[maxn][maxn];
-<span style=color:#66d9ef>int</span> ans;
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-{
-<span style=color:#75715e>//	freopen(&#34;test.in&#34;,&#34;r&#34;,stdin);
-</span><span style=color:#75715e></span>	scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>m);
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-	{
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>m;j<span style=color:#f92672>++</span>)
-		{
-			scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>map[i][j]);
-		<span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>map[i][j])
-		{
-			row[i][j]<span style=color:#f92672>=</span>row[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
-			col[i][j]<span style=color:#f92672>=</span>col[i][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
-		}
-		<span style=color:#66d9ef>else</span> 
-		{
-			dp[i][j]<span style=color:#f92672>=</span>min(dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>],min(row[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j],col[i][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]))<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
-			ans<span style=color:#f92672>=</span>max(dp[i][j],ans);
-		}
-		}
-	}
-	memset(row,<span style=color:#ae81ff>0</span>,<span style=color:#66d9ef>sizeof</span>(row));
-	memset(col,<span style=color:#ae81ff>0</span>,<span style=color:#66d9ef>sizeof</span>(col));
-	memset(dp,<span style=color:#ae81ff>0</span>,<span style=color:#66d9ef>sizeof</span>(dp));
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-	{
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span>m;j<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>--</span>)
-		{
-			<span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>map[i][j])
-			{
-				row[i][j]<span style=color:#f92672>=</span>row[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
-				col[i][j]<span style=color:#f92672>=</span>col[i][j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
-			}
-			<span style=color:#66d9ef>else</span>
-			{
-				dp[i][j]<span style=color:#f92672>=</span>min(dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>],min(row[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j],col[i][j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]))<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
-				ans<span style=color:#f92672>=</span>max(ans,dp[i][j]);
-			}
-		}
-	}
-	printf(<span style=color:#e6db74>&#34;%d&#34;</span>,ans);
-}
-</code></pre></div>
-<h2 id=c-乌龟棋httpswwwluogucomcnproblemp1541>
-C. <a href=https://www.luogu.com.cn/problem/P1541>乌龟棋</a>
-<a class=heading-link href=#c-%e4%b9%8c%e9%be%9f%e6%a3%8bhttpswwwluogucomcnproblemp1541>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<h3 id=题意-2>
-题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f-2>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 给出标号分别为1，2，3，4的四种卡片若干张，分别可以移动1，2，3，4步，玩家初始处于坐标为1的位置。玩家出一张牌，可移动相应的步数。移动到不同的坐标会加不同的分数，很明显不同的出牌顺序会对应着不同的分数，求玩家能获得的最大分数为多少。</p>
-<h3 id=思路-2>
-思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af-2>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 很显然我们可以通过已经出的牌计算出现在已经到达到哪个位置。我们可以用一个四重循环，来循环每张牌用的数量，很明显我们到达一个目标位置所用的最后一张牌可以是1，2，3，4的任何一个，因此我们可以从这个四个状态转移过来，找其中最大那个就可以了，注意要判断一下要转移过来的状态是否合法。</p>
-<h3 id=代码实现-2>
-代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-2>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
-
-<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>355</span>;
-<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxm<span style=color:#f92672>=</span><span style=color:#ae81ff>125</span>;
-<span style=color:#66d9ef>int</span> n,m,pos;
-<span style=color:#66d9ef>int</span> w[maxn];
-<span style=color:#66d9ef>int</span> x,num[<span style=color:#ae81ff>5</span>];
-<span style=color:#66d9ef>int</span> dp[<span style=color:#ae81ff>42</span>][<span style=color:#ae81ff>42</span>][<span style=color:#ae81ff>42</span>][<span style=color:#ae81ff>42</span>];
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-{
-	scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>m);
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>) scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>w[i]);
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>m;i<span style=color:#f92672>++</span>)
-	{
-		scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>x);
-		num[x]<span style=color:#f92672>++</span>;
-	} 
-	memset(dp,<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>,<span style=color:#66d9ef>sizeof</span>(dp));
-	dp[<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>0</span>]<span style=color:#f92672>=</span>w[<span style=color:#ae81ff>1</span>];
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> a<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;a<span style=color:#f92672>&lt;=</span>num[<span style=color:#ae81ff>1</span>];a<span style=color:#f92672>++</span>)
-	{
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> b<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;b<span style=color:#f92672>&lt;=</span>num[<span style=color:#ae81ff>2</span>];b<span style=color:#f92672>++</span>)
-		{
-			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> c<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;c<span style=color:#f92672>&lt;=</span>num[<span style=color:#ae81ff>3</span>];c<span style=color:#f92672>++</span>)
-			{
-				<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> d<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;d<span style=color:#f92672>&lt;=</span>num[<span style=color:#ae81ff>4</span>];d<span style=color:#f92672>++</span>)
-				{
-					pos<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span><span style=color:#f92672>+</span>a<span style=color:#f92672>+</span>(b<span style=color:#f92672>&lt;&lt;</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>+</span>c<span style=color:#f92672>*</span><span style=color:#ae81ff>3</span><span style=color:#f92672>+</span>(d<span style=color:#f92672>&lt;&lt;</span><span style=color:#ae81ff>2</span>);
-					<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>dp[a<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][b][c][d]<span style=color:#f92672>!=-</span><span style=color:#ae81ff>1</span>)
-					{
-						dp[a][b][c][d]<span style=color:#f92672>=</span>max(dp[a][b][c][d],dp[a<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][b][c][d]<span style=color:#f92672>+</span>w[pos]);
-					}
-					<span style=color:#66d9ef>if</span>(b<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>dp[a][b<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][c][d]<span style=color:#f92672>!=-</span><span style=color:#ae81ff>1</span>)
-					{
-						dp[a][b][c][d]<span style=color:#f92672>=</span>max(dp[a][b][c][d],dp[a][b<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][c][d]<span style=color:#f92672>+</span>w[pos]);
-					}
-					<span style=color:#66d9ef>if</span>(c<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>dp[a][b][c<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][d]<span style=color:#f92672>!=-</span><span style=color:#ae81ff>1</span>)
-					{
-						dp[a][b][c][d]<span style=color:#f92672>=</span>max(dp[a][b][c][d],dp[a][b][c<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][d]<span style=color:#f92672>+</span>w[pos]);
-					}
-					<span style=color:#66d9ef>if</span>(d<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>dp[a][b][c][d<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>!=-</span><span style=color:#ae81ff>1</span>)
-					{
-						dp[a][b][c][d]<span style=color:#f92672>=</span>max(dp[a][b][c][d],dp[a][b][c][d<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span>w[pos]);
-					}
-				}
-			}
-		}
-	}
-	printf(<span style=color:#e6db74>&#34;%d&#34;</span>,dp[num[<span style=color:#ae81ff>1</span>]][num[<span style=color:#ae81ff>2</span>]][num[<span style=color:#ae81ff>3</span>]][num[<span style=color:#ae81ff>4</span>]]);
-	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-}
-</code></pre></div>
-<h2 id=d-能量项链httpswwwluogucomcnproblemp1063>
-D. <a href=https://www.luogu.com.cn/problem/P1063>能量项链</a>
-<a class=heading-link href=#d-%e8%83%bd%e9%87%8f%e9%a1%b9%e9%93%behttpswwwluogucomcnproblemp1063>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<h3 id=题意-3>
-题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f-3>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 给出一段含有 $n$ 个珠子的环状项链，对于相邻的两个珠子，前一颗珠子的尾标记等于后方珠子的头标记。
-​ 例如项链为 $[2,4,6,8]$ ， 那么用加入标记表示就是 $[(2,4),(4,6),(6,8),(8,2)]$ 。当两个珠子两两合并的时候会产生的能量大小为 前方珠子头标记 $\times$ 前方珠子尾标记 $\times$ 后方珠子尾标记。显然合并的顺序不同最终会产生不同的能量值，问能产生的最大能量值为多少。</p>
-<h3 id=思路-3>
-思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af-3>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 这道题和合并石子很像，也是一个区间dp的例题，我们也是通过枚举区间长度，然后枚举区间断点来分割区间。这个题也是一个环状，我们也是断环为链，不过处理释放的能量值的问题，我是用了一个结构体，来表示每一颗珠子的标记，通过这个来计算释放能量。不过记得处理子区间也要从处理到 $1\sim 2n$， 这个地方卡了我巨长时间，因为你后面要用到这个状态，如果不计算子区间无法转移到后面。</p>
-<h3 id=代码实现-3>
-代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-3>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
-
-<span style=color:#66d9ef>typedef</span> <span style=color:#66d9ef>long</span> <span style=color:#66d9ef>long</span> ll;
-<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>105</span>;
-<span style=color:#66d9ef>int</span> n;
-ll dp[maxn<span style=color:#f92672>&lt;&lt;</span><span style=color:#ae81ff>1</span>][maxn<span style=color:#f92672>&lt;&lt;</span><span style=color:#ae81ff>1</span>];
-<span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>node</span>
-{
-	ll w;
-	ll nxt;
-}a[maxn<span style=color:#f92672>&lt;&lt;</span><span style=color:#ae81ff>1</span>];
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-{
-<span style=color:#75715e>//	freopen(&#34;test.in&#34;,&#34;r&#34;,stdin);
-</span><span style=color:#75715e></span>	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-	{
-		scanf(<span style=color:#e6db74>&#34;%lld&#34;</span>,<span style=color:#f92672>&amp;</span>a[i].w);
-		a[i<span style=color:#f92672>+</span>n].w<span style=color:#f92672>=</span>a[i].w;
-	}
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n<span style=color:#f92672>*</span><span style=color:#ae81ff>2</span><span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>++</span>)
-	{
-		a[i].nxt<span style=color:#f92672>=</span>a[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>].w;
-	}
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span><span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>n;i<span style=color:#f92672>++</span>) dp[i][i]<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> p<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>;p<span style=color:#f92672>&lt;=</span>n;p<span style=color:#f92672>++</span>)
-	{
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span><span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>n<span style=color:#f92672>-</span>p<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>++</span>) <span style=color:#75715e>//重要(卡我巨长时间)
-</span><span style=color:#75715e></span>		{
-			<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span>i<span style=color:#f92672>+</span>p<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;
-			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> k<span style=color:#f92672>=</span>i;k<span style=color:#f92672>&lt;</span>j;k<span style=color:#f92672>++</span>)
-			{
-				dp[i][j]<span style=color:#f92672>=</span>max(dp[i][j],dp[i][k]<span style=color:#f92672>+</span>dp[k<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>][j]<span style=color:#f92672>+</span>a[i].w<span style=color:#f92672>*</span>a[k].nxt<span style=color:#f92672>*</span>a[j].nxt);
-			}
-		}
-	}
-<span style=color:#75715e>//	for(int i=1;i&lt;=n;i++)
-</span><span style=color:#75715e>//	{
-</span><span style=color:#75715e>//		printf(&#34;%d &#34;,dp[i][i+1]);
-</span><span style=color:#75715e>//	}
-</span><span style=color:#75715e></span>	ll ans<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>) ans<span style=color:#f92672>=</span>max(ans,dp[i][i<span style=color:#f92672>+</span>n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]);
-	printf(<span style=color:#e6db74>&#34;%lld&#34;</span>,ans);
-	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-}
-</code></pre></div>
-</div>
-<footer>
-<script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=preferred-color-scheme crossorigin=anonymous async></script>
-</footer>
-</article>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:!0},{left:'$',right:'$',display:!1},{left:'\\(',right:'\\)',display:!1},{left:'\\[',right:'\\]',display:!0}]})"></script>
-</section>
-</div>
-<footer class=footer>
-<section class=container>
-<a href=http://beian.miit.gov.cn/ target=_blank> 鲁ICP备2020034310号</a>
-</br>
-©
+​ 这个题是一个经典的多维dp的题目，感觉还是挺有意义的。而且这个题和 <a href=https://www.luogu.com.cn/problem/P1006>传纸条</a> 很像，可以双倍经验。</p><h3 id=代码实现>代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>15</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> map[maxn][maxn];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> n,x,y,z;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> m;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> dp[maxn][maxn][maxn][maxn];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>while</span>(<span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		scanf(<span style=color:#e6db74>&#34;%d%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>x,<span style=color:#f92672>&amp;</span>y,<span style=color:#f92672>&amp;</span>z);
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(x<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>y<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>z<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>) <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>		map[x][y]<span style=color:#f92672>=</span>z;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>n;j<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> k<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;k<span style=color:#f92672>&lt;=</span>n;k<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				m<span style=color:#f92672>=</span>i<span style=color:#f92672>+</span>j<span style=color:#f92672>-</span>k;
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>if</span>(m<span style=color:#f92672>&lt;=</span><span style=color:#ae81ff>0</span>) <span style=color:#66d9ef>continue</span>;
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>==</span>k<span style=color:#f92672>&amp;&amp;</span>j<span style=color:#f92672>==</span>m) dp[i][j][k][m]<span style=color:#f92672>=</span>max(max(dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j][k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][m],dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j][k][m<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]),max(dp[i][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][m],dp[i][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][k][m<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]))<span style=color:#f92672>+</span>map[i][j];
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>else</span> dp[i][j][k][m]<span style=color:#f92672>=</span>max(max(dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j][k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][m],dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j][k][m<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]),max(dp[i][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][k<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][m],dp[i][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][k][m<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]))<span style=color:#f92672>+</span>map[i][j]<span style=color:#f92672>+</span>map[k][m];
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	printf(<span style=color:#e6db74>&#34;%d&#34;</span>,dp[n][n][n][n]);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>} 
+</span></span></code></pre></div><h2 id=b-创意吃鱼法httpswwwluogucomcnproblemp1736>B. <a href=https://www.luogu.com.cn/problem/P1736>创意吃鱼法</a>
+<a class=heading-link href=#b-%e5%88%9b%e6%84%8f%e5%90%83%e9%b1%bc%e6%b3%95httpswwwluogucomcnproblemp1736><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=题意-1>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f-1><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 给出一个 $N*M$ 的只包含0和1的数阵，求只有对角线为1，其余位置为0的子方阵的最大边长。</p><h3 id=思路-1>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af-1><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 这个题我们需要考虑两个方向，这个对角线既可以是斜向左上，也可以是斜向右上的。我们先考虑前者，后者同理即可。我们可以用两个数组 $col[i][j]$ 和 $row[i][j]$ 分别来表示，包含 $(i,j)$ 这个点往上一列有多少个0，以及包含这个点往左一行有多少个0，（这个在程序里好像我写反了，但是没啥区别说实话）。然后我们用 $f[i][j]$ 来表示，从这个点左上走满足条件的方阵的最大边长。那么很显然这个值和上方的0，左方的0，以及左上的状态有关，这个点是1的话，转移方程就是 $f[i][j]=min(f[i-1][j-1],min(col[i-1][j],row[i][j-1]))+1$ 。如果是0的话我们就更新 $col$ 和 $row$ 数组的值。然后求完斜向左上的再求一遍斜向右上的，取一个最大值即可。</p><h3 id=代码实现-1>代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>2505</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> n,m;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> map[maxn][maxn];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> col[maxn][maxn],row[maxn][maxn];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> dp[maxn][maxn];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> ans;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span><span style=color:#75715e>//	freopen(&#34;test.in&#34;,&#34;r&#34;,stdin);
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>m);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>m;j<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>map[i][j]);
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>map[i][j])
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			row[i][j]<span style=color:#f92672>=</span>row[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>			col[i][j]<span style=color:#f92672>=</span>col[i][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>else</span> 
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			dp[i][j]<span style=color:#f92672>=</span>min(dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>],min(row[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j],col[i][j<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]))<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>			ans<span style=color:#f92672>=</span>max(dp[i][j],ans);
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	memset(row,<span style=color:#ae81ff>0</span>,<span style=color:#66d9ef>sizeof</span>(row));
+</span></span><span style=display:flex><span>	memset(col,<span style=color:#ae81ff>0</span>,<span style=color:#66d9ef>sizeof</span>(col));
+</span></span><span style=display:flex><span>	memset(dp,<span style=color:#ae81ff>0</span>,<span style=color:#66d9ef>sizeof</span>(dp));
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span>m;j<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>--</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>map[i][j])
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				row[i][j]<span style=color:#f92672>=</span>row[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>				col[i][j]<span style=color:#f92672>=</span>col[i][j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				dp[i][j]<span style=color:#f92672>=</span>min(dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>],min(row[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j],col[i][j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]))<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>				ans<span style=color:#f92672>=</span>max(ans,dp[i][j]);
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	printf(<span style=color:#e6db74>&#34;%d&#34;</span>,ans);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=c-乌龟棋httpswwwluogucomcnproblemp1541>C. <a href=https://www.luogu.com.cn/problem/P1541>乌龟棋</a>
+<a class=heading-link href=#c-%e4%b9%8c%e9%be%9f%e6%a3%8bhttpswwwluogucomcnproblemp1541><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=题意-2>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f-2><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 给出标号分别为1，2，3，4的四种卡片若干张，分别可以移动1，2，3，4步，玩家初始处于坐标为1的位置。玩家出一张牌，可移动相应的步数。移动到不同的坐标会加不同的分数，很明显不同的出牌顺序会对应着不同的分数，求玩家能获得的最大分数为多少。</p><h3 id=思路-2>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af-2><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 很显然我们可以通过已经出的牌计算出现在已经到达到哪个位置。我们可以用一个四重循环，来循环每张牌用的数量，很明显我们到达一个目标位置所用的最后一张牌可以是1，2，3，4的任何一个，因此我们可以从这个四个状态转移过来，找其中最大那个就可以了，注意要判断一下要转移过来的状态是否合法。</p><h3 id=代码实现-2>代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-2><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>355</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxm<span style=color:#f92672>=</span><span style=color:#ae81ff>125</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> n,m,pos;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> w[maxn];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> x,num[<span style=color:#ae81ff>5</span>];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> dp[<span style=color:#ae81ff>42</span>][<span style=color:#ae81ff>42</span>][<span style=color:#ae81ff>42</span>][<span style=color:#ae81ff>42</span>];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>m);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>) scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>w[i]);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>m;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>x);
+</span></span><span style=display:flex><span>		num[x]<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>	} 
+</span></span><span style=display:flex><span>	memset(dp,<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>,<span style=color:#66d9ef>sizeof</span>(dp));
+</span></span><span style=display:flex><span>	dp[<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>0</span>]<span style=color:#f92672>=</span>w[<span style=color:#ae81ff>1</span>];
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> a<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;a<span style=color:#f92672>&lt;=</span>num[<span style=color:#ae81ff>1</span>];a<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> b<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;b<span style=color:#f92672>&lt;=</span>num[<span style=color:#ae81ff>2</span>];b<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> c<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;c<span style=color:#f92672>&lt;=</span>num[<span style=color:#ae81ff>3</span>];c<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> d<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;d<span style=color:#f92672>&lt;=</span>num[<span style=color:#ae81ff>4</span>];d<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>				{
+</span></span><span style=display:flex><span>					pos<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span><span style=color:#f92672>+</span>a<span style=color:#f92672>+</span>(b<span style=color:#f92672>&lt;&lt;</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>+</span>c<span style=color:#f92672>*</span><span style=color:#ae81ff>3</span><span style=color:#f92672>+</span>(d<span style=color:#f92672>&lt;&lt;</span><span style=color:#ae81ff>2</span>);
+</span></span><span style=display:flex><span>					<span style=color:#66d9ef>if</span>(a<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>dp[a<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][b][c][d]<span style=color:#f92672>!=-</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>					{
+</span></span><span style=display:flex><span>						dp[a][b][c][d]<span style=color:#f92672>=</span>max(dp[a][b][c][d],dp[a<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][b][c][d]<span style=color:#f92672>+</span>w[pos]);
+</span></span><span style=display:flex><span>					}
+</span></span><span style=display:flex><span>					<span style=color:#66d9ef>if</span>(b<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>dp[a][b<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][c][d]<span style=color:#f92672>!=-</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>					{
+</span></span><span style=display:flex><span>						dp[a][b][c][d]<span style=color:#f92672>=</span>max(dp[a][b][c][d],dp[a][b<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][c][d]<span style=color:#f92672>+</span>w[pos]);
+</span></span><span style=display:flex><span>					}
+</span></span><span style=display:flex><span>					<span style=color:#66d9ef>if</span>(c<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>dp[a][b][c<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][d]<span style=color:#f92672>!=-</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>					{
+</span></span><span style=display:flex><span>						dp[a][b][c][d]<span style=color:#f92672>=</span>max(dp[a][b][c][d],dp[a][b][c<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][d]<span style=color:#f92672>+</span>w[pos]);
+</span></span><span style=display:flex><span>					}
+</span></span><span style=display:flex><span>					<span style=color:#66d9ef>if</span>(d<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>0</span><span style=color:#f92672>&amp;&amp;</span>dp[a][b][c][d<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>!=-</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>					{
+</span></span><span style=display:flex><span>						dp[a][b][c][d]<span style=color:#f92672>=</span>max(dp[a][b][c][d],dp[a][b][c][d<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>+</span>w[pos]);
+</span></span><span style=display:flex><span>					}
+</span></span><span style=display:flex><span>				}
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	printf(<span style=color:#e6db74>&#34;%d&#34;</span>,dp[num[<span style=color:#ae81ff>1</span>]][num[<span style=color:#ae81ff>2</span>]][num[<span style=color:#ae81ff>3</span>]][num[<span style=color:#ae81ff>4</span>]]);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=d-能量项链httpswwwluogucomcnproblemp1063>D. <a href=https://www.luogu.com.cn/problem/P1063>能量项链</a>
+<a class=heading-link href=#d-%e8%83%bd%e9%87%8f%e9%a1%b9%e9%93%behttpswwwluogucomcnproblemp1063><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=题意-3>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f-3><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 给出一段含有 $n$ 个珠子的环状项链，对于相邻的两个珠子，前一颗珠子的尾标记等于后方珠子的头标记。
+​ 例如项链为 $[2,4,6,8]$ ， 那么用加入标记表示就是 $[(2,4),(4,6),(6,8),(8,2)]$ 。当两个珠子两两合并的时候会产生的能量大小为 前方珠子头标记 $\times$ 前方珠子尾标记 $\times$ 后方珠子尾标记。显然合并的顺序不同最终会产生不同的能量值，问能产生的最大能量值为多少。</p><h3 id=思路-3>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af-3><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 这道题和合并石子很像，也是一个区间dp的例题，我们也是通过枚举区间长度，然后枚举区间断点来分割区间。这个题也是一个环状，我们也是断环为链，不过处理释放的能量值的问题，我是用了一个结构体，来表示每一颗珠子的标记，通过这个来计算释放能量。不过记得处理子区间也要从处理到 $1\sim 2n$， 这个地方卡了我巨长时间，因为你后面要用到这个状态，如果不计算子区间无法转移到后面。</p><h3 id=代码实现-3>代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-3><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>typedef</span> <span style=color:#66d9ef>long</span> <span style=color:#66d9ef>long</span> ll;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>105</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> n;
+</span></span><span style=display:flex><span>ll dp[maxn<span style=color:#f92672>&lt;&lt;</span><span style=color:#ae81ff>1</span>][maxn<span style=color:#f92672>&lt;&lt;</span><span style=color:#ae81ff>1</span>];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>node</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	ll w;
+</span></span><span style=display:flex><span>	ll nxt;
+</span></span><span style=display:flex><span>}a[maxn<span style=color:#f92672>&lt;&lt;</span><span style=color:#ae81ff>1</span>];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span><span style=color:#75715e>//	freopen(&#34;test.in&#34;,&#34;r&#34;,stdin);
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		scanf(<span style=color:#e6db74>&#34;%lld&#34;</span>,<span style=color:#f92672>&amp;</span>a[i].w);
+</span></span><span style=display:flex><span>		a[i<span style=color:#f92672>+</span>n].w<span style=color:#f92672>=</span>a[i].w;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n<span style=color:#f92672>*</span><span style=color:#ae81ff>2</span><span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		a[i].nxt<span style=color:#f92672>=</span>a[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>].w;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span><span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>n;i<span style=color:#f92672>++</span>) dp[i][i]<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> p<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>;p<span style=color:#f92672>&lt;=</span>n;p<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span><span style=color:#ae81ff>2</span><span style=color:#f92672>*</span>n<span style=color:#f92672>-</span>p<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>++</span>) <span style=color:#75715e>//重要(卡我巨长时间)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>		{
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span>i<span style=color:#f92672>+</span>p<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> k<span style=color:#f92672>=</span>i;k<span style=color:#f92672>&lt;</span>j;k<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				dp[i][j]<span style=color:#f92672>=</span>max(dp[i][j],dp[i][k]<span style=color:#f92672>+</span>dp[k<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>][j]<span style=color:#f92672>+</span>a[i].w<span style=color:#f92672>*</span>a[k].nxt<span style=color:#f92672>*</span>a[j].nxt);
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span><span style=color:#75715e>//	for(int i=1;i&lt;=n;i++)
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//	{
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//		printf(&#34;%d &#34;,dp[i][i+1]);
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//	}
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	ll ans<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>) ans<span style=color:#f92672>=</span>max(ans,dp[i][i<span style=color:#f92672>+</span>n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]);
+</span></span><span style=display:flex><span>	printf(<span style=color:#e6db74>&#34;%lld&#34;</span>,ans);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div><footer><script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=preferred-color-scheme crossorigin=anonymous async></script></footer></article><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})'></script></section></div><footer class=footer><section class=container><a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></br>©
 2019 -
 2022
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
-</section>
-</footer>
-</main>
-<script src=/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.f453d26c79f010446cf0d9770197f77de32c07b7a5512d141a286247fe154a22.js integrity="sha256-9FPSbHnwEERs8Nl3AZf3feMsB7elUS0UGihiR/4VSiI="></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6EM6V1PVC"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-Z6EM6V1PVC',{anonymize_ip:!1})}</script>
-</body>
-</html>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-Z6EM6V1PVC",{anonymize_ip:!1})}</script></body></html>

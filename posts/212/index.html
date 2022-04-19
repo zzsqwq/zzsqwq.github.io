@@ -1,244 +1,63 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=content-language content="en">
-<meta name=color-scheme content="light dark">
-<meta name=author content="zzsqwq">
-<meta name=description content="纯终端环境代理配置教程    前言    我们在很多情况下，可能会在云服务器或是其他纯终端环境（例如树莓派服务器等），或者一些没有屏幕的情况下，只能 ssh 链接到服务器上进行一些操作。
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=content-language content="en"><meta name=color-scheme content="light dark"><meta name=author content="zzsqwq"><meta name=description content="纯终端环境代理配置教程    前言    我们在很多情况下，可能会在云服务器或是其他纯终端环境（例如树莓派服务器等），或者一些没有屏幕的情况下，只能 ssh 链接到服务器上进行一些操作。
 这些时候，如果我们想要克隆一个 Github 的仓库，或者下载一些镜像源中没有的文件，简直是难如登天，100kb/s 的速度都很罕见，因此在这种环境下配一个代理还是十分必要的！
 我们常在 Linux 上使用的 GUI 代理软件如 Qv2ray、Clash 这些就没法用了。因此需要考虑如何在纯终端环境中配置代理的问题，这篇教程就是为解决此问题而写的。
 教程    此教程搭配的是常用的 v2ray-core + v2rayA ，这里的 v2rayA 是一个网页端的代理管理工具，其中支持 v2ray、Xray、SS、SSR、Trojan 等多种协议。
 一、安装 v2ray-core    首先是需要安装 v2ray-core ，这里我们使用开源的项目 v2fly/fhs-install-v2ray 进行安装，它是一个脚本，可以直接运行完成 v2ray 的安装，安装的文件组织结构符合 Filesystem Hierarchy Standard ，十分方便简洁，很赞！
 具体步骤如下：
 下载 fhs-install-v2ray 源码    首先我们因为 Github 克隆很慢，可以先在自己的主机上克隆或者以 zip 包形式下载源码
-将源码上传到远端    键入下列代码，通过 scp 将解压后的代码文件夹目录上传到远端服务器的根目录（如果是树莓派的话可以连接同一局域网进行），注意这里的 path/to/fhs-install-v2ray 指的是本地文件夹的路径">
-<meta name=keywords content="blog,developer,personal">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="纯终端环境代理配置教程">
-<meta name=twitter:description content="纯终端环境代理配置教程    前言    我们在很多情况下，可能会在云服务器或是其他纯终端环境（例如树莓派服务器等），或者一些没有屏幕的情况下，只能 ssh 链接到服务器上进行一些操作。
+将源码上传到远端    键入下列代码，通过 scp 将解压后的代码文件夹目录上传到远端服务器的根目录（如果是树莓派的话可以连接同一局域网进行），注意这里的 path/to/fhs-install-v2ray 指的是本地文件夹的路径"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="纯终端环境代理配置教程"><meta name=twitter:description content="纯终端环境代理配置教程    前言    我们在很多情况下，可能会在云服务器或是其他纯终端环境（例如树莓派服务器等），或者一些没有屏幕的情况下，只能 ssh 链接到服务器上进行一些操作。
 这些时候，如果我们想要克隆一个 Github 的仓库，或者下载一些镜像源中没有的文件，简直是难如登天，100kb/s 的速度都很罕见，因此在这种环境下配一个代理还是十分必要的！
 我们常在 Linux 上使用的 GUI 代理软件如 Qv2ray、Clash 这些就没法用了。因此需要考虑如何在纯终端环境中配置代理的问题，这篇教程就是为解决此问题而写的。
 教程    此教程搭配的是常用的 v2ray-core + v2rayA ，这里的 v2rayA 是一个网页端的代理管理工具，其中支持 v2ray、Xray、SS、SSR、Trojan 等多种协议。
 一、安装 v2ray-core    首先是需要安装 v2ray-core ，这里我们使用开源的项目 v2fly/fhs-install-v2ray 进行安装，它是一个脚本，可以直接运行完成 v2ray 的安装，安装的文件组织结构符合 Filesystem Hierarchy Standard ，十分方便简洁，很赞！
 具体步骤如下：
 下载 fhs-install-v2ray 源码    首先我们因为 Github 克隆很慢，可以先在自己的主机上克隆或者以 zip 包形式下载源码
-将源码上传到远端    键入下列代码，通过 scp 将解压后的代码文件夹目录上传到远端服务器的根目录（如果是树莓派的话可以连接同一局域网进行），注意这里的 path/to/fhs-install-v2ray 指的是本地文件夹的路径">
-<meta property="og:title" content="纯终端环境代理配置教程">
-<meta property="og:description" content="纯终端环境代理配置教程    前言    我们在很多情况下，可能会在云服务器或是其他纯终端环境（例如树莓派服务器等），或者一些没有屏幕的情况下，只能 ssh 链接到服务器上进行一些操作。
+将源码上传到远端    键入下列代码，通过 scp 将解压后的代码文件夹目录上传到远端服务器的根目录（如果是树莓派的话可以连接同一局域网进行），注意这里的 path/to/fhs-install-v2ray 指的是本地文件夹的路径"><meta property="og:title" content="纯终端环境代理配置教程"><meta property="og:description" content="纯终端环境代理配置教程    前言    我们在很多情况下，可能会在云服务器或是其他纯终端环境（例如树莓派服务器等），或者一些没有屏幕的情况下，只能 ssh 链接到服务器上进行一些操作。
 这些时候，如果我们想要克隆一个 Github 的仓库，或者下载一些镜像源中没有的文件，简直是难如登天，100kb/s 的速度都很罕见，因此在这种环境下配一个代理还是十分必要的！
 我们常在 Linux 上使用的 GUI 代理软件如 Qv2ray、Clash 这些就没法用了。因此需要考虑如何在纯终端环境中配置代理的问题，这篇教程就是为解决此问题而写的。
 教程    此教程搭配的是常用的 v2ray-core + v2rayA ，这里的 v2rayA 是一个网页端的代理管理工具，其中支持 v2ray、Xray、SS、SSR、Trojan 等多种协议。
 一、安装 v2ray-core    首先是需要安装 v2ray-core ，这里我们使用开源的项目 v2fly/fhs-install-v2ray 进行安装，它是一个脚本，可以直接运行完成 v2ray 的安装，安装的文件组织结构符合 Filesystem Hierarchy Standard ，十分方便简洁，很赞！
 具体步骤如下：
 下载 fhs-install-v2ray 源码    首先我们因为 Github 克隆很慢，可以先在自己的主机上克隆或者以 zip 包形式下载源码
-将源码上传到远端    键入下列代码，通过 scp 将解压后的代码文件夹目录上传到远端服务器的根目录（如果是树莓派的话可以连接同一局域网进行），注意这里的 path/to/fhs-install-v2ray 指的是本地文件夹的路径">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://www.zzsqwq.cn/posts/212/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-09-13T18:15:00+00:00">
-<meta property="article:modified_time" content="2021-09-13T18:15:00+00:00">
-<title>
-纯终端环境代理配置教程 · Zs's Blog
-</title>
-<link rel=canonical href=https://www.zzsqwq.cn/posts/212/>
-<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen>
-<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
-<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
-<meta name=generator content="Hugo 0.92.1">
-</head>
-<body class="preload-transitions colorscheme-auto">
-<div class=float-container>
-<a id=dark-mode-toggle class=colorscheme-toggle>
-<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
-</a>
-</div>
-<main class=wrapper>
-<nav class=navigation>
-<section class=container>
-<a class=navigation-title href=/>
-Zs's Blog
-</a>
+将源码上传到远端    键入下列代码，通过 scp 将解压后的代码文件夹目录上传到远端服务器的根目录（如果是树莓派的话可以连接同一局域网进行），注意这里的 path/to/fhs-install-v2ray 指的是本地文件夹的路径"><meta property="og:type" content="article"><meta property="og:url" content="https://www.zzsqwq.cn/posts/212/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-09-13T18:15:00+00:00"><meta property="article:modified_time" content="2021-09-13T18:15:00+00:00"><title>纯终端环境代理配置教程 · Zs's Blog</title><link rel=canonical href=https://www.zzsqwq.cn/posts/212/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><meta name=generator content="Hugo 0.97.3"></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Zs's Blog</a>
 <input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle>
-<i class="fa fa-bars fa-fw" aria-hidden=true></i>
-</label>
-<ul class=navigation-list>
-<li class=navigation-item>
-<a class=navigation-link href=/about/>About</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/posts/>Blog</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/projects/>Projects</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/friends/>Friends</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/contact/>Contact Me</a>
-</li>
-</ul>
-</section>
-</nav>
-<div class=content>
-<section class="container post">
-<article>
-<header>
-<div class=post-title>
-<h1 class=title>
-<a class=title-link href=https://www.zzsqwq.cn/posts/212/>
-纯终端环境代理配置教程
-</a>
-</h1>
-</div>
-<div class=post-meta>
-<div class=date>
-<span class=posted-on>
-<i class="fa fa-calendar" aria-hidden=true></i>
-<time datetime=2021-09-13T18:15:00Z>
-September 13, 2021
-</time>
-</span>
-<span class=reading-time>
-<i class="fa fa-clock-o" aria-hidden=true></i>
-2-minute read
-</span>
-</div>
-<div class=categories>
-<i class="fa fa-folder" aria-hidden=true></i>
-<a href=/categories/ubuntu/>Ubuntu</a></div>
-<div class=tags>
-<i class="fa fa-tag" aria-hidden=true></i>
-<span class=tag>
-<a href=/tags/linux/>Linux</a>
-</span>
+<label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/about/>About</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/friends/>Friends</a></li><li class=navigation-item><a class=navigation-link href=/contact/>Contact Me</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://www.zzsqwq.cn/posts/212/>纯终端环境代理配置教程</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2021-09-13T18:15:00Z>September 13, 2021</time></span>
+<span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>
+2-minute read</span></div><div class=categories><i class="fa fa-folder" aria-hidden=true></i>
+<a href=/categories/ubuntu/>Ubuntu</a></div><div class=tags><i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/linux/>Linux</a></span>
 <span class=separator>•</span>
-<span class=tag>
-<a href=/tags/v2ray/>v2ray</a>
-</span>
+<span class=tag><a href=/tags/v2ray/>v2ray</a></span>
 <span class=separator>•</span>
-<span class=tag>
-<a href=/tags/%E4%BB%A3%E7%90%86/>代理</a>
-</span></div>
-</div>
-</header>
-<div>
-<h1 id=纯终端环境代理配置教程>
-纯终端环境代理配置教程
-<a class=heading-link href=#%e7%ba%af%e7%bb%88%e7%ab%af%e7%8e%af%e5%a2%83%e4%bb%a3%e7%90%86%e9%85%8d%e7%bd%ae%e6%95%99%e7%a8%8b>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h1>
-<h2 id=前言>
-前言
-<a class=heading-link href=#%e5%89%8d%e8%a8%80>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<p>我们在很多情况下，可能会在云服务器或是其他纯终端环境（例如树莓派服务器等），或者一些没有屏幕的情况下，只能 <strong>ssh</strong> 链接到服务器上进行一些操作。</p>
-<p>这些时候，如果我们想要克隆一个 Github 的仓库，或者下载一些镜像源中没有的文件，简直是难如登天，100kb/s 的速度都很罕见，因此在这种环境下配一个代理还是十分必要的！</p>
-<p>我们常在 Linux 上使用的 GUI 代理软件如 <strong>Qv2ray、Clash</strong> 这些就没法用了。因此需要考虑如何在纯终端环境中配置代理的问题，这篇教程就是为解决此问题而写的。</p>
-<h2 id=教程>
-教程
-<a class=heading-link href=#%e6%95%99%e7%a8%8b>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<p>此教程搭配的是常用的 <strong>v2ray-core + v2rayA</strong> ，这里的 <strong>v2rayA</strong> 是一个网页端的代理管理工具，其中支持 <strong>v2ray、Xray、SS、SSR、Trojan</strong> 等多种协议。</p>
-<h3 id=一安装-v2ray-core>
-一、安装 v2ray-core
-<a class=heading-link href=#%e4%b8%80%e5%ae%89%e8%a3%85-v2ray-core>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>首先是需要安装 <strong>v2ray-core</strong> ，这里我们使用开源的项目 <a href=https://github.com/v2fly/fhs-install-v2ray>v2fly/fhs-install-v2ray</a> 进行安装，它是一个脚本，可以直接运行完成 <strong>v2ray</strong> 的安装，安装的文件组织结构符合 <a href=https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard>Filesystem Hierarchy Standard</a> ，十分方便简洁，很赞！</p>
-<p>具体步骤如下：</p>
-<h4 id=下载-fhs-install-v2ray-源码>
-下载 fhs-install-v2ray 源码
-<a class=heading-link href=#%e4%b8%8b%e8%bd%bd-fhs-install-v2ray-%e6%ba%90%e7%a0%81>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h4>
-<p>首先我们因为 Github 克隆很慢，可以先在自己的主机上克隆或者以 <strong>zip</strong> 包形式下载源码</p>
-<h4 id=将源码上传到远端>
-将源码上传到远端
-<a class=heading-link href=#%e5%b0%86%e6%ba%90%e7%a0%81%e4%b8%8a%e4%bc%a0%e5%88%b0%e8%bf%9c%e7%ab%af>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h4>
-<p>键入下列代码，通过 <code>scp</code> 将解压后的代码文件夹目录上传到远端服务器的根目录（如果是树莓派的话可以连接同一局域网进行），注意这里的 <strong>path/to/fhs-install-v2ray</strong> 指的是本地文件夹的路径</p>
-<p><code>scp -r path/to/fhs-install-v2ray username@hostname:~</code></p>
-<h4 id=下载-v2ray-core-源码>
-下载 v2ray-core 源码
-<a class=heading-link href=#%e4%b8%8b%e8%bd%bd-v2ray-core-%e6%ba%90%e7%a0%81>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h4>
-<p>此脚本可以全自动安装，即自动检测本机类型是 Ubuntu 还是其他的版本，然后从远端仓库下载最新的 <strong>v2ray</strong> 进行安装，不过因为没有代理，这一步还是十分缓慢，因此我们可以进行本地安装。</p>
-<p>首先，我们去到 <strong>v2ray-core</strong> 的官方仓库的发布站 -> <a href=https://github.com/v2fly/v2ray-core/releases>Releases · v2fly/v2ray-core </a>，在这里可以下载最新版本的的 <strong>v2ray-core</strong>，不过需要注意的是，需要自己辨别版本，如使用的是 <strong>arm</strong> 还是 <strong>x64_86</strong> 等，下载后是一个 <strong>zip</strong> 压缩包，我们直接通过 <code>scp</code> 上传到远端服务器根目录</p>
-<p><code>scp path/to/v2ray-linux-64.zip username@hostname:~</code></p>
-<h4 id=连接远程服务器>
-连接远程服务器
-<a class=heading-link href=#%e8%bf%9e%e6%8e%a5%e8%bf%9c%e7%a8%8b%e6%9c%8d%e5%8a%a1%e5%99%a8>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h4>
-<p>接下来我们通过 <strong>ssh</strong> 连接到远程服务器</p>
-<p><code>ssh username@hostname</code></p>
-<h4 id=完成安装>
-完成安装
-<a class=heading-link href=#%e5%ae%8c%e6%88%90%e5%ae%89%e8%a3%85>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h4>
-<p>然后进入根目录后，进入 <code>fhs-install-v2ray</code> 文件夹，会发现里面有两个脚本，一个是 <code>install-dat-release.sh</code> 另一个是 <code>install-release.sh</code> ，前者是带有路由规则的，后者是不带有路由规则的。我试用后发现 <code>install-dat-release.sh</code> 没有办法本地安装，而后者可以，同时因为 <strong>v2rayA</strong> 中会自带路由规则，因此完全没有必要用前者，我们可以直接使用 <code>install-release.sh</code> 进行安装。</p>
-<p>执行 <code>sudo chmod +x install-release.sh</code> ，添加执行权限</p>
-<p>执行 <code>sudo ./install-release.sh --local ../v2ray-linux-64.zip</code></p>
-<p>这里的 local 参数代表是本地安装，解析后面的文件，<strong>注意这里是直接 zip 包</strong>，不需要解压。同时，这里的路径也是需要和你的下载的文件地址对应。</p>
-<p>不出意外的话，瞬间就可以安装完成。截止到这里，<strong>v2ray-core</strong> 已经安装成功。需要注意的是，这里不需要执行 <code>sudo systemctl enable v2ray</code> ，因为后续的 <strong>v2rayA</strong> 不依赖此服务。</p>
-<p>安装的文件路径如下：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>installed: /usr/local/bin/v2ray             <span style=color:#75715e>#v2ray 主程序地址</span>
-installed: /usr/local/bin/v2ctl				<span style=color:#75715e>#v2ray 控制程序</span>
-installed: /usr/local/share/v2ray/geoip.dat <span style=color:#75715e># 可选，路由信息</span>
-installed: /usr/local/share/v2ray/geosite.dat <span style=color:#75715e>#可选，路由信息</span>
-installed: /usr/local/etc/v2ray/config.json <span style=color:#75715e>#代理配置文件</span>
-installed: /var/log/v2ray/					<span style=color:#75715e>#下面三个都是log文件</span>
-installed: /var/log/v2ray/access.log
-installed: /var/log/v2ray/error.log
-installed: /etc/systemd/system/v2ray.service <span style=color:#75715e>#v2ray 服务配置信息</span>
-installed: /etc/systemd/system/v2ray@.service
-</code></pre></div><p>如果有报错的话，可以看对应的 <code>error</code> 报错去 <a href=https://github.com/v2fly/fhs-install-v2ray>v2fly/fhs-install-v2ray</a> 官方仓库 Issue 处查看。</p>
-<h3 id=二安装-v2raya>
-二、安装 v2rayA
-<a class=heading-link href=#%e4%ba%8c%e5%ae%89%e8%a3%85-v2raya>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>首先，同样的是，为了防止 Github 下载太慢，我们也可以去到官方仓库的发布站 -> <a href=https://github.com/v2rayA/v2rayA/releases>Releases · v2rayA/v2rayA </a> ，下载对应系统版本的安装包，然后通过 <code>scp</code> 上传到远端。</p>
-<p>这里以 <strong>x64_86 版本的 Ubuntu 18.04.5 LTS</strong> 举例，我们直接下载 <code>installer_debian_x64_v1.5.2.deb</code> 到本地，然后执行</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>scp path/to/installer_debian_x64_v1.5.2.deb username@hostname:~
-</code></pre></div><p>将文件上传到远端。</p>
-<p>然后 <strong>ssh</strong> 到服务器执行：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>sudo dpkg -i installer_debian_x64_v1.5.2.deb
-</code></pre></div><p>安装成功后依次执行：</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#75715e># 启动 v2raya</span>
-sudo systemctl start v2raya
-
-<span style=color:#75715e># 开机自启 v2raya</span>
-sudo systemctl enable v2raya
-</code></pre></div><p>这样就成功开启了 <code>v2rayA</code>，我们访问 <code>ip:2017</code> ，前面是你云服务器的公网 <code>ip</code> 或者是自建服务器的局域网 <code>ip</code> ，我们就可以访问到对应的服务，界面大致如下：</p>
-<p><img src=https://www.zzsqwq.cn/usr/uploads/2021/09/2395630589.png alt=v2rayA界面></p>
-<p>首次进入时会让你设置账号和密码，用于后续的管理。还会引导你导入链接，在导入链接后，就可以点击上方的第三栏，进行连接、查看或分享对应的代理了！</p>
-<p>说一下我现在用的设置，点击右上角设置，<strong>透明代理和规则端口的分流模式</strong>设置为<strong>大陆白名单</strong>，然后实现方式我用的是 <strong>redirect</strong>，每隔 24h 更新依次代理，左下角设置的地址与端口我用的是默认的，如下：</p>
-<p><img src=https://www.zzsqwq.cn/usr/uploads/2021/09/2537498828.png alt=地址与端口设置></p>
-<p>这样我们就可以愉快的上网了！！可以 <strong>ssh</strong> 到服务器试一下 <code>wget google.com</code>，正常结果如下：</p>
-<pre tabindex=0><code>❯ wget google.com
+<span class=tag><a href=/tags/%E4%BB%A3%E7%90%86/>代理</a></span></div></div></header><div><h1 id=纯终端环境代理配置教程>纯终端环境代理配置教程
+<a class=heading-link href=#%e7%ba%af%e7%bb%88%e7%ab%af%e7%8e%af%e5%a2%83%e4%bb%a3%e7%90%86%e9%85%8d%e7%bd%ae%e6%95%99%e7%a8%8b><i class="fa fa-link" aria-hidden=true></i></a></h1><h2 id=前言>前言
+<a class=heading-link href=#%e5%89%8d%e8%a8%80><i class="fa fa-link" aria-hidden=true></i></a></h2><p>我们在很多情况下，可能会在云服务器或是其他纯终端环境（例如树莓派服务器等），或者一些没有屏幕的情况下，只能 <strong>ssh</strong> 链接到服务器上进行一些操作。</p><p>这些时候，如果我们想要克隆一个 Github 的仓库，或者下载一些镜像源中没有的文件，简直是难如登天，100kb/s 的速度都很罕见，因此在这种环境下配一个代理还是十分必要的！</p><p>我们常在 Linux 上使用的 GUI 代理软件如 <strong>Qv2ray、Clash</strong> 这些就没法用了。因此需要考虑如何在纯终端环境中配置代理的问题，这篇教程就是为解决此问题而写的。</p><h2 id=教程>教程
+<a class=heading-link href=#%e6%95%99%e7%a8%8b><i class="fa fa-link" aria-hidden=true></i></a></h2><p>此教程搭配的是常用的 <strong>v2ray-core + v2rayA</strong> ，这里的 <strong>v2rayA</strong> 是一个网页端的代理管理工具，其中支持 <strong>v2ray、Xray、SS、SSR、Trojan</strong> 等多种协议。</p><h3 id=一安装-v2ray-core>一、安装 v2ray-core
+<a class=heading-link href=#%e4%b8%80%e5%ae%89%e8%a3%85-v2ray-core><i class="fa fa-link" aria-hidden=true></i></a></h3><p>首先是需要安装 <strong>v2ray-core</strong> ，这里我们使用开源的项目 <a href=https://github.com/v2fly/fhs-install-v2ray>v2fly/fhs-install-v2ray</a> 进行安装，它是一个脚本，可以直接运行完成 <strong>v2ray</strong> 的安装，安装的文件组织结构符合 <a href=https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard>Filesystem Hierarchy Standard</a> ，十分方便简洁，很赞！</p><p>具体步骤如下：</p><h4 id=下载-fhs-install-v2ray-源码>下载 fhs-install-v2ray 源码
+<a class=heading-link href=#%e4%b8%8b%e8%bd%bd-fhs-install-v2ray-%e6%ba%90%e7%a0%81><i class="fa fa-link" aria-hidden=true></i></a></h4><p>首先我们因为 Github 克隆很慢，可以先在自己的主机上克隆或者以 <strong>zip</strong> 包形式下载源码</p><h4 id=将源码上传到远端>将源码上传到远端
+<a class=heading-link href=#%e5%b0%86%e6%ba%90%e7%a0%81%e4%b8%8a%e4%bc%a0%e5%88%b0%e8%bf%9c%e7%ab%af><i class="fa fa-link" aria-hidden=true></i></a></h4><p>键入下列代码，通过 <code>scp</code> 将解压后的代码文件夹目录上传到远端服务器的根目录（如果是树莓派的话可以连接同一局域网进行），注意这里的 <strong>path/to/fhs-install-v2ray</strong> 指的是本地文件夹的路径</p><p><code>scp -r path/to/fhs-install-v2ray username@hostname:~</code></p><h4 id=下载-v2ray-core-源码>下载 v2ray-core 源码
+<a class=heading-link href=#%e4%b8%8b%e8%bd%bd-v2ray-core-%e6%ba%90%e7%a0%81><i class="fa fa-link" aria-hidden=true></i></a></h4><p>此脚本可以全自动安装，即自动检测本机类型是 Ubuntu 还是其他的版本，然后从远端仓库下载最新的 <strong>v2ray</strong> 进行安装，不过因为没有代理，这一步还是十分缓慢，因此我们可以进行本地安装。</p><p>首先，我们去到 <strong>v2ray-core</strong> 的官方仓库的发布站 -> <a href=https://github.com/v2fly/v2ray-core/releases>Releases · v2fly/v2ray-core </a>，在这里可以下载最新版本的的 <strong>v2ray-core</strong>，不过需要注意的是，需要自己辨别版本，如使用的是 <strong>arm</strong> 还是 <strong>x64_86</strong> 等，下载后是一个 <strong>zip</strong> 压缩包，我们直接通过 <code>scp</code> 上传到远端服务器根目录</p><p><code>scp path/to/v2ray-linux-64.zip username@hostname:~</code></p><h4 id=连接远程服务器>连接远程服务器
+<a class=heading-link href=#%e8%bf%9e%e6%8e%a5%e8%bf%9c%e7%a8%8b%e6%9c%8d%e5%8a%a1%e5%99%a8><i class="fa fa-link" aria-hidden=true></i></a></h4><p>接下来我们通过 <strong>ssh</strong> 连接到远程服务器</p><p><code>ssh username@hostname</code></p><h4 id=完成安装>完成安装
+<a class=heading-link href=#%e5%ae%8c%e6%88%90%e5%ae%89%e8%a3%85><i class="fa fa-link" aria-hidden=true></i></a></h4><p>然后进入根目录后，进入 <code>fhs-install-v2ray</code> 文件夹，会发现里面有两个脚本，一个是 <code>install-dat-release.sh</code> 另一个是 <code>install-release.sh</code> ，前者是带有路由规则的，后者是不带有路由规则的。我试用后发现 <code>install-dat-release.sh</code> 没有办法本地安装，而后者可以，同时因为 <strong>v2rayA</strong> 中会自带路由规则，因此完全没有必要用前者，我们可以直接使用 <code>install-release.sh</code> 进行安装。</p><p>执行 <code>sudo chmod +x install-release.sh</code> ，添加执行权限</p><p>执行 <code>sudo ./install-release.sh --local ../v2ray-linux-64.zip</code></p><p>这里的 local 参数代表是本地安装，解析后面的文件，<strong>注意这里是直接 zip 包</strong>，不需要解压。同时，这里的路径也是需要和你的下载的文件地址对应。</p><p>不出意外的话，瞬间就可以安装完成。截止到这里，<strong>v2ray-core</strong> 已经安装成功。需要注意的是，这里不需要执行 <code>sudo systemctl enable v2ray</code> ，因为后续的 <strong>v2rayA</strong> 不依赖此服务。</p><p>安装的文件路径如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>installed: /usr/local/bin/v2ray             <span style=color:#75715e>#v2ray 主程序地址</span>
+</span></span><span style=display:flex><span>installed: /usr/local/bin/v2ctl				<span style=color:#75715e>#v2ray 控制程序</span>
+</span></span><span style=display:flex><span>installed: /usr/local/share/v2ray/geoip.dat <span style=color:#75715e># 可选，路由信息</span>
+</span></span><span style=display:flex><span>installed: /usr/local/share/v2ray/geosite.dat <span style=color:#75715e>#可选，路由信息</span>
+</span></span><span style=display:flex><span>installed: /usr/local/etc/v2ray/config.json <span style=color:#75715e>#代理配置文件</span>
+</span></span><span style=display:flex><span>installed: /var/log/v2ray/					<span style=color:#75715e>#下面三个都是log文件</span>
+</span></span><span style=display:flex><span>installed: /var/log/v2ray/access.log
+</span></span><span style=display:flex><span>installed: /var/log/v2ray/error.log
+</span></span><span style=display:flex><span>installed: /etc/systemd/system/v2ray.service <span style=color:#75715e>#v2ray 服务配置信息</span>
+</span></span><span style=display:flex><span>installed: /etc/systemd/system/v2ray@.service
+</span></span></code></pre></div><p>如果有报错的话，可以看对应的 <code>error</code> 报错去 <a href=https://github.com/v2fly/fhs-install-v2ray>v2fly/fhs-install-v2ray</a> 官方仓库 Issue 处查看。</p><h3 id=二安装-v2raya>二、安装 v2rayA
+<a class=heading-link href=#%e4%ba%8c%e5%ae%89%e8%a3%85-v2raya><i class="fa fa-link" aria-hidden=true></i></a></h3><p>首先，同样的是，为了防止 Github 下载太慢，我们也可以去到官方仓库的发布站 -> <a href=https://github.com/v2rayA/v2rayA/releases>Releases · v2rayA/v2rayA</a> ，下载对应系统版本的安装包，然后通过 <code>scp</code> 上传到远端。</p><p>这里以 <strong>x64_86 版本的 Ubuntu 18.04.5 LTS</strong> 举例，我们直接下载 <code>installer_debian_x64_v1.5.2.deb</code> 到本地，然后执行</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>scp path/to/installer_debian_x64_v1.5.2.deb username@hostname:~
+</span></span></code></pre></div><p>将文件上传到远端。</p><p>然后 <strong>ssh</strong> 到服务器执行：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>sudo dpkg -i installer_debian_x64_v1.5.2.deb
+</span></span></code></pre></div><p>安装成功后依次执行：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#75715e># 启动 v2raya</span>
+</span></span><span style=display:flex><span>sudo systemctl start v2raya
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 开机自启 v2raya</span>
+</span></span><span style=display:flex><span>sudo systemctl enable v2raya
+</span></span></code></pre></div><p>这样就成功开启了 <code>v2rayA</code>，我们访问 <code>ip:2017</code> ，前面是你云服务器的公网 <code>ip</code> 或者是自建服务器的局域网 <code>ip</code> ，我们就可以访问到对应的服务，界面大致如下：</p><p><img src=https://www.zzsqwq.cn/usr/uploads/2021/09/2395630589.png alt=v2rayA界面></p><p>首次进入时会让你设置账号和密码，用于后续的管理。还会引导你导入链接，在导入链接后，就可以点击上方的第三栏，进行连接、查看或分享对应的代理了！</p><p>说一下我现在用的设置，点击右上角设置，<strong>透明代理和规则端口的分流模式</strong>设置为<strong>大陆白名单</strong>，然后实现方式我用的是 <strong>redirect</strong>，每隔 24h 更新依次代理，左下角设置的地址与端口我用的是默认的，如下：</p><p><img src=https://www.zzsqwq.cn/usr/uploads/2021/09/2537498828.png alt=地址与端口设置></p><p>这样我们就可以愉快的上网了！！可以 <strong>ssh</strong> 到服务器试一下 <code>wget google.com</code>，正常结果如下：</p><pre tabindex=0><code>❯ wget google.com
 --2021-09-13 18:11:04--  http://google.com/
 Resolving google.com (google.com)... 93.46.8.90
 Connecting to google.com (google.com)|93.46.8.90|:80... connected.
@@ -254,39 +73,12 @@ Saving to: ‘index.html’
 index.html                        [  &lt;=&gt;                                             ]  13.42K  59.8KB/s    in 0.2s
 
 2021-09-13 18:11:06 (59.8 KB/s) - ‘index.html’ saved [13740]
-</code></pre><p>这代表着，我们下载到了 <strong>google.com</strong> 页面的源码，即可以连通 <strong>Google</strong> 服务。</p>
-<h3 id=一些存在的小问题>
-一些存在的小问题
-<a class=heading-link href=#%e4%b8%80%e4%ba%9b%e5%ad%98%e5%9c%a8%e7%9a%84%e5%b0%8f%e9%97%ae%e9%a2%98>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>我现在还没有搞清楚透明代理的作用，如果不开的话，我通过 <code>proxychains</code> 配置对应的端口，发现并不能上网，但是如果我直接开了透明代理，不需要 <code>proxychains</code> 也可以直接在终端使用代理，感觉是全局代理，不过不影响使用。</p>
-<p>具体的一些细节还没有搞清楚，后续学习了再回来补更。</p>
-</div>
-<footer>
-<script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=preferred-color-scheme crossorigin=anonymous async></script>
-</footer>
-</article>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:!0},{left:'$',right:'$',display:!1},{left:'\\(',right:'\\)',display:!1},{left:'\\[',right:'\\]',display:!0}]})"></script>
-</section>
-</div>
-<footer class=footer>
-<section class=container>
-<a href=http://beian.miit.gov.cn/ target=_blank> 鲁ICP备2020034310号</a>
-</br>
-©
+</code></pre><p>这代表着，我们下载到了 <strong>google.com</strong> 页面的源码，即可以连通 <strong>Google</strong> 服务。</p><h3 id=一些存在的小问题>一些存在的小问题
+<a class=heading-link href=#%e4%b8%80%e4%ba%9b%e5%ad%98%e5%9c%a8%e7%9a%84%e5%b0%8f%e9%97%ae%e9%a2%98><i class="fa fa-link" aria-hidden=true></i></a></h3><p>我现在还没有搞清楚透明代理的作用，如果不开的话，我通过 <code>proxychains</code> 配置对应的端口，发现并不能上网，但是如果我直接开了透明代理，不需要 <code>proxychains</code> 也可以直接在终端使用代理，感觉是全局代理，不过不影响使用。</p><p>具体的一些细节还没有搞清楚，后续学习了再回来补更。</p></div><footer><script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=preferred-color-scheme crossorigin=anonymous async></script></footer></article><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})'></script></section></div><footer class=footer><section class=container><a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></br>©
 2019 -
 2022
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
-</section>
-</footer>
-</main>
-<script src=/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.f453d26c79f010446cf0d9770197f77de32c07b7a5512d141a286247fe154a22.js integrity="sha256-9FPSbHnwEERs8Nl3AZf3feMsB7elUS0UGihiR/4VSiI="></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6EM6V1PVC"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-Z6EM6V1PVC',{anonymize_ip:!1})}</script>
-</body>
-</html>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-Z6EM6V1PVC",{anonymize_ip:!1})}</script></body></html>

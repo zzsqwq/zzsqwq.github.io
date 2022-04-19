@@ -1,11 +1,4 @@
-<!doctype html><html lang=en>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=content-language content="en">
-<meta name=color-scheme content="light dark">
-<meta name=author content="zzsqwq">
-<meta name=description content="
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=content-language content="en"><meta name=color-scheme content="light dark"><meta name=author content="zzsqwq"><meta name=description content="
   A. 配对
   
     
@@ -17,11 +10,7 @@
     
   
 
-​	给定含有 $n$ 个正整数的集合 $A$ 和 $B$ ，你需要建立他们之间的一一映射。将配对的两个数相加可以得到 $n$ 个和，问第 $k$ 大的和最大为多少。">
-<meta name=keywords content="blog,developer,personal">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="杂题训练">
-<meta name=twitter:description content="
+​	给定含有 $n$ 个正整数的集合 $A$ 和 $B$ ，你需要建立他们之间的一一映射。将配对的两个数相加可以得到 $n$ 个和，问第 $k$ 大的和最大为多少。"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="杂题训练"><meta name=twitter:description content="
   A. 配对
   
     
@@ -33,9 +22,7 @@
     
   
 
-​	给定含有 $n$ 个正整数的集合 $A$ 和 $B$ ，你需要建立他们之间的一一映射。将配对的两个数相加可以得到 $n$ 个和，问第 $k$ 大的和最大为多少。">
-<meta property="og:title" content="杂题训练">
-<meta property="og:description" content="
+​	给定含有 $n$ 个正整数的集合 $A$ 和 $B$ ，你需要建立他们之间的一一映射。将配对的两个数相加可以得到 $n$ 个和，问第 $k$ 大的和最大为多少。"><meta property="og:title" content="杂题训练"><meta property="og:description" content="
   A. 配对
   
     
@@ -47,334 +34,154 @@
     
   
 
-​	给定含有 $n$ 个正整数的集合 $A$ 和 $B$ ，你需要建立他们之间的一一映射。将配对的两个数相加可以得到 $n$ 个和，问第 $k$ 大的和最大为多少。">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://www.zzsqwq.cn/posts/27/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2020-02-15T00:52:00+00:00">
-<meta property="article:modified_time" content="2020-02-15T00:52:00+00:00">
-<title>
-杂题训练 · Zs's Blog
-</title>
-<link rel=canonical href=https://www.zzsqwq.cn/posts/27/>
-<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen>
-<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
-<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
-<meta name=generator content="Hugo 0.92.1">
-</head>
-<body class="preload-transitions colorscheme-auto">
-<div class=float-container>
-<a id=dark-mode-toggle class=colorscheme-toggle>
-<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
-</a>
-</div>
-<main class=wrapper>
-<nav class=navigation>
-<section class=container>
-<a class=navigation-title href=/>
-Zs's Blog
-</a>
+​	给定含有 $n$ 个正整数的集合 $A$ 和 $B$ ，你需要建立他们之间的一一映射。将配对的两个数相加可以得到 $n$ 个和，问第 $k$ 大的和最大为多少。"><meta property="og:type" content="article"><meta property="og:url" content="https://www.zzsqwq.cn/posts/27/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-02-15T00:52:00+00:00"><meta property="article:modified_time" content="2020-02-15T00:52:00+00:00"><title>杂题训练 · Zs's Blog</title><link rel=canonical href=https://www.zzsqwq.cn/posts/27/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.ccbbada2e264e4fdbf9b2181cccc2cdb289a63dc9520a1e96ac2b9a45778df29.css integrity="sha256-zLutouJk5P2/myGBzMws2yiaY9yVIKHpasK5pFd43yk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><meta name=generator content="Hugo 0.97.3"></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Zs's Blog</a>
 <input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle>
-<i class="fa fa-bars fa-fw" aria-hidden=true></i>
-</label>
-<ul class=navigation-list>
-<li class=navigation-item>
-<a class=navigation-link href=/about/>About</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/posts/>Blog</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/projects/>Projects</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/friends/>Friends</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/contact/>Contact Me</a>
-</li>
-</ul>
-</section>
-</nav>
-<div class=content>
-<section class="container post">
-<article>
-<header>
-<div class=post-title>
-<h1 class=title>
-<a class=title-link href=https://www.zzsqwq.cn/posts/27/>
-杂题训练
-</a>
-</h1>
-</div>
-<div class=post-meta>
-<div class=date>
-<span class=posted-on>
-<i class="fa fa-calendar" aria-hidden=true></i>
-<time datetime=2020-02-15T00:52:00Z>
-February 15, 2020
-</time>
-</span>
-<span class=reading-time>
-<i class="fa fa-clock-o" aria-hidden=true></i>
-2-minute read
-</span>
-</div>
-<div class=categories>
-<i class="fa fa-folder" aria-hidden=true></i>
-<a href=/categories/acm/>ACM</a></div>
-<div class=tags>
-<i class="fa fa-tag" aria-hidden=true></i>
-<span class=tag>
-<a href=/tags/codeforces/>Codeforces</a>
-</span></div>
-</div>
-</header>
-<div>
-<h2 id=a-配对httpsacnowcodercomacmcontest3007a>
-A. <a href=https://ac.nowcoder.com/acm/contest/3007/A>配对</a>
-<a class=heading-link href=#a-%e9%85%8d%e5%af%b9httpsacnowcodercomacmcontest3007a>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<h3 id=题意>
-题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 给定含有 $n$ 个正整数的集合 $A$ 和 $B$ ，你需要建立他们之间的一一映射。将配对的两个数相加可以得到 $n$ 个和，问第 $k$ 大的和最大为多少。</p>
-<h3 id=思路>
-思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 首先我们可以确定，组成前 $k$ 个最大的和一定用的是两个序列里面前 $k$ 大的数字。那么我们只需要知道如何配对能使第 $k$ 大的和最大。我们把问题简化一下如果 $A_1 &lt; A_2$ ，$B_1 &lt; B_2$ ，那么如果想要第二个和最大，肯定是需要 $A_1$ 和 $B_2$ 匹配，$A_2$ 和 $B_1$ 匹配，然后两个选一个最小的。所以这个问题我们类推一下，就是将 $A$ 和 $B$ 序列进行排序，然后取两个里面前 $k$ 个数，$A$ 中大的依次匹配 $B$ 中小的。然后在这 $k$ 个和中取一个最小值即可。</p>
-<h3 id=代码实现>
-代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
-
-<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>1e5</span><span style=color:#f92672>+</span><span style=color:#ae81ff>5</span>;
-<span style=color:#66d9ef>int</span> a[maxn];
-<span style=color:#66d9ef>int</span> b[maxn];
-<span style=color:#66d9ef>int</span> n,k,ans<span style=color:#f92672>=</span><span style=color:#ae81ff>1e9</span><span style=color:#f92672>+</span><span style=color:#ae81ff>7</span>;
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>cmp</span>(<span style=color:#66d9ef>int</span> a,<span style=color:#66d9ef>int</span> b)
-{
-	<span style=color:#66d9ef>return</span> a<span style=color:#f92672>&gt;</span>b;
-} 
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-{
-	scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>k);
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-	{
-		scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>a[i]);
-	}
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-	{
-		scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>b[i]);
-	}
-	sort(a<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,a<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span><span style=color:#f92672>+</span>n,cmp);
-	sort(b<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,b<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span><span style=color:#f92672>+</span>n,cmp);
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>k;i<span style=color:#f92672>++</span>)
-	{
-		ans<span style=color:#f92672>=</span>min(ans,a[i]<span style=color:#f92672>+</span>b[k<span style=color:#f92672>-</span>i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]);
-	}
-	printf(<span style=color:#e6db74>&#34;%d&#34;</span>,ans);
-}
-</code></pre></div>
-<h2 id=b-十字阵列httpsacnowcodercomacmcontest3007f>
-B. <a href=https://ac.nowcoder.com/acm/contest/3007/F>十字阵列</a>
-<a class=heading-link href=#b-%e5%8d%81%e5%ad%97%e9%98%b5%e5%88%97httpsacnowcodercomacmcontest3007f>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<h3 id=题意-1>
-题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f-1>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 给定一个 $n\times m$ 的网格，每一个交点都一个敌人。你可以使用共 $h$ 次魔法，第 $i$ 次魔法能对第 $x_i$ 行和第 $y_i$ 列的所有敌人造成 $w_i$ 点伤害，交界点的伤害只计算一次。。如果施放完所有所有魔法后，如果一个点 $(i,j)$ 共受到 $z_i$ 点伤害，问 $\sum{z_i(i+j)}$ 为多少。</p>
-<h3 id=思路-1>
-思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af-1>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 无脑的计数题QAQ..真的是水题啊，我们只需要给每次魔法施放的 $w_i$ 乘上一个 $(i,j)$ 即可，但是因为是一行一列都会变化，那么其实我们可以优化一下，先把一行一列的 $\sum(i+j)$ 给求出来，然后施法的时候直接乘上这个常数就可以了。（这个题还有个很神奇的地方就是，我明明算的不会爆int然后开的int，然后就错了，后来一直找问题没找出来，后来全改成long long就AC了，太奇怪了。。）</p>
-<h3 id=代码实现-1>
-代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e></span>
-<span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
-
-<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>2005</span>;
-<span style=color:#66d9ef>typedef</span> <span style=color:#66d9ef>long</span> <span style=color:#66d9ef>long</span> ll;
-<span style=color:#66d9ef>int</span> mod <span style=color:#f92672>=</span> <span style=color:#ae81ff>1e9</span><span style=color:#f92672>+</span><span style=color:#ae81ff>7</span>;
-ll row[maxn];
-ll col[maxn];
-ll x,y,z;
-ll n,m,h;
-ll ans,now;
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-{
-	scanf(<span style=color:#e6db74>&#34;%lld%lld%lld&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>m,<span style=color:#f92672>&amp;</span>h);
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>) 
-	{
-		row[i]<span style=color:#f92672>=</span>(m<span style=color:#f92672>*</span>i)<span style=color:#f92672>%</span>mod<span style=color:#f92672>+</span>(m)<span style=color:#f92672>*</span>(m<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>;
-		row[i]<span style=color:#f92672>%=</span>mod;
-	}
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>m;j<span style=color:#f92672>++</span>)
-	{
-		col[j]<span style=color:#f92672>=</span>(n<span style=color:#f92672>*</span>j)<span style=color:#f92672>%</span>mod<span style=color:#f92672>+</span>(n)<span style=color:#f92672>*</span>(n<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>;
-		col[j]<span style=color:#f92672>%=</span>mod;
-	}
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>h;i<span style=color:#f92672>++</span>)
-	{
-		scanf(<span style=color:#e6db74>&#34;%lld%lld%lld&#34;</span>,<span style=color:#f92672>&amp;</span>x,<span style=color:#f92672>&amp;</span>y,<span style=color:#f92672>&amp;</span>z);
-		now<span style=color:#f92672>=</span>((row[x]<span style=color:#f92672>+</span>col[y]<span style=color:#f92672>-</span>(x<span style=color:#f92672>+</span>y))<span style=color:#f92672>%</span>mod)<span style=color:#f92672>*</span>(z<span style=color:#f92672>%</span>mod);
-		now<span style=color:#f92672>%=</span>mod;
-		ans<span style=color:#f92672>+=</span>now;
-		ans<span style=color:#f92672>%=</span>mod;
-	}
-	printf(<span style=color:#e6db74>&#34;%lld</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,ans);
-}
-</code></pre></div>
-<h2 id=c-垃圾陷阱httpswwwluogucomcnproblemp1156>
-C. <a href=https://www.luogu.com.cn/problem/P1156>垃圾陷阱</a>
-<a class=heading-link href=#c-%e5%9e%83%e5%9c%be%e9%99%b7%e9%98%b1httpswwwluogucomcnproblemp1156>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h2>
-<h3 id=题意-2>
-题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f-2>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ 奶牛卡门想要从垃圾井底上到地面，对于一个垃圾它可以吃掉，或者是堆起来。初始卡门有10个小时的能量，吃掉一个垃圾会给他提供 $f_i$ 个小时的能量，叠起来一个垃圾会获得 $h_i$ 点高度，当垃圾总高度超过井的深度 $D$ 的时候，卡门就能上到地面。一个垃圾当 $t_i$ 小时时会到达井底。给出所有垃圾的状态，问奶牛能否到达地面。</p>
-<h3 id=思路-2>
-思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af-2>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<p>​ <del>这个题面被我翻译的屎一样，QAQ，如果看不懂还是去看原题叭。。</del>
-​ 这是一个类似于背包的题，对于一个垃圾，我们有两种选择，一个是吃掉它，一个是把他堆起来。。这个状态其实我没找好，看了题解发现可以设 $f[i][j]$ 来表示当用了前 $i$ 个垃圾时，当高度为 $j$ 的时候的最大的体力值（体力值就是还能继续活动多长时间）。我们用结构体数组 $a$ 来表示垃圾，写出如下转移方程。</p>
-<ul>
-<li>
-<p>如果选择把这个垃圾吃掉，那么 $f[i][j]=max(f[i-1][j]+a[i].f,f[i][j])$</p>
-</li>
-<li>
-<p>如果选择把这个垃圾搭起来，那么$f[i][j+a[i].h]=max(f[i-1][j+a[i].h],f[i-1][j])$</p>
-</li>
-</ul>
-<p>​ 我们发现边界就是 $f[0][0]=10$ ，也就是用了0个垃圾，高度为0的时候体力值为10。</p>
-<p>​ 注意一个地方我们如果到达了地面，就直接输出时间，然后退出程序即可，如果没有的话，我们可以选择遍历每一个垃圾下的 $0$ 高度，也就是说所有垃圾都不叠是最长的寿命，所以输出一个其中的最大值即可。</p>
-<h3 id=代码实现-2>
-代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-2>
-<i class="fa fa-link" aria-hidden=true></i>
-</a>
-</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span><span style=color:#75715e></span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
-
-<span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>105</span>;
-<span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>node</span>
-{
-	<span style=color:#66d9ef>int</span> t,f,h;
-}a[maxn];
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>cmp</span>(node a,node b)
-{
-	<span style=color:#66d9ef>return</span> a.t<span style=color:#f92672>&lt;</span>b.t;
-}
-<span style=color:#66d9ef>int</span> d,g;
-<span style=color:#66d9ef>int</span> dp[maxn][maxn]; <span style=color:#75715e>//dp[i][j] 用i个垃圾，当高度为j时所具备的最高生命值 
-</span><span style=color:#75715e></span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-{
-	freopen(<span style=color:#e6db74>&#34;test.in&#34;</span>,<span style=color:#e6db74>&#34;r&#34;</span>,stdin);
-	scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>d,<span style=color:#f92672>&amp;</span>g);
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>g;i<span style=color:#f92672>++</span>)
-	{
-		scanf(<span style=color:#e6db74>&#34;%d%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>a[i].t,<span style=color:#f92672>&amp;</span>a[i].f,<span style=color:#f92672>&amp;</span>a[i].h); 
-	}
-	sort(a<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,a<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span><span style=color:#f92672>+</span>g,cmp);
-	memset(dp,<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>,<span style=color:#66d9ef>sizeof</span>(dp));
-	dp[<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>0</span>]<span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>;
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>g;i<span style=color:#f92672>++</span>)
-	{
-		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;j<span style=color:#f92672>&lt;=</span>d;j<span style=color:#f92672>++</span>)
-		{
-			<span style=color:#66d9ef>if</span>(dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j]<span style=color:#f92672>&gt;=</span>a[i].t)
-			{
-				<span style=color:#66d9ef>if</span>(j<span style=color:#f92672>+</span>a[i].h<span style=color:#f92672>&gt;=</span>d)
-				{
-					printf(<span style=color:#e6db74>&#34;%d&#34;</span>,a[i].t);
-					<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-				}
-				dp[i][j]<span style=color:#f92672>=</span>max(dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j]<span style=color:#f92672>+</span>a[i].f,dp[i][j]);
-				dp[i][j<span style=color:#f92672>+</span>a[i].h]<span style=color:#f92672>=</span>max(dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j<span style=color:#f92672>+</span>a[i].h],dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j]);
-			}
-		}
-	}
-	<span style=color:#66d9ef>int</span> ans<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
-	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>g;i<span style=color:#f92672>++</span>) ans<span style=color:#f92672>=</span>max(ans,dp[i][<span style=color:#ae81ff>0</span>]);
-	printf(<span style=color:#e6db74>&#34;%d&#34;</span>,ans);
-} 
-</code></pre></div>
-</div>
-<footer>
-<script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=preferred-color-scheme crossorigin=anonymous async></script>
-</footer>
-</article>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:!0},{left:'$',right:'$',display:!1},{left:'\\(',right:'\\)',display:!1},{left:'\\[',right:'\\]',display:!0}]})"></script>
-</section>
-</div>
-<footer class=footer>
-<section class=container>
-<a href=http://beian.miit.gov.cn/ target=_blank> 鲁ICP备2020034310号</a>
-</br>
-©
+<label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/about/>About</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/friends/>Friends</a></li><li class=navigation-item><a class=navigation-link href=/contact/>Contact Me</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://www.zzsqwq.cn/posts/27/>杂题训练</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2020-02-15T00:52:00Z>February 15, 2020</time></span>
+<span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>
+2-minute read</span></div><div class=categories><i class="fa fa-folder" aria-hidden=true></i>
+<a href=/categories/acm/>ACM</a></div><div class=tags><i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/codeforces/>Codeforces</a></span></div></div></header><div><h2 id=a-配对httpsacnowcodercomacmcontest3007a>A. <a href=https://ac.nowcoder.com/acm/contest/3007/A>配对</a>
+<a class=heading-link href=#a-%e9%85%8d%e5%af%b9httpsacnowcodercomacmcontest3007a><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=题意>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 给定含有 $n$ 个正整数的集合 $A$ 和 $B$ ，你需要建立他们之间的一一映射。将配对的两个数相加可以得到 $n$ 个和，问第 $k$ 大的和最大为多少。</p><h3 id=思路>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 首先我们可以确定，组成前 $k$ 个最大的和一定用的是两个序列里面前 $k$ 大的数字。那么我们只需要知道如何配对能使第 $k$ 大的和最大。我们把问题简化一下如果 $A_1 &lt; A_2$ ，$B_1 &lt; B_2$ ，那么如果想要第二个和最大，肯定是需要 $A_1$ 和 $B_2$ 匹配，$A_2$ 和 $B_1$ 匹配，然后两个选一个最小的。所以这个问题我们类推一下，就是将 $A$ 和 $B$ 序列进行排序，然后取两个里面前 $k$ 个数，$A$ 中大的依次匹配 $B$ 中小的。然后在这 $k$ 个和中取一个最小值即可。</p><h3 id=代码实现>代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>1e5</span><span style=color:#f92672>+</span><span style=color:#ae81ff>5</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> a[maxn];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> b[maxn];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> n,k,ans<span style=color:#f92672>=</span><span style=color:#ae81ff>1e9</span><span style=color:#f92672>+</span><span style=color:#ae81ff>7</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>cmp</span>(<span style=color:#66d9ef>int</span> a,<span style=color:#66d9ef>int</span> b)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> a<span style=color:#f92672>&gt;</span>b;
+</span></span><span style=display:flex><span>} 
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>k);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>a[i]);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>b[i]);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	sort(a<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,a<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span><span style=color:#f92672>+</span>n,cmp);
+</span></span><span style=display:flex><span>	sort(b<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,b<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span><span style=color:#f92672>+</span>n,cmp);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>k;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		ans<span style=color:#f92672>=</span>min(ans,a[i]<span style=color:#f92672>+</span>b[k<span style=color:#f92672>-</span>i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	printf(<span style=color:#e6db74>&#34;%d&#34;</span>,ans);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=b-十字阵列httpsacnowcodercomacmcontest3007f>B. <a href=https://ac.nowcoder.com/acm/contest/3007/F>十字阵列</a>
+<a class=heading-link href=#b-%e5%8d%81%e5%ad%97%e9%98%b5%e5%88%97httpsacnowcodercomacmcontest3007f><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=题意-1>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f-1><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 给定一个 $n\times m$ 的网格，每一个交点都一个敌人。你可以使用共 $h$ 次魔法，第 $i$ 次魔法能对第 $x_i$ 行和第 $y_i$ 列的所有敌人造成 $w_i$ 点伤害，交界点的伤害只计算一次。。如果施放完所有所有魔法后，如果一个点 $(i,j)$ 共受到 $z_i$ 点伤害，问 $\sum{z_i(i+j)}$ 为多少。</p><h3 id=思路-1>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af-1><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 无脑的计数题QAQ..真的是水题啊，我们只需要给每次魔法施放的 $w_i$ 乘上一个 $(i,j)$ 即可，但是因为是一行一列都会变化，那么其实我们可以优化一下，先把一行一列的 $\sum(i+j)$ 给求出来，然后施法的时候直接乘上这个常数就可以了。（这个题还有个很神奇的地方就是，我明明算的不会爆int然后开的int，然后就错了，后来一直找问题没找出来，后来全改成long long就AC了，太奇怪了。。）</p><h3 id=代码实现-1>代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>2005</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>typedef</span> <span style=color:#66d9ef>long</span> <span style=color:#66d9ef>long</span> ll;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> mod <span style=color:#f92672>=</span> <span style=color:#ae81ff>1e9</span><span style=color:#f92672>+</span><span style=color:#ae81ff>7</span>;
+</span></span><span style=display:flex><span>ll row[maxn];
+</span></span><span style=display:flex><span>ll col[maxn];
+</span></span><span style=display:flex><span>ll x,y,z;
+</span></span><span style=display:flex><span>ll n,m,h;
+</span></span><span style=display:flex><span>ll ans,now;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	scanf(<span style=color:#e6db74>&#34;%lld%lld%lld&#34;</span>,<span style=color:#f92672>&amp;</span>n,<span style=color:#f92672>&amp;</span>m,<span style=color:#f92672>&amp;</span>h);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>) 
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		row[i]<span style=color:#f92672>=</span>(m<span style=color:#f92672>*</span>i)<span style=color:#f92672>%</span>mod<span style=color:#f92672>+</span>(m)<span style=color:#f92672>*</span>(m<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>		row[i]<span style=color:#f92672>%=</span>mod;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;j<span style=color:#f92672>&lt;=</span>m;j<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		col[j]<span style=color:#f92672>=</span>(n<span style=color:#f92672>*</span>j)<span style=color:#f92672>%</span>mod<span style=color:#f92672>+</span>(n)<span style=color:#f92672>*</span>(n<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>		col[j]<span style=color:#f92672>%=</span>mod;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>h;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		scanf(<span style=color:#e6db74>&#34;%lld%lld%lld&#34;</span>,<span style=color:#f92672>&amp;</span>x,<span style=color:#f92672>&amp;</span>y,<span style=color:#f92672>&amp;</span>z);
+</span></span><span style=display:flex><span>		now<span style=color:#f92672>=</span>((row[x]<span style=color:#f92672>+</span>col[y]<span style=color:#f92672>-</span>(x<span style=color:#f92672>+</span>y))<span style=color:#f92672>%</span>mod)<span style=color:#f92672>*</span>(z<span style=color:#f92672>%</span>mod);
+</span></span><span style=display:flex><span>		now<span style=color:#f92672>%=</span>mod;
+</span></span><span style=display:flex><span>		ans<span style=color:#f92672>+=</span>now;
+</span></span><span style=display:flex><span>		ans<span style=color:#f92672>%=</span>mod;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	printf(<span style=color:#e6db74>&#34;%lld</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,ans);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=c-垃圾陷阱httpswwwluogucomcnproblemp1156>C. <a href=https://www.luogu.com.cn/problem/P1156>垃圾陷阱</a>
+<a class=heading-link href=#c-%e5%9e%83%e5%9c%be%e9%99%b7%e9%98%b1httpswwwluogucomcnproblemp1156><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=题意-2>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f-2><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 奶牛卡门想要从垃圾井底上到地面，对于一个垃圾它可以吃掉，或者是堆起来。初始卡门有10个小时的能量，吃掉一个垃圾会给他提供 $f_i$ 个小时的能量，叠起来一个垃圾会获得 $h_i$ 点高度，当垃圾总高度超过井的深度 $D$ 的时候，卡门就能上到地面。一个垃圾当 $t_i$ 小时时会到达井底。给出所有垃圾的状态，问奶牛能否到达地面。</p><h3 id=思路-2>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af-2><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ <del>这个题面被我翻译的屎一样，QAQ，如果看不懂还是去看原题叭。。</del>
+​ 这是一个类似于背包的题，对于一个垃圾，我们有两种选择，一个是吃掉它，一个是把他堆起来。。这个状态其实我没找好，看了题解发现可以设 $f[i][j]$ 来表示当用了前 $i$ 个垃圾时，当高度为 $j$ 的时候的最大的体力值（体力值就是还能继续活动多长时间）。我们用结构体数组 $a$ 来表示垃圾，写出如下转移方程。</p><ul><li><p>如果选择把这个垃圾吃掉，那么 $f[i][j]=max(f[i-1][j]+a[i].f,f[i][j])$</p></li><li><p>如果选择把这个垃圾搭起来，那么$f[i][j+a[i].h]=max(f[i-1][j+a[i].h],f[i-1][j])$</p></li></ul><p>​ 我们发现边界就是 $f[0][0]=10$ ，也就是用了0个垃圾，高度为0的时候体力值为10。</p><p>​ 注意一个地方我们如果到达了地面，就直接输出时间，然后退出程序即可，如果没有的话，我们可以选择遍历每一个垃圾下的 $0$ 高度，也就是说所有垃圾都不叠是最长的寿命，所以输出一个其中的最大值即可。</p><h3 id=代码实现-2>代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-2><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>105</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>node</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>int</span> t,f,h;
+</span></span><span style=display:flex><span>}a[maxn];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>cmp</span>(node a,node b)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> a.t<span style=color:#f92672>&lt;</span>b.t;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> d,g;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> dp[maxn][maxn]; <span style=color:#75715e>//dp[i][j] 用i个垃圾，当高度为j时所具备的最高生命值 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>	freopen(<span style=color:#e6db74>&#34;test.in&#34;</span>,<span style=color:#e6db74>&#34;r&#34;</span>,stdin);
+</span></span><span style=display:flex><span>	scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>d,<span style=color:#f92672>&amp;</span>g);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>g;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		scanf(<span style=color:#e6db74>&#34;%d%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>a[i].t,<span style=color:#f92672>&amp;</span>a[i].f,<span style=color:#f92672>&amp;</span>a[i].h); 
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	sort(a<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,a<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span><span style=color:#f92672>+</span>g,cmp);
+</span></span><span style=display:flex><span>	memset(dp,<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>,<span style=color:#66d9ef>sizeof</span>(dp));
+</span></span><span style=display:flex><span>	dp[<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>0</span>]<span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>g;i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>	{
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> j<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;j<span style=color:#f92672>&lt;=</span>d;j<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>		{
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>if</span>(dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j]<span style=color:#f92672>&gt;=</span>a[i].t)
+</span></span><span style=display:flex><span>			{
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>if</span>(j<span style=color:#f92672>+</span>a[i].h<span style=color:#f92672>&gt;=</span>d)
+</span></span><span style=display:flex><span>				{
+</span></span><span style=display:flex><span>					printf(<span style=color:#e6db74>&#34;%d&#34;</span>,a[i].t);
+</span></span><span style=display:flex><span>					<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>				}
+</span></span><span style=display:flex><span>				dp[i][j]<span style=color:#f92672>=</span>max(dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j]<span style=color:#f92672>+</span>a[i].f,dp[i][j]);
+</span></span><span style=display:flex><span>				dp[i][j<span style=color:#f92672>+</span>a[i].h]<span style=color:#f92672>=</span>max(dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j<span style=color:#f92672>+</span>a[i].h],dp[i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][j]);
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>int</span> ans<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>g;i<span style=color:#f92672>++</span>) ans<span style=color:#f92672>=</span>max(ans,dp[i][<span style=color:#ae81ff>0</span>]);
+</span></span><span style=display:flex><span>	printf(<span style=color:#e6db74>&#34;%d&#34;</span>,ans);
+</span></span><span style=display:flex><span>} 
+</span></span></code></pre></div></div><footer><script src=https://utteranc.es/client.js repo=zzsqwq/hugo-blog-comment issue-term=pathname label=comment theme=preferred-color-scheme crossorigin=anonymous async></script></footer></article><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})'></script></section></div><footer class=footer><section class=container><a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></br>©
 2019 -
 2022
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
-</section>
-</footer>
-</main>
-<script src=/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.f453d26c79f010446cf0d9770197f77de32c07b7a5512d141a286247fe154a22.js integrity="sha256-9FPSbHnwEERs8Nl3AZf3feMsB7elUS0UGihiR/4VSiI="></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z6EM6V1PVC"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-Z6EM6V1PVC',{anonymize_ip:!1})}</script>
-</body>
-</html>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-Z6EM6V1PVC",{anonymize_ip:!1})}</script></body></html>
