@@ -5,6 +5,7 @@
 /assets/jsconfig.json
 hugo_stats.json
 .idea/
+/.vscode
 # Executable may be added to repository
 hugo.exe
 hugo.darwin
