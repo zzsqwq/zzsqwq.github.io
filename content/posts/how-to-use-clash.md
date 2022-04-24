@@ -29,7 +29,7 @@ date: "2022-04-23 19:04:00"
 
 安装结束后，使用 `docker --version` 以及 `docker-compose --version` 进行验证，输出如下进行下一步。
 
-```shell
+```bash
 ❯ docker --version        
 Docker version 20.10.14, build a224086
 
@@ -41,13 +41,13 @@ docker-compose version 1.29.2, build 5becea4c
 
 首先打开一个新的终端，进入根目录，运行如下指令，创建文件夹存放 docker-compose 配置文件。这里是在当前用户家目录下创建了 Services 文件夹，并在其中创建了 clash 文件夹。
 
-```shell
+```bash
 ❯ mkdir -p ~/Services/clash
 ```
 
 然后进入上述文件夹，并使用文本编辑器创建 `docker-compose.yml` 文件
 
-```shell
+```bash
 ~
 ❯ cd ~/Services/clash     
 
@@ -57,7 +57,7 @@ docker-compose version 1.29.2, build 5becea4c
 
 在文件中填入下述内容，该文件参考[官方文档](https://github.com/Dreamacro/clash/wiki/clash-as-a-daemon#docker)，并进行了一定的改动
 
-```shell
+```bash
 version: '3'
 services:
   clash:
