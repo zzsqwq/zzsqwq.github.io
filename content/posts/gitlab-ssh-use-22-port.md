@@ -4,6 +4,7 @@ categories: ["瞎折腾"]
 tags: ["Docker","Gitlab","ssh"]
 draft: false
 slug: "docker-gitlab-ssh"
+readingtime: 5
 date: "2022-04-24 13:46:00"
 ---
 
