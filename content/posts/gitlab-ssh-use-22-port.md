@@ -161,7 +161,7 @@ ssh -i /home/git/.ssh/id_rsa -p 4022 -o StrictHostKeyChecking=no git@127.0.0.1 "
 
 ### 六、挂载额外的文件到 Gitlab 容器
 
-修改我们的 `docker-compose.yml` ，注释掉 `gitlab_rails['gitlab_shell_ssh_port'] = 3022` 以及添加 `'/home/git/.ssh/:/var/opt/gitlab/.ssh'` ，将 `git` 用户的 `.ssh` 挂载到容器内。
+修改我们的 `docker-compose.yml` ，注释掉 `gitlab_rails['gitlab_shell_ssh_port'] = 3022` 以及添加 `'/home/git/.ssh/:/var/opt/gitlab/.ssh'` ，将 `git` 用户的 `.ssh` 目录挂载到容器内。
 
 ```shell
 gitlab-web:
@@ -181,6 +181,12 @@ gitlab-web:
 		- '/srv/gitlab/data:/var/opt/gitlab'
 		- '/home/git/.ssh/:/var/opt/gitlab/.ssh'
 		- .... #一些其他的配置
+```
+
+最后，重启容器即可生效。
+
+```shell
+❯ docker-compose up -d
 ```
 
 ## 简单的原理说明
