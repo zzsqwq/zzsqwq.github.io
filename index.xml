@@ -152,23 +152,23 @@
 &lt;p>转发使用的是宿主机中的&lt;code>/opt/gitlab/embedded/service/gitlab-shell/bin/gitlab-shell&lt;/code> 脚本，而因为已经将主机 &lt;code>git&lt;/code> 用户 &lt;code>id_rsa.pub&lt;/code> 添加到了 &lt;code>authorized_keys&lt;/code> 中，因此可以直接免密转发内容到容器内部。&lt;/p>
 &lt;p>随后，容器内的 &lt;code>gitlab-shell&lt;/code> 脚本对请求进行处理，完成 ssh 请求。&lt;/p>
 &lt;p>这里很巧妙的使用了同一个位置的脚本，这也是需要将 &lt;code>git&lt;/code> 用户的 &lt;code>.ssh&lt;/code> 目录挂载到 Gitlab 内部的原因，但是每个脚本却作用不同，十分的巧妙。&lt;/p>
-&lt;section class="footnotes" role="doc-endnotes">
+&lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
-&lt;li id="fn:1" role="doc-endnote">
+&lt;li id="fn:1">
 &lt;p>&lt;a href="https://docs.gitea.io/zh-cn/install-with-docker/">使用 Docker 安装&lt;/a> ↩&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
-&lt;li id="fn:2" role="doc-endnote">
+&lt;li id="fn:2">
 &lt;p>&lt;a href="https://github.com/sameersbn/docker-gitlab/issues/1517">Sharing SSH port between host and the container&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
-&lt;li id="fn:3" role="doc-endnote">
+&lt;li id="fn:3">
 &lt;p>&lt;a href="https://blog.xiaket.org/2017/exposing.ssh.port.in.dockerized.gitlab-ce.html">Exposing ssh port in dockerized gitlab-ce&lt;/a>&amp;#160;&lt;a href="#fnref:3" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
-&lt;li id="fn:4" role="doc-endnote">
+&lt;li id="fn:4">
 &lt;p>&lt;a href="https://blog.csdn.net/kangkanglou/article/details/90760529">公钥添加到authorized_keys到文件中之后仍无法免密登陆&lt;/a>&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/section></description></item><item><title>如何在 Linux 上优雅的使用 Clash？</title><link>https://www.zzsqwq.cn/posts/how-to-use-clash-on-linux/</link><pubDate>Sat, 23 Apr 2022 19:04:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/how-to-use-clash-on-linux/</guid><description>&lt;h2 id="为什么选择-clash">
+&lt;/div></description></item><item><title>如何在 Linux 上优雅的使用 Clash？</title><link>https://www.zzsqwq.cn/posts/how-to-use-clash-on-linux/</link><pubDate>Sat, 23 Apr 2022 19:04:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/how-to-use-clash-on-linux/</guid><description>&lt;h2 id="为什么选择-clash">
 为什么选择 Clash？
 &lt;a class="heading-link" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e9%80%89%e6%8b%a9-clash">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -432,17 +432,17 @@
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>停止 Clash 服务守护进程&lt;/strong>&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>~/Services/clash
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ sudo systemctl stop clash
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;section class="footnotes" role="doc-endnotes">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
-&lt;li id="fn:1" role="doc-endnote">
+&lt;li id="fn:1">
 &lt;p>&lt;a href="https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html">Systemd 入门教程：命令篇&lt;/a> 以及 &lt;a href="https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html">Systemd 入门教程：实战篇&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
-&lt;li id="fn:2" role="doc-endnote">
+&lt;li id="fn:2">
 &lt;p>&lt;a href="https://github.com/Dreamacro/clash/wiki/clash-as-a-daemon">https://github.com/Dreamacro/clash/wiki/clash-as-a-daemon&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/section></description></item><item><title>关于春节期间的一些碎碎念</title><link>https://www.zzsqwq.cn/posts/224/</link><pubDate>Thu, 10 Feb 2022 00:52:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/224/</guid><description>&lt;h2 id="前言">
+&lt;/div></description></item><item><title>关于春节期间的一些碎碎念</title><link>https://www.zzsqwq.cn/posts/224/</link><pubDate>Thu, 10 Feb 2022 00:52:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/224/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1983,14 +1983,14 @@ Git中的引用
 &lt;li>&lt;a href="https://www.jianshu.com/p/d3752c584e01">使用树莓派搭建无线打印机&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://sspai.com/post/40997">如何正确地用树莓派共享打印机&lt;/a>&lt;/li>
 &lt;/ul>
-&lt;section class="footnotes" role="doc-endnotes">
+&lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
 &lt;ol>
-&lt;li id="fn:1" role="doc-endnote">
+&lt;li id="fn:1">
 &lt;p>学长的博客在这里: &lt;a href="https://tec.blog.ykai.top/">dykai&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/section></description></item><item><title>deepin-wine-qq-9.1.8版本无法正常启动的解决方案</title><link>https://www.zzsqwq.cn/posts/195/</link><pubDate>Wed, 16 Jun 2021 01:38:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/195/</guid><description>&lt;h3 id="问题描述">
+&lt;/div></description></item><item><title>deepin-wine-qq-9.1.8版本无法正常启动的解决方案</title><link>https://www.zzsqwq.cn/posts/195/</link><pubDate>Wed, 16 Jun 2021 01:38:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/195/</guid><description>&lt;h3 id="问题描述">
 问题描述
 &lt;a class="heading-link" href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -13122,7 +13122,7 @@ About Me
 &lt;p>I usually use ID zzsqwq on the Internet.&lt;/p>
 &lt;p>Now an undergraduate of &lt;a href="https://www.nwpu.edu.cn">Northwestern Polytechnical University&lt;/a>.&lt;/p>
 &lt;p>I&amp;rsquo;m interested in computer vision and robotics&amp;hellip;&lt;/p>
-&lt;p>Please feel free to ask me anything if you have questions about my blog.&lt;/p>
+&lt;p>Welcome to know more about me through &lt;a href="https://zzsqwq.cn">my homepage&lt;/a>.&lt;/p>
 &lt;hr>
 &lt;h1 id="about-blog">
 About Blog
@@ -13152,16 +13152,10 @@ Friends
 &lt;p>jjhqwq &lt;a href="https://jjhqaq.com/">https://jjhqaq.com/&lt;/a>&lt;/p>
 &lt;p>Blackseven &lt;a href="https://blackseven.top/">https://blackseven.top/&lt;/a>&lt;/p>
 &lt;p>pg999w &lt;a href="https://blog.pg999w.top/">https://blog.pg999w.top/&lt;/a>&lt;/p>
-&lt;p>kehan &lt;a href="https://blog.kehan.xyz/">https://blog.kehan.xyz/&lt;/a>&lt;/p>
+&lt;p>Kehan &lt;a href="https://blog.kehan.xyz/">https://blog.kehan.xyz/&lt;/a>&lt;/p>
 &lt;p>immortalqx &lt;a href="https://immortalqx.github.io/">https://immortalqx.github.io/&lt;/a>&lt;/p>
 &lt;p>Zepeng &lt;a href="https://bzpovo.xyz/">https://bzpovo.xyz/&lt;/a>&lt;/p>
 &lt;p>WarmCongee &lt;a href="http://warmcongee.com/">http://warmcongee.com/&lt;/a>&lt;/p>
-&lt;p>Zaihua &lt;a href="https://www.vzaihua.com">https://www.vzaihua.com&lt;/a>&lt;/p>
+&lt;p>Zaihua &lt;a href="https://www.vzaihua.com/">https://www.vzaihua.com/&lt;/a>&lt;/p>
 &lt;p>Orangii &lt;a href="https://orangii.cn/">https://orangii.cn/&lt;/a>&lt;/p>
-&lt;p>Zhang Jiale &lt;a href="https://zjlzjl.com">https://zjlzjl.com&lt;/a>&lt;/p></description></item><item><title/><link>https://www.zzsqwq.cn/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.zzsqwq.cn/projects/</guid><description>&lt;h1 id="projects">
-Projects
-&lt;a class="heading-link" href="#projects">
-&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
-&lt;/a>
-&lt;/h1>
-&lt;p>Too busy lately… I will be back soon!&lt;/p></description></item></channel></rss>
+&lt;p>Zhang Jiale &lt;a href="https://zjlzjl.com/">https://zjlzjl.com/&lt;/a>&lt;/p></description></item></channel></rss>
