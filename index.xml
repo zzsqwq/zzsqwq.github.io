@@ -1,4 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://www.zzsqwq.cn/</link><atom:link href="https://www.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml"/><description>Zs's Blog</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><lastBuildDate>Sun, 24 Apr 2022 13:46:00 +0000</lastBuildDate><item><title>Docker-Gitlab 与主机共用 ssh 的 22 端口</title><link>https://www.zzsqwq.cn/posts/docker-gitlab-ssh/</link><pubDate>Sun, 24 Apr 2022 13:46:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/docker-gitlab-ssh/</guid><description>&lt;h2 id="背景">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://www.zzsqwq.cn/</link><atom:link href="https://www.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml"/><description>Zs's Blog</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><lastBuildDate>Tue, 03 May 2022 21:40:00 +0000</lastBuildDate><item><title>一个基于 Hugo 的个人主页主题</title><link>https://www.zzsqwq.cn/posts/my-hugo-academia-theme/</link><pubDate>Tue, 03 May 2022 21:40:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/my-hugo-academia-theme/</guid><description>&lt;h2 id="背景">
+背景
+&lt;a class="heading-link" href="#%e8%83%8c%e6%99%af">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>之前看到过学长学姐做过个人主页，多是用来申请一些学校的夏令营使用的，觉得非常的 Nice，自己也想搞一个。&lt;/p>
+&lt;p>大家之前好像大多用的是基于 Hexo 的一个主题 — &lt;a href="https://github.com/PhosphorW/hexo-theme-academia">hexo-theme-academia&lt;/a>，但是由于之前我用过 Hexo，觉得他有一些比较明显的弊端，例如环境配置比较麻烦、需要安装 Nodejs、npm 等环境，然后再安装 Hexo。其次它的构建速度比较慢，用起来感觉比较僵硬。&lt;/p>
+&lt;p>后来随着了解增多，尝试了 Typecho、WordPress，Hugo 等主题后，目前还是决定使用 Hugo。它构建速度快，而且安装简单，在 Ubuntu 上只需要一行 &lt;code>sudo apt install hugo&lt;/code> 即可，不可谓不简单。因此萌生了移植一个 Hugo 版本主题的想法，刚好可以锻炼一下自己。&lt;/p>
+&lt;h2 id="一些难点">
+一些难点
+&lt;a class="heading-link" href="#%e4%b8%80%e4%ba%9b%e9%9a%be%e7%82%b9">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>之前从来没有了解过 Hugo 主题的写法以及 Hexo 主题的写法，不过看了一下仓库的组织形式还算好理解。&lt;/p>
+&lt;p>这类静态博客生成器都是需要写一些模板文件，然后根据配置文件进行个性化构建。&lt;/p>
+&lt;p>&lt;a href="https://gohugo.io/documentation/">Hugo 的文档&lt;/a> 十分的完善，学习就像是学习一门编程语言，里面有很多函数和变量，还有各种条件结构、循环结构等。原主题是采用的 pug + stylus 的方式，而不是传统的 html + css 。不过这两者之间的转换并不麻烦，而且有一些工具可以参考着转换，例如 &lt;a href="https://pughtml.com/">pug2html&lt;/a> 以及 &lt;a href="https://verytoolz.com/stylus-css.html">stylus2css&lt;/a> 。&lt;/p>
+&lt;p>后续就参考着一点点的移植就可以，同时我也改写了一下配置文件（使用的 yaml 格式），大概是更易于配置了。&lt;/p>
+&lt;p>同时，得益于 Hugo 的强大，我很方便的完成了对多语言的支持。&lt;/p>
+&lt;p>目前已经更新到了 v1.1.0 版本，欢迎大家体验，有问题可以及时反馈！&lt;/p>
+&lt;h2 id="最终效果">
+最终效果
+&lt;a class="heading-link" href="#%e6%9c%80%e7%bb%88%e6%95%88%e6%9e%9c">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>英文文档：https://github.com/zzsqwq/hugo-academia-theme/blob/master/README.md&lt;/p>
+&lt;p>中文文档：https://github.com/zzsqwq/hugo-academia-theme/blob/master/README.zh_cn.md&lt;/p>
+&lt;p>英文效果图：&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/images/hugo-academia-theme/demo-en.png" alt="demo-en">&lt;/p>
+&lt;p>中文效果图：&lt;/p>
+&lt;p>&lt;img src="https://www.zzsqwq.cn/images/hugo-academia-theme/demo-zh_cn.png" alt="demo-zh_cn">&lt;/p></description></item><item><title>Docker-Gitlab 与主机共用 ssh 的 22 端口</title><link>https://www.zzsqwq.cn/posts/docker-gitlab-ssh/</link><pubDate>Sun, 24 Apr 2022 13:46:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/docker-gitlab-ssh/</guid><description>&lt;h2 id="背景">
 背景
 &lt;a class="heading-link" href="#%e8%83%8c%e6%99%af">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
