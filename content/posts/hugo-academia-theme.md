@@ -30,11 +30,15 @@ typora-root-url: ../../static
 
 同时，得益于 Hugo 的强大，我很方便的完成了对多语言的支持。
 
-目前已经更新到了 v1.1.0 版本，欢迎大家体验，有问题可以及时反馈！
-
 
 
 ## 最终效果
+
+目前已经更新到了 v1.1.0 版本，欢迎大家体验，有问题可以及时反馈！
+
+主题链接：https://github.com/zzsqwq/hugo-academia-theme
+
+演示站：https://zzsqwq.github.io/academic-pages-demo/
 
 英文文档：https://github.com/zzsqwq/hugo-academia-theme/blob/master/README.md
 
