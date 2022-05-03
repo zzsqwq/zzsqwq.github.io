@@ -8,7 +8,7 @@ Blackseven https://blackseven.top/
 
 pg999w https://blog.pg999w.top/
 
-kehan https://blog.kehan.xyz/
+Kehan https://blog.kehan.xyz/
 
 immortalqx https://immortalqx.github.io/
 
@@ -16,8 +16,8 @@ Zepeng https://bzpovo.xyz/
 
 WarmCongee http://warmcongee.com/
 
-Zaihua https://www.vzaihua.com
+Zaihua https://www.vzaihua.com/
 
 Orangii https://orangii.cn/
 
-Zhang Jiale https://zjlzjl.com
+Zhang Jiale https://zjlzjl.com/

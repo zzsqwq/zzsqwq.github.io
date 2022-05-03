@@ -8,7 +8,7 @@ Now an undergraduate of [Northwestern Polytechnical University](https://www.nwpu
 
 I'm interested in computer vision and robotics...
 
-Please feel free to ask me anything if you have questions about my blog.
+Welcome to know more about me through [my homepage](https://zzsqwq.cn).
 
 ---
 
