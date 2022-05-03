@@ -6,8 +6,8 @@
 Hugo 的文档 十分的完善，学习就像是学习一门编程语言，里面有很多函数和变量，还有各种条件结构、循环结构等。原主题是采用的 pug + stylus 的方式，而不是传统的 html + css 。不过这两者之间的转换并不麻烦，而且有一些工具可以参考着转换，例如 pug2html 以及 stylus2css 。
 后续就参考着一点点的移植就可以，同时我也改写了一下配置文件（使用的 yaml 格式），大概是更易于配置了。
 同时，得益于 Hugo 的强大，我很方便的完成了对多语言的支持。
-目前已经更新到了 v1.1.0 版本，欢迎大家体验，有问题可以及时反馈！
-最终效果 英文文档：https://github.com/zzsqwq/hugo-academia-theme/blob/master/README.md
-中文文档：https://github.com/zzsqwq/hugo-academia-theme/blob/master/README.zh_cn.md
-英文效果图：
-中文效果图：</description></item></channel></rss>
+最终效果 目前已经更新到了 v1.1.0 版本，欢迎大家体验，有问题可以及时反馈！
+主题链接：https://github.com/zzsqwq/hugo-academia-theme
+演示站：https://zzsqwq.github.io/academic-pages-demo/
+英文文档：https://github.com/zzsqwq/hugo-academia-theme/blob/master/README.md
+中文文档：https://github.com/zzsqwq/hugo-academia-theme/blob/master/README.zh_cn.md</description></item></channel></rss>
