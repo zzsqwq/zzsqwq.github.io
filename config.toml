@@ -1,4 +1,4 @@
-baseURL = "https://www.zzsqwq.cn"
+baseURL = "https://blog.zzsqwq.cn"
 title = "Zs's Blog"
 theme = "hugo-coder"
 buildfuture = true
