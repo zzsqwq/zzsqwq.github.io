@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://www.zzsqwq.cn/</link><atom:link href="https://www.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml"/><description>Zs's Blog</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><lastBuildDate>Tue, 03 May 2022 21:40:00 +0000</lastBuildDate><item><title>一个基于 Hugo 的个人主页主题</title><link>https://www.zzsqwq.cn/posts/my-hugo-academia-theme/</link><pubDate>Tue, 03 May 2022 21:40:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/my-hugo-academia-theme/</guid><description>&lt;h2 id="背景">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://blog.zzsqwq.cn/</link><atom:link href="https://blog.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml"/><description>Zs's Blog</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><lastBuildDate>Tue, 03 May 2022 21:40:00 +0000</lastBuildDate><item><title>一个基于 Hugo 的个人主页主题</title><link>https://blog.zzsqwq.cn/posts/my-hugo-academia-theme/</link><pubDate>Tue, 03 May 2022 21:40:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/my-hugo-academia-theme/</guid><description>&lt;h2 id="背景">
 背景
 &lt;a class="heading-link" href="#%e8%83%8c%e6%99%af">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -30,9 +30,9 @@
 &lt;p>英文文档：https://github.com/zzsqwq/hugo-academia-theme/blob/master/README.md&lt;/p>
 &lt;p>中文文档：https://github.com/zzsqwq/hugo-academia-theme/blob/master/README.zh_cn.md&lt;/p>
 &lt;p>英文效果图：&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/images/hugo-academia-theme/demo-en.png" alt="demo-en">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/hugo-academia-theme/demo-en.png" alt="demo-en">&lt;/p>
 &lt;p>中文效果图：&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/images/hugo-academia-theme/demo-zh_cn.png" alt="demo-zh_cn">&lt;/p></description></item><item><title>Docker-Gitlab 与主机共用 ssh 的 22 端口</title><link>https://www.zzsqwq.cn/posts/docker-gitlab-ssh/</link><pubDate>Sun, 24 Apr 2022 13:46:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/docker-gitlab-ssh/</guid><description>&lt;h2 id="背景">
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/hugo-academia-theme/demo-zh_cn.png" alt="demo-zh_cn">&lt;/p></description></item><item><title>Docker-Gitlab 与主机共用 ssh 的 22 端口</title><link>https://blog.zzsqwq.cn/posts/docker-gitlab-ssh/</link><pubDate>Sun, 24 Apr 2022 13:46:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/docker-gitlab-ssh/</guid><description>&lt;h2 id="背景">
 背景
 &lt;a class="heading-link" href="#%e8%83%8c%e6%99%af">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -202,7 +202,7 @@
 &lt;p>&lt;a href="https://blog.csdn.net/kangkanglou/article/details/90760529">公钥添加到authorized_keys到文件中之后仍无法免密登陆&lt;/a>&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description></item><item><title>如何在 Linux 上优雅的使用 Clash？</title><link>https://www.zzsqwq.cn/posts/how-to-use-clash-on-linux/</link><pubDate>Sat, 23 Apr 2022 19:04:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/how-to-use-clash-on-linux/</guid><description>&lt;h2 id="为什么选择-clash">
+&lt;/div></description></item><item><title>如何在 Linux 上优雅的使用 Clash？</title><link>https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/</link><pubDate>Sat, 23 Apr 2022 19:04:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/</guid><description>&lt;h2 id="为什么选择-clash">
 为什么选择 Clash？
 &lt;a class="heading-link" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e9%80%89%e6%8b%a9-clash">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -338,8 +338,8 @@
 &lt;/a>
 &lt;/h3>
 &lt;p>后续大家可以通过访问上述的两个公开链接，或者本地的 &lt;code>localhost:9090/ui&lt;/code>（必须配置了 &lt;code>external-ui&lt;/code> 参数才可使用）来对代理进行控制。&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/images/how-to-use-clash-on-linux/clash-dashboard-demo.png" alt="clash-dashboard 界面">&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/images/how-to-use-clash-on-linux/yacd-dashboard-demo.png" alt="yacd-dashboard 界面">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/how-to-use-clash-on-linux/clash-dashboard-demo.png" alt="clash-dashboard 界面">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/how-to-use-clash-on-linux/yacd-dashboard-demo.png" alt="yacd-dashboard 界面">&lt;/p>
 &lt;h2 id="二基于-systemd-的实现">
 二、基于 Systemd 的实现
 &lt;a class="heading-link" href="#%e4%ba%8c%e5%9f%ba%e4%ba%8e-systemd-%e7%9a%84%e5%ae%9e%e7%8e%b0">
@@ -476,7 +476,7 @@
 &lt;p>&lt;a href="https://github.com/Dreamacro/clash/wiki/clash-as-a-daemon">https://github.com/Dreamacro/clash/wiki/clash-as-a-daemon&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description></item><item><title>关于春节期间的一些碎碎念</title><link>https://www.zzsqwq.cn/posts/224/</link><pubDate>Thu, 10 Feb 2022 00:52:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/224/</guid><description>&lt;h2 id="前言">
+&lt;/div></description></item><item><title>关于春节期间的一些碎碎念</title><link>https://blog.zzsqwq.cn/posts/224/</link><pubDate>Thu, 10 Feb 2022 00:52:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/224/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -553,7 +553,7 @@
 &lt;p>之前与一个舅家的哥哥很要好（与上文不是同一个），因为之前感觉我们两人观念很类似，亲戚们也都觉得我们两个像。&lt;/p>
 &lt;p>这个春节与他进一步交流了一些，似乎观念不尽相同了。&lt;/p>
 &lt;p>现在他步入社会，参加了工作，开始应付酒局，也会打点关系了。也开始教导我应该善于打点。&lt;/p>
-&lt;p>&lt;strong>我以后也会这样吗？&lt;/strong>&lt;/p></description></item><item><title>一个 Javascript 中异步的小技巧</title><link>https://www.zzsqwq.cn/posts/223/</link><pubDate>Wed, 19 Jan 2022 00:24:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/223/</guid><description>&lt;h2 id="前言">
+&lt;p>&lt;strong>我以后也会这样吗？&lt;/strong>&lt;/p></description></item><item><title>一个 Javascript 中异步的小技巧</title><link>https://blog.zzsqwq.cn/posts/223/</link><pubDate>Wed, 19 Jan 2022 00:24:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/223/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -639,7 +639,7 @@
 &lt;/a>
 &lt;/h2>
 &lt;p>这个问题应该总是可以解决两个页面同时加载但却存在变量依赖的问题。&lt;/p>
-&lt;p>大家如果有什么更加优秀的解决方案也希望不吝赐教。&lt;/p></description></item><item><title>记一次博客迁移记录</title><link>https://www.zzsqwq.cn/posts/221/</link><pubDate>Mon, 13 Dec 2021 02:59:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/221/</guid><description>&lt;h2 id="前言">
+&lt;p>大家如果有什么更加优秀的解决方案也希望不吝赐教。&lt;/p></description></item><item><title>记一次博客迁移记录</title><link>https://blog.zzsqwq.cn/posts/221/</link><pubDate>Mon, 13 Dec 2021 02:59:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/221/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -782,7 +782,7 @@ Typecho 文章导出
 &lt;/h2>
 &lt;p>其中还有一些 RSS 的配置、评论系统宽度的修改等一些小问题，就不细说了。&lt;/p>
 &lt;p>有个比较蛋疼的问题就是目前 Utterances 评论系统的配色不能随着博客亮暗的切换改变，后续计划改善一下&lt;/p>
-&lt;p>同时，为了保持主题的可配置性，我 fork 了一份主题，并且针对做了一些修改，仓库地址：&lt;a href="https://github.com/zzsqwq/hugo-coder">zzsqwq/hugo-coder&lt;/a>&lt;/p></description></item><item><title>Markdown 编辑器推荐</title><link>https://www.zzsqwq.cn/posts/220/</link><pubDate>Wed, 01 Dec 2021 20:12:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/220/</guid><description>&lt;h1 id="前言">
+&lt;p>同时，为了保持主题的可配置性，我 fork 了一份主题，并且针对做了一些修改，仓库地址：&lt;a href="https://github.com/zzsqwq/hugo-coder">zzsqwq/hugo-coder&lt;/a>&lt;/p></description></item><item><title>Markdown 编辑器推荐</title><link>https://blog.zzsqwq.cn/posts/220/</link><pubDate>Wed, 01 Dec 2021 20:12:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/220/</guid><description>&lt;h1 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1000,7 +1000,7 @@ Typecho 文章导出
 &lt;/a>
 &lt;/h1>
 &lt;p>本来想把这个博文做成一个各类软件推荐文的，但是写着写着发现光是 Markdown 类的已经可以写很多了，为了防止篇幅过长，就单做一个 Markdown 编辑器的推荐文吧~&lt;/p>
-&lt;p>如果大家有更好的 Markdown 编辑器推荐，欢迎在下面留言！&lt;/p></description></item><item><title>2021版小新Pro14 Ubuntu 20.04 配置指南</title><link>https://www.zzsqwq.cn/posts/215/</link><pubDate>Tue, 02 Nov 2021 01:16:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/215/</guid><description>&lt;h1 id="2021版小新pro14-ubuntu-2004-配置指南">
+&lt;p>如果大家有更好的 Markdown 编辑器推荐，欢迎在下面留言！&lt;/p></description></item><item><title>2021版小新Pro14 Ubuntu 20.04 配置指南</title><link>https://blog.zzsqwq.cn/posts/215/</link><pubDate>Tue, 02 Nov 2021 01:16:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/215/</guid><description>&lt;h1 id="2021版小新pro14-ubuntu-2004-配置指南">
 2021版小新Pro14 Ubuntu 20.04 配置指南
 &lt;a class="heading-link" href="#2021%e7%89%88%e5%b0%8f%e6%96%b0pro14-ubuntu-2004-%e9%85%8d%e7%bd%ae%e6%8c%87%e5%8d%97">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1138,7 +1138,7 @@ Ubuntu 20.04 相关
 &lt;li>&lt;a href="https://askubuntu.com/questions/1041677/how-to-change-the-login-screen-resolution-in-ubuntu-18-04">How to change the login screen resolution in Ubuntu 18.04&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://askubuntu.com/questions/1252172/custom-resolution-ubuntu-20-04">Custom Resolution Ubuntu 20.04&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://askubuntu.com/questions/1091778/how-can-i-change-the-resolution-of-the-grub-menu">How can I change the resolution of the GRUB menu?&lt;/a>&lt;/li>
-&lt;/ol></description></item><item><title>纯终端环境代理配置教程</title><link>https://www.zzsqwq.cn/posts/212/</link><pubDate>Mon, 13 Sep 2021 18:15:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/212/</guid><description>&lt;h1 id="纯终端环境代理配置教程">
+&lt;/ol></description></item><item><title>纯终端环境代理配置教程</title><link>https://blog.zzsqwq.cn/posts/212/</link><pubDate>Mon, 13 Sep 2021 18:15:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/212/</guid><description>&lt;h1 id="纯终端环境代理配置教程">
 纯终端环境代理配置教程
 &lt;a class="heading-link" href="#%e7%ba%af%e7%bb%88%e7%ab%af%e7%8e%af%e5%a2%83%e4%bb%a3%e7%90%86%e9%85%8d%e7%bd%ae%e6%95%99%e7%a8%8b">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1269,7 +1269,7 @@ index.html [ &amp;lt;=&amp;gt; ] 13.42K 59.8KB/s in 0.2s
 &lt;/a>
 &lt;/h3>
 &lt;p>我现在还没有搞清楚透明代理的作用，如果不开的话，我通过 &lt;code>proxychains&lt;/code> 配置对应的端口，发现并不能上网，但是如果我直接开了透明代理，不需要 &lt;code>proxychains&lt;/code> 也可以直接在终端使用代理，感觉是全局代理，不过不影响使用。&lt;/p>
-&lt;p>具体的一些细节还没有搞清楚，后续学习了再回来补更。&lt;/p></description></item><item><title>Redmi AC2100刷写OpenWrt教程</title><link>https://www.zzsqwq.cn/posts/209/</link><pubDate>Sun, 01 Aug 2021 21:48:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/209/</guid><description>&lt;h1 id="redmi-ac2100刷写openwrt教程">
+&lt;p>具体的一些细节还没有搞清楚，后续学习了再回来补更。&lt;/p></description></item><item><title>Redmi AC2100刷写OpenWrt教程</title><link>https://blog.zzsqwq.cn/posts/209/</link><pubDate>Sun, 01 Aug 2021 21:48:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/209/</guid><description>&lt;h1 id="redmi-ac2100刷写openwrt教程">
 Redmi AC2100刷写Openwrt教程
 &lt;a class="heading-link" href="#redmi-ac2100%e5%88%b7%e5%86%99openwrt%e6%95%99%e7%a8%8b">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1680,7 +1680,7 @@ Source Code
 &lt;li>
 &lt;p>&lt;a href="https://biji.io/2017/4963.html">小米路由器青春版刷华硕固件&lt;/a>&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>关于Git的一些理解</title><link>https://www.zzsqwq.cn/posts/201/</link><pubDate>Fri, 23 Jul 2021 14:17:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/201/</guid><description>&lt;h1 id="前言">
+&lt;/ul></description></item><item><title>关于Git的一些理解</title><link>https://blog.zzsqwq.cn/posts/201/</link><pubDate>Fri, 23 Jul 2021 14:17:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/201/</guid><description>&lt;h1 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1855,7 +1855,7 @@ Git中的引用
 &lt;li>
 &lt;p>&lt;a href="https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-Git-%E5%BC%95%E7%94%A8">Git的引用&lt;/a>：来自 Git 官方的讲解，十分硬核。&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>利用树莓派为HP LaserJet 1020配置无线打印功能</title><link>https://www.zzsqwq.cn/posts/198/</link><pubDate>Sun, 18 Jul 2021 16:03:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/198/</guid><description>&lt;h2 id="前言">
+&lt;/ul></description></item><item><title>利用树莓派为HP LaserJet 1020配置无线打印功能</title><link>https://blog.zzsqwq.cn/posts/198/</link><pubDate>Sun, 18 Jul 2021 16:03:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/198/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -2024,7 +2024,7 @@ Git中的引用
 &lt;p>学长的博客在这里: &lt;a href="https://tec.blog.ykai.top/">dykai&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description></item><item><title>deepin-wine-qq-9.1.8版本无法正常启动的解决方案</title><link>https://www.zzsqwq.cn/posts/195/</link><pubDate>Wed, 16 Jun 2021 01:38:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/195/</guid><description>&lt;h3 id="问题描述">
+&lt;/div></description></item><item><title>deepin-wine-qq-9.1.8版本无法正常启动的解决方案</title><link>https://blog.zzsqwq.cn/posts/195/</link><pubDate>Wed, 16 Jun 2021 01:38:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/195/</guid><description>&lt;h3 id="问题描述">
 问题描述
 &lt;a class="heading-link" href="#%e9%97%ae%e9%a2%98%e6%8f%8f%e8%bf%b0">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -2145,7 +2145,7 @@ Git中的引用
 &lt;/a>
 &lt;/h3>
 &lt;p>​ 虽然已经知道了解决方案，但是最终我还是选择卸载掉QQ，安装了wine版本的TIM，感觉和QQ没什么区别，而且更加简洁，而且可以流畅运行，没有N卡兼容问题！大家可以考虑一下~&lt;/p>
-&lt;p>​ 而且QQ和TIM某些情况下会出现bug，字体全部变为方块，在 deepin-wine-ubuntu 的 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues">Issues&lt;/a> 中找到了解决方案 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/253">Ubuntu 安装QQ后中文方块解决方法&lt;/a> ，大家有同样困扰的也可以看一下~&lt;/p></description></item><item><title>Ubuntu如何利用AppImage创建Qv2ray快捷方式</title><link>https://www.zzsqwq.cn/posts/193/</link><pubDate>Wed, 16 Jun 2021 00:54:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/193/</guid><description>&lt;h3 id="前言">
+&lt;p>​ 而且QQ和TIM某些情况下会出现bug，字体全部变为方块，在 deepin-wine-ubuntu 的 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues">Issues&lt;/a> 中找到了解决方案 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/253">Ubuntu 安装QQ后中文方块解决方法&lt;/a> ，大家有同样困扰的也可以看一下~&lt;/p></description></item><item><title>Ubuntu如何利用AppImage创建Qv2ray快捷方式</title><link>https://blog.zzsqwq.cn/posts/193/</link><pubDate>Wed, 16 Jun 2021 00:54:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/193/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -2245,7 +2245,7 @@ Git中的引用
 &lt;/h3>
 &lt;p>​ 我们直接将AppImage加入到 &lt;code>/usr/bin&lt;/code> 中即可，即执行以下命令：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ sudo cp xxx.AppImage /usr/bin/qv2ray
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 接下来我们在终端中输入 &lt;code>qv2ray&lt;/code> ，发现已经可以成功打开qv2ray，大功告成！~&lt;/p></description></item><item><title>利用神经网络进行波士顿房价预测</title><link>https://www.zzsqwq.cn/posts/182/</link><pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/182/</guid><description>&lt;h3 id="前言">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 接下来我们在终端中输入 &lt;code>qv2ray&lt;/code> ，发现已经可以成功打开qv2ray，大功告成！~&lt;/p></description></item><item><title>利用神经网络进行波士顿房价预测</title><link>https://blog.zzsqwq.cn/posts/182/</link><pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/182/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -2537,7 +2537,7 @@ $$
 &lt;li>
 &lt;p>&lt;a href="https://cloud.tencent.com/developer/article/1574255">波士顿房价预测——回归分析案例（献给初学者）&lt;/a>&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>2021RoboMaster中国赛比赛记录</title><link>https://www.zzsqwq.cn/posts/173/</link><pubDate>Fri, 30 Apr 2021 17:32:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/173/</guid><description>&lt;p>[hplayer]
+&lt;/ul></description></item><item><title>2021RoboMaster中国赛比赛记录</title><link>https://blog.zzsqwq.cn/posts/173/</link><pubDate>Fri, 30 Apr 2021 17:32:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/173/</guid><description>&lt;p>[hplayer]
 [Music server=&amp;ldquo;netease&amp;rdquo; id=&amp;ldquo;525278524&amp;rdquo; type=&amp;ldquo;song&amp;rdquo;/]
 [/hplayer]&lt;/p>
 &lt;h4 id="前言">
@@ -2577,7 +2577,7 @@ $$
 &lt;p>​ 所以就很耻辱的被3：0送走了，这样就结束了比赛日程。&lt;/p>
 &lt;p>​ 值得反思的事情很多吧，赛前虽然基本熬了一个多星期来调车，还是只在最后一天才开始连裁判系统联调，包括暑假效率不高等问题都是值得反思的···打完比赛心中大概已经有了一些改进点，也想把自己的一些调车心得等记录下来，但是因为时间以及学业上的一些事情等一直没去做，本来计划的五月初做好改进的视觉也一直没兑现，希望这个五一假期会有较大的突破吧，不过还要打数模···好累，不想动。&lt;/p>
 &lt;p>​ 最后，这一天还拿到了和Charm young的合照，还挺动容的，之前看Robomaster的一个宣传标语就是让工程师们成为明星，给他们一个展示的舞台，看到大家对Charm young的热情，深深的感受到了这一点。&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/04/2816211838.jpg" alt="与Charmyoung的合影">&lt;/p></description></item><item><title>关于Anaconda中pip路径指向问题</title><link>https://www.zzsqwq.cn/posts/169/</link><pubDate>Sat, 06 Mar 2021 20:51:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/169/</guid><description>&lt;h3 id="前言">
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/04/2816211838.jpg" alt="与Charmyoung的合影">&lt;/p></description></item><item><title>关于Anaconda中pip路径指向问题</title><link>https://blog.zzsqwq.cn/posts/169/</link><pubDate>Sat, 06 Mar 2021 20:51:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/169/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -2602,7 +2602,7 @@ $$
 &lt;/h3>
 &lt;ul>
 &lt;li>&lt;a href="https://www.pythonf.cn/read/51713">更改conda环境中的pip包安装的默认路径&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>如何使用CenterNet做3D目标检测测试</title><link>https://www.zzsqwq.cn/posts/164/</link><pubDate>Wed, 27 Jan 2021 11:50:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/164/</guid><description>&lt;h2 id="centernetobjects-as-points介绍">
+&lt;/ul></description></item><item><title>如何使用CenterNet做3D目标检测测试</title><link>https://blog.zzsqwq.cn/posts/164/</link><pubDate>Wed, 27 Jan 2021 11:50:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/164/</guid><description>&lt;h2 id="centernetobjects-as-points介绍">
 CenterNet—Objects as Points介绍
 &lt;a class="heading-link" href="#centernetobjects-as-points%e4%bb%8b%e7%bb%8d">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -2725,7 +2725,7 @@ CenterNet—Objects as Points介绍
 &lt;code>mv label_2 label_val&lt;/code>&lt;/p>
 &lt;/blockquote>
 &lt;p>​ 更改后，运行成功~&lt;/p>
-&lt;p>​ 我们应该可以在 &lt;code>${CenterNet_ROOT}/exp/ddd/3dop/results&lt;/code> 看到我们得到的结果，只不过运行得到的是点的坐标，而不是图像，如果需要图像的话可能还需要自己绘制一下。&lt;/p></description></item><item><title>Git的简易教程</title><link>https://www.zzsqwq.cn/posts/157/</link><pubDate>Sat, 05 Dec 2020 20:26:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/157/</guid><description>&lt;h3 id="前言">
+&lt;p>​ 我们应该可以在 &lt;code>${CenterNet_ROOT}/exp/ddd/3dop/results&lt;/code> 看到我们得到的结果，只不过运行得到的是点的坐标，而不是图像，如果需要图像的话可能还需要自己绘制一下。&lt;/p></description></item><item><title>Git的简易教程</title><link>https://blog.zzsqwq.cn/posts/157/</link><pubDate>Sat, 05 Dec 2020 20:26:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/157/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -2909,7 +2909,7 @@ Github的Pull Request
 &lt;li>
 &lt;p>&lt;a href="https://github.com/pcottle/learnGitBranching">pcottle/learnGitBranching: An interactive git visualization to challenge and educate! (github.com)&lt;/a>&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>Ubuntu18.04优化教程</title><link>https://www.zzsqwq.cn/posts/141/</link><pubDate>Fri, 04 Dec 2020 01:39:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/141/</guid><description>&lt;h3 id="前言">
+&lt;/ul></description></item><item><title>Ubuntu18.04优化教程</title><link>https://blog.zzsqwq.cn/posts/141/</link><pubDate>Fri, 04 Dec 2020 01:39:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/141/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -3088,7 +3088,7 @@ prompt pure
 &lt;p>&lt;a href="https://zhuanlan.zhihu.com/p/61447507">常用的oh-my-zsh插件&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;p>还有一些其他的配置有时间再写吧……咕咕咕&lt;/p></description></item><item><title>“程序星编程之路”第二次作业题解</title><link>https://www.zzsqwq.cn/posts/136/</link><pubDate>Thu, 12 Nov 2020 23:13:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/136/</guid><description>&lt;h2 id="程序星编程之路第二次作业httpswwwluogucomcncontest36509题解">
+&lt;p>还有一些其他的配置有时间再写吧……咕咕咕&lt;/p></description></item><item><title>“程序星编程之路”第二次作业题解</title><link>https://blog.zzsqwq.cn/posts/136/</link><pubDate>Thu, 12 Nov 2020 23:13:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/136/</guid><description>&lt;h2 id="程序星编程之路第二次作业httpswwwluogucomcncontest36509题解">
 &lt;a href="https://www.luogu.com.cn/contest/36509">“程序星编程之路”第二次作业&lt;/a>题解
 &lt;a class="heading-link" href="#%e7%a8%8b%e5%ba%8f%e6%98%9f%e7%bc%96%e7%a8%8b%e4%b9%8b%e8%b7%af%e7%ac%ac%e4%ba%8c%e6%ac%a1%e4%bd%9c%e4%b8%9ahttpswwwluogucomcncontest36509%e9%a2%98%e8%a7%a3">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -3378,7 +3378,7 @@ C. &lt;a href="https://www.luogu.com.cn/problem/U138529?contestId=36509">Zh的�
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,pot&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ &lt;strong>提示：n个人的约瑟夫环杀掉一个人后组成一个新的人数为 n-1 的约瑟夫环&lt;/strong>&lt;/p></description></item><item><title>Visual Studio 2019 中 OpenCV 配置教程</title><link>https://www.zzsqwq.cn/posts/114/</link><pubDate>Sat, 31 Oct 2020 20:38:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/114/</guid><description>&lt;h2 id="windows-平台-visual-studio-2019-中-opencv-配置教程">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ &lt;strong>提示：n个人的约瑟夫环杀掉一个人后组成一个新的人数为 n-1 的约瑟夫环&lt;/strong>&lt;/p></description></item><item><title>Visual Studio 2019 中 OpenCV 配置教程</title><link>https://blog.zzsqwq.cn/posts/114/</link><pubDate>Sat, 31 Oct 2020 20:38:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/114/</guid><description>&lt;h2 id="windows-平台-visual-studio-2019-中-opencv-配置教程">
 Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;a class="heading-link" href="#windows-%e5%b9%b3%e5%8f%b0-visual-studio-2019-%e4%b8%ad-opencv-%e9%85%8d%e7%bd%ae%e6%95%99%e7%a8%8b">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -3507,7 +3507,7 @@ Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;li>
 &lt;p>&lt;a href="https://www.jianshu.com/p/908551afa8fd">VS2019 上配置 OpenCV4.2.0&lt;/a>&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>数据库的一些基础知识总结</title><link>https://www.zzsqwq.cn/posts/107/</link><pubDate>Fri, 11 Sep 2020 00:08:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/107/</guid><description>&lt;h1 id="了解sql">
+&lt;/ul></description></item><item><title>数据库的一些基础知识总结</title><link>https://blog.zzsqwq.cn/posts/107/</link><pubDate>Fri, 11 Sep 2020 00:08:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/107/</guid><description>&lt;h1 id="了解sql">
 了解SQL
 &lt;a class="heading-link" href="#%e4%ba%86%e8%a7%a3sql">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -3629,7 +3629,7 @@ Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;li>&lt;a href="https://blog.csdn.net/dosthing/article/details/87954213">数据库设计三大范式_dosthing&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.cnblogs.com/knowledgesea/p/3667395.html">数据库设计三大范式_张龙豪&lt;/a>&lt;/li>
 &lt;li>mysql必知必会&lt;/li>
-&lt;/ul></description></item><item><title>自买服务器建站教程</title><link>https://www.zzsqwq.cn/posts/77/</link><pubDate>Wed, 26 Aug 2020 16:34:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/77/</guid><description>&lt;h2 id="引言">
+&lt;/ul></description></item><item><title>自买服务器建站教程</title><link>https://blog.zzsqwq.cn/posts/77/</link><pubDate>Wed, 26 Aug 2020 16:34:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/77/</guid><description>&lt;h2 id="引言">
 引言
 &lt;a class="heading-link" href="#%e5%bc%95%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -3718,7 +3718,7 @@ Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;/h2>
 &lt;p>​ 如果我们要自定义域名，首先我们可以去阿里云 / 腾讯云那边买一个域名，然后进行域名备案，你服务器是在哪边买的就在哪边备案即可。后续备案结束后在云解析那边添加域名解析（具体操作可以百度），然后在 &lt;strong>BT-Panel&lt;/strong> 这边也添加域名解析，这样即可使用我们的自定义域名访问博客了！&lt;/p>
 &lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1872130264.png" alt="添加域名解析">&lt;/p>
-&lt;p>​ 还有一些后续的优化例如安装 &lt;strong>https安全证书（我自己现在还没搞好QAQ）&lt;/strong> ，加入 &lt;strong>SEO优化&lt;/strong> ，提交申请让 &lt;strong>搜索引擎收录&lt;/strong> 等等……大家有兴趣的可以自行探索！&lt;/p></description></item><item><title>排位三和四记录</title><link>https://www.zzsqwq.cn/posts/68/</link><pubDate>Wed, 19 Aug 2020 13:21:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/68/</guid><description>&lt;h1 id="day-3">
+&lt;p>​ 还有一些后续的优化例如安装 &lt;strong>https安全证书（我自己现在还没搞好QAQ）&lt;/strong> ，加入 &lt;strong>SEO优化&lt;/strong> ，提交申请让 &lt;strong>搜索引擎收录&lt;/strong> 等等……大家有兴趣的可以自行探索！&lt;/p></description></item><item><title>排位三和四记录</title><link>https://blog.zzsqwq.cn/posts/68/</link><pubDate>Wed, 19 Aug 2020 13:21:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/68/</guid><description>&lt;h1 id="day-3">
 Day 3
 &lt;a class="heading-link" href="#day-3">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -4019,7 +4019,7 @@ B. &lt;a href="https://ac.nowcoder.com/acm/contest/6957/B">字典序最小的中
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dfs(m);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>排位一和二记录</title><link>https://www.zzsqwq.cn/posts/5/</link><pubDate>Mon, 17 Aug 2020 20:04:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/5/</guid><description>&lt;h1 id="day-1">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>排位一和二记录</title><link>https://blog.zzsqwq.cn/posts/5/</link><pubDate>Mon, 17 Aug 2020 20:04:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/5/</guid><description>&lt;h1 id="day-1">
 Day 1
 &lt;a class="heading-link" href="#day-1">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -4414,7 +4414,7 @@ C. &lt;a href="https://ac.nowcoder.com/acm/contest/6955/F">Butterfly&lt;/a>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,ans);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>高精度计算pi</title><link>https://www.zzsqwq.cn/posts/67/</link><pubDate>Mon, 20 Apr 2020 01:25:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/67/</guid><description>&lt;h2 id="高精度计算pi值">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>高精度计算pi</title><link>https://blog.zzsqwq.cn/posts/67/</link><pubDate>Mon, 20 Apr 2020 01:25:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/67/</guid><description>&lt;h2 id="高精度计算pi值">
 高精度计算PI值
 &lt;a class="heading-link" href="#%e9%ab%98%e7%b2%be%e5%ba%a6%e8%ae%a1%e7%ae%97pi%e5%80%bc">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -4711,7 +4711,7 @@ $$&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://blog.csdn.net/FSAHFGSADHSAKNDAS/article/details/88745656">数据结构实验：高精度计算圆周率&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://blog.csdn.net/LittleWhiteLv/article/details/81587555">圆周率高精度算法&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Python初步学习</title><link>https://www.zzsqwq.cn/posts/66/</link><pubDate>Sat, 18 Apr 2020 01:24:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/66/</guid><description>&lt;h1 id="python学习笔记">
+&lt;/ul></description></item><item><title>Python初步学习</title><link>https://blog.zzsqwq.cn/posts/66/</link><pubDate>Sat, 18 Apr 2020 01:24:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/66/</guid><description>&lt;h1 id="python学习笔记">
 Python学习笔记
 &lt;a class="heading-link" href="#python%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -5436,7 +5436,7 @@ sorted
 &lt;ul>
 &lt;li>&lt;a href="https://www.liaoxuefeng.com/wiki/1016959663602400">廖雪峰的Python教程&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.jianshu.com/p/62f155eb6ac5">Anaconda介绍、安装及使用教程&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>C++大数类的实现</title><link>https://www.zzsqwq.cn/posts/64/</link><pubDate>Mon, 06 Apr 2020 01:22:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/64/</guid><description>&lt;h1 id="c大数类设计思路">
+&lt;/ul></description></item><item><title>C++大数类的实现</title><link>https://blog.zzsqwq.cn/posts/64/</link><pubDate>Mon, 06 Apr 2020 01:22:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/64/</guid><description>&lt;h1 id="c大数类设计思路">
 C++大数类设计思路
 &lt;a class="heading-link" href="#c%e5%a4%a7%e6%95%b0%e7%b1%bb%e8%ae%be%e8%ae%a1%e6%80%9d%e8%b7%af">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -6036,7 +6036,7 @@ C++大数类设计思路
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> c.print();
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Linux和Vim入门</title><link>https://www.zzsqwq.cn/posts/63/</link><pubDate>Mon, 30 Mar 2020 01:18:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/63/</guid><description>&lt;h2 id="linux系统常见命令">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Linux和Vim入门</title><link>https://blog.zzsqwq.cn/posts/63/</link><pubDate>Mon, 30 Mar 2020 01:18:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/63/</guid><description>&lt;h2 id="linux系统常见命令">
 Linux系统常见命令
 &lt;a class="heading-link" href="#linux%e7%b3%bb%e7%bb%9f%e5%b8%b8%e8%a7%81%e5%91%bd%e4%bb%a4">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -6333,7 +6333,7 @@ Vim的常用操作
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2041226361.png" alt="vim.png">&lt;/p></description></item><item><title>专题四:MATLAB绘图</title><link>https://www.zzsqwq.cn/posts/51/</link><pubDate>Mon, 23 Mar 2020 01:14:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/51/</guid><description>&lt;h2 id="41-二维曲线">
+&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2041226361.png" alt="vim.png">&lt;/p></description></item><item><title>专题四:MATLAB绘图</title><link>https://blog.zzsqwq.cn/posts/51/</link><pubDate>Mon, 23 Mar 2020 01:14:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/51/</guid><description>&lt;h2 id="41-二维曲线">
 4.1 二维曲线
 &lt;a class="heading-link" href="#41-%e4%ba%8c%e7%bb%b4%e6%9b%b2%e7%ba%bf">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -6841,7 +6841,7 @@ fsurf和fmesh函数
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>surfc(x,y,z);title(&lt;span style="color:#e6db74">&amp;#39;surfc(x,y,z)&amp;#39;&lt;/span>)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>subplot(&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">4&lt;/span>);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>surfl(x,y,z); title(&lt;span style="color:#e6db74">&amp;#39;surfl(x,y,z)&amp;#39;&lt;/span>)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/4183580283.png" alt="mesh.png">&lt;/p></description></item><item><title>专题三:MATLAB程序流程控制</title><link>https://www.zzsqwq.cn/posts/36/</link><pubDate>Wed, 18 Mar 2020 01:09:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/36/</guid><description>&lt;h2 id="31-顺序结构程序">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/4183580283.png" alt="mesh.png">&lt;/p></description></item><item><title>专题三:MATLAB程序流程控制</title><link>https://blog.zzsqwq.cn/posts/36/</link><pubDate>Wed, 18 Mar 2020 01:09:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/36/</guid><description>&lt;h2 id="31-顺序结构程序">
 3.1 顺序结构程序
 &lt;a class="heading-link" href="#31-%e9%a1%ba%e5%ba%8f%e7%bb%93%e6%9e%84%e7%a8%8b%e5%ba%8f">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -7322,7 +7322,7 @@ end
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>x1=&lt;span style="color:#ae81ff">1&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>y1=&lt;span style="color:#ae81ff">2&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>s=solve(&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>专题二:MATLAB矩阵处理</title><link>https://www.zzsqwq.cn/posts/34/</link><pubDate>Sun, 15 Mar 2020 01:07:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/34/</guid><description>&lt;h2 id="21-特殊矩阵">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>专题二:MATLAB矩阵处理</title><link>https://blog.zzsqwq.cn/posts/34/</link><pubDate>Sun, 15 Mar 2020 01:07:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/34/</guid><description>&lt;h2 id="21-特殊矩阵">
 2.1 特殊矩阵
 &lt;a class="heading-link" href="#21-%e7%89%b9%e6%ae%8a%e7%9f%a9%e9%98%b5">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -7660,7 +7660,7 @@ $$&lt;/p>
 &lt;li>&lt;strong>speye(m,n)&lt;/strong> 可返回一个 $m\times n$ 的稀疏存储单位矩阵。&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>专题一:MATLAB基础知识</title><link>https://www.zzsqwq.cn/posts/33/</link><pubDate>Sat, 14 Mar 2020 01:05:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/33/</guid><description>&lt;h2 id="11-matlab系统环境">
+&lt;/ul></description></item><item><title>专题一:MATLAB基础知识</title><link>https://blog.zzsqwq.cn/posts/33/</link><pubDate>Sat, 14 Mar 2020 01:05:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/33/</guid><description>&lt;h2 id="11-matlab系统环境">
 1.1 MATLAB系统环境
 &lt;a class="heading-link" href="#11-matlab%e7%b3%bb%e7%bb%9f%e7%8e%af%e5%a2%83">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -8216,7 +8216,7 @@ MATLAB的搜索路径
 &lt;li>通过 &lt;strong>num2str&lt;/strong> 或 &lt;strong>int2str&lt;/strong> 等函数可以将数字转换为字符&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>树形dp例题</title><link>https://www.zzsqwq.cn/posts/31/</link><pubDate>Thu, 20 Feb 2020 01:04:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/31/</guid><description>&lt;h2 id="前言">
+&lt;/ul></description></item><item><title>树形dp例题</title><link>https://blog.zzsqwq.cn/posts/31/</link><pubDate>Thu, 20 Feb 2020 01:04:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/31/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -8483,7 +8483,7 @@ C. &lt;a href="https://www.luogu.com.cn/problem/P2015">二叉苹果树&lt;/a>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,dp[&lt;span style="color:#ae81ff">1&lt;/span>][q]);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Codeforces#620 (Div.2)</title><link>https://www.zzsqwq.cn/posts/30/</link><pubDate>Wed, 19 Feb 2020 01:02:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/30/</guid><description>&lt;h2 id="a-two-rabbitshttpscodeforcescomcontest1304problema">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Codeforces#620 (Div.2)</title><link>https://blog.zzsqwq.cn/posts/30/</link><pubDate>Wed, 19 Feb 2020 01:02:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/30/</guid><description>&lt;h2 id="a-two-rabbitshttpscodeforcescomcontest1304problema">
 A. &lt;a href="https://codeforces.com/contest/1304/problem/A">Two Rabbits&lt;/a>
 &lt;a class="heading-link" href="#a-two-rabbitshttpscodeforcescomcontest1304problema">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -8704,7 +8704,7 @@ C. &lt;a href="https://codeforces.com/contest/1304/problem/C">Air Conditioner&lt
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span> printf(&lt;span style="color:#e6db74">&amp;#34;NO&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>dp练习</title><link>https://www.zzsqwq.cn/posts/29/</link><pubDate>Tue, 18 Feb 2020 01:00:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/29/</guid><description>&lt;h2 id="a-矩阵取数游戏httpswwwluogucomcnproblemp1005">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>dp练习</title><link>https://blog.zzsqwq.cn/posts/29/</link><pubDate>Tue, 18 Feb 2020 01:00:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/29/</guid><description>&lt;h2 id="a-矩阵取数游戏httpswwwluogucomcnproblemp1005">
 A. &lt;a href="https://www.luogu.com.cn/problem/P1005">矩阵取数游戏&lt;/a>
 &lt;a class="heading-link" href="#a-%e7%9f%a9%e9%98%b5%e5%8f%96%e6%95%b0%e6%b8%b8%e6%88%8fhttpswwwluogucomcnproblemp1005">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -8939,7 +8939,7 @@ C. &lt;a href="https://www.luogu.com.cn/problem/P1373">小a和uim之大逃离&lt
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%lld&amp;#34;&lt;/span>,ans);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>关于STL的一些总结</title><link>https://www.zzsqwq.cn/posts/28/</link><pubDate>Sun, 16 Feb 2020 00:55:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/28/</guid><description>&lt;h2 id="前言">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>关于STL的一些总结</title><link>https://blog.zzsqwq.cn/posts/28/</link><pubDate>Sun, 16 Feb 2020 00:55:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/28/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -9318,7 +9318,7 @@ C. &lt;a href="https://www.luogu.com.cn/problem/P1373">小a和uim之大逃离&lt
 &lt;li>
 &lt;p>string好的学习文章 ： &lt;a href="https://www.cnblogs.com/fzxiaoyi/p/12083144.html">C++ STL(一)介绍及string&lt;/a>&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>杂题训练</title><link>https://www.zzsqwq.cn/posts/27/</link><pubDate>Sat, 15 Feb 2020 00:52:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/27/</guid><description>&lt;h2 id="a-配对httpsacnowcodercomacmcontest3007a">
+&lt;/ul></description></item><item><title>杂题训练</title><link>https://blog.zzsqwq.cn/posts/27/</link><pubDate>Sat, 15 Feb 2020 00:52:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/27/</guid><description>&lt;h2 id="a-配对httpsacnowcodercomacmcontest3007a">
 A. &lt;a href="https://ac.nowcoder.com/acm/contest/3007/A">配对&lt;/a>
 &lt;a class="heading-link" href="#a-%e9%85%8d%e5%af%b9httpsacnowcodercomacmcontest3007a">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -9532,7 +9532,7 @@ C. &lt;a href="https://www.luogu.com.cn/problem/P1156">垃圾陷阱&lt;/a>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> i&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;i&lt;span style="color:#f92672">&amp;lt;=&lt;/span>g;i&lt;span style="color:#f92672">++&lt;/span>) ans&lt;span style="color:#f92672">=&lt;/span>max(ans,dp[i][&lt;span style="color:#ae81ff">0&lt;/span>]);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,ans);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Codeforces#619 (Div.2)</title><link>https://www.zzsqwq.cn/posts/26/</link><pubDate>Fri, 14 Feb 2020 00:51:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/26/</guid><description>&lt;h2 id="a-three-stringshttpscodeforcescomcontest1301problema">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Codeforces#619 (Div.2)</title><link>https://blog.zzsqwq.cn/posts/26/</link><pubDate>Fri, 14 Feb 2020 00:51:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/26/</guid><description>&lt;h2 id="a-three-stringshttpscodeforcescomcontest1301problema">
 A. &lt;a href="https://codeforces.com/contest/1301/problem/A">Three Strings&lt;/a>
 &lt;a class="heading-link" href="#a-three-stringshttpscodeforcescomcontest1301problema">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -9719,7 +9719,7 @@ C. &lt;a href="https://codeforces.com/contest/1301/problem/C">Ayoub&amp;rsquo;s 
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>日常水题</title><link>https://www.zzsqwq.cn/posts/25/</link><pubDate>Thu, 13 Feb 2020 00:47:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/25/</guid><description>&lt;h2 id="前言">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>日常水题</title><link>https://blog.zzsqwq.cn/posts/25/</link><pubDate>Thu, 13 Feb 2020 00:47:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/25/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -10019,7 +10019,7 @@ D. &lt;a href="https://ac.nowcoder.com/acm/contest/3006/J">牛牛战队的秀场
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span> printf(&lt;span style="color:#e6db74">&amp;#34;%lf&amp;#34;&lt;/span>,s&lt;span style="color:#f92672">*&lt;/span>p);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>dp习题练习</title><link>https://www.zzsqwq.cn/posts/24/</link><pubDate>Wed, 12 Feb 2020 00:45:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/24/</guid><description>&lt;h2 id="a-方格取数httpswwwluogucomcnproblemp1004">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>dp习题练习</title><link>https://blog.zzsqwq.cn/posts/24/</link><pubDate>Wed, 12 Feb 2020 00:45:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/24/</guid><description>&lt;h2 id="a-方格取数httpswwwluogucomcnproblemp1004">
 A. &lt;a href="https://www.luogu.com.cn/problem/P1004">方格取数&lt;/a>
 &lt;a class="heading-link" href="#a-%e6%96%b9%e6%a0%bc%e5%8f%96%e6%95%b0httpswwwluogucomcnproblemp1004">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -10332,7 +10332,7 @@ D. &lt;a href="https://www.luogu.com.cn/problem/P1063">能量项链&lt;/a>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%lld&amp;#34;&lt;/span>,ans);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>单调队列和单调栈总结</title><link>https://www.zzsqwq.cn/posts/23/</link><pubDate>Tue, 11 Feb 2020 00:40:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/23/</guid><description>&lt;h1 id="前言">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>单调队列和单调栈总结</title><link>https://blog.zzsqwq.cn/posts/23/</link><pubDate>Tue, 11 Feb 2020 00:40:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/23/</guid><description>&lt;h1 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -10864,7 +10864,7 @@ C. &lt;a href="https://www.luogu.com.cn/problem/P1823">音乐会的等待&lt;/a>
 &lt;li>
 &lt;p>&lt;a href="https://blog.csdn.net/dacc123/article/details/50545577">一些关于单调队列和单调栈优化dp的实例&lt;/a>&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>Codeforces #618 (Div.2)</title><link>https://www.zzsqwq.cn/posts/22/</link><pubDate>Mon, 10 Feb 2020 00:39:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/22/</guid><description>&lt;h2 id="a-non-zerohttpscodeforcescomcontest1300problema">
+&lt;/ul></description></item><item><title>Codeforces #618 (Div.2)</title><link>https://blog.zzsqwq.cn/posts/22/</link><pubDate>Mon, 10 Feb 2020 00:39:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/22/</guid><description>&lt;h2 id="a-non-zerohttpscodeforcescomcontest1300problema">
 A. &lt;a href="https://codeforces.com/contest/1300/problem/A">Non-zero&lt;/a>
 &lt;a class="heading-link" href="#a-non-zerohttpscodeforcescomcontest1300problema">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -11217,7 +11217,7 @@ D. &lt;a href="https://codeforces.com/contest/1299/problem/B">Aerodynamic&lt;/a>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>背包进阶</title><link>https://www.zzsqwq.cn/posts/21/</link><pubDate>Sun, 09 Feb 2020 00:38:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/21/</guid><description>&lt;h3 id="1-分组背包httpswwwluogucomcnproblemp1757">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>背包进阶</title><link>https://blog.zzsqwq.cn/posts/21/</link><pubDate>Sun, 09 Feb 2020 00:38:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/21/</guid><description>&lt;h3 id="1-分组背包httpswwwluogucomcnproblemp1757">
 1. &lt;a href="https://www.luogu.com.cn/problem/P1757">分组背包&lt;/a>
 &lt;a class="heading-link" href="#1-%e5%88%86%e7%bb%84%e8%83%8c%e5%8c%85httpswwwluogucomcnproblemp1757">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -11493,7 +11493,7 @@ D. &lt;a href="https://codeforces.com/contest/1299/problem/B">Aerodynamic&lt;/a>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>一些关于背包的题</title><link>https://www.zzsqwq.cn/posts/20/</link><pubDate>Sat, 08 Feb 2020 00:33:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/20/</guid><description>&lt;h3 id="前言">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>一些关于背包的题</title><link>https://blog.zzsqwq.cn/posts/20/</link><pubDate>Sat, 08 Feb 2020 00:33:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/20/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -11690,7 +11690,7 @@ D. &lt;a href="https://codeforces.com/contest/1299/problem/B">Aerodynamic&lt;/a>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,f[m]);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>基础线性dp例题 #2</title><link>https://www.zzsqwq.cn/posts/19/</link><pubDate>Fri, 07 Feb 2020 00:22:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/19/</guid><description>&lt;h3 id="1-石子归并httpswww51nodcomchallengeproblemhtmlproblemid1021">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>基础线性dp例题 #2</title><link>https://blog.zzsqwq.cn/posts/19/</link><pubDate>Fri, 07 Feb 2020 00:22:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/19/</guid><description>&lt;h3 id="1-石子归并httpswww51nodcomchallengeproblemhtmlproblemid1021">
 1. &lt;a href="https://www.51nod.com/Challenge/Problem.html#problemId=1021">石子归并&lt;/a>
 &lt;a class="heading-link" href="#1-%e7%9f%b3%e5%ad%90%e5%bd%92%e5%b9%b6httpswww51nodcomchallengeproblemhtmlproblemid1021">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -11979,7 +11979,7 @@ D. &lt;a href="https://codeforces.com/contest/1299/problem/B">Aerodynamic&lt;/a>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,dp[n][m]);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>基础线性dp例题</title><link>https://www.zzsqwq.cn/posts/18/</link><pubDate>Thu, 06 Feb 2020 00:09:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/18/</guid><description>&lt;h3 id="前言">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>基础线性dp例题</title><link>https://blog.zzsqwq.cn/posts/18/</link><pubDate>Thu, 06 Feb 2020 00:09:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/18/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -12140,7 +12140,7 @@ D. &lt;a href="https://codeforces.com/contest/1299/problem/B">Aerodynamic&lt;/a>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
 &lt;p>​&lt;/p>
-&lt;p>​ 我太懒了····就写了两道，明天继续加油吧。。&lt;/p></description></item><item><title>Codeforces#617(Div.3)</title><link>https://www.zzsqwq.cn/posts/17/</link><pubDate>Wed, 05 Feb 2020 23:18:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/17/</guid><description>&lt;h3 id="a-array-with-odd-sumhttpscodeforcescomcontest1296problema">
+&lt;p>​ 我太懒了····就写了两道，明天继续加油吧。。&lt;/p></description></item><item><title>Codeforces#617(Div.3)</title><link>https://blog.zzsqwq.cn/posts/17/</link><pubDate>Wed, 05 Feb 2020 23:18:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/17/</guid><description>&lt;h3 id="a-array-with-odd-sumhttpscodeforcescomcontest1296problema">
 A. &lt;a href="https://codeforces.com/contest/1296/problem/A">Array with Odd Sum&lt;/a>
 &lt;a class="heading-link" href="#a-array-with-odd-sumhttpscodeforcescomcontest1296problema">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -12431,7 +12431,7 @@ D. &lt;a href="https://codeforces.com/contest/1296/problem/D">Fight with Monster
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,ans);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>洛谷的一些搜索题</title><link>https://www.zzsqwq.cn/posts/16/</link><pubDate>Tue, 04 Feb 2020 23:02:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/16/</guid><description>&lt;h3 id="1-p1378-油滴扩展httpswwwluogucomcnproblemp1378">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>洛谷的一些搜索题</title><link>https://blog.zzsqwq.cn/posts/16/</link><pubDate>Tue, 04 Feb 2020 23:02:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/16/</guid><description>&lt;h3 id="1-p1378-油滴扩展httpswwwluogucomcnproblemp1378">
 1. &lt;a href="https://www.luogu.com.cn/problem/P1378">P1378 油滴扩展&lt;/a>
 &lt;a class="heading-link" href="#1-p1378-%e6%b2%b9%e6%bb%b4%e6%89%a9%e5%b1%95httpswwwluogucomcnproblemp1378">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -12728,7 +12728,7 @@ $$&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>LaTeX的一些总结</title><link>https://www.zzsqwq.cn/posts/10/</link><pubDate>Tue, 04 Feb 2020 22:47:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/10/</guid><description>&lt;h3 id="希腊字母表">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>LaTeX的一些总结</title><link>https://blog.zzsqwq.cn/posts/10/</link><pubDate>Tue, 04 Feb 2020 22:47:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/10/</guid><description>&lt;h3 id="希腊字母表">
 希腊字母表
 &lt;a class="heading-link" href="#%e5%b8%8c%e8%85%8a%e5%ad%97%e6%af%8d%e8%a1%a8">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -12905,7 +12905,7 @@ $$&lt;/p>
 &lt;li>
 &lt;p>&lt;a href="https://www.jianshu.com/p/22117d964baf">LATEX 公式总结&lt;/a>&lt;/p>
 &lt;/li>
-&lt;/ul></description></item><item><title>CodeforcesER #81</title><link>https://www.zzsqwq.cn/posts/8/</link><pubDate>Sun, 02 Feb 2020 21:53:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/8/</guid><description>&lt;h3 id="a--display-the-numberhttpscodeforcescomcontest1295problema">
+&lt;/ul></description></item><item><title>CodeforcesER #81</title><link>https://blog.zzsqwq.cn/posts/8/</link><pubDate>Sun, 02 Feb 2020 21:53:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/8/</guid><description>&lt;h3 id="a--display-the-numberhttpscodeforcescomcontest1295problema">
 A : &lt;a href="https://codeforces.com/contest/1295/problem/A">Display The Number&lt;/a>
 &lt;a class="heading-link" href="#a--display-the-numberhttpscodeforcescomcontest1295problema">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -13146,7 +13146,7 @@ C : &lt;a href="https://codeforces.com/contest/1295/problem/C">Obtain The String
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,ans);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>About</title><link>https://www.zzsqwq.cn/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.zzsqwq.cn/about/</guid><description>&lt;h1 id="about-me">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr></description></item><item><title>About</title><link>https://blog.zzsqwq.cn/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/about/</guid><description>&lt;h1 id="about-me">
 About Me
 &lt;a class="heading-link" href="#about-me">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -13168,7 +13168,7 @@ About Blog
 &lt;p>The theme used is &lt;a href="https://github.com/luizdepra/hugo-coder">Coder&lt;/a>, I like this simple and atmospheric theme very much.&lt;/p>
 &lt;p>I have used &lt;a href="https://typecho.org/">Typecho&lt;/a> and &lt;a href="https://hexo.io/zh-cn/">Hexo&lt;/a> to powered my blog in the past, typecho version is as follow.&lt;/p>
 &lt;p>I have used a redirection rule in Apache to make it forward compatible!&lt;/p>
-&lt;p>&lt;a href="https://lastblog.zzsqwq.cn">Zs&amp;rsquo;s Blog(Typecho)&lt;/a>&lt;/p></description></item><item><title>Contact Me</title><link>https://www.zzsqwq.cn/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.zzsqwq.cn/contact/</guid><description>&lt;h1 id="contact-me">
+&lt;p>&lt;a href="https://lastblog.zzsqwq.cn">Zs&amp;rsquo;s Blog(Typecho)&lt;/a>&lt;/p></description></item><item><title>Contact Me</title><link>https://blog.zzsqwq.cn/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/contact/</guid><description>&lt;h1 id="contact-me">
 Contact Me
 &lt;a class="heading-link" href="#contact-me">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -13176,7 +13176,7 @@ Contact Me
 &lt;/h1>
 &lt;p>&lt;strong>Github：&lt;a href="https://github.com/zzsqwq">@zzsqwq&lt;/a>&lt;/strong>&lt;/p>
 &lt;p>&lt;strong>E-mail: &lt;a href="mailto:trizsqwq@gmail.com">trizsqwq@gmail.com&lt;/a>&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Telegram: &lt;a href="https://t.me/zzsqwq">@zzsqwq&lt;/a>&lt;/strong>&lt;/p></description></item><item><title>Friends</title><link>https://www.zzsqwq.cn/friends/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.zzsqwq.cn/friends/</guid><description>&lt;h1 id="friends">
+&lt;p>&lt;strong>Telegram: &lt;a href="https://t.me/zzsqwq">@zzsqwq&lt;/a>&lt;/strong>&lt;/p></description></item><item><title>Friends</title><link>https://blog.zzsqwq.cn/friends/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/friends/</guid><description>&lt;h1 id="friends">
 Friends
 &lt;a class="heading-link" href="#friends">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>

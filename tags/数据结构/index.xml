@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数据结构 on Zs's Blog</title><link>https://www.zzsqwq.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link><description>Recent content in 数据结构 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 20 Apr 2020 01:25:00 +0000</lastBuildDate><atom:link href="https://www.zzsqwq.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml"/><item><title>高精度计算pi</title><link>https://www.zzsqwq.cn/posts/67/</link><pubDate>Mon, 20 Apr 2020 01:25:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/67/</guid><description>&lt;h2 id="高精度计算pi值">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数据结构 on Zs's Blog</title><link>https://blog.zzsqwq.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link><description>Recent content in 数据结构 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 20 Apr 2020 01:25:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml"/><item><title>高精度计算pi</title><link>https://blog.zzsqwq.cn/posts/67/</link><pubDate>Mon, 20 Apr 2020 01:25:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/67/</guid><description>&lt;h2 id="高精度计算pi值">
 高精度计算PI值
 &lt;a class="heading-link" href="#%e9%ab%98%e7%b2%be%e5%ba%a6%e8%ae%a1%e7%ae%97pi%e5%80%bc">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -10,13 +10,13 @@
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 使用双向链表作为存储结构，请根据用户输入的一个整数（该整数表示精确到小数点后的位数，可能要求精确到小数点后 &lt;strong>500&lt;/strong> 位），高精度计算PI值。&lt;strong>提示：可以利用反三角函数幂级展开式来进行计算。&lt;/strong>&lt;/p></description></item><item><title>关于STL的一些总结</title><link>https://www.zzsqwq.cn/posts/28/</link><pubDate>Sun, 16 Feb 2020 00:55:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/28/</guid><description>&lt;h2 id="前言">
+&lt;p>​ 使用双向链表作为存储结构，请根据用户输入的一个整数（该整数表示精确到小数点后的位数，可能要求精确到小数点后 &lt;strong>500&lt;/strong> 位），高精度计算PI值。&lt;strong>提示：可以利用反三角函数幂级展开式来进行计算。&lt;/strong>&lt;/p></description></item><item><title>关于STL的一些总结</title><link>https://blog.zzsqwq.cn/posts/28/</link><pubDate>Sun, 16 Feb 2020 00:55:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/28/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
-&lt;p>​ STL之前只会用 stack 和 queue ，set 和 map 啥的也不太会用。学习一下。&lt;/p></description></item><item><title>单调队列和单调栈总结</title><link>https://www.zzsqwq.cn/posts/23/</link><pubDate>Tue, 11 Feb 2020 00:40:00 +0000</pubDate><guid>https://www.zzsqwq.cn/posts/23/</guid><description>&lt;h1 id="前言">
+&lt;p>​ STL之前只会用 stack 和 queue ，set 和 map 啥的也不太会用。学习一下。&lt;/p></description></item><item><title>单调队列和单调栈总结</title><link>https://blog.zzsqwq.cn/posts/23/</link><pubDate>Tue, 11 Feb 2020 00:40:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/23/</guid><description>&lt;h1 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
