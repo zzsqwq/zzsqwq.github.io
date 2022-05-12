@@ -58,7 +58,7 @@ Ps：Ubuntu 的策略貌似是如果不存在 `~/.local/bin` 目录那么是不�
 
 ![](/images/clash-for-windows-on-linux/desktop.png)
 
-和我之前写过的 [Ubuntu如何利用AppImage创建Qv2ray快捷方式](http://localhost:1313/posts/193/) 差不多，
+和我之前写过的 [Ubuntu如何利用AppImage创建Qv2ray快捷方式](https://blog.zzsqwq.cn/posts/193/) 差不多，
 
 ```bash
 ❯ sudo vim ~/.local/share/applications/clash.desktop # 编辑一个文件
