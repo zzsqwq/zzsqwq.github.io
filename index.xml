@@ -35,7 +35,7 @@
 &lt;/h2>
 &lt;p>每次在终端打开当然是有点烦的，因此最好可以直接在快速启动栏找到，像下面这样：&lt;/p>
 &lt;p>&lt;img src="https://blog.zzsqwq.cn/images/clash-for-windows-on-linux/desktop.png" alt="">&lt;/p>
-&lt;p>和我之前写过的 &lt;a href="http://localhost:1313/posts/193/">Ubuntu如何利用AppImage创建Qv2ray快捷方式&lt;/a> 差不多，&lt;/p>
+&lt;p>和我之前写过的 &lt;a href="https://blog.zzsqwq.cn/posts/193/">Ubuntu如何利用AppImage创建Qv2ray快捷方式&lt;/a> 差不多，&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>❯ sudo vim ~/.local/share/applications/clash.desktop &lt;span style="color:#75715e"># 编辑一个文件&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 写入如下内容&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>Desktop Entry&lt;span style="color:#f92672">]&lt;/span>
