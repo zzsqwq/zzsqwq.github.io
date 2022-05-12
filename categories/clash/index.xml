@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Clash on Zs's Blog</title><link>https://blog.zzsqwq.cn/categories/clash/</link><description>Recent content in Clash on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 12 May 2022 22:37:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/categories/clash/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux 上 Clash For Windows 如何设置开机自启与桌面图标</title><link>https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/</link><pubDate>Thu, 12 May 2022 22:37:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/</guid><description>背景 之前写过一篇 如何在 Linux 上优雅的使用 Clash？ 的博客，不过用了一段时间后这么倒腾还是不如直接用 Clash For Windows 这种方便的图形化界面，主要是改配置文件啥的方便，不需要重启啥的。
+配了一下发现 Linux 版本的 Clash For Windows 貌似打开 Start with Linux 没什么用处，因此顺便写个配置教程。
+Clash For Windows 的具体使用可以查看官方教程：https://docs.cfw.lbyczf.com/
+顺便说一句，Linux 版本的无法自动设置系统代理，需要自己手动设置，不过我推荐你使用 proxychains 等工具在终端进行代理，使用 SwitchyOmega 等工具在浏览器端代理。
+安装 Clash For Windows 首先在 Linux 上下载 Clash For Windows，
+Github release 链接：https://github.com/Fndroid/clash_for_windows_pkg/releases
+在其中找到需要的版本，然后下载即可，如果国内下载较慢的话，可以使用大佬提供的代理1，使用方式是在下载链接的前面加上 https://ghproxy.com/ 即可，例如一个下载链接为 https://github.com/aaa ，则代理后的链接为 https://ghproxy.com/https://github.com/aaa
+下载后应该是名为 Clash.for.Windows-version-x64-linux.tar.gz 的文件，然后解压：
+❯ tar -zxvf Clash.for.Windows.xxx # 这里是对应压缩包的名字 解压后会出现对应的文件夹，文件夹中会有一个名为 cfw 的文件，按理说现在在文件中直接打开终端，然后运行
+❯ .</description></item></channel></rss>
