@@ -40,8 +40,8 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 写入如下内容&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>Desktop Entry&lt;span style="color:#f92672">]&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Name&lt;span style="color:#f92672">=&lt;/span>Clash Fow Windows
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Exec&lt;span style="color:#f92672">=&lt;/span>/hoem/user/.local/bin/cfw
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Icon&lt;span style="color:#f92672">=&lt;/span>/hoem/user/.local/bin/cfw
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Exec&lt;span style="color:#f92672">=&lt;/span>/home/user/.local/bin/cfw
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Icon&lt;span style="color:#f92672">=&lt;/span>/home/user/.local/bin/cfw
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Type&lt;span style="color:#f92672">=&lt;/span>Application
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>StartupNotify&lt;span style="color:#f92672">=&lt;/span>true
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后添加可执行权限：&lt;/p>
