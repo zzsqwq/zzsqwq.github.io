@@ -65,8 +65,8 @@ Ps：Ubuntu 的策略貌似是如果不存在 `~/.local/bin` 目录那么是不�
 # 写入如下内容
 [Desktop Entry]
 Name=Clash Fow Windows
-Exec=/hoem/user/.local/bin/cfw
-Icon=/hoem/user/.local/bin/cfw
+Exec=/home/user/.local/bin/cfw
+Icon=/home/user/.local/bin/cfw
 Type=Application
 StartupNotify=true
 ```
