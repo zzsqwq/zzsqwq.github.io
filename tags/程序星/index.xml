@@ -5,4 +5,4 @@
 ​ 那么接下来我们考虑一下解决这个问题应该怎么做，首先我们看一下数据范围，$[1,100000]$ ，还是挺小的，我们可以考虑直接枚举每一个数来判断它是不是回文数，然后再判断一下是不是质数，如果两个都满足，我们就输出它。
 ​ 判断回文数，我们可以考虑到 NOJ05 幸运数 一题的解题思路，也就是说我们把一个数倒置过来，好比一个数 $xyz$ 倒置成 $zyx$ ，然后判断是否 $xyz == zyx$ ，如果相等的话就是回文数，如果不相等就不是。
 ​ 判断质数，我们可以在 $[2,\lfloor\sqrt{n}\rfloor]$ 枚举它的因子，这个的完备性我上课的时候证明过，不再赘述。这里需要注意 $1,2$ 需要特判一下。
-代码 #include&amp;lt;stdio.</description></item></channel></rss>
+代码 #include&amp;lt;stdio.h&amp;gt; #include&amp;lt;math.h&amp;gt; //我们需要用到sqrt函数，因此需要引入数学库 int main() { int n; bool flag = false; // 标记 i 是否满足条件 scanf(&amp;#34;%d&amp;#34;,&amp;amp;n); for(int i=1;i&amp;lt;=n;i++) { flag = true; int p=i,j=0; while(p) // 将 p 反转为 j { j=j*10+p%10; p/=10; } if(j==i) { if(j==1) continue; // 特判 1 if(j==2) // 特判 2 { printf(&amp;#34;2\n&amp;#34;); continue; } int sqrtj = sqrt(j); for(int k=2;k&amp;lt;=sqrtj;k++) // 枚举 [2,sqrt(n)] { if(j%k==0) // 如果能够整除(余数为0),那么是 j 的因子 { flag = false; break; } } if(flag) { printf(&amp;#34;%d\n&amp;#34;,j); } } } } 其他 ​ 因为我们讲到这里的时候，我们没讲函数，但是这道题如果我们把判断是否为回文数，判断是否为质数，都另成一个函数模块，将使得程序变得更加简洁。我在这里也将函数版本的贴出来，有兴趣的可以看一下。</description></item></channel></rss>

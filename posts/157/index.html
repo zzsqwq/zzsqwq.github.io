@@ -1,49 +1,64 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="zzsqwq"><meta name=description content="前言    ​	最近在复习Git，因此顺手做个笔记分享出来，方便大家学习和查阅。相信无论是以后的课程作业还是工作，我们都会或多或少的接触/用到Git。
-什么是Git？    ​	Git你可能没听说过，但是我相信你应该听说过Github，毕竟是全球最大的同性交友网站。他和Git有着密不可分的联系，我们后续再详细介绍。
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="zzsqwq"><meta name=description content="前言 ​	最近在复习Git，因此顺手做个笔记分享出来，方便大家学习和查阅。相信无论是以后的课程作业还是工作，我们都会或多或少的接触/用到Git。
+什么是Git？ ​	Git你可能没听说过，但是我相信你应该听说过Github，毕竟是全球最大的同性交友网站。他和Git有着密不可分的联系，我们后续再详细介绍。
 ​	Git的中文全称叫 分布式版本控制系统 ，版本控制系统是什么意思呢？我们举一个简单的例子，你在做一个大作业，很可能要写上千行的代码，但是你可能写完一个功能以后，对他不够满意，但是又害怕改了以后后悔了，又找不回来了，所以你可能就有很多版本，版本1，版本2，版本3等等等。Git就是解决这个问题的，让你文件能够保持最新，但是又能恢复到之前的版本。
 ​	那么既然有分布式版本控制系统，就有 集中式版本控制系统，前者的代表是 Git ，后者的代表有 SVN、CVS 等。
 ​	关于两者的区别，对于集中式版本控制系统，如果你想要对做一个项目的内容做修改，那么你要先从中央服务器把最近的版本拉取(Pull)下来，然后修改完以后，把修改后的版本推送(Push)上去，你本地只有最新的版本，而没有完整的版本库，分布式版本控制系统所作的工作与集中式的相差不大，只是它的本地会有一个完整的版本库，因此它十分的安全。
 ​	这里贴一个他人总结的区别，供大家参考。
-Git的安装      Linux系统
+Git的安装 Linux系统
 因为我只用过Ubuntu，所以我只会Ubuntu的QAQ..
 Ubuntu中安装Git只需要在终端中输入 sudo apt-get install git 即可。
 如果是其他的linux系统，我猜你在终端中输入git即可获得安装提示，不然的话借助搜索引擎也可以。
-  Windows系统
+Windows系统
 直接去 Git官网 下载安装程序然后安装即可。关于安装时候的选项，我都是用的默认的。
-  Mac OS
+Mac OS
 太穷了，没用过Mac，但是参考链接中给出了方法，大家有需求可以参考。
-  Git的基本使用    ​	Git可以做许多事情，好比版本更新，版本修改，提交到远程仓库等等，这里我们只写一写大概以后用的会比较多的。
-​	需要注意的是，我们安装以后大概会有一个 Git GUI 还有一个 Git Bash ，开发中多用 Git Bash，下面的教程也是基于Git Bash的。"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Git的简易教程"><meta name=twitter:description content="前言    ​	最近在复习Git，因此顺手做个笔记分享出来，方便大家学习和查阅。相信无论是以后的课程作业还是工作，我们都会或多或少的接触/用到Git。
-什么是Git？    ​	Git你可能没听说过，但是我相信你应该听说过Github，毕竟是全球最大的同性交友网站。他和Git有着密不可分的联系，我们后续再详细介绍。
+Git的基本使用 ​	Git可以做许多事情，好比版本更新，版本修改，提交到远程仓库等等，这里我们只写一写大概以后用的会比较多的。
+​	需要注意的是，我们安装以后大概会有一个 Git GUI 还有一个 Git Bash ，开发中多用 Git Bash，下面的教程也是基于Git Bash的。
+表明身份
+在Git所有仓库中我们都要有一个所有者的身份，用于标识是谁的仓库，用如下方式标识
+git config --global user.name &#34;Your Name&#34; git config --global user.email &#34;Your email&#34; 创建版本库
+我们想要把一个文件夹的内容用git来管理，只需要在文件夹目录运行
+git init 顾名思义这就是一个初始化的过程，运行以后在当前目录生成一个 ."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Git的简易教程"><meta name=twitter:description content="前言 ​	最近在复习Git，因此顺手做个笔记分享出来，方便大家学习和查阅。相信无论是以后的课程作业还是工作，我们都会或多或少的接触/用到Git。
+什么是Git？ ​	Git你可能没听说过，但是我相信你应该听说过Github，毕竟是全球最大的同性交友网站。他和Git有着密不可分的联系，我们后续再详细介绍。
 ​	Git的中文全称叫 分布式版本控制系统 ，版本控制系统是什么意思呢？我们举一个简单的例子，你在做一个大作业，很可能要写上千行的代码，但是你可能写完一个功能以后，对他不够满意，但是又害怕改了以后后悔了，又找不回来了，所以你可能就有很多版本，版本1，版本2，版本3等等等。Git就是解决这个问题的，让你文件能够保持最新，但是又能恢复到之前的版本。
 ​	那么既然有分布式版本控制系统，就有 集中式版本控制系统，前者的代表是 Git ，后者的代表有 SVN、CVS 等。
 ​	关于两者的区别，对于集中式版本控制系统，如果你想要对做一个项目的内容做修改，那么你要先从中央服务器把最近的版本拉取(Pull)下来，然后修改完以后，把修改后的版本推送(Push)上去，你本地只有最新的版本，而没有完整的版本库，分布式版本控制系统所作的工作与集中式的相差不大，只是它的本地会有一个完整的版本库，因此它十分的安全。
 ​	这里贴一个他人总结的区别，供大家参考。
-Git的安装      Linux系统
+Git的安装 Linux系统
 因为我只用过Ubuntu，所以我只会Ubuntu的QAQ..
 Ubuntu中安装Git只需要在终端中输入 sudo apt-get install git 即可。
 如果是其他的linux系统，我猜你在终端中输入git即可获得安装提示，不然的话借助搜索引擎也可以。
-  Windows系统
+Windows系统
 直接去 Git官网 下载安装程序然后安装即可。关于安装时候的选项，我都是用的默认的。
-  Mac OS
+Mac OS
 太穷了，没用过Mac，但是参考链接中给出了方法，大家有需求可以参考。
-  Git的基本使用    ​	Git可以做许多事情，好比版本更新，版本修改，提交到远程仓库等等，这里我们只写一写大概以后用的会比较多的。
-​	需要注意的是，我们安装以后大概会有一个 Git GUI 还有一个 Git Bash ，开发中多用 Git Bash，下面的教程也是基于Git Bash的。"><meta property="og:title" content="Git的简易教程"><meta property="og:description" content="前言    ​	最近在复习Git，因此顺手做个笔记分享出来，方便大家学习和查阅。相信无论是以后的课程作业还是工作，我们都会或多或少的接触/用到Git。
-什么是Git？    ​	Git你可能没听说过，但是我相信你应该听说过Github，毕竟是全球最大的同性交友网站。他和Git有着密不可分的联系，我们后续再详细介绍。
+Git的基本使用 ​	Git可以做许多事情，好比版本更新，版本修改，提交到远程仓库等等，这里我们只写一写大概以后用的会比较多的。
+​	需要注意的是，我们安装以后大概会有一个 Git GUI 还有一个 Git Bash ，开发中多用 Git Bash，下面的教程也是基于Git Bash的。
+表明身份
+在Git所有仓库中我们都要有一个所有者的身份，用于标识是谁的仓库，用如下方式标识
+git config --global user.name &#34;Your Name&#34; git config --global user.email &#34;Your email&#34; 创建版本库
+我们想要把一个文件夹的内容用git来管理，只需要在文件夹目录运行
+git init 顾名思义这就是一个初始化的过程，运行以后在当前目录生成一个 ."><meta property="og:title" content="Git的简易教程"><meta property="og:description" content="前言 ​	最近在复习Git，因此顺手做个笔记分享出来，方便大家学习和查阅。相信无论是以后的课程作业还是工作，我们都会或多或少的接触/用到Git。
+什么是Git？ ​	Git你可能没听说过，但是我相信你应该听说过Github，毕竟是全球最大的同性交友网站。他和Git有着密不可分的联系，我们后续再详细介绍。
 ​	Git的中文全称叫 分布式版本控制系统 ，版本控制系统是什么意思呢？我们举一个简单的例子，你在做一个大作业，很可能要写上千行的代码，但是你可能写完一个功能以后，对他不够满意，但是又害怕改了以后后悔了，又找不回来了，所以你可能就有很多版本，版本1，版本2，版本3等等等。Git就是解决这个问题的，让你文件能够保持最新，但是又能恢复到之前的版本。
 ​	那么既然有分布式版本控制系统，就有 集中式版本控制系统，前者的代表是 Git ，后者的代表有 SVN、CVS 等。
 ​	关于两者的区别，对于集中式版本控制系统，如果你想要对做一个项目的内容做修改，那么你要先从中央服务器把最近的版本拉取(Pull)下来，然后修改完以后，把修改后的版本推送(Push)上去，你本地只有最新的版本，而没有完整的版本库，分布式版本控制系统所作的工作与集中式的相差不大，只是它的本地会有一个完整的版本库，因此它十分的安全。
 ​	这里贴一个他人总结的区别，供大家参考。
-Git的安装      Linux系统
+Git的安装 Linux系统
 因为我只用过Ubuntu，所以我只会Ubuntu的QAQ..
 Ubuntu中安装Git只需要在终端中输入 sudo apt-get install git 即可。
 如果是其他的linux系统，我猜你在终端中输入git即可获得安装提示，不然的话借助搜索引擎也可以。
-  Windows系统
+Windows系统
 直接去 Git官网 下载安装程序然后安装即可。关于安装时候的选项，我都是用的默认的。
-  Mac OS
+Mac OS
 太穷了，没用过Mac，但是参考链接中给出了方法，大家有需求可以参考。
-  Git的基本使用    ​	Git可以做许多事情，好比版本更新，版本修改，提交到远程仓库等等，这里我们只写一写大概以后用的会比较多的。
-​	需要注意的是，我们安装以后大概会有一个 Git GUI 还有一个 Git Bash ，开发中多用 Git Bash，下面的教程也是基于Git Bash的。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.zzsqwq.cn/posts/157/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-12-05T20:26:00+00:00"><meta property="article:modified_time" content="2020-12-05T20:26:00+00:00"><title>Git的简易教程 · Zs's Blog</title><link rel=canonical href=https://blog.zzsqwq.cn/posts/157/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin=anonymous media=screen><link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><meta name=generator content="Hugo 0.98.0"></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Zs's Blog</a>
+Git的基本使用 ​	Git可以做许多事情，好比版本更新，版本修改，提交到远程仓库等等，这里我们只写一写大概以后用的会比较多的。
+​	需要注意的是，我们安装以后大概会有一个 Git GUI 还有一个 Git Bash ，开发中多用 Git Bash，下面的教程也是基于Git Bash的。
+表明身份
+在Git所有仓库中我们都要有一个所有者的身份，用于标识是谁的仓库，用如下方式标识
+git config --global user.name &#34;Your Name&#34; git config --global user.email &#34;Your email&#34; 创建版本库
+我们想要把一个文件夹的内容用git来管理，只需要在文件夹目录运行
+git init 顾名思义这就是一个初始化的过程，运行以后在当前目录生成一个 ."><meta property="og:type" content="article"><meta property="og:url" content="https://blog.zzsqwq.cn/posts/157/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-12-05T20:26:00+00:00"><meta property="article:modified_time" content="2020-12-05T20:26:00+00:00"><title>Git的简易教程 · Zs's Blog</title><link rel=canonical href=https://blog.zzsqwq.cn/posts/157/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin=anonymous media=screen><link rel=stylesheet href=/scss/css/adjust_width.min.5ee0ad9e8f1b17d7a2309a71c69cb872e2afd31d618222760117de63b651a440.css integrity="sha256-XuCtno8bF9eiMJpxxpy4cuKv0x1hgiJ2ARfeY7ZRpEA=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><meta name=generator content="Hugo 0.100.1"></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Zs's Blog</a>
 <input type=checkbox id=menu-toggle>
 <label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/about/>About</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Posts</a></li><li class=navigation-item><a class=navigation-link href=/friends/>Friends</a></li><li class=navigation-item><a class=navigation-link href=/contact/>Contact Me</a></li><li class=navigation-item><a class=navigation-link href=https://zzsqwq.cn/>Homepage</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://blog.zzsqwq.cn/posts/157/>Git的简易教程</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
 <time datetime=2020-12-05T20:26:00Z>December 5, 2020</time></span>
@@ -75,11 +90,11 @@ Ubuntu中安装Git只需要在终端中输入 sudo apt-get install git 即可。
 </span></span></code></pre></div><p>这两步一个是与远程仓库建立关联，一个是将代码push上去。</p><p>通过这两步就可以把我们当地仓库推送到Github。</p></li></ul><h3 id=github的pull-request>Github的Pull Request
 <a class=heading-link href=#github%e7%9a%84pull-request><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 项目需要团队合作，<strong>Pull Request</strong>就是为了团队协作而生的。</p><p>​ 你可以把他人的代码clone下来做完修改以后，向仓库所有者提交Pull Request，请求将自己的代码与他的代码合并，如果所有者同意，即可把你的代码合并到他的仓库中，以完成版本的更新，而你，就对这个项目做了一份贡献。</p><p>​ 那么如何提交Pull Request呢？</p><p>​ 对于对仓库有所有权的人来说，只需要把代码clone下来，然后创建并切换到自己的分支，对当前分支进行修改后，push到仓库中，然后创建合并请求即可。</p><p>​ 对于非仓库所有者而言，你需要先把代码 <code>fork</code> 下来，然后clone你 <code>fork</code> 的仓库，关联对方的远程仓库，修改后推上去，然后创建合并请求。</p><p>​ 大家对开源项目的贡献多是用第二种，自己团队内的协作多是第一种。</p><h3 id=一个总结>一个总结
 <a class=heading-link href=#%e4%b8%80%e4%b8%aa%e6%80%bb%e7%bb%93><i class="fa fa-link" aria-hidden=true></i></a></h3><p>​ 这篇文章讲的内容不多，QAQ只讲了部分我们可能用的比较多的。</p><p>​ 关于Git的基本使用，还有很多内容，好比 <code>git merge</code> ，<code>git diff</code> 啥的，我们用的可能比较少，我就没提。大家如果有需求可以翻下面的参考链接进行学习。</p><p>​ 之后的内容多是团队协作会用到的，大家可以有需要的时候再看。学会使用Git可以有效地帮助我们管理文件，进行团队协作，提高工作效率。</p><p>​ 关于后续的学习，大家可以选择 <strong>廖雪峰老师的Git教程</strong> ，实例丰富、简单易懂，此外还有 <strong>Pro Git</strong> ，内容丰富，涵盖了基本所有的命令，以及Github上的一个开源项目 <strong>learnGitBranching</strong> ，有着可视化的界面与闯关机制，趣味十足。</p><h3 id=参考文档>参考文档
-<a class=heading-link href=#%e5%8f%82%e8%80%83%e6%96%87%e6%a1%a3><i class="fa fa-link" aria-hidden=true></i></a></h3><ul><li><p><a href=https://www.liaoxuefeng.com/wiki/896043488029600>廖雪峰的Git教程</a></p></li><li><p><a href=https://git-scm.com/book/zh/v2>Pro Git</a></p></li><li><p><a href=https://www.cnblogs.com/wx1993/p/7680877.html>集中式(SVN)和分布式(Git)版本控制系统的简单比较</a></p></li><li><p><a href=https://blog.csdn.net/qq_33429968/article/details/62219783>git学习-Github上如何进行PR(Pull Request)</a></p></li><li><p><a href=https://github.com/pcottle/learnGitBranching>pcottle/learnGitBranching: An interactive git visualization to challenge and educate! (github.com)</a></p></li></ul></div><footer><div class=comments><script>let getTheme=window.localStorage&&window.localStorage.getItem("colorscheme");getTheme=getTheme??"preferred-color-scheme";let theme=getTheme==="dark"?"github-dark":"github-light",s=document.createElement("script");s.src="https://utteranc.es/client.js",s.setAttribute("repo","zzsqwq/hugo-blog-comment"),s.setAttribute("issue-term","pathname"),s.setAttribute("theme",theme),s.setAttribute("crossorigin","anonymous"),s.setAttribute("async",''),document.querySelector("div.comments").innerHTML='',document.querySelector("div.comments").appendChild(s)</script></div></footer></article><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})'></script></section></div><footer class=footer><section class=container><a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></br>©
+<a class=heading-link href=#%e5%8f%82%e8%80%83%e6%96%87%e6%a1%a3><i class="fa fa-link" aria-hidden=true></i></a></h3><ul><li><p><a href=https://www.liaoxuefeng.com/wiki/896043488029600>廖雪峰的Git教程</a></p></li><li><p><a href=https://git-scm.com/book/zh/v2>Pro Git</a></p></li><li><p><a href=https://www.cnblogs.com/wx1993/p/7680877.html>集中式(SVN)和分布式(Git)版本控制系统的简单比较</a></p></li><li><p><a href=https://blog.csdn.net/qq_33429968/article/details/62219783>git学习-Github上如何进行PR(Pull Request)</a></p></li><li><p><a href=https://github.com/pcottle/learnGitBranching>pcottle/learnGitBranching: An interactive git visualization to challenge and educate! (github.com)</a></p></li></ul></div><footer><div class=comments><script>let getTheme=window.localStorage&&window.localStorage.getItem("colorscheme");getTheme=getTheme??'preferred-color-scheme';let theme=getTheme==='dark'?'github-dark':'github-light',s=document.createElement('script');s.src='https://utteranc.es/client.js',s.setAttribute('repo','zzsqwq/hugo-blog-comment'),s.setAttribute('issue-term','pathname'),s.setAttribute('theme',theme),s.setAttribute('crossorigin','anonymous'),s.setAttribute('async',''),document.querySelector('div.comments').innerHTML='',document.querySelector('div.comments').appendChild(s)</script></div></footer></article><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:!0},{left:'$',right:'$',display:!1},{left:'\\(',right:'\\)',display:!1},{left:'\\[',right:'\\]',display:!0}]})"></script></section></div><footer class=footer><section class=container><a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></br>©
 2019 -
 2022
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.617ac1196e51a8e5820c29ea3f349ae87be7db1242a5a91f3afa569275213d0f.js integrity="sha256-YXrBGW5RqOWCDCnqPzSa6Hvn2xJCpakfOvpWknUhPQ8="></script>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.f411a1043e37c7c14dfb03f4d94d60d9ee69cfa413b16d0fd4f28695babb82bb.js integrity="sha256-9BGhBD43x8FN+wP02U1g2e5pz6QTsW0P1PKGlbq7grs="></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WF7TH97J9X"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-WF7TH97J9X",{anonymize_ip:!1})}</script></body></html>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-WF7TH97J9X',{anonymize_ip:!1})}</script></body></html>

@@ -5,7 +5,10 @@
 一、安装 v2ray-core 首先是需要安装 v2ray-core ，这里我们使用开源的项目 v2fly/fhs-install-v2ray 进行安装，它是一个脚本，可以直接运行完成 v2ray 的安装，安装的文件组织结构符合 Filesystem Hierarchy Standard ，十分方便简洁，很赞！
 具体步骤如下：
 下载 fhs-install-v2ray 源码 首先我们因为 Github 克隆很慢，可以先在自己的主机上克隆或者以 zip 包形式下载源码
-将源码上传到远端 键入下列代码，通过 scp 将解压后的代码文件夹目录上传到远端服务器的根目录（如果是树莓派的话可以连接同一局域网进行），注意这里的 path/to/fhs-install-v2ray 指的是本地文件夹的路径</description></item><item><title>Ubuntu18.04优化教程</title><link>https://blog.zzsqwq.cn/posts/141/</link><pubDate>Fri, 04 Dec 2020 01:39:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/141/</guid><description>前言 ​ 因为最近Ubuntu用的比较频繁，所以前一阵把Ubuntu16.04换成Ubuntu18.04了，并且囿于机械硬盘那启动速度，我忍痛割爱把我80G的固态硬盘分给了Ubuntu。
+将源码上传到远端 键入下列代码，通过 scp 将解压后的代码文件夹目录上传到远端服务器的根目录（如果是树莓派的话可以连接同一局域网进行），注意这里的 path/to/fhs-install-v2ray 指的是本地文件夹的路径
+scp -r path/to/fhs-install-v2ray username@hostname:~
+下载 v2ray-core 源码 此脚本可以全自动安装，即自动检测本机类型是 Ubuntu 还是其他的版本，然后从远端仓库下载最新的 v2ray 进行安装，不过因为没有代理，这一步还是十分缓慢，因此我们可以进行本地安装。
+首先，我们去到 v2ray-core 的官方仓库的发布站 -&amp;gt; Releases · v2fly/v2ray-core ，在这里可以下载最新版本的的 v2ray-core，不过需要注意的是，需要自己辨别版本，如使用的是 arm 还是 x64_86 等，下载后是一个 zip 压缩包，我们直接通过 scp 上传到远端服务器根目录</description></item><item><title>Ubuntu18.04优化教程</title><link>https://blog.zzsqwq.cn/posts/141/</link><pubDate>Fri, 04 Dec 2020 01:39:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/141/</guid><description>前言 ​ 因为最近Ubuntu用的比较频繁，所以前一阵把Ubuntu16.04换成Ubuntu18.04了，并且囿于机械硬盘那启动速度，我忍痛割爱把我80G的固态硬盘分给了Ubuntu。
 ​ 后来，用着用着就觉得这个Ubuntu的原始界面确实不是特别的好看，配色偏基佬紫的感觉。“工欲善其事，必先利其器“，我们只有将自己的工作环境布置的舒心一些才能有做下去的动力！所以我想给Ubuntu换一个看起来舒服点的界面，然后上网找教程乱七八糟的倒腾了一会，感觉换完以后完全不一样了，这个界面真的好看！！用起来也特别的舒心，感觉自己马上就要告别Windows投奔Linux的怀抱了。后续还有一些其他的优化，例如装QQ、微信、配置终端等，一并写在这里吧。
 Ubuntu界面的优化 具体效果 ​ 先放几张效果图上来，是我改后的界面。大概就是这样(自我感觉挺好看的)，当然也有其他的主题可供选择。
 1.安装GNOME桌面环境主题配置工具 ​ 如果要改主题，那么首先要有一个利器，这里我用的Ubuntu18.04，桌面环境为 GNOME 3.28.2 ，因为我目前接触的只有GNOME桌面环境的，Ubuntu18.04本来的桌面环境就是GNOME，但是Ubuntu16.04好像没有自带，但是可以安装，这里大家可以自行百度了解。
@@ -15,7 +18,11 @@ sudo apt-get update sudo apt-get install gnome-tweak-tool ​ 我们先更新软
 sudo apt-get install gnome-shell-extensions ​ 然后重启一下电脑。再打开软件找到左侧的拓展，把 User themes 那一栏目打开。切换回去就可以发现Shell那边的感叹号无了。
 3.寻找自己喜欢的主题 ​ 这里我大家可以去这个网址去找自己喜欢的 GNOME-LOOK.ORG
 ​ 这里面包含了图标，主题这些，下面介绍一下如何安装。
-​ 好比我们找到一个自己喜欢的主题，然后我们点击下面的 Files ，可能会有很多文件，但是多是同一个主题的不同风格，好比暗风格和亮风格这样的，还有不同的版本的，我多是安装那个下载量最多的，我们下载那个对应的文件(多是tar.</description></item><item><title>Linux和Vim入门</title><link>https://blog.zzsqwq.cn/posts/63/</link><pubDate>Mon, 30 Mar 2020 01:18:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/63/</guid><description>&lt;h2 id="linux系统常见命令">
+​ 好比我们找到一个自己喜欢的主题，然后我们点击下面的 Files ，可能会有很多文件，但是多是同一个主题的不同风格，好比暗风格和亮风格这样的，还有不同的版本的，我多是安装那个下载量最多的，我们下载那个对应的文件(多是tar.xz安装包)。
+​ 对于主题的安装，我们只需要把解压出来的文件，移动或复制到 /usr/share/themes/ 目录下，如果是光标\图标的安装，那么就把文件夹移动到 /usr/share/icons 目录下。
+​ 然后我们回到 GNOME Tweaks 软件中就可以发现，我们已经可以在主题\图标\光标\Shell清单中找到我们移动到文件夹中的文件了，然后选择就可以切换了。这里需要注意的，很多主题都是自带Shell的，你下了一个主题，那么你可以在Shell和主题这两个栏目中都找到他们，是一个配套的。
+4.一些后续的调整 ​ 我们后续可以改变左边收藏夹的位置，我觉得放在左边有一丢丢的丑，所以我选择把它放在的下面。
+​ 我们去Ubuntu软件中搜索 Dash to dock，然后安装这个拓展，然后打开 GNOME Tweaks 软件在拓展中找到他就可以随心所欲的调我们的收藏夹的位置了。</description></item><item><title>Linux和Vim入门</title><link>https://blog.zzsqwq.cn/posts/63/</link><pubDate>Mon, 30 Mar 2020 01:18:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/63/</guid><description>&lt;h2 id="linux系统常见命令">
 Linux系统常见命令
 &lt;a class="heading-link" href="#linux%e7%b3%bb%e7%bb%9f%e5%b8%b8%e8%a7%81%e5%91%bd%e4%bb%a4">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>

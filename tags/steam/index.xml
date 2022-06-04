@@ -4,4 +4,4 @@
 $ ls | grep -i qq ​ 可以发现其中有一个名为 deepin.com.qq.im.desktop 的文件，我们打开后发现内容如下：
 #!/usr/bin/env xdg-open [Desktop Entry] Encoding=UTF-8 Type=Application X-Created-By=Deepin WINE Team Categories=chat; Icon=deepin.com.qq.im Exec=&amp;#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;#34; -u %u Name=QQ Name[zh_CN]=QQ Comment=Tencent QQ Client on Deepin Wine StartupWMClass=QQ.exe MimeType= ​ 可以看到Exec那一栏为 Exec=&amp;quot;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;quot; -u %u ，发现他是运行目录下的一个 run.sh 脚本来启动的。
 ​ 我们进入目录下直接运行该脚本，查看log信息：
-base ❯ .</description></item></channel></rss>
+base ❯ ./run.sh Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.</description></item></channel></rss>

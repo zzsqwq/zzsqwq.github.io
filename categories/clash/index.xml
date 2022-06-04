@@ -7,4 +7,4 @@ Github release 链接：https://github.com/Fndroid/clash_for_windows_pkg/release
 在其中找到需要的版本，然后下载即可，如果国内下载较慢的话，可以使用大佬提供的代理1，使用方式是在下载链接的前面加上 https://ghproxy.com/ 即可，例如一个下载链接为 https://github.com/aaa ，则代理后的链接为 https://ghproxy.com/https://github.com/aaa
 下载后应该是名为 Clash.for.Windows-version-x64-linux.tar.gz 的文件，然后解压：
 ❯ tar -zxvf Clash.for.Windows.xxx # 这里是对应压缩包的名字 解压后会出现对应的文件夹，文件夹中会有一个名为 cfw 的文件，按理说现在在文件中直接打开终端，然后运行
-❯ .</description></item></channel></rss>
+❯ ./cfw 就会直接打开 Clash For Windows 了，与 Windows 版本基本平常无差。</description></item></channel></rss>

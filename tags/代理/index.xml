@@ -5,4 +5,7 @@
 一、安装 v2ray-core 首先是需要安装 v2ray-core ，这里我们使用开源的项目 v2fly/fhs-install-v2ray 进行安装，它是一个脚本，可以直接运行完成 v2ray 的安装，安装的文件组织结构符合 Filesystem Hierarchy Standard ，十分方便简洁，很赞！
 具体步骤如下：
 下载 fhs-install-v2ray 源码 首先我们因为 Github 克隆很慢，可以先在自己的主机上克隆或者以 zip 包形式下载源码
-将源码上传到远端 键入下列代码，通过 scp 将解压后的代码文件夹目录上传到远端服务器的根目录（如果是树莓派的话可以连接同一局域网进行），注意这里的 path/to/fhs-install-v2ray 指的是本地文件夹的路径</description></item></channel></rss>
+将源码上传到远端 键入下列代码，通过 scp 将解压后的代码文件夹目录上传到远端服务器的根目录（如果是树莓派的话可以连接同一局域网进行），注意这里的 path/to/fhs-install-v2ray 指的是本地文件夹的路径
+scp -r path/to/fhs-install-v2ray username@hostname:~
+下载 v2ray-core 源码 此脚本可以全自动安装，即自动检测本机类型是 Ubuntu 还是其他的版本，然后从远端仓库下载最新的 v2ray 进行安装，不过因为没有代理，这一步还是十分缓慢，因此我们可以进行本地安装。
+首先，我们去到 v2ray-core 的官方仓库的发布站 -&amp;gt; Releases · v2fly/v2ray-core ，在这里可以下载最新版本的的 v2ray-core，不过需要注意的是，需要自己辨别版本，如使用的是 arm 还是 x64_86 等，下载后是一个 zip 压缩包，我们直接通过 scp 上传到远端服务器根目录</description></item></channel></rss>

@@ -21,4 +21,9 @@ Windows系统
 Mac OS
 太穷了，没用过Mac，但是参考链接中给出了方法，大家有需求可以参考。
 Git的基本使用 ​ Git可以做许多事情，好比版本更新，版本修改，提交到远程仓库等等，这里我们只写一写大概以后用的会比较多的。
-​ 需要注意的是，我们安装以后大概会有一个 Git GUI 还有一个 Git Bash ，开发中多用 Git Bash，下面的教程也是基于Git Bash的。</description></item></channel></rss>
+​ 需要注意的是，我们安装以后大概会有一个 Git GUI 还有一个 Git Bash ，开发中多用 Git Bash，下面的教程也是基于Git Bash的。
+表明身份
+在Git所有仓库中我们都要有一个所有者的身份，用于标识是谁的仓库，用如下方式标识
+git config --global user.name &amp;#34;Your Name&amp;#34; git config --global user.email &amp;#34;Your email&amp;#34; 创建版本库
+我们想要把一个文件夹的内容用git来管理，只需要在文件夹目录运行
+git init 顾名思义这就是一个初始化的过程，运行以后在当前目录生成一个 .</description></item></channel></rss>

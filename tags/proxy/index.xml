@@ -4,4 +4,5 @@
 一、基于 Docker 的实现 Docker 是一个开源的应用容器引擎，开发者可以把包和依赖等集成到一个容器中，并打包成镜像发布。用户可以直接拉取镜像并创建容器，而不会污染本地的环境，十分的好用。
 我现在在使用一个软件的时候一般都是有 docker 实现会优先使用 docker，配合 docker-compose 管理真的非常的方便。因此我们优先考虑使用 docker 来配置 clash 代理。
 1.1 安装 docker 大家可以参考 官网安装指南 来在 Linux 安装 docker，就不详细赘述了。
-顺便可以参考 docker-compose 安装指南 来安装 docker-compose。</description></item></channel></rss>
+顺便可以参考 docker-compose 安装指南 来安装 docker-compose。
+安装结束后，使用 docker --version 以及 docker-compose --version 进行验证，输出如下进行下一步。</description></item></channel></rss>

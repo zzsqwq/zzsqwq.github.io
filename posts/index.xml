@@ -7,9 +7,10 @@ Github release 链接：https://github.com/Fndroid/clash_for_windows_pkg/release
 在其中找到需要的版本，然后下载即可，如果国内下载较慢的话，可以使用大佬提供的代理1，使用方式是在下载链接的前面加上 https://ghproxy.com/ 即可，例如一个下载链接为 https://github.com/aaa ，则代理后的链接为 https://ghproxy.com/https://github.com/aaa
 下载后应该是名为 Clash.for.Windows-version-x64-linux.tar.gz 的文件，然后解压：
 ❯ tar -zxvf Clash.for.Windows.xxx # 这里是对应压缩包的名字 解压后会出现对应的文件夹，文件夹中会有一个名为 cfw 的文件，按理说现在在文件中直接打开终端，然后运行
-❯ .</description></item><item><title>一个基于 Hugo 的个人主页主题</title><link>https://blog.zzsqwq.cn/posts/my-hugo-academia-theme/</link><pubDate>Tue, 03 May 2022 21:40:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/my-hugo-academia-theme/</guid><description>背景 之前看到过学长学姐做过个人主页，多是用来申请一些学校的夏令营使用的，觉得非常的 Nice，自己也想搞一个。
+❯ ./cfw 就会直接打开 Clash For Windows 了，与 Windows 版本基本平常无差。</description></item><item><title>一个基于 Hugo 的个人主页主题</title><link>https://blog.zzsqwq.cn/posts/my-hugo-academia-theme/</link><pubDate>Tue, 03 May 2022 21:40:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/my-hugo-academia-theme/</guid><description>背景 之前看到过学长学姐做过个人主页，多是用来申请一些学校的夏令营使用的，觉得非常的 Nice，自己也想搞一个。
 大家之前好像大多用的是基于 Hexo 的一个主题 — hexo-theme-academia，但是由于之前我用过 Hexo，觉得他有一些比较明显的弊端，例如环境配置比较麻烦、需要安装 Nodejs、npm 等环境，然后再安装 Hexo。其次它的构建速度比较慢，用起来感觉比较僵硬。
 后来随着了解增多，尝试了 Typecho、WordPress，Hugo 等主题后，目前还是决定使用 Hugo。它构建速度快，而且安装简单，在 Ubuntu 上只需要一行 sudo apt install hugo 即可，不可谓不简单。因此萌生了移植一个 Hugo 版本主题的想法，刚好可以锻炼一下自己。
+欢迎点击 这里 查看我的个人主页。
 一些难点 之前从来没有了解过 Hugo 主题的写法以及 Hexo 主题的写法，不过看了一下仓库的组织形式还算好理解。
 这类静态博客生成器都是需要写一些模板文件，然后根据配置文件进行个性化构建。
 Hugo 的文档 十分的完善，学习就像是学习一门编程语言，里面有很多函数和变量，还有各种条件结构、循环结构等。原主题是采用的 pug + stylus 的方式，而不是传统的 html + css 。不过这两者之间的转换并不麻烦，而且有一些工具可以参考着转换，例如 pug2html 以及 stylus2css 。
@@ -19,7 +20,9 @@ Hugo 的文档 十分的完善，学习就像是学习一门编程语言，里�
 主题链接：https://github.com/zzsqwq/hugo-academia-theme
 演示站：https://zzsqwq.github.io/academic-pages-demo/
 英文文档：https://github.com/zzsqwq/hugo-academia-theme/blob/master/README.md
-中文文档：https://github.com/zzsqwq/hugo-academia-theme/blob/master/README.zh_cn.md</description></item><item><title>Docker-Gitlab 与主机共用 ssh 的 22 端口</title><link>https://blog.zzsqwq.cn/posts/docker-gitlab-ssh/</link><pubDate>Sun, 24 Apr 2022 13:46:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/docker-gitlab-ssh/</guid><description>背景 在使用 Docker 搭建 Gitlab/Gitee 会导致无法与主机端共用 22 端口，这导致 ssh 连接的时候会使用形如 ssh://git@git.xxxx.cn:4022/zs/zsblog.git 的 ssh 链接，而不是像官方 Gitlab 那种非常干净的 git@git.xxxx.cn/zs/zsblog.git 链接。这对于我这种强迫症而言非常的难受啊，但因为主机的 22 端口已经被占用了，无法共用，所以需要考虑两者共享端口的问题。
+中文文档：https://github.com/zzsqwq/hugo-academia-theme/blob/master/README.zh_cn.md
+英文效果图：
+中文效果图：</description></item><item><title>Docker-Gitlab 与主机共用 ssh 的 22 端口</title><link>https://blog.zzsqwq.cn/posts/docker-gitlab-ssh/</link><pubDate>Sun, 24 Apr 2022 13:46:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/docker-gitlab-ssh/</guid><description>背景 在使用 Docker 搭建 Gitlab/Gitee 会导致无法与主机端共用 22 端口，这导致 ssh 连接的时候会使用形如 ssh://git@git.xxxx.cn:4022/zs/zsblog.git 的 ssh 链接，而不是像官方 Gitlab 那种非常干净的 git@git.xxxx.cn/zs/zsblog.git 链接。这对于我这种强迫症而言非常的难受啊，但因为主机的 22 端口已经被占用了，无法共用，所以需要考虑两者共享端口的问题。
 虽说是两者共用，但其实还是使用类似于端口转发的特点，简单说就是在主机设置 git 用户，然后通过一个脚本将 git 用户的所有 ssh 流量转发到 Gitlab 容器中，从而完成对应的事情。
 关于 Gitee 的设置，Gitee 官方的 Docker 部署教程1已经说的很清楚了，按照该步骤执行完全没问题。
 而关于 Gitlab 貌似没有比较详尽的教程，搜索后发现了一个 Issue2 以及一篇博文3，后者讲的比较清楚，但是经过实践后发现存在一定问题，因此决定将可行的方案记录下来。
@@ -30,7 +33,8 @@ gitlab-web: image: &amp;#39;gitlab/gitlab-ce:latest&amp;#39; container_name: &am
 一、基于 Docker 的实现 Docker 是一个开源的应用容器引擎，开发者可以把包和依赖等集成到一个容器中，并打包成镜像发布。用户可以直接拉取镜像并创建容器，而不会污染本地的环境，十分的好用。
 我现在在使用一个软件的时候一般都是有 docker 实现会优先使用 docker，配合 docker-compose 管理真的非常的方便。因此我们优先考虑使用 docker 来配置 clash 代理。
 1.1 安装 docker 大家可以参考 官网安装指南 来在 Linux 安装 docker，就不详细赘述了。
-顺便可以参考 docker-compose 安装指南 来安装 docker-compose。</description></item><item><title>关于春节期间的一些碎碎念</title><link>https://blog.zzsqwq.cn/posts/224/</link><pubDate>Thu, 10 Feb 2022 00:52:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/224/</guid><description>前言 春节期间，走亲访友是必不可少的。交谈的多了，免不得一些问题的讨论。
+顺便可以参考 docker-compose 安装指南 来安装 docker-compose。
+安装结束后，使用 docker --version 以及 docker-compose --version 进行验证，输出如下进行下一步。</description></item><item><title>关于春节期间的一些碎碎念</title><link>https://blog.zzsqwq.cn/posts/224/</link><pubDate>Thu, 10 Feb 2022 00:52:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/224/</guid><description>前言 春节期间，走亲访友是必不可少的。交谈的多了，免不得一些问题的讨论。
 读了很多书，经历了很多事，似乎想法也有一些”离经叛道“，记一下自己目前的一些想法，不知道多年后的自己看这篇文章会是什么想法，还会一如既往的坚持吗。
 讨论的话题 打点关系 无论是父母，还是各方亲戚，大家好像都喜欢打点关系，以此来获得一些好处。
 最常见的是求人办事，很多时候是我们常说的”走后门“，想让孩子上个好点的小学，避免不了又送礼又吃饭。
@@ -78,7 +82,7 @@ gitlab-web: image: &amp;#39;gitlab/gitlab-ce:latest&amp;#39; container_name: &am
 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
 所以此处加入 callback 以防止这种情况
 这里判断了主程序内是否含有 userInfoReadyCallback 这个函数，如果有的话就执行。
-qq.getSetting({ success: res =&amp;gt; { if (res.authSetting[&amp;#39;scope.userInfo&amp;#39;]) { // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框 qq.getUserInfo({ success: res =&amp;gt; { // 可以将 res 发送给后台解码出 unionId this.</description></item><item><title>记一次博客迁移记录</title><link>https://blog.zzsqwq.cn/posts/221/</link><pubDate>Mon, 13 Dec 2021 02:59:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/221/</guid><description>前言 更换博客系统的想法已经萌生很久了，一个是感觉 Handsome 这个主题有点看腻了，但是在 Typecho 中好似已经没有更好的博客主题可选择了。
+qq.getSetting({ success: res =&amp;gt; { if (res.authSetting[&amp;#39;scope.userInfo&amp;#39;]) { // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框 qq.getUserInfo({ success: res =&amp;gt; { // 可以将 res 发送给后台解码出 unionId this.globalData.userInfo = res.userInfo // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回 // 所以此处加入 callback 以防止这种情况 if (this.</description></item><item><title>记一次博客迁移记录</title><link>https://blog.zzsqwq.cn/posts/221/</link><pubDate>Mon, 13 Dec 2021 02:59:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/221/</guid><description>前言 更换博客系统的想法已经萌生很久了，一个是感觉 Handsome 这个主题有点看腻了，但是在 Typecho 中好似已经没有更好的博客主题可选择了。
 有一个看起来貌似很不错，主题名叫 maupassant。效果如下图所示，顺附链接
 pagecho/maupassant(github.com)
 不过一直没有下定决心更换，后来也尝试过使用 WordPress，又觉得 WordPress 体量有点太大了。
@@ -87,7 +91,9 @@ pagecho/maupassant(github.com)
 于是决定把博客迁移到 Hugo，并且采用主题 Coder 。
 过程 Typecho 文章导出 这里采用了 lizheming 大大的迁移插件：lizheming/typecho-export-hugo
 具体导出为 zip 的时候可能会提示损坏，这样的话可以直接去服务器 \tmp\Export2Hugo 下面打包。
-安装 hugo 过程基于 Windows 平台，很简单，在 这里 下载 hugo 最新的 release 版本，找到对应自己系统的即可。下载后解压到某个目录下，设置一下环境变量即可。这里牵扯到 hugo 和 hugo_extended 两个版本的区别，以下是某个 issue 中的解释：</description></item><item><title>Markdown 编辑器推荐</title><link>https://blog.zzsqwq.cn/posts/220/</link><pubDate>Wed, 01 Dec 2021 20:12:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/220/</guid><description>前言 近期著名 Markdown 编辑器 Typora 宣布收费了，起初感觉很难受，后来感慨之余也觉得算是合理，毕竟 Typora 用起来感觉是真的很良心，也在考虑是否买一份支持一下。
+安装 hugo 过程基于 Windows 平台，很简单，在 这里 下载 hugo 最新的 release 版本，找到对应自己系统的即可。下载后解压到某个目录下，设置一下环境变量即可。这里牵扯到 hugo 和 hugo_extended 两个版本的区别，以下是某个 issue 中的解释：
+I agree.
+The only functional difference is SASS/SCSS The technical build time difference is that it requires a C++ build chain for the target platform to build, the reason why we currently only build the extended for 3 platforms (Windows, Linux, MacOS) Binaries are slightly less portable as you need a compatible Libc version on your computer (for Windows we build a fully static version as Libc is rather uncommon unless you have Visual Studio or something installed).</description></item><item><title>Markdown 编辑器推荐</title><link>https://blog.zzsqwq.cn/posts/220/</link><pubDate>Wed, 01 Dec 2021 20:12:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/220/</guid><description>前言 近期著名 Markdown 编辑器 Typora 宣布收费了，起初感觉很难受，后来感慨之余也觉得算是合理，毕竟 Typora 用起来感觉是真的很良心，也在考虑是否买一份支持一下。
 Tip 已于2021/12/10购入，还是选择回归了 Typora 了哈哈哈 虽说左右分屏的设计可能更符合 Markdown 的初衷，但是像 Typora 这种所见即所得（WYSIWYG） 的书写体验确实是感觉习惯了就回不去了。
 因此近期也搜集了 Markdown 编辑器作为 Typora 的替代品，在这里给大家分享一下。
 特别声明，下面的分享多是我日常体验中的一些感受，可能不够客观，比较片面，大家可以自己使用体验一下！
@@ -97,18 +103,29 @@ Tip 已于2021/12/10购入，还是选择回归了 Typora 了哈哈哈 虽说左
 可以购买 publish 服务将 markdown 发布为排版美观的界面
 有丰富的插件，例如日历、待办清单、Git同步等等。
 有Linux，Windows，iPad等多平台支持。
-使用体验 Obsidian 中文为黑曜石。我觉得它的图标很好看。</description></item><item><title>2021版小新Pro14 Ubuntu 20.04 配置指南</title><link>https://blog.zzsqwq.cn/posts/215/</link><pubDate>Tue, 02 Nov 2021 01:16:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/215/</guid><description>2021版小新Pro14 Ubuntu 20.04 配置指南 前言 苦于沉重游戏本的迫害，新买了一台小新Pro14 2021款，上手感觉还挺不错的。如下是配置：
+使用体验 Obsidian 中文为黑曜石。我觉得它的图标很好看。
+在我使用的一段时间内，他给我的感觉是，功能十分丰富的一个 Markdown 文件管理工具。如果你购买了他的同步服务，那你可以很轻松的在各平台同步你的 Markdown 文件夹，并且基于他强大的插件，可以很完成很多 Markdown 文件份外的事，例如待办清单、日历等等。
+他虽没有所见即所得的模式，但是依靠其一款第三方插件，可以达成类似的效果，不过还是用起来不如 Typora 这种顺手。同时，它的各端同步如果不开启官方的服务，用起来还是挺麻烦的，经过我的一阵倒腾，我总结了如下几个方案：
+使用第三方Git管理插件，可以定时推送文件夹中的内容到仓库，这样可以完成 linux 与 Windwos 平台的同步，只需要在某一方推送某一方拉取即可。而 Windows 平台与 iPad 平台的同步，可以借助 Apple 的 iCloud，Windows上有对应的客户端，这也是 Obsidian 官方支持的。不过在我使用的过程中我发现，这样异常的麻烦，使用 Git 来管理很可能会产生冲突，导致需要手动处理冲突，久而久之就会觉得很烦。
+使用自建云盘如 NextCloud + Obsidian，或者 Seafile + Obsidian。 这个是我觉得目前非常可行的一个方案，最近我也有在尝试 NextCloud，它的多端同步做的非常不错，依靠此可以在各个平台同步文件夹，加上 Obsidian 强悍的能力，是不错的组合！</description></item><item><title>2021版小新Pro14 Ubuntu 20.04 配置指南</title><link>https://blog.zzsqwq.cn/posts/215/</link><pubDate>Tue, 02 Nov 2021 01:16:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/215/</guid><description>2021版小新Pro14 Ubuntu 20.04 配置指南 前言 苦于沉重游戏本的迫害，新买了一台小新Pro14 2021款，上手感觉还挺不错的。如下是配置：
 CPU：酷睿 i5-11300H 显卡：集成显卡 Intel 锐炬Iris Xe 内存：16G 外存：512 SSD 屏幕：分辨率 2880x1800、400nits、100%sRGB 这里需要注意的是，不同时间出的小新Pro14配置是不太一样的，所以我这里列了一下配置。主要区别在于有一部分是2.2K分辨率+MX450显卡，而我这个是2.8K分辨率+锐炬Iris Xe显卡。
 为了工作的需要，要装一个Ubuntu，先是装了之前用过的 Ubuntu 18.04，安装后发现触摸板无法使用，一系列探索后无果，在朋友的推荐下，还是决定安装 Ubuntu 20.04 试一下，踩了一些坑，在这里记录一下。
 问题列表 如果你遇到了以下问题，那么这篇文章的方法可能会对你有益处：
-Ubuntu 18.04 相关 Ubuntu 18.04 无法使用触摸板 Ubuntu 18.04 无法使用内置键盘 Ubuntu 18.04 无法调节亮 Ubuntu 18.04 查看GPU发现是llvm，而不是Iris Xe Ubuntu 20.04 相关 Ubuntu 20.04 进入后屏幕花屏、黑屏 Ubuntu 20.</description></item><item><title>纯终端环境代理配置教程</title><link>https://blog.zzsqwq.cn/posts/212/</link><pubDate>Mon, 13 Sep 2021 18:15:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/212/</guid><description>纯终端环境代理配置教程 前言 我们在很多情况下，可能会在云服务器或是其他纯终端环境（例如树莓派服务器等），或者一些没有屏幕的情况下，只能 ssh 链接到服务器上进行一些操作。
+Ubuntu 18.04 相关 Ubuntu 18.04 无法使用触摸板 Ubuntu 18.04 无法使用内置键盘 Ubuntu 18.04 无法调节亮 Ubuntu 18.04 查看GPU发现是llvm，而不是Iris Xe Ubuntu 20.04 相关 Ubuntu 20.04 进入后屏幕花屏、黑屏 Ubuntu 20.04 查看GPU发现是llvm，而不是Iris Xe 现在达成的效果 Ubuntu 20.04 能够正常使用，触摸板以及外界屏幕，亮度调节均无问题。
+开机时也能够使用键盘。
+但是开机登录界面还是存在花屏、闪屏的问题，我通过自动登录解决。BIOS界面仍旧会闪屏。
+安装 Ubuntu 18.04 的问题 首先安装Ubuntu 18.04 还是比较顺利，没有什么坑。
+安装的话就是按流程来一遍——压缩卷、进入BIOS关闭安全启动模式(这里网上有部分同学说也需要关闭 Intel Platform Trust Technology 、但是我不关闭也是可以的)、然后Try Ubuntu看一下效果（这里Try Ubuntu我没法使用鼠标，不过安装的时候可以）、开始安装。</description></item><item><title>纯终端环境代理配置教程</title><link>https://blog.zzsqwq.cn/posts/212/</link><pubDate>Mon, 13 Sep 2021 18:15:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/212/</guid><description>纯终端环境代理配置教程 前言 我们在很多情况下，可能会在云服务器或是其他纯终端环境（例如树莓派服务器等），或者一些没有屏幕的情况下，只能 ssh 链接到服务器上进行一些操作。
 这些时候，如果我们想要克隆一个 Github 的仓库，或者下载一些镜像源中没有的文件，简直是难如登天，100kb/s 的速度都很罕见，因此在这种环境下配一个代理还是十分必要的！
 我们常在 Linux 上使用的 GUI 代理软件如 Qv2ray、Clash 这些就没法用了。因此需要考虑如何在纯终端环境中配置代理的问题，这篇教程就是为解决此问题而写的。
 教程 此教程搭配的是常用的 v2ray-core + v2rayA ，这里的 v2rayA 是一个网页端的代理管理工具，其中支持 v2ray、Xray、SS、SSR、Trojan 等多种协议。
 一、安装 v2ray-core 首先是需要安装 v2ray-core ，这里我们使用开源的项目 v2fly/fhs-install-v2ray 进行安装，它是一个脚本，可以直接运行完成 v2ray 的安装，安装的文件组织结构符合 Filesystem Hierarchy Standard ，十分方便简洁，很赞！
 具体步骤如下：
 下载 fhs-install-v2ray 源码 首先我们因为 Github 克隆很慢，可以先在自己的主机上克隆或者以 zip 包形式下载源码
-将源码上传到远端 键入下列代码，通过 scp 将解压后的代码文件夹目录上传到远端服务器的根目录（如果是树莓派的话可以连接同一局域网进行），注意这里的 path/to/fhs-install-v2ray 指的是本地文件夹的路径</description></item><item><title>Redmi AC2100刷写OpenWrt教程</title><link>https://blog.zzsqwq.cn/posts/209/</link><pubDate>Sun, 01 Aug 2021 21:48:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/209/</guid><description>Redmi AC2100刷写Openwrt教程 前言 此教程的书写基于 Redmi AC2100 路由器，并不保证其他路由器可用。
+将源码上传到远端 键入下列代码，通过 scp 将解压后的代码文件夹目录上传到远端服务器的根目录（如果是树莓派的话可以连接同一局域网进行），注意这里的 path/to/fhs-install-v2ray 指的是本地文件夹的路径
+scp -r path/to/fhs-install-v2ray username@hostname:~
+下载 v2ray-core 源码 此脚本可以全自动安装，即自动检测本机类型是 Ubuntu 还是其他的版本，然后从远端仓库下载最新的 v2ray 进行安装，不过因为没有代理，这一步还是十分缓慢，因此我们可以进行本地安装。
+首先，我们去到 v2ray-core 的官方仓库的发布站 -&amp;gt; Releases · v2fly/v2ray-core ，在这里可以下载最新版本的的 v2ray-core，不过需要注意的是，需要自己辨别版本，如使用的是 arm 还是 x64_86 等，下载后是一个 zip 压缩包，我们直接通过 scp 上传到远端服务器根目录</description></item><item><title>Redmi AC2100刷写OpenWrt教程</title><link>https://blog.zzsqwq.cn/posts/209/</link><pubDate>Sun, 01 Aug 2021 21:48:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/209/</guid><description>Redmi AC2100刷写Openwrt教程 前言 此教程的书写基于 Redmi AC2100 路由器，并不保证其他路由器可用。
 推荐使用的 Host 主机为 Windows 10/11 系统，当然，Linux 也可以，不过某些地方用的软件有差异，但是用 Linux 的人肯定不简单，就不用我多做说明了。
 理论上对其他型号路由器也通用，不过需要改一下固件的型号。本教程参考了多位前辈的文档与教程，其实虽说是教程，更像是一个整合，文章最后会给出过程中的参考链接，在此对他们一并感谢！
 教程 一、刷写官方固件 从官方固件刷入其他版本的官方固件 你可能会疑问，既然已经是官方固件了，为什么还需要刷写官方固件？
@@ -116,7 +133,12 @@ Ubuntu 18.04 相关 Ubuntu 18.04 无法使用触摸板 Ubuntu 18.04 无法使用
 具体表现为无法在弹出的窗口中粘贴文本，并且不会有后续的反应。 这时候可以刷回官方原固件，常见比较稳定的有 2.0.7， 2.0.376， 1.0.14 啥的，这个大家可以自己尝试一下~ 不过，此教程不是基于 telnet 的，对于 Redmi AC2100 我也不推荐使用 telnet 这个方法，因为经过我的尝试发现，他的成功率比较低，而且异常繁琐！
 官方固件的刷写过程如下：
 首先在 此处 下载修复工具包与ROM包
-然后接通路由器电源，用网线将路由器的 LAN 口与电脑连接。</description></item><item><title>关于Git的一些理解</title><link>https://blog.zzsqwq.cn/posts/201/</link><pubDate>Fri, 23 Jul 2021 14:17:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/201/</guid><description>前言 前段时间在 Github 学完了关于 git 的小游戏 learnGitBranching ，受益匪浅。
+然后接通路由器电源，用网线将路由器的 LAN 口与电脑连接。
+打开小米路由器修复工具，上传本地对应的刷机包。
+选择与路由器 LAN 口相连的网卡（这里如果不清楚选哪一个，建议在网络设置中把其他的网卡都禁用掉）
+然后断开路由器电源，用牙签或者其他的按住 reset 键后，接通电源，直到路由器橙灯闪烁时松开 reset 键。
+等待到蓝灯闪烁时，即可访问网关或者 miwifi.com 来设置路由器，固件刷写成功。
+从Breed刷写官方固件 Breed 是一个由 hackpascal 大神自写的与 U-Boot 同级的 Bootloader。</description></item><item><title>关于Git的一些理解</title><link>https://blog.zzsqwq.cn/posts/201/</link><pubDate>Fri, 23 Jul 2021 14:17:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/201/</guid><description>前言 前段时间在 Github 学完了关于 git 的小游戏 learnGitBranching ，受益匪浅。
 它通过可视化的方式将分支的关系，每条命令的作用等都明明白白的体现出来，可以很直观的感受到你每条命令对整个分支树，每一个 ref 的作用。
 通过这种学习感觉自己对 Git 的理解更加深入一步，能够理解其中的原理，而不是浅尝辄止，照猫画虎。
 学习中记了一些零零散散的思路，想要写一篇笔记记录出来，之前已经写过一个简单的 Git 教程，这篇教程将会更加深入，希望可以帮助大家更好的掌握 Git。
@@ -135,19 +157,29 @@ Git中的分区 首先，Git中存在三大分区，分别是工作区、暂存�
 配置网络相关 Ubuntu的server版本有个比较蛋疼的问题就是上网比较困难，如果是用的学校网线，必须要PPPOE拨号才能上网，但是server版本居然没有 net-tools 和 network-manager ，连接WiFi啥的试了很多办法但还是没有什么作用。
 解决办法：用网线直接连接树莓派和有网的路由器，安装 net-tools 和 network-manager ，执行
 $ sudo nmtui 选择 Activate a connect 连接无线的WiFi，执行
-$ sudo ifconfig 查看WiFi对应的IP，至此，树莓派可以摆脱屏幕，我们可以使用电脑进行使用 ssh 连接。</description></item><item><title>deepin-wine-qq-9.1.8版本无法正常启动的解决方案</title><link>https://blog.zzsqwq.cn/posts/195/</link><pubDate>Wed, 16 Jun 2021 01:38:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/195/</guid><description>问题描述 ​ Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题
+$ sudo ifconfig 查看WiFi对应的IP，至此，树莓派可以摆脱屏幕，我们可以使用电脑进行使用 ssh 连接。
+这里也可以使用网线进行连接，具体操作如下
+用网线连接树莓派和自己的电脑。
+在树莓派的利用 nmtui 选择 Edit a connection ，Add一个Ethernet connect，对IPv4 CONFIGURATION进行设置，首先讲 Automatic 设置为 Manual，设置 Address 为 静态IP 如 192.</description></item><item><title>deepin-wine-qq-9.1.8版本无法正常启动的解决方案</title><link>https://blog.zzsqwq.cn/posts/195/</link><pubDate>Wed, 16 Jun 2021 01:38:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/195/</guid><description>问题描述 ​ Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题
 解决方案 ​ 首先我们根据上文的启示，因为每一个应用程序对应了一个 xxx.desktop 文件，因此在应用库中的QQ一定也有一个对应的 desktop 文件
 ​ 我们进入到 /usr/share/applications ，运行
 $ ls | grep -i qq ​ 可以发现其中有一个名为 deepin.com.qq.im.desktop 的文件，我们打开后发现内容如下：
 #!/usr/bin/env xdg-open [Desktop Entry] Encoding=UTF-8 Type=Application X-Created-By=Deepin WINE Team Categories=chat; Icon=deepin.com.qq.im Exec=&amp;#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;#34; -u %u Name=QQ Name[zh_CN]=QQ Comment=Tencent QQ Client on Deepin Wine StartupWMClass=QQ.exe MimeType= ​ 可以看到Exec那一栏为 Exec=&amp;quot;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;quot; -u %u ，发现他是运行目录下的一个 run.sh 脚本来启动的。
 ​ 我们进入目录下直接运行该脚本，查看log信息：
-base ❯ .</description></item><item><title>Ubuntu如何利用AppImage创建Qv2ray快捷方式</title><link>https://blog.zzsqwq.cn/posts/193/</link><pubDate>Wed, 16 Jun 2021 00:54:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/193/</guid><description>前言 ​ 最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：
+base ❯ ./run.sh Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.</description></item><item><title>Ubuntu如何利用AppImage创建Qv2ray快捷方式</title><link>https://blog.zzsqwq.cn/posts/193/</link><pubDate>Wed, 16 Jun 2021 00:54:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/193/</guid><description>前言 ​ 最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：
 原理 ​ 首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 \usr\share\applications 中，文件名为 **.desktop ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：
 [Desktop Entry] Name=Typora Comment=a minimal Markdown reading &amp;amp; writing app. Change Log: (https://typora.io/windows/dev_release.html) GenericName=Markdown Editor Exec=typora %U Icon=typora Type=Application StartupNotify=true Categories=Office;WordProcessor; MimeType=text/markdown;text/x-markdown; ​ 可以看到里面的内容写的非常清晰，其中比较重要的有以下几个
-关键词 意义 [Desktop Entry] 文件头 Name 应用名称 Comment 描述 Exec 执行的命令 Icon 图标路径 Type 启动器类型 Categories 应用的类型（内容相关） StartupNotify 启动时是否打印输出信息 Terminal 是否在终端中运行 快捷方式的创建 ​ 明白以上原理，我们只需要创建一个 qv2ray.</description></item><item><title>利用神经网络进行波士顿房价预测</title><link>https://blog.zzsqwq.cn/posts/182/</link><pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/182/</guid><description>前言 ​ 前一阵学校有五一数模节校赛，和朋友一起参加做B题，波士顿房价预测，算是第一次自己动手实现一个简单的小网络吧，虽然很简单，但还是想记录一下。
+关键词 意义 [Desktop Entry] 文件头 Name 应用名称 Comment 描述 Exec 执行的命令 Icon 图标路径 Type 启动器类型 Categories 应用的类型（内容相关） StartupNotify 启动时是否打印输出信息 Terminal 是否在终端中运行 快捷方式的创建 ​ 明白以上原理，我们只需要创建一个 qv2ray.desktop ，文件内容如下：
+[Desktop Entry] Name=qv2ray Exec=/home/zs/proxy/v2ray/Qv2ray.v2.6.3.linux-x64.AppImage Icon=/home/zs/proxy/v2ray/qv2ray.512.png Type=Application StartupNotify=true ​ 其中Exec为你AppImage的绝对路径，Icon为图标的绝对路径。</description></item><item><title>利用神经网络进行波士顿房价预测</title><link>https://blog.zzsqwq.cn/posts/182/</link><pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/182/</guid><description>前言 ​ 前一阵学校有五一数模节校赛，和朋友一起参加做B题，波士顿房价预测，算是第一次自己动手实现一个简单的小网络吧，虽然很简单，但还是想记录一下。
 题目介绍 ​ 波士顿住房数据由哈里森和鲁宾菲尔德于1978年Harrison and Rubinfeld1收集。它包括了波士顿大区每个调查行政区的506个观察值。1980年Belsley et al.2曾对此数据做过分析。
 ​ 数据一共14列，每一列的含义分别如下：
-英文简称 详细含义 CRIM 城镇的人均犯罪率 ZN 大于25,000平方英尺的地块的住宅用地比例。 INDUS 每个镇的非零售业务英亩的比例。 CHAS 查尔斯河虚拟变量（如果环河，则等于1；否则等于0） NOX 一氧化氮的浓度（百万分之几） RM 每个住宅的平均房间数 AGE 1940年之前建造的自有住房的比例 DIS 到五个波士顿就业中心的加权距离 RAD 径向公路通达性的指标 TAX 每一万美元的全值财产税率 PTRATIO 各镇的师生比率 B 计算方法为 $1000(B_k-0.</description></item><item><title>2021RoboMaster中国赛比赛记录</title><link>https://blog.zzsqwq.cn/posts/173/</link><pubDate>Fri, 30 Apr 2021 17:32:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/173/</guid><description>[hplayer] [Music server=&amp;ldquo;netease&amp;rdquo; id=&amp;ldquo;525278524&amp;rdquo; type=&amp;ldquo;song&amp;rdquo;/] [/hplayer]
+英文简称 详细含义 CRIM 城镇的人均犯罪率 ZN 大于25,000平方英尺的地块的住宅用地比例。 INDUS 每个镇的非零售业务英亩的比例。 CHAS 查尔斯河虚拟变量（如果环河，则等于1；否则等于0） NOX 一氧化氮的浓度（百万分之几） RM 每个住宅的平均房间数 AGE 1940年之前建造的自有住房的比例 DIS 到五个波士顿就业中心的加权距离 RAD 径向公路通达性的指标 TAX 每一万美元的全值财产税率 PTRATIO 各镇的师生比率 B 计算方法为 $1000(B_k-0.63)^2$，其中Bk是按城镇划分的非裔美国人的比例 LSTAT 底层人口的百分比(%) price 自有住房数的中位数，单位（千美元） ​ 基于上述数据，请完成以下问题：
+​ 建立波士顿房价预测模型并对预测结果进行评价。
+问题分析 ​ 首先这道题目的很明确，数据一共是 $506×14$ 的一个矩阵，有十三维的自变量，通过建立一个模型来拟合回归出最终的因变量 price，即户主拥有住房价值的中位数。这是一个回归问题，综合考虑有以下两个思路
+通过各种回归算法（GradientBoostingRegressor，RandomForestRegressor，ExtraTreesRegressor，LinearRegressor等）结合全部或部分自变量来回归最终的price
+建立前馈神经网络模型，根据通用逼近定理，我们可以拟合此回归模型。
+​ 我们对上述模型来进行实现并确定评估标准来对他们进行比较，选择最优的模型作为预测模型。
+算法流程 传统的回归算法 自变量的选择 ​ 首先，考虑到数据集中13列自变量其中某一些可能和最终的房价并无强相关性，如果全部使用进行预测可能会对模型引入噪声，因此我们首先计算了房价price与各个自变量之间的相关系数 $r$ ，其中 $r$ 计算公式如下： $$ r = \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum(x_i-\bar{x})^2\sum(y_i-\bar{y})^2}} $$ ​ 其中 $x_i,y_i$ 为数据的每个分量，$\bar{x}，\bar{y}$ 为数据的均值</description></item><item><title>2021RoboMaster中国赛比赛记录</title><link>https://blog.zzsqwq.cn/posts/173/</link><pubDate>Fri, 30 Apr 2021 17:32:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/173/</guid><description>[hplayer] [Music server=&amp;ldquo;netease&amp;rdquo; id=&amp;ldquo;525278524&amp;rdquo; type=&amp;ldquo;song&amp;rdquo;/] [/hplayer]
 前言 ​ 说起来的话今天距离比赛已经过去近一个月了，比赛结束一直想要记录一下and总结一下经验，但是实在是太懒了，临近五一假期，在四月的末尾为这次中国赛画一个句号吧。
 比赛过程 ​ 如果没记错的话比赛是3.30号（周二）去，4.1号（周四）结束，共三天。但是因为第三天没做什么有意义的事情，就只记录两天了。
 第一天 ​ 第一天大概中午十点到的吧，去的时候登记完领了牌，就在当地布置场地了。到了场地上才发现，我们好像是拿的东西最多的，包括外接显示屏和集成主机，好像都基本没人带过去····集成主机拿了过去也没怎么用到，本来预想用到的哨岗相机因为 ROS 的通信问题也没能跑成，最后两个机器人还是各跑各的策略了。
@@ -160,7 +192,7 @@ base ❯ .</description></item><item><title>Ubuntu如何利用AppImage创建Qv2r
 ​ 跟青海大学打的那场，距和哈工深比赛结束只有十几分钟的间隔时间，大家调了一个小bug就又重新赶去检录了，虽然当时已知青海大学的战术是站在原地不动的，但是由于不知道哪里出问题了，比赛中前一分钟两车都没动，后一分钟二车虽然动起来了去吃了加成区，但是因为定位的一些问题，没有看到敌方机器人并且撞墙了··自己撞掉了60血，最后还是败了QAQ。
 ​ 所以就很耻辱的被3：0送走了，这样就结束了比赛日程。
 ​ 值得反思的事情很多吧，赛前虽然基本熬了一个多星期来调车，还是只在最后一天才开始连裁判系统联调，包括暑假效率不高等问题都是值得反思的···打完比赛心中大概已经有了一些改进点，也想把自己的一些调车心得等记录下来，但是因为时间以及学业上的一些事情等一直没去做，本来计划的五月初做好改进的视觉也一直没兑现，希望这个五一假期会有较大的突破吧，不过还要打数模···好累，不想动。
-​ 最后，这一天还拿到了和Charm young的合照，还挺动容的，之前看Robomaster的一个宣传标语就是让工程师们成为明星，给他们一个展示的舞台，看到大家对Charm young的热情，深深的感受到了这一点。</description></item><item><title>关于Anaconda中pip路径指向问题</title><link>https://blog.zzsqwq.cn/posts/169/</link><pubDate>Sat, 06 Mar 2021 20:51:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/169/</guid><description>前言 ​ 最近使用Anaconda的时候遇到了一个很奇怪的问题，如当我新建环境 condatest 后，使用 pip -V 查看pip的路径指向，会发现pip指向的是另一个环境 CenterNet 的路径。搜索了很久得到一个有一些用的解决方法
+​ 最后，这一天还拿到了和Charm young的合照，还挺动容的，之前看Robomaster的一个宣传标语就是让工程师们成为明星，给他们一个展示的舞台，看到大家对Charm young的热情，深深的感受到了这一点。</description></item><item><title>关于Anaconda中pip路径指向问题</title><link>https://blog.zzsqwq.cn/posts/169/</link><pubDate>Sat, 06 Mar 2021 20:51:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/169/</guid><description> 前言 ​ 最近使用Anaconda的时候遇到了一个很奇怪的问题，如当我新建环境 condatest 后，使用 pip -V 查看pip的路径指向，会发现pip指向的是另一个环境 CenterNet 的路径。搜索了很久得到一个有一些用的解决方法
 解决方案 ​ 设有问题的环境为 condatest ，python版本为 3.6
 ​ 然后进入 ~/anaconda3/envs/condatest/lib/python3.6
 ​ 编辑目录下的 site.py 文件，将其中的 USER_SITE 的值修改为 /home/zs/anaconda3/envs/condatest ，注意这里路径里面的 zs 是你的当前用户名， USER_BASE 的值修改为 /home/zs/anaconda3/envs/condatest/lib/python3.6/site.py，然后问题应该就解决了。
@@ -175,7 +207,9 @@ cuda = 10.2
 ​ 需要注意的是：
 官方给出的教程里面使用的是 pytorch 0.4.1，但是我个人在实测过程中遇到了一些问题，遂安装网上的教程更改为 pytorch 1.2.0，并且需要把 ${CenterNet_Root}/src/lib/models/networks/DCNv2 中的这个DCNv2网络更改为官方的最新版。 这里使用的cuda版本最好和你的显卡匹配，之前因为显卡驱动的一些问题导致重装了电脑，根据我们学长学姐的建议，最好直接去cuda官网那边去下载deb包直接安装。 遇到环境配置问题可以先去Google一下，一般作者都在CenterNet&amp;rsquo;s Issues中给出了回复，如果没有，可以发邮件给作者询问，当然也可以发消息/邮箱给我，大家一起探讨一下~ 运行CenterNet的demo ​ 想要运行demo，首先要去 Model zoo 中下载一下我们需要使用的model，2D目标检测使用的是 ctdet_coco_dla_2x.pth ，人体姿态评估使用的是 multi_pose_dla_3x.pth ，下载后统一将他们放在CenterNet根目录中的model文件夹中。
 ​ 然后使用conda切换到CenterNet的环境，在终端中运行：
-python demo.py ctdet --demo ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg --load_model ../models/ctdet_coco_dla_2x.pth ​ 这里需要注意的是 --demo 后面的 ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.</description></item><item><title>Git的简易教程</title><link>https://blog.zzsqwq.cn/posts/157/</link><pubDate>Sat, 05 Dec 2020 20:26:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/157/</guid><description>前言 ​ 最近在复习Git，因此顺手做个笔记分享出来，方便大家学习和查阅。相信无论是以后的课程作业还是工作，我们都会或多或少的接触/用到Git。
+python demo.py ctdet --demo ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg --load_model ../models/ctdet_coco_dla_2x.pth ​ 这里需要注意的是 --demo 后面的 ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg ，这里我使用的是官方给出的实例图片，它位于CenterNet根目录的images文件夹中，前面的 ${CenterNet_Root} 代表的是 CenterNet根目录，好比我的就位于 /home/zs/CenterNet 。
+​ 如果不出意外的话效果应该如下图所示：
+运行CenterNet的3D目标检测 配置数据集和模型 ​ 我们可以直接参考官方的 DATA.</description></item><item><title>Git的简易教程</title><link>https://blog.zzsqwq.cn/posts/157/</link><pubDate>Sat, 05 Dec 2020 20:26:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/157/</guid><description>前言 ​ 最近在复习Git，因此顺手做个笔记分享出来，方便大家学习和查阅。相信无论是以后的课程作业还是工作，我们都会或多或少的接触/用到Git。
 什么是Git？ ​ Git你可能没听说过，但是我相信你应该听说过Github，毕竟是全球最大的同性交友网站。他和Git有着密不可分的联系，我们后续再详细介绍。
 ​ Git的中文全称叫 分布式版本控制系统 ，版本控制系统是什么意思呢？我们举一个简单的例子，你在做一个大作业，很可能要写上千行的代码，但是你可能写完一个功能以后，对他不够满意，但是又害怕改了以后后悔了，又找不回来了，所以你可能就有很多版本，版本1，版本2，版本3等等等。Git就是解决这个问题的，让你文件能够保持最新，但是又能恢复到之前的版本。
 ​ 那么既然有分布式版本控制系统，就有 集中式版本控制系统，前者的代表是 Git ，后者的代表有 SVN、CVS 等。
@@ -190,7 +224,12 @@ Windows系统
 Mac OS
 太穷了，没用过Mac，但是参考链接中给出了方法，大家有需求可以参考。
 Git的基本使用 ​ Git可以做许多事情，好比版本更新，版本修改，提交到远程仓库等等，这里我们只写一写大概以后用的会比较多的。
-​ 需要注意的是，我们安装以后大概会有一个 Git GUI 还有一个 Git Bash ，开发中多用 Git Bash，下面的教程也是基于Git Bash的。</description></item><item><title>Ubuntu18.04优化教程</title><link>https://blog.zzsqwq.cn/posts/141/</link><pubDate>Fri, 04 Dec 2020 01:39:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/141/</guid><description>前言 ​ 因为最近Ubuntu用的比较频繁，所以前一阵把Ubuntu16.04换成Ubuntu18.04了，并且囿于机械硬盘那启动速度，我忍痛割爱把我80G的固态硬盘分给了Ubuntu。
+​ 需要注意的是，我们安装以后大概会有一个 Git GUI 还有一个 Git Bash ，开发中多用 Git Bash，下面的教程也是基于Git Bash的。
+表明身份
+在Git所有仓库中我们都要有一个所有者的身份，用于标识是谁的仓库，用如下方式标识
+git config --global user.name &amp;#34;Your Name&amp;#34; git config --global user.email &amp;#34;Your email&amp;#34; 创建版本库
+我们想要把一个文件夹的内容用git来管理，只需要在文件夹目录运行
+git init 顾名思义这就是一个初始化的过程，运行以后在当前目录生成一个 .</description></item><item><title>Ubuntu18.04优化教程</title><link>https://blog.zzsqwq.cn/posts/141/</link><pubDate>Fri, 04 Dec 2020 01:39:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/141/</guid><description>前言 ​ 因为最近Ubuntu用的比较频繁，所以前一阵把Ubuntu16.04换成Ubuntu18.04了，并且囿于机械硬盘那启动速度，我忍痛割爱把我80G的固态硬盘分给了Ubuntu。
 ​ 后来，用着用着就觉得这个Ubuntu的原始界面确实不是特别的好看，配色偏基佬紫的感觉。“工欲善其事，必先利其器“，我们只有将自己的工作环境布置的舒心一些才能有做下去的动力！所以我想给Ubuntu换一个看起来舒服点的界面，然后上网找教程乱七八糟的倒腾了一会，感觉换完以后完全不一样了，这个界面真的好看！！用起来也特别的舒心，感觉自己马上就要告别Windows投奔Linux的怀抱了。后续还有一些其他的优化，例如装QQ、微信、配置终端等，一并写在这里吧。
 Ubuntu界面的优化 具体效果 ​ 先放几张效果图上来，是我改后的界面。大概就是这样(自我感觉挺好看的)，当然也有其他的主题可供选择。
 1.安装GNOME桌面环境主题配置工具 ​ 如果要改主题，那么首先要有一个利器，这里我用的Ubuntu18.04，桌面环境为 GNOME 3.28.2 ，因为我目前接触的只有GNOME桌面环境的，Ubuntu18.04本来的桌面环境就是GNOME，但是Ubuntu16.04好像没有自带，但是可以安装，这里大家可以自行百度了解。
@@ -200,14 +239,18 @@ sudo apt-get update sudo apt-get install gnome-tweak-tool ​ 我们先更新软
 sudo apt-get install gnome-shell-extensions ​ 然后重启一下电脑。再打开软件找到左侧的拓展，把 User themes 那一栏目打开。切换回去就可以发现Shell那边的感叹号无了。
 3.寻找自己喜欢的主题 ​ 这里我大家可以去这个网址去找自己喜欢的 GNOME-LOOK.ORG
 ​ 这里面包含了图标，主题这些，下面介绍一下如何安装。
-​ 好比我们找到一个自己喜欢的主题，然后我们点击下面的 Files ，可能会有很多文件，但是多是同一个主题的不同风格，好比暗风格和亮风格这样的，还有不同的版本的，我多是安装那个下载量最多的，我们下载那个对应的文件(多是tar.</description></item><item><title>“程序星编程之路”第二次作业题解</title><link>https://blog.zzsqwq.cn/posts/136/</link><pubDate>Thu, 12 Nov 2020 23:13:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/136/</guid><description>“程序星编程之路”第二次作业题解 A. Zs的回文质数 题目描述 ​ 读入一个整数 $n$ ，输出 $[1,n]$ 的所有回文质数，我们规定 $1\sim9$ 也是回文数。
+​ 好比我们找到一个自己喜欢的主题，然后我们点击下面的 Files ，可能会有很多文件，但是多是同一个主题的不同风格，好比暗风格和亮风格这样的，还有不同的版本的，我多是安装那个下载量最多的，我们下载那个对应的文件(多是tar.xz安装包)。
+​ 对于主题的安装，我们只需要把解压出来的文件，移动或复制到 /usr/share/themes/ 目录下，如果是光标\图标的安装，那么就把文件夹移动到 /usr/share/icons 目录下。
+​ 然后我们回到 GNOME Tweaks 软件中就可以发现，我们已经可以在主题\图标\光标\Shell清单中找到我们移动到文件夹中的文件了，然后选择就可以切换了。这里需要注意的，很多主题都是自带Shell的，你下了一个主题，那么你可以在Shell和主题这两个栏目中都找到他们，是一个配套的。
+4.一些后续的调整 ​ 我们后续可以改变左边收藏夹的位置，我觉得放在左边有一丢丢的丑，所以我选择把它放在的下面。
+​ 我们去Ubuntu软件中搜索 Dash to dock，然后安装这个拓展，然后打开 GNOME Tweaks 软件在拓展中找到他就可以随心所欲的调我们的收藏夹的位置了。</description></item><item><title>“程序星编程之路”第二次作业题解</title><link>https://blog.zzsqwq.cn/posts/136/</link><pubDate>Thu, 12 Nov 2020 23:13:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/136/</guid><description>“程序星编程之路”第二次作业题解 A. Zs的回文质数 题目描述 ​ 读入一个整数 $n$ ，输出 $[1,n]$ 的所有回文质数，我们规定 $1\sim9$ 也是回文数。
 思路 ​ 首先我们需要了解什么是回文数，以及什么是质数。
 ​ 简单点说，回文数就是正着读反着读都是一样的，也就是对称的，形如 $abcba $ 或者 $123321$ 这样的。
 ​ 质数的话，对于一个数 $n$ ，如果他是质数，那它除了 $1$ 和 $n$ 没有其他因子。例如 $2,3,5,7,11$ 这样的。
 ​ 那么接下来我们考虑一下解决这个问题应该怎么做，首先我们看一下数据范围，$[1,100000]$ ，还是挺小的，我们可以考虑直接枚举每一个数来判断它是不是回文数，然后再判断一下是不是质数，如果两个都满足，我们就输出它。
 ​ 判断回文数，我们可以考虑到 NOJ05 幸运数 一题的解题思路，也就是说我们把一个数倒置过来，好比一个数 $xyz$ 倒置成 $zyx$ ，然后判断是否 $xyz == zyx$ ，如果相等的话就是回文数，如果不相等就不是。
 ​ 判断质数，我们可以在 $[2,\lfloor\sqrt{n}\rfloor]$ 枚举它的因子，这个的完备性我上课的时候证明过，不再赘述。这里需要注意 $1,2$ 需要特判一下。
-代码 #include&amp;lt;stdio.</description></item><item><title>Visual Studio 2019 中 OpenCV 配置教程</title><link>https://blog.zzsqwq.cn/posts/114/</link><pubDate>Sat, 31 Oct 2020 20:38:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/114/</guid><description>&lt;h2 id="windows-平台-visual-studio-2019-中-opencv-配置教程">
+代码 #include&amp;lt;stdio.h&amp;gt; #include&amp;lt;math.h&amp;gt; //我们需要用到sqrt函数，因此需要引入数学库 int main() { int n; bool flag = false; // 标记 i 是否满足条件 scanf(&amp;#34;%d&amp;#34;,&amp;amp;n); for(int i=1;i&amp;lt;=n;i++) { flag = true; int p=i,j=0; while(p) // 将 p 反转为 j { j=j*10+p%10; p/=10; } if(j==i) { if(j==1) continue; // 特判 1 if(j==2) // 特判 2 { printf(&amp;#34;2\n&amp;#34;); continue; } int sqrtj = sqrt(j); for(int k=2;k&amp;lt;=sqrtj;k++) // 枚举 [2,sqrt(n)] { if(j%k==0) // 如果能够整除(余数为0),那么是 j 的因子 { flag = false; break; } } if(flag) { printf(&amp;#34;%d\n&amp;#34;,j); } } } } 其他 ​ 因为我们讲到这里的时候，我们没讲函数，但是这道题如果我们把判断是否为回文数，判断是否为质数，都另成一个函数模块，将使得程序变得更加简洁。我在这里也将函数版本的贴出来，有兴趣的可以看一下。</description></item><item><title>Visual Studio 2019 中 OpenCV 配置教程</title><link>https://blog.zzsqwq.cn/posts/114/</link><pubDate>Sat, 31 Oct 2020 20:38:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/114/</guid><description>&lt;h2 id="windows-平台-visual-studio-2019-中-opencv-配置教程">
 Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;a class="heading-link" href="#windows-%e5%b9%b3%e5%8f%b0-visual-studio-2019-%e4%b8%ad-opencv-%e9%85%8d%e7%bd%ae%e6%95%99%e7%a8%8b">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -220,7 +263,7 @@ Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;/a>
 &lt;/h3>
 &lt;p>​ 我这里配置用的是4.5.0版本，但实际配置过程中需要的大部分时间只是路径，因此和版本基本无关。&lt;/p>
-&lt;p>​ &lt;strong>只有一个地方是和版本有关系的，在配置链接器的 &lt;code>opencv_wordxyzd.lib&lt;/code> 时，大家一定要注意！！&lt;/strong>&lt;/p></description></item><item><title>数据库的一些基础知识总结</title><link>https://blog.zzsqwq.cn/posts/107/</link><pubDate>Fri, 11 Sep 2020 00:08:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/107/</guid><description>了解SQL 一.什么是SQL SQL是结构化查询语言（Structured Query Language）的缩写。是一种专门用来与数据库通信的语言。
+&lt;p>​ &lt;strong>只有一个地方是和版本有关系的，在配置链接器的 &lt;code>opencv_wordxyzd.lib&lt;/code> 时，大家一定要注意！！&lt;/strong>&lt;/p></description></item><item><title>数据库的一些基础知识总结</title><link>https://blog.zzsqwq.cn/posts/107/</link><pubDate>Fri, 11 Sep 2020 00:08:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/107/</guid><description> 了解SQL 一.什么是SQL SQL是结构化查询语言（Structured Query Language）的缩写。是一种专门用来与数据库通信的语言。
 二.什么是数据库？ 数据库（Database）：保存有组织的数据的容器（通常是一个文件或一组文件）。 ​[scode type = &amp;ldquo;yellow&amp;rdquo;]需要注意的是，有时候我们把数据库软件也简称为数据库，但是数据库软件和数据库有本质区别，数据库软件应称为DBMS（数据库管理系统），我们通过数据库软件对数据库进行删减等操作，他代替你操作和访问数据库。[/scode]
 三.数据库的组成 表
 数据库中通常有多张表，这类似于一个清单。就好像我们管理两个班级就可以用两个表单。
@@ -240,7 +283,21 @@ Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 通俗点讲，好比有两张表，分别存储了所有供应商的信息，和所有产品的信息，在前面那张表定义了每个供应商的id，作为其主键。然后我们为每个产品定义外键的id，填上对应供应商的id，然后通过连结，我们就能知道每个产品供应商的详细信息了。
 可伸缩性（scale）
 能够适应不断增加的工作量而不失败。设计良好的数据库或应用程序称之为可伸缩性好（scale well）。
-四.数据库的连结 ​在上面我们讲外键的时候有讲到联结，连结的意思大概就是把多个表，根据一些命令串在一起。</description></item><item><title>自买服务器建站教程</title><link>https://blog.zzsqwq.cn/posts/77/</link><pubDate>Wed, 26 Aug 2020 16:34:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/77/</guid><description>&lt;h2 id="引言">
+四.数据库的连结 ​在上面我们讲外键的时候有讲到联结，连结的意思大概就是把多个表，根据一些命令串在一起。
+等值连结（内部连结）
+顾名思义，等值连结就是通过两个表之间元素值的相同来把两个表连结起来。
+自联结
+这个用于查找在同一表中某一特性相同的所有成员。有的时候自联结要比子查询快很多。
+自然联结
+在自然联结中，排除相同的列多次出现，使每个列只返回一次。
+外部联结
+联结包含了那些在相关表中没有关联行的行。这种类型的联结称为外部连结。
+五.数据库设计范式 范式：当一个关系中的所有分类都是不可再分的数据项时，该关系是规范化的。不可再分的数据项，即不存在组合数据项和多项数据项。一个低一级的关系模式，通过模式分解可以转换为若干高一级范式的关系模式的集合，这个过程就叫规范化。
+第一范式：当关系模式R的所有属性都不能在分解为更基本的数据单位时，称R是满足第一范式的，简记为1NF。满足第一范式是关系模式规范化的最低要求，否则，将有很多基本操作在这样的关系模式中实现不了。
+第二范式：如果关系模式R满足第一范式，并且R得所有非主属性都完全依赖于R的每一个候选关键属性，称R满足第二范式，简记为2NF。
+第三范式：设R是一个满足第一范式条件的关系模式，X是R的任意属性集，如果X非传递依赖于R的任意一个候选关键字，称R满足第三范式，简记为3NF。
+用我们学长的一句话，范式不是必须满足的，但是我们尽量按照范式来设计数据库，毕竟这是这么多程序员实战经验总结出来的。
+参考链接 数据库设计三大范式_dosthing 数据库设计三大范式_张龙豪 mysql必知必会</description></item><item><title>自买服务器建站教程</title><link>https://blog.zzsqwq.cn/posts/77/</link><pubDate>Wed, 26 Aug 2020 16:34:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/77/</guid><description>&lt;h2 id="引言">
 引言
 &lt;a class="heading-link" href="#%e5%bc%95%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>

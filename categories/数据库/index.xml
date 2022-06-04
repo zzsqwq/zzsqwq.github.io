@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数据库 on Zs's Blog</title><link>https://blog.zzsqwq.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</link><description>Recent content in 数据库 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 11 Sep 2020 00:08:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml"/><item><title>数据库的一些基础知识总结</title><link>https://blog.zzsqwq.cn/posts/107/</link><pubDate>Fri, 11 Sep 2020 00:08:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/107/</guid><description>了解SQL 一.什么是SQL SQL是结构化查询语言（Structured Query Language）的缩写。是一种专门用来与数据库通信的语言。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数据库 on Zs's Blog</title><link>https://blog.zzsqwq.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</link><description>Recent content in 数据库 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 11 Sep 2020 00:08:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml"/><item><title>数据库的一些基础知识总结</title><link>https://blog.zzsqwq.cn/posts/107/</link><pubDate>Fri, 11 Sep 2020 00:08:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/107/</guid><description> 了解SQL 一.什么是SQL SQL是结构化查询语言（Structured Query Language）的缩写。是一种专门用来与数据库通信的语言。
 二.什么是数据库？ 数据库（Database）：保存有组织的数据的容器（通常是一个文件或一组文件）。 ​[scode type = &amp;ldquo;yellow&amp;rdquo;]需要注意的是，有时候我们把数据库软件也简称为数据库，但是数据库软件和数据库有本质区别，数据库软件应称为DBMS（数据库管理系统），我们通过数据库软件对数据库进行删减等操作，他代替你操作和访问数据库。[/scode]
 三.数据库的组成 表
 数据库中通常有多张表，这类似于一个清单。就好像我们管理两个班级就可以用两个表单。
@@ -18,4 +18,18 @@
 通俗点讲，好比有两张表，分别存储了所有供应商的信息，和所有产品的信息，在前面那张表定义了每个供应商的id，作为其主键。然后我们为每个产品定义外键的id，填上对应供应商的id，然后通过连结，我们就能知道每个产品供应商的详细信息了。
 可伸缩性（scale）
 能够适应不断增加的工作量而不失败。设计良好的数据库或应用程序称之为可伸缩性好（scale well）。
-四.数据库的连结 ​在上面我们讲外键的时候有讲到联结，连结的意思大概就是把多个表，根据一些命令串在一起。</description></item></channel></rss>
+四.数据库的连结 ​在上面我们讲外键的时候有讲到联结，连结的意思大概就是把多个表，根据一些命令串在一起。
+等值连结（内部连结）
+顾名思义，等值连结就是通过两个表之间元素值的相同来把两个表连结起来。
+自联结
+这个用于查找在同一表中某一特性相同的所有成员。有的时候自联结要比子查询快很多。
+自然联结
+在自然联结中，排除相同的列多次出现，使每个列只返回一次。
+外部联结
+联结包含了那些在相关表中没有关联行的行。这种类型的联结称为外部连结。
+五.数据库设计范式 范式：当一个关系中的所有分类都是不可再分的数据项时，该关系是规范化的。不可再分的数据项，即不存在组合数据项和多项数据项。一个低一级的关系模式，通过模式分解可以转换为若干高一级范式的关系模式的集合，这个过程就叫规范化。
+第一范式：当关系模式R的所有属性都不能在分解为更基本的数据单位时，称R是满足第一范式的，简记为1NF。满足第一范式是关系模式规范化的最低要求，否则，将有很多基本操作在这样的关系模式中实现不了。
+第二范式：如果关系模式R满足第一范式，并且R得所有非主属性都完全依赖于R的每一个候选关键属性，称R满足第二范式，简记为2NF。
+第三范式：设R是一个满足第一范式条件的关系模式，X是R的任意属性集，如果X非传递依赖于R的任意一个候选关键字，称R满足第三范式，简记为3NF。
+用我们学长的一句话，范式不是必须满足的，但是我们尽量按照范式来设计数据库，毕竟这是这么多程序员实战经验总结出来的。
+参考链接 数据库设计三大范式_dosthing 数据库设计三大范式_张龙豪 mysql必知必会</description></item></channel></rss>

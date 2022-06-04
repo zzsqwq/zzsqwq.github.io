@@ -54,6 +54,12 @@
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
+&lt;div class="notice info">
+&lt;div class="notice-title">
+&lt;i class="fa fa-exclamation-circle" aria-hidden="true">&lt;/i>Info
+&lt;/div>
+&lt;div class="notice-content">在 2022/6/4 的更新中，已经修复了 Start with Linux 失效的问题。&lt;/div>
+&lt;/div>
 &lt;p>因为 Electron 的一些限制，点击 &lt;code>Start with Linux&lt;/code> 后貌似仍没法开机自启动，去官方仓库看了一下 Issue，找到了两个：&lt;/p>
 &lt;ol>
 &lt;li>&lt;a href="https://github.com/Fndroid/clash_for_windows_pkg/issues/2856">ubuntu下开启start with linux没有作用&lt;/a>&lt;/li>
@@ -101,6 +107,7 @@
 &lt;p>之前看到过学长学姐做过个人主页，多是用来申请一些学校的夏令营使用的，觉得非常的 Nice，自己也想搞一个。&lt;/p>
 &lt;p>大家之前好像大多用的是基于 Hexo 的一个主题 — &lt;a href="https://github.com/PhosphorW/hexo-theme-academia">hexo-theme-academia&lt;/a>，但是由于之前我用过 Hexo，觉得他有一些比较明显的弊端，例如环境配置比较麻烦、需要安装 Nodejs、npm 等环境，然后再安装 Hexo。其次它的构建速度比较慢，用起来感觉比较僵硬。&lt;/p>
 &lt;p>后来随着了解增多，尝试了 Typecho、WordPress，Hugo 等主题后，目前还是决定使用 Hugo。它构建速度快，而且安装简单，在 Ubuntu 上只需要一行 &lt;code>sudo apt install hugo&lt;/code> 即可，不可谓不简单。因此萌生了移植一个 Hugo 版本主题的想法，刚好可以锻炼一下自己。&lt;/p>
+&lt;p>欢迎点击 &lt;a href="https://zzsqwq.cn">这里&lt;/a> 查看我的个人主页。&lt;/p>
 &lt;h2 id="一些难点">
 一些难点
 &lt;a class="heading-link" href="#%e4%b8%80%e4%ba%9b%e9%9a%be%e7%82%b9">

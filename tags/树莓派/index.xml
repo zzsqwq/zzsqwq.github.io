@@ -9,4 +9,7 @@
 配置网络相关 Ubuntu的server版本有个比较蛋疼的问题就是上网比较困难，如果是用的学校网线，必须要PPPOE拨号才能上网，但是server版本居然没有 net-tools 和 network-manager ，连接WiFi啥的试了很多办法但还是没有什么作用。
 解决办法：用网线直接连接树莓派和有网的路由器，安装 net-tools 和 network-manager ，执行
 $ sudo nmtui 选择 Activate a connect 连接无线的WiFi，执行
-$ sudo ifconfig 查看WiFi对应的IP，至此，树莓派可以摆脱屏幕，我们可以使用电脑进行使用 ssh 连接。</description></item></channel></rss>
+$ sudo ifconfig 查看WiFi对应的IP，至此，树莓派可以摆脱屏幕，我们可以使用电脑进行使用 ssh 连接。
+这里也可以使用网线进行连接，具体操作如下
+用网线连接树莓派和自己的电脑。
+在树莓派的利用 nmtui 选择 Edit a connection ，Add一个Ethernet connect，对IPv4 CONFIGURATION进行设置，首先讲 Automatic 设置为 Manual，设置 Address 为 静态IP 如 192.</description></item></channel></rss>
