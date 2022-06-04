@@ -16,6 +16,7 @@ typora-root-url: ../../static
 
 后来随着了解增多，尝试了 Typecho、WordPress，Hugo 等主题后，目前还是决定使用 Hugo。它构建速度快，而且安装简单，在 Ubuntu 上只需要一行 `sudo apt install hugo` 即可，不可谓不简单。因此萌生了移植一个 Hugo 版本主题的想法，刚好可以锻炼一下自己。
 
+欢迎点击 [这里](https://zzsqwq.cn) 查看我的个人主页。
 
 
 ## 一些难点

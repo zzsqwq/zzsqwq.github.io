@@ -83,6 +83,8 @@ StartupNotify=true
 
 ## 配置开机自启动
 
+{{< notice info >}}  在 2022/6/4 的更新中，已经修复了 Start with Linux 失效的问题。 {{< /notice >}}
+
 因为 Electron 的一些限制，点击 `Start with Linux` 后貌似仍没法开机自启动，去官方仓库看了一下 Issue，找到了两个：
 
 1. [ubuntu下开启start with linux没有作用](https://github.com/Fndroid/clash_for_windows_pkg/issues/2856)
