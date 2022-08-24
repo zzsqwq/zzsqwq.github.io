@@ -1,4 +1,217 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://blog.zzsqwq.cn/</link><atom:link href="https://blog.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml"/><description>Zs's Blog</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><lastBuildDate>Thu, 12 May 2022 22:37:00 +0000</lastBuildDate><item><title>Linux 上 Clash For Windows 如何设置开机自启与桌面图标</title><link>https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/</link><pubDate>Thu, 12 May 2022 22:37:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/</guid><description>&lt;h2 id="背景">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://blog.zzsqwq.cn/</link><atom:link href="https://blog.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml"/><description>Zs's Blog</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><lastBuildDate>Wed, 24 Aug 2022 23:37:00 +0000</lastBuildDate><item><title>为什么要使用条件变量？</title><link>https://blog.zzsqwq.cn/posts/why-use-condition-variable/</link><pubDate>Wed, 24 Aug 2022 23:37:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/why-use-condition-variable/</guid><description>&lt;h1 id="为什么要使用条件变量">
+为什么要使用条件变量？
+&lt;a class="heading-link" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e4%bd%bf%e7%94%a8%e6%9d%a1%e4%bb%b6%e5%8f%98%e9%87%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h1>
+&lt;h2 id="前言">
+前言
+&lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>最近看了很多与线程有关的 C++ 新特性，条件变量是见的比较多的一个特性。&lt;/p>
+&lt;p>看的时候我发现，想要理解一个新的特性，关键的要看它的引入到底解决了哪些问题，没有什么特性我们要实现相同的功能要怎么做？&lt;/p>
+&lt;p>以我的理解来看，条件变量是一个线程间互相同步与通知的手段，他通过&lt;strong>主动唤醒&lt;/strong>的方式减小了各个线程的开销，取代了简单但是消耗较大的一直&lt;strong>被动循环检验与等待&lt;/strong>。&lt;/p>
+&lt;h2 id="没有条件变量我们如何实现相同的需求">
+没有条件变量我们如何实现相同的需求？
+&lt;a class="heading-link" href="#%e6%b2%a1%e6%9c%89%e6%9d%a1%e4%bb%b6%e5%8f%98%e9%87%8f%e6%88%91%e4%bb%ac%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e7%9b%b8%e5%90%8c%e7%9a%84%e9%9c%80%e6%b1%82">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>这里采用现代C++教程&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> 中关于条件变量的一个例子作为基础：&lt;/p>
+&lt;h3 id="不使用条件变量版本">
+不使用条件变量版本
+&lt;a class="heading-link" href="#%e4%b8%8d%e4%bd%bf%e7%94%a8%e6%9d%a1%e4%bb%b6%e5%8f%98%e9%87%8f%e7%89%88%e6%9c%ac">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C++" data-lang="C++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;queue&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;chrono&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;mutex&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;thread&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;condition_variable&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>queue&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> produced_nums;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>mutex mtx;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 生产者
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">auto&lt;/span> producer &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#f92672">&amp;amp;&lt;/span>]() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; ; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>this_thread&lt;span style="color:#f92672">::&lt;/span>sleep_for(std&lt;span style="color:#f92672">::&lt;/span>chrono&lt;span style="color:#f92672">::&lt;/span>milliseconds(&lt;span style="color:#ae81ff">900&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>unique_lock&lt;span style="color:#f92672">&amp;lt;&lt;/span>std&lt;span style="color:#f92672">::&lt;/span>mutex&lt;span style="color:#f92672">&amp;gt;&lt;/span> lock(mtx);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;producing &amp;#34;&lt;/span> &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> i &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>endl;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> produced_nums.push(i);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 消费者
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">auto&lt;/span> consumer &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#f92672">&amp;amp;&lt;/span>]() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (true) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>unique_lock&lt;span style="color:#f92672">&amp;lt;&lt;/span>std&lt;span style="color:#f92672">::&lt;/span>mutex&lt;span style="color:#f92672">&amp;gt;&lt;/span> lock(mtx);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(produced_nums.empty()) &lt;span style="color:#66d9ef">continue&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>unique_lock&lt;span style="color:#f92672">&amp;lt;&lt;/span>std&lt;span style="color:#f92672">::&lt;/span>mutex&lt;span style="color:#f92672">&amp;gt;&lt;/span> lock(mtx);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 短暂取消锁，使得生产者有机会在消费者消费空前继续生产
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> lock.unlock();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 消费者慢于生产者
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>this_thread&lt;span style="color:#f92672">::&lt;/span>sleep_for(std&lt;span style="color:#f92672">::&lt;/span>chrono&lt;span style="color:#f92672">::&lt;/span>milliseconds(&lt;span style="color:#ae81ff">1000&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> lock.lock();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (&lt;span style="color:#f92672">!&lt;/span>produced_nums.empty()) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;consuming &amp;#34;&lt;/span> &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> produced_nums.front() &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>endl;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> produced_nums.pop();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 分别在不同的线程中运行
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#66d9ef">thread&lt;/span> p(producer);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#66d9ef">thread&lt;/span> cs[&lt;span style="color:#ae81ff">2&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>; &lt;span style="color:#f92672">++&lt;/span>i) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cs[i] &lt;span style="color:#f92672">=&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#66d9ef">thread&lt;/span>(consumer);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> p.join();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>; &lt;span style="color:#f92672">++&lt;/span>i) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cs[i].join();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="使用条件变量版本">
+使用条件变量版本
+&lt;a class="heading-link" href="#%e4%bd%bf%e7%94%a8%e6%9d%a1%e4%bb%b6%e5%8f%98%e9%87%8f%e7%89%88%e6%9c%ac">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C++" data-lang="C++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;queue&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;chrono&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;mutex&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;thread&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;condition_variable&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>queue&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> produced_nums;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>mutex mtx;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>condition_variable cv;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">bool&lt;/span> notified &lt;span style="color:#f92672">=&lt;/span> false; &lt;span style="color:#75715e">// 通知信号
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 生产者
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">auto&lt;/span> producer &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#f92672">&amp;amp;&lt;/span>]() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; ; i&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>this_thread&lt;span style="color:#f92672">::&lt;/span>sleep_for(std&lt;span style="color:#f92672">::&lt;/span>chrono&lt;span style="color:#f92672">::&lt;/span>milliseconds(&lt;span style="color:#ae81ff">900&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>unique_lock&lt;span style="color:#f92672">&amp;lt;&lt;/span>std&lt;span style="color:#f92672">::&lt;/span>mutex&lt;span style="color:#f92672">&amp;gt;&lt;/span> lock(mtx);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;producing &amp;#34;&lt;/span> &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> i &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>endl;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> produced_nums.push(i);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> notified &lt;span style="color:#f92672">=&lt;/span> true;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cv.notify_all(); &lt;span style="color:#75715e">// 此处也可以使用 notify_one
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 消费者
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">auto&lt;/span> consumer &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#f92672">&amp;amp;&lt;/span>]() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (true) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>unique_lock&lt;span style="color:#f92672">&amp;lt;&lt;/span>std&lt;span style="color:#f92672">::&lt;/span>mutex&lt;span style="color:#f92672">&amp;gt;&lt;/span> lock(mtx);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (&lt;span style="color:#f92672">!&lt;/span>notified) { &lt;span style="color:#75715e">// 避免虚假唤醒
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> cv.wait(lock);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 短暂取消锁，使得生产者有机会在消费者消费空前继续生产
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> lock.unlock();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 消费者慢于生产者
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>this_thread&lt;span style="color:#f92672">::&lt;/span>sleep_for(std&lt;span style="color:#f92672">::&lt;/span>chrono&lt;span style="color:#f92672">::&lt;/span>milliseconds(&lt;span style="color:#ae81ff">1000&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> lock.lock();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (&lt;span style="color:#f92672">!&lt;/span>produced_nums.empty()) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;consuming &amp;#34;&lt;/span> &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> produced_nums.front() &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>endl;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> produced_nums.pop();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> notified &lt;span style="color:#f92672">=&lt;/span> false;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// 分别在不同的线程中运行
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#66d9ef">thread&lt;/span> p(producer);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#66d9ef">thread&lt;/span> cs[&lt;span style="color:#ae81ff">2&lt;/span>];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>; &lt;span style="color:#f92672">++&lt;/span>i) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cs[i] &lt;span style="color:#f92672">=&lt;/span> std&lt;span style="color:#f92672">::&lt;/span>&lt;span style="color:#66d9ef">thread&lt;/span>(consumer);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> p.join();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">int&lt;/span> i &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; i &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>; &lt;span style="color:#f92672">++&lt;/span>i) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cs[i].join();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这两段代码在效果上是等效的，都是一个生产者两个消费者。&lt;/p>
+&lt;p>前者使用了 &lt;code>while&lt;/code> 循环来一直检查是否可以消费，后者使用了 &lt;code>cv.wait(lock)&lt;/code> 条件变量来实现阻塞等待可消费的提醒。&lt;/p>
+&lt;p>可以发现在这个例子里，前者是主动的去检查是否可以消费，后者是被动的被提醒可以消费，而主动则代表着需要一直询问查询，主动的 &lt;code>while&lt;/code> 循环检查始终在重复如下流程：&lt;/p>
+&lt;img src="https://blog.zzsqwq.cn/images/why-use-condition-variable/why-use-condition-variable-1.png" style="zoom:25%;" />
+&lt;p>而这个上锁、检查、释放锁的过程就是非常冗余、消耗资源、效率低下的，而条件变量解决了这个问题，条件变量做的事：&lt;/p>
+&lt;img src="https://blog.zzsqwq.cn/images/why-use-condition-variable/why-use-condition-variable-2.png" style="zoom:25%;" />
+&lt;p>这里需要注意的一点是，在条件变量调用 &lt;code>wait()&lt;/code> 时，做了两件事，一个是阻塞线程等待其他线程唤醒、另一个是释放锁，只有这样才会让别的线程有机会获得锁，而&lt;strong>被唤醒后又会自动上锁。&lt;/strong>&lt;/p>
+&lt;h2 id="为什么要和-mutex-与-lock-一起用">
+为什么要和 mutex 与 lock 一起用？
+&lt;a class="heading-link" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e5%92%8c-mutex-%e4%b8%8e-lock-%e4%b8%80%e8%b5%b7%e7%94%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>我们常见的搭配就是 condition_variable、mutex、unique_lock 一起使用，那么为什么要这么做呢？&lt;/p>
+&lt;p>一个比较常见的说法是，在调用 &lt;code>wait()&lt;/code> 函数与线程真正的阻塞等待状态是存在一定时间差的，那么就会存在唤醒丢失的问题，一种情况如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>线程A： ------- 调用 wait&lt;span style="color:#f92672">()&lt;/span> 函数 ------- 进入等待状态 ------
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>线程B： -------------------------唤醒A-------------------
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>而我们希望的是：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>线程A： ------- 调用 wait&lt;span style="color:#f92672">()&lt;/span> 函数 ------- 进入等待状态 ------
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>线程B： -------------------------------------------唤醒A-
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>我们总是要确保，在线程 A 真正进入等待状态后再进行唤醒，因此这里需要一个 lock 来保证我们对于一个线程空闲/等待的改变是原子性的，也就是不应该被其他线程中途干扰。&lt;/p>
+&lt;h2 id="为什么使用-unique_lock-而不使用-scoped_lock-或-lock_guard">
+为什么使用 unique_lock 而不使用 scoped_lock 或 lock_guard
+&lt;a class="heading-link" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e4%bd%bf%e7%94%a8-unique_lock-%e8%80%8c%e4%b8%8d%e4%bd%bf%e7%94%a8-scoped_lock-%e6%88%96-lock_guard">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>首先三个函数都是 RAII 的锁管理函数，可以有效解决 lock 后忘记 unlock 的情形，而目前在 C++17 后推荐统一使用 &lt;code>scoped_lock&lt;/code> 而不是 &lt;code>lock_guard&lt;/code>。&lt;/p>
+&lt;p>而使用 &lt;code>unique_lock&lt;/code> 是因为我们在使用条件变量时，需要在条件变量 &lt;code>wait&lt;/code> 时解除 lock，只有 &lt;code>unique_lock&lt;/code> 能够满足这个条件，实现自己更细粒度的锁区间的划分。&lt;/p>
+&lt;h2 id="什么是虚假唤醒">
+什么是虚假唤醒？
+&lt;a class="heading-link" href="#%e4%bb%80%e4%b9%88%e6%98%af%e8%99%9a%e5%81%87%e5%94%a4%e9%86%92">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>可以注意到在第一部分代码中有这么一段：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C++" data-lang="C++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">auto&lt;/span> consumer &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#f92672">&amp;amp;&lt;/span>]() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (true) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> std&lt;span style="color:#f92672">::&lt;/span>unique_lock&lt;span style="color:#f92672">&amp;lt;&lt;/span>std&lt;span style="color:#f92672">::&lt;/span>mutex&lt;span style="color:#f92672">&amp;gt;&lt;/span> lock(mtx);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> (&lt;span style="color:#f92672">!&lt;/span>notified) { &lt;span style="color:#75715e">// 避免虚假唤醒
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> cv.wait(lock);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// ...
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> notified &lt;span style="color:#f92672">=&lt;/span> false;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> };
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>避免虚假唤醒&lt;/strong>，那么什么是虚假唤醒呢？&lt;/p>
+&lt;p>虚假唤醒简而言之就是，&lt;strong>没有满足消费的条件却被唤醒后进行了消费。&lt;/strong>&lt;/p>
+&lt;p>这个发生的可能多是在系统调度层面，具体的可以参考此知乎问题：&lt;a href="https://www.zhihu.com/question/271521213">为什么条件锁会产生虚假唤醒现象（spurious wakeup）？&lt;/a>&lt;/p>
+&lt;p>而解决的方案就是在消费之前再检查一下是否满足消费的条件，而这个消费条件多是用一个形如 &lt;code>notified&lt;/code> 的 bool 变量来标识是否可以消费。&lt;/p>
+&lt;p>如果不检查，带条件变量的执行流程就会像如下这样：&lt;/p>
+&lt;img src="https://blog.zzsqwq.cn/images/why-use-condition-variable/why-use-condition-variable-3.png" style="zoom:25%;" align=center/>
+&lt;p>其中少了一步检查是否可以消费的过程。&lt;/p>
+&lt;h2 id="后记">
+后记
+&lt;a class="heading-link" href="#%e5%90%8e%e8%ae%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>本文记录了我在学习条件变量过程中的一些疑问，如有错误之处，敬请交流指正。&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://changkun.de/modern-cpp/">https://changkun.de/modern-cpp/&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>Linux 上 Clash For Windows 如何设置开机自启与桌面图标</title><link>https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/</link><pubDate>Thu, 12 May 2022 22:37:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/</guid><description>&lt;h2 id="背景">
 背景
 &lt;a class="heading-link" href="#%e8%83%8c%e6%99%af">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -2359,7 +2572,7 @@ Git中的引用
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 波士顿住房数据由哈里森和鲁宾菲尔德于1978年Harrison and Rubinfeld&lt;!-- raw HTML omitted -->&lt;a href="https://www.zzsqwq.cn/usr/uploads/2021/05/406125417.png">1&lt;/a>&lt;!-- raw HTML omitted -->收集。它包括了波士顿大区每个调查行政区的506个观察值。1980年Belsley et al.&lt;!-- raw HTML omitted -->&lt;a href="https://www.zzsqwq.cn/usr/uploads/2021/05/3238192089.png">2&lt;/a>&lt;!-- raw HTML omitted -->曾对此数据做过分析。&lt;/p>
+&lt;p>​ 波士顿住房数据由哈里森和鲁宾菲尔德于1978年Harrison and Rubinfeld&lt;sup>&lt;a href="https://www.zzsqwq.cn/usr/uploads/2021/05/406125417.png">1&lt;/a>&lt;/sup>收集。它包括了波士顿大区每个调查行政区的506个观察值。1980年Belsley et al.&lt;sup>&lt;a href="https://www.zzsqwq.cn/usr/uploads/2021/05/3238192089.png">2&lt;/a>&lt;/sup>曾对此数据做过分析。&lt;/p>
 &lt;p>​ 数据一共14列，每一列的含义分别如下：&lt;/p>
 &lt;table>
 &lt;thead>
@@ -6441,7 +6654,7 @@ Vim的常用操作
 &lt;/a>
 &lt;/h2>
 &lt;h3 id="span-idjumpplot函数span">
-&lt;!-- raw HTML omitted -->plot函数&lt;!-- raw HTML omitted -->
+&lt;span id="jump">plot函数&lt;/span>
 &lt;a class="heading-link" href="#span-idjumpplot%e5%87%bd%e6%95%b0span">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
@@ -6472,7 +6685,7 @@ Vim的常用操作
 &lt;/li>
 &lt;/ul>
 &lt;h3 id="span-idjump2fplot函数span">
-&lt;!-- raw HTML omitted -->fplot函数&lt;!-- raw HTML omitted -->
+&lt;span id="jump2">fplot函数&lt;/span>
 &lt;a class="heading-link" href="#span-idjump2fplot%e5%87%bd%e6%95%b0span">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
@@ -6508,7 +6721,7 @@ Vim的常用操作
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="display:flex;">&lt;span>fplot(@x sin(&lt;span style="color:#ae81ff">1.&lt;/span>&lt;span style="color:#f92672">/&lt;/span>x),[&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">0.2&lt;/span>])
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1197666753.png" alt="plot2.png">&lt;/p>
 &lt;hr>
-&lt;!-- raw HTML omitted -->
+&lt;/br>
 &lt;h2 id="42-绘制图形的辅助操作">
 4.2 绘制图形的辅助操作
 &lt;a class="heading-link" href="#42-%e7%bb%98%e5%88%b6%e5%9b%be%e5%bd%a2%e7%9a%84%e8%be%85%e5%8a%a9%e6%93%8d%e4%bd%9c">
@@ -6652,7 +6865,7 @@ Vim的常用操作
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>axis([&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>pi,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">35&lt;/span>,&lt;span style="color:#ae81ff">35&lt;/span>]);
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/4053281797.png" alt="plot4.png">&lt;/p>
 &lt;hr>
-&lt;!-- raw HTML omitted -->
+&lt;/br>
 &lt;h2 id="43-其他形式的二维曲线">
 4.3 其他形式的二维曲线
 &lt;a class="heading-link" href="#43-%e5%85%b6%e4%bb%96%e5%bd%a2%e5%bc%8f%e7%9a%84%e4%ba%8c%e7%bb%b4%e6%9b%b2%e7%ba%bf">
@@ -6808,7 +7021,7 @@ Vim的常用操作
 &lt;/blockquote>
 &lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/200869395.png" alt="pie2.png">&lt;/p>
 &lt;hr>
-&lt;!-- raw HTML omitted -->
+&lt;/br>
 &lt;h2 id="44-三维曲线">
 4.4 三维曲线
 &lt;a class="heading-link" href="#44-%e4%b8%89%e7%bb%b4%e6%9b%b2%e7%ba%bf">
@@ -6853,7 +7066,7 @@ fplot3函数
 &lt;li>&lt;strong>基本用法&lt;/strong>：与&lt;a href="#jump2">fplot函数&lt;/a>类似&lt;/li>
 &lt;/ul>
 &lt;hr>
-&lt;!-- raw HTML omitted -->
+&lt;/br>
 &lt;h2 id="45-三维曲面">
 4.5 三维曲面
 &lt;a class="heading-link" href="#45-%e4%b8%89%e7%bb%b4%e6%9b%b2%e9%9d%a2">
@@ -8324,7 +8537,7 @@ MATLAB的搜索路径
 &lt;/a>
 &lt;/h2>
 &lt;p>​ 学OI的时候就做过树形dp的题，不过那时候全在划水。看了看题解还不太懂就直接照着题解写了，现在再回来看还是不会QAQ，所以就再看看然后自己写了一遍。&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;/br>
 &lt;h2 id="a-没有上司的舞会httpswwwluogucomcnproblemp1352">
 A. &lt;a href="https://www.luogu.com.cn/problem/P1352">没有上司的舞会&lt;/a>
 &lt;a class="heading-link" href="#a-%e6%b2%a1%e6%9c%89%e4%b8%8a%e5%8f%b8%e7%9a%84%e8%88%9e%e4%bc%9ahttpswwwluogucomcnproblemp1352">
@@ -8416,7 +8629,7 @@ A. &lt;a href="https://www.luogu.com.cn/problem/P1352">没有上司的舞会&lt;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,max(dp[root][&lt;span style="color:#ae81ff">0&lt;/span>],dp[root][&lt;span style="color:#ae81ff">1&lt;/span>]));
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/br>
 &lt;h2 id="b-战略游戏httpswwwluogucomcnproblemp2016">
 B. &lt;a href="https://www.luogu.com.cn/problem/P2016">战略游戏&lt;/a>
 &lt;a class="heading-link" href="#b-%e6%88%98%e7%95%a5%e6%b8%b8%e6%88%8fhttpswwwluogucomcnproblemp2016">
@@ -8504,7 +8717,7 @@ B. &lt;a href="https://www.luogu.com.cn/problem/P2016">战略游戏&lt;/a>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,min(dp[&lt;span style="color:#ae81ff">0&lt;/span>][&lt;span style="color:#ae81ff">0&lt;/span>],dp[&lt;span style="color:#ae81ff">0&lt;/span>][&lt;span style="color:#ae81ff">1&lt;/span>]));
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/br>
 &lt;h2 id="c-二叉苹果树httpswwwluogucomcnproblemp2015">
 C. &lt;a href="https://www.luogu.com.cn/problem/P2015">二叉苹果树&lt;/a>
 &lt;a class="heading-link" href="#c-%e4%ba%8c%e5%8f%89%e8%8b%b9%e6%9e%9c%e6%a0%91httpswwwluogucomcnproblemp2015">
@@ -8636,7 +8849,7 @@ A. &lt;a href="https://codeforces.com/contest/1304/problem/A">Two Rabbits&lt;/a>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/br>
 &lt;h2 id="b-longest-palindromehttpscodeforcescomcontest1304problemb">
 B. &lt;a href="https://codeforces.com/contest/1304/problem/B">Longest Palindrome&lt;/a>
 &lt;a class="heading-link" href="#b-longest-palindromehttpscodeforcescomcontest1304problemb">
@@ -8735,7 +8948,7 @@ B. &lt;a href="https://codeforces.com/contest/1304/problem/B">Longest Palindrome
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span> cout&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/br>
 &lt;h2 id="c-air-conditionerhttpscodeforcescomcontest1304problemc">
 C. &lt;a href="https://codeforces.com/contest/1304/problem/C">Air Conditioner&lt;/a>
 &lt;a class="heading-link" href="#c-air-conditionerhttpscodeforcescomcontest1304problemc">
@@ -8888,7 +9101,7 @@ A. &lt;a href="https://www.luogu.com.cn/problem/P1005">矩阵取数游戏&lt;/a>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> out(ans);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/br>
 &lt;h2 id="b-关路灯httpswwwluogucomcnproblemp1220">
 B. &lt;a href="https://www.luogu.com.cn/problem/P1220">关路灯&lt;/a>
 &lt;a class="heading-link" href="#b-%e5%85%b3%e8%b7%af%e7%81%afhttpswwwluogucomcnproblemp1220">
@@ -8963,7 +9176,7 @@ B. &lt;a href="https://www.luogu.com.cn/problem/P1220">关路灯&lt;/a>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,min(dp[&lt;span style="color:#ae81ff">1&lt;/span>][n][&lt;span style="color:#ae81ff">0&lt;/span>],dp[&lt;span style="color:#ae81ff">1&lt;/span>][n][&lt;span style="color:#ae81ff">1&lt;/span>]));
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/br>
 &lt;h2 id="c-小a和uim之大逃离httpswwwluogucomcnproblemp1373">
 C. &lt;a href="https://www.luogu.com.cn/problem/P1373">小a和uim之大逃离&lt;/a>
 &lt;a class="heading-link" href="#c-%e5%b0%8fa%e5%92%8cuim%e4%b9%8b%e5%a4%a7%e9%80%83%e7%a6%bbhttpswwwluogucomcnproblemp1373">
@@ -9119,7 +9332,7 @@ C. &lt;a href="https://www.luogu.com.cn/problem/P1373">小a和uim之大逃离&lt
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">queue is empty
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">*/&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
-&lt;!-- raw HTML omitted -->
+&lt;/br>
 &lt;h2 id="栈stack">
 栈(stack)
 &lt;a class="heading-link" href="#%e6%a0%88stack">
@@ -9195,7 +9408,7 @@ C. &lt;a href="https://www.luogu.com.cn/problem/P1373">小a和uim之大逃离&lt
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">stack is empty
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">*/&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
-&lt;!-- raw HTML omitted -->
+&lt;/br>
 &lt;h2 id="映射map">
 映射(map)
 &lt;a class="heading-link" href="#%e6%98%a0%e5%b0%84map">
@@ -9332,7 +9545,7 @@ C. &lt;a href="https://www.luogu.com.cn/problem/P1373">小a和uim之大逃离&lt
 &lt;/ol>
 &lt;/blockquote>
 &lt;hr>
-&lt;!-- raw HTML omitted -->
+&lt;/br>
 &lt;h2 id="集合set">
 集合(set)
 &lt;a class="heading-link" href="#%e9%9b%86%e5%90%88set">
@@ -9373,7 +9586,7 @@ C. &lt;a href="https://www.luogu.com.cn/problem/P1373">小a和uim之大逃离&lt
 &lt;/a>
 &lt;/h4>
 &lt;ul>
-&lt;li>插入特定元素可以通过 &lt;code>s.insert(3)&lt;/code> 插入对应键值，返回值为pair&amp;lt;set&lt;!-- raw HTML omitted -->::iterator,bool&amp;gt; ，后续bool变量标志是否成功，如果元素3已经存在，那么bool值为false，迭代器对应的是该元素在其中的位置，如果元素不存在其中，返回true，并且返回的迭代器对应的在集合中位置&lt;/li>
+&lt;li>插入特定元素可以通过 &lt;code>s.insert(3)&lt;/code> 插入对应键值，返回值为pair&amp;lt;set&lt;int>::iterator,bool&amp;gt; ，后续bool变量标志是否成功，如果元素3已经存在，那么bool值为false，迭代器对应的是该元素在其中的位置，如果元素不存在其中，返回true，并且返回的迭代器对应的在集合中位置&lt;/li>
 &lt;li>插入一个区间的元素，例如有整数数组a ，可以用 &lt;code>s.insert(a,a+3)&lt;/code> ，可以将a中的 a[0] a[1] a[2] 插入到set中。&lt;/li>
 &lt;/ul>
 &lt;h4 id="2-删除数据">
@@ -9480,7 +9693,7 @@ A. &lt;a href="https://ac.nowcoder.com/acm/contest/3007/A">配对&lt;/a>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,ans);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/br>
 &lt;h2 id="b-十字阵列httpsacnowcodercomacmcontest3007f">
 B. &lt;a href="https://ac.nowcoder.com/acm/contest/3007/F">十字阵列&lt;/a>
 &lt;a class="heading-link" href="#b-%e5%8d%81%e5%ad%97%e9%98%b5%e5%88%97httpsacnowcodercomacmcontest3007f">
@@ -9546,7 +9759,7 @@ B. &lt;a href="https://ac.nowcoder.com/acm/contest/3007/F">十字阵列&lt;/a>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%lld&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>,ans);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/br>
 &lt;h2 id="c-垃圾陷阱httpswwwluogucomcnproblemp1156">
 C. &lt;a href="https://www.luogu.com.cn/problem/P1156">垃圾陷阱&lt;/a>
 &lt;a class="heading-link" href="#c-%e5%9e%83%e5%9c%be%e9%99%b7%e9%98%b1httpswwwluogucomcnproblemp1156">
@@ -9693,7 +9906,7 @@ A. &lt;a href="https://codeforces.com/contest/1301/problem/A">Three Strings&lt;/
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/br>
 &lt;h2 id="b-motaracks-birthdayhttpscodeforcescomcontest1301problemb">
 B. &lt;a href="https://codeforces.com/contest/1301/problem/B">Motarack&amp;rsquo;s Birthday&lt;/a>
 &lt;a class="heading-link" href="#b-motaracks-birthdayhttpscodeforcescomcontest1301problemb">
@@ -9767,7 +9980,7 @@ B. &lt;a href="https://codeforces.com/contest/1301/problem/B">Motarack&amp;rsquo
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/br>
 &lt;h2 id="c-ayoubs-functionhttpscodeforcescomcontest1301problemc">
 C. &lt;a href="https://codeforces.com/contest/1301/problem/C">Ayoub&amp;rsquo;s function&lt;/a>
 &lt;a class="heading-link" href="#c-ayoubs-functionhttpscodeforcescomcontest1301problemc">
@@ -9827,7 +10040,7 @@ C. &lt;a href="https://codeforces.com/contest/1301/problem/C">Ayoub&amp;rsquo;s 
 &lt;/a>
 &lt;/h2>
 &lt;p>​ 今天又是颓废的一天，被大佬拉去跟他一起做牛客网的题，QAQ&amp;hellip;那我会点啥嘛，就只能替大佬写两道水题了···&lt;/p>
-&lt;!-- raw HTML omitted -->
+&lt;/br>
 &lt;h2 id="a-牛牛战队的比赛地httpsacnowcodercomacmcontest3006">
 A. &lt;a href="https://ac.nowcoder.com/acm/contest/3006">牛牛战队的比赛地&lt;/a>
 &lt;a class="heading-link" href="#a-%e7%89%9b%e7%89%9b%e6%88%98%e9%98%9f%e7%9a%84%e6%af%94%e8%b5%9b%e5%9c%b0httpsacnowcodercomacmcontest3006">
@@ -9910,7 +10123,7 @@ A. &lt;a href="https://ac.nowcoder.com/acm/contest/3006">牛牛战队的比赛�
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%lf&amp;#34;&lt;/span>,sqrt(ans));
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/br>
 &lt;h2 id="b-牛牛与牛妹的约会httpsacnowcodercomacmcontest3006d">
 B. &lt;a href="https://ac.nowcoder.com/acm/contest/3006/D">牛牛与牛妹的约会&lt;/a>
 &lt;a class="heading-link" href="#b-%e7%89%9b%e7%89%9b%e4%b8%8e%e7%89%9b%e5%a6%b9%e7%9a%84%e7%ba%a6%e4%bc%9ahttpsacnowcodercomacmcontest3006d">
@@ -9983,7 +10196,7 @@ B. &lt;a href="https://ac.nowcoder.com/acm/contest/3006/D">牛牛与牛妹的约
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/br>
 &lt;h2 id="c-碎碎念httpsacnowcodercomacmcontest3006f">
 C. &lt;a href="https://ac.nowcoder.com/acm/contest/3006/F">碎碎念&lt;/a>
 &lt;a class="heading-link" href="#c-%e7%a2%8e%e7%a2%8e%e5%bf%b5httpsacnowcodercomacmcontest3006f">
@@ -10061,7 +10274,7 @@ C. &lt;a href="https://ac.nowcoder.com/acm/contest/3006/F">碎碎念&lt;/a>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/br>
 &lt;h2 id="d-牛牛战队的秀场httpsacnowcodercomacmcontest3006j">
 D. &lt;a href="https://ac.nowcoder.com/acm/contest/3006/J">牛牛战队的秀场&lt;/a>
 &lt;a class="heading-link" href="#d-%e7%89%9b%e7%89%9b%e6%88%98%e9%98%9f%e7%9a%84%e7%a7%80%e5%9c%bahttpsacnowcodercomacmcontest3006j">
@@ -10187,7 +10400,7 @@ A. &lt;a href="https://www.luogu.com.cn/problem/P1004">方格取数&lt;/a>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,dp[n][n][n][n]);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/br>
 &lt;h2 id="b-创意吃鱼法httpswwwluogucomcnproblemp1736">
 B. &lt;a href="https://www.luogu.com.cn/problem/P1736">创意吃鱼法&lt;/a>
 &lt;a class="heading-link" href="#b-%e5%88%9b%e6%84%8f%e5%90%83%e9%b1%bc%e6%b3%95httpswwwluogucomcnproblemp1736">
@@ -10270,7 +10483,7 @@ B. &lt;a href="https://www.luogu.com.cn/problem/P1736">创意吃鱼法&lt;/a>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,ans);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/br>
 &lt;h2 id="c-乌龟棋httpswwwluogucomcnproblemp1541">
 C. &lt;a href="https://www.luogu.com.cn/problem/P1541">乌龟棋&lt;/a>
 &lt;a class="heading-link" href="#c-%e4%b9%8c%e9%be%9f%e6%a3%8bhttpswwwluogucomcnproblemp1541">
@@ -10354,7 +10567,7 @@ C. &lt;a href="https://www.luogu.com.cn/problem/P1541">乌龟棋&lt;/a>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>,dp[num[&lt;span style="color:#ae81ff">1&lt;/span>]][num[&lt;span style="color:#ae81ff">2&lt;/span>]][num[&lt;span style="color:#ae81ff">3&lt;/span>]][num[&lt;span style="color:#ae81ff">4&lt;/span>]]);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/br>
 &lt;h2 id="d-能量项链httpswwwluogucomcnproblemp1063">
 D. &lt;a href="https://www.luogu.com.cn/problem/P1063">能量项链&lt;/a>
 &lt;a class="heading-link" href="#d-%e8%83%bd%e9%87%8f%e9%a1%b9%e9%93%behttpswwwluogucomcnproblemp1063">
@@ -12664,7 +12877,7 @@ D. &lt;a href="https://codeforces.com/contest/1296/problem/D">Fight with Monster
 &lt;/li>
 &lt;li>
 &lt;p>最后这个优化还是挺难想的，就是如果当前片段搜下去已经不符合情况，但是当前的lenlast是等于当前片段长度的，也就是说你正好用了尽可能满足条件的一个方案，也还是没达到目的，你们你继续往下搜，用比他还要劣的方案肯定也是不可能的，因此直接就break跳出循环不需要往下搜了。&lt;/p>
-&lt;p>&lt;del>不过就算加了这么多优化我还是T了三个点，直接 O&lt;!-- raw HTML omitted -->2&lt;!-- raw HTML omitted -->一开跑路了嘿嘿&lt;/del>&lt;/p>
+&lt;p>&lt;del>不过就算加了这么多优化我还是T了三个点，直接 O&lt;sub>2&lt;/sub>一开跑路了嘿嘿&lt;/del>&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;hr>

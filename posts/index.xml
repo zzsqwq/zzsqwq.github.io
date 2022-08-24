@@ -1,4 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Zs's Blog</title><link>https://blog.zzsqwq.cn/posts/</link><description>Recent content in Posts on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 12 May 2022 22:37:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux 上 Clash For Windows 如何设置开机自启与桌面图标</title><link>https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/</link><pubDate>Thu, 12 May 2022 22:37:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/</guid><description>背景 之前写过一篇 如何在 Linux 上优雅的使用 Clash？ 的博客，不过用了一段时间后这么倒腾还是不如直接用 Clash For Windows 这种方便的图形化界面，主要是改配置文件啥的方便，不需要重启啥的。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Zs's Blog</title><link>https://blog.zzsqwq.cn/posts/</link><description>Recent content in Posts on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 24 Aug 2022 23:37:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>为什么要使用条件变量？</title><link>https://blog.zzsqwq.cn/posts/why-use-condition-variable/</link><pubDate>Wed, 24 Aug 2022 23:37:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/why-use-condition-variable/</guid><description>为什么要使用条件变量？ 前言 最近看了很多与线程有关的 C++ 新特性，条件变量是见的比较多的一个特性。
+看的时候我发现，想要理解一个新的特性，关键的要看它的引入到底解决了哪些问题，没有什么特性我们要实现相同的功能要怎么做？
+以我的理解来看，条件变量是一个线程间互相同步与通知的手段，他通过主动唤醒的方式减小了各个线程的开销，取代了简单但是消耗较大的一直被动循环检验与等待。
+没有条件变量我们如何实现相同的需求？ 这里采用现代C++教程1 中关于条件变量的一个例子作为基础：
+不使用条件变量版本 #include &amp;lt;queue&amp;gt; #include &amp;lt;chrono&amp;gt; #include &amp;lt;mutex&amp;gt; #include &amp;lt;thread&amp;gt; #include &amp;lt;iostream&amp;gt; #include &amp;lt;condition_variable&amp;gt; int main() { std::queue&amp;lt;int&amp;gt; produced_nums; std::mutex mtx; // 生产者 auto producer = [&amp;amp;]() { for (int i = 0; ; i++) { std::this_thread::sleep_for(std::chrono::milliseconds(900)); std::unique_lock&amp;lt;std::mutex&amp;gt; lock(mtx); std::cout &amp;lt;&amp;lt; &amp;#34;producing &amp;#34; &amp;lt;&amp;lt; i &amp;lt;&amp;lt; std::endl; produced_nums.push(i); } }; // 消费者 auto consumer = [&amp;amp;]() { while (true) { { std::unique_lock&amp;lt;std::mutex&amp;gt; lock(mtx); if(produced_nums.</description></item><item><title>Linux 上 Clash For Windows 如何设置开机自启与桌面图标</title><link>https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/</link><pubDate>Thu, 12 May 2022 22:37:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/</guid><description>背景 之前写过一篇 如何在 Linux 上优雅的使用 Clash？ 的博客，不过用了一段时间后这么倒腾还是不如直接用 Clash For Windows 这种方便的图形化界面，主要是改配置文件啥的方便，不需要重启啥的。
 配了一下发现 Linux 版本的 Clash For Windows 貌似打开 Start with Linux 没什么用处，因此顺便写个配置教程。
 Clash For Windows 的具体使用可以查看官方教程：https://docs.cfw.lbyczf.com/
 顺便说一句，Linux 版本的无法自动设置系统代理，需要自己手动设置，不过我推荐你使用 proxychains 等工具在终端进行代理，使用 SwitchyOmega 等工具在浏览器端代理。
@@ -421,7 +425,7 @@ Linux系统常见命令
 &lt;/a>
 &lt;/h2>
 &lt;h3 id="span-idjumpplot函数span">
-&lt;!-- raw HTML omitted -->plot函数&lt;!-- raw HTML omitted -->
+&lt;span id="jump">plot函数&lt;/span>
 &lt;a class="heading-link" href="#span-idjumpplot%e5%87%bd%e6%95%b0span">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
