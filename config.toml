@@ -12,6 +12,8 @@ paginate = 20
 enableEmoji = true
 googleAnalytics = 'G-WF7TH97J9X'
 
+[markup.goldmark.renderer]
+unsafe = true
 
 [params]
   author = "zzsqwq"
