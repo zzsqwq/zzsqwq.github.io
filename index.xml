@@ -441,7 +441,7 @@
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>❯ su - git
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ ssh-keygen &lt;span style="color:#75715e">#然后一路回车&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后将公钥加入 &lt;code>authorized_keys&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>❯ cat ~/.ssh/id_rsa.pub &amp;gt; ~/.ssh/authorized_keys
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>❯ cat ~/.ssh/id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="五创建脚本文件">
 五、创建脚本文件
 &lt;a class="heading-link" href="#%e4%ba%94%e5%88%9b%e5%bb%ba%e8%84%9a%e6%9c%ac%e6%96%87%e4%bb%b6">
@@ -470,7 +470,7 @@
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>修改我们的 &lt;code>docker-compose.yml&lt;/code> ，注释掉 &lt;code>gitlab_rails['gitlab_shell_ssh_port'] = 3022&lt;/code> 以及添加 &lt;code>'/home/git/.ssh/:/var/opt/gitlab/.ssh'&lt;/code> ，将 &lt;code>git&lt;/code> 用户的 &lt;code>.ssh&lt;/code> 目录挂载到容器内。&lt;/p>
+&lt;p>修改我们的 &lt;code>docker-compose.yml&lt;/code> ，注释掉 &lt;code>gitlab_rails['gitlab_shell_ssh_port'] = 4022&lt;/code> 以及添加 &lt;code>'/home/git/.ssh/:/var/opt/gitlab/.ssh'&lt;/code> ，将 &lt;code>git&lt;/code> 用户的 &lt;code>.ssh&lt;/code> 目录挂载到容器内。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>gitlab-web:
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> image: &lt;span style="color:#e6db74">&amp;#39;gitlab/gitlab-ce:latest&amp;#39;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> container_name: &lt;span style="color:#e6db74">&amp;#39;gitlab&amp;#39;&lt;/span>
