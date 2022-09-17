@@ -122,7 +122,7 @@ drwxr-xr-x 5 git git  4096 Apr 24 02:00 ..
 然后将公钥加入 `authorized_keys` 
 
 ```shell
-❯ cat ~/.ssh/id_rsa.pub > ~/.ssh/authorized_keys 
+❯ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys 
 ```
 
 ### 五、创建脚本文件
@@ -162,7 +162,7 @@ ssh -i /home/git/.ssh/id_rsa -p 4022 -o StrictHostKeyChecking=no git@127.0.0.1 "
 
 ### 六、挂载额外的文件到 Gitlab 容器
 
-修改我们的 `docker-compose.yml` ，注释掉 `gitlab_rails['gitlab_shell_ssh_port'] = 3022` 以及添加 `'/home/git/.ssh/:/var/opt/gitlab/.ssh'` ，将 `git` 用户的 `.ssh` 目录挂载到容器内。
+修改我们的 `docker-compose.yml` ，注释掉 `gitlab_rails['gitlab_shell_ssh_port'] = 4022` 以及添加 `'/home/git/.ssh/:/var/opt/gitlab/.ssh'` ，将 `git` 用户的 `.ssh` 目录挂载到容器内。
 
 ```shell
 gitlab-web:
