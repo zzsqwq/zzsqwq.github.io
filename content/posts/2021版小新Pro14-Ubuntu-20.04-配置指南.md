@@ -154,5 +154,5 @@ sudo reboot
 5. [Custom Resolution Ubuntu 20.04](https://askubuntu.com/questions/1252172/custom-resolution-ubuntu-20-04)
 6. [How can I change the resolution of the GRUB menu?](https://askubuntu.com/questions/1091778/how-can-i-change-the-resolution-of-the-grub-menu)
 
-  [1]: https://www.zzsqwq.cn/usr/uploads/2021/11/3138090261.png
-  [2]: https://www.zzsqwq.cn/usr/uploads/2021/11/3113030601.png
+  [1]: https://blog.zzsqwq.cn/usr/uploads/2021/11/3138090261.png
+  [2]: https://blog.zzsqwq.cn/usr/uploads/2021/11/3113030601.png

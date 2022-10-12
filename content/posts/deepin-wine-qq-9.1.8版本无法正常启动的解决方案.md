@@ -143,4 +143,4 @@ X Error of failed request:  GLXBadContext
 ​	而且QQ和TIM某些情况下会出现bug，字体全部变为方块，在 deepin-wine-ubuntu 的 [Issues](https://github.com/wszqkzqk/deepin-wine-ubuntu/issues) 中找到了解决方案 [Ubuntu 安装QQ后中文方块解决方法](https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/253) ，大家有同样困扰的也可以看一下~
 
 
-  [1]: https://www.zzsqwq.cn/usr/uploads/2021/06/75817321.png
+  [1]: https://blog.zzsqwq.cn/usr/uploads/2021/06/75817321.png

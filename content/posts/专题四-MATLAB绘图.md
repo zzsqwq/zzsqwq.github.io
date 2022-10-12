@@ -327,11 +327,11 @@ surfl(x,y,z); title('surfl(x,y,z)')
 ![mesh.png][8]
 
 
-  [1]: https://www.zzsqwq.cn/usr/uploads/2020/08/997434957.png
-  [2]: https://www.zzsqwq.cn/usr/uploads/2020/08/1197666753.png
-  [3]: https://www.zzsqwq.cn/usr/uploads/2020/08/1478197073.png
-  [4]: https://www.zzsqwq.cn/usr/uploads/2020/08/4053281797.png
-  [5]: https://www.zzsqwq.cn/usr/uploads/2020/08/1604792788.png
-  [6]: https://www.zzsqwq.cn/usr/uploads/2020/08/200869395.png
-  [7]: https://www.zzsqwq.cn/usr/uploads/2020/08/1198437028.png
-  [8]: https://www.zzsqwq.cn/usr/uploads/2020/08/4183580283.png
+  [1]: https://blog.zzsqwq.cn/usr/uploads/2020/08/997434957.png
+  [2]: https://blog.zzsqwq.cn/usr/uploads/2020/08/1197666753.png
+  [3]: https://blog.zzsqwq.cn/usr/uploads/2020/08/1478197073.png
+  [4]: https://blog.zzsqwq.cn/usr/uploads/2020/08/4053281797.png
+  [5]: https://blog.zzsqwq.cn/usr/uploads/2020/08/1604792788.png
+  [6]: https://blog.zzsqwq.cn/usr/uploads/2020/08/200869395.png
+  [7]: https://blog.zzsqwq.cn/usr/uploads/2020/08/1198437028.png
+  [8]: https://blog.zzsqwq.cn/usr/uploads/2020/08/4183580283.png

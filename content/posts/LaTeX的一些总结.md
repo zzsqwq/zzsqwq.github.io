@@ -186,8 +186,8 @@ $$
 + [LATEX 公式总结](https://www.jianshu.com/p/22117d964baf)
 
 
-  [1]: https://www.zzsqwq.cn/usr/uploads/2020/08/248320705.png
-  [2]: https://www.zzsqwq.cn/usr/uploads/2020/08/935141993.png
-  [3]: https://www.zzsqwq.cn/usr/uploads/2020/08/1186889784.png
-  [4]: https://www.zzsqwq.cn/usr/uploads/2020/08/2438601090.png
-  [5]: https://www.zzsqwq.cn/usr/uploads/2020/08/303386698.png
+  [1]: https://blog.zzsqwq.cn/usr/uploads/2020/08/248320705.png
+  [2]: https://blog.zzsqwq.cn/usr/uploads/2020/08/935141993.png
+  [3]: https://blog.zzsqwq.cn/usr/uploads/2020/08/1186889784.png
+  [4]: https://blog.zzsqwq.cn/usr/uploads/2020/08/2438601090.png
+  [5]: https://blog.zzsqwq.cn/usr/uploads/2020/08/303386698.png

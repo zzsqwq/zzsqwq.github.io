@@ -373,11 +373,11 @@ mtd -r write breed-mt7621-xiaomi-r3g.bin Bootloader
 + [小米路由器青春版刷华硕固件](https://biji.io/2017/4963.html)
 
 
-  [1]: https://www.zzsqwq.cn/usr/uploads/2021/08/3364003385.png
-  [2]: https://www.zzsqwq.cn/usr/uploads/2021/08/402582447.png
-  [3]: https://www.zzsqwq.cn/usr/uploads/2021/08/402582447.png
-  [4]: https://www.zzsqwq.cn/usr/uploads/2021/08/3556294066.png
-  [5]: https://www.zzsqwq.cn/usr/uploads/2021/08/2555058433.png
-  [6]: https://www.zzsqwq.cn/usr/uploads/2021/08/3424062604.png
-  [7]: https://www.zzsqwq.cn/usr/uploads/2021/08/2622435560.png
-  [8]: https://www.zzsqwq.cn/usr/uploads/2021/08/996774304.png
+  [1]: https://blog.zzsqwq.cn/usr/uploads/2021/08/3364003385.png
+  [2]: https://blog.zzsqwq.cn/usr/uploads/2021/08/402582447.png
+  [3]: https://blog.zzsqwq.cn/usr/uploads/2021/08/402582447.png
+  [4]: https://blog.zzsqwq.cn/usr/uploads/2021/08/3556294066.png
+  [5]: https://blog.zzsqwq.cn/usr/uploads/2021/08/2555058433.png
+  [6]: https://blog.zzsqwq.cn/usr/uploads/2021/08/3424062604.png
+  [7]: https://blog.zzsqwq.cn/usr/uploads/2021/08/2622435560.png
+  [8]: https://blog.zzsqwq.cn/usr/uploads/2021/08/996774304.png

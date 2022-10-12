@@ -214,14 +214,14 @@ date: "2020-03-30 01:18:00"
 ![vim.png][11]
 
 
-  [1]: https://www.zzsqwq.cn/usr/uploads/2020/08/1228769729.png
-  [2]: https://www.zzsqwq.cn/usr/uploads/2020/08/364135134.png
-  [3]: https://www.zzsqwq.cn/usr/uploads/2020/08/2649793930.png
-  [4]: https://www.zzsqwq.cn/usr/uploads/2020/08/2524054836.png
-  [5]: https://www.zzsqwq.cn/usr/uploads/2020/08/3627533122.png
-  [6]: https://www.zzsqwq.cn/usr/uploads/2020/08/13609959.png
-  [7]: https://www.zzsqwq.cn/usr/uploads/2020/08/496389565.png
-  [8]: https://www.zzsqwq.cn/usr/uploads/2020/08/4029946989.png
-  [9]: https://www.zzsqwq.cn/usr/uploads/2020/08/3948877620.png
-  [10]: https://www.zzsqwq.cn/usr/uploads/2020/08/1435335493.png
-  [11]: https://www.zzsqwq.cn/usr/uploads/2020/08/2041226361.png
+  [1]: https://blog.zzsqwq.cn/usr/uploads/2020/08/1228769729.png
+  [2]: https://blog.zzsqwq.cn/usr/uploads/2020/08/364135134.png
+  [3]: https://blog.zzsqwq.cn/usr/uploads/2020/08/2649793930.png
+  [4]: https://blog.zzsqwq.cn/usr/uploads/2020/08/2524054836.png
+  [5]: https://blog.zzsqwq.cn/usr/uploads/2020/08/3627533122.png
+  [6]: https://blog.zzsqwq.cn/usr/uploads/2020/08/13609959.png
+  [7]: https://blog.zzsqwq.cn/usr/uploads/2020/08/496389565.png
+  [8]: https://blog.zzsqwq.cn/usr/uploads/2020/08/4029946989.png
+  [9]: https://blog.zzsqwq.cn/usr/uploads/2020/08/3948877620.png
+  [10]: https://blog.zzsqwq.cn/usr/uploads/2020/08/1435335493.png
+  [11]: https://blog.zzsqwq.cn/usr/uploads/2020/08/2041226361.png

@@ -232,4 +232,4 @@ date: "2020-12-05 20:26:00"
 + [pcottle/learnGitBranching: An interactive git visualization to challenge and educate! (github.com)](https://github.com/pcottle/learnGitBranching)
 
 
-  [1]: https://www.zzsqwq.cn/usr/uploads/2020/12/2911747011.png
+  [1]: https://blog.zzsqwq.cn/usr/uploads/2020/12/2911747011.png

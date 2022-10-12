@@ -17,6 +17,6 @@ lwq.png
 ![lzh.jpg][3]
 
 
-  [1]: https://www.zzsqwq.cn/usr/uploads/2021/05/496034488.jpg
-  [2]: https://www.zzsqwq.cn/usr/uploads/2021/05/126011920.jpg
-  [3]: https://www.zzsqwq.cn/usr/uploads/2021/05/676871415.jpg
+  [1]: https://blog.zzsqwq.cn/usr/uploads/2021/05/496034488.jpg
+  [2]: https://blog.zzsqwq.cn/usr/uploads/2021/05/126011920.jpg
+  [3]: https://blog.zzsqwq.cn/usr/uploads/2021/05/676871415.jpg

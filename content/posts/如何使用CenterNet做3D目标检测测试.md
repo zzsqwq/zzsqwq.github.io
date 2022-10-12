@@ -135,5 +135,5 @@ python demo.py ctdet --demo ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jp
 ​	我们应该可以在 `${CenterNet_ROOT}/exp/ddd/3dop/results` 看到我们得到的结果，只不过运行得到的是点的坐标，而不是图像，如果需要图像的话可能还需要自己绘制一下。
 
 
-  [1]: https://www.zzsqwq.cn/usr/uploads/2021/01/2469782097.jpg
-  [2]: https://www.zzsqwq.cn/usr/uploads/2021/01/3420056939.png
+  [1]: https://blog.zzsqwq.cn/usr/uploads/2021/01/2469782097.jpg
+  [2]: https://blog.zzsqwq.cn/usr/uploads/2021/01/3420056939.png

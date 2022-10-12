@@ -140,7 +140,7 @@ date: "2021-12-01 20:12:00"
 
 如果大家有更好的 Markdown 编辑器推荐，欢迎在下面留言！
 
-[1]: https://www.zzsqwq.cn/usr/uploads/2021/12/1150718291.png
-[2]: https://www.zzsqwq.cn/usr/uploads/2021/12/3145024348.png
-[3]: https://www.zzsqwq.cn/usr/uploads/2021/12/3408881163.png
-[4]: https://www.zzsqwq.cn/usr/uploads/2021/12/1511072141.png
+[1]: https://blog.zzsqwq.cn/usr/uploads/2021/12/1150718291.png
+[2]: https://blog.zzsqwq.cn/usr/uploads/2021/12/3145024348.png
+[3]: https://blog.zzsqwq.cn/usr/uploads/2021/12/3408881163.png
+[4]: https://blog.zzsqwq.cn/usr/uploads/2021/12/1511072141.png

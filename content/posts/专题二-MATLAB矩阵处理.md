@@ -214,9 +214,9 @@ date: "2020-03-15 01:07:00"
   + **speye(m,n)** 可返回一个 $m\times n$ 的稀疏存储单位矩阵。
 
 
-  [1]: https://www.zzsqwq.cn/usr/uploads/2020/08/881557732.png
-  [2]: https://www.zzsqwq.cn/usr/uploads/2020/08/2952928869.png
-  [3]: https://www.zzsqwq.cn/usr/uploads/2020/08/2172119825.png
-  [4]: https://www.zzsqwq.cn/usr/uploads/2020/08/3001100753.png
-  [5]: https://www.zzsqwq.cn/usr/uploads/2020/08/3347696985.png
-  [6]: https://www.zzsqwq.cn/usr/uploads/2020/08/3797164482.png
+  [1]: https://blog.zzsqwq.cn/usr/uploads/2020/08/881557732.png
+  [2]: https://blog.zzsqwq.cn/usr/uploads/2020/08/2952928869.png
+  [3]: https://blog.zzsqwq.cn/usr/uploads/2020/08/2172119825.png
+  [4]: https://blog.zzsqwq.cn/usr/uploads/2020/08/3001100753.png
+  [5]: https://blog.zzsqwq.cn/usr/uploads/2020/08/3347696985.png
+  [6]: https://blog.zzsqwq.cn/usr/uploads/2020/08/3797164482.png

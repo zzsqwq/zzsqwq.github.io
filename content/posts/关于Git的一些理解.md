@@ -230,4 +230,4 @@ $ git checkout <commit-id>
 + [Git的引用](https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-Git-%E5%BC%95%E7%94%A8)：来自 Git 官方的讲解，十分硬核。
 
 
-  [1]: https://www.zzsqwq.cn/usr/uploads/2021/07/612956951.jpg
+  [1]: https://blog.zzsqwq.cn/usr/uploads/2021/07/612956951.jpg

@@ -47,4 +47,4 @@ date: "2021-04-30 17:32:00"
 ![与Charmyoung的合影][2]
 
  
-  [2]: https://www.zzsqwq.cn/usr/uploads/2021/04/2816211838.jpg
+  [2]: https://blog.zzsqwq.cn/usr/uploads/2021/04/2816211838.jpg

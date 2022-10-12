@@ -399,4 +399,4 @@ s=solve(1,2)
 ```
 
 
-  [1]: https://www.zzsqwq.cn/usr/uploads/2020/08/2521586228.png
+  [1]: https://blog.zzsqwq.cn/usr/uploads/2020/08/2521586228.png

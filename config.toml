@@ -89,7 +89,7 @@ url = "https://zzsqwq.cn/"
 name = "RSS"
 icon = "fa fa-2x fa-rss"
 weight = 4
-url = "https://www.zzsqwq.cn/index.xml"
+url = "https://blog.zzsqwq.cn/index.xml"
 rel = "alternate"
 type = "application/rss+xml"
 

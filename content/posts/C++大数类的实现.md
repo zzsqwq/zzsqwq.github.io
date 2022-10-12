@@ -599,4 +599,4 @@ int main()
 ```
 
 
-  [1]: https://www.zzsqwq.cn/usr/uploads/2020/08/4200651250.png
+  [1]: https://blog.zzsqwq.cn/usr/uploads/2020/08/4200651250.png

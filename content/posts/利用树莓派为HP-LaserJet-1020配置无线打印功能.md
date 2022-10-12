@@ -174,5 +174,5 @@ $ sudo cupsctl --remote-any # open remote access
 [^1]:学长的博客在这里:	[dykai](https://tec.blog.ykai.top/)
 
 
-  [1]: https://www.zzsqwq.cn/usr/uploads/2021/07/2334607761.png
-  [2]: https://www.zzsqwq.cn/usr/uploads/2021/07/3556322742.png
+  [1]: https://blog.zzsqwq.cn/usr/uploads/2021/07/2334607761.png
+  [2]: https://blog.zzsqwq.cn/usr/uploads/2021/07/3556322742.png

@@ -130,17 +130,17 @@ date: "2020-10-31 20:38:00"
 + [VS2019 上配置 OpenCV4.2.0](https://www.jianshu.com/p/908551afa8fd)
 
 
-  [1]: https://www.zzsqwq.cn/usr/uploads/2020/10/1401048133.png
-  [2]: https://www.zzsqwq.cn/usr/uploads/2020/10/705625531.png
-  [3]: https://www.zzsqwq.cn/usr/uploads/2020/10/3556583146.png
-  [4]: https://www.zzsqwq.cn/usr/uploads/2020/10/3685752206.png
-  [5]: https://www.zzsqwq.cn/usr/uploads/2020/10/3001499231.png
-  [6]: https://www.zzsqwq.cn/usr/uploads/2020/10/1199777575.png
-  [7]: https://www.zzsqwq.cn/usr/uploads/2020/10/2408130113.png
-  [8]: https://www.zzsqwq.cn/usr/uploads/2020/10/958765988.png
-  [9]: https://www.zzsqwq.cn/usr/uploads/2020/10/2096976051.png
-  [10]: https://www.zzsqwq.cn/usr/uploads/2020/10/1791849957.png
-  [11]: https://www.zzsqwq.cn/usr/uploads/2020/10/1422866535.png
-  [12]: https://www.zzsqwq.cn/usr/uploads/2020/10/1938099554.png
-  [13]: https://www.zzsqwq.cn/usr/uploads/2020/10/1150699358.jpg
-  [14]: https://www.zzsqwq.cn/usr/uploads/2020/10/2092454279.png
+  [1]: https://blog.zzsqwq.cn/usr/uploads/2020/10/1401048133.png
+  [2]: https://blog.zzsqwq.cn/usr/uploads/2020/10/705625531.png
+  [3]: https://blog.zzsqwq.cn/usr/uploads/2020/10/3556583146.png
+  [4]: https://blog.zzsqwq.cn/usr/uploads/2020/10/3685752206.png
+  [5]: https://blog.zzsqwq.cn/usr/uploads/2020/10/3001499231.png
+  [6]: https://blog.zzsqwq.cn/usr/uploads/2020/10/1199777575.png
+  [7]: https://blog.zzsqwq.cn/usr/uploads/2020/10/2408130113.png
+  [8]: https://blog.zzsqwq.cn/usr/uploads/2020/10/958765988.png
+  [9]: https://blog.zzsqwq.cn/usr/uploads/2020/10/2096976051.png
+  [10]: https://blog.zzsqwq.cn/usr/uploads/2020/10/1791849957.png
+  [11]: https://blog.zzsqwq.cn/usr/uploads/2020/10/1422866535.png
+  [12]: https://blog.zzsqwq.cn/usr/uploads/2020/10/1938099554.png
+  [13]: https://blog.zzsqwq.cn/usr/uploads/2020/10/1150699358.jpg
+  [14]: https://blog.zzsqwq.cn/usr/uploads/2020/10/2092454279.png

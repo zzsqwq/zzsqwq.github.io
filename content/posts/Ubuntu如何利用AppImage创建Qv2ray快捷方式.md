@@ -92,4 +92,4 @@ $ sudo cp xxx.AppImage /usr/bin/qv2ray
 ​	接下来我们在终端中输入 `qv2ray` ，发现已经可以成功打开qv2ray，大功告成！~
 
 
-  [1]: https://www.zzsqwq.cn/usr/uploads/2021/06/2642879187.png
+  [1]: https://blog.zzsqwq.cn/usr/uploads/2021/06/2642879187.png

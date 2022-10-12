@@ -171,7 +171,7 @@ prompt pure
 
 还有一些其他的配置有时间再写吧……咕咕咕
 
-  [1]: https://www.zzsqwq.cn/usr/uploads/2020/12/171170690.png
-  [2]: https://www.zzsqwq.cn/usr/uploads/2020/12/3724154221.png
-  [3]: https://www.zzsqwq.cn/usr/uploads/2020/12/3559388649.png
-  [4]: https://www.zzsqwq.cn/usr/uploads/2020/12/3375893306.png
+  [1]: https://blog.zzsqwq.cn/usr/uploads/2020/12/171170690.png
+  [2]: https://blog.zzsqwq.cn/usr/uploads/2020/12/3724154221.png
+  [3]: https://blog.zzsqwq.cn/usr/uploads/2020/12/3559388649.png
+  [4]: https://blog.zzsqwq.cn/usr/uploads/2020/12/3375893306.png
