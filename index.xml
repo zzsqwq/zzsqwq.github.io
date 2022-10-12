@@ -1124,7 +1124,7 @@ Typecho 文章导出
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/12/1150718291.png" alt="Obsidian">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/12/1150718291.png" alt="Obsidian">&lt;/p>
 &lt;h2 id="特点">
 特点
 &lt;a class="heading-link" href="#%e7%89%b9%e7%82%b9">
@@ -1180,7 +1180,7 @@ Typecho 文章导出
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/12/3145024348.png" alt="Mark Text">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/12/3145024348.png" alt="Mark Text">&lt;/p>
 &lt;h2 id="特点-1">
 特点
 &lt;a class="heading-link" href="#%e7%89%b9%e7%82%b9-1">
@@ -1229,7 +1229,7 @@ Typecho 文章导出
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/12/3408881163.png" alt="Zettlr">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/12/3408881163.png" alt="Zettlr">&lt;/p>
 &lt;h2 id="特点-2">
 特点
 &lt;a class="heading-link" href="#%e7%89%b9%e7%82%b9-2">
@@ -1277,7 +1277,7 @@ Typecho 文章导出
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/12/1511072141.png" alt="其中一个插件（vscode all markdown）">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/12/1511072141.png" alt="其中一个插件（vscode all markdown）">&lt;/p>
 &lt;h2 id="特点-3">
 特点
 &lt;a class="heading-link" href="#%e7%89%b9%e7%82%b9-3">
@@ -1334,7 +1334,7 @@ Typecho 文章导出
 &lt;li>外存：512 SSD&lt;/li>
 &lt;li>屏幕：分辨率 2880x1800、400nits、100%sRGB&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/11/3138090261.png" alt="电脑配置信息">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/11/3138090261.png" alt="电脑配置信息">&lt;/p>
 &lt;p>这里需要注意的是，不同时间出的小新Pro14配置是不太一样的，所以我这里列了一下配置。主要区别在于有一部分是2.2K分辨率+MX450显卡，而我这个是2.8K分辨率+锐炬Iris Xe显卡。&lt;/p>
 &lt;p>为了工作的需要，要装一个Ubuntu，先是装了之前用过的 Ubuntu 18.04，安装后发现触摸板无法使用，一系列探索后无果，在朋友的推荐下，还是决定安装 Ubuntu 20.04 试一下，踩了一些坑，在这里记录一下。&lt;/p>
 &lt;h2 id="问题列表">
@@ -1421,7 +1421,7 @@ Ubuntu 20.04 相关
 &lt;p>在 Intel 官方的教程中，还添加了 grub 启动项等，我并没有发现他们的实际作用，在他后续的测试中我也没有达到期待的效果，因此没有继续尝试，如果有同学跟着文档做成功了，可以一起来讨论一下。&lt;/p>
 &lt;p>&lt;strong>但是！！！&lt;/strong>&lt;/p>
 &lt;p>安装完成后，我还是会花屏和黑屏，问题依旧没有解决。我突发奇想，考虑到我外接屏幕没有问题，而自带的屏幕有问题，**因为外接屏是 1920x1080 而内置屏幕是 2880x1800，我联想到会不会是高分辨率屏幕的问题，所以尝试着把外接屏的显示比例调成了 150%&lt;code>(需要开启 Fractional Scaling)&lt;/code>，没想到歪打正着，居然好了，看起来也更加的顺眼，比例也更加协调。**具体的内部原因还不是很清楚。&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/11/3113030601.png" alt="比例配置信息">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/11/3113030601.png" alt="比例配置信息">&lt;/p>
 &lt;p>但是还是有一个小瑕疵，就是在BIOS引导阶段与输入密码登录的界面，我仍旧是会花屏、闪屏，我考虑到这是还没有初始化屏幕设置的问题，尝试搜索了修改BIOS比例、提前初始化login界面的分辨率，依旧没有找到比较好的解决办法，&lt;/p>
 &lt;p>因此最后只好启动自动登录来跳过登录界面，这样就&lt;strong>看上去算是一个完好的系统&lt;/strong>了QAQ。。&lt;/p>
 &lt;p>这里给出一些可能有价值的资料，大家可以自行查阅&lt;/p>
@@ -1556,10 +1556,10 @@ Ubuntu 20.04 相关
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 开机自启 v2raya&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl enable v2raya
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这样就成功开启了 &lt;code>v2rayA&lt;/code>，我们访问 &lt;code>ip:2017&lt;/code> ，前面是你云服务器的公网 &lt;code>ip&lt;/code> 或者是自建服务器的局域网 &lt;code>ip&lt;/code> ，我们就可以访问到对应的服务，界面大致如下：&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/09/2395630589.png" alt="v2rayA界面">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/09/2395630589.png" alt="v2rayA界面">&lt;/p>
 &lt;p>首次进入时会让你设置账号和密码，用于后续的管理。还会引导你导入链接，在导入链接后，就可以点击上方的第三栏，进行连接、查看或分享对应的代理了！&lt;/p>
 &lt;p>说一下我现在用的设置，点击右上角设置，&lt;strong>透明代理和规则端口的分流模式&lt;/strong>设置为&lt;strong>大陆白名单&lt;/strong>，然后实现方式我用的是 &lt;strong>redirect&lt;/strong>，每隔 24h 更新依次代理，左下角设置的地址与端口我用的是默认的，如下：&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/09/2537498828.png" alt="地址与端口设置">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/09/2537498828.png" alt="地址与端口设置">&lt;/p>
 &lt;p>这样我们就可以愉快的上网了！！可以 &lt;strong>ssh&lt;/strong> 到服务器试一下 &lt;code>wget google.com&lt;/code>，正常结果如下：&lt;/p>
 &lt;pre tabindex="0">&lt;code>❯ wget google.com
 --2021-09-13 18:11:04-- http://google.com/
@@ -1650,9 +1650,9 @@ Redmi AC2100刷写Openwrt教程
 &lt;/h4>
 &lt;p>&lt;strong>Breed&lt;/strong> 是一个由 &lt;a href="https://www.right.com.cn/forum/space-uid-200302.html">hackpascal&lt;/a> 大神自写的与 &lt;strong>U-Boot&lt;/strong> 同级的 Bootloader。&lt;/p>
 &lt;p>每次我们刷写固件不会刷写此部分，我们通过 &lt;code>Reset&lt;/code> 键重置后，此部分不会被重置。像下面（这里因为我已经刷好了固件，不想 Reset 掉，因此用的其他大佬的截图，因此这里的型号不是 &lt;strong>Redmi AC2100&lt;/strong>）：&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/08/3364003385.png" alt="Breed的首页">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/08/3364003385.png" alt="Breed的首页">&lt;/p>
 &lt;p>可以看到上图有一个固件更新部分，点开后详细信息如下：&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/08/402582447.png" alt="固件更新部分图示">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/08/402582447.png" alt="固件更新部分图示">&lt;/p>
 &lt;p>可以看到上图有包含三个部分的刷写，Bootloader、固件、EEPROM这三个部分，我们如果想要刷会官方的这两部分都要刷。&lt;/p>
 &lt;p>平时我们说的 openwrt，padavan 等都是固件部分，breed 是 Bootloader 部分。我们如果要完全刷回官方的部件，需要在这里的 Bootloader 部分刷写官方的 Bootloader，然后按照上述官方的方法来刷写整体后面的固件！**我测试时如果 Bootloader 部分是 breed，那么无法直接通过上面的方法进行重置。**官方的 Bootloader 可以在下方链接找到：&lt;/p>
 &lt;p>&lt;a href="http://openwrt.ink:88/upload/2020/12/bootloader-redmi-ac2100-928443369e734b72b9611377b94598bb.bin">红米 AC2100 官方 Bootloader&lt;/a>&lt;/p>
@@ -1725,7 +1725,7 @@ Redmi AC2100刷写Openwrt教程
 &lt;/h3>
 &lt;p>首先是下载我们需要的固件，在后面我会给出一系列现阶段尝试过的固件，并给出说明，大家可以自己选择合适自己的固件。&lt;/p>
 &lt;p>这部分很简单，我们只需要下载我们想要刷写的固件，进入 breed 控制台，点击固件更新，在固件那部分点击后面的 &lt;strong>浏览&lt;/strong> ，上传我们想要刷写的固件，点击 &lt;strong>上传&lt;/strong> ，验证后会弹出新的窗口，点击 &lt;strong>刷写&lt;/strong> 即可！&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/08/402582447.png" alt="在固件部分点击浏览选择固件后上传">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/08/402582447.png" alt="在固件部分点击浏览选择固件后上传">&lt;/p>
 &lt;h3 id="四配置-openwrt-固件">
 四、配置 Openwrt 固件
 &lt;a class="heading-link" href="#%e5%9b%9b%e9%85%8d%e7%bd%ae-openwrt-%e5%9b%ba%e4%bb%b6">
@@ -1755,7 +1755,7 @@ Redmi AC2100刷写Openwrt教程
 &lt;/h4>
 &lt;p>说实话，我学习刷机就是为了这个，估计大多数人也是。&lt;/p>
 &lt;p>不过现在 &lt;strong>Openwrt&lt;/strong> 中科学上网插件的种类繁多，如 &lt;code>Passwall&lt;/code> 、&lt;code>SSR+&lt;/code> 、&lt;code>Overwall&lt;/code> 等。这三个我都用过，用起来都差别不大，界面也是差不多的。此固件自带的 &lt;code>Overwall&lt;/code> 如下：&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/08/3556294066.png" alt="服务器节点订阅与管理部分">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/08/3556294066.png" alt="服务器节点订阅与管理部分">&lt;/p>
 &lt;p>我们只需要在 &lt;strong>订阅URL&lt;/strong> 部分填入我们的订阅链接，然后依次点击 &lt;strong>更新订阅设置&lt;/strong> 以及 &lt;strong>更新所有订阅服务器节点&lt;/strong> ，然后可以发现下方出现了我们的节点，点击 &lt;strong>使用&lt;/strong> ，然后 &lt;strong>保存及应用&lt;/strong> ，就完成了。&lt;/p>
 &lt;p>这里可以在页面调节一下设置，好比可以设置 &lt;strong>仅常用端口走代理&lt;/strong> 等。&lt;/p>
 &lt;h4 id="配置ddns">
@@ -1789,14 +1789,14 @@ Redmi AC2100刷写Openwrt教程
 &lt;/h5>
 &lt;p>简单讲一下如何配置我所用固件的 &lt;strong>ddns&lt;/strong>，可能对其他固件并不通用，仅供参考！&lt;/p>
 &lt;p>大多数的 &lt;strong>Openwrt&lt;/strong> 固件中都带了 &lt;strong>ddns&lt;/strong>，我这里用的固件里面 &lt;strong>ddns&lt;/strong> 做了一个集成，如下图所示：&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/08/2555058433.png" alt="DDNS首页图示">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/08/2555058433.png" alt="DDNS首页图示">&lt;/p>
 &lt;p>我们首先需要注册一个域名，大家如果有做博客或者搭建服务器啥的，应该都有域名。&lt;/p>
 &lt;p>没有的话可以尝试去阿里云或者腾讯云买一个，我这里是在腾讯云买的，因此使用的是腾讯的 &lt;code>dndpod&lt;/code> 的解析服务，首先在 &lt;code>dnspod&lt;/code> 中注册一个帐号，点击右上角头像，选择 &lt;code>API密钥&lt;/code> 。&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/08/3424062604.png" alt="选择API密钥">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/08/3424062604.png" alt="选择API密钥">&lt;/p>
 &lt;p>选择 &lt;code>DNSPod Token&lt;/code> ，点击 &lt;strong>创建密钥&lt;/strong>。&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/08/2622435560.png" alt="创建密钥">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/08/2622435560.png" alt="创建密钥">&lt;/p>
 &lt;p>然后记下密钥的 &lt;code>ID&lt;/code> 与 &lt;code>Token&lt;/code> ，在 ddns 设置页面选择编辑对应的 ddns 服务，或者新建一个。&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/08/996774304.png" alt="IPv4 DDNS设置图示">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/08/996774304.png" alt="IPv4 DDNS设置图示">&lt;/p>
 &lt;p>如上图所示，首先选择 DDNS 服务商，如 &lt;code>aliyun&lt;/code> 、&lt;code>dnspod&lt;/code> 等，然后查询主机名与域名如上图所示填写，注意域名那里要用 &lt;code>@&lt;/code> ，这可能是这个插件的特性，用其他固件的插件可能是 &lt;code>.&lt;/code> 。&lt;/p>
 &lt;p>然后用户名与密码处填写刚才生成密钥的 &lt;code>ID&lt;/code> 与 &lt;code>Token&lt;/code> ，保存即可。&lt;/p>
 &lt;p>设置 &lt;strong>IPv6&lt;/strong> 的 &lt;strong>ddns&lt;/strong> 同理，设置完成后重启一下 &lt;strong>ddns&lt;/strong> 才会生效。&lt;/p>
@@ -2011,7 +2011,7 @@ Git中的分区
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h1>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/07/612956951.jpg" alt="Git中的三大分区，图片来源自掘金GabrielPanda">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/07/612956951.jpg" alt="Git中的三大分区，图片来源自掘金GabrielPanda">&lt;/p>
 &lt;p>首先，Git中存在三大分区，分别是&lt;strong>工作区、暂存区、版本库&lt;/strong>。其中，&lt;/p>
 &lt;p>&lt;strong>工作区&lt;/strong>即我们工作的目录，&lt;strong>暂存区&lt;/strong>是我们执行 &lt;code>git add&lt;/code> 后文件存在的区域。&lt;/p>
 &lt;p>我们可以通过 &lt;code>git status&lt;/code> 对两种状态进行查看，例如：&lt;/p>
@@ -2271,11 +2271,11 @@ Git中的引用
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>然后使用在同一局域网的电脑，访问 &lt;code>https://树莓派IP:631&lt;/code>，可以进入如下界面，按照下图设置右侧的&lt;code>Server Settings&lt;/code>&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/07/2334607761.png" alt="cups管理页面">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/07/2334607761.png" alt="cups管理页面">&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>&lt;strong>连接打印机和树莓派&lt;/strong>，点击Add Printer添加打印机，在弹出的窗口中输入对应的用户信息，使用在上一步中用户组中添加的用户&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/07/3556322742.png" alt="cups登录界面">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/07/3556322742.png" alt="cups登录界面">&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>然后按着一步步的指引，选择HP LaserJet 1020打印机，然后按照提示，选择和名称对应的驱动，我们会发现 &lt;strong>LaserJet 1020&lt;/strong> 对应驱动会提示：HP laserjet requires proprietary plugin，也就是我们不仅需要这个通用的驱动，而且需要一些额外的插件，打印机才能正常工作。&lt;/p>
@@ -2352,7 +2352,7 @@ Git中的引用
 &lt;/a>
 &lt;/h3>
 &lt;p>​ 首先我们根据上文的启示，因为每一个应用程序对应了一个 &lt;code>xxx.desktop&lt;/code> 文件，因此在应用库中的QQ一定也有一个对应的 &lt;code>desktop&lt;/code> 文件&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/06/75817321.png" alt="QQ的启动方式">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/06/75817321.png" alt="QQ的启动方式">&lt;/p>
 &lt;p>​ 我们进入到 &lt;code>/usr/share/applications&lt;/code> ，运行&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ ls | grep -i qq
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 可以发现其中有一个名为 &lt;code>deepin.com.qq.im.desktop&lt;/code> 的文件，我们打开后发现内容如下：&lt;/p>
@@ -2466,7 +2466,7 @@ Git中的引用
 &lt;/a>
 &lt;/h3>
 &lt;p>​ 最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/06/2642879187.png" alt="快捷方式效果图">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/06/2642879187.png" alt="快捷方式效果图">&lt;/p>
 &lt;h3 id="原理">
 原理
 &lt;a class="heading-link" href="#%e5%8e%9f%e7%90%86">
@@ -2572,7 +2572,7 @@ Git中的引用
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 波士顿住房数据由哈里森和鲁宾菲尔德于1978年Harrison and Rubinfeld&lt;sup>&lt;a href="https://www.zzsqwq.cn/usr/uploads/2021/05/406125417.png">1&lt;/a>&lt;/sup>收集。它包括了波士顿大区每个调查行政区的506个观察值。1980年Belsley et al.&lt;sup>&lt;a href="https://www.zzsqwq.cn/usr/uploads/2021/05/3238192089.png">2&lt;/a>&lt;/sup>曾对此数据做过分析。&lt;/p>
+&lt;p>​ 波士顿住房数据由哈里森和鲁宾菲尔德于1978年Harrison and Rubinfeld&lt;sup>&lt;a href="https://blog.zzsqwq.cn/usr/uploads/2021/05/406125417.png">1&lt;/a>&lt;/sup>收集。它包括了波士顿大区每个调查行政区的506个观察值。1980年Belsley et al.&lt;sup>&lt;a href="https://blog.zzsqwq.cn/usr/uploads/2021/05/3238192089.png">2&lt;/a>&lt;/sup>曾对此数据做过分析。&lt;/p>
 &lt;p>​ 数据一共14列，每一列的含义分别如下：&lt;/p>
 &lt;table>
 &lt;thead>
@@ -2746,7 +2746,7 @@ $$&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>最后，考虑到模型的训练及预测可能具有偶然性，因此我们对于每一个模型进行20次训练及预测，利用20次的结果对其进行综合评价。利用得到的结果绘制 &lt;strong>箱线图&lt;/strong> 所得结果如下：&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/05/406125417.png" alt="使用六变量和十三个变量进行拟合的对比">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/05/406125417.png" alt="使用六变量和十三个变量进行拟合的对比">&lt;/p>
 &lt;p>​&lt;/p>
 &lt;p>​ 分析最终结果可以发现，无论是使用六个相关性较强变量还是十三个变量来进行预测，GradientBoost（梯度提升决策树）回归模型都是最好的，此外，我们可以发现，利用十三个变量要比利用六个主要变量来进行预测比有着更好的效果。&lt;/p>
 &lt;/li>
@@ -2784,7 +2784,7 @@ $$&lt;/p>
 &lt;p>$$
 Relu:f(x) = max(0,x)
 $$&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/05/3238192089.png" alt="构建的前馈神经网络结构图">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/05/3238192089.png" alt="构建的前馈神经网络结构图">&lt;/p>
 &lt;h5 id="具体实现">
 具体实现
 &lt;a class="heading-link" href="#%e5%85%b7%e4%bd%93%e5%ae%9e%e7%8e%b0">
@@ -2808,8 +2808,8 @@ $$&lt;/p>
 &lt;ul>
 &lt;li>最后，我们设置网络的学习率为0.01，训练10000个epoch，发现其loss最终降低到0.3%左右，我们利用上文提到的 $R^2$ 对结果进行评估并与回归模型进行对比，通过观察图片可以发现，前馈神经网络相比于传统的回归模型有着更好的拟合效果， 20次预测得到的$R^2$平均值达到了0.95，此外中位数，最大值，最小值也要比回归模型更加优秀，因此我们采用前馈神经网络模型来对最后的房价进行预测。&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/05/2897732866.png" alt="添加前馈神经网络后与其他模型进行比较">&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/05/3640570809.jpg" alt="训练过程中的loss曲线">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/05/2897732866.png" alt="添加前馈神经网络后与其他模型进行比较">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/05/3640570809.jpg" alt="训练过程中的loss曲线">&lt;/p>
 &lt;h3 id="最终预测">
 最终预测
 &lt;a class="heading-link" href="#%e6%9c%80%e7%bb%88%e9%a2%84%e6%b5%8b">
@@ -2817,7 +2817,7 @@ $$&lt;/p>
 &lt;/a>
 &lt;/h3>
 &lt;p>​ 最终我们利用构建的前馈神经网络模型进行预测，利用测试集对其进行对比，绘制预测如下：&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/05/1130005314.png" alt="predict_groundtruth.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/05/1130005314.png" alt="predict_groundtruth.png">&lt;/p>
 &lt;p>​&lt;/p>
 &lt;p>​ 可以看到其中很多点都覆盖的很好，即预测准确。&lt;/p>
 &lt;p>​ 通过理论对模型进行量化分析，计算预测的 $R^2$
@@ -2891,7 +2891,7 @@ $$
 &lt;p>​ 所以就很耻辱的被3：0送走了，这样就结束了比赛日程。&lt;/p>
 &lt;p>​ 值得反思的事情很多吧，赛前虽然基本熬了一个多星期来调车，还是只在最后一天才开始连裁判系统联调，包括暑假效率不高等问题都是值得反思的···打完比赛心中大概已经有了一些改进点，也想把自己的一些调车心得等记录下来，但是因为时间以及学业上的一些事情等一直没去做，本来计划的五月初做好改进的视觉也一直没兑现，希望这个五一假期会有较大的突破吧，不过还要打数模···好累，不想动。&lt;/p>
 &lt;p>​ 最后，这一天还拿到了和Charm young的合照，还挺动容的，之前看Robomaster的一个宣传标语就是让工程师们成为明星，给他们一个展示的舞台，看到大家对Charm young的热情，深深的感受到了这一点。&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/04/2816211838.jpg" alt="与Charmyoung的合影">&lt;/p></description></item><item><title>关于Anaconda中pip路径指向问题</title><link>https://blog.zzsqwq.cn/posts/169/</link><pubDate>Sat, 06 Mar 2021 20:51:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/169/</guid><description>&lt;h3 id="前言">
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/04/2816211838.jpg" alt="与Charmyoung的合影">&lt;/p></description></item><item><title>关于Anaconda中pip路径指向问题</title><link>https://blog.zzsqwq.cn/posts/169/</link><pubDate>Sat, 06 Mar 2021 20:51:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/169/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -2954,7 +2954,7 @@ CenterNet—Objects as Points介绍
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>python demo.py ctdet --demo &lt;span style="color:#e6db74">${&lt;/span>CenterNet_Root&lt;span style="color:#e6db74">}&lt;/span>/images/17790319373_bd19b24cfc_k.jpg --load_model ../models/ctdet_coco_dla_2x.pth
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>​ 这里需要注意的是 &lt;code>--demo&lt;/code> 后面的 &lt;code>${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg&lt;/code> ，这里我使用的是官方给出的实例图片，它位于CenterNet根目录的images文件夹中，前面的 &lt;code>${CenterNet_Root} &lt;/code> 代表的是 CenterNet根目录，好比我的就位于 &lt;code>/home/zs/CenterNet&lt;/code> 。&lt;/p>
 &lt;p>​ 如果不出意外的话效果应该如下图所示：&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/01/2469782097.jpg" alt="2D目标检测效果">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/01/2469782097.jpg" alt="2D目标检测效果">&lt;/p>
 &lt;h3 id="运行centernet的3d目标检测">
 运行CenterNet的3D目标检测
 &lt;a class="heading-link" href="#%e8%bf%90%e8%a1%8ccenternet%e7%9a%843d%e7%9b%ae%e6%a0%87%e6%a3%80%e6%b5%8b">
@@ -2991,7 +2991,7 @@ CenterNet—Objects as Points介绍
 &lt;/code>&lt;/pre>&lt;/li>
 &lt;li>
 &lt;p>然后去到 &lt;code>${CenterNet_ROOT}/src/tools&lt;/code>目录下，运行 &lt;code>python convert_kitti_to_coco.py &lt;/code> 将 &lt;strong>kitti&lt;/strong> 数据集转换为 &lt;strong>coco&lt;/strong> 数据集的格式，不出意外应该会报错如下：&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2021/01/3420056939.png" alt="转换时报错">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/01/3420056939.png" alt="转换时报错">&lt;/p>
 &lt;p>这里的解决方案参考CenterNet中的一个Issue , &lt;a href="https://github.com/xingyizhou/CenterNet/issues/54">How to generate the image dir in kitti?&lt;/a> ，我们需要回到 &lt;code>data/kitti&lt;/code> 目录下手动创建一个 &lt;code>annotations&lt;/code> 文件夹，然后再回去运行转换程序。转换后目录结构如下：&lt;/p>
 &lt;pre tabindex="0">&lt;code>.
 ├── annotations
@@ -3057,7 +3057,7 @@ CenterNet—Objects as Points介绍
 &lt;p>​ 那么既然有分布式版本控制系统，就有 &lt;strong>集中式版本控制系统&lt;/strong>，前者的代表是 &lt;strong>Git&lt;/strong> ，后者的代表有 &lt;strong>SVN、CVS&lt;/strong> 等。&lt;/p>
 &lt;p>​ 关于两者的区别，对于集中式版本控制系统，如果你想要对做一个项目的内容做修改，那么你要先从中央服务器把最近的版本拉取(Pull)下来，然后修改完以后，把修改后的版本推送(Push)上去，你本地只有最新的版本，而没有完整的版本库，分布式版本控制系统所作的工作与集中式的相差不大，只是它的本地会有一个完整的版本库，因此它十分的安全。&lt;/p>
 &lt;p>​ 这里贴一个他人总结的区别，供大家参考。&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/12/2911747011.png" alt="集中式与分布式版本控制系统的区别">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/12/2911747011.png" alt="集中式与分布式版本控制系统的区别">&lt;/p>
 &lt;h3 id="git的安装">
 Git的安装
 &lt;a class="heading-link" href="#git%e7%9a%84%e5%ae%89%e8%a3%85">
@@ -3244,9 +3244,9 @@ Ubuntu界面的优化
 &lt;/a>
 &lt;/h4>
 &lt;p>​ 先放几张效果图上来，是我改后的界面。大概就是这样(自我感觉挺好看的)，当然也有其他的主题可供选择。&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/12/171170690.png" alt="桌面风格">&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/12/3724154221.png" alt="文件夹风格">&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/12/3559388649.png" alt="效果图">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/12/171170690.png" alt="桌面风格">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/12/3724154221.png" alt="文件夹风格">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/12/3559388649.png" alt="效果图">&lt;/p>
 &lt;h4 id="1安装gnome桌面环境主题配置工具">
 1.安装GNOME桌面环境主题配置工具
 &lt;a class="heading-link" href="#1%e5%ae%89%e8%a3%85gnome%e6%a1%8c%e9%9d%a2%e7%8e%af%e5%a2%83%e4%b8%bb%e9%a2%98%e9%85%8d%e7%bd%ae%e5%b7%a5%e5%85%b7">
@@ -3321,7 +3321,7 @@ icons 01-McMojave-circle
 &lt;/h4>
 &lt;p>​ 唔，终端本来用起来感觉也还行，感觉终端就是linux的灵魂，啥都能干。&lt;/p>
 &lt;p>​ 但是听说有更好用的终端，现在ubuntu普遍用的好像都是bash，但是好像还有zsh，fish这样的，他们可以有一些代码补全，功能更强，可拓展性也高，大家都zsh和fish哪个好用一直争执不停，但是我发现ROS对 &lt;code>zsh&lt;/code> 支持的很好，但是对 &lt;code>fish&lt;/code> 的支持有点拉胯，考虑到以后可能ros会用的比较多，因此我选择使用zsh。效果图如下&lt;/p>
-&lt;p>​ &lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/12/3375893306.png" alt="终端效果图">&lt;/p>
+&lt;p>​ &lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/12/3375893306.png" alt="终端效果图">&lt;/p>
 &lt;h4 id="1下载zsh">
 1.下载zsh
 &lt;a class="heading-link" href="#1%e4%b8%8b%e8%bd%bdzsh">
@@ -3722,10 +3722,10 @@ Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;/h3>
 &lt;p>​ 我们在 此电脑右键 -&amp;gt; 属性 -&amp;gt; 高级系统设置 -&amp;gt; 环境变量 -&amp;gt; 系统变量 -&amp;gt; 双击Path -&amp;gt;添加如下的环境&lt;/p>
 &lt;p>​ &lt;code>G:\Opencv450\build\x64\vc15\bin&lt;/code> ，这里的路径是根据上面那个路径来看的，如果你上面那个跟我不同，也请看请自己的路径。&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/10/1401048133.png" alt="此电脑属性中的高级系统设置">&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/10/705625531.png" alt="高级系统设置中的环境变量">&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/10/3556583146.png" alt="双击系统环境变量中的Path">&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/10/3685752206.png" alt="新建并加入我们的bin路径">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/10/1401048133.png" alt="此电脑属性中的高级系统设置">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/10/705625531.png" alt="高级系统设置中的环境变量">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/10/3556583146.png" alt="双击系统环境变量中的Path">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/10/3685752206.png" alt="新建并加入我们的bin路径">&lt;/p>
 &lt;h3 id="配置visual-studio">
 配置Visual Studio
 &lt;a class="heading-link" href="#%e9%85%8d%e7%bd%aevisual-studio">
@@ -3735,30 +3735,30 @@ Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;ol>
 &lt;li>
 &lt;p>新建一个C++类型的空项目，随便你如何命名，将模式调节为 &lt;strong>Debug x64&lt;/strong>&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/10/3001499231.png" alt="新建空项目并将模式调节为Debug x64">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/10/3001499231.png" alt="新建空项目并将模式调节为Debug x64">&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>依次点击 &lt;strong>视图&lt;/strong> -&amp;gt; &lt;strong>其他窗口&lt;/strong> -&amp;gt; &lt;strong>属性管理器&lt;/strong>&lt;/p>
 &lt;p>在打开的 &lt;strong>属性管理器&lt;/strong> 中添加新项目属性表，我是4.5.0的版本，为了好记，新建属性表命名为&lt;strong>OpenCV450Debug&lt;/strong>&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/10/1199777575.png" alt="新建一个属性表">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/10/1199777575.png" alt="新建一个属性表">&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>建好以后在其上右键，选择&lt;strong>属性&lt;/strong> ，然后依次选择 &lt;strong>VC++ 目录&lt;/strong> -&amp;gt; &lt;strong>包含目录&lt;/strong> -&amp;gt; &lt;strong>编辑&lt;/strong>&lt;/p>
 &lt;p>添加下面两个路径，当然，这两个路径也是取决于你安装OpenCV的路径的。&lt;/p>
 &lt;p>&lt;code>G:\Opencv450\build\include&lt;/code>&lt;/p>
 &lt;p>&lt;code>G:\Opencv450\build\include\opencv2&lt;/code>&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/10/2408130113.png" alt="更改VC++中的包含目录">&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/10/958765988.png" alt="更改包含目录中的内容">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/10/2408130113.png" alt="更改VC++中的包含目录">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/10/958765988.png" alt="更改包含目录中的内容">&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>接下来选择 &lt;strong>VC++ 目录&lt;/strong> 中的 &lt;strong>库目录&lt;/strong> -&amp;gt; &lt;strong>编辑&lt;/strong> ，然后添加（与你OpenCV路径对应）&lt;/p>
 &lt;p>&lt;code>G:\Opencv450\build\x64\vc15\lib&lt;/code>&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/10/2096976051.png" alt="编辑VC++目录中库目录">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/10/2096976051.png" alt="编辑VC++目录中库目录">&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>接下来选择 &lt;strong>链接器&lt;/strong> -&amp;gt; &lt;strong>输入&lt;/strong> -&amp;gt; &lt;strong>附加依赖项&lt;/strong> -&amp;gt; &lt;strong>编辑&lt;/strong>&lt;/p>
 &lt;p>在其中加入 &lt;code>opencv_world450d.lib&lt;/code> ！ 大家这里请注意，不同的版本这里的添加名称不同，通常来说如果你的版本是 &lt;code>x.y.z&lt;/code> 那么就是 &lt;code>opencv_worldxyzd.lib&lt;/code>&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/10/1791849957.png" alt="附加依赖项">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/10/1791849957.png" alt="附加依赖项">&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>最后我们点击确定，然后退出&lt;strong>属性编辑器&lt;/strong>。&lt;/p>
@@ -3799,16 +3799,16 @@ Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/10/1422866535.png" alt="添加代码源文件">&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/10/1422866535.png" alt="添加代码源文件">&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>接下来我们随便找一张 &lt;strong>jpg&lt;/strong> 图片文件，命名为 &lt;code>HappyFish.jpg&lt;/code> ，保存在你的工程的根目录下/和 &lt;strong>cpp&lt;/strong> 文件一个路径。这里我放一张 &lt;strong>jpg&lt;/strong> 图片供大家使用~&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/10/1938099554.png" alt="将图片放在项目目录下/和cpp一个路径">&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/10/1150699358.jpg" alt="HappyFish.jpg">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/10/1938099554.png" alt="将图片放在项目目录下/和cpp一个路径">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/10/1150699358.jpg" alt="HappyFish.jpg">&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>然后在我们的 &lt;strong>Visual Studio 2019&lt;/strong> 中按下快捷键 &lt;strong>Ctrl + F5&lt;/strong> 编译运行程序，会发现我们成功打开了这张图片，配置就成功了~&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/10/2092454279.png" alt="配置成功标志">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/10/2092454279.png" alt="配置成功标志">&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;h3 id="参考链接">
@@ -3992,8 +3992,8 @@ Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;/h3>
 &lt;p>​ 首先我们去阿里云那边买一台学生机，一年也就 &lt;strong>120￥&lt;/strong> 的样子，很实惠。本来一年大概 &lt;strong>1600￥&lt;/strong> 的样子。&lt;/p>
 &lt;p>​ 买学生机的话就买 &lt;strong>轻量应用服务器&lt;/strong> ，然后应用镜像选一下 &lt;strong>BT-Panel&lt;/strong> 即可。&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2971720137.png" alt="一些服务器类型">&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/559120068.png" alt="初始服务器的配置选择">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/2971720137.png" alt="一些服务器类型">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/559120068.png" alt="初始服务器的配置选择">&lt;/p>
 &lt;h3 id="2-登录服务器">
 2. 登录服务器
 &lt;a class="heading-link" href="#2-%e7%99%bb%e5%bd%95%e6%9c%8d%e5%8a%a1%e5%99%a8">
@@ -4001,10 +4001,10 @@ Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;/a>
 &lt;/h3>
 &lt;p>​ 进去之后点击应用详情，看一下 &lt;strong>BT-Panel使用步骤&lt;/strong>。&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1152103512.png" alt="BT-Panel的使用步骤">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/1152103512.png" alt="BT-Panel的使用步骤">&lt;/p>
 &lt;p>​ 根据上面的指示获取登陆服务器的密码。然后点击左侧的 &lt;strong>防火墙&lt;/strong> ，在那里开启 &lt;strong>8888&lt;/strong> 端口。如下图所示。&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/3471176574.png" alt="添加规则">&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/972834655.png" alt="按如图设置开启8888端口">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/3471176574.png" alt="添加规则">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/972834655.png" alt="按如图设置开启8888端口">&lt;/p>
 &lt;h3 id="3-配置服务器">
 3. 配置服务器
 &lt;a class="heading-link" href="#3-%e9%85%8d%e7%bd%ae%e6%9c%8d%e5%8a%a1%e5%99%a8">
@@ -4020,7 +4020,7 @@ Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;/h3>
 &lt;p>​ 安装完成后，我们去面板设置那边看一下自己的 &lt;strong>服务器ip&lt;/strong> ，记下来。&lt;/p>
 &lt;p>​ 点击左侧网站，添加站点。域名那里写自己的 &lt;strong>服务器ip&lt;/strong> ，然后提交即可。&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2339810532.png" alt="新建站点">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/2339810532.png" alt="新建站点">&lt;/p>
 &lt;p>​ 然后点击左侧数据库，建立一个新的数据库，用于存放我们之后网站的信息。&lt;/p>
 &lt;p>​ 我们访问到我们网站的根目录，然后将自己心仪的博客程序拷入，访问 &lt;strong>服务器ip/install.php&lt;/strong> 即可开启安装！&lt;/p>
 &lt;p>​ 安装完成后我们就可以通过 &lt;strong>服务器ip&lt;/strong> 来访问我们的网站了！然后可以去网上找一下心仪的主题和插件来安装~&lt;/p>
@@ -4031,7 +4031,7 @@ Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;/a>
 &lt;/h2>
 &lt;p>​ 如果我们要自定义域名，首先我们可以去阿里云 / 腾讯云那边买一个域名，然后进行域名备案，你服务器是在哪边买的就在哪边备案即可。后续备案结束后在云解析那边添加域名解析（具体操作可以百度），然后在 &lt;strong>BT-Panel&lt;/strong> 这边也添加域名解析，这样即可使用我们的自定义域名访问博客了！&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1872130264.png" alt="添加域名解析">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/1872130264.png" alt="添加域名解析">&lt;/p>
 &lt;p>​ 还有一些后续的优化例如安装 &lt;strong>https安全证书（我自己现在还没搞好QAQ）&lt;/strong> ，加入 &lt;strong>SEO优化&lt;/strong> ，提交申请让 &lt;strong>搜索引擎收录&lt;/strong> 等等……大家有兴趣的可以自行探索！&lt;/p></description></item><item><title>排位三和四记录</title><link>https://blog.zzsqwq.cn/posts/68/</link><pubDate>Wed, 19 Aug 2020 13:21:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/68/</guid><description>&lt;h1 id="day-3">
 Day 3
 &lt;a class="heading-link" href="#day-3">
@@ -5762,7 +5762,7 @@ C++大数类设计思路
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/4200651250.png" alt="BigNumber.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/4200651250.png" alt="BigNumber.png">&lt;/p>
 &lt;p>&lt;strong>这个第四个点真的优化不过去了QAQ，24W的数据，&lt;del>丧心病狂&lt;/del>&lt;/strong>&lt;/p>
 &lt;h3 id="整体构思">
 整体构思
@@ -6372,7 +6372,7 @@ Linux系统常见命令
 &lt;li>&lt;strong>cd !$&lt;/strong> ：将上个命令的参数做为输入&lt;/li>
 &lt;li>&lt;strong>cd ..&lt;/strong> ：回到上层目录&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1228769729.png" alt="image-20200330164354765.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/1228769729.png" alt="image-20200330164354765.png">&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;ul>
@@ -6389,7 +6389,7 @@ Linux系统常见命令
 &lt;p>&lt;strong>ls -l&lt;/strong> ： 显示较全的文件信息，包括权限，用户，用户组。&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/364135134.png" alt="image-20200330164408910.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/364135134.png" alt="image-20200330164408910.png">&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>&lt;strong>Tab&lt;/strong> 键：通过按Tab可以进行自动补全。如果当前目录有前缀相同的文件，则按两下Tab可以显示出所有以具有该前缀的文件。&lt;/p>
@@ -6397,7 +6397,7 @@ Linux系统常见命令
 &lt;li>
 &lt;p>&lt;strong>mv (Move)&lt;/strong> 命令：移动（剪切）文件，也可以用作一个等效给文件或目录的重命名。&lt;/p>
 &lt;p>通过 &lt;code>mv 文件x 目录a&lt;/code> 可以将当前目录下的文件x移入目录k。&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2649793930.png" alt="image-20200330164434299.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/2649793930.png" alt="image-20200330164434299.png">&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>cp (Copy)&lt;/strong> 命令：拷贝，将一个文件或目录拷贝到另一个文件或目录。&lt;/p>
@@ -6480,7 +6480,7 @@ Linux系统常见命令
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2524054836.png" alt="image-20200330164654339.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/2524054836.png" alt="image-20200330164654339.png">&lt;/p>
 &lt;h3 id="不同的查找方式">
 不同的查找方式
 &lt;a class="heading-link" href="#%e4%b8%8d%e5%90%8c%e7%9a%84%e6%9f%a5%e6%89%be%e6%96%b9%e5%bc%8f">
@@ -6506,14 +6506,14 @@ Linux系统常见命令
 &lt;li>&lt;strong>-newer file1 !file2&lt;/strong>：查找更改时间比file1新比file2旧的文件。&lt;/li>
 &lt;li>&lt;strong>-type&lt;/strong>：查找某一类型文件，b：块设备文件，d：目录，c：字符设备文件，P：管道文件，l：符号链接文件，f：普通文件。&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/3627533122.png" alt="image-20200330164709797.png">&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/13609959.png" alt="image-20200330164721033.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/3627533122.png" alt="image-20200330164709797.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/13609959.png" alt="image-20200330164721033.png">&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>locate&lt;/strong> ：等价于 &lt;code>find -name&lt;/code> ，但是速度要快，因为locate在一个本地数据库中存放了所有本地文件信息，每天自动更新，我们查找之前需要通过 &lt;code>updatedb&lt;/code> 手动更新其中内容，不然可能会导致新改动的文件查找不到。&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/496389565.png" alt="image-20200330164733755.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/496389565.png" alt="image-20200330164733755.png">&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>whereis&lt;/strong> ：whereis可以用于程序名的搜索，可以通过参数 &lt;strong>-s，-m，-s&lt;/strong> 分别搜索二进制文件，man说明文件，和源代码文件。如果省略参数，则返回所有信息。不过这个也是从本地数据库里面进行搜索。&lt;/p>
@@ -6557,8 +6557,8 @@ Linux系统常见命令
 &lt;ul>
 &lt;li>
 &lt;p>新建一个用户：通过&lt;code>sudo useradd -m name&lt;/code> 会创建一个名为name的用户，看/home文件下会显示名为name的用户，可以通过 &lt;code>sudo passwd name&lt;/code> 来为用户设置密码，通过&lt;code>su name&lt;/code>来切换用户，如果想要删除则通过&lt;code>sudo userdel [-r] name&lt;/code> 来删除，加上-r代表删除对应文件夹。我们可以通过命令来查看etc中的passwd文件，就能够看到是否创建成功。&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/4029946989.png" alt="image-20200330164751936.png">&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/3948877620.png" alt="image-20200330164808040.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/4029946989.png" alt="image-20200330164751936.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/3948877620.png" alt="image-20200330164808040.png">&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>权限的修改：我们可以通过&lt;code>sudo gedit /etc/sudoers&lt;/code> 打开sudoers文件修改 # User privilege specification 下的目录，添加&lt;code>&amp;lt;用户名&amp;gt; ALL=(ALL:ALL) ALL&lt;/code> 来为用户添加sudo权限。&lt;/p>
@@ -6605,7 +6605,7 @@ Vim的常用操作
 &lt;ul>
 &lt;li>首先通过 &lt;code>sudo apt-get install vim&lt;/code> 来安装Vim&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1435335493.png" alt="image-20200330164821953.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/1435335493.png" alt="image-20200330164821953.png">&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>通过 &lt;code>vim name&lt;/code> 来编辑name这个文件，如果不存在那么就会创建一个。&lt;/p>
@@ -6647,7 +6647,7 @@ Vim的常用操作
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2041226361.png" alt="vim.png">&lt;/p></description></item><item><title>专题四:MATLAB绘图</title><link>https://blog.zzsqwq.cn/posts/51/</link><pubDate>Mon, 23 Mar 2020 01:14:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/51/</guid><description>&lt;h2 id="41-二维曲线">
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/2041226361.png" alt="vim.png">&lt;/p></description></item><item><title>专题四:MATLAB绘图</title><link>https://blog.zzsqwq.cn/posts/51/</link><pubDate>Mon, 23 Mar 2020 01:14:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/51/</guid><description>&lt;h2 id="41-二维曲线">
 4.1 二维曲线
 &lt;a class="heading-link" href="#41-%e4%ba%8c%e7%bb%b4%e6%9b%b2%e7%ba%bf">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -6714,12 +6714,12 @@ Vim的常用操作
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>x1=&lt;span style="color:#ae81ff">0&lt;/span>:&lt;span style="color:#ae81ff">0.5&lt;/span>:&lt;span style="color:#ae81ff">6&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>y3=&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>exp(&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">0.5&lt;/span>&lt;span style="color:#f92672">*&lt;/span>x1)&lt;span style="color:#f92672">.*&lt;/span>sin(&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>pi&lt;span style="color:#f92672">*&lt;/span>x1); &lt;span style="color:#75715e">%这里标记的是正弦函数和x轴的交点。&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plot(x, y1, &lt;span style="color:#e6db74">&amp;#39;k:&amp;#39;&lt;/span>, x, y2, &lt;span style="color:#e6db74">&amp;#39;b--&amp;#39;&lt;/span>, x1, y3, &lt;span style="color:#e6db74">&amp;#39;rp&amp;#39;&lt;/span>)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/997434957.png" alt="plot1.png">&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/997434957.png" alt="plot1.png">&lt;/p>
 &lt;ul>
 &lt;li>利用fplot函数绘制 $y=sin{\frac{1}{x}}$ 在区间 $[0,0.2]$ 的图像。&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="display:flex;">&lt;span>fplot(@x sin(&lt;span style="color:#ae81ff">1.&lt;/span>&lt;span style="color:#f92672">/&lt;/span>x),[&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">0.2&lt;/span>])
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1197666753.png" alt="plot2.png">&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/1197666753.png" alt="plot2.png">&lt;/p>
 &lt;hr>
 &lt;/br>
 &lt;h2 id="42-绘制图形的辅助操作">
@@ -6843,7 +6843,7 @@ Vim的常用操作
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>text(&lt;span style="color:#ae81ff">5.5&lt;/span>,sin(&lt;span style="color:#ae81ff">0.5&lt;/span>&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">5.5&lt;/span>),&lt;span style="color:#e6db74">&amp;#39;sin(x/2)&amp;#39;&lt;/span>);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>legend(&lt;span style="color:#e6db74">&amp;#39;sin(x)&amp;#39;&lt;/span>,&lt;span style="color:#e6db74">&amp;#39;sin(2x)&amp;#39;&lt;/span>,&lt;span style="color:#e6db74">&amp;#39;sin(x/2)&amp;#39;&lt;/span>);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>grid on
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1478197073.png" alt="plot3.png">&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/1478197073.png" alt="plot3.png">&lt;/p>
 &lt;ul>
 &lt;li>利用子图函数在不同区域绘出不同图形。&lt;/li>
 &lt;/ul>
@@ -6863,7 +6863,7 @@ Vim的常用操作
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plot(x,cot(x));
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>title(&lt;span style="color:#e6db74">&amp;#39;cot(x)&amp;#39;&lt;/span>);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>axis([&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>&lt;span style="color:#f92672">*&lt;/span>pi,&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">35&lt;/span>,&lt;span style="color:#ae81ff">35&lt;/span>]);
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/4053281797.png" alt="plot4.png">&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/4053281797.png" alt="plot4.png">&lt;/p>
 &lt;hr>
 &lt;/br>
 &lt;h2 id="43-其他形式的二维曲线">
@@ -7015,11 +7015,11 @@ Vim的常用操作
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
 &lt;p>不加location参数&lt;/p>
 &lt;/blockquote>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1604792788.png" alt="pie.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/1604792788.png" alt="pie.png">&lt;/p>
 &lt;blockquote>
 &lt;p>加入location参数&lt;/p>
 &lt;/blockquote>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/200869395.png" alt="pie2.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/200869395.png" alt="pie2.png">&lt;/p>
 &lt;hr>
 &lt;/br>
 &lt;h2 id="44-三维曲线">
@@ -7141,7 +7141,7 @@ fsurf和fmesh函数
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hold on
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>fmesh(funx,funy,funz,[&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">5&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>])
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hold off
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1198437028.png" alt="luoxuan.png">&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/1198437028.png" alt="luoxuan.png">&lt;/p>
 &lt;ul>
 &lt;li>绘制函数$z=(x-1)^2+(y-2)^2-1$ 的曲面图，分别用带等高线的mesh函数，带底座的mesh函数，带等高线的surf函数，带光照效果的surf函数绘制。$x\in[0,2],y\in[1,3]$&lt;/li>
 &lt;/ul>
@@ -7155,7 +7155,7 @@ fsurf和fmesh函数
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>surfc(x,y,z);title(&lt;span style="color:#e6db74">&amp;#39;surfc(x,y,z)&amp;#39;&lt;/span>)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>subplot(&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">4&lt;/span>);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>surfl(x,y,z); title(&lt;span style="color:#e6db74">&amp;#39;surfl(x,y,z)&amp;#39;&lt;/span>)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/4183580283.png" alt="mesh.png">&lt;/p></description></item><item><title>专题三:MATLAB程序流程控制</title><link>https://blog.zzsqwq.cn/posts/36/</link><pubDate>Wed, 18 Mar 2020 01:09:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/36/</guid><description>&lt;h2 id="31-顺序结构程序">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/4183580283.png" alt="mesh.png">&lt;/p></description></item><item><title>专题三:MATLAB程序流程控制</title><link>https://blog.zzsqwq.cn/posts/36/</link><pubDate>Wed, 18 Mar 2020 01:09:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/36/</guid><description>&lt;h2 id="31-顺序结构程序">
 3.1 顺序结构程序
 &lt;a class="heading-link" href="#31-%e9%a1%ba%e5%ba%8f%e7%bb%93%e6%9e%84%e7%a8%8b%e5%ba%8f">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -7167,7 +7167,7 @@ fsurf和fmesh函数
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2521586228.png" alt="step.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/2521586228.png" alt="step.png">&lt;/p>
 &lt;h3 id="程序">
 程序
 &lt;a class="heading-link" href="#%e7%a8%8b%e5%ba%8f">
@@ -7693,7 +7693,7 @@ end
 &lt;ul>
 &lt;li>利用 &lt;strong>Vander(V)&lt;/strong> 生成以向量 V 为基础的**范德蒙(Vandermonde)**矩阵。&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/881557732.png" alt="Vander.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/881557732.png" alt="Vander.png">&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-matlab" data-lang="matlab">&lt;span style="display:flex;">&lt;span>A=vander(&lt;span style="color:#ae81ff">1&lt;/span>:&lt;span style="color:#ae81ff">5&lt;/span>)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>A =
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
@@ -7708,22 +7708,22 @@ end
 &lt;ul>
 &lt;li>利用 &lt;strong>hilb(n)&lt;/strong> 可以生成n阶希尔伯特矩阵。&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2952928869.png" alt="Hilbert.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/2952928869.png" alt="Hilbert.png">&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>伴随矩阵&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>通过 &lt;strong>compan(p)&lt;/strong> 可以生成向量p对应的多项式的伴随矩阵。&lt;strong>p向量中高次系数在前，低次系数在后。&lt;/strong>(我感觉我学过伴随矩阵，但看了之后又感觉没学过QAQ)&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2172119825.png" alt="Company.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/2172119825.png" alt="Company.png">&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>帕斯卡矩阵&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>通过 &lt;strong>pascal(n)&lt;/strong> 生成一个n阶帕斯卡矩阵。&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/3001100753.png" alt="Pascal1.png">&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/3347696985.png" alt="Pascal2.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/3001100753.png" alt="Pascal1.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/3347696985.png" alt="Pascal2.png">&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;hr>
@@ -7885,7 +7885,7 @@ $$&lt;/p>
 &lt;ul>
 &lt;li>矩阵的范数求法和向量的一样一样滴&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/3797164482.png" alt="fanshu.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/3797164482.png" alt="fanshu.png">&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;h3 id="矩阵的条件数">
@@ -8014,7 +8014,7 @@ MATLAB的搜索路径
 &lt;ul>
 &lt;li>&lt;strong>检索命令对象的顺序如下&lt;/strong>&lt;/li>
 &lt;/ul>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2254286890.png" alt="search.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/2254286890.png" alt="search.png">&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>设置文件搜索路径&lt;/strong>
 &lt;ul>
@@ -13048,7 +13048,7 @@ $$&lt;/p>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/248320705.png" alt="xila.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/248320705.png" alt="xila.png">&lt;/p>
 &lt;hr>
 &lt;h3 id="一些技巧和特殊符号">
 一些技巧和特殊符号
@@ -13067,7 +13067,7 @@ $$&lt;/p>
 &lt;/ul>
 &lt;/li>
 &lt;li>
-&lt;p>根号：\sqrt&lt;a href="https://www.zzsqwq.cn/usr/uploads/2020/08/1186889784.png">3&lt;/a>{x} -&amp;gt; $\sqrt&lt;a href="https://www.zzsqwq.cn/usr/uploads/2020/08/1186889784.png">3&lt;/a>{x}$&lt;/p>
+&lt;p>根号：\sqrt&lt;a href="https://blog.zzsqwq.cn/usr/uploads/2020/08/1186889784.png">3&lt;/a>{x} -&amp;gt; $\sqrt&lt;a href="https://blog.zzsqwq.cn/usr/uploads/2020/08/1186889784.png">3&lt;/a>{x}$&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>省略号： 在下面\dots -&amp;gt; $\dots$ 在中间\cdots -&amp;gt; $\cdots$&lt;/p>
@@ -13083,8 +13083,8 @@ $$&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>插入普通文本（自适应大小）: \text{测试} -&amp;gt; $\text{测试}$&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/935141993.png" alt="specialsign.png">
-&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/1186889784.png" alt="specialsign2.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/935141993.png" alt="specialsign.png">
+&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/1186889784.png" alt="specialsign2.png">&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;hr>
@@ -13115,8 +13115,8 @@ $$&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>下取整: \lceil{x}\rceil -&amp;gt; $\lceil{x}\rceil$&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/2438601090.png" alt="qita.png">&lt;/p>
-&lt;p>&lt;img src="https://www.zzsqwq.cn/usr/uploads/2020/08/303386698.png" alt="qita2.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/2438601090.png" alt="qita.png">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/303386698.png" alt="qita2.png">&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;hr>
