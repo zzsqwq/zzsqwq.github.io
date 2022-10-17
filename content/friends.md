@@ -4,11 +4,13 @@ title: "Friends"
 
 # Friends
 
-I plan to write a new style for the friendship link, but too busy lately… 
+Here are my friends, they all have their own characteristics.
 
 Orangii https://orangii.cn/
 
 pg999w https://blog.pg999w.top/
+
+Xiaoheng https://fafacao.tech
 
 Kehan https://blog.kehan.xyz/
 
