@@ -9,23 +9,23 @@ date: "2021-06-16 01:38:00"
 
 ### 问题描述
 
-​	Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题
+​Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题
 
 
 
 ### 解决方案
 
-​	首先我们根据上文的启示，因为每一个应用程序对应了一个 `xxx.desktop` 文件，因此在应用库中的QQ一定也有一个对应的 `desktop` 文件
+​首先我们根据上文的启示，因为每一个应用程序对应了一个 `xxx.desktop` 文件，因此在应用库中的QQ一定也有一个对应的 `desktop` 文件
 
 ![QQ的启动方式][1]
 
-​	我们进入到 `/usr/share/applications` ，运行 
+​我们进入到 `/usr/share/applications` ，运行 
 
 ```shell
 $ ls | grep -i qq
 ```
 
-​	可以发现其中有一个名为 `deepin.com.qq.im.desktop` 的文件，我们打开后发现内容如下：
+​可以发现其中有一个名为 `deepin.com.qq.im.desktop` 的文件，我们打开后发现内容如下：
 
 ```shell
 #!/usr/bin/env xdg-open
@@ -44,9 +44,9 @@ StartupWMClass=QQ.exe
 MimeType=
 ```
 
-​	可以看到Exec那一栏为 `Exec="/opt/deepinwine/apps/Deepin-QQ/run.sh" -u %u` ，发现他是运行目录下的一个 `run.sh`  脚本来启动的。
+​可以看到Exec那一栏为 `Exec="/opt/deepinwine/apps/Deepin-QQ/run.sh" -u %u` ，发现他是运行目录下的一个 `run.sh`  脚本来启动的。
 
-​	我们进入目录下直接运行该脚本，查看log信息：
+​我们进入目录下直接运行该脚本，查看log信息：
 
 ```shell
 base ❯ ./run.sh                   
@@ -107,9 +107,9 @@ X Error of failed request:  GLXBadContext
   Current serial number in output stream:  206
 ```
 
-​	可以发现最下面的log信息有一些异常，首先第一行是因为我们是Ubuntu系统，可以暂且不关注
+​可以发现最下面的log信息有一些异常，首先第一行是因为我们是Ubuntu系统，可以暂且不关注
 
-​	接下来可以看到有一个LibGL的错误，我们通过Google搜索
+​接下来可以看到有一个LibGL的错误，我们通过Google搜索
 
 ```shell
 libGL error: No matching fbConfigs or visuals found
@@ -121,15 +121,15 @@ X Error of failed request:  GLXBadContext
   Current serial number in output stream:  206
 ```
 
-​	发现类似的错误及解决方案如下：
+​发现类似的错误及解决方案如下：
 
 + [SOLVED\] LibGL errors with osu! and wine](https://bbs.archlinux.org/viewtopic.php?id=255385)
 
 + [Steam: libGL error: No matching fbConfigs or visuals found libGL error: failed to load driver: swrast](https://askubuntu.com/questions/834254/steam-libgl-error-no-matching-fbconfigs-or-visuals-found-libgl-error-failed-t)
 
-​	从搜索结果来看，这个问题还是非常常见的，用steam也会遇到，一般都是因为电脑安装了64位的NVIDIA显卡驱动，但是因为应用是32位的导致不能兼容，因此无法启动
+​从搜索结果来看，这个问题还是非常常见的，用steam也会遇到，一般都是因为电脑安装了64位的NVIDIA显卡驱动，但是因为应用是32位的导致不能兼容，因此无法启动
 
-​	最终解决方案有两个
+​最终解决方案有两个
 
 + 如果是不常用NVIDIA驱动的人，普通的办公一下，可以搜索网上教程关闭独显，只启用集显，可以发现QQ可以正常启动，
 + 重新安装32位的NVIDIA驱动
@@ -138,9 +138,9 @@ X Error of failed request:  GLXBadContext
 
 ### 最后
 
-​	虽然已经知道了解决方案，但是最终我还是选择卸载掉QQ，安装了wine版本的TIM，感觉和QQ没什么区别，而且更加简洁，而且可以流畅运行，没有N卡兼容问题！大家可以考虑一下~
+虽然已经知道了解决方案，但是最终我还是选择卸载掉QQ，安装了wine版本的TIM，感觉和QQ没什么区别，而且更加简洁，而且可以流畅运行，没有N卡兼容问题！大家可以考虑一下~
 
-​	而且QQ和TIM某些情况下会出现bug，字体全部变为方块，在 deepin-wine-ubuntu 的 [Issues](https://github.com/wszqkzqk/deepin-wine-ubuntu/issues) 中找到了解决方案 [Ubuntu 安装QQ后中文方块解决方法](https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/253) ，大家有同样困扰的也可以看一下~
+而且QQ和TIM某些情况下会出现bug，字体全部变为方块，在 deepin-wine-ubuntu 的 [Issues](https://github.com/wszqkzqk/deepin-wine-ubuntu/issues) 中找到了解决方案 [Ubuntu 安装QQ后中文方块解决方法](https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/253) ，大家有同样困扰的也可以看一下~
 
 
-  [1]: https://blog.zzsqwq.cn/usr/uploads/2021/06/75817321.png
+[1]: https://blog.zzsqwq.cn/usr/uploads/2021/06/75817321.png
