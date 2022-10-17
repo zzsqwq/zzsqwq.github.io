@@ -1,10 +1,11 @@
 ---
 title: "Friends"
 ---
-
 # Friends
 
 Here are my friends, they all have their own characteristics.
+
+To request a link, please make sure your blog has [https](https://en.wikipedia.org/wiki/HTTPS) enabled.
 
 Orangii https://orangii.cn/
 
