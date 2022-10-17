@@ -38,45 +38,50 @@ $ sudo nmtui 选择 Activate a connect 连接无线的WiFi，执行
 $ sudo ifconfig 查看WiFi对应的IP，至此，树莓派可以摆脱屏幕，我们可以使用电脑进行使用 ssh 连接。
 这里也可以使用网线进行连接，具体操作如下
 用网线连接树莓派和自己的电脑。
-在树莓派的利用 nmtui 选择 Edit a connection ，Add一个Ethernet connect，对IPv4 CONFIGURATION进行设置，首先讲 Automatic 设置为 Manual，设置 Address 为 静态IP 如 192.</description></item><item><title>deepin-wine-qq-9.1.8版本无法正常启动的解决方案</title><link>https://blog.zzsqwq.cn/posts/195/</link><pubDate>Wed, 16 Jun 2021 01:38:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/195/</guid><description>问题描述 ​ Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题
-解决方案 ​ 首先我们根据上文的启示，因为每一个应用程序对应了一个 xxx.desktop 文件，因此在应用库中的QQ一定也有一个对应的 desktop 文件
-​ 我们进入到 /usr/share/applications ，运行
-$ ls | grep -i qq ​ 可以发现其中有一个名为 deepin.com.qq.im.desktop 的文件，我们打开后发现内容如下：
-#!/usr/bin/env xdg-open [Desktop Entry] Encoding=UTF-8 Type=Application X-Created-By=Deepin WINE Team Categories=chat; Icon=deepin.com.qq.im Exec=&amp;#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;#34; -u %u Name=QQ Name[zh_CN]=QQ Comment=Tencent QQ Client on Deepin Wine StartupWMClass=QQ.exe MimeType= ​ 可以看到Exec那一栏为 Exec=&amp;quot;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;quot; -u %u ，发现他是运行目录下的一个 run.sh 脚本来启动的。
-​ 我们进入目录下直接运行该脚本，查看log信息：
-base ❯ ./run.sh Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.</description></item><item><title>Ubuntu如何利用AppImage创建Qv2ray快捷方式</title><link>https://blog.zzsqwq.cn/posts/193/</link><pubDate>Wed, 16 Jun 2021 00:54:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/193/</guid><description>前言 ​ 最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：
-原理 ​ 首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 \usr\share\applications 中，文件名为 **.desktop ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：
-[Desktop Entry] Name=Typora Comment=a minimal Markdown reading &amp;amp; writing app. Change Log: (https://typora.io/windows/dev_release.html) GenericName=Markdown Editor Exec=typora %U Icon=typora Type=Application StartupNotify=true Categories=Office;WordProcessor; MimeType=text/markdown;text/x-markdown; ​ 可以看到里面的内容写的非常清晰，其中比较重要的有以下几个
-关键词 意义 [Desktop Entry] 文件头 Name 应用名称 Comment 描述 Exec 执行的命令 Icon 图标路径 Type 启动器类型 Categories 应用的类型（内容相关） StartupNotify 启动时是否打印输出信息 Terminal 是否在终端中运行 快捷方式的创建 ​ 明白以上原理，我们只需要创建一个 qv2ray.desktop ，文件内容如下：
-[Desktop Entry] Name=qv2ray Exec=/home/zs/proxy/v2ray/Qv2ray.v2.6.3.linux-x64.AppImage Icon=/home/zs/proxy/v2ray/qv2ray.512.png Type=Application StartupNotify=true ​ 其中Exec为你AppImage的绝对路径，Icon为图标的绝对路径。</description></item><item><title>关于Anaconda中pip路径指向问题</title><link>https://blog.zzsqwq.cn/posts/169/</link><pubDate>Sat, 06 Mar 2021 20:51:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/169/</guid><description> 前言 ​ 最近使用Anaconda的时候遇到了一个很奇怪的问题，如当我新建环境 condatest 后，使用 pip -V 查看pip的路径指向，会发现pip指向的是另一个环境 CenterNet 的路径。搜索了很久得到一个有一些用的解决方法
-解决方案 ​ 设有问题的环境为 condatest ，python版本为 3.6
-​ 然后进入 ~/anaconda3/envs/condatest/lib/python3.6
-​ 编辑目录下的 site.py 文件，将其中的 USER_SITE 的值修改为 /home/zs/anaconda3/envs/condatest ，注意这里路径里面的 zs 是你的当前用户名， USER_BASE 的值修改为 /home/zs/anaconda3/envs/condatest/lib/python3.6/site.py，然后问题应该就解决了。
-​ 因为如果环境问题的话，上面两个字符串都为空，猜测的原因是因为有同python版本的环境导致默认指向错误，此方式为修改conda中pip的指向。
-参考链接 更改conda环境中的pip包安装的默认路径</description></item><item><title>如何使用CenterNet做3D目标检测测试</title><link>https://blog.zzsqwq.cn/posts/164/</link><pubDate>Wed, 27 Jan 2021 11:50:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/164/</guid><description>CenterNet—Objects as Points介绍 ​ CenterNet是一个anchor-free的目标检测网络，与YOLOv3相比，精度有所提升，此外他不仅能够用于2D目标检测，也能够用于人体姿态识别，3D目标检测等···
-安装CenterNet ​ 其实安装CenterNet的过程就是一个配置环境的问题，直接跟着官方给出的这里Install.md配置一下即可，十分推荐使用Conda来管理环境，这里给出我的环境给大家参考一下：
+在树莓派的利用 nmtui 选择 Edit a connection ，Add一个Ethernet connect，对IPv4 CONFIGURATION进行设置，首先讲 Automatic 设置为 Manual，设置 Address 为 静态IP 如 192.</description></item><item><title>deepin-wine-qq-9.1.8版本无法正常启动的解决方案</title><link>https://blog.zzsqwq.cn/posts/195/</link><pubDate>Wed, 16 Jun 2021 01:38:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/195/</guid><description>问题描述 ​Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题
+解决方案 ​首先我们根据上文的启示，因为每一个应用程序对应了一个 xxx.desktop 文件，因此在应用库中的QQ一定也有一个对应的 desktop 文件
+​我们进入到 /usr/share/applications ，运行
+$ ls | grep -i qq ​可以发现其中有一个名为 deepin.com.qq.im.desktop 的文件，我们打开后发现内容如下：
+#!/usr/bin/env xdg-open [Desktop Entry] Encoding=UTF-8 Type=Application X-Created-By=Deepin WINE Team Categories=chat; Icon=deepin.com.qq.im Exec=&amp;#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;#34; -u %u Name=QQ Name[zh_CN]=QQ Comment=Tencent QQ Client on Deepin Wine StartupWMClass=QQ.exe MimeType= ​可以看到Exec那一栏为 Exec=&amp;quot;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;quot; -u %u ，发现他是运行目录下的一个 run.sh 脚本来启动的。
+​我们进入目录下直接运行该脚本，查看log信息：
+base ❯ ./run.sh Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.exe run Deepin-QQ progress pid Gtk-Message: 01:16:58.</description></item><item><title>Ubuntu如何利用AppImage创建Qv2ray快捷方式</title><link>https://blog.zzsqwq.cn/posts/193/</link><pubDate>Wed, 16 Jun 2021 00:54:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/193/</guid><description>前言 最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：
+原理 首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 \usr\share\applications 中，文件名为 **.desktop ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：
+[Desktop Entry] Name=Typora Comment=a minimal Markdown reading &amp;amp; writing app. Change Log: (https://typora.io/windows/dev_release.html) GenericName=Markdown Editor Exec=typora %U Icon=typora Type=Application StartupNotify=true Categories=Office;WordProcessor; MimeType=text/markdown;text/x-markdown; 可以看到里面的内容写的非常清晰，其中比较重要的有以下几个
+关键词 意义 [Desktop Entry] 文件头 Name 应用名称 Comment 描述 Exec 执行的命令 Icon 图标路径 Type 启动器类型 Categories 应用的类型（内容相关） StartupNotify 启动时是否打印输出信息 Terminal 是否在终端中运行 快捷方式的创建 明白以上原理，我们只需要创建一个 qv2ray.desktop ，文件内容如下：
+[Desktop Entry] Name=qv2ray Exec=/home/zs/proxy/v2ray/Qv2ray.v2.6.3.linux-x64.AppImage Icon=/home/zs/proxy/v2ray/qv2ray.512.png Type=Application StartupNotify=true 其中Exec为你AppImage的绝对路径，Icon为图标的绝对路径。
+其中各个大小的Qv2ray的icons可以在它的Github中找到，链接为：Qv2ray/icons
+创建完后执行
+$ sudo chmod +x qv2ray.</description></item><item><title>关于Anaconda中pip路径指向问题</title><link>https://blog.zzsqwq.cn/posts/169/</link><pubDate>Sat, 06 Mar 2021 20:51:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/169/</guid><description> 前言 最近使用Anaconda的时候遇到了一个很奇怪的问题，如当我新建环境 condatest 后，使用 pip -V 查看pip的路径指向，会发现pip指向的是另一个环境 CenterNet 的路径。搜索了很久得到一个有一些用的解决方法
+解决方案 设有问题的环境为 condatest ，python版本为 3.6
+然后进入 ~/anaconda3/envs/condatest/lib/python3.6
+编辑目录下的 site.py 文件，将其中的 USER_SITE 的值修改为 /home/zs/anaconda3/envs/condatest ，注意这里路径里面的 zs 是你的当前用户名， USER_BASE 的值修改为 /home/zs/anaconda3/envs/condatest/lib/python3.6/site.py，然后问题应该就解决了。
+因为如果环境问题的话，上面两个字符串都为空，猜测的原因是因为有同python版本的环境导致默认指向错误，此方式为修改conda中pip的指向。
+参考链接 更改conda环境中的pip包安装的默认路径</description></item><item><title>如何使用CenterNet做3D目标检测测试</title><link>https://blog.zzsqwq.cn/posts/164/</link><pubDate>Wed, 27 Jan 2021 11:50:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/164/</guid><description>CenterNet—Objects as Points介绍 ​CenterNet是一个anchor-free的目标检测网络，与YOLOv3相比，精度有所提升，此外他不仅能够用于2D目标检测，也能够用于人体姿态识别，3D目标检测等···
+安装CenterNet ​其实安装CenterNet的过程就是一个配置环境的问题，直接跟着官方给出的这里Install.md配置一下即可，十分推荐使用Conda来管理环境，这里给出我的环境给大家参考一下：
 Ubuntu = 18.04 LTS
 pytorch = 1.2.0
 python = 3.6.12
 torchvision = 0.4.0
 cuda = 10.2
-​ 需要注意的是：
-官方给出的教程里面使用的是 pytorch 0.4.1，但是我个人在实测过程中遇到了一些问题，遂安装网上的教程更改为 pytorch 1.2.0，并且需要把 ${CenterNet_Root}/src/lib/models/networks/DCNv2 中的这个DCNv2网络更改为官方的最新版。 这里使用的cuda版本最好和你的显卡匹配，之前因为显卡驱动的一些问题导致重装了电脑，根据我们学长学姐的建议，最好直接去cuda官网那边去下载deb包直接安装。 遇到环境配置问题可以先去Google一下，一般作者都在CenterNet&amp;rsquo;s Issues中给出了回复，如果没有，可以发邮件给作者询问，当然也可以发消息/邮箱给我，大家一起探讨一下~ 运行CenterNet的demo ​ 想要运行demo，首先要去 Model zoo 中下载一下我们需要使用的model，2D目标检测使用的是 ctdet_coco_dla_2x.pth ，人体姿态评估使用的是 multi_pose_dla_3x.pth ，下载后统一将他们放在CenterNet根目录中的model文件夹中。
-​ 然后使用conda切换到CenterNet的环境，在终端中运行：
-python demo.py ctdet --demo ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg --load_model ../models/ctdet_coco_dla_2x.pth ​ 这里需要注意的是 --demo 后面的 ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg ，这里我使用的是官方给出的实例图片，它位于CenterNet根目录的images文件夹中，前面的 ${CenterNet_Root} 代表的是 CenterNet根目录，好比我的就位于 /home/zs/CenterNet 。
-​ 如果不出意外的话效果应该如下图所示：
-运行CenterNet的3D目标检测 配置数据集和模型 ​ 我们可以直接参考官方的 DATA.</description></item><item><title>Ubuntu18.04优化教程</title><link>https://blog.zzsqwq.cn/posts/141/</link><pubDate>Fri, 04 Dec 2020 01:39:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/141/</guid><description>前言 ​ 因为最近Ubuntu用的比较频繁，所以前一阵把Ubuntu16.04换成Ubuntu18.04了，并且囿于机械硬盘那启动速度，我忍痛割爱把我80G的固态硬盘分给了Ubuntu。
-​ 后来，用着用着就觉得这个Ubuntu的原始界面确实不是特别的好看，配色偏基佬紫的感觉。“工欲善其事，必先利其器“，我们只有将自己的工作环境布置的舒心一些才能有做下去的动力！所以我想给Ubuntu换一个看起来舒服点的界面，然后上网找教程乱七八糟的倒腾了一会，感觉换完以后完全不一样了，这个界面真的好看！！用起来也特别的舒心，感觉自己马上就要告别Windows投奔Linux的怀抱了。后续还有一些其他的优化，例如装QQ、微信、配置终端等，一并写在这里吧。
-Ubuntu界面的优化 具体效果 ​ 先放几张效果图上来，是我改后的界面。大概就是这样(自我感觉挺好看的)，当然也有其他的主题可供选择。
-1.安装GNOME桌面环境主题配置工具 ​ 如果要改主题，那么首先要有一个利器，这里我用的Ubuntu18.04，桌面环境为 GNOME 3.28.2 ，因为我目前接触的只有GNOME桌面环境的，Ubuntu18.04本来的桌面环境就是GNOME，但是Ubuntu16.04好像没有自带，但是可以安装，这里大家可以自行百度了解。
-​ 然后我们已经有了GNOME桌面环境后，安装主题配置工具 GNOME Tweaks ，在终端中输入如下内容：
-sudo apt-get update sudo apt-get install gnome-tweak-tool ​ 我们先更新软件源，然后安装后直接打开他就行，在系统软件中中文大概叫 优化 。
-2.拓展上述工具 ​ 安装完上述工具后，我们可能发现了一个问题，就是外观那一栏目的Shell有一个感叹号，无法更改，这是因为我们没有安装拓展导致的。我们在终端中运行
-sudo apt-get install gnome-shell-extensions ​ 然后重启一下电脑。再打开软件找到左侧的拓展，把 User themes 那一栏目打开。切换回去就可以发现Shell那边的感叹号无了。
-3.寻找自己喜欢的主题 ​ 这里我大家可以去这个网址去找自己喜欢的 GNOME-LOOK.ORG
-​ 这里面包含了图标，主题这些，下面介绍一下如何安装。
-​ 好比我们找到一个自己喜欢的主题，然后我们点击下面的 Files ，可能会有很多文件，但是多是同一个主题的不同风格，好比暗风格和亮风格这样的，还有不同的版本的，我多是安装那个下载量最多的，我们下载那个对应的文件(多是tar.xz安装包)。
-​ 对于主题的安装，我们只需要把解压出来的文件，移动或复制到 /usr/share/themes/ 目录下，如果是光标\图标的安装，那么就把文件夹移动到 /usr/share/icons 目录下。
-​ 然后我们回到 GNOME Tweaks 软件中就可以发现，我们已经可以在主题\图标\光标\Shell清单中找到我们移动到文件夹中的文件了，然后选择就可以切换了。这里需要注意的，很多主题都是自带Shell的，你下了一个主题，那么你可以在Shell和主题这两个栏目中都找到他们，是一个配套的。
-4.一些后续的调整 ​ 我们后续可以改变左边收藏夹的位置，我觉得放在左边有一丢丢的丑，所以我选择把它放在的下面。
-​ 我们去Ubuntu软件中搜索 Dash to dock，然后安装这个拓展，然后打开 GNOME Tweaks 软件在拓展中找到他就可以随心所欲的调我们的收藏夹的位置了。</description></item></channel></rss>
+​需要注意的是：
+官方给出的教程里面使用的是 pytorch 0.4.1，但是我个人在实测过程中遇到了一些问题，遂安装网上的教程更改为 pytorch 1.2.0，并且需要把 ${CenterNet_Root}/src/lib/models/networks/DCNv2 中的这个DCNv2网络更改为官方的最新版。 这里使用的cuda版本最好和你的显卡匹配，之前因为显卡驱动的一些问题导致重装了电脑，根据我们学长学姐的建议，最好直接去cuda官网那边去下载deb包直接安装。 遇到环境配置问题可以先去Google一下，一般作者都在CenterNet&amp;rsquo;s Issues中给出了回复，如果没有，可以发邮件给作者询问，当然也可以发消息/邮箱给我，大家一起探讨一下~ 运行CenterNet的demo ​想要运行demo，首先要去 Model zoo 中下载一下我们需要使用的model，2D目标检测使用的是 ctdet_coco_dla_2x.pth ，人体姿态评估使用的是 multi_pose_dla_3x.pth ，下载后统一将他们放在CenterNet根目录中的model文件夹中。
+​然后使用conda切换到CenterNet的环境，在终端中运行：
+python demo.py ctdet --demo ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg --load_model ../models/ctdet_coco_dla_2x.pth ​这里需要注意的是 --demo 后面的 ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg ，这里我使用的是官方给出的实例图片，它位于CenterNet根目录的images文件夹中，前面的 ${CenterNet_Root} 代表的是 CenterNet根目录，好比我的就位于 /home/zs/CenterNet 。
+​如果不出意外的话效果应该如下图所示：
+运行CenterNet的3D目标检测 配置数据集和模型 ​我们可以直接参考官方的 DATA.md 来配置我们的数据集。
+​然后到 Model zoo 下载3D检测使用的模型 ddd_3dop.</description></item><item><title>Ubuntu18.04优化教程</title><link>https://blog.zzsqwq.cn/posts/141/</link><pubDate>Fri, 04 Dec 2020 01:39:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/141/</guid><description>前言 因为最近Ubuntu用的比较频繁，所以前一阵把Ubuntu16.04换成Ubuntu18.04了，并且囿于机械硬盘那启动速度，我忍痛割爱把我80G的固态硬盘分给了Ubuntu。
+后来，用着用着就觉得这个Ubuntu的原始界面确实不是特别的好看，配色偏基佬紫的感觉。“工欲善其事，必先利其器“，我们只有将自己的工作环境布置的舒心一些才能有做下去的动力！所以我想给Ubuntu换一个看起来舒服点的界面，然后上网找教程乱七八糟的倒腾了一会，感觉换完以后完全不一样了，这个界面真的好看！！用起来也特别的舒心，感觉自己马上就要告别Windows投奔Linux的怀抱了。后续还有一些其他的优化，例如装QQ、微信、配置终端等，一并写在这里吧。
+Ubuntu界面的优化 具体效果 先放几张效果图上来，是我改后的界面。大概就是这样(自我感觉挺好看的)，当然也有其他的主题可供选择。
+1.安装GNOME桌面环境主题配置工具 如果要改主题，那么首先要有一个利器，这里我用的Ubuntu18.04，桌面环境为 GNOME 3.28.2 ，因为我目前接触的只有GNOME桌面环境的，Ubuntu18.04本来的桌面环境就是GNOME，但是Ubuntu16.04好像没有自带，但是可以安装，这里大家可以自行百度了解。
+然后我们已经有了GNOME桌面环境后，安装主题配置工具 GNOME Tweaks ，在终端中输入如下内容：
+sudo apt-get update sudo apt-get install gnome-tweak-tool 我们先更新软件源，然后安装后直接打开他就行，在系统软件中中文大概叫 优化 。
+2.拓展上述工具 安装完上述工具后，我们可能发现了一个问题，就是外观那一栏目的Shell有一个感叹号，无法更改，这是因为我们没有安装拓展导致的。我们在终端中运行
+sudo apt-get install gnome-shell-extensions 然后重启一下电脑。再打开软件找到左侧的拓展，把 User themes 那一栏目打开。切换回去就可以发现Shell那边的感叹号无了。
+3.寻找自己喜欢的主题 这里我大家可以去这个网址去找自己喜欢的 GNOME-LOOK.ORG
+这里面包含了图标，主题这些，下面介绍一下如何安装。
+好比我们找到一个自己喜欢的主题，然后我们点击下面的 Files ，可能会有很多文件，但是多是同一个主题的不同风格，好比暗风格和亮风格这样的，还有不同的版本的，我多是安装那个下载量最多的，我们下载那个对应的文件(多是tar.xz安装包)。
+对于主题的安装，我们只需要把解压出来的文件，移动或复制到 /usr/share/themes/ 目录下，如果是光标\图标的安装，那么就把文件夹移动到 /usr/share/icons 目录下。
+然后我们回到 GNOME Tweaks 软件中就可以发现，我们已经可以在主题\图标\光标\Shell清单中找到我们移动到文件夹中的文件了，然后选择就可以切换了。这里需要注意的，很多主题都是自带Shell的，你下了一个主题，那么你可以在Shell和主题这两个栏目中都找到他们，是一个配套的。
+4.一些后续的调整 我们后续可以改变左边收藏夹的位置，我觉得放在左边有一丢丢的丑，所以我选择把它放在的下面。
+我们去Ubuntu软件中搜索 Dash to dock，然后安装这个拓展，然后打开 GNOME Tweaks 软件在拓展中找到他就可以随心所欲的调我们的收藏夹的位置了。
+5.我自己的配置 theme&amp;amp;shell Canta-light-compact icons 01-McMojave-circle 6.界面修改的参考链接 Ubuntu18.04美化主题(mac主题) Ubuntu18.04美化主题(完整版) GNOME-LOOK.ORG 30个非常不错的Ubuntu主题供你选择 ubuntu18.</description></item></channel></rss>

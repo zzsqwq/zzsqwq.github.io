@@ -4,5 +4,5 @@
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
-&lt;p>​ 本来之前是用的 &lt;strong>Hexo + Github&lt;/strong> 搭建的，虽然用的是 &lt;strong>Github&lt;/strong> 的服务器，但是我用家里的移动网访问起来还是没什么压力，就是慢一点，可以接受。&lt;/p>
-&lt;p>​ 后来到了学校，我们学校网访问 &lt;strong>Github&lt;/strong> 的速度简直可以用龟速来形容，白天可以说不开代理根本进不去，只有晚上了才能勉强进得去。然后我就寻思，能不能换成国内的服务器，然后就发现了 &lt;strong>Gitee&lt;/strong> ，这个可以算是中国版的 &lt;strong>Github&lt;/strong> ，他具有的服务 &lt;strong>Gitee Pages&lt;/strong> 在国内可以飞速的访问，But如果想要自定义域名/每次推送自动更新需要开 &lt;strong>Github Pages Pro&lt;/strong> ，还挺贵的，一年大概 &lt;strong>120￥&lt;/strong> 吧。此外，如果想要将域名解析到国内的服务器必须要备案，&lt;strong>备案又必须有服务器&lt;/strong>，那我有服务器了还费那些事了，于是考虑自己买服务器重构一下博客。&lt;/p></description></item></channel></rss>
+&lt;p>本来之前是用的 &lt;strong>Hexo + Github&lt;/strong> 搭建的，虽然用的是 &lt;strong>Github&lt;/strong> 的服务器，但是我用家里的移动网访问起来还是没什么压力，就是慢一点，可以接受。&lt;/p>
+&lt;p>后来到了学校，我们学校网访问 &lt;strong>Github&lt;/strong> 的速度简直可以用龟速来形容，白天可以说不开代理根本进不去，只有晚上了才能勉强进得去。然后我就寻思，能不能换成国内的服务器，然后就发现了 &lt;strong>Gitee&lt;/strong> ，这个可以算是中国版的 &lt;strong>Github&lt;/strong> ，他具有的服务 &lt;strong>Gitee Pages&lt;/strong> 在国内可以飞速的访问，But如果想要自定义域名/每次推送自动更新需要开 &lt;strong>Github Pages Pro&lt;/strong> ，还挺贵的，一年大概 &lt;strong>120￥&lt;/strong> 吧。此外，如果想要将域名解析到国内的服务器必须要备案，&lt;strong>备案又必须有服务器&lt;/strong>，那我有服务器了还费那些事了，于是考虑自己买服务器重构一下博客。&lt;/p></description></item></channel></rss>

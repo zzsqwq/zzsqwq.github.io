@@ -11,13 +11,13 @@
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​ 在01背包基础上，将其中的物体分成 $k$ 组，每组内的物品相互冲突，即只能取其中一个，问最大价值。&lt;/p></description></item><item><title>一些关于背包的题</title><link>https://blog.zzsqwq.cn/posts/20/</link><pubDate>Sat, 08 Feb 2020 00:33:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/20/</guid><description>&lt;h3 id="前言">
+&lt;p>在01背包基础上，将其中的物体分成 $k$ 组，每组内的物品相互冲突，即只能取其中一个，问最大价值。&lt;/p></description></item><item><title>一些关于背包的题</title><link>https://blog.zzsqwq.cn/posts/20/</link><pubDate>Sat, 08 Feb 2020 00:33:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/20/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 今天跟着背包九讲把背包再学习一下，dd_engi大佬的背包九讲Github链接: &lt;a href="https://github.com/tianyicui/pack">背包九讲&lt;/a>&lt;/p>
+&lt;p>今天跟着背包九讲把背包再学习一下，dd_engi大佬的背包九讲Github链接: &lt;a href="https://github.com/tianyicui/pack">背包九讲&lt;/a>&lt;/p>
 &lt;hr>
 &lt;h3 id="1-采药01背包httpswwwluogucomcnproblemp1048">
 1. &lt;a href="https://www.luogu.com.cn/problem/P1048">采药(01背包)&lt;/a>
@@ -32,4 +32,4 @@
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​ 有 $n$ 个价值为 $w_i$ ，体积为 $v_i$ 的物品，装入体积为 $V$ 的背包中，问能获得的最大为多少。&lt;/p></description></item></channel></rss>
+&lt;p>有 $n$ 个价值为 $w_i$ ，体积为 $v_i$ 的物品，装入体积为 $V$ 的背包中，问能获得的最大为多少。&lt;/p></description></item></channel></rss>

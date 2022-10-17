@@ -4,7 +4,7 @@
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
-&lt;p>​ 学OI的时候就做过树形dp的题，不过那时候全在划水。看了看题解还不太懂就直接照着题解写了，现在再回来看还是不会QAQ，所以就再看看然后自己写了一遍。&lt;/p></description></item><item><title>dp练习</title><link>https://blog.zzsqwq.cn/posts/29/</link><pubDate>Tue, 18 Feb 2020 01:00:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/29/</guid><description>&lt;h2 id="a-矩阵取数游戏httpswwwluogucomcnproblemp1005">
+&lt;p>学OI的时候就做过树形dp的题，不过那时候全在划水。看了看题解还不太懂就直接照着题解写了，现在再回来看还是不会QAQ，所以就再看看然后自己写了一遍。&lt;/p></description></item><item><title>dp练习</title><link>https://blog.zzsqwq.cn/posts/29/</link><pubDate>Tue, 18 Feb 2020 01:00:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/29/</guid><description>&lt;h2 id="a-矩阵取数游戏httpswwwluogucomcnproblemp1005">
 A. &lt;a href="https://www.luogu.com.cn/problem/P1005">矩阵取数游戏&lt;/a>
 &lt;a class="heading-link" href="#a-%e7%9f%a9%e9%98%b5%e5%8f%96%e6%95%b0%e6%b8%b8%e6%88%8fhttpswwwluogucomcnproblemp1005">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -16,7 +16,7 @@ A. &lt;a href="https://www.luogu.com.cn/problem/P1005">矩阵取数游戏&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 给定一个 $n\times m$ 的矩阵，其中每个元素为非负整数。每次你可以从每行的行首或行末取一个元素，得到的分数为当前元素的值 $a_{ij}\times 2^k$ ，$k$ 为当前是第几次取该行上的元素。 问最大得分为多少。&lt;/p></description></item><item><title>dp习题练习</title><link>https://blog.zzsqwq.cn/posts/24/</link><pubDate>Wed, 12 Feb 2020 00:45:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/24/</guid><description>&lt;h2 id="a-方格取数httpswwwluogucomcnproblemp1004">
+&lt;p>给定一个 $n\times m$ 的矩阵，其中每个元素为非负整数。每次你可以从每行的行首或行末取一个元素，得到的分数为当前元素的值 $a_{ij}\times 2^k$ ，$k$ 为当前是第几次取该行上的元素。 问最大得分为多少。&lt;/p></description></item><item><title>dp习题练习</title><link>https://blog.zzsqwq.cn/posts/24/</link><pubDate>Wed, 12 Feb 2020 00:45:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/24/</guid><description>&lt;h2 id="a-方格取数httpswwwluogucomcnproblemp1004">
 A. &lt;a href="https://www.luogu.com.cn/problem/P1004">方格取数&lt;/a>
 &lt;a class="heading-link" href="#a-%e6%96%b9%e6%a0%bc%e5%8f%96%e6%95%b0httpswwwluogucomcnproblemp1004">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -28,7 +28,7 @@ A. &lt;a href="https://www.luogu.com.cn/problem/P1004">方格取数&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 有一个 $N*N$ 的整数方阵，每个点初始值为0，在一些点上放上数，一个人从左上角走到右下角，规定只能向下或向右走，当他经过的点上有数时会取走它，问走两遍最多能取的数的和最大为多少。&lt;/p></description></item><item><title>背包进阶</title><link>https://blog.zzsqwq.cn/posts/21/</link><pubDate>Sun, 09 Feb 2020 00:38:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/21/</guid><description>&lt;h3 id="1-分组背包httpswwwluogucomcnproblemp1757">
+&lt;p>有一个 $N*N$ 的整数方阵，每个点初始值为0，在一些点上放上数，一个人从左上角走到右下角，规定只能向下或向右走，当他经过的点上有数时会取走它，问走两遍最多能取的数的和最大为多少。&lt;/p></description></item><item><title>背包进阶</title><link>https://blog.zzsqwq.cn/posts/21/</link><pubDate>Sun, 09 Feb 2020 00:38:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/21/</guid><description>&lt;h3 id="1-分组背包httpswwwluogucomcnproblemp1757">
 1. &lt;a href="https://www.luogu.com.cn/problem/P1757">分组背包&lt;/a>
 &lt;a class="heading-link" href="#1-%e5%88%86%e7%bb%84%e8%83%8c%e5%8c%85httpswwwluogucomcnproblemp1757">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -41,13 +41,13 @@ A. &lt;a href="https://www.luogu.com.cn/problem/P1004">方格取数&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​ 在01背包基础上，将其中的物体分成 $k$ 组，每组内的物品相互冲突，即只能取其中一个，问最大价值。&lt;/p></description></item><item><title>一些关于背包的题</title><link>https://blog.zzsqwq.cn/posts/20/</link><pubDate>Sat, 08 Feb 2020 00:33:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/20/</guid><description>&lt;h3 id="前言">
+&lt;p>在01背包基础上，将其中的物体分成 $k$ 组，每组内的物品相互冲突，即只能取其中一个，问最大价值。&lt;/p></description></item><item><title>一些关于背包的题</title><link>https://blog.zzsqwq.cn/posts/20/</link><pubDate>Sat, 08 Feb 2020 00:33:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/20/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 今天跟着背包九讲把背包再学习一下，dd_engi大佬的背包九讲Github链接: &lt;a href="https://github.com/tianyicui/pack">背包九讲&lt;/a>&lt;/p>
+&lt;p>今天跟着背包九讲把背包再学习一下，dd_engi大佬的背包九讲Github链接: &lt;a href="https://github.com/tianyicui/pack">背包九讲&lt;/a>&lt;/p>
 &lt;hr>
 &lt;h3 id="1-采药01背包httpswwwluogucomcnproblemp1048">
 1. &lt;a href="https://www.luogu.com.cn/problem/P1048">采药(01背包)&lt;/a>
@@ -62,7 +62,7 @@ A. &lt;a href="https://www.luogu.com.cn/problem/P1004">方格取数&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​ 有 $n$ 个价值为 $w_i$ ，体积为 $v_i$ 的物品，装入体积为 $V$ 的背包中，问能获得的最大为多少。&lt;/p></description></item><item><title>基础线性dp例题 #2</title><link>https://blog.zzsqwq.cn/posts/19/</link><pubDate>Fri, 07 Feb 2020 00:22:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/19/</guid><description>&lt;h3 id="1-石子归并httpswww51nodcomchallengeproblemhtmlproblemid1021">
+&lt;p>有 $n$ 个价值为 $w_i$ ，体积为 $v_i$ 的物品，装入体积为 $V$ 的背包中，问能获得的最大为多少。&lt;/p></description></item><item><title>基础线性dp例题 #2</title><link>https://blog.zzsqwq.cn/posts/19/</link><pubDate>Fri, 07 Feb 2020 00:22:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/19/</guid><description>&lt;h3 id="1-石子归并httpswww51nodcomchallengeproblemhtmlproblemid1021">
 1. &lt;a href="https://www.51nod.com/Challenge/Problem.html#problemId=1021">石子归并&lt;/a>
 &lt;a class="heading-link" href="#1-%e7%9f%b3%e5%ad%90%e5%bd%92%e5%b9%b6httpswww51nodcomchallengeproblemhtmlproblemid1021">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -75,7 +75,8 @@ A. &lt;a href="https://www.luogu.com.cn/problem/P1004">方格取数&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​ $N$ 堆石子摆成一条线。现要将石子有次序地合并成一堆。规定每次只能选相邻的2堆石子合并成新的一堆，并将新的一堆石子数记为该次合并的代价。计算将 $N$ 堆石子合并成一堆的最小代价。&lt;/p>
+&lt;pre>&lt;code>$N$ 堆石子摆成一条线。现要将石子有次序地合并成一堆。规定每次只能选相邻的2堆石子合并成新的一堆，并将新的一堆石子数记为该次合并的代价。计算将 $N$ 堆石子合并成一堆的最小代价。
+&lt;/code>&lt;/pre>
 &lt;hr>
 &lt;h4 id="思路">
 思路
@@ -83,14 +84,14 @@ A. &lt;a href="https://www.luogu.com.cn/problem/P1004">方格取数&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​ 很经典的区间dp例题，我们可以用 $dp[i][j]$ 来表示合并 $i\sim j$ 所需的最小代价，通过枚举中间的断点，来通过方程 $dp[i][j]=min(dp[i][j],dp[i][k]+dp[k+1][j]+cost[i][j])$ ，其中 $cost[i][j]$ 表示从 $i\sim j$ 的石子总数，通过前缀和很容易计算。在进行状态转移时需要前面状态已知，因为是枚举中间断点，所以断开区间的长度一定要小于原区间，因此在转移之前需要确保比他短的区间都已经达到了最小代价，因此我们可以通过枚举区间长度从 $2\sim N$ 来实现。&lt;/p></description></item><item><title>基础线性dp例题</title><link>https://blog.zzsqwq.cn/posts/18/</link><pubDate>Thu, 06 Feb 2020 00:09:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/18/</guid><description>&lt;h3 id="前言">
+&lt;p>很经典的区间dp例题，我们可以用 $dp[i][j]$ 来表示合并 $i\sim j$ 所需的最小代价，通过枚举中间的断点，来通过方程 $dp[i][j]=min(dp[i][j],dp[i][k]+dp[k+1][j]+cost[i][j])$ ，其中 $cost[i][j]$ 表示从 $i\sim j$ 的石子总数，通过前缀和很容易计算。在进行状态转移时需要前面状态已知，因为是枚举中间断点，所以断开区间的长度一定要小于原区间，因此在转移之前需要确保比他短的区间都已经达到了最小代价，因此我们可以通过枚举区间长度从 $2\sim N$ 来实现。&lt;/p></description></item><item><title>基础线性dp例题</title><link>https://blog.zzsqwq.cn/posts/18/</link><pubDate>Thu, 06 Feb 2020 00:09:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/18/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;hr>
-&lt;p>​ 某位大佬曾经说过，dp不会没问题，想不到状态转移方程没问题，多做题就会了。所以，我打算多刷点dp题。那么，先从基础刷起吧。&lt;/p>
+&lt;p>某位大佬曾经说过，dp不会没问题，想不到状态转移方程没问题，多做题就会了。所以，我打算多刷点dp题。那么，先从基础刷起吧。&lt;/p>
 &lt;h3 id="1-p1091-合唱队形httpswwwluogucomcnproblemp1091">
 1. &lt;a href="https://www.luogu.com.cn/problem/P1091">P1091 合唱队形&lt;/a>
 &lt;a class="heading-link" href="#1-p1091-%e5%90%88%e5%94%b1%e9%98%9f%e5%bd%a2httpswwwluogucomcnproblemp1091">
@@ -104,5 +105,5 @@ A. &lt;a href="https://www.luogu.com.cn/problem/P1004">方格取数&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​ 已知序列 $a$ 有 $n$ 个数，通过取出其中一些数可以使他满足严格的先增再减序列，问最少取出几个。&lt;/p>
+&lt;p>已知序列 $a$ 有 $n$ 个数，通过取出其中一些数可以使他满足严格的先增再减序列，问最少取出几个。&lt;/p>
 &lt;hr></description></item></channel></rss>

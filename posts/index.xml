@@ -164,60 +164,65 @@ $ sudo nmtui 选择 Activate a connect 连接无线的WiFi，执行
 $ sudo ifconfig 查看WiFi对应的IP，至此，树莓派可以摆脱屏幕，我们可以使用电脑进行使用 ssh 连接。
 这里也可以使用网线进行连接，具体操作如下
 用网线连接树莓派和自己的电脑。
-在树莓派的利用 nmtui 选择 Edit a connection ，Add一个Ethernet connect，对IPv4 CONFIGURATION进行设置，首先讲 Automatic 设置为 Manual，设置 Address 为 静态IP 如 192.</description></item><item><title>deepin-wine-qq-9.1.8版本无法正常启动的解决方案</title><link>https://blog.zzsqwq.cn/posts/195/</link><pubDate>Wed, 16 Jun 2021 01:38:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/195/</guid><description>问题描述 ​ Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题
-解决方案 ​ 首先我们根据上文的启示，因为每一个应用程序对应了一个 xxx.desktop 文件，因此在应用库中的QQ一定也有一个对应的 desktop 文件
-​ 我们进入到 /usr/share/applications ，运行
-$ ls | grep -i qq ​ 可以发现其中有一个名为 deepin.com.qq.im.desktop 的文件，我们打开后发现内容如下：
-#!/usr/bin/env xdg-open [Desktop Entry] Encoding=UTF-8 Type=Application X-Created-By=Deepin WINE Team Categories=chat; Icon=deepin.com.qq.im Exec=&amp;#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;#34; -u %u Name=QQ Name[zh_CN]=QQ Comment=Tencent QQ Client on Deepin Wine StartupWMClass=QQ.exe MimeType= ​ 可以看到Exec那一栏为 Exec=&amp;quot;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;quot; -u %u ，发现他是运行目录下的一个 run.sh 脚本来启动的。
-​ 我们进入目录下直接运行该脚本，查看log信息：
-base ❯ ./run.sh Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.</description></item><item><title>Ubuntu如何利用AppImage创建Qv2ray快捷方式</title><link>https://blog.zzsqwq.cn/posts/193/</link><pubDate>Wed, 16 Jun 2021 00:54:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/193/</guid><description>前言 ​ 最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：
-原理 ​ 首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 \usr\share\applications 中，文件名为 **.desktop ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：
-[Desktop Entry] Name=Typora Comment=a minimal Markdown reading &amp;amp; writing app. Change Log: (https://typora.io/windows/dev_release.html) GenericName=Markdown Editor Exec=typora %U Icon=typora Type=Application StartupNotify=true Categories=Office;WordProcessor; MimeType=text/markdown;text/x-markdown; ​ 可以看到里面的内容写的非常清晰，其中比较重要的有以下几个
-关键词 意义 [Desktop Entry] 文件头 Name 应用名称 Comment 描述 Exec 执行的命令 Icon 图标路径 Type 启动器类型 Categories 应用的类型（内容相关） StartupNotify 启动时是否打印输出信息 Terminal 是否在终端中运行 快捷方式的创建 ​ 明白以上原理，我们只需要创建一个 qv2ray.desktop ，文件内容如下：
-[Desktop Entry] Name=qv2ray Exec=/home/zs/proxy/v2ray/Qv2ray.v2.6.3.linux-x64.AppImage Icon=/home/zs/proxy/v2ray/qv2ray.512.png Type=Application StartupNotify=true ​ 其中Exec为你AppImage的绝对路径，Icon为图标的绝对路径。</description></item><item><title>利用神经网络进行波士顿房价预测</title><link>https://blog.zzsqwq.cn/posts/182/</link><pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/182/</guid><description>前言 ​ 前一阵学校有五一数模节校赛，和朋友一起参加做B题，波士顿房价预测，算是第一次自己动手实现一个简单的小网络吧，虽然很简单，但还是想记录一下。
-题目介绍 ​ 波士顿住房数据由哈里森和鲁宾菲尔德于1978年Harrison and Rubinfeld1收集。它包括了波士顿大区每个调查行政区的506个观察值。1980年Belsley et al.2曾对此数据做过分析。
-​ 数据一共14列，每一列的含义分别如下：
-英文简称 详细含义 CRIM 城镇的人均犯罪率 ZN 大于25,000平方英尺的地块的住宅用地比例。 INDUS 每个镇的非零售业务英亩的比例。 CHAS 查尔斯河虚拟变量（如果环河，则等于1；否则等于0） NOX 一氧化氮的浓度（百万分之几） RM 每个住宅的平均房间数 AGE 1940年之前建造的自有住房的比例 DIS 到五个波士顿就业中心的加权距离 RAD 径向公路通达性的指标 TAX 每一万美元的全值财产税率 PTRATIO 各镇的师生比率 B 计算方法为 $1000(B_k-0.63)^2$，其中Bk是按城镇划分的非裔美国人的比例 LSTAT 底层人口的百分比(%) price 自有住房数的中位数，单位（千美元） ​ 基于上述数据，请完成以下问题：
-​ 建立波士顿房价预测模型并对预测结果进行评价。
-问题分析 ​ 首先这道题目的很明确，数据一共是 $506×14$ 的一个矩阵，有十三维的自变量，通过建立一个模型来拟合回归出最终的因变量 price，即户主拥有住房价值的中位数。这是一个回归问题，综合考虑有以下两个思路
+在树莓派的利用 nmtui 选择 Edit a connection ，Add一个Ethernet connect，对IPv4 CONFIGURATION进行设置，首先讲 Automatic 设置为 Manual，设置 Address 为 静态IP 如 192.</description></item><item><title>deepin-wine-qq-9.1.8版本无法正常启动的解决方案</title><link>https://blog.zzsqwq.cn/posts/195/</link><pubDate>Wed, 16 Jun 2021 01:38:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/195/</guid><description>问题描述 ​Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题
+解决方案 ​首先我们根据上文的启示，因为每一个应用程序对应了一个 xxx.desktop 文件，因此在应用库中的QQ一定也有一个对应的 desktop 文件
+​我们进入到 /usr/share/applications ，运行
+$ ls | grep -i qq ​可以发现其中有一个名为 deepin.com.qq.im.desktop 的文件，我们打开后发现内容如下：
+#!/usr/bin/env xdg-open [Desktop Entry] Encoding=UTF-8 Type=Application X-Created-By=Deepin WINE Team Categories=chat; Icon=deepin.com.qq.im Exec=&amp;#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;#34; -u %u Name=QQ Name[zh_CN]=QQ Comment=Tencent QQ Client on Deepin Wine StartupWMClass=QQ.exe MimeType= ​可以看到Exec那一栏为 Exec=&amp;quot;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;quot; -u %u ，发现他是运行目录下的一个 run.sh 脚本来启动的。
+​我们进入目录下直接运行该脚本，查看log信息：
+base ❯ ./run.sh Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.exe run Deepin-QQ progress pid Gtk-Message: 01:16:58.</description></item><item><title>Ubuntu如何利用AppImage创建Qv2ray快捷方式</title><link>https://blog.zzsqwq.cn/posts/193/</link><pubDate>Wed, 16 Jun 2021 00:54:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/193/</guid><description>前言 最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：
+原理 首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 \usr\share\applications 中，文件名为 **.desktop ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：
+[Desktop Entry] Name=Typora Comment=a minimal Markdown reading &amp;amp; writing app. Change Log: (https://typora.io/windows/dev_release.html) GenericName=Markdown Editor Exec=typora %U Icon=typora Type=Application StartupNotify=true Categories=Office;WordProcessor; MimeType=text/markdown;text/x-markdown; 可以看到里面的内容写的非常清晰，其中比较重要的有以下几个
+关键词 意义 [Desktop Entry] 文件头 Name 应用名称 Comment 描述 Exec 执行的命令 Icon 图标路径 Type 启动器类型 Categories 应用的类型（内容相关） StartupNotify 启动时是否打印输出信息 Terminal 是否在终端中运行 快捷方式的创建 明白以上原理，我们只需要创建一个 qv2ray.desktop ，文件内容如下：
+[Desktop Entry] Name=qv2ray Exec=/home/zs/proxy/v2ray/Qv2ray.v2.6.3.linux-x64.AppImage Icon=/home/zs/proxy/v2ray/qv2ray.512.png Type=Application StartupNotify=true 其中Exec为你AppImage的绝对路径，Icon为图标的绝对路径。
+其中各个大小的Qv2ray的icons可以在它的Github中找到，链接为：Qv2ray/icons
+创建完后执行
+$ sudo chmod +x qv2ray.</description></item><item><title>利用神经网络进行波士顿房价预测</title><link>https://blog.zzsqwq.cn/posts/182/</link><pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/182/</guid><description>前言 前一阵学校有五一数模节校赛，和朋友一起参加做B题，波士顿房价预测，算是第一次自己动手实现一个简单的小网络吧，虽然很简单，但还是想记录一下。
+题目介绍 波士顿住房数据由哈里森和鲁宾菲尔德于1978年Harrison and Rubinfeld1收集。它包括了波士顿大区每个调查行政区的506个观察值。1980年Belsley et al.2曾对此数据做过分析。
+数据一共14列，每一列的含义分别如下：
+英文简称 详细含义 CRIM 城镇的人均犯罪率 ZN 大于25,000平方英尺的地块的住宅用地比例。 INDUS 每个镇的非零售业务英亩的比例。 CHAS 查尔斯河虚拟变量（如果环河，则等于1；否则等于0） NOX 一氧化氮的浓度（百万分之几） RM 每个住宅的平均房间数 AGE 1940年之前建造的自有住房的比例 DIS 到五个波士顿就业中心的加权距离 RAD 径向公路通达性的指标 TAX 每一万美元的全值财产税率 PTRATIO 各镇的师生比率 B 计算方法为 $1000(B_k-0.63)^2$，其中Bk是按城镇划分的非裔美国人的比例 LSTAT 底层人口的百分比(%) price 自有住房数的中位数，单位（千美元） 基于上述数据，请完成以下问题：
+建立波士顿房价预测模型并对预测结果进行评价。
+问题分析 首先这道题目的很明确，数据一共是 $506×14$ 的一个矩阵，有十三维的自变量，通过建立一个模型来拟合回归出最终的因变量 price，即户主拥有住房价值的中位数。这是一个回归问题，综合考虑有以下两个思路
 通过各种回归算法（GradientBoostingRegressor，RandomForestRegressor，ExtraTreesRegressor，LinearRegressor等）结合全部或部分自变量来回归最终的price
 建立前馈神经网络模型，根据通用逼近定理，我们可以拟合此回归模型。
-​ 我们对上述模型来进行实现并确定评估标准来对他们进行比较，选择最优的模型作为预测模型。
-算法流程 传统的回归算法 自变量的选择 ​ 首先，考虑到数据集中13列自变量其中某一些可能和最终的房价并无强相关性，如果全部使用进行预测可能会对模型引入噪声，因此我们首先计算了房价price与各个自变量之间的相关系数 $r$ ，其中 $r$ 计算公式如下： $$ r = \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum(x_i-\bar{x})^2\sum(y_i-\bar{y})^2}} $$ ​ 其中 $x_i,y_i$ 为数据的每个分量，$\bar{x}，\bar{y}$ 为数据的均值</description></item><item><title>2021RoboMaster中国赛比赛记录</title><link>https://blog.zzsqwq.cn/posts/173/</link><pubDate>Fri, 30 Apr 2021 17:32:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/173/</guid><description>前言 ​ 说起来的话今天距离比赛已经过去近一个月了，比赛结束一直想要记录一下and总结一下经验，但是实在是太懒了，临近五一假期，在四月的末尾为这次中国赛画一个句号吧。
-比赛过程 ​ 如果没记错的话比赛是3.30号（周二）去，4.1号（周四）结束，共三天。但是因为第三天没做什么有意义的事情，就只记录两天了。
-第一天 ​ 第一天大概中午十点到的吧，去的时候登记完领了牌，就在当地布置场地了。到了场地上才发现，我们好像是拿的东西最多的，包括外接显示屏和集成主机，好像都基本没人带过去····集成主机拿了过去也没怎么用到，本来预想用到的哨岗相机因为 ROS 的通信问题也没能跑成，最后两个机器人还是各跑各的策略了。
-​ 调试的时候出了一点问题，两个哨岗相机通过20m的USB延长线后，只有一个能连接，后来排查了一下，好像是因为有一条线是光纤USB3.0的线，跟相机的接口不兼容···这个问题还没想好怎么解决，可能会考虑到时候自己带一根USB延长线过去。
-​ 犹记得调试的时候是和青海大学一起调的，有点可惜的是调试中的我方机器人一直在一个地方鬼畜。那晚上我记得大家熬到了很晚···很可惜的视觉因为用的是学习的框架可调性很差，并没有帮上太大的忙。
-第二天 ​ 第二天记得一共有三场比赛，分别是打哈工大，哈工大深圳，以及青海大学。
-​ 在比赛过程中其实对视觉，我没有做太多的调整，主要还是大家在写导航和策略相关的东西吧。
-​ 跟哈工大打的那一场二车因为没有写好启动判定被罚下了，一车因为点位有问题一直卡在障碍物上。
-​ 跟哈工深和哈工大两场之间还隔了挺长时间，一个上午是一个下午，中间大家调试了很久，幸好在下午和哈工深打的时候基本没有鬼畜，可以正常的对局，只是因为实力不够强，很明显的一个问题就是视觉做的有问题吧，很多时间在朝着自己的队友打，还有就是会朝着场外的人员打，这是需要改进的点。
-​ 跟青海大学打的那场，距和哈工深比赛结束只有十几分钟的间隔时间，大家调了一个小bug就又重新赶去检录了，虽然当时已知青海大学的战术是站在原地不动的，但是由于不知道哪里出问题了，比赛中前一分钟两车都没动，后一分钟二车虽然动起来了去吃了加成区，但是因为定位的一些问题，没有看到敌方机器人并且撞墙了··自己撞掉了60血，最后还是败了QAQ。
-​ 所以就很耻辱的被3：0送走了，这样就结束了比赛日程。
-​ 值得反思的事情很多吧，赛前虽然基本熬了一个多星期来调车，还是只在最后一天才开始连裁判系统联调，包括暑假效率不高等问题都是值得反思的···打完比赛心中大概已经有了一些改进点，也想把自己的一些调车心得等记录下来，但是因为时间以及学业上的一些事情等一直没去做，本来计划的五月初做好改进的视觉也一直没兑现，希望这个五一假期会有较大的突破吧，不过还要打数模···好累，不想动。
-​ 最后，这一天还拿到了和Charm young的合照，还挺动容的，之前看Robomaster的一个宣传标语就是让工程师们成为明星，给他们一个展示的舞台，看到大家对Charm young的热情，深深的感受到了这一点。</description></item><item><title>关于Anaconda中pip路径指向问题</title><link>https://blog.zzsqwq.cn/posts/169/</link><pubDate>Sat, 06 Mar 2021 20:51:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/169/</guid><description> 前言 ​ 最近使用Anaconda的时候遇到了一个很奇怪的问题，如当我新建环境 condatest 后，使用 pip -V 查看pip的路径指向，会发现pip指向的是另一个环境 CenterNet 的路径。搜索了很久得到一个有一些用的解决方法
-解决方案 ​ 设有问题的环境为 condatest ，python版本为 3.6
-​ 然后进入 ~/anaconda3/envs/condatest/lib/python3.6
-​ 编辑目录下的 site.py 文件，将其中的 USER_SITE 的值修改为 /home/zs/anaconda3/envs/condatest ，注意这里路径里面的 zs 是你的当前用户名， USER_BASE 的值修改为 /home/zs/anaconda3/envs/condatest/lib/python3.6/site.py，然后问题应该就解决了。
-​ 因为如果环境问题的话，上面两个字符串都为空，猜测的原因是因为有同python版本的环境导致默认指向错误，此方式为修改conda中pip的指向。
-参考链接 更改conda环境中的pip包安装的默认路径</description></item><item><title>如何使用CenterNet做3D目标检测测试</title><link>https://blog.zzsqwq.cn/posts/164/</link><pubDate>Wed, 27 Jan 2021 11:50:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/164/</guid><description>CenterNet—Objects as Points介绍 ​ CenterNet是一个anchor-free的目标检测网络，与YOLOv3相比，精度有所提升，此外他不仅能够用于2D目标检测，也能够用于人体姿态识别，3D目标检测等···
-安装CenterNet ​ 其实安装CenterNet的过程就是一个配置环境的问题，直接跟着官方给出的这里Install.md配置一下即可，十分推荐使用Conda来管理环境，这里给出我的环境给大家参考一下：
+我们对上述模型来进行实现并确定评估标准来对他们进行比较，选择最优的模型作为预测模型。
+算法流程 传统的回归算法 自变量的选择 首先，考虑到数据集中13列自变量其中某一些可能和最终的房价并无强相关性，如果全部使用进行预测可能会对模型引入噪声，因此我们首先计算了房价price与各个自变量之间的相关系数 $r$ ，其中 $r$ 计算公式如下： $$ r = \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum(x_i-\bar{x})^2\sum(y_i-\bar{y})^2}} $$ 其中 $x_i,y_i$ 为数据的每个分量，$\bar{x}，\bar{y}$ 为数据的均值
+该系数反映了两变量之间的相关性，$r$ 的绝对值介于 $[0,1]$ 区间内，$|r|$ 越接近1，表示两数据相关性越高，反之越低。计算后结果如下：</description></item><item><title>2021RoboMaster中国赛比赛记录</title><link>https://blog.zzsqwq.cn/posts/173/</link><pubDate>Fri, 30 Apr 2021 17:32:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/173/</guid><description>前言 ​说起来的话今天距离比赛已经过去近一个月了，比赛结束一直想要记录一下and总结一下经验，但是实在是太懒了，临近五一假期，在四月的末尾为这次中国赛画一个句号吧。
+比赛过程 ​如果没记错的话比赛是3.30号（周二）去，4.1号（周四）结束，共三天。但是因为第三天没做什么有意义的事情，就只记录两天了。
+第一天 ​第一天大概中午十点到的吧，去的时候登记完领了牌，就在当地布置场地了。到了场地上才发现，我们好像是拿的东西最多的，包括外接显示屏和集成主机，好像都基本没人带过去····集成主机拿了过去也没怎么用到，本来预想用到的哨岗相机因为 ROS 的通信问题也没能跑成，最后两个机器人还是各跑各的策略了。
+​调试的时候出了一点问题，两个哨岗相机通过20m的USB延长线后，只有一个能连接，后来排查了一下，好像是因为有一条线是光纤USB3.0的线，跟相机的接口不兼容···这个问题还没想好怎么解决，可能会考虑到时候自己带一根USB延长线过去。
+​犹记得调试的时候是和青海大学一起调的，有点可惜的是调试中的我方机器人一直在一个地方鬼畜。那晚上我记得大家熬到了很晚···很可惜的视觉因为用的是学习的框架可调性很差，并没有帮上太大的忙。
+第二天 ​第二天记得一共有三场比赛，分别是打哈工大，哈工大深圳，以及青海大学。
+​在比赛过程中其实对视觉，我没有做太多的调整，主要还是大家在写导航和策略相关的东西吧。
+​跟哈工大打的那一场二车因为没有写好启动判定被罚下了，一车因为点位有问题一直卡在障碍物上。
+​跟哈工深和哈工大两场之间还隔了挺长时间，一个上午是一个下午，中间大家调试了很久，幸好在下午和哈工深打的时候基本没有鬼畜，可以正常的对局，只是因为实力不够强，很明显的一个问题就是视觉做的有问题吧，很多时间在朝着自己的队友打，还有就是会朝着场外的人员打，这是需要改进的点。
+​跟青海大学打的那场，距和哈工深比赛结束只有十几分钟的间隔时间，大家调了一个小bug就又重新赶去检录了，虽然当时已知青海大学的战术是站在原地不动的，但是由于不知道哪里出问题了，比赛中前一分钟两车都没动，后一分钟二车虽然动起来了去吃了加成区，但是因为定位的一些问题，没有看到敌方机器人并且撞墙了··自己撞掉了60血，最后还是败了QAQ。
+​所以就很耻辱的被3：0送走了，这样就结束了比赛日程。
+​值得反思的事情很多吧，赛前虽然基本熬了一个多星期来调车，还是只在最后一天才开始连裁判系统联调，包括暑假效率不高等问题都是值得反思的···打完比赛心中大概已经有了一些改进点，也想把自己的一些调车心得等记录下来，但是因为时间以及学业上的一些事情等一直没去做，本来计划的五月初做好改进的视觉也一直没兑现，希望这个五一假期会有较大的突破吧，不过还要打数模···好累，不想动。
+最后，这一天还拿到了和Charm young的合照，还挺动容的，之前看Robomaster的一个宣传标语就是让工程师们成为明星，给他们一个展示的舞台，看到大家对Charm young的热情，深深的感受到了这一点。</description></item><item><title>关于Anaconda中pip路径指向问题</title><link>https://blog.zzsqwq.cn/posts/169/</link><pubDate>Sat, 06 Mar 2021 20:51:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/169/</guid><description> 前言 最近使用Anaconda的时候遇到了一个很奇怪的问题，如当我新建环境 condatest 后，使用 pip -V 查看pip的路径指向，会发现pip指向的是另一个环境 CenterNet 的路径。搜索了很久得到一个有一些用的解决方法
+解决方案 设有问题的环境为 condatest ，python版本为 3.6
+然后进入 ~/anaconda3/envs/condatest/lib/python3.6
+编辑目录下的 site.py 文件，将其中的 USER_SITE 的值修改为 /home/zs/anaconda3/envs/condatest ，注意这里路径里面的 zs 是你的当前用户名， USER_BASE 的值修改为 /home/zs/anaconda3/envs/condatest/lib/python3.6/site.py，然后问题应该就解决了。
+因为如果环境问题的话，上面两个字符串都为空，猜测的原因是因为有同python版本的环境导致默认指向错误，此方式为修改conda中pip的指向。
+参考链接 更改conda环境中的pip包安装的默认路径</description></item><item><title>如何使用CenterNet做3D目标检测测试</title><link>https://blog.zzsqwq.cn/posts/164/</link><pubDate>Wed, 27 Jan 2021 11:50:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/164/</guid><description>CenterNet—Objects as Points介绍 ​CenterNet是一个anchor-free的目标检测网络，与YOLOv3相比，精度有所提升，此外他不仅能够用于2D目标检测，也能够用于人体姿态识别，3D目标检测等···
+安装CenterNet ​其实安装CenterNet的过程就是一个配置环境的问题，直接跟着官方给出的这里Install.md配置一下即可，十分推荐使用Conda来管理环境，这里给出我的环境给大家参考一下：
 Ubuntu = 18.04 LTS
 pytorch = 1.2.0
 python = 3.6.12
 torchvision = 0.4.0
 cuda = 10.2
-​ 需要注意的是：
-官方给出的教程里面使用的是 pytorch 0.4.1，但是我个人在实测过程中遇到了一些问题，遂安装网上的教程更改为 pytorch 1.2.0，并且需要把 ${CenterNet_Root}/src/lib/models/networks/DCNv2 中的这个DCNv2网络更改为官方的最新版。 这里使用的cuda版本最好和你的显卡匹配，之前因为显卡驱动的一些问题导致重装了电脑，根据我们学长学姐的建议，最好直接去cuda官网那边去下载deb包直接安装。 遇到环境配置问题可以先去Google一下，一般作者都在CenterNet&amp;rsquo;s Issues中给出了回复，如果没有，可以发邮件给作者询问，当然也可以发消息/邮箱给我，大家一起探讨一下~ 运行CenterNet的demo ​ 想要运行demo，首先要去 Model zoo 中下载一下我们需要使用的model，2D目标检测使用的是 ctdet_coco_dla_2x.pth ，人体姿态评估使用的是 multi_pose_dla_3x.pth ，下载后统一将他们放在CenterNet根目录中的model文件夹中。
-​ 然后使用conda切换到CenterNet的环境，在终端中运行：
-python demo.py ctdet --demo ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg --load_model ../models/ctdet_coco_dla_2x.pth ​ 这里需要注意的是 --demo 后面的 ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg ，这里我使用的是官方给出的实例图片，它位于CenterNet根目录的images文件夹中，前面的 ${CenterNet_Root} 代表的是 CenterNet根目录，好比我的就位于 /home/zs/CenterNet 。
-​ 如果不出意外的话效果应该如下图所示：
-运行CenterNet的3D目标检测 配置数据集和模型 ​ 我们可以直接参考官方的 DATA.</description></item><item><title>Git的简易教程</title><link>https://blog.zzsqwq.cn/posts/157/</link><pubDate>Sat, 05 Dec 2020 20:26:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/157/</guid><description>前言 ​ 最近在复习Git，因此顺手做个笔记分享出来，方便大家学习和查阅。相信无论是以后的课程作业还是工作，我们都会或多或少的接触/用到Git。
-什么是Git？ ​ Git你可能没听说过，但是我相信你应该听说过Github，毕竟是全球最大的同性交友网站。他和Git有着密不可分的联系，我们后续再详细介绍。
-​ Git的中文全称叫 分布式版本控制系统 ，版本控制系统是什么意思呢？我们举一个简单的例子，你在做一个大作业，很可能要写上千行的代码，但是你可能写完一个功能以后，对他不够满意，但是又害怕改了以后后悔了，又找不回来了，所以你可能就有很多版本，版本1，版本2，版本3等等等。Git就是解决这个问题的，让你文件能够保持最新，但是又能恢复到之前的版本。
-​ 那么既然有分布式版本控制系统，就有 集中式版本控制系统，前者的代表是 Git ，后者的代表有 SVN、CVS 等。
-​ 关于两者的区别，对于集中式版本控制系统，如果你想要对做一个项目的内容做修改，那么你要先从中央服务器把最近的版本拉取(Pull)下来，然后修改完以后，把修改后的版本推送(Push)上去，你本地只有最新的版本，而没有完整的版本库，分布式版本控制系统所作的工作与集中式的相差不大，只是它的本地会有一个完整的版本库，因此它十分的安全。
-​ 这里贴一个他人总结的区别，供大家参考。
+​需要注意的是：
+官方给出的教程里面使用的是 pytorch 0.4.1，但是我个人在实测过程中遇到了一些问题，遂安装网上的教程更改为 pytorch 1.2.0，并且需要把 ${CenterNet_Root}/src/lib/models/networks/DCNv2 中的这个DCNv2网络更改为官方的最新版。 这里使用的cuda版本最好和你的显卡匹配，之前因为显卡驱动的一些问题导致重装了电脑，根据我们学长学姐的建议，最好直接去cuda官网那边去下载deb包直接安装。 遇到环境配置问题可以先去Google一下，一般作者都在CenterNet&amp;rsquo;s Issues中给出了回复，如果没有，可以发邮件给作者询问，当然也可以发消息/邮箱给我，大家一起探讨一下~ 运行CenterNet的demo ​想要运行demo，首先要去 Model zoo 中下载一下我们需要使用的model，2D目标检测使用的是 ctdet_coco_dla_2x.pth ，人体姿态评估使用的是 multi_pose_dla_3x.pth ，下载后统一将他们放在CenterNet根目录中的model文件夹中。
+​然后使用conda切换到CenterNet的环境，在终端中运行：
+python demo.py ctdet --demo ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg --load_model ../models/ctdet_coco_dla_2x.pth ​这里需要注意的是 --demo 后面的 ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg ，这里我使用的是官方给出的实例图片，它位于CenterNet根目录的images文件夹中，前面的 ${CenterNet_Root} 代表的是 CenterNet根目录，好比我的就位于 /home/zs/CenterNet 。
+​如果不出意外的话效果应该如下图所示：
+运行CenterNet的3D目标检测 配置数据集和模型 ​我们可以直接参考官方的 DATA.md 来配置我们的数据集。
+​然后到 Model zoo 下载3D检测使用的模型 ddd_3dop.</description></item><item><title>Git的简易教程</title><link>https://blog.zzsqwq.cn/posts/157/</link><pubDate>Sat, 05 Dec 2020 20:26:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/157/</guid><description>前言 最近在复习Git，因此顺手做个笔记分享出来，方便大家学习和查阅。相信无论是以后的课程作业还是工作，我们都会或多或少的接触/用到Git。
+什么是Git？ Git你可能没听说过，但是我相信你应该听说过Github，毕竟是全球最大的同性交友网站。他和Git有着密不可分的联系，我们后续再详细介绍。
+Git的中文全称叫 分布式版本控制系统 ，版本控制系统是什么意思呢？我们举一个简单的例子，你在做一个大作业，很可能要写上千行的代码，但是你可能写完一个功能以后，对他不够满意，但是又害怕改了以后后悔了，又找不回来了，所以你可能就有很多版本，版本1，版本2，版本3等等等。Git就是解决这个问题的，让你文件能够保持最新，但是又能恢复到之前的版本。
+那么既然有分布式版本控制系统，就有 集中式版本控制系统，前者的代表是 Git ，后者的代表有 SVN、CVS 等。
+关于两者的区别，对于集中式版本控制系统，如果你想要对做一个项目的内容做修改，那么你要先从中央服务器把最近的版本拉取(Pull)下来，然后修改完以后，把修改后的版本推送(Push)上去，你本地只有最新的版本，而没有完整的版本库，分布式版本控制系统所作的工作与集中式的相差不大，只是它的本地会有一个完整的版本库，因此它十分的安全。
+这里贴一个他人总结的区别，供大家参考。
 Git的安装 Linux系统
 因为我只用过Ubuntu，所以我只会Ubuntu的QAQ..
 Ubuntu中安装Git只需要在终端中输入 sudo apt-get install git 即可。
@@ -226,34 +231,37 @@ Windows系统
 直接去 Git官网 下载安装程序然后安装即可。关于安装时候的选项，我都是用的默认的。
 Mac OS
 太穷了，没用过Mac，但是参考链接中给出了方法，大家有需求可以参考。
-Git的基本使用 ​ Git可以做许多事情，好比版本更新，版本修改，提交到远程仓库等等，这里我们只写一写大概以后用的会比较多的。
-​ 需要注意的是，我们安装以后大概会有一个 Git GUI 还有一个 Git Bash ，开发中多用 Git Bash，下面的教程也是基于Git Bash的。
+Git的基本使用 Git可以做许多事情，好比版本更新，版本修改，提交到远程仓库等等，这里我们只写一写大概以后用的会比较多的。
+需要注意的是，我们安装以后大概会有一个 Git GUI 还有一个 Git Bash ，开发中多用 Git Bash，下面的教程也是基于Git Bash的。
 表明身份
 在Git所有仓库中我们都要有一个所有者的身份，用于标识是谁的仓库，用如下方式标识
 git config --global user.name &amp;#34;Your Name&amp;#34; git config --global user.email &amp;#34;Your email&amp;#34; 创建版本库
 我们想要把一个文件夹的内容用git来管理，只需要在文件夹目录运行
-git init 顾名思义这就是一个初始化的过程，运行以后在当前目录生成一个 .</description></item><item><title>Ubuntu18.04优化教程</title><link>https://blog.zzsqwq.cn/posts/141/</link><pubDate>Fri, 04 Dec 2020 01:39:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/141/</guid><description>前言 ​ 因为最近Ubuntu用的比较频繁，所以前一阵把Ubuntu16.04换成Ubuntu18.04了，并且囿于机械硬盘那启动速度，我忍痛割爱把我80G的固态硬盘分给了Ubuntu。
-​ 后来，用着用着就觉得这个Ubuntu的原始界面确实不是特别的好看，配色偏基佬紫的感觉。“工欲善其事，必先利其器“，我们只有将自己的工作环境布置的舒心一些才能有做下去的动力！所以我想给Ubuntu换一个看起来舒服点的界面，然后上网找教程乱七八糟的倒腾了一会，感觉换完以后完全不一样了，这个界面真的好看！！用起来也特别的舒心，感觉自己马上就要告别Windows投奔Linux的怀抱了。后续还有一些其他的优化，例如装QQ、微信、配置终端等，一并写在这里吧。
-Ubuntu界面的优化 具体效果 ​ 先放几张效果图上来，是我改后的界面。大概就是这样(自我感觉挺好看的)，当然也有其他的主题可供选择。
-1.安装GNOME桌面环境主题配置工具 ​ 如果要改主题，那么首先要有一个利器，这里我用的Ubuntu18.04，桌面环境为 GNOME 3.28.2 ，因为我目前接触的只有GNOME桌面环境的，Ubuntu18.04本来的桌面环境就是GNOME，但是Ubuntu16.04好像没有自带，但是可以安装，这里大家可以自行百度了解。
-​ 然后我们已经有了GNOME桌面环境后，安装主题配置工具 GNOME Tweaks ，在终端中输入如下内容：
-sudo apt-get update sudo apt-get install gnome-tweak-tool ​ 我们先更新软件源，然后安装后直接打开他就行，在系统软件中中文大概叫 优化 。
-2.拓展上述工具 ​ 安装完上述工具后，我们可能发现了一个问题，就是外观那一栏目的Shell有一个感叹号，无法更改，这是因为我们没有安装拓展导致的。我们在终端中运行
-sudo apt-get install gnome-shell-extensions ​ 然后重启一下电脑。再打开软件找到左侧的拓展，把 User themes 那一栏目打开。切换回去就可以发现Shell那边的感叹号无了。
-3.寻找自己喜欢的主题 ​ 这里我大家可以去这个网址去找自己喜欢的 GNOME-LOOK.ORG
-​ 这里面包含了图标，主题这些，下面介绍一下如何安装。
-​ 好比我们找到一个自己喜欢的主题，然后我们点击下面的 Files ，可能会有很多文件，但是多是同一个主题的不同风格，好比暗风格和亮风格这样的，还有不同的版本的，我多是安装那个下载量最多的，我们下载那个对应的文件(多是tar.xz安装包)。
-​ 对于主题的安装，我们只需要把解压出来的文件，移动或复制到 /usr/share/themes/ 目录下，如果是光标\图标的安装，那么就把文件夹移动到 /usr/share/icons 目录下。
-​ 然后我们回到 GNOME Tweaks 软件中就可以发现，我们已经可以在主题\图标\光标\Shell清单中找到我们移动到文件夹中的文件了，然后选择就可以切换了。这里需要注意的，很多主题都是自带Shell的，你下了一个主题，那么你可以在Shell和主题这两个栏目中都找到他们，是一个配套的。
-4.一些后续的调整 ​ 我们后续可以改变左边收藏夹的位置，我觉得放在左边有一丢丢的丑，所以我选择把它放在的下面。
-​ 我们去Ubuntu软件中搜索 Dash to dock，然后安装这个拓展，然后打开 GNOME Tweaks 软件在拓展中找到他就可以随心所欲的调我们的收藏夹的位置了。</description></item><item><title>“程序星编程之路”第二次作业题解</title><link>https://blog.zzsqwq.cn/posts/136/</link><pubDate>Thu, 12 Nov 2020 23:13:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/136/</guid><description>“程序星编程之路”第二次作业题解 A. Zs的回文质数 题目描述 ​ 读入一个整数 $n$ ，输出 $[1,n]$ 的所有回文质数，我们规定 $1\sim9$ 也是回文数。
-思路 ​ 首先我们需要了解什么是回文数，以及什么是质数。
-​ 简单点说，回文数就是正着读反着读都是一样的，也就是对称的，形如 $abcba $ 或者 $123321$ 这样的。
-​ 质数的话，对于一个数 $n$ ，如果他是质数，那它除了 $1$ 和 $n$ 没有其他因子。例如 $2,3,5,7,11$ 这样的。
-​ 那么接下来我们考虑一下解决这个问题应该怎么做，首先我们看一下数据范围，$[1,100000]$ ，还是挺小的，我们可以考虑直接枚举每一个数来判断它是不是回文数，然后再判断一下是不是质数，如果两个都满足，我们就输出它。
-​ 判断回文数，我们可以考虑到 NOJ05 幸运数 一题的解题思路，也就是说我们把一个数倒置过来，好比一个数 $xyz$ 倒置成 $zyx$ ，然后判断是否 $xyz == zyx$ ，如果相等的话就是回文数，如果不相等就不是。
-​ 判断质数，我们可以在 $[2,\lfloor\sqrt{n}\rfloor]$ 枚举它的因子，这个的完备性我上课的时候证明过，不再赘述。这里需要注意 $1,2$ 需要特判一下。
-代码 #include&amp;lt;stdio.h&amp;gt; #include&amp;lt;math.h&amp;gt; //我们需要用到sqrt函数，因此需要引入数学库 int main() { int n; bool flag = false; // 标记 i 是否满足条件 scanf(&amp;#34;%d&amp;#34;,&amp;amp;n); for(int i=1;i&amp;lt;=n;i++) { flag = true; int p=i,j=0; while(p) // 将 p 反转为 j { j=j*10+p%10; p/=10; } if(j==i) { if(j==1) continue; // 特判 1 if(j==2) // 特判 2 { printf(&amp;#34;2\n&amp;#34;); continue; } int sqrtj = sqrt(j); for(int k=2;k&amp;lt;=sqrtj;k++) // 枚举 [2,sqrt(n)] { if(j%k==0) // 如果能够整除(余数为0),那么是 j 的因子 { flag = false; break; } } if(flag) { printf(&amp;#34;%d\n&amp;#34;,j); } } } } 其他 ​ 因为我们讲到这里的时候，我们没讲函数，但是这道题如果我们把判断是否为回文数，判断是否为质数，都另成一个函数模块，将使得程序变得更加简洁。我在这里也将函数版本的贴出来，有兴趣的可以看一下。</description></item><item><title>Visual Studio 2019 中 OpenCV 配置教程</title><link>https://blog.zzsqwq.cn/posts/114/</link><pubDate>Sat, 31 Oct 2020 20:38:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/114/</guid><description>&lt;h2 id="windows-平台-visual-studio-2019-中-opencv-配置教程">
+git init 顾名思义这就是一个初始化的过程，运行以后在当前目录生成一个 .git 文件夹，里面是我们版本控制的数据，一般不要修改。
+把文件添加到Git的暂存区
+这里出现了 暂存区 这个名词，Git内部的逻辑大概把我们工作的过程分为了三部分</description></item><item><title>Ubuntu18.04优化教程</title><link>https://blog.zzsqwq.cn/posts/141/</link><pubDate>Fri, 04 Dec 2020 01:39:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/141/</guid><description>前言 因为最近Ubuntu用的比较频繁，所以前一阵把Ubuntu16.04换成Ubuntu18.04了，并且囿于机械硬盘那启动速度，我忍痛割爱把我80G的固态硬盘分给了Ubuntu。
+后来，用着用着就觉得这个Ubuntu的原始界面确实不是特别的好看，配色偏基佬紫的感觉。“工欲善其事，必先利其器“，我们只有将自己的工作环境布置的舒心一些才能有做下去的动力！所以我想给Ubuntu换一个看起来舒服点的界面，然后上网找教程乱七八糟的倒腾了一会，感觉换完以后完全不一样了，这个界面真的好看！！用起来也特别的舒心，感觉自己马上就要告别Windows投奔Linux的怀抱了。后续还有一些其他的优化，例如装QQ、微信、配置终端等，一并写在这里吧。
+Ubuntu界面的优化 具体效果 先放几张效果图上来，是我改后的界面。大概就是这样(自我感觉挺好看的)，当然也有其他的主题可供选择。
+1.安装GNOME桌面环境主题配置工具 如果要改主题，那么首先要有一个利器，这里我用的Ubuntu18.04，桌面环境为 GNOME 3.28.2 ，因为我目前接触的只有GNOME桌面环境的，Ubuntu18.04本来的桌面环境就是GNOME，但是Ubuntu16.04好像没有自带，但是可以安装，这里大家可以自行百度了解。
+然后我们已经有了GNOME桌面环境后，安装主题配置工具 GNOME Tweaks ，在终端中输入如下内容：
+sudo apt-get update sudo apt-get install gnome-tweak-tool 我们先更新软件源，然后安装后直接打开他就行，在系统软件中中文大概叫 优化 。
+2.拓展上述工具 安装完上述工具后，我们可能发现了一个问题，就是外观那一栏目的Shell有一个感叹号，无法更改，这是因为我们没有安装拓展导致的。我们在终端中运行
+sudo apt-get install gnome-shell-extensions 然后重启一下电脑。再打开软件找到左侧的拓展，把 User themes 那一栏目打开。切换回去就可以发现Shell那边的感叹号无了。
+3.寻找自己喜欢的主题 这里我大家可以去这个网址去找自己喜欢的 GNOME-LOOK.ORG
+这里面包含了图标，主题这些，下面介绍一下如何安装。
+好比我们找到一个自己喜欢的主题，然后我们点击下面的 Files ，可能会有很多文件，但是多是同一个主题的不同风格，好比暗风格和亮风格这样的，还有不同的版本的，我多是安装那个下载量最多的，我们下载那个对应的文件(多是tar.xz安装包)。
+对于主题的安装，我们只需要把解压出来的文件，移动或复制到 /usr/share/themes/ 目录下，如果是光标\图标的安装，那么就把文件夹移动到 /usr/share/icons 目录下。
+然后我们回到 GNOME Tweaks 软件中就可以发现，我们已经可以在主题\图标\光标\Shell清单中找到我们移动到文件夹中的文件了，然后选择就可以切换了。这里需要注意的，很多主题都是自带Shell的，你下了一个主题，那么你可以在Shell和主题这两个栏目中都找到他们，是一个配套的。
+4.一些后续的调整 我们后续可以改变左边收藏夹的位置，我觉得放在左边有一丢丢的丑，所以我选择把它放在的下面。
+我们去Ubuntu软件中搜索 Dash to dock，然后安装这个拓展，然后打开 GNOME Tweaks 软件在拓展中找到他就可以随心所欲的调我们的收藏夹的位置了。
+5.我自己的配置 theme&amp;amp;shell Canta-light-compact icons 01-McMojave-circle 6.界面修改的参考链接 Ubuntu18.04美化主题(mac主题) Ubuntu18.04美化主题(完整版) GNOME-LOOK.ORG 30个非常不错的Ubuntu主题供你选择 ubuntu18.</description></item><item><title>“程序星编程之路”第二次作业题解</title><link>https://blog.zzsqwq.cn/posts/136/</link><pubDate>Thu, 12 Nov 2020 23:13:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/136/</guid><description>“程序星编程之路”第二次作业题解 A. Zs的回文质数 题目描述 读入一个整数 $n$ ，输出 $[1,n]$ 的所有回文质数，我们规定 $1\sim9$ 也是回文数。
+思路 首先我们需要了解什么是回文数，以及什么是质数。
+简单点说，回文数就是正着读反着读都是一样的，也就是对称的，形如 $abcba $ 或者 $123321$ 这样的。
+质数的话，对于一个数 $n$ ，如果他是质数，那它除了 $1$ 和 $n$ 没有其他因子。例如 $2,3,5,7,11$ 这样的。
+那么接下来我们考虑一下解决这个问题应该怎么做，首先我们看一下数据范围，$[1,100000]$ ，还是挺小的，我们可以考虑直接枚举每一个数来判断它是不是回文数，然后再判断一下是不是质数，如果两个都满足，我们就输出它。
+判断回文数，我们可以考虑到 NOJ05 幸运数 一题的解题思路，也就是说我们把一个数倒置过来，好比一个数 $xyz$ 倒置成 $zyx$ ，然后判断是否 $xyz == zyx$ ，如果相等的话就是回文数，如果不相等就不是。
+判断质数，我们可以在 $[2,\lfloor\sqrt{n}\rfloor]$ 枚举它的因子，这个的完备性我上课的时候证明过，不再赘述。这里需要注意 $1,2$ 需要特判一下。
+代码 #include&amp;lt;stdio.h&amp;gt; #include&amp;lt;math.h&amp;gt; //我们需要用到sqrt函数，因此需要引入数学库 int main() { int n; bool flag = false; // 标记 i 是否满足条件 scanf(&amp;#34;%d&amp;#34;,&amp;amp;n); for(int i=1;i&amp;lt;=n;i++) { flag = true; int p=i,j=0; while(p) // 将 p 反转为 j { j=j*10+p%10; p/=10; } if(j==i) { if(j==1) continue; // 特判 1 if(j==2) // 特判 2 { printf(&amp;#34;2\n&amp;#34;); continue; } int sqrtj = sqrt(j); for(int k=2;k&amp;lt;=sqrtj;k++) // 枚举 [2,sqrt(n)] { if(j%k==0) // 如果能够整除(余数为0),那么是 j 的因子 { flag = false; break; } } if(flag) { printf(&amp;#34;%d\n&amp;#34;,j); } } } } 其他 因为我们讲到这里的时候，我们没讲函数，但是这道题如果我们把判断是否为回文数，判断是否为质数，都另成一个函数模块，将使得程序变得更加简洁。我在这里也将函数版本的贴出来，有兴趣的可以看一下。</description></item><item><title>Visual Studio 2019 中 OpenCV 配置教程</title><link>https://blog.zzsqwq.cn/posts/114/</link><pubDate>Sat, 31 Oct 2020 20:38:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/114/</guid><description>&lt;h2 id="windows-平台-visual-studio-2019-中-opencv-配置教程">
 Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;a class="heading-link" href="#windows-%e5%b9%b3%e5%8f%b0-visual-studio-2019-%e4%b8%ad-opencv-%e9%85%8d%e7%bd%ae%e6%95%99%e7%a8%8b">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -265,8 +273,8 @@ Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 我这里配置用的是4.5.0版本，但实际配置过程中需要的大部分时间只是路径，因此和版本基本无关。&lt;/p>
-&lt;p>​ &lt;strong>只有一个地方是和版本有关系的，在配置链接器的 &lt;code>opencv_wordxyzd.lib&lt;/code> 时，大家一定要注意！！&lt;/strong>&lt;/p></description></item><item><title>数据库的一些基础知识总结</title><link>https://blog.zzsqwq.cn/posts/107/</link><pubDate>Fri, 11 Sep 2020 00:08:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/107/</guid><description> 了解SQL 一.什么是SQL SQL是结构化查询语言（Structured Query Language）的缩写。是一种专门用来与数据库通信的语言。
+&lt;p>我这里配置用的是4.5.0版本，但实际配置过程中需要的大部分时间只是路径，因此和版本基本无关。&lt;/p>
+&lt;p>&lt;strong>只有一个地方是和版本有关系的，在配置链接器的 &lt;code>opencv_wordxyzd.lib&lt;/code> 时，大家一定要注意！！&lt;/strong>&lt;/p></description></item><item><title>数据库的一些基础知识总结</title><link>https://blog.zzsqwq.cn/posts/107/</link><pubDate>Fri, 11 Sep 2020 00:08:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/107/</guid><description> 了解SQL 一.什么是SQL SQL是结构化查询语言（Structured Query Language）的缩写。是一种专门用来与数据库通信的语言。
 二.什么是数据库？ 数据库（Database）：保存有组织的数据的容器（通常是一个文件或一组文件）。 ​[scode type = &amp;ldquo;yellow&amp;rdquo;]需要注意的是，有时候我们把数据库软件也简称为数据库，但是数据库软件和数据库有本质区别，数据库软件应称为DBMS（数据库管理系统），我们通过数据库软件对数据库进行删减等操作，他代替你操作和访问数据库。[/scode]
 三.数据库的组成 表
 数据库中通常有多张表，这类似于一个清单。就好像我们管理两个班级就可以用两个表单。
@@ -306,8 +314,8 @@ Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
-&lt;p>​ 本来之前是用的 &lt;strong>Hexo + Github&lt;/strong> 搭建的，虽然用的是 &lt;strong>Github&lt;/strong> 的服务器，但是我用家里的移动网访问起来还是没什么压力，就是慢一点，可以接受。&lt;/p>
-&lt;p>​ 后来到了学校，我们学校网访问 &lt;strong>Github&lt;/strong> 的速度简直可以用龟速来形容，白天可以说不开代理根本进不去，只有晚上了才能勉强进得去。然后我就寻思，能不能换成国内的服务器，然后就发现了 &lt;strong>Gitee&lt;/strong> ，这个可以算是中国版的 &lt;strong>Github&lt;/strong> ，他具有的服务 &lt;strong>Gitee Pages&lt;/strong> 在国内可以飞速的访问，But如果想要自定义域名/每次推送自动更新需要开 &lt;strong>Github Pages Pro&lt;/strong> ，还挺贵的，一年大概 &lt;strong>120￥&lt;/strong> 吧。此外，如果想要将域名解析到国内的服务器必须要备案，&lt;strong>备案又必须有服务器&lt;/strong>，那我有服务器了还费那些事了，于是考虑自己买服务器重构一下博客。&lt;/p></description></item><item><title>排位三和四记录</title><link>https://blog.zzsqwq.cn/posts/68/</link><pubDate>Wed, 19 Aug 2020 13:21:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/68/</guid><description>&lt;h1 id="day-3">
+&lt;p>本来之前是用的 &lt;strong>Hexo + Github&lt;/strong> 搭建的，虽然用的是 &lt;strong>Github&lt;/strong> 的服务器，但是我用家里的移动网访问起来还是没什么压力，就是慢一点，可以接受。&lt;/p>
+&lt;p>后来到了学校，我们学校网访问 &lt;strong>Github&lt;/strong> 的速度简直可以用龟速来形容，白天可以说不开代理根本进不去，只有晚上了才能勉强进得去。然后我就寻思，能不能换成国内的服务器，然后就发现了 &lt;strong>Gitee&lt;/strong> ，这个可以算是中国版的 &lt;strong>Github&lt;/strong> ，他具有的服务 &lt;strong>Gitee Pages&lt;/strong> 在国内可以飞速的访问，But如果想要自定义域名/每次推送自动更新需要开 &lt;strong>Github Pages Pro&lt;/strong> ，还挺贵的，一年大概 &lt;strong>120￥&lt;/strong> 吧。此外，如果想要将域名解析到国内的服务器必须要备案，&lt;strong>备案又必须有服务器&lt;/strong>，那我有服务器了还费那些事了，于是考虑自己买服务器重构一下博客。&lt;/p></description></item><item><title>排位三和四记录</title><link>https://blog.zzsqwq.cn/posts/68/</link><pubDate>Wed, 19 Aug 2020 13:21:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/68/</guid><description>&lt;h1 id="day-3">
 Day 3
 &lt;a class="heading-link" href="#day-3">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -325,7 +333,7 @@ A. &lt;a href="https://ac.nowcoder.com/acm/contest/6956/A">黑妹的游戏Ⅰ&lt
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 给出三个不同的初始数字$a,b,c$，黑妹每次选择两个不同的数字，计算出差的绝对值后如果黑板上没有就写在黑板上。问黑妹最多能添加多少个数字。&lt;/p></description></item><item><title>排位一和二记录</title><link>https://blog.zzsqwq.cn/posts/5/</link><pubDate>Mon, 17 Aug 2020 20:04:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/5/</guid><description>&lt;h1 id="day-1">
+&lt;p>给出三个不同的初始数字$a,b,c$，黑妹每次选择两个不同的数字，计算出差的绝对值后如果黑板上没有就写在黑板上。问黑妹最多能添加多少个数字。&lt;/p></description></item><item><title>排位一和二记录</title><link>https://blog.zzsqwq.cn/posts/5/</link><pubDate>Mon, 17 Aug 2020 20:04:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/5/</guid><description>&lt;h1 id="day-1">
 Day 1
 &lt;a class="heading-link" href="#day-1">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -343,7 +351,7 @@ A. &lt;a href="https://ac.nowcoder.com/acm/contest/6954/A">兔子的区间密码
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 给定一个区间$[L,R]$ ，求从这个区间任意取两个整数(可以相同)，两者异或后能得到的最大值是多少？&lt;/p></description></item><item><title>高精度计算pi</title><link>https://blog.zzsqwq.cn/posts/67/</link><pubDate>Mon, 20 Apr 2020 01:25:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/67/</guid><description>&lt;h2 id="高精度计算pi值">
+&lt;p>给定一个区间$[L,R]$ ，求从这个区间任意取两个整数(可以相同)，两者异或后能得到的最大值是多少？&lt;/p></description></item><item><title>高精度计算pi</title><link>https://blog.zzsqwq.cn/posts/67/</link><pubDate>Mon, 20 Apr 2020 01:25:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/67/</guid><description>&lt;h2 id="高精度计算pi值">
 高精度计算PI值
 &lt;a class="heading-link" href="#%e9%ab%98%e7%b2%be%e5%ba%a6%e8%ae%a1%e7%ae%97pi%e5%80%bc">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -355,7 +363,7 @@ A. &lt;a href="https://ac.nowcoder.com/acm/contest/6954/A">兔子的区间密码
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 使用双向链表作为存储结构，请根据用户输入的一个整数（该整数表示精确到小数点后的位数，可能要求精确到小数点后 &lt;strong>500&lt;/strong> 位），高精度计算PI值。&lt;strong>提示：可以利用反三角函数幂级展开式来进行计算。&lt;/strong>&lt;/p></description></item><item><title>Python初步学习</title><link>https://blog.zzsqwq.cn/posts/66/</link><pubDate>Sat, 18 Apr 2020 01:24:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/66/</guid><description>&lt;h1 id="python学习笔记">
+&lt;p>使用双向链表作为存储结构，请根据用户输入的一个整数（该整数表示精确到小数点后的位数，可能要求精确到小数点后 &lt;strong>500&lt;/strong> 位），高精度计算PI值。&lt;strong>提示：可以利用反三角函数幂级展开式来进行计算。&lt;/strong>&lt;/p></description></item><item><title>Python初步学习</title><link>https://blog.zzsqwq.cn/posts/66/</link><pubDate>Sat, 18 Apr 2020 01:24:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/66/</guid><description>&lt;h1 id="python学习笔记">
 Python学习笔记
 &lt;a class="heading-link" href="#python%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -519,7 +527,7 @@ MATLAB操作界面的组成
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
-&lt;p>​ 学OI的时候就做过树形dp的题，不过那时候全在划水。看了看题解还不太懂就直接照着题解写了，现在再回来看还是不会QAQ，所以就再看看然后自己写了一遍。&lt;/p></description></item><item><title>Codeforces#620 (Div.2)</title><link>https://blog.zzsqwq.cn/posts/30/</link><pubDate>Wed, 19 Feb 2020 01:02:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/30/</guid><description>&lt;h2 id="a-two-rabbitshttpscodeforcescomcontest1304problema">
+&lt;p>学OI的时候就做过树形dp的题，不过那时候全在划水。看了看题解还不太懂就直接照着题解写了，现在再回来看还是不会QAQ，所以就再看看然后自己写了一遍。&lt;/p></description></item><item><title>Codeforces#620 (Div.2)</title><link>https://blog.zzsqwq.cn/posts/30/</link><pubDate>Wed, 19 Feb 2020 01:02:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/30/</guid><description>&lt;h2 id="a-two-rabbitshttpscodeforcescomcontest1304problema">
 A. &lt;a href="https://codeforces.com/contest/1304/problem/A">Two Rabbits&lt;/a>
 &lt;a class="heading-link" href="#a-two-rabbitshttpscodeforcescomcontest1304problema">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -531,7 +539,7 @@ A. &lt;a href="https://codeforces.com/contest/1304/problem/A">Two Rabbits&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 两个兔子分别位于 $(x,0)$ 和 $(y,0)$ ，两个人对头蹦，前者往前蹦 $a$ ，后者往前蹦 $b$ ，问两人是否能恰好相遇。&lt;/p></description></item><item><title>dp练习</title><link>https://blog.zzsqwq.cn/posts/29/</link><pubDate>Tue, 18 Feb 2020 01:00:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/29/</guid><description>&lt;h2 id="a-矩阵取数游戏httpswwwluogucomcnproblemp1005">
+&lt;p>两个兔子分别位于 $(x,0)$ 和 $(y,0)$ ，两个人对头蹦，前者往前蹦 $a$ ，后者往前蹦 $b$ ，问两人是否能恰好相遇。&lt;/p></description></item><item><title>dp练习</title><link>https://blog.zzsqwq.cn/posts/29/</link><pubDate>Tue, 18 Feb 2020 01:00:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/29/</guid><description>&lt;h2 id="a-矩阵取数游戏httpswwwluogucomcnproblemp1005">
 A. &lt;a href="https://www.luogu.com.cn/problem/P1005">矩阵取数游戏&lt;/a>
 &lt;a class="heading-link" href="#a-%e7%9f%a9%e9%98%b5%e5%8f%96%e6%95%b0%e6%b8%b8%e6%88%8fhttpswwwluogucomcnproblemp1005">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -543,13 +551,13 @@ A. &lt;a href="https://www.luogu.com.cn/problem/P1005">矩阵取数游戏&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 给定一个 $n\times m$ 的矩阵，其中每个元素为非负整数。每次你可以从每行的行首或行末取一个元素，得到的分数为当前元素的值 $a_{ij}\times 2^k$ ，$k$ 为当前是第几次取该行上的元素。 问最大得分为多少。&lt;/p></description></item><item><title>关于STL的一些总结</title><link>https://blog.zzsqwq.cn/posts/28/</link><pubDate>Sun, 16 Feb 2020 00:55:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/28/</guid><description>&lt;h2 id="前言">
+&lt;p>给定一个 $n\times m$ 的矩阵，其中每个元素为非负整数。每次你可以从每行的行首或行末取一个元素，得到的分数为当前元素的值 $a_{ij}\times 2^k$ ，$k$ 为当前是第几次取该行上的元素。 问最大得分为多少。&lt;/p></description></item><item><title>关于STL的一些总结</title><link>https://blog.zzsqwq.cn/posts/28/</link><pubDate>Sun, 16 Feb 2020 00:55:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/28/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
-&lt;p>​ STL之前只会用 stack 和 queue ，set 和 map 啥的也不太会用。学习一下。&lt;/p></description></item><item><title>杂题训练</title><link>https://blog.zzsqwq.cn/posts/27/</link><pubDate>Sat, 15 Feb 2020 00:52:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/27/</guid><description>&lt;h2 id="a-配对httpsacnowcodercomacmcontest3007a">
+&lt;p>STL之前只会用 stack 和 queue ，set 和 map 啥的也不太会用。学习一下。&lt;/p></description></item><item><title>杂题训练</title><link>https://blog.zzsqwq.cn/posts/27/</link><pubDate>Sat, 15 Feb 2020 00:52:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/27/</guid><description>&lt;h2 id="a-配对httpsacnowcodercomacmcontest3007a">
 A. &lt;a href="https://ac.nowcoder.com/acm/contest/3007/A">配对&lt;/a>
 &lt;a class="heading-link" href="#a-%e9%85%8d%e5%af%b9httpsacnowcodercomacmcontest3007a">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -561,7 +569,7 @@ A. &lt;a href="https://ac.nowcoder.com/acm/contest/3007/A">配对&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 给定含有 $n$ 个正整数的集合 $A$ 和 $B$ ，你需要建立他们之间的一一映射。将配对的两个数相加可以得到 $n$ 个和，问第 $k$ 大的和最大为多少。&lt;/p></description></item><item><title>Codeforces#619 (Div.2)</title><link>https://blog.zzsqwq.cn/posts/26/</link><pubDate>Fri, 14 Feb 2020 00:51:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/26/</guid><description>&lt;h2 id="a-three-stringshttpscodeforcescomcontest1301problema">
+&lt;p>给定含有 $n$ 个正整数的集合 $A$ 和 $B$ ，你需要建立他们之间的一一映射。将配对的两个数相加可以得到 $n$ 个和，问第 $k$ 大的和最大为多少。&lt;/p></description></item><item><title>Codeforces#619 (Div.2)</title><link>https://blog.zzsqwq.cn/posts/26/</link><pubDate>Fri, 14 Feb 2020 00:51:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/26/</guid><description>&lt;h2 id="a-three-stringshttpscodeforcescomcontest1301problema">
 A. &lt;a href="https://codeforces.com/contest/1301/problem/A">Three Strings&lt;/a>
 &lt;a class="heading-link" href="#a-three-stringshttpscodeforcescomcontest1301problema">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -573,13 +581,13 @@ A. &lt;a href="https://codeforces.com/contest/1301/problem/A">Three Strings&lt;/
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 给定三个长度为 $n$ 的字符串 $a$ , $b$ , $c$ ，遍历每个 $c$ 中每个字符 $c_i$，可以将其替换成 $a_i$ 或者 $b_i$ ，必须操作其中一个，问能否通过此操作使得字符串 $a$ , $b$ 相同。&lt;/p></description></item><item><title>日常水题</title><link>https://blog.zzsqwq.cn/posts/25/</link><pubDate>Thu, 13 Feb 2020 00:47:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/25/</guid><description>&lt;h2 id="前言">
+&lt;p>给定三个长度为 $n$ 的字符串 $a$ , $b$ , $c$ ，遍历每个 $c$ 中每个字符 $c_i$，可以将其替换成 $a_i$ 或者 $b_i$ ，必须操作其中一个，问能否通过此操作使得字符串 $a$ , $b$ 相同。&lt;/p></description></item><item><title>日常水题</title><link>https://blog.zzsqwq.cn/posts/25/</link><pubDate>Thu, 13 Feb 2020 00:47:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/25/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
-&lt;p>​ 今天又是颓废的一天，被大佬拉去跟他一起做牛客网的题，QAQ&amp;hellip;那我会点啥嘛，就只能替大佬写两道水题了···&lt;/p></description></item><item><title>dp习题练习</title><link>https://blog.zzsqwq.cn/posts/24/</link><pubDate>Wed, 12 Feb 2020 00:45:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/24/</guid><description>&lt;h2 id="a-方格取数httpswwwluogucomcnproblemp1004">
+&lt;p>今天又是颓废的一天，被大佬拉去跟他一起做牛客网的题，QAQ&amp;hellip;那我会点啥嘛，就只能替大佬写两道水题了···&lt;/p></description></item><item><title>dp习题练习</title><link>https://blog.zzsqwq.cn/posts/24/</link><pubDate>Wed, 12 Feb 2020 00:45:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/24/</guid><description>&lt;h2 id="a-方格取数httpswwwluogucomcnproblemp1004">
 A. &lt;a href="https://www.luogu.com.cn/problem/P1004">方格取数&lt;/a>
 &lt;a class="heading-link" href="#a-%e6%96%b9%e6%a0%bc%e5%8f%96%e6%95%b0httpswwwluogucomcnproblemp1004">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -591,13 +599,14 @@ A. &lt;a href="https://www.luogu.com.cn/problem/P1004">方格取数&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 有一个 $N*N$ 的整数方阵，每个点初始值为0，在一些点上放上数，一个人从左上角走到右下角，规定只能向下或向右走，当他经过的点上有数时会取走它，问走两遍最多能取的数的和最大为多少。&lt;/p></description></item><item><title>单调队列和单调栈总结</title><link>https://blog.zzsqwq.cn/posts/23/</link><pubDate>Tue, 11 Feb 2020 00:40:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/23/</guid><description>&lt;h1 id="前言">
+&lt;p>有一个 $N*N$ 的整数方阵，每个点初始值为0，在一些点上放上数，一个人从左上角走到右下角，规定只能向下或向右走，当他经过的点上有数时会取走它，问走两遍最多能取的数的和最大为多少。&lt;/p></description></item><item><title>单调队列和单调栈总结</title><link>https://blog.zzsqwq.cn/posts/23/</link><pubDate>Tue, 11 Feb 2020 00:40:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/23/</guid><description>&lt;h1 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h1>
-&lt;p>​ 最近感觉遇到了好多单调队列和单调栈的问题，但是因为以前没学好，所以遇见了就一脸懵逼，然后绝对下决心来学一下。。感觉遇到啥都不会，这可咋办呐。。补不完的漏洞。&lt;/p></description></item><item><title>Codeforces #618 (Div.2)</title><link>https://blog.zzsqwq.cn/posts/22/</link><pubDate>Mon, 10 Feb 2020 00:39:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/22/</guid><description>&lt;h2 id="a-non-zerohttpscodeforcescomcontest1300problema">
+&lt;pre>&lt;code>最近感觉遇到了好多单调队列和单调栈的问题，但是因为以前没学好，所以遇见了就一脸懵逼，然后绝对下决心来学一下。。感觉遇到啥都不会，这可咋办呐。。补不完的漏洞。
+&lt;/code>&lt;/pre></description></item><item><title>Codeforces #618 (Div.2)</title><link>https://blog.zzsqwq.cn/posts/22/</link><pubDate>Mon, 10 Feb 2020 00:39:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/22/</guid><description>&lt;h2 id="a-non-zerohttpscodeforcescomcontest1300problema">
 A. &lt;a href="https://codeforces.com/contest/1300/problem/A">Non-zero&lt;/a>
 &lt;a class="heading-link" href="#a-non-zerohttpscodeforcescomcontest1300problema">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -609,7 +618,7 @@ A. &lt;a href="https://codeforces.com/contest/1300/problem/A">Non-zero&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 给出一段含有 $n$ 个数的序列 $a$ ，可以对其中任何数加一，问最少操作多少次让每一个数和序列和都不为0。&lt;/p></description></item><item><title>背包进阶</title><link>https://blog.zzsqwq.cn/posts/21/</link><pubDate>Sun, 09 Feb 2020 00:38:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/21/</guid><description>&lt;h3 id="1-分组背包httpswwwluogucomcnproblemp1757">
+&lt;p>给出一段含有 $n$ 个数的序列 $a$ ，可以对其中任何数加一，问最少操作多少次让每一个数和序列和都不为0。&lt;/p></description></item><item><title>背包进阶</title><link>https://blog.zzsqwq.cn/posts/21/</link><pubDate>Sun, 09 Feb 2020 00:38:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/21/</guid><description>&lt;h3 id="1-分组背包httpswwwluogucomcnproblemp1757">
 1. &lt;a href="https://www.luogu.com.cn/problem/P1757">分组背包&lt;/a>
 &lt;a class="heading-link" href="#1-%e5%88%86%e7%bb%84%e8%83%8c%e5%8c%85httpswwwluogucomcnproblemp1757">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -622,13 +631,13 @@ A. &lt;a href="https://codeforces.com/contest/1300/problem/A">Non-zero&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​ 在01背包基础上，将其中的物体分成 $k$ 组，每组内的物品相互冲突，即只能取其中一个，问最大价值。&lt;/p></description></item><item><title>一些关于背包的题</title><link>https://blog.zzsqwq.cn/posts/20/</link><pubDate>Sat, 08 Feb 2020 00:33:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/20/</guid><description>&lt;h3 id="前言">
+&lt;p>在01背包基础上，将其中的物体分成 $k$ 组，每组内的物品相互冲突，即只能取其中一个，问最大价值。&lt;/p></description></item><item><title>一些关于背包的题</title><link>https://blog.zzsqwq.cn/posts/20/</link><pubDate>Sat, 08 Feb 2020 00:33:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/20/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 今天跟着背包九讲把背包再学习一下，dd_engi大佬的背包九讲Github链接: &lt;a href="https://github.com/tianyicui/pack">背包九讲&lt;/a>&lt;/p>
+&lt;p>今天跟着背包九讲把背包再学习一下，dd_engi大佬的背包九讲Github链接: &lt;a href="https://github.com/tianyicui/pack">背包九讲&lt;/a>&lt;/p>
 &lt;hr>
 &lt;h3 id="1-采药01背包httpswwwluogucomcnproblemp1048">
 1. &lt;a href="https://www.luogu.com.cn/problem/P1048">采药(01背包)&lt;/a>
@@ -643,7 +652,7 @@ A. &lt;a href="https://codeforces.com/contest/1300/problem/A">Non-zero&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​ 有 $n$ 个价值为 $w_i$ ，体积为 $v_i$ 的物品，装入体积为 $V$ 的背包中，问能获得的最大为多少。&lt;/p></description></item><item><title>基础线性dp例题 #2</title><link>https://blog.zzsqwq.cn/posts/19/</link><pubDate>Fri, 07 Feb 2020 00:22:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/19/</guid><description>&lt;h3 id="1-石子归并httpswww51nodcomchallengeproblemhtmlproblemid1021">
+&lt;p>有 $n$ 个价值为 $w_i$ ，体积为 $v_i$ 的物品，装入体积为 $V$ 的背包中，问能获得的最大为多少。&lt;/p></description></item><item><title>基础线性dp例题 #2</title><link>https://blog.zzsqwq.cn/posts/19/</link><pubDate>Fri, 07 Feb 2020 00:22:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/19/</guid><description>&lt;h3 id="1-石子归并httpswww51nodcomchallengeproblemhtmlproblemid1021">
 1. &lt;a href="https://www.51nod.com/Challenge/Problem.html#problemId=1021">石子归并&lt;/a>
 &lt;a class="heading-link" href="#1-%e7%9f%b3%e5%ad%90%e5%bd%92%e5%b9%b6httpswww51nodcomchallengeproblemhtmlproblemid1021">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -656,7 +665,8 @@ A. &lt;a href="https://codeforces.com/contest/1300/problem/A">Non-zero&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​ $N$ 堆石子摆成一条线。现要将石子有次序地合并成一堆。规定每次只能选相邻的2堆石子合并成新的一堆，并将新的一堆石子数记为该次合并的代价。计算将 $N$ 堆石子合并成一堆的最小代价。&lt;/p>
+&lt;pre>&lt;code>$N$ 堆石子摆成一条线。现要将石子有次序地合并成一堆。规定每次只能选相邻的2堆石子合并成新的一堆，并将新的一堆石子数记为该次合并的代价。计算将 $N$ 堆石子合并成一堆的最小代价。
+&lt;/code>&lt;/pre>
 &lt;hr>
 &lt;h4 id="思路">
 思路
@@ -664,14 +674,14 @@ A. &lt;a href="https://codeforces.com/contest/1300/problem/A">Non-zero&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​ 很经典的区间dp例题，我们可以用 $dp[i][j]$ 来表示合并 $i\sim j$ 所需的最小代价，通过枚举中间的断点，来通过方程 $dp[i][j]=min(dp[i][j],dp[i][k]+dp[k+1][j]+cost[i][j])$ ，其中 $cost[i][j]$ 表示从 $i\sim j$ 的石子总数，通过前缀和很容易计算。在进行状态转移时需要前面状态已知，因为是枚举中间断点，所以断开区间的长度一定要小于原区间，因此在转移之前需要确保比他短的区间都已经达到了最小代价，因此我们可以通过枚举区间长度从 $2\sim N$ 来实现。&lt;/p></description></item><item><title>基础线性dp例题</title><link>https://blog.zzsqwq.cn/posts/18/</link><pubDate>Thu, 06 Feb 2020 00:09:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/18/</guid><description>&lt;h3 id="前言">
+&lt;p>很经典的区间dp例题，我们可以用 $dp[i][j]$ 来表示合并 $i\sim j$ 所需的最小代价，通过枚举中间的断点，来通过方程 $dp[i][j]=min(dp[i][j],dp[i][k]+dp[k+1][j]+cost[i][j])$ ，其中 $cost[i][j]$ 表示从 $i\sim j$ 的石子总数，通过前缀和很容易计算。在进行状态转移时需要前面状态已知，因为是枚举中间断点，所以断开区间的长度一定要小于原区间，因此在转移之前需要确保比他短的区间都已经达到了最小代价，因此我们可以通过枚举区间长度从 $2\sim N$ 来实现。&lt;/p></description></item><item><title>基础线性dp例题</title><link>https://blog.zzsqwq.cn/posts/18/</link><pubDate>Thu, 06 Feb 2020 00:09:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/18/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
 &lt;hr>
-&lt;p>​ 某位大佬曾经说过，dp不会没问题，想不到状态转移方程没问题，多做题就会了。所以，我打算多刷点dp题。那么，先从基础刷起吧。&lt;/p>
+&lt;p>某位大佬曾经说过，dp不会没问题，想不到状态转移方程没问题，多做题就会了。所以，我打算多刷点dp题。那么，先从基础刷起吧。&lt;/p>
 &lt;h3 id="1-p1091-合唱队形httpswwwluogucomcnproblemp1091">
 1. &lt;a href="https://www.luogu.com.cn/problem/P1091">P1091 合唱队形&lt;/a>
 &lt;a class="heading-link" href="#1-p1091-%e5%90%88%e5%94%b1%e9%98%9f%e5%bd%a2httpswwwluogucomcnproblemp1091">
@@ -685,7 +695,7 @@ A. &lt;a href="https://codeforces.com/contest/1300/problem/A">Non-zero&lt;/a>
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​ 已知序列 $a$ 有 $n$ 个数，通过取出其中一些数可以使他满足严格的先增再减序列，问最少取出几个。&lt;/p>
+&lt;p>已知序列 $a$ 有 $n$ 个数，通过取出其中一些数可以使他满足严格的先增再减序列，问最少取出几个。&lt;/p>
 &lt;hr></description></item><item><title>Codeforces#617(Div.3)</title><link>https://blog.zzsqwq.cn/posts/17/</link><pubDate>Wed, 05 Feb 2020 23:18:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/17/</guid><description>&lt;h3 id="a-array-with-odd-sumhttpscodeforcescomcontest1296problema">
 A. &lt;a href="https://codeforces.com/contest/1296/problem/A">Array with Odd Sum&lt;/a>
 &lt;a class="heading-link" href="#a-array-with-odd-sumhttpscodeforcescomcontest1296problema">
@@ -699,7 +709,7 @@ A. &lt;a href="https://codeforces.com/contest/1296/problem/A">Array with Odd Sum
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​ 给出包含 &lt;strong>n&lt;/strong> 个正整数的序列 &lt;strong>a&lt;/strong> ，你可以把任何一个元素 $a_i$ ，赋值给另一个元素 $a_j$ ($i\neq j$) ，问通过任意此操作能否将序列 &lt;strong>a&lt;/strong> 的和变为奇数。可以输出 &lt;strong>YES&lt;/strong> ,不可以输入 &lt;strong>NO&lt;/strong>.&lt;/p>
+&lt;p>给出包含 &lt;strong>n&lt;/strong> 个正整数的序列 &lt;strong>a&lt;/strong> ，你可以把任何一个元素 $a_i$ ，赋值给另一个元素 $a_j$ ($i\neq j$) ，问通过任意此操作能否将序列 &lt;strong>a&lt;/strong> 的和变为奇数。可以输出 &lt;strong>YES&lt;/strong> ,不可以输入 &lt;strong>NO&lt;/strong>.&lt;/p>
 &lt;hr>
 &lt;h4 id="思路">
 思路
@@ -707,7 +717,7 @@ A. &lt;a href="https://codeforces.com/contest/1296/problem/A">Array with Odd Sum
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​ 首先当起始和为奇数的时候，就直接可输出 &lt;strong>YES&lt;/strong> 了，如果是偶数的话，我们可以发现，如果序列元素中同时包含奇数和偶数，那么就是可以的，否则不可以。&lt;/p></description></item><item><title>洛谷的一些搜索题</title><link>https://blog.zzsqwq.cn/posts/16/</link><pubDate>Tue, 04 Feb 2020 23:02:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/16/</guid><description>&lt;h3 id="1-p1378-油滴扩展httpswwwluogucomcnproblemp1378">
+&lt;p>首先当起始和为奇数的时候，就直接可输出 &lt;strong>YES&lt;/strong> 了，如果是偶数的话，我们可以发现，如果序列元素中同时包含奇数和偶数，那么就是可以的，否则不可以。&lt;/p></description></item><item><title>洛谷的一些搜索题</title><link>https://blog.zzsqwq.cn/posts/16/</link><pubDate>Tue, 04 Feb 2020 23:02:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/16/</guid><description>&lt;h3 id="1-p1378-油滴扩展httpswwwluogucomcnproblemp1378">
 1. &lt;a href="https://www.luogu.com.cn/problem/P1378">P1378 油滴扩展&lt;/a>
 &lt;a class="heading-link" href="#1-p1378-%e6%b2%b9%e6%bb%b4%e6%89%a9%e5%b1%95httpswwwluogucomcnproblemp1378">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -720,7 +730,7 @@ A. &lt;a href="https://codeforces.com/contest/1296/problem/A">Array with Odd Sum
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​ 在长方形框中，最多有 n ($0\le{n}\le6$)个相异点，在框中点上依次放置可扩展的油滴，当碰到其他油滴边界或者长方形边框时会停止，扩展呈圆形展开。放置下一个时会确保上一个已经扩展完成。问通过变换放置顺序可使得最终框中剩下的面积最小为多少。&lt;/p></description></item><item><title>LaTeX的一些总结</title><link>https://blog.zzsqwq.cn/posts/10/</link><pubDate>Tue, 04 Feb 2020 22:47:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/10/</guid><description>&lt;h3 id="希腊字母表">
+&lt;p>在长方形框中，最多有 n ($0\le{n}\le6$)个相异点，在框中点上依次放置可扩展的油滴，当碰到其他油滴边界或者长方形边框时会停止，扩展呈圆形展开。放置下一个时会确保上一个已经扩展完成。问通过变换放置顺序可使得最终框中剩下的面积最小为多少。&lt;/p></description></item><item><title>LaTeX的一些总结</title><link>https://blog.zzsqwq.cn/posts/10/</link><pubDate>Tue, 04 Feb 2020 22:47:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/10/</guid><description>&lt;h3 id="希腊字母表">
 希腊字母表
 &lt;a class="heading-link" href="#%e5%b8%8c%e8%85%8a%e5%ad%97%e6%af%8d%e8%a1%a8">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -738,5 +748,5 @@ A : &lt;a href="https://codeforces.com/contest/1295/problem/A">Display The Numbe
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h4>
-&lt;p>​ 用一定数目的灯管，显示尽可能大的数&lt;/p>
+&lt;p>用一定数目的灯管，显示尽可能大的数&lt;/p>
 &lt;p>&lt;img src="https://s2.ax1x.com/2020/02/02/1te6Re.md.png" alt="A">&lt;/p></description></item></channel></rss>

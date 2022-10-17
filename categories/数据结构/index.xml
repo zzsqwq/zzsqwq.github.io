@@ -10,10 +10,11 @@
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 使用双向链表作为存储结构，请根据用户输入的一个整数（该整数表示精确到小数点后的位数，可能要求精确到小数点后 &lt;strong>500&lt;/strong> 位），高精度计算PI值。&lt;strong>提示：可以利用反三角函数幂级展开式来进行计算。&lt;/strong>&lt;/p></description></item><item><title>单调队列和单调栈总结</title><link>https://blog.zzsqwq.cn/posts/23/</link><pubDate>Tue, 11 Feb 2020 00:40:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/23/</guid><description>&lt;h1 id="前言">
+&lt;p>使用双向链表作为存储结构，请根据用户输入的一个整数（该整数表示精确到小数点后的位数，可能要求精确到小数点后 &lt;strong>500&lt;/strong> 位），高精度计算PI值。&lt;strong>提示：可以利用反三角函数幂级展开式来进行计算。&lt;/strong>&lt;/p></description></item><item><title>单调队列和单调栈总结</title><link>https://blog.zzsqwq.cn/posts/23/</link><pubDate>Tue, 11 Feb 2020 00:40:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/23/</guid><description>&lt;h1 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h1>
-&lt;p>​ 最近感觉遇到了好多单调队列和单调栈的问题，但是因为以前没学好，所以遇见了就一脸懵逼，然后绝对下决心来学一下。。感觉遇到啥都不会，这可咋办呐。。补不完的漏洞。&lt;/p></description></item></channel></rss>
+&lt;pre>&lt;code>最近感觉遇到了好多单调队列和单调栈的问题，但是因为以前没学好，所以遇见了就一脸懵逼，然后绝对下决心来学一下。。感觉遇到啥都不会，这可咋办呐。。补不完的漏洞。
+&lt;/code>&lt;/pre></description></item></channel></rss>

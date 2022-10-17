@@ -10,5 +10,5 @@ Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h3>
-&lt;p>​ 我这里配置用的是4.5.0版本，但实际配置过程中需要的大部分时间只是路径，因此和版本基本无关。&lt;/p>
-&lt;p>​ &lt;strong>只有一个地方是和版本有关系的，在配置链接器的 &lt;code>opencv_wordxyzd.lib&lt;/code> 时，大家一定要注意！！&lt;/strong>&lt;/p></description></item></channel></rss>
+&lt;p>我这里配置用的是4.5.0版本，但实际配置过程中需要的大部分时间只是路径，因此和版本基本无关。&lt;/p>
+&lt;p>&lt;strong>只有一个地方是和版本有关系的，在配置链接器的 &lt;code>opencv_wordxyzd.lib&lt;/code> 时，大家一定要注意！！&lt;/strong>&lt;/p></description></item></channel></rss>
