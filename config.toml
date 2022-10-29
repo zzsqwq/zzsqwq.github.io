@@ -1,7 +1,6 @@
 baseURL = "https://blog.zzsqwq.cn"
 title = "Zs's Blog"
 theme = "hugo-coder"
-buildfuture = true
 languageCode = "en"
 publishDir= "public"
 defaultContentLanguage = "en"
