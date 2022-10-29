@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://blog.zzsqwq.cn/</link><atom:link href="https://blog.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml"/><description>Zs's Blog</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><lastBuildDate>Sun, 30 Oct 2022 00:31:00 +0000</lastBuildDate><item><title>如何善用搜索引擎？</title><link>https://blog.zzsqwq.cn/posts/how-to-search/</link><pubDate>Sun, 30 Oct 2022 00:31:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/how-to-search/</guid><description>&lt;h2 id="前言">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://blog.zzsqwq.cn/</link><atom:link href="https://blog.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml"/><description>Zs's Blog</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><lastBuildDate>Sun, 30 Oct 2022 00:31:00 +0800</lastBuildDate><item><title>如何善用搜索引擎？</title><link>https://blog.zzsqwq.cn/posts/how-to-search/</link><pubDate>Sun, 30 Oct 2022 00:31:00 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/how-to-search/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -4022,21 +4022,21 @@ Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;ul>
 &lt;li>
 &lt;p>&lt;strong>Wordpress&lt;/strong>&lt;/p>
-&lt;p>​这个绝对是重量级的，在全球范围内也是十分出名的，他的作用也不仅仅局限于搭建个人博客，也有很多例如电商等官网也是基于此系统的，据说全球 &lt;strong>37%&lt;/strong> 的网站都是基于 &lt;strong>Wordpress&lt;/strong> 的，这统治地位，可见一斑。&lt;/p>
-&lt;p>​&lt;strong>优点&lt;/strong>：博客主题多样，十分的大气，插件也是各种各样的应有尽有。里面的设置也是十分的多，特别特别多，这个可以说是既是优点又是缺点，很多东西如果是个人博客的话根本用不到。&lt;/p>
-&lt;p>​&lt;strong>缺点&lt;/strong>：不是原生支持markdown，并且对LaTeX的支持十分拉胯。需要安装插件，但是显示效果也是不尽人意。此外，Wordpress相比于下面推出的几个十分的臃肿，因为多了很多东西，安装包挺大的（虽然也就几MB的感觉），而且我没有找到我喜欢的主题，于是装载后卸掉了。&lt;/p>
+&lt;p>这个绝对是重量级的，在全球范围内也是十分出名的，他的作用也不仅仅局限于搭建个人博客，也有很多例如电商等官网也是基于此系统的，据说全球 &lt;strong>37%&lt;/strong> 的网站都是基于 &lt;strong>Wordpress&lt;/strong> 的，这统治地位，可见一斑。&lt;/p>
+&lt;p>&lt;strong>优点&lt;/strong>：博客主题多样，十分的大气，插件也是各种各样的应有尽有。里面的设置也是十分的多，特别特别多，这个可以说是既是优点又是缺点，很多东西如果是个人博客的话根本用不到。&lt;/p>
+&lt;p>&lt;strong>缺点&lt;/strong>：不是原生支持markdown，并且对LaTeX的支持十分拉胯。需要安装插件，但是显示效果也是不尽人意。此外，Wordpress相比于下面推出的几个十分的臃肿，因为多了很多东西，安装包挺大的（虽然也就几MB的感觉），而且我没有找到我喜欢的主题，于是装载后卸掉了。&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Emlog&lt;/strong>&lt;/p>
-&lt;p>​&lt;strong>Emlog&lt;/strong> 博客系统十分的简洁轻巧，安装包只有几百KB。&lt;/p>
-&lt;p>​&lt;strong>优点&lt;/strong>：比较轻巧方便，主题和插件也还算多。&lt;/p>
-&lt;p>​&lt;strong>缺点&lt;/strong>：其实主题我觉得，没有太好看的。所以没有考虑，大家可以去翻翻看看有没有钟意的主题再考虑是否安装这一个。&lt;/p>
+&lt;p>&lt;strong>Emlog&lt;/strong> 博客系统十分的简洁轻巧，安装包只有几百KB。&lt;/p>
+&lt;p>&lt;strong>优点&lt;/strong>：比较轻巧方便，主题和插件也还算多。&lt;/p>
+&lt;p>&lt;strong>缺点&lt;/strong>：其实主题我觉得，没有太好看的。所以没有考虑，大家可以去翻翻看看有没有钟意的主题再考虑是否安装这一个。&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>&lt;strong>Typecho&lt;/strong>&lt;/p>
-&lt;p>​这个博客系统是我现在正在用的，也是十分的轻巧简洁，是一个国产的博客系统。&lt;/p>
-&lt;p>​&lt;strong>优点&lt;/strong>：自身对markdown的支持十分的友好，而且有一款插件对LaTeX的支持也是超级棒！因为我比较喜欢之前&lt;strong>Hexo&lt;/strong>里面的&lt;strong>NexT&lt;/strong>主题，而Typecho里面有这个的移植主题，所以最终还是选择的这个系统这个主题。而且他还有好几款例如 &lt;strong>Handsome，Aria&lt;/strong> 这样的我觉得不错的主题。&lt;strong>Ps: Handsome主题需要收费，而且现在还在更新，我觉得超值！&lt;/strong>&lt;/p>
-&lt;p>​&lt;strong>缺点&lt;/strong>：正式版好久没更新了，上一次更新还是2017年。&lt;/p>
+&lt;p>这个博客系统是我现在正在用的，也是十分的轻巧简洁，是一个国产的博客系统。&lt;/p>
+&lt;p>&lt;strong>优点&lt;/strong>：自身对markdown的支持十分的友好，而且有一款插件对LaTeX的支持也是超级棒！因为我比较喜欢之前&lt;strong>Hexo&lt;/strong>里面的&lt;strong>NexT&lt;/strong>主题，而Typecho里面有这个的移植主题，所以最终还是选择的这个系统这个主题。而且他还有好几款例如 &lt;strong>Handsome，Aria&lt;/strong> 这样的我觉得不错的主题。&lt;strong>Ps: Handsome主题需要收费，而且现在还在更新，我觉得超值！&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>缺点&lt;/strong>：正式版好久没更新了，上一次更新还是2017年。&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;h2 id="搭建过程">
