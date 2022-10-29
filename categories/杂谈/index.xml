@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>杂谈 on Zs's Blog</title><link>https://blog.zzsqwq.cn/categories/%E6%9D%82%E8%B0%88/</link><description>Recent content in 杂谈 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 10 Feb 2022 00:52:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/categories/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml"/><item><title>关于春节期间的一些碎碎念</title><link>https://blog.zzsqwq.cn/posts/224/</link><pubDate>Thu, 10 Feb 2022 00:52:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/224/</guid><description>前言 春节期间，走亲访友是必不可少的。交谈的多了，免不得一些问题的讨论。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>杂谈 on Zs's Blog</title><link>https://blog.zzsqwq.cn/categories/%E6%9D%82%E8%B0%88/</link><description>Recent content in 杂谈 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 30 Oct 2022 04:24:06 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/categories/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml"/><item><title>关于美的一些思考</title><link>https://blog.zzsqwq.cn/posts/beauty-think/</link><pubDate>Sun, 30 Oct 2022 04:24:06 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/beauty-think/</guid><description>楔子 昨天听了学弟们关于博客搭建的一些教程，在听的过程中，也想起了我之前对于博客的种种尝试，发现整体的趋势就是，简约再简约。
+这引发了我对我过去几年的审视，感觉自己的审美一直在变化，对于美的认识和感受也是一直在变的，故写此文来记一些我对美认识的思考。
+简约是我最终的归宿 遥记得我还在小学和初中时，非常迷恋 QQ飞车 这款游戏，这款游戏里面有一个虚拟人物，人物可以搭配各种装饰，包括但不限于上衣、裤子、发型、发饰、翅膀等，起初我是喜欢要多花哨有多花哨造型，各种发饰、翅膀、脸部特效搞的飞起，现在想起来真是非常搞笑，而且喜欢五颜六色的，当时觉得，真的是太好看了。
+但是过了一段时间，就开始感觉不对劲了，这么花哨，这么丑，这怎么可能是我当时亲手选择的造型。后来就逐渐向简约范靠拢，装饰越简单，色调越单一越喜欢。
+下面的几张图大致可以窥见这个过程：
+而长大后，对于 Blog 的搭建貌似也是这个过程。一开始喜欢相对花哨的，包括各种炫酷的背景、动效等，因此一开始选择了高定制度、有各种花哨特效的 Hexo 框架，不过当时已经在飞车中喜欢上了简约风格，因此主题也选择了 Hexo 中相对简洁的 NexT 主题。
+后来发现 Hexo 实在操作过程有些过于繁杂，从操作的意义上来说，他无法做到足够的简洁、简约和高效。
+故而我选择了操作更加方便（例如发表博文、操作主题元素）更加方便的动态博客——Typecho。
+起初，我选择延续了在 Hexo 上的 NexT 主题，后来发现了更加符合我审美的 Handsome 主题，第一眼就是非常喜欢，后来忍痛买了主题，用了一段时间后，又逐渐觉得主题没有那么好看，有些看腻了，而且动态博客的升级、安装插件，也是十分繁杂。
+最后，偶然之下，发现了现在在使用的 Hugo 框架，它生成迅速、无需升级、也有着很多简约风的主题，完美符合我的需求，果断迁移了过来，具体流程可见：记一次博客迁移记录 - Zs&amp;rsquo;s Blog ，一直用到现在，还是对这个框架和主题算是相对满意的。
+总体而言，无论是操作还是页面，都是越来越简约、统一了。不知道未来，我会不会觉得这个也不够简约和统一，再去找寻其他的框架呢。
+各种产品的变迁 除了上面我自己对美认识的变化，我觉得整个社会对美的认识也是存在变化的。
+往大了讲，是各种建筑、各种设施外观的变化。
+往小了讲，我们用的手机、手机上的软件（例如 QQ、微信），他们的外观每年都在迭代，可能每次变化时有人吐槽有人叫好，但是整体而言，至少对我来说，他是整体都是越来越好看的，虽然逐渐变得臃肿，但是 UI 确实是“实打实”的在进步。下图是 QQ 的变化（左侧是网友仿的一个老版 QQ 界面1，右图是最新版 Mac QQ），可见一二：
+那就引发了我一个思考，大家对于美的认识是被塑造了呢，还是说这个东西就是客观上的变好看了，美毕竟是一个比较主观的东西。
+如果他是主观上变好看了，那么他是真的好看了吗？而且为什么可以做到如此的统一，让大多数人都觉得变好看了。
+如果他是客观上变好看了，那么到底是什么因素的存在让人觉得他好看呢？
+我觉得美这个东西，很不像生活中常见的发展规律，例如芯片的研发，需要数学、物理、化学等学科实际理论的支持。
+2001 年的人是没有办法设计出 Apple M2 的芯片的，因为受到了各种硬件的制约。而 2001 年的设计师有没有可能设计出最新版 Mac QQ 这样的界面呢，如果不能，是什么制约着它呢？如果能，为什么没有出现这种设计，是因为当时大家觉得他不好看吗？
+因为我不是学设计和美术等专业的，并且这种很很直觉的东西我不知道该怎么去搜索，因此想在这里和大家探讨一下。如果有已经相对成熟的理论，还请大家能够告知与我，解答困扰我好久的疑问。
+AI 绘图 看网上有人调侃说，愿意称 2022 年为 AI 绘图元年。</description></item><item><title>关于春节期间的一些碎碎念</title><link>https://blog.zzsqwq.cn/posts/224/</link><pubDate>Thu, 10 Feb 2022 00:52:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/224/</guid><description>前言 春节期间，走亲访友是必不可少的。交谈的多了，免不得一些问题的讨论。
 读了很多书，经历了很多事，似乎想法也有一些”离经叛道“，记一下自己目前的一些想法，不知道多年后的自己看这篇文章会是什么想法，还会一如既往的坚持吗。
 讨论的话题 打点关系 无论是父母，还是各方亲戚，大家好像都喜欢打点关系，以此来获得一些好处。
 最常见的是求人办事，很多时候是我们常说的”走后门“，想让孩子上个好点的小学，避免不了又送礼又吃饭。
