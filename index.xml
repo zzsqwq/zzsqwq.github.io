@@ -1,4 +1,56 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://blog.zzsqwq.cn/</link><atom:link href="https://blog.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml"/><description>Zs's Blog</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><lastBuildDate>Wed, 24 Aug 2022 23:37:00 +0000</lastBuildDate><item><title>为什么要使用条件变量？</title><link>https://blog.zzsqwq.cn/posts/why-use-condition-variable/</link><pubDate>Wed, 24 Aug 2022 23:37:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/why-use-condition-variable/</guid><description>&lt;h1 id="为什么要使用条件变量">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://blog.zzsqwq.cn/</link><atom:link href="https://blog.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml"/><description>Zs's Blog</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><lastBuildDate>Sun, 30 Oct 2022 00:31:00 +0000</lastBuildDate><item><title>如何善用搜索引擎？</title><link>https://blog.zzsqwq.cn/posts/how-to-search/</link><pubDate>Sun, 30 Oct 2022 00:31:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/how-to-search/</guid><description>&lt;h2 id="前言">
+前言
+&lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>我们使用搜索引擎可能是为了搜集信息、或者是解决一些问题。但如果不能正确的使用搜索引擎，使用关键字等，可能搜到的就可能相关不大，或者与我们的问题相差甚远。&lt;/p>
+&lt;p>这篇文章意在分享我个人在学习、工作中使用搜索引擎的一些技巧与思考，可能后续会不断的更新，如有纰漏，还请大家指正。&lt;/p>
+&lt;h2 id="应该使用什么搜索平台">
+应该使用什么搜索平台？
+&lt;a class="heading-link" href="#%e5%ba%94%e8%af%a5%e4%bd%bf%e7%94%a8%e4%bb%80%e4%b9%88%e6%90%9c%e7%b4%a2%e5%b9%b3%e5%8f%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>想要提高搜索的效率，选择一个好的搜索引擎或者内容平台颇为重要。&lt;/p>
+&lt;p>下面列举的是我平时会使用的一些平台，列出的排名代表了我个人对于他们的推荐程度：&lt;/p>
+&lt;ul>
+&lt;li>通用搜索引擎：&lt;a href="https://google.com">Google&lt;/a>、&lt;a href="https://bing.com">Bing&lt;/a>、&lt;a href="https://duckduckgo.com">DuckDuckGo&lt;/a>、&lt;a href="https://baidu.com">Baidu&lt;/a>&lt;/li>
+&lt;li>编程相关问题：&lt;a href="https://stackoverflow.com">Stack Overflow&lt;/a>、&lt;a href="https://github.com">Github Issue&lt;/a>、&lt;a href="https://segmentfault.com">segmentfault&lt;/a>、&lt;a href="https://juejin.cn">稀土掘金&lt;/a>、&lt;a href="https://cloud.tencent.com/developer">腾讯云开发者社区&lt;/a>、&lt;a href="https://www.csdn.net">CSDN&lt;/a>、&lt;a href="https://developer.huaweicloud.com">华为云开发者社区&lt;/a>&lt;/li>
+&lt;li>日常问题：&lt;a href="https://www.v2ex.com">V2EX&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>第一类为通用搜索引擎，例如 &lt;em>为什么最近头发掉的更多了？&lt;/em> 在其上可以搜索任何问题，其中 Google 的使用门槛相对较高，而 Bing 针对国内用户来说是一个相对不错的选择，不建议常用 Baidu，因为其上广告非常多，有用信息密度相对较小。&lt;/p>
+&lt;p>第二类为编程相关问题，例如 &lt;em>CMake 为什么报错了？&lt;/em> 其中 Stack Overflow、Github 虽均为国外的平台，但是国内是可以访问的，不过在 Baidu 搜索引擎中词条相对靠后，&lt;strong>同时也需要使用英文来进行问题检索&lt;/strong>。（Btw，Stack 系列还有例如 &lt;a href="https://stackexchange.com">Stack Exchange&lt;/a> 平台，它的模式与前者相同，但是更偏日常一些。）除此以外，后面的平台均为国内平台，所列是我平时常见的一些，整体而言，前面的文章质量普遍会比后面的高一些，其中腾讯云开发者社区、CSDN、华为云开发者社区三者内容重叠度较高。&lt;/p>
+&lt;p>第三类为日常问题，例如 &lt;em>Mac 上有什么好用的 App&lt;/em> ？可以在 V2EX 上寻找答案，当然，它也是包罗万象的，只不过我常用它来解决日常各类小问题。&lt;/p>
+&lt;h2 id="如何正确的知道问题所在">
+如何正确的知道问题所在？
+&lt;a class="heading-link" href="#%e5%a6%82%e4%bd%95%e6%ad%a3%e7%a1%ae%e7%9a%84%e7%9f%a5%e9%81%93%e9%97%ae%e9%a2%98%e6%89%80%e5%9c%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>我们遇到一个问题，要首先能够定位这个问题的关键。&lt;/p>
+&lt;p>例如编译中出错了，可能有很多 log，你必须能够精确定位到到底哪一条 log 才是这次编译出错的关键，进而才能解决这个问题。&lt;/p>
+&lt;p>以 CMake 为例，编译时报错 log 一般为&lt;font color="red">红色&lt;/font>，警告 log 一般为&lt;font color="yellow">黄色&lt;/font>，普通 log 一般为白色。得益于这种等级/颜色分明的 log ，我们可以快速的定位报错。我们日常编程中，为了便于 Debug，最好也遵循这个规范，例如在 &lt;code>C++&lt;/code> 中打印错误 log 时推荐使用 &lt;code>std::stderr&lt;/code> 而不是 &lt;code>std::stdout&lt;/code> 。&lt;/p>
+&lt;p>见过很多身边的同学遇到了报错，就一股脑粘贴所有的报错 log，然后贴到搜索引擎中，发现相关的错误基本没有。这就是没有其中错误的关键，报错时的 log 可能 100 行只有 10 行是关键的，甚至只有一行是关键的，例如 100 行 log 中只有 &lt;strong>未定义的引用(undefined reference to &amp;lsquo;xxx&amp;rsquo;)&lt;/strong> 这一句是最关键的。&lt;/p>
+&lt;h2 id="搜索不到怎么办">
+搜索不到怎么办？
+&lt;a class="heading-link" href="#%e6%90%9c%e7%b4%a2%e4%b8%8d%e5%88%b0%e6%80%8e%e4%b9%88%e5%8a%9e">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>即使你选择了正确的平台，筛选出了关键的报错信息，你可能仍然无法搜索到对应的问题，这怎么办呢？&lt;/p>
+&lt;p>首先，你可能需要转换一下语言，例如之前问题采用中文，你应该将其翻译成英文再重新搜索，&lt;strong>记得翻译时要保证专有名词的正确性&lt;/strong>。&lt;/p>
+&lt;p>如果还是不行，这个时候我认为应该首先进下心来思考一下这是属于什么问题，是这个程序特有的问题，还是这个程序使用的某个库或部件导致的问题？你可能需要仔细思考来进一步提取错误（问题）中的关键所在，然后去查对应的程序或者库的 Q&amp;amp;A ，如果还是无法找到，就应该去看相应部分的文档，去 RTFM（Read The Fantastic Manual）。&lt;/p>
+&lt;p>最后的最后，还是无法找到的话，那你就应该考虑去对应程序、库或部件的 Github Issue 仓库或者论坛、或非定向的 Stack Overflow 等平台提交问题，在提问之前，你最好仔细阅读过 &lt;a href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md">提问的智慧&lt;/a>，&lt;strong>不然可能无法获得到热情、友善的回复&lt;/strong>。&lt;/p>
+&lt;p>&lt;a href="https://techcommunity.microsoft.com/t5/discussions/microsoft-edge-crash-when-i-login-in-my-microsoft-account-linux/m-p/3284922">这是&lt;/a> 我之前有关 Microsoft Edge 的一个提问，应该可以算是一个相对正确的示范。&lt;/p>
+&lt;h2 id="最好积累一个错误文档">
+最好积累一个错误文档
+&lt;a class="heading-link" href="#%e6%9c%80%e5%a5%bd%e7%a7%af%e7%b4%af%e4%b8%80%e4%b8%aa%e9%94%99%e8%af%af%e6%96%87%e6%a1%a3">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>感觉这个作用有点类似于高中时候老师们推崇的错题本了，虽然我一直觉得没啥用，也几乎没有照做过。&lt;/p>
+&lt;p>但是在平常解决问题时我确实是会遇到过，上次明明遇到过类似的问题，我也解决了，但是再遇到又忘了如何解决了。可能是因为随着年纪的增大记性越来越差了🤣，不过如果大家不嫌麻烦可以养成每次遇错都能记录一下，估计坚持下来会非常的有用（虽然我自己都没做到）。&lt;/p></description></item><item><title>为什么要使用条件变量？</title><link>https://blog.zzsqwq.cn/posts/why-use-condition-variable/</link><pubDate>Wed, 24 Aug 2022 23:37:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/why-use-condition-variable/</guid><description>&lt;h1 id="为什么要使用条件变量">
 为什么要使用条件变量？
 &lt;a class="heading-link" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e4%bd%bf%e7%94%a8%e6%9d%a1%e4%bb%b6%e5%8f%98%e9%87%8f">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
