@@ -41,17 +41,32 @@ unsafe = true
 
   maxSeeAlsoItems = 5
 
-  customCSS = ["scss/css/adjust_width.css"]
+  customCSS = ["scss/css/adjust_width.css", "scss/css/giscus-theme.css"]
 
   customSCSS = []
 
   customJS = []
 
-[params.utterances]
-  repo = "zzsqwq/hugo-blog-comment" # https://utteranc.es/#heading-repository
-  issueTerm = "pathname" # https://utteranc.es/#heading-mapping
-  label = "comment" # https://utteranc.es/#heading-issue-label
-  theme = "preferred-color-scheme" # https://utteranc.es/#heading-theme
+# [params.utterances]
+#   repo = "zzsqwq/hugo-blog-comment" # https://utteranc.es/#heading-repository
+#   issueTerm = "pathname" # https://utteranc.es/#heading-mapping
+#   label = "comment" # https://utteranc.es/#heading-issue-label
+#   theme = "preferred-color-scheme" # https://utteranc.es/#heading-theme
+
+[params.giscus]
+  dataRepo = "zzsqwq/hugo-blog-comment"
+  dataRepoId = "R_kgDOGgU1qQ"
+  dataCategory = "Announcements"
+  dataCategoryId  = "DIC_kwDOGgU1qc4CSX1m"
+  dataMapping = "pathname"
+  dataStrict = "0"
+  dataReactionsEnabled = "1"
+  dataEmitMetadata = "0"
+  dataInputPosition = "bottom"
+  dataTheme = "dark"
+  dataLang = "en"
+  crossorigin = "anonymous"
+
 
 
 [taxonomies]
