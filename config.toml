@@ -47,24 +47,24 @@ unsafe = true
 
   customJS = []
 
-# [params.utterances]
-#   repo = "zzsqwq/hugo-blog-comment" # https://utteranc.es/#heading-repository
-#   issueTerm = "pathname" # https://utteranc.es/#heading-mapping
-#   label = "comment" # https://utteranc.es/#heading-issue-label
-#   theme = "preferred-color-scheme" # https://utteranc.es/#heading-theme
+[params.utterances]
+  # repo = "zzsqwq/hugo-blog-comment" # https://utteranc.es/#heading-repository
+  # issueTerm = "pathname" # https://utteranc.es/#heading-mapping
+  # label = "comment" # https://utteranc.es/#heading-issue-label
+  # theme = "preferred-color-scheme" # https://utteranc.es/#heading-theme
 
 [params.giscus]
-  dataRepo = "zzsqwq/hugo-blog-comment"
-  dataRepoId = "R_kgDOGgU1qQ"
-  dataCategory = "Announcements"
-  dataCategoryId  = "DIC_kwDOGgU1qc4CSX1m"
-  dataMapping = "pathname"
-  dataStrict = "0"
-  dataReactionsEnabled = "1"
-  dataEmitMetadata = "0"
-  dataInputPosition = "bottom"
-  dataTheme = "dark"
-  dataLang = "en"
+  repo = "zzsqwq/hugo-blog-comment"
+  repoId = "R_kgDOGgU1qQ"
+  category = "Announcements"
+  categoryId  = "DIC_kwDOGgU1qc4CSX1m"
+  mapping = "pathname"
+  strict = "0"
+  reactionsEnabled = "1"
+  emitMetadata = "0"
+  inputPosition = "bottom"
+  theme = "dark"
+  lang = "en"
   crossorigin = "anonymous"
 
 
