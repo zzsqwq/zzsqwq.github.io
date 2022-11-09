@@ -1,4 +1,142 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://blog.zzsqwq.cn/</link><atom:link href="https://blog.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml"/><description>Zs's Blog</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><lastBuildDate>Sun, 30 Oct 2022 04:24:06 +0800</lastBuildDate><item><title>关于美的一些思考</title><link>https://blog.zzsqwq.cn/posts/beauty-think/</link><pubDate>Sun, 30 Oct 2022 04:24:06 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/beauty-think/</guid><description>&lt;h2 id="楔子">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://blog.zzsqwq.cn/</link><atom:link href="https://blog.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml"/><description>Zs's Blog</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><lastBuildDate>Wed, 09 Nov 2022 22:40:41 +0800</lastBuildDate><item><title>C++ 类使用注意事项</title><link>https://blog.zzsqwq.cn/posts/cxx-class-skills/</link><pubDate>Wed, 09 Nov 2022 22:40:41 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/cxx-class-skills/</guid><description>&lt;h2 id="前言">
+前言
+&lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>本文包含一些在使用 C++ 类时的注意事项，可避免一些常见问题，&lt;strong>并能让你在写代码时更加自信&lt;/strong>。&lt;/p>
+&lt;p>因为目前我使用的是 C++ 17，所以仅保证以下内容在 C++ 17 中正确。&lt;/p>
+&lt;h2 id="构造函数">
+构造函数
+&lt;a class="heading-link" href="#%e6%9e%84%e9%80%a0%e5%87%bd%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>对于单个参数的构造函数，推荐添加 &lt;code>explicit&lt;/code> 关键字，防止隐式转换错误调用构造函数。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C++" data-lang="C++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">DemoClass&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">explicit&lt;/span> &lt;span style="color:#a6e22e">DemoClass&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> test) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">this&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>test_ &lt;span style="color:#f92672">=&lt;/span> test;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="2">
+&lt;li>显式声明有参构造函数后，编译器不会自动生成无参构造函数，若需要，请添加 &lt;code>DemoClass() = default;&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C++" data-lang="C++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">DemoClass&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">explicit&lt;/span> &lt;span style="color:#a6e22e">DemoClass&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> test) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">this&lt;/span>&lt;span style="color:#f92672">-&amp;gt;&lt;/span>test_ &lt;span style="color:#f92672">=&lt;/span> test;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> DemoClass() &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">default&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ol start="3">
+&lt;li>若子类中没有显式调用父类的构造函数，子类会默认调用父类的无参构造函数，如果父类没有无参构造函数，会报错。&lt;/li>
+&lt;/ol>
+&lt;h2 id="析构函数">
+析构函数
+&lt;a class="heading-link" href="#%e6%9e%90%e6%9e%84%e5%87%bd%e6%95%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>基类析构函数应该声明为 virtual，这样可以防止子类无法正确的析构。&lt;/li>
+&lt;li>由于基类析构函数为 virtual，派生类的析构函数应该显式的 override。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C++" data-lang="C++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">DemoClass&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">virtual&lt;/span> &lt;span style="color:#f92672">~&lt;/span>DemoClass() &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">default&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">ChildClass&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">public&lt;/span> DemoClass {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">~&lt;/span>ChildClass() &lt;span style="color:#66d9ef">override&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> xxx;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="成员变量默认值">
+成员变量默认值
+&lt;a class="heading-link" href="#%e6%88%90%e5%91%98%e5%8f%98%e9%87%8f%e9%bb%98%e8%ae%a4%e5%80%bc">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>对于类或局部作用域中未明确指定默认值的成员变量，其值遵循以下规则：&lt;/p>
+&lt;ul>
+&lt;li>对于原生类型（&lt;strong>primitive types&lt;/strong>），即 &lt;code>int&lt;/code>、&lt;code>float&lt;/code>、&lt;code>int*&lt;/code>、&lt;code>string*&lt;/code> 等，默认值为随机的脏数据。&lt;/li>
+&lt;li>对于对象（&lt;strong>objects&lt;/strong>），例如自定义类、或 &lt;code>std::string&lt;/code> 等，会调用默认（无参）构造函数，若没有默认（无参）构造函数，则报错。&lt;/li>
+&lt;li>对于引用（&lt;strong>reference&lt;/strong>）类型，例如 &lt;code>std::string&amp;amp;&lt;/code>，&lt;strong>必须&lt;/strong>赋初始值或在构造函数中初始化，若为初始化，则报错。&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C++" data-lang="C++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">float&lt;/span> age; &lt;span style="color:#75715e">// 脏数据、随机值（无意义），此时访问会出现未定义行为
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#f92672">*&lt;/span>ptr; &lt;span style="color:#75715e">// 脏数据、随机值（无意义），此时访问会出现未定义行为
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>string name; &lt;span style="color:#75715e">// 调用默认构造函数，对于 std::string 来说为空字符串 &amp;#34;&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>DemoClass demo; &lt;span style="color:#75715e">// 若 DemoClass 存在无参构造函数，则调用，否则编译错误
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>string &lt;span style="color:#f92672">*&lt;/span>pname; &lt;span style="color:#75715e">// 脏数据、随机值（无意义），此时访问会出现未定义行为
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>string &lt;span style="color:#f92672">&amp;amp;&lt;/span>rname; &lt;span style="color:#75715e">// 编译错误，必须显式初始化
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">const&lt;/span> string &lt;span style="color:#f92672">&amp;amp;&lt;/span>crname; &lt;span style="color:#75715e">// 同上，编译错误
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="成员变量初始化方式">
+成员变量初始化方式
+&lt;a class="heading-link" href="#%e6%88%90%e5%91%98%e5%8f%98%e9%87%8f%e5%88%9d%e5%a7%8b%e5%8c%96%e6%96%b9%e5%bc%8f">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>初始化成员变量一般而言有四种方式，一般而言第二种和第四种方式为等价的，不过在下面我们会看到一种例外：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C++" data-lang="C++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">DemoClass&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>; &lt;span style="color:#75715e">// (1) 通过 a == 1
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> a{&lt;span style="color:#ae81ff">1&lt;/span>}; &lt;span style="color:#75715e">// (2) 通过 a == 1
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">a&lt;/span>(&lt;span style="color:#ae81ff">1&lt;/span>); &lt;span style="color:#75715e">// (3) 报错，只能用于对对象的初始化
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> a &lt;span style="color:#f92672">=&lt;/span> {&lt;span style="color:#ae81ff">1&lt;/span>}; &lt;span style="color:#75715e">// (4)通过 a == 1
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>总体而言，推荐使用第二种方式，更加通用、现代、安全。&lt;/p>
+&lt;p>只不过在使用存在以 std::initializer_list 为参数做初始化的对象时，推荐使用第三种方式，第二种方式会导致非常贪婪的构造调用，详情可见：&lt;a href="https://cntransgroup.github.io/EffectiveModernCppChinese/3.MovingToModernCpp/item7.html">Item 7:区别使用()和{}创建对象 - Effective Modern C++&lt;/a>&lt;/p>
+&lt;p>同时，对于某些对象，例如 &lt;code>std::vector&lt;/code>，第二种方式与第三种方式存在区别，此时要根据使用意图区别调用：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C++" data-lang="C++">&lt;span style="display:flex;">&lt;span>std&lt;span style="color:#f92672">::&lt;/span>vector vec(&lt;span style="color:#ae81ff">10&lt;/span>, &lt;span style="color:#ae81ff">20&lt;/span>); &lt;span style="color:#75715e">// vec 包含 10 个元素，值均为 20
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>std&lt;span style="color:#f92672">::&lt;/span>vector vec{&lt;span style="color:#ae81ff">10&lt;/span>, &lt;span style="color:#ae81ff">20&lt;/span>}; &lt;span style="color:#75715e">// vec 包含 10, 20 两个元素
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>此外，在 C++17 之前，在搭配使用 &lt;code>auto&lt;/code> 和 &lt;code>{}&lt;/code> 时会产生奇怪的行为，同时在这里带 = 和不带 = 的 {} 会出现差别：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C++" data-lang="C++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">auto&lt;/span> a{&lt;span style="color:#ae81ff">1&lt;/span>}; &lt;span style="color:#75715e">// C++17 之前 a 为 std::initializer_list&amp;lt;int&amp;gt;，之后为 int
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">auto&lt;/span> a &lt;span style="color:#f92672">=&lt;/span> {&lt;span style="color:#ae81ff">1&lt;/span>}; &lt;span style="color:#75715e">// a 为 std::initializer_list&amp;lt;int&amp;gt;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">auto&lt;/span> a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>; &lt;span style="color:#75715e">// a 为 int
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">auto&lt;/span> a{&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>}; &lt;span style="color:#75715e">// a 为 std::initializer_list&amp;lt;int&amp;gt;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">auto&lt;/span> a &lt;span style="color:#f92672">=&lt;/span> {&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>}; &lt;span style="color:#75715e">// a 为 std::initializer_list&amp;lt;int&amp;gt;
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="更进一步">
+更进一步
+&lt;a class="heading-link" href="#%e6%9b%b4%e8%bf%9b%e4%b8%80%e6%ad%a5">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>为什么推荐使用第二种方式？&lt;/p>
+&lt;p>C++11 引入了 &lt;code>{}&lt;/code> 这种称为统一初始化（uniform initialization）的语法来整合那些混乱且不适于所有情景的初始化语法。&lt;/p>
+&lt;p>为什么叫统一初始化？看以下几个例子：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C++" data-lang="C++">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">DemoClass&lt;/span>{
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#960050;background-color:#1e0010">…&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">private&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> x{ &lt;span style="color:#ae81ff">0&lt;/span> }; &lt;span style="color:#75715e">//没问题，x初始值为0
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> y &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; &lt;span style="color:#75715e">//也可以
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>); &lt;span style="color:#75715e">//错误！
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这里，z 为一个原生类型，而不是对象，无法使用 &lt;code>()&lt;/code> 来对其初始化。&lt;/p>
+&lt;p>而 &lt;code>=&lt;/code> 也不是总是可用的，不可赋值拷贝构造的对象（例如&lt;code>std::atomic&lt;/code>——见&lt;a href="https://github.com/kelthuzadx/EffectiveModernCppChinese/blob/master/7.TheConcurrencyAPI/item40.md">Item40&lt;/a>）可以使用花括号初始化或者小括号初始化，但是不能使用 &lt;code>=&lt;/code> 初始化：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-C++" data-lang="C++">&lt;span style="display:flex;">&lt;span>std&lt;span style="color:#f92672">::&lt;/span>atomic&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> ai1{ &lt;span style="color:#ae81ff">0&lt;/span> }; &lt;span style="color:#75715e">//没问题
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>std&lt;span style="color:#f92672">::&lt;/span>atomic&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> ai2(&lt;span style="color:#ae81ff">0&lt;/span>); &lt;span style="color:#75715e">//没问题
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>std&lt;span style="color:#f92672">::&lt;/span>atomic&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&lt;/span> ai3 &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; &lt;span style="color:#75715e">//错误！
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>因此我们很容易理解为什么 &lt;code>{}&lt;/code> 初始化又叫统一初始化，在 C++ 中这三种方式都被指派为初始化表达式（而不是什么函数声明或者拷贝构造），但是只有 &lt;code>{}&lt;/code> 任何地方都能被使用。&lt;/p>
+&lt;h2 id="参考资料及拓展阅读资料">
+参考资料及拓展阅读资料
+&lt;a class="heading-link" href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99%e5%8f%8a%e6%8b%93%e5%b1%95%e9%98%85%e8%af%bb%e8%b5%84%e6%96%99">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/3127454/how-do-c-class-members-get-initialized-if-i-dont-do-it-explicitly#">How do C++ class members get initialized if I don&amp;rsquo;t do it explicitly?&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/25612262/why-does-auto-x3-deduce-an-initializer-list">Why does auto x{3} deduce an initializer_list?&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://mariusbancila.ro/blog/2017/04/13/cpp17-new-rules-for-auto-deduction-from-braced-init-list/">mariusbancila.ro&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a href="https://cntransgroup.github.io/EffectiveModernCppChinese/3.MovingToModernCpp/item7.html">https://cntransgroup.github.io/EffectiveModernCppChinese/3.MovingToModernCpp/item7.html&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol></description></item><item><title>关于美的一些思考</title><link>https://blog.zzsqwq.cn/posts/beauty-think/</link><pubDate>Sun, 30 Oct 2022 04:24:06 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/beauty-think/</guid><description>&lt;h2 id="楔子">
 楔子
 &lt;a class="heading-link" href="#%e6%a5%94%e5%ad%90">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
