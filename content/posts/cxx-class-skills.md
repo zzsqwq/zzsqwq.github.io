@@ -103,7 +103,7 @@ std::vector vec{10, 20};  // vec 包含 10, 20 两个元素
 auto a{1};  // C++17 之前 a 为 std::initializer_list<int>，之后为 int
 auto a = {1}; // a 为 std::initializer_list<int>
 auto a = 1; // a 为 int
-auto a{1, 2};  // a 为 std::initializer_list<int>
+auto a{1, 2};  // 报错!
 auto a = {1, 2}; // a 为 std::initializer_list<int>
 ```
 
