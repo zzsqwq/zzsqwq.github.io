@@ -41,7 +41,7 @@ unsafe = true
 
   maxSeeAlsoItems = 5
 
-  customCSS = ["scss/css/adjust_width.css", "scss/css/giscus-theme.css"]
+  customCSS = []
 
   customSCSS = []
 
