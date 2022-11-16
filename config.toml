@@ -63,7 +63,7 @@ unsafe = true
   reactionsEnabled = "1"
   emitMetadata = "0"
   inputPosition = "bottom"
-  theme = "dark"
+  theme = "preferred_color_scheme"
   lang = "en"
   crossorigin = "anonymous"
 
