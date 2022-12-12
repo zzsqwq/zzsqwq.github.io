@@ -15,6 +15,8 @@ Xiaoheng https://fafacao.tech
 
 Bowen https://www.tomcatdeng.cn
 
+Hero's Blog https://wdawn.com
+
 Kehan https://blog.kehan.xyz/
 
 immortalqx https://immortalqx.github.io/

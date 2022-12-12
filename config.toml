@@ -21,7 +21,7 @@ unsafe = true
 
   keywords = "blog,developer,personal"
 
-  info = ["An undergraduate student in NWPU", "Interested in Robotics and CV"]
+  info = ["An undergraduate student in NWPU", "Interested in Robotics and Computer vision"]
 
   avatarURL = "images/avatar.png"
 
