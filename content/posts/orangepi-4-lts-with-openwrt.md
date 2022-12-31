@@ -1,5 +1,5 @@
 ---
-title: "使用 OrangePi4 LTS 做旁路由"
+title: "使用 OrangePi 4 LTS 做旁路由"
 categories: ['OpenWrt']
 tags: ['RK3399', 'OrangePi4-lts', 'OpenWrt']
 draft: false
@@ -10,7 +10,7 @@ typora-root-url: ../../static
 
 ## 前言
 
-最新同居的学长从香港带了个最新版的 Apple TV 回来，但是 Apple TV 在国内用不了，必须要代理才可以，所以考虑到了路由器代理的方案。但是现在家里在用的路由器是 Redmi AX3000，没法刷固件，也不想再买个 R2S 这种软路由了，因此就计划将公司之前用完的 [香橙派(OrangePi)4 LTS](http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-4-LTS.html) 利用一下。它的芯片是 RK3399，用来做路由器绰绰有余，不用可惜了。
+最新同居的学长从香港带了个最新版的 Apple TV 回来，但是 Apple TV 在国内用不了，必须要代理才可以，所以考虑到了路由器代理的方案。但是现在家里在用的路由器是 Redmi AX3000，没法刷固件，也不想再买个 R2S 这种软路由了，因此就计划将公司之前用完的 [香橙派(OrangePi) 4 LTS](http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-4-LTS.html) 利用一下。它的芯片是 RK3399，用来做路由器绰绰有余，不用可惜了。
 
 ![旁路由成品图](/images/orangepi4-lts-with-openwrt/orangepi4-lts.jpeg)
 
