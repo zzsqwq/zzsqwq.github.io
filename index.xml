@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://blog.zzsqwq.cn/</link><atom:link href="https://blog.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml"/><description>Zs's Blog</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><lastBuildDate>Sat, 31 Dec 2022 16:34:42 +0800</lastBuildDate><item><title>使用 OrangePi4 LTS 做旁路由</title><link>https://blog.zzsqwq.cn/posts/orangepi4-lts-with-openwrt/</link><pubDate>Sat, 31 Dec 2022 16:34:42 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/orangepi4-lts-with-openwrt/</guid><description>&lt;h2 id="前言">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://blog.zzsqwq.cn/</link><atom:link href="https://blog.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml"/><description>Zs's Blog</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><lastBuildDate>Sat, 31 Dec 2022 16:34:42 +0800</lastBuildDate><item><title>使用 OrangePi 4 LTS 做旁路由</title><link>https://blog.zzsqwq.cn/posts/orangepi4-lts-with-openwrt/</link><pubDate>Sat, 31 Dec 2022 16:34:42 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/orangepi4-lts-with-openwrt/</guid><description>&lt;h2 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
 &lt;/a>
 &lt;/h2>
-&lt;p>最新同居的学长从香港带了个最新版的 Apple TV 回来，但是 Apple TV 在国内用不了，必须要代理才可以，所以考虑到了路由器代理的方案。但是现在家里在用的路由器是 Redmi AX3000，没法刷固件，也不想再买个 R2S 这种软路由了，因此就计划将公司之前用完的 &lt;a href="http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-4-LTS.html">香橙派(OrangePi)4 LTS&lt;/a> 利用一下。它的芯片是 RK3399，用来做路由器绰绰有余，不用可惜了。&lt;/p>
+&lt;p>最新同居的学长从香港带了个最新版的 Apple TV 回来，但是 Apple TV 在国内用不了，必须要代理才可以，所以考虑到了路由器代理的方案。但是现在家里在用的路由器是 Redmi AX3000，没法刷固件，也不想再买个 R2S 这种软路由了，因此就计划将公司之前用完的 &lt;a href="http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-4-LTS.html">香橙派(OrangePi) 4 LTS&lt;/a> 利用一下。它的芯片是 RK3399，用来做路由器绰绰有余，不用可惜了。&lt;/p>
 &lt;p>&lt;img src="https://blog.zzsqwq.cn/images/orangepi4-lts-with-openwrt/orangepi4-lts.jpeg" alt="旁路由成品图">&lt;/p>
 &lt;h2 id="为什么是旁路由">
 为什么是旁路由？
