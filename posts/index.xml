@@ -1,4 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Zs's Blog</title><link>https://blog.zzsqwq.cn/posts/</link><description>Recent content in Posts on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 31 Dec 2022 16:34:42 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>使用 OrangePi 4 LTS 做旁路由</title><link>https://blog.zzsqwq.cn/posts/orangepi4-lts-with-openwrt/</link><pubDate>Sat, 31 Dec 2022 16:34:42 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/orangepi4-lts-with-openwrt/</guid><description>前言 最新同居的学长从香港带了个最新版的 Apple TV 回来，但是 Apple TV 在国内用不了，必须要代理才可以，所以考虑到了路由器代理的方案。但是现在家里在用的路由器是 Redmi AX3000，没法刷固件，也不想再买个 R2S 这种软路由了，因此就计划将公司之前用完的 香橙派(OrangePi) 4 LTS 利用一下。它的芯片是 RK3399，用来做路由器绰绰有余，不用可惜了。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Zs's Blog</title><link>https://blog.zzsqwq.cn/posts/</link><description>Recent content in Posts on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 01 Jan 2023 16:13:45 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>2022 年度总结</title><link>https://blog.zzsqwq.cn/posts/summary-2022/</link><pubDate>Sun, 01 Jan 2023 16:13:45 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/summary-2022/</guid><description>2022 依旧是被疫情伴随的一年，时间正着看总是要比回看慢很多，现在回头看过往一年似乎一瞬间就过去了。
+今年共发了 11 篇文章，其中还包含了两篇碎碎念，还是没有达到月更，新的一年希望可以。2022 年对我来说变化很大，算是暂时摆脱了学生生活，体验了社畜的感觉，打卡了北上广深中的北和深。
+接下来按月份盘点一些值得纪念的事情吧。
+一月：
+这一月大多是在学校里度过的，封校了很长时间，封校期间报名了送餐志愿者，每天都负责给大家配送三餐，有点累，但是感觉能听到大家感谢的声音以及幸福的笑容还是很值得的，我感觉我一直还挺乐于助人的，帮助别人其实还挺快乐的。值得一提的是，因为之前总喜欢续费超级会员，疫情期间还建了一个宿舍群，送餐期间也兼职在群里传达各种信息，虽然是个吃力不讨好的活，还因为一些过激的言论被挂到知乎说是官僚主义。
+二月：
+二月换了手机（iPhone 13），加入了果粉的队列，并在心中种下了苹果全家桶的种子。还和家人一起去了青岛的海洋馆玩，和从未见过的网友学弟面了基。
+三月：
+三月报名参加了 RMUS 2022 ，同时也在备赛 RMUA 2022 和准备大创的中期检查。搭建了一个新的 RMUA 场地。
+四月：
+移植了一个学术风的 Hexo 主题，搞了一个自己的学术主页，计划用于后面的申请夏令营等。
+五月：
+带队参加了 RMUA 2022，也担任了其中的赛事志愿者。今年的分组不错，可惜还是因为各种原因惨败了，很难受的一个月。回来还被隔离了七天，隔离的时候也无心学习，后面有考试和各种大作业的检查，这段时间是一年中最难受的时候。
+六月：
+六月是考试月，各种考试、各种大作业、各种 DDL，压的人喘不过气来。
+在 6月12日，基地也搬了新的场地，大二上学期刚加入基地的时候，基地也是新搬场地，现在，基地又新搬了场地，我也该退休了。
+七月：
+六月的结束也意味着学期的结束，假期的开始。七月学长邀请我去他公司实习，我欣然答应，于是我们就在学期结束后一起飞到了深圳，开始了社畜生活。在深圳的生活很愉快，也有了自己可以支配的收入，不再依赖于家里面的生活费了，也可以攒些小钱买自己想买的东西，这种感觉很棒。同时这个月还入手了 Airpods 3，空间音频给人的感觉很震撼。
+八月：
+八月继续社畜，做了社畜以后有了比学生生活期间更多的活动，也吃了更多的好吃的，成了KFC、麦当劳、海底捞、肉蟹煲的常客，每天都稳定点两次外卖。这个月还看了《请回答1988》的解说，真的很好看，是令人暖心的剧集。
+九月：
+九月要开学了，但是因为大四上学期已经没什么课了，而且深圳的疫情非常严重，没有返校。本月最重要的是我成了一名铲屎官（猫屎真的好臭😷），已经是人生赢家了，Siri 给他起名为卓卓。
+同时九月也是保研名单公布和保研结束一段时间，再三考虑后决定放弃了保研名额，跟学长一起创业，先在港中文做 RA，后面或许可以去那里读 Ph.D，想出去看看。
+这个月还因为要做 iOS 开发公司给配了 Mac，现在已经拥有 iPhone、iPad、Mac、Airpods，距离 Apple 全家桶只有一步之遥。
+哦对了，这个月还搬了新的住所，因为人逐渐变多了，之前的屋子已经住不下了。九月，真是繁忙的一月。
+十月：
+这个月初入手了 Apple Watch，补齐了个人设备的最后一块拼图算是。iMac 这种没有算进来，因为 iOS、iPadOS、MacOS、WatchOS 四个系统已经集齐了，苹果生态给人的感觉真的很不错。
+有了 Watch 以后，借着新鲜感锻炼了一段时间，但是体重不降反增了，于是动力没了，又回到了肥宅的生活😁。
+同时这个月还和乐乐和雷宝一起去了深圳的欢乐谷游玩，体验了失重的感觉，下次不敢了。
+十一月：平淡的一个月，上班、吃吃吃、玩玩玩。卓卓越来越好看了。
+十二月：
+学长从 HK 带回来了最新版的 Apple TV，苹果生态又添一员。现在的联动已经非常棒了，手机可以直接推流到 Homepod、电视、Mac、耳机等。</description></item><item><title>使用 OrangePi 4 LTS 做旁路由</title><link>https://blog.zzsqwq.cn/posts/orangepi4-lts-with-openwrt/</link><pubDate>Sat, 31 Dec 2022 16:34:42 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/orangepi4-lts-with-openwrt/</guid><description>前言 最近同居的学长从香港带了个最新版的 Apple TV 回来，但是 Apple TV 在国内用不了，必须要代理才可以，所以考虑到了路由器代理的方案。但是现在家里在用的路由器是 Redmi AX3000，没法刷固件，也不想再买个 R2S 这种软路由了，因此就计划将公司之前用完的 香橙派(OrangePi) 4 LTS 利用一下。它的芯片是 RK3399，用来做路由器绰绰有余，不用可惜了。
 为什么是旁路由？ 不熟悉旁路由的同学可以看篇指南：从听说到上手，人人都能看懂的旁路由入门指南
 找了一些常见的固件，貌似只有针对于 OrangePi R1 和 OrangePi R1 Plus 编译的软路由固件，并且讯龙官方也有放出针对这两个板子的 Openwrt 固件1，可以说是就是为软路由而生，价格也比较便宜，200 左右，性能和 R2S 差别不大。
 试了一下在 4 LTS 上跑 R1 和 R1 Plus 的固件2，都无法正常点亮，可能可以自己编译一个对应架构的 OpenWrt，但是有点麻烦，还是没尝试。
