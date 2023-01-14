@@ -15,6 +15,8 @@ Xiaoheng https://fafacao.tech
 
 Bowen https://www.tomcatdeng.cn
 
+Sun's Blog https://iaesun.com
+
 Ljcheng https://ljcheng.cc
 
 Kehan https://blog.kehan.xyz/
