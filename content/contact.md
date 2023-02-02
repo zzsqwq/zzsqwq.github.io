@@ -1,9 +1,6 @@
 ---
 title: "Contact Me"
 ---
-
-# Contact Me
-
 **Github：[@zzsqwq](https://github.com/zzsqwq)**
 
 **E-mail: [trizsqwq@gmail.com](mailto:trizsqwq@gmail.com)**
