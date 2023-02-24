@@ -1,4 +1,656 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://blog.zzsqwq.cn/</link><atom:link href="https://blog.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml"/><description>Zs's Blog</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><lastBuildDate>Sun, 01 Jan 2023 16:13:45 +0800</lastBuildDate><item><title>2022 年度总结</title><link>https://blog.zzsqwq.cn/posts/summary-2022/</link><pubDate>Sun, 01 Jan 2023 16:13:45 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/summary-2022/</guid><description>&lt;p>2022 依旧是被疫情伴随的一年，时间正着看总是要比回看慢很多，现在回头看过往一年似乎一瞬间就过去了。&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://blog.zzsqwq.cn/</link><atom:link href="https://blog.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml"/><description>Zs's Blog</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><lastBuildDate>Sat, 25 Feb 2023 00:45:22 +0800</lastBuildDate><item><title>基于地平线 HAT 训练与部署 FCOS 全流程</title><link>https://blog.zzsqwq.cn/posts/hat-train-fcos/</link><pubDate>Sat, 25 Feb 2023 00:45:22 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/hat-train-fcos/</guid><description>&lt;h2 id="前言">
+前言
+&lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>最近想要使用自己采集与标注的数据集来训练与部署一下地平线微调过的 FCOS 网络，在询问和查看文档后发现如果想基于官方微调的模型训练，需要使用提供 HAT（Horizon Algorithm Toolkit，海图） 来进行，具体的文档可以查看：&lt;a href="https://developer.horizon.ai/api/v1/fileData/doc/ddk_doc/navigation/ai_toolchain/docs_cn/horizon_algorithm_toolkit/index.html">Horizon Algorithm Toolkit 文档&lt;/a>，这是在线的版本，版本可能会比较旧，想看最新版的可以查看离线的版本，位置在 OE（Open Explorer，天工开物） 包的 doc 目录下，如下图：&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/hat-train-fcos/doc_position.png" alt="image-20230224155005117">&lt;/p>
+&lt;p>想要方便的查看离线文档可以通过 Python 来实现，在 doc 目录下执行：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>python3 &lt;span style="color:#f92672">-&lt;/span>m http&lt;span style="color:#f92672">.&lt;/span>server &lt;span style="color:#ae81ff">3000&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这样就可以在本地的 &lt;code>0.0.0.0:3000&lt;/code> 地址开启一个 http server，随后可以在本地浏览器使用 &lt;code>localhost:3000&lt;/code> 或者其他电脑浏览器使用 &lt;code>{ip}:3000&lt;/code> 来访问文档。&lt;/p>
+&lt;p>但是查看 &lt;a href="https://developer.horizon.ai/api/v1/fileData/doc/ddk_doc/navigation/ai_toolchain/docs_cn/horizon_algorithm_toolkit/examples/fcos.html">文档&lt;/a> 过后会发现，文档其实也没有那么的全面，讲的比较简单，尝试了一下中间坑还挺多的，社区里面关于这方面的帖子也不多&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>，因此想记录下我尝试的全流程，也可以作为对上面教程文档的补充。&lt;/p>
+&lt;p>下面主要分为三部分：&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>训练的环境配置。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如何基于官方的 COCO 数据集训练？这里就是指基于 mscoco 发布的包含 80 类的&lt;a href="https://cocodataset.org/">数据集&lt;/a>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如何基于自己的数据集进行训练？这里就是指自己建立的，自定义类别的，可能只有四五类，没有 80 类的数据集。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>下方涉及到的一些代码、脚本和模型等，可以在 &lt;a href="https://github.com/zzsqwq/fcos_tutorial">Github 仓库&lt;/a> 中找到。&lt;/p>
+&lt;h2 id="训练的环境配置">
+训练的环境配置
+&lt;a class="heading-link" href="#%e8%ae%ad%e7%bb%83%e7%9a%84%e7%8e%af%e5%a2%83%e9%85%8d%e7%bd%ae">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>我自己环境配置如下：&lt;/p>
+&lt;blockquote>
+&lt;p>OS: Ubuntu 20.04&lt;/p>
+&lt;p>Docker: 20.10.23&lt;/p>
+&lt;p>Nvidia Docker: 2.11.0-1&lt;/p>
+&lt;p>GPU: RTX3090&lt;/p>
+&lt;p>NVIDIA Driver Version: 515.65.01&lt;/p>
+&lt;p>CUDA Version: 11.7&lt;/p>
+&lt;p>OE Version: v2.4.2( gcc-9.3.0 For XJ3 )&lt;/p>
+&lt;/blockquote>
+&lt;p>因为我的开发是基于 Ubuntu 进行，训练是 GPU 进行的，所以这里只提及关于 Ubuntu + GPU 训练的环境配置，Windows 情况下，或者只有 CPU 的情况，我也没尝试过。&lt;/p>
+&lt;p>首先需要安装 Docker 以及 NVIDIA Docker，前者安装参考：&lt;a href="https://docs.docker.com/engine/install/ubuntu/">Docker 安装文档&lt;/a>，后者安装参考：&lt;a href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#install-guide">NVIDIA Docker 安装文档&lt;/a>。&lt;/p>
+&lt;p>参考官方 X3 芯片文档编写启动脚本 &lt;code>run_docker.sh&lt;/code> 如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>export version&lt;span style="color:#f92672">=&lt;/span>v2.4.2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export ai_toolchain_package_path&lt;span style="color:#f92672">=&lt;/span>/data/sunrise/horizon_oe_v2.4.2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export dataset_path&lt;span style="color:#f92672">=&lt;/span>/data/datasets
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -dt --runtime&lt;span style="color:#f92672">=&lt;/span>nvidia -e NVIDIA_DRIVER_CAPABILITIES&lt;span style="color:#f92672">=&lt;/span>compute,utility &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -e NVIDIA_VISIBLE_DEVICES&lt;span style="color:#f92672">=&lt;/span>all --shm-size&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;15g&amp;#34;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --restart&lt;span style="color:#f92672">=&lt;/span>always --network&lt;span style="color:#f92672">=&lt;/span>host &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -v &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$ai_toolchain_package_path&lt;span style="color:#e6db74">&amp;#34;&lt;/span>:/open_explorer &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -v &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$dataset_path&lt;span style="color:#e6db74">&amp;#34;&lt;/span>:/data &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> openexplorer/ai_toolchain_centos_7_xj3:&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">${&lt;/span>version&lt;span style="color:#e6db74">}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>其中参数解释如下：&lt;/p>
+&lt;p>&lt;code>version&lt;/code> 代表 Docker 镜像版本，可选版本参考：&lt;a href="https://developer.horizon.ai/forumDetail/136488103547258769">资料下载专区&lt;/a>&lt;/p>
+&lt;p>&lt;code>ai_toolchain_package_path&lt;/code> 代表 OE 开发包的路径，指定 OE 包中 ai_toolchain 的路径也可以，但是我建议把整个 OE 包都挂进去得了，没啥差别。&lt;/p>
+&lt;p>&lt;code>dataset_path&lt;/code> 代表训练需要的数据集路径，这里可以新建一个空的文件夹然后挂载进去，也可以把你所有的数据集都准备好，然后放到一个文件夹，然后挂进去，需要训练哪个后面指定哪个即可，我们这里方便起见可以选择前者（官方说如果这里指定为空可能会出问题，但是我测试发现挂载空文件夹不会有问题）。&lt;/p>
+&lt;p>&lt;code>docker run&lt;/code> 部分就是启动一个 Docker 容器，其中比较重要的参数： &lt;code>-dt&lt;/code> 可以让容器使用 Daemon 的方式启动一个交互式终端，可以保证容器一直存活不会 detach 后就被杀死，方便我们多次操作；&lt;code>--restart=always&lt;/code> 可以在每次开机时自动重启容器，可以视自己的情况去掉或者改成 &lt;code>--restart=unless-stopped&lt;/code> 等；&lt;code>--network=host&lt;/code> 指定与宿主机器使用同一个网络，方便我们查看文档或者后面的网络结构。&lt;/p>
+&lt;hr>
+&lt;p>设置后即可打开终端，使用 &lt;code>bash run_docker.sh&lt;/code> 启动容器，并使用 &lt;code>docker exec -it {container_id} bash&lt;/code> 来连接容器进行操作，其中 &lt;code>container_id &lt;/code> 可以通过 &lt;code>docker ps&lt;/code> 或者上述脚本的返回值查看。&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/hat-train-fcos/run_docker.png" alt="image-20230224164845945">&lt;/p>
+&lt;p>进入后可使用 &lt;code>nvidia-smi&lt;/code> 验证一下，出现下方的信息即代表成功：&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/hat-train-fcos/nvidia_smi.png" alt="image-20230224165703545">&lt;/p>
+&lt;p>环境配置到此结束，终于可以开始训练和部署网络了。&lt;/p>
+&lt;h2 id="训练-coco-数据集并进行部署">
+训练 COCO 数据集并进行部署
+&lt;a class="heading-link" href="#%e8%ae%ad%e7%bb%83-coco-%e6%95%b0%e6%8d%ae%e9%9b%86%e5%b9%b6%e8%bf%9b%e8%a1%8c%e9%83%a8%e7%bd%b2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;h3 id="数据准备">
+数据准备
+&lt;a class="heading-link" href="#%e6%95%b0%e6%8d%ae%e5%87%86%e5%a4%87">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;blockquote>
+&lt;p>下方的操作均在上方启动的容器中进行，首先需要先 docker exec 进入容器中。&lt;/p>
+&lt;/blockquote>
+&lt;p>其中准备 COCO 数据集部分参考 &lt;a href="https://developer.horizon.ai/api/v1/fileData/doc/ddk_doc/navigation/ai_toolchain/docs_cn/horizon_algorithm_toolkit/examples/fcos.html">官方文档部分&lt;/a>，首先进入 &lt;code>/data&lt;/code> 目录，然后新建一个文件夹 &lt;code>mscoco&lt;/code>，下载数据集、解压即可。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 进入之前挂载的 /data 目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd /data
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 创建一个目录来存储数据集&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir mscoco
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 下载 train2017.zip，即训练数据集&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wget -c http://images.cocodataset.org/zips/train2017.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 下载 val2017.zip，即验证数据集&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wget -c http://images.cocodataset.org/zips/val2017.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 下载 annotations_trainval2017.zip 即对应标签&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wget -c http://images.cocodataset.org/annotations/annotations_trainval2017.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 解压&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip train2017.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip val2017.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip annotations_trainval2017.zip
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>随后进入 &lt;code>/open_explorer/horizon_model_train_samples&lt;/code> 目录，如果这里你和我之前一样是挂载的整个 OE 包，那这个路径可能会长一些，例如我这里是 &lt;code>/open_explorer/ddk/samples/ai_toolchain/horizon_model_train_samples&lt;/code>。&lt;/p>
+&lt;p>将数据集打包成 lmdb 格式，注意下方的 &lt;code>/data/mscoco&lt;/code> 路径是我们之前存放数据集的路径：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 转换训练集&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python3 tools/datasets/mscoco_packer.py --src-data-dir /data/mscoco/ --target-data-dir /data/mscoco --split-name train --pack-type lmdb
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 转换验证集&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python3 tools/datasets/mscoco_packer.py --src-data-dir /data/mscoco/ --target-data-dir /data/mscoco --split-name val --pack-type lmdb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>运行完即打包成功，&lt;code>/data/mscoco&lt;/code> 目录下会多出来 &lt;code>train_lmdb&lt;/code> 和 &lt;code>val_lmdb&lt;/code> 两个文件夹，即打包之后的训练数据集和验证数据集，也是网络最终读取的数据集。&lt;/p>
+&lt;h3 id="修改配置文件">
+修改配置文件
+&lt;a class="heading-link" href="#%e4%bf%ae%e6%94%b9%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>地平线提供的 HAT 工具链是一个类 mmdetion 的东西，模型定义、训练、验证都流程都定义在一个 config.py 文件中，官方提供的所有配置文件可以在 &lt;code>configs&lt;/code> 目录下找到，FCOS 对应的就是 &lt;code>configs/detection/fcos&lt;/code> 目录下的配置文件，方便起见，我们这里只考虑 &lt;code>fcos_efficientnetb0_mscoco.py&lt;/code> ，关于配置的进一步讲解，可见官方文档：&lt;a href="https://developer.horizon.ai/api/v1/fileData/doc/ddk_doc/navigation/ai_toolchain/docs_cn/horizon_algorithm_toolkit/tutorials/config.html">config 文件介绍&lt;/a>。&lt;/p>
+&lt;p>在修改之前，最好先备份一下原件，可以作为对比，也方便回溯：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cp fcos_efficientnetb0_mscoco.py fcos_efficientnetb0_mscoco_back.py
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>要改的点有三个：&lt;/p>
+&lt;ol>
+&lt;li>&lt;code>device_ids&lt;/code>：这里代表的是你使用的 GPU 序号，如果只有一个 GPU 就只保留 [0]，两个就是 [0, 1]，以此类推。&lt;/li>
+&lt;li>所有跟 &lt;code>./tmp_data&lt;/code> 有关的位置，这里相关的都是指定的数据集位置，官方举例是将数据集都放在了同 configs 同目录的 &lt;code>tmp_data&lt;/code> 目录，但是我们放在了 &lt;code>/data&lt;/code> 目录，因此要将所有的 &lt;code>./tmp_data&lt;/code> 都改成 &lt;code>/data&lt;/code>&lt;/li>
+&lt;li>&lt;code>float_trainer&lt;/code>：这个参数是个 Dict，里面包含了一个 &lt;code>num_epochs &lt;/code>，代表我们训练多少轮，这里默认是 300，可以根据自己需求调整，例如 5、10、100 等。&lt;/li>
+&lt;/ol>
+&lt;h3 id="开始训练">
+开始训练！
+&lt;a class="heading-link" href="#%e5%bc%80%e5%a7%8b%e8%ae%ad%e7%bb%83">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>训练很简单，一行命令即可：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 进入 horizon_model_train_samples 目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd /open_explorer/ddk/samples/ai_toolchain/horizon_model_train_samples
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 开始训练&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python3 tools/train.py --step float --config configs/detection/fcos/fcos_efficientnetb0_mscoco.py
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果不出意外，已经开始训练了，正常如下图所示：&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/hat-train-fcos/fcos_train.png" alt="image-20230224180032520">&lt;/p>
+&lt;p>顺便说一下，这里推荐配合 &lt;a href="https://github.com/tmux/tmux">tmux&lt;/a> 工具来训练，可以让 session 在后台运行，防止意外中断，顺附一个 tmux 教程：&lt;a href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">Tmux 使用教程&lt;/a>。&lt;/p>
+&lt;h3 id="模型转换">
+模型转换
+&lt;a class="heading-link" href="#%e6%a8%a1%e5%9e%8b%e8%bd%ac%e6%8d%a2">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>训练的时间比较长，主要取决于数据集的大小，如果是 mscoco 这种大型数据集，一个 epoch 就要好久才行。&lt;/p>
+&lt;p>这里我训练了十轮就结束了，随后进入 &lt;code>tmp_models&lt;/code> 目录，找到我们训练好的权重文件，如下图，这里的存放位置主要和配置文件中的 &lt;code>task_name&lt;/code> 与 &lt;code>ckpt_dir&lt;/code> 有关，可以按需修改：&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/hat-train-fcos/checkpoint.png" alt="image-20230224180356435">&lt;/p>
+&lt;p>接下来就是将权重文件导出成 ONNX 模型：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>python3 tools/export_onnx.py --config configs/detection/fcos/fcos_efficientnetb0_mscoco.py --ckpt tmp_models/fcos_efficientnetb0_mscoco/float-checkpoint-best.pth.tar --onnx-name fcos.onnx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如上命令，将训练得到的 best 权重文件（float-checkpoint-best.pth.tar）导出成了 fcos.onnx 模型文件，这里也可以选择其他的权重，指定对模型路径即可。&lt;/p>
+&lt;p>接下来是使用地平线的工具链对 ONNX 模型进行量化，以便我们后面上板推理：&lt;/p>
+&lt;p>第一步，先移动一下得到的权重文件，方便后面的查找：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 进入 horizon_model_train_samples 目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd /open_explorer/ddk/samples/ai_toolchain/horizon_model_train_samples
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 建立文件夹&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir -p ../horizon_model_convert_sample/08_customs
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 移动 onnx 模型过去&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp ./fcos.onnx ../horizon_model_convert_sample/08_customs
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>接下来就是那套标准的转换流程，可以参考官方教程：&lt;a href="https://developer.horizon.ai/api/v1/fileData/documents_pi/ai_toolchain_develop/quickstart.html">6.3 快速体验&lt;/a>，还有大佬的指南：&lt;a href="https://developer.horizon.ai/forumDetail/107952931390742029">一文带你轻松走出模型部署新手村&lt;/a>。&lt;/p>
+&lt;p>主要是涉及模型地址和数据集地址的时候需要改成我们对应的即可，其他的都默认就行，接下来给出我的几个脚本及精简后的转换配置文件：&lt;/p>
+&lt;ul>
+&lt;li>01_check.sh&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 01_check.sh&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>set -e -v
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd &lt;span style="color:#66d9ef">$(&lt;/span>dirname $0&lt;span style="color:#66d9ef">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>model_type&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;onnx&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>onnx_model&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;../../../08_customs/fcos.onnx&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>march&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;bernoulli2&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>hb_mapper checker --model-type &lt;span style="color:#e6db74">${&lt;/span>model_type&lt;span style="color:#e6db74">}&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --model &lt;span style="color:#e6db74">${&lt;/span>onnx_model&lt;span style="color:#e6db74">}&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --march &lt;span style="color:#e6db74">${&lt;/span>march&lt;span style="color:#e6db74">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>02_preprocess.sh&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 02_preprocess.sh&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>set -e -v
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd &lt;span style="color:#66d9ef">$(&lt;/span>dirname $0&lt;span style="color:#66d9ef">)&lt;/span> &lt;span style="color:#f92672">||&lt;/span> exit
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python3 ../../../data_preprocess.py &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --src_dir /data/mscoco/train2017 &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --dst_dir ./calibration_data_yuv_f32 &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --cal_img_num &lt;span style="color:#ae81ff">50&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --pic_ext .yuv &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --read_mode opencv &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --saved_data_type float32
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>fcos_efficientnetb0_config.yaml&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-yaml" data-lang="yaml">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># fcos_efficientnetb0_config.yaml&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">model_parameters&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">onnx_model&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;../../../08_customs/fcos.onnx&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">march&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;bernoulli2&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">layer_out_dump&lt;/span>: &lt;span style="color:#66d9ef">False&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">working_dir&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;fcos_test&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">output_model_file_prefix&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;fcos_test&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">input_parameters&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">input_name&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">input_type_rt&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;nv12&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">input_type_train&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;yuv444&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">input_layout_train&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;NCHW&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">input_shape&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">norm_type&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;data_mean_and_scale&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">mean_value&lt;/span>: &lt;span style="color:#ae81ff">128.0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">scale_value&lt;/span>: &lt;span style="color:#ae81ff">0.0078125&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">calibration_parameters&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">cal_data_dir&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;./calibration_data_yuv_f32_qyun&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">cal_data_type&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;float32&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">calibration_type&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;max&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">max_percentile&lt;/span>: &lt;span style="color:#ae81ff">0.99996&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">compiler_parameters&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">compile_mode&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;latency&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">debug&lt;/span>: &lt;span style="color:#66d9ef">False&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#f92672">optimize_level&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;O3&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这里理论上只需要执行完 &lt;code>03_build.sh&lt;/code> 脚本转换即结束，不出意外在同目录下会生成 &lt;code>fcos_test&lt;/code> 目录，已经在其中可找到 &lt;code>fcos.bin&lt;/code> ，这即是我们后续上板推理需要的模型文件。&lt;/p>
+&lt;h3 id="模型推理">
+模型推理
+&lt;a class="heading-link" href="#%e6%a8%a1%e5%9e%8b%e6%8e%a8%e7%90%86">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>这里 Python 推理我参考了 X3M 板子上 &lt;code>/app/ai_inference/02_usb_camera_sample/usb_camera_fcos.py&lt;/code> 目录下的推理脚本，直接上代码：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#!/usr/bin/env python3&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> os
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> hobot_dnn &lt;span style="color:#f92672">import&lt;/span> pyeasy_dnn &lt;span style="color:#66d9ef">as&lt;/span> dnn
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> hobot_vio &lt;span style="color:#f92672">import&lt;/span> libsrcampy &lt;span style="color:#66d9ef">as&lt;/span> srcampy
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> numpy &lt;span style="color:#66d9ef">as&lt;/span> np
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> cv2
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> colorsys
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">from&lt;/span> time &lt;span style="color:#f92672">import&lt;/span> time
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># detection model class names&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">get_classes&lt;/span>():
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>array([&lt;span style="color:#e6db74">&amp;#34;person&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;bicycle&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;car&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;motorcycle&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;airplane&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;bus&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;train&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;truck&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;boat&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;traffic light&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;fire hydrant&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;stop sign&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;parking meter&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;bench&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;bird&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;cat&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;dog&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;horse&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;sheep&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;cow&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;elephant&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;bear&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;zebra&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;giraffe&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;backpack&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;umbrella&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;handbag&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;tie&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;suitcase&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;frisbee&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;skis&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;snowboard&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;sports ball&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;kite&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;baseball bat&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;baseball glove&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;skateboard&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;surfboard&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;tennis racket&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;bottle&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;wine glass&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;cup&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;fork&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;knife&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;spoon&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;bowl&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;banana&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;apple&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;sandwich&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;orange&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;broccoli&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;carrot&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;hot dog&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;pizza&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;donut&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;cake&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;chair&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;couch&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;potted plant&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;bed&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;dining table&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;toilet&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;tv&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;laptop&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;mouse&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;remote&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;keyboard&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;cell phone&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;microwave&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;oven&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;toaster&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;sink&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;refrigerator&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;book&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;clock&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;vase&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;scissors&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;teddy bear&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;hair drier&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;toothbrush&amp;#34;&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># return np.array([&amp;#34;tissue&amp;#34;, &amp;#34;sock&amp;#34;, &amp;#34;shoe&amp;#34;, &amp;#34;cable&amp;#34;, &amp;#34;bin&amp;#34;])&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># bgr格式图片转换成 NV12格式&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">bgr2nv12_opencv&lt;/span>(image):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> height, width &lt;span style="color:#f92672">=&lt;/span> image&lt;span style="color:#f92672">.&lt;/span>shape[&lt;span style="color:#ae81ff">0&lt;/span>], image&lt;span style="color:#f92672">.&lt;/span>shape[&lt;span style="color:#ae81ff">1&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> area &lt;span style="color:#f92672">=&lt;/span> height &lt;span style="color:#f92672">*&lt;/span> width
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> yuv420p &lt;span style="color:#f92672">=&lt;/span> cv2&lt;span style="color:#f92672">.&lt;/span>cvtColor(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> image, cv2&lt;span style="color:#f92672">.&lt;/span>COLOR_BGR2YUV_I420)&lt;span style="color:#f92672">.&lt;/span>reshape((area &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#f92672">//&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>,))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> y &lt;span style="color:#f92672">=&lt;/span> yuv420p[:area]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> uv_planar &lt;span style="color:#f92672">=&lt;/span> yuv420p[area:]&lt;span style="color:#f92672">.&lt;/span>reshape((&lt;span style="color:#ae81ff">2&lt;/span>, area &lt;span style="color:#f92672">//&lt;/span> &lt;span style="color:#ae81ff">4&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> uv_packed &lt;span style="color:#f92672">=&lt;/span> uv_planar&lt;span style="color:#f92672">.&lt;/span>transpose((&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>))&lt;span style="color:#f92672">.&lt;/span>reshape((area &lt;span style="color:#f92672">//&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>,))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> nv12 &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>zeros_like(yuv420p)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> nv12[:height &lt;span style="color:#f92672">*&lt;/span> width] &lt;span style="color:#f92672">=&lt;/span> y
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> nv12[height &lt;span style="color:#f92672">*&lt;/span> width:] &lt;span style="color:#f92672">=&lt;/span> uv_packed
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> nv12
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">postprocess&lt;/span>(model_output,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> model_hw_shape,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> origin_image&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#66d9ef">None&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> origin_img_shape&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#66d9ef">None&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> score_threshold&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.5&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> nms_threshold&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.6&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dump_image&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#66d9ef">False&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> input_height &lt;span style="color:#f92672">=&lt;/span> model_hw_shape[&lt;span style="color:#ae81ff">0&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> input_width &lt;span style="color:#f92672">=&lt;/span> model_hw_shape[&lt;span style="color:#ae81ff">1&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> origin_image &lt;span style="color:#f92672">is&lt;/span> &lt;span style="color:#f92672">not&lt;/span> &lt;span style="color:#66d9ef">None&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> origin_image_shape &lt;span style="color:#f92672">=&lt;/span> origin_image&lt;span style="color:#f92672">.&lt;/span>shape[&lt;span style="color:#ae81ff">0&lt;/span>:&lt;span style="color:#ae81ff">2&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> origin_image_shape &lt;span style="color:#f92672">=&lt;/span> origin_img_shape
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> prediction_bbox &lt;span style="color:#f92672">=&lt;/span> decode(outputs&lt;span style="color:#f92672">=&lt;/span>model_output,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> score_threshold&lt;span style="color:#f92672">=&lt;/span>score_threshold,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> origin_shape&lt;span style="color:#f92672">=&lt;/span>origin_image_shape,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> input_size&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">512&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> prediction_bbox &lt;span style="color:#f92672">=&lt;/span> nms(prediction_bbox, iou_threshold&lt;span style="color:#f92672">=&lt;/span>nms_threshold)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> prediction_bbox &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>array(prediction_bbox)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> topk &lt;span style="color:#f92672">=&lt;/span> min(prediction_bbox&lt;span style="color:#f92672">.&lt;/span>shape[&lt;span style="color:#ae81ff">0&lt;/span>], &lt;span style="color:#ae81ff">1000&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> topk &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> idx &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>argpartition(prediction_bbox[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>], &lt;span style="color:#f92672">-&lt;/span>topk)[&lt;span style="color:#f92672">-&lt;/span>topk:]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> prediction_bbox &lt;span style="color:#f92672">=&lt;/span> prediction_bbox[idx]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> dump_image &lt;span style="color:#f92672">and&lt;/span> origin_image &lt;span style="color:#f92672">is&lt;/span> &lt;span style="color:#f92672">not&lt;/span> &lt;span style="color:#66d9ef">None&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> draw_bboxs(origin_image, prediction_bbox)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> prediction_bbox
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">draw_bboxs&lt;/span>(image, bboxes, gt_classes_index&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#66d9ef">None&lt;/span>, classes&lt;span style="color:#f92672">=&lt;/span>get_classes()):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&amp;#34;draw the bboxes in the original image
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#e6db74"> &amp;#34;&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> num_classes &lt;span style="color:#f92672">=&lt;/span> len(classes)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> image_h, image_w, channel &lt;span style="color:#f92672">=&lt;/span> image&lt;span style="color:#f92672">.&lt;/span>shape
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> hsv_tuples &lt;span style="color:#f92672">=&lt;/span> [(&lt;span style="color:#ae81ff">1.0&lt;/span> &lt;span style="color:#f92672">*&lt;/span> x &lt;span style="color:#f92672">/&lt;/span> num_classes, &lt;span style="color:#ae81ff">1.&lt;/span>, &lt;span style="color:#ae81ff">1.&lt;/span>) &lt;span style="color:#66d9ef">for&lt;/span> x &lt;span style="color:#f92672">in&lt;/span> range(num_classes)]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> colors &lt;span style="color:#f92672">=&lt;/span> list(map(&lt;span style="color:#66d9ef">lambda&lt;/span> x: colorsys&lt;span style="color:#f92672">.&lt;/span>hsv_to_rgb(&lt;span style="color:#f92672">*&lt;/span>x), hsv_tuples))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> colors &lt;span style="color:#f92672">=&lt;/span> list(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> map(&lt;span style="color:#66d9ef">lambda&lt;/span> x: (int(x[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">255&lt;/span>), int(x[&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">255&lt;/span>), int(x[&lt;span style="color:#ae81ff">2&lt;/span>] &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#ae81ff">255&lt;/span>)),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> colors))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fontScale &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0.5&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> bbox_thick &lt;span style="color:#f92672">=&lt;/span> int(&lt;span style="color:#ae81ff">0.6&lt;/span> &lt;span style="color:#f92672">*&lt;/span> (image_h &lt;span style="color:#f92672">+&lt;/span> image_w) &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#ae81ff">600&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> i, bbox &lt;span style="color:#f92672">in&lt;/span> enumerate(bboxes):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> coor &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>array(bbox[:&lt;span style="color:#ae81ff">4&lt;/span>], dtype&lt;span style="color:#f92672">=&lt;/span>np&lt;span style="color:#f92672">.&lt;/span>int32)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> gt_classes_index &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#66d9ef">None&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> class_index &lt;span style="color:#f92672">=&lt;/span> int(bbox[&lt;span style="color:#ae81ff">5&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> score &lt;span style="color:#f92672">=&lt;/span> bbox[&lt;span style="color:#ae81ff">4&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> class_index &lt;span style="color:#f92672">=&lt;/span> gt_classes_index[i]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> score &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> bbox_color &lt;span style="color:#f92672">=&lt;/span> colors[class_index]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> c1, c2 &lt;span style="color:#f92672">=&lt;/span> (coor[&lt;span style="color:#ae81ff">0&lt;/span>], coor[&lt;span style="color:#ae81ff">1&lt;/span>]), (coor[&lt;span style="color:#ae81ff">2&lt;/span>], coor[&lt;span style="color:#ae81ff">3&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cv2&lt;span style="color:#f92672">.&lt;/span>rectangle(image, c1, c2, bbox_color, bbox_thick)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> classes_name &lt;span style="color:#f92672">=&lt;/span> classes[class_index]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> bbox_mess &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;&lt;/span>&lt;span style="color:#e6db74">%s&lt;/span>&lt;span style="color:#e6db74">: &lt;/span>&lt;span style="color:#e6db74">%.2f&lt;/span>&lt;span style="color:#e6db74">&amp;#39;&lt;/span> &lt;span style="color:#f92672">%&lt;/span> (classes_name, score)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> t_size &lt;span style="color:#f92672">=&lt;/span> cv2&lt;span style="color:#f92672">.&lt;/span>getTextSize(bbox_mess,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">0&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fontScale,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> thickness&lt;span style="color:#f92672">=&lt;/span>bbox_thick &lt;span style="color:#f92672">//&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>)[&lt;span style="color:#ae81ff">0&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cv2&lt;span style="color:#f92672">.&lt;/span>rectangle(image, c1, (c1[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">+&lt;/span> t_size[&lt;span style="color:#ae81ff">0&lt;/span>], c1[&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">-&lt;/span> t_size[&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#ae81ff">3&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> bbox_color, &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cv2&lt;span style="color:#f92672">.&lt;/span>putText(image,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> bbox_mess, (c1[&lt;span style="color:#ae81ff">0&lt;/span>], c1[&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cv2&lt;span style="color:#f92672">.&lt;/span>FONT_HERSHEY_SIMPLEX,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> fontScale, (&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> bbox_thick &lt;span style="color:#f92672">//&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> lineType&lt;span style="color:#f92672">=&lt;/span>cv2&lt;span style="color:#f92672">.&lt;/span>LINE_AA)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">{}&lt;/span>&lt;span style="color:#e6db74"> is in the picture with confidence:&lt;/span>&lt;span style="color:#e6db74">{:.4f}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#f92672">.&lt;/span>format(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> classes_name, score))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># cv2.imwrite(&amp;#34;demo.jpg&amp;#34;, image)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> image
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">decode&lt;/span>(outputs, score_threshold, origin_shape, input_size&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">512&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">_distance2bbox&lt;/span>(points, distance):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x1 &lt;span style="color:#f92672">=&lt;/span> points[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">-&lt;/span> distance[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> y1 &lt;span style="color:#f92672">=&lt;/span> points[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">-&lt;/span> distance[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> x2 &lt;span style="color:#f92672">=&lt;/span> points[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">+&lt;/span> distance[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> y2 &lt;span style="color:#f92672">=&lt;/span> points[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">+&lt;/span> distance[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>stack([x1, y1, x2, y2], &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">_scores&lt;/span>(cls, ce):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cls &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">/&lt;/span> (&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">+&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>exp(&lt;span style="color:#f92672">-&lt;/span>cls))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ce &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">/&lt;/span> (&lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">+&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>exp(&lt;span style="color:#f92672">-&lt;/span>ce))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>sqrt(ce &lt;span style="color:#f92672">*&lt;/span> cls)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">_bbox&lt;/span>(bbox, stride, origin_shape, input_size):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># l t r b | h, w = t, r&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> h, w &lt;span style="color:#f92672">=&lt;/span> bbox&lt;span style="color:#f92672">.&lt;/span>shape[&lt;span style="color:#ae81ff">1&lt;/span>:&lt;span style="color:#ae81ff">3&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> yv, xv &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>meshgrid(np&lt;span style="color:#f92672">.&lt;/span>arange(h), np&lt;span style="color:#f92672">.&lt;/span>arange(w))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> xy &lt;span style="color:#f92672">=&lt;/span> (np&lt;span style="color:#f92672">.&lt;/span>stack((yv, xv), &lt;span style="color:#ae81ff">2&lt;/span>) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">0.5&lt;/span>) &lt;span style="color:#f92672">*&lt;/span> stride
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> bbox &lt;span style="color:#f92672">=&lt;/span> _distance2bbox(xy, bbox)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># opencv read, shape[1] is w, shape[0] is h&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> scale_w &lt;span style="color:#f92672">=&lt;/span> origin_shape[&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">/&lt;/span> input_size
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> scale_h &lt;span style="color:#f92672">=&lt;/span> origin_shape[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">/&lt;/span> input_size
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> scale &lt;span style="color:#f92672">=&lt;/span> max(origin_shape[&lt;span style="color:#ae81ff">0&lt;/span>], origin_shape[&lt;span style="color:#ae81ff">1&lt;/span>]) &lt;span style="color:#f92672">/&lt;/span> input_size
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># origin img is pad resized&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># bbox = bbox * scale&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># origin img is resized&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> bbox &lt;span style="color:#f92672">=&lt;/span> bbox &lt;span style="color:#f92672">*&lt;/span> [scale_w, scale_h, scale_w, scale_h]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> bbox
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> bboxes &lt;span style="color:#f92672">=&lt;/span> list()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> strides &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#ae81ff">8&lt;/span>, &lt;span style="color:#ae81ff">16&lt;/span>, &lt;span style="color:#ae81ff">32&lt;/span>, &lt;span style="color:#ae81ff">64&lt;/span>, &lt;span style="color:#ae81ff">128&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># 各个 stride 找符合的模型&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> i &lt;span style="color:#f92672">in&lt;/span> range(len(strides)):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cls &lt;span style="color:#f92672">=&lt;/span> outputs[i]&lt;span style="color:#f92672">.&lt;/span>buffer
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> bbox &lt;span style="color:#f92672">=&lt;/span> outputs[i &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span>]&lt;span style="color:#f92672">.&lt;/span>buffer
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ce &lt;span style="color:#f92672">=&lt;/span> outputs[i &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>]&lt;span style="color:#f92672">.&lt;/span>buffer
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> scores &lt;span style="color:#f92672">=&lt;/span> _scores(cls, ce)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> classes &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>argmax(scores, axis&lt;span style="color:#f92672">=-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> classes &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>reshape(classes, [&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> max_score &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>max(scores, axis&lt;span style="color:#f92672">=-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> max_score &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>reshape(max_score, [&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> bbox &lt;span style="color:#f92672">=&lt;/span> _bbox(bbox, strides[i], origin_shape, input_size)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> bbox &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>reshape(bbox, [&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pred_bbox &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>concatenate([bbox, max_score, classes], axis&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> index &lt;span style="color:#f92672">=&lt;/span> pred_bbox[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>] &lt;span style="color:#f92672">&amp;gt;&lt;/span> score_threshold
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pred_bbox &lt;span style="color:#f92672">=&lt;/span> pred_bbox[index]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> bboxes&lt;span style="color:#f92672">.&lt;/span>append(pred_bbox)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>concatenate(bboxes)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">nms&lt;/span>(bboxes, iou_threshold, sigma&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.3&lt;/span>, method&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;nms&amp;#39;&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">bboxes_iou&lt;/span>(boxes1, boxes2):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> boxes1 &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>array(boxes1)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> boxes2 &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>array(boxes2)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> boxes1_area &lt;span style="color:#f92672">=&lt;/span> (boxes1[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>] &lt;span style="color:#f92672">-&lt;/span> boxes1[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>]) &lt;span style="color:#f92672">*&lt;/span> \
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (boxes1[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>] &lt;span style="color:#f92672">-&lt;/span> boxes1[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> boxes2_area &lt;span style="color:#f92672">=&lt;/span> (boxes2[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>] &lt;span style="color:#f92672">-&lt;/span> boxes2[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>]) &lt;span style="color:#f92672">*&lt;/span> \
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> (boxes2[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">3&lt;/span>] &lt;span style="color:#f92672">-&lt;/span> boxes2[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> left_up &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>maximum(boxes1[&lt;span style="color:#f92672">...&lt;/span>, :&lt;span style="color:#ae81ff">2&lt;/span>], boxes2[&lt;span style="color:#f92672">...&lt;/span>, :&lt;span style="color:#ae81ff">2&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> right_down &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>minimum(boxes1[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>:], boxes2[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">2&lt;/span>:])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> inter_section &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>maximum(right_down &lt;span style="color:#f92672">-&lt;/span> left_up, &lt;span style="color:#ae81ff">0.0&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> inter_area &lt;span style="color:#f92672">=&lt;/span> inter_section[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">*&lt;/span> inter_section[&lt;span style="color:#f92672">...&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> union_area &lt;span style="color:#f92672">=&lt;/span> boxes1_area &lt;span style="color:#f92672">+&lt;/span> boxes2_area &lt;span style="color:#f92672">-&lt;/span> inter_area
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ious &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>maximum(&lt;span style="color:#ae81ff">1.0&lt;/span> &lt;span style="color:#f92672">*&lt;/span> inter_area &lt;span style="color:#f92672">/&lt;/span> union_area,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> np&lt;span style="color:#f92672">.&lt;/span>finfo(np&lt;span style="color:#f92672">.&lt;/span>float32)&lt;span style="color:#f92672">.&lt;/span>eps)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> ious
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> classes_in_img &lt;span style="color:#f92672">=&lt;/span> list(set(bboxes[:, &lt;span style="color:#ae81ff">5&lt;/span>]))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> best_bboxes &lt;span style="color:#f92672">=&lt;/span> []
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> cls &lt;span style="color:#f92672">in&lt;/span> classes_in_img:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cls_mask &lt;span style="color:#f92672">=&lt;/span> (bboxes[:, &lt;span style="color:#ae81ff">5&lt;/span>] &lt;span style="color:#f92672">==&lt;/span> cls)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cls_bboxes &lt;span style="color:#f92672">=&lt;/span> bboxes[cls_mask]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">while&lt;/span> len(cls_bboxes) &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> max_ind &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>argmax(cls_bboxes[:, &lt;span style="color:#ae81ff">4&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> best_bbox &lt;span style="color:#f92672">=&lt;/span> cls_bboxes[max_ind]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> best_bboxes&lt;span style="color:#f92672">.&lt;/span>append(best_bbox)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cls_bboxes &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>concatenate(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> [cls_bboxes[:max_ind], cls_bboxes[max_ind &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>:]])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> iou &lt;span style="color:#f92672">=&lt;/span> bboxes_iou(best_bbox[np&lt;span style="color:#f92672">.&lt;/span>newaxis, :&lt;span style="color:#ae81ff">4&lt;/span>], cls_bboxes[:, :&lt;span style="color:#ae81ff">4&lt;/span>])
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> weight &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>ones((len(iou),), dtype&lt;span style="color:#f92672">=&lt;/span>np&lt;span style="color:#f92672">.&lt;/span>float32)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">assert&lt;/span> method &lt;span style="color:#f92672">in&lt;/span> [&lt;span style="color:#e6db74">&amp;#39;nms&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;soft-nms&amp;#39;&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> method &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#e6db74">&amp;#39;nms&amp;#39;&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> iou_mask &lt;span style="color:#f92672">=&lt;/span> iou &lt;span style="color:#f92672">&amp;gt;&lt;/span> iou_threshold
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> weight[iou_mask] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0.0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> method &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#e6db74">&amp;#39;soft-nms&amp;#39;&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> weight &lt;span style="color:#f92672">=&lt;/span> np&lt;span style="color:#f92672">.&lt;/span>exp(&lt;span style="color:#f92672">-&lt;/span>(&lt;span style="color:#ae81ff">1.0&lt;/span> &lt;span style="color:#f92672">*&lt;/span> iou &lt;span style="color:#f92672">**&lt;/span> &lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#f92672">/&lt;/span> sigma))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cls_bboxes[:, &lt;span style="color:#ae81ff">4&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> cls_bboxes[:, &lt;span style="color:#ae81ff">4&lt;/span>] &lt;span style="color:#f92672">*&lt;/span> weight
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> score_mask &lt;span style="color:#f92672">=&lt;/span> cls_bboxes[:, &lt;span style="color:#ae81ff">4&lt;/span>] &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cls_bboxes &lt;span style="color:#f92672">=&lt;/span> cls_bboxes[score_mask]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> best_bboxes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">print_properties&lt;/span>(pro):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">&amp;#34;tensor type:&amp;#34;&lt;/span>, pro&lt;span style="color:#f92672">.&lt;/span>tensor_type)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">&amp;#34;data type:&amp;#34;&lt;/span>, pro&lt;span style="color:#f92672">.&lt;/span>dtype)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">&amp;#34;layout:&amp;#34;&lt;/span>, pro&lt;span style="color:#f92672">.&lt;/span>layout)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">&amp;#34;shape:&amp;#34;&lt;/span>, pro&lt;span style="color:#f92672">.&lt;/span>shape)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> __name__ &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#e6db74">&amp;#39;__main__&amp;#39;&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> models &lt;span style="color:#f92672">=&lt;/span> dnn&lt;span style="color:#f92672">.&lt;/span>load(&lt;span style="color:#e6db74">&amp;#39;./models/fcos.bin&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># 打印输入 tensor 的属性&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print_properties(models[&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">.&lt;/span>inputs[&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">.&lt;/span>properties)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># 打印输出 tensor 的属性&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(len(models[&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">.&lt;/span>outputs))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> output &lt;span style="color:#f92672">in&lt;/span> models[&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">.&lt;/span>outputs:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print_properties(output&lt;span style="color:#f92672">.&lt;/span>properties)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> frame &lt;span style="color:#f92672">=&lt;/span> cv2&lt;span style="color:#f92672">.&lt;/span>imread(&lt;span style="color:#e6db74">&amp;#34;./kite.jpg&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> frame &lt;span style="color:#f92672">is&lt;/span> &lt;span style="color:#66d9ef">None&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">&amp;#34;Image is not exist.&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> height, width &lt;span style="color:#f92672">=&lt;/span> frame&lt;span style="color:#f92672">.&lt;/span>shape[:&lt;span style="color:#ae81ff">2&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> print(&lt;span style="color:#e6db74">&amp;#34;height: &amp;#34;&lt;/span>, height, &lt;span style="color:#e6db74">&amp;#34;width: &amp;#34;&lt;/span>, width)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># 把图片缩放到模型的输入尺寸&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># 获取算法模型的输入tensor 的尺寸&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> h, w &lt;span style="color:#f92672">=&lt;/span> models[&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">.&lt;/span>inputs[&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">.&lt;/span>properties&lt;span style="color:#f92672">.&lt;/span>shape[&lt;span style="color:#ae81ff">2&lt;/span>], models[&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">.&lt;/span>inputs[&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">.&lt;/span>properties&lt;span style="color:#f92672">.&lt;/span>shape[&lt;span style="color:#ae81ff">3&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> des_dim &lt;span style="color:#f92672">=&lt;/span> (w, h)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> resized_data &lt;span style="color:#f92672">=&lt;/span> cv2&lt;span style="color:#f92672">.&lt;/span>resize(frame, des_dim, interpolation&lt;span style="color:#f92672">=&lt;/span>cv2&lt;span style="color:#f92672">.&lt;/span>INTER_AREA)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> nv12_data &lt;span style="color:#f92672">=&lt;/span> bgr2nv12_opencv(resized_data)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># Forward&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> outputs &lt;span style="color:#f92672">=&lt;/span> models[&lt;span style="color:#ae81ff">0&lt;/span>]&lt;span style="color:#f92672">.&lt;/span>forward(nv12_data)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># Do post process&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> input_shape &lt;span style="color:#f92672">=&lt;/span> (h, w)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> prediction_bbox &lt;span style="color:#f92672">=&lt;/span> postprocess(
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> outputs, input_shape, origin_img_shape&lt;span style="color:#f92672">=&lt;/span>(height, width))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> frame&lt;span style="color:#f92672">.&lt;/span>shape[&lt;span style="color:#ae81ff">0&lt;/span>] &lt;span style="color:#f92672">!=&lt;/span> height &lt;span style="color:#f92672">or&lt;/span> frame&lt;span style="color:#f92672">.&lt;/span>shape[&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">!=&lt;/span> width:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> frame &lt;span style="color:#f92672">=&lt;/span> cv2&lt;span style="color:#f92672">.&lt;/span>resize(frame, (width, height),
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> interpolation&lt;span style="color:#f92672">=&lt;/span>cv2&lt;span style="color:#f92672">.&lt;/span>INTER_AREA)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># Draw bboxs&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> box_bgr &lt;span style="color:#f92672">=&lt;/span> draw_bboxs(frame, prediction_bbox)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cv2&lt;span style="color:#f92672">.&lt;/span>imwrite(&lt;span style="color:#e6db74">&amp;#34;kite_with_bbox.jpg&amp;#34;&lt;/span>, box_bgr)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>其实流程还是蛮简单的，就是 加载模型 -&amp;gt; 读取照片 -&amp;gt; Resize 照片到模型推理尺寸 -&amp;gt; 转化为 NV12 输入格式 -&amp;gt; 拿到输出 outputs -&amp;gt; 对数据集进行后处理得到 bbox 与 classes 等数据 -&amp;gt; Resize 照片到原尺寸绘制框 -&amp;gt; 写照片。&lt;/p>
+&lt;p>大家拿脚本推理的时候，只需要改变 models 和读取照片的位置即可，这里我采用的示例图片是在模型转化后测试推理使用的，可以在 OE 包的如下路径找到 &lt;code>ai_toolchain/horizon_model_convert_sample/01_common/test_data/det_images/kite.jpg&lt;/code>。&lt;/p>
+&lt;p>接下来就是运行脚本进行推理，得到的推理结果如下：&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/hat-train-fcos/bad_kite_bbox.png" alt="image-20230224191320596">&lt;/p>
+&lt;p>为什么结果是这样的，起初我认为是我推理脚本写错了，因此我直接将权重替换为官方的权重，得到的结果如下：&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/hat-train-fcos/kite_bbox.png" alt="image-20230224191427658">&lt;/p>
+&lt;p>很显然，这次的推理是正确的，也就是说明，脚本是没问题，只是权重出了问题，因此我又仔细检查了训练和模型转换的各个步骤，但都没有发现问题。同时，使用官方提供的 mapper 目录下原 onnx 进行转换后，也是没有问题的。那么问题在哪里呢？&lt;/p>
+&lt;h3 id="查找问题">
+查找问题
+&lt;a class="heading-link" href="#%e6%9f%a5%e6%89%be%e9%97%ae%e9%a2%98">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>因为通过上面的排除可以确定，转化这个过程是没什么问题的，那也就只能是模型定义和训练中出现的问题，但是上面的效果又明显不是训练过拟合或者欠拟合导致的，因为框的位置是大致对的，就是太多了，而且太小了，因此我怀疑是模型上出了问题，可能是有节点不一致。&lt;/p>
+&lt;p>确定了方向，接下来我首先对官方原 onnx 模型文件和我自己训练得到的 onnx 模型使用了 &lt;code>01_checker.sh &lt;/code> 脚本来进行检查，因为他会输出模型中的各个层，对比结果如下：&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/hat-train-fcos/compare_checker.png" alt="image-20230224192435956">&lt;/p>
+&lt;p>左侧是我自己训练得到的模型，右侧是我官方提供的模型，可以发现，两者存在差异，其实就是官方模型相比于训练得到的模型会多了几个 Mul 节点。&lt;/p>
+&lt;p>接下来进一步使用 netron 工具对两个模型进行对比，有区别的对比结果如下图所示：&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/hat-train-fcos/compare_netron.png" alt="image-20230224193411063">&lt;/p>
+&lt;p>左侧为自己训练的模型，右侧为官方模型。可以看到只有 bbox 信息（对于 FCOS 为（l, t, r, b）四元组）在输出时两个模型有区别，多了一步 Relu 激活函数和 Mul 节点，其他的经过对比没有区别。&lt;/p>
+&lt;p>同时观察发现，这里 Mul 节点对应的数值，其实是对应的 stride（这个大家可以使用 netron 去看看）&lt;/p>
+&lt;p>知道了问题所在，解决方案就有了，只需要改动下面这一行即可：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Decode 函数中获取数据的部分&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 各个 stride 找符合的模型&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">for&lt;/span> i &lt;span style="color:#f92672">in&lt;/span> range(len(strides)):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cls &lt;span style="color:#f92672">=&lt;/span> outputs[i]&lt;span style="color:#f92672">.&lt;/span>buffer
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> bbox &lt;span style="color:#f92672">=&lt;/span> outputs[i &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span>]&lt;span style="color:#f92672">.&lt;/span>buffer &lt;span style="color:#f92672">*&lt;/span> strides[i] &lt;span style="color:#75715e"># modified&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ce &lt;span style="color:#f92672">=&lt;/span> outputs[i &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>]&lt;span style="color:#f92672">.&lt;/span>buffer
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> scores &lt;span style="color:#f92672">=&lt;/span> _scores(cls, ce)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>很好理解，对 bbox 获得的原始数据乘了 &lt;code>strides[i]&lt;/code>，这里我没有处理 Relu 函数，因为即使是负数，OpenCV 绘制也是不会出问题的。&lt;/p>
+&lt;p>再次运行获得的推理图如下，这次正常了：&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/hat-train-fcos/good_kite_bbox.png" alt="image-20230224194418427">&lt;/p>
+&lt;p>至此，训练 mscoco 数据集模型并进行部署就算结束了，接下来我们看看如何来处理自己得到的数据集。&lt;/p>
+&lt;h2 id="训练自采集数据集">
+训练自采集数据集
+&lt;a class="heading-link" href="#%e8%ae%ad%e7%bb%83%e8%87%aa%e9%87%87%e9%9b%86%e6%95%b0%e6%8d%ae%e9%9b%86">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>对于自采集数据集，最可能是数据处理打包、以及配置文件的配置这两部分存在问题，剩下的模型检查、校准数据准备、模型转化、以及上板推理部分可以说是根本没区别，所以就着重讲一下数据准备和配置部分。&lt;/p>
+&lt;h3 id="数据准备-1">
+数据准备
+&lt;a class="heading-link" href="#%e6%95%b0%e6%8d%ae%e5%87%86%e5%a4%87-1">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>首先数据准备要准备 COCO JSON 格式，他是跟通用 JSON 格式也是有区别的，这个就不详述了。&lt;/p>
+&lt;p>然后方便起见，可以复用官方的 &lt;code>mscoco_packer.py&lt;/code> 脚本，我们把数据集也存为 &lt;code>train2017&lt;/code>、&lt;code>val2017&lt;/code> 和 &lt;code>annotations&lt;/code> 三个文件夹，例如存在放在 &lt;code>/data/selfcoco&lt;/code> 目录下，类似于下面：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>root@Z690-P selfcoco&lt;span style="color:#f92672">]&lt;/span>&lt;span style="color:#75715e"># tree&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── annotations
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│   ├── instances_train2017.json &lt;span style="color:#75715e"># 训练集的 label&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>│   └── instances_val2017.json &lt;span style="color:#75715e"># 验证集的 label&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>├── train2017 &lt;span style="color:#75715e"># 训练集照片&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>└── val2017 &lt;span style="color:#75715e"># 验证集照片&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这时候如果我们按照之前的操作，直接使用 &lt;code>mscoco_packer.py&lt;/code> 脚本进行打包，会报错如下：&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/hat-train-fcos/coco_label_to_label.png" alt="image-20230224232516565">&lt;/p>
+&lt;p>报错大意就是访问了字典一个不存在的键，直接查看报错的位置，位于 &lt;code>/usr/local/lib/python3.6/site-packages/hat/data/datasets/mscoco.py&lt;/code>，查看后发现 COCO_LABLE_TO_LABLE 这个字典是一个类别的映射，因为 mscoco 数据集类别包含 80 类，按顺序来是 [0, 80)，但是 mscoco 数据集原数据集类别序号范围为 [1, 90]，但是其中只有 80 个类别序号，所以需要做一个 [1, 90] -&amp;gt; [0, 80) 的类别映射，但是如果我们自制的数据集没有这个类别映射的需求，就不需要映射，把涉及到这个 Dict 的两行都去掉即可。&lt;/p>
+&lt;p>Btw：🤣 这里的 COCO_LABLE_TO_LABLE 是不是拼错了，要拼 LABEL 的？&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 229 行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># anno[0, 4] = COCO_LABLE_TO_LABLE[tar[&amp;#34;category_id&amp;#34;]]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>anno[&lt;span style="color:#ae81ff">0&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> tar[&lt;span style="color:#e6db74">&amp;#34;category_id&amp;#34;&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 327 行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># np.array([[COCO_LABLE_TO_LABLE[tar[&amp;#34;category_id&amp;#34;]]]])&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>np&lt;span style="color:#f92672">.&lt;/span>array([[tar[&lt;span style="color:#e6db74">&amp;#34;category_id&amp;#34;&lt;/span>]]])
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>随后打包即可&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 转换训练集&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python3 tools/datasets/mscoco_packer.py --src-data-dir /data/selfcoco --target-data-dir /data/selfcoco --split-name train --pack-type lmdb
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 转换验证集&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python3 tools/datasets/mscoco_packer.py --src-data-dir /data/selfcoco --target-data-dir /data/selfcoco --split-name val --pack-type lmdb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="配置文件修改">
+配置文件修改
+&lt;a class="heading-link" href="#%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e4%bf%ae%e6%94%b9">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>配置文件&lt;strong>除了之前提到的三处需要修改&lt;/strong>，配置文件中还需要修改与类别相关的参数，大概有如下几个：&lt;/p>
+&lt;ol>
+&lt;li>&lt;code>num_classes&lt;/code>：这里就是一个全局变量类别数，例如我这里有五类 [0, 5)，那改为 5 即可。&lt;/li>
+&lt;li>&lt;code>model&lt;/code>：model 参数中还有很多涉及到 80 的，经过我查看源码后，发现这些 80 的位置都应该改成 num_classes 参数才可以，例如 model 中的 loss_cls 参数，其中的 num_classes 参数值 80+1 就需要改为 &lt;code>num_classes + 1&lt;/code> ，post_process 参数中的 num_classes 参数值 80 也应该改为 &lt;code>num_classes&lt;/code>，这里我认为是官方的疏忽，应该是忘记改了。&lt;/li>
+&lt;/ol>
+&lt;p>修改完后就可以按之前的方法进行训练了：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 进入 horizon_model_train_samples 目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd /open_explorer/ddk/samples/ai_toolchain/horizon_model_train_samples
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 开始训练&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python3 tools/train.py --step float --config configs/detection/fcos/fcos_efficientnetb0_mscoco.py
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="校准数据准备">
+校准数据准备
+&lt;a class="heading-link" href="#%e6%a0%a1%e5%87%86%e6%95%b0%e6%8d%ae%e5%87%86%e5%a4%87">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>这里预处理的数据也应该选择我们训练的数据子集，需要修改一下，剩下的都不需要变：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 02_preprocess.sh&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>set -e -v
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd &lt;span style="color:#66d9ef">$(&lt;/span>dirname $0&lt;span style="color:#66d9ef">)&lt;/span> &lt;span style="color:#f92672">||&lt;/span> exit
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python3 ../../../data_preprocess.py &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --src_dir /data/selfcoco/train2017 &lt;span style="color:#ae81ff">\ &lt;/span>&lt;span style="color:#75715e"># 重要&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> --dst_dir ./calibration_data_yuv_f32 &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --cal_img_num &lt;span style="color:#ae81ff">50&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --pic_ext .yuv &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --read_mode opencv &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> --saved_data_type float32
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="推理代码修改">
+推理代码修改
+&lt;a class="heading-link" href="#%e6%8e%a8%e7%90%86%e4%bb%a3%e7%a0%81%e4%bf%ae%e6%94%b9">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>这里需要修改 &lt;code>get_classes&lt;/code> 函数返回的类别名，改成自己对应的类别 List.&lt;/p>
+&lt;p>推理得到结果如下：&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/hat-train-fcos/self_coco_bbox.png" alt="image-20230225000213268">&lt;/p>
+&lt;p>可以看到，识别可以正常的工作（因为我选的训练数据集有点捞，所以过拟合比较严重，就选了一张凑合能看的图，大家见谅）。&lt;/p>
+&lt;h2 id="后言">
+后言
+&lt;a class="heading-link" href="#%e5%90%8e%e8%a8%80">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>这样我们就完成了 FCOS 网络的训练和部署，但是基于 Python 的推理可能有点慢，大家可以参考 ai_benchmark 等部分进行 C++ 推理，主要关键就是 PostProcess 后处理部分，不过之前 &lt;a href="https://developer.horizon.ai/college/detail/id=89018995415500842">开发者直播KE——AI板端部署实践&lt;/a> 张老师已经讲过一部分 API，如果大家有兴趣，我后面也可以给大家出个帖子讲讲 🤗。&lt;/p>
+&lt;p>探索的这几天，给我的感觉是，&lt;strong>地平线做了很多，写了很多有用的工具、包，但是文档还是不够完善&lt;/strong>，而且文档有些混乱，版本比较混乱，位置比较混乱、等等，容易找不到、无从下手等等。&lt;/p>
+&lt;p>例如对于 FCOS 这部分的文档就很欠缺，对于 FCOS 训练配置的各个选项的详解，大家看到时候可能会有很多问题，例如：&lt;/p>
+&lt;ol>
+&lt;li>如何使用 CPU 进行训练而不是 GPU？&lt;/li>
+&lt;li>如何基于已有的模型进行迁移训练？中断训练后可以再继续进行吗？&lt;/li>
+&lt;li>可以 freeze 一部分参数进行 fine-tuning 吗？&lt;/li>
+&lt;li>训练时有数据增强吗？如果不需要可以去掉吗？&lt;/li>
+&lt;/ol>
+&lt;p>不过现在也是在慢慢完善，不断进步，希望可以把这些好用的东西都能让大家快点方便的用起来。&lt;/p>
+&lt;p>文中涉及到的一些代码、脚本和模型等，可以在 &lt;a href="https://github.com/zzsqwq/fcos_tutorial">Github 仓库&lt;/a> 中找到。&lt;/p>
+&lt;p>文章同步发布在我的博客：https://blog.zzsqwq.cn&lt;/p>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://developer.horizon.ai/forumDetail/118363910641451905">如何用工具链HAT训练fcos自定义数据集&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>&lt;a href="https://developer.horizon.ai/forumDetail/118363914936419315">在OE包中训练focs模型&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>2022 年度总结</title><link>https://blog.zzsqwq.cn/posts/summary-2022/</link><pubDate>Sun, 01 Jan 2023 16:13:45 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/summary-2022/</guid><description>&lt;p>2022 依旧是被疫情伴随的一年，时间正着看总是要比回看慢很多，现在回头看过往一年似乎一瞬间就过去了。&lt;/p>
 &lt;p>今年共发了 11 篇文章，其中还包含了两篇碎碎念，还是没有达到月更，新的一年希望可以。2022 年对我来说变化很大，算是暂时摆脱了学生生活，体验了社畜的感觉，打卡了北上广深中的北和深。&lt;/p>
 &lt;p>接下来按月份盘点一些值得纪念的事情吧。&lt;/p>
 &lt;hr>

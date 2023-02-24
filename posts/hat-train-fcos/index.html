@@ -1,0 +1,496 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="zzsqwq"><meta name=description content="前言 最近想要使用自己采集与标注的数据集来训练与部署一下地平线微调过的 FCOS 网络，在询问和查看文档后发现如果想基于官方微调的模型训练，需要使用提供 HAT（Horizon Algorithm Toolkit，海图） 来进行，具体的文档可以查看：Horizon Algorithm Toolkit 文档，这是在线的版本，版本可能会比较旧，想看最新版的可以查看离线的版本，位置在 OE（Open Explorer，天工开物） 包的 doc 目录下，如下图：
+想要方便的查看离线文档可以通过 Python 来实现，在 doc 目录下执行：
+python3 -m http.server 3000 这样就可以在本地的 0.0.0.0:3000 地址开启一个 http server，随后可以在本地浏览器使用 localhost:3000 或者其他电脑浏览器使用 {ip}:3000 来访问文档。
+但是查看 文档 过后会发现，文档其实也没有那么的全面，讲的比较简单，尝试了一下中间坑还挺多的，社区里面关于这方面的帖子也不多12，因此想记录下我尝试的全流程，也可以作为对上面教程文档的补充。
+下面主要分为三部分：
+训练的环境配置。
+如何基于官方的 COCO 数据集训练？这里就是指基于 mscoco 发布的包含 80 类的数据集。
+如何基于自己的数据集进行训练？这里就是指自己建立的，自定义类别的，可能只有四五类，没有 80 类的数据集。
+下方涉及到的一些代码、脚本和模型等，可以在 Github 仓库 中找到。
+训练的环境配置 我自己环境配置如下：
+OS: Ubuntu 20.04
+Docker: 20.10.23
+Nvidia Docker: 2.11.0-1
+GPU: RTX3090
+NVIDIA Driver Version: 515.65.01"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="基于地平线 HAT 训练与部署 FCOS 全流程"><meta name=twitter:description content="前言 最近想要使用自己采集与标注的数据集来训练与部署一下地平线微调过的 FCOS 网络，在询问和查看文档后发现如果想基于官方微调的模型训练，需要使用提供 HAT（Horizon Algorithm Toolkit，海图） 来进行，具体的文档可以查看：Horizon Algorithm Toolkit 文档，这是在线的版本，版本可能会比较旧，想看最新版的可以查看离线的版本，位置在 OE（Open Explorer，天工开物） 包的 doc 目录下，如下图：
+想要方便的查看离线文档可以通过 Python 来实现，在 doc 目录下执行：
+python3 -m http.server 3000 这样就可以在本地的 0.0.0.0:3000 地址开启一个 http server，随后可以在本地浏览器使用 localhost:3000 或者其他电脑浏览器使用 {ip}:3000 来访问文档。
+但是查看 文档 过后会发现，文档其实也没有那么的全面，讲的比较简单，尝试了一下中间坑还挺多的，社区里面关于这方面的帖子也不多12，因此想记录下我尝试的全流程，也可以作为对上面教程文档的补充。
+下面主要分为三部分：
+训练的环境配置。
+如何基于官方的 COCO 数据集训练？这里就是指基于 mscoco 发布的包含 80 类的数据集。
+如何基于自己的数据集进行训练？这里就是指自己建立的，自定义类别的，可能只有四五类，没有 80 类的数据集。
+下方涉及到的一些代码、脚本和模型等，可以在 Github 仓库 中找到。
+训练的环境配置 我自己环境配置如下：
+OS: Ubuntu 20.04
+Docker: 20.10.23
+Nvidia Docker: 2.11.0-1
+GPU: RTX3090
+NVIDIA Driver Version: 515.65.01"><meta property="og:title" content="基于地平线 HAT 训练与部署 FCOS 全流程"><meta property="og:description" content="前言 最近想要使用自己采集与标注的数据集来训练与部署一下地平线微调过的 FCOS 网络，在询问和查看文档后发现如果想基于官方微调的模型训练，需要使用提供 HAT（Horizon Algorithm Toolkit，海图） 来进行，具体的文档可以查看：Horizon Algorithm Toolkit 文档，这是在线的版本，版本可能会比较旧，想看最新版的可以查看离线的版本，位置在 OE（Open Explorer，天工开物） 包的 doc 目录下，如下图：
+想要方便的查看离线文档可以通过 Python 来实现，在 doc 目录下执行：
+python3 -m http.server 3000 这样就可以在本地的 0.0.0.0:3000 地址开启一个 http server，随后可以在本地浏览器使用 localhost:3000 或者其他电脑浏览器使用 {ip}:3000 来访问文档。
+但是查看 文档 过后会发现，文档其实也没有那么的全面，讲的比较简单，尝试了一下中间坑还挺多的，社区里面关于这方面的帖子也不多12，因此想记录下我尝试的全流程，也可以作为对上面教程文档的补充。
+下面主要分为三部分：
+训练的环境配置。
+如何基于官方的 COCO 数据集训练？这里就是指基于 mscoco 发布的包含 80 类的数据集。
+如何基于自己的数据集进行训练？这里就是指自己建立的，自定义类别的，可能只有四五类，没有 80 类的数据集。
+下方涉及到的一些代码、脚本和模型等，可以在 Github 仓库 中找到。
+训练的环境配置 我自己环境配置如下：
+OS: Ubuntu 20.04
+Docker: 20.10.23
+Nvidia Docker: 2.11.0-1
+GPU: RTX3090
+NVIDIA Driver Version: 515.65.01"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.zzsqwq.cn/posts/hat-train-fcos/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-02-25T00:45:22+08:00"><meta property="article:modified_time" content="2023-02-25T00:45:22+08:00"><title>基于地平线 HAT 训练与部署 FCOS 全流程 · Zs's Blog</title><link rel=canonical href=https://blog.zzsqwq.cn/posts/hat-train-fcos/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><meta name=generator content="Hugo 0.110.0"></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Zs's Blog</a>
+<input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/about/>About</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Posts</a></li><li class=navigation-item><a class=navigation-link href=/friends/>Friends</a></li><li class=navigation-item><a class=navigation-link href=/contact/>Contact Me</a></li><li class=navigation-item><a class=navigation-link href=https://zzsqwq.cn/>Homepage</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://blog.zzsqwq.cn/posts/hat-train-fcos/>基于地平线 HAT 训练与部署 FCOS 全流程</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2023-02-25T00:45:22+08:00>February 25, 2023</time></span>
+<span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>
+28-minute read</span></div><div class=categories><i class="fa fa-folder" aria-hidden=true></i>
+<a href=/categories/deep-learning/>Deep Learning</a></div><div class=tags><i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/hat/>HAT</a></span>
+<span class=separator>•</span>
+<span class=tag><a href=/tags/horizon-robotics/>Horizon Robotics</a></span>
+<span class=separator>•</span>
+<span class=tag><a href=/tags/fcos/>FCOS</a></span></div></div></header><div><h2 id=前言>前言
+<a class=heading-link href=#%e5%89%8d%e8%a8%80><i class="fa fa-link" aria-hidden=true></i></a></h2><p>最近想要使用自己采集与标注的数据集来训练与部署一下地平线微调过的 FCOS 网络，在询问和查看文档后发现如果想基于官方微调的模型训练，需要使用提供 HAT（Horizon Algorithm Toolkit，海图） 来进行，具体的文档可以查看：<a href=https://developer.horizon.ai/api/v1/fileData/doc/ddk_doc/navigation/ai_toolchain/docs_cn/horizon_algorithm_toolkit/index.html>Horizon Algorithm Toolkit 文档</a>，这是在线的版本，版本可能会比较旧，想看最新版的可以查看离线的版本，位置在 OE（Open Explorer，天工开物） 包的 doc 目录下，如下图：</p><p><img src=/images/hat-train-fcos/doc_position.png alt=image-20230224155005117></p><p>想要方便的查看离线文档可以通过 Python 来实现，在 doc 目录下执行：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>python3 <span style=color:#f92672>-</span>m http<span style=color:#f92672>.</span>server <span style=color:#ae81ff>3000</span>
+</span></span></code></pre></div><p>这样就可以在本地的 <code>0.0.0.0:3000</code> 地址开启一个 http server，随后可以在本地浏览器使用 <code>localhost:3000</code> 或者其他电脑浏览器使用 <code>{ip}:3000</code> 来访问文档。</p><p>但是查看 <a href=https://developer.horizon.ai/api/v1/fileData/doc/ddk_doc/navigation/ai_toolchain/docs_cn/horizon_algorithm_toolkit/examples/fcos.html>文档</a> 过后会发现，文档其实也没有那么的全面，讲的比较简单，尝试了一下中间坑还挺多的，社区里面关于这方面的帖子也不多<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup><sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup>，因此想记录下我尝试的全流程，也可以作为对上面教程文档的补充。</p><p>下面主要分为三部分：</p><ol><li><p>训练的环境配置。</p></li><li><p>如何基于官方的 COCO 数据集训练？这里就是指基于 mscoco 发布的包含 80 类的<a href=https://cocodataset.org/>数据集</a>。</p></li><li><p>如何基于自己的数据集进行训练？这里就是指自己建立的，自定义类别的，可能只有四五类，没有 80 类的数据集。</p></li></ol><p>下方涉及到的一些代码、脚本和模型等，可以在 <a href=https://github.com/zzsqwq/fcos_tutorial>Github 仓库</a> 中找到。</p><h2 id=训练的环境配置>训练的环境配置
+<a class=heading-link href=#%e8%ae%ad%e7%bb%83%e7%9a%84%e7%8e%af%e5%a2%83%e9%85%8d%e7%bd%ae><i class="fa fa-link" aria-hidden=true></i></a></h2><p>我自己环境配置如下：</p><blockquote><p>OS: Ubuntu 20.04</p><p>Docker: 20.10.23</p><p>Nvidia Docker: 2.11.0-1</p><p>GPU: RTX3090</p><p>NVIDIA Driver Version: 515.65.01</p><p>CUDA Version: 11.7</p><p>OE Version: v2.4.2( gcc-9.3.0 For XJ3 )</p></blockquote><p>因为我的开发是基于 Ubuntu 进行，训练是 GPU 进行的，所以这里只提及关于 Ubuntu + GPU 训练的环境配置，Windows 情况下，或者只有 CPU 的情况，我也没尝试过。</p><p>首先需要安装 Docker 以及 NVIDIA Docker，前者安装参考：<a href=https://docs.docker.com/engine/install/ubuntu/>Docker 安装文档</a>，后者安装参考：<a href=https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#install-guide>NVIDIA Docker 安装文档</a>。</p><p>参考官方 X3 芯片文档编写启动脚本 <code>run_docker.sh</code> 如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/bash
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>export version<span style=color:#f92672>=</span>v2.4.2
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>export ai_toolchain_package_path<span style=color:#f92672>=</span>/data/sunrise/horizon_oe_v2.4.2
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>export dataset_path<span style=color:#f92672>=</span>/data/datasets
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>docker run -dt --runtime<span style=color:#f92672>=</span>nvidia -e NVIDIA_DRIVER_CAPABILITIES<span style=color:#f92672>=</span>compute,utility <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  -e NVIDIA_VISIBLE_DEVICES<span style=color:#f92672>=</span>all --shm-size<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;15g&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>   --restart<span style=color:#f92672>=</span>always --network<span style=color:#f92672>=</span>host <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>    -v <span style=color:#e6db74>&#34;</span>$ai_toolchain_package_path<span style=color:#e6db74>&#34;</span>:/open_explorer <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>      -v <span style=color:#e6db74>&#34;</span>$dataset_path<span style=color:#e6db74>&#34;</span>:/data <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>        openexplorer/ai_toolchain_centos_7_xj3:<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>version<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span></code></pre></div><p>其中参数解释如下：</p><p><code>version</code> 代表 Docker 镜像版本，可选版本参考：<a href=https://developer.horizon.ai/forumDetail/136488103547258769>资料下载专区</a></p><p><code>ai_toolchain_package_path</code> 代表 OE 开发包的路径，指定 OE 包中 ai_toolchain 的路径也可以，但是我建议把整个 OE 包都挂进去得了，没啥差别。</p><p><code>dataset_path</code> 代表训练需要的数据集路径，这里可以新建一个空的文件夹然后挂载进去，也可以把你所有的数据集都准备好，然后放到一个文件夹，然后挂进去，需要训练哪个后面指定哪个即可，我们这里方便起见可以选择前者（官方说如果这里指定为空可能会出问题，但是我测试发现挂载空文件夹不会有问题）。</p><p><code>docker run</code> 部分就是启动一个 Docker 容器，其中比较重要的参数： <code>-dt</code> 可以让容器使用 Daemon 的方式启动一个交互式终端，可以保证容器一直存活不会 detach 后就被杀死，方便我们多次操作；<code>--restart=always</code> 可以在每次开机时自动重启容器，可以视自己的情况去掉或者改成 <code>--restart=unless-stopped</code> 等；<code>--network=host</code> 指定与宿主机器使用同一个网络，方便我们查看文档或者后面的网络结构。</p><hr><p>设置后即可打开终端，使用 <code>bash run_docker.sh</code> 启动容器，并使用 <code>docker exec -it {container_id} bash</code> 来连接容器进行操作，其中 <code>container_id</code> 可以通过 <code>docker ps</code> 或者上述脚本的返回值查看。</p><p><img src=/images/hat-train-fcos/run_docker.png alt=image-20230224164845945></p><p>进入后可使用 <code>nvidia-smi</code> 验证一下，出现下方的信息即代表成功：</p><p><img src=/images/hat-train-fcos/nvidia_smi.png alt=image-20230224165703545></p><p>环境配置到此结束，终于可以开始训练和部署网络了。</p><h2 id=训练-coco-数据集并进行部署>训练 COCO 数据集并进行部署
+<a class=heading-link href=#%e8%ae%ad%e7%bb%83-coco-%e6%95%b0%e6%8d%ae%e9%9b%86%e5%b9%b6%e8%bf%9b%e8%a1%8c%e9%83%a8%e7%bd%b2><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=数据准备>数据准备
+<a class=heading-link href=#%e6%95%b0%e6%8d%ae%e5%87%86%e5%a4%87><i class="fa fa-link" aria-hidden=true></i></a></h3><blockquote><p>下方的操作均在上方启动的容器中进行，首先需要先 docker exec 进入容器中。</p></blockquote><p>其中准备 COCO 数据集部分参考 <a href=https://developer.horizon.ai/api/v1/fileData/doc/ddk_doc/navigation/ai_toolchain/docs_cn/horizon_algorithm_toolkit/examples/fcos.html>官方文档部分</a>，首先进入 <code>/data</code> 目录，然后新建一个文件夹 <code>mscoco</code>，下载数据集、解压即可。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 进入之前挂载的 /data 目录</span>
+</span></span><span style=display:flex><span>cd /data
+</span></span><span style=display:flex><span><span style=color:#75715e># 创建一个目录来存储数据集</span>
+</span></span><span style=display:flex><span>mkdir mscoco
+</span></span><span style=display:flex><span><span style=color:#75715e># 下载 train2017.zip，即训练数据集</span>
+</span></span><span style=display:flex><span>wget -c http://images.cocodataset.org/zips/train2017.zip
+</span></span><span style=display:flex><span><span style=color:#75715e># 下载 val2017.zip，即验证数据集</span>
+</span></span><span style=display:flex><span>wget -c http://images.cocodataset.org/zips/val2017.zip
+</span></span><span style=display:flex><span><span style=color:#75715e># 下载 annotations_trainval2017.zip 即对应标签</span>
+</span></span><span style=display:flex><span>wget -c http://images.cocodataset.org/annotations/annotations_trainval2017.zip
+</span></span><span style=display:flex><span><span style=color:#75715e># 解压</span>
+</span></span><span style=display:flex><span>unzip train2017.zip 
+</span></span><span style=display:flex><span>unzip val2017.zip
+</span></span><span style=display:flex><span>unzip annotations_trainval2017.zip
+</span></span></code></pre></div><p>随后进入 <code>/open_explorer/horizon_model_train_samples</code> 目录，如果这里你和我之前一样是挂载的整个 OE 包，那这个路径可能会长一些，例如我这里是 <code>/open_explorer/ddk/samples/ai_toolchain/horizon_model_train_samples</code>。</p><p>将数据集打包成 lmdb 格式，注意下方的 <code>/data/mscoco</code> 路径是我们之前存放数据集的路径：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 转换训练集</span>
+</span></span><span style=display:flex><span>python3 tools/datasets/mscoco_packer.py --src-data-dir /data/mscoco/ --target-data-dir /data/mscoco --split-name train --pack-type lmdb
+</span></span><span style=display:flex><span><span style=color:#75715e># 转换验证集</span>
+</span></span><span style=display:flex><span>python3 tools/datasets/mscoco_packer.py --src-data-dir /data/mscoco/ --target-data-dir /data/mscoco --split-name val --pack-type lmdb
+</span></span></code></pre></div><p>运行完即打包成功，<code>/data/mscoco</code> 目录下会多出来 <code>train_lmdb</code> 和 <code>val_lmdb</code> 两个文件夹，即打包之后的训练数据集和验证数据集，也是网络最终读取的数据集。</p><h3 id=修改配置文件>修改配置文件
+<a class=heading-link href=#%e4%bf%ae%e6%94%b9%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6><i class="fa fa-link" aria-hidden=true></i></a></h3><p>地平线提供的 HAT 工具链是一个类 mmdetion 的东西，模型定义、训练、验证都流程都定义在一个 config.py 文件中，官方提供的所有配置文件可以在 <code>configs</code> 目录下找到，FCOS 对应的就是 <code>configs/detection/fcos</code> 目录下的配置文件，方便起见，我们这里只考虑 <code>fcos_efficientnetb0_mscoco.py</code> ，关于配置的进一步讲解，可见官方文档：<a href=https://developer.horizon.ai/api/v1/fileData/doc/ddk_doc/navigation/ai_toolchain/docs_cn/horizon_algorithm_toolkit/tutorials/config.html>config 文件介绍</a>。</p><p>在修改之前，最好先备份一下原件，可以作为对比，也方便回溯：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>cp fcos_efficientnetb0_mscoco.py fcos_efficientnetb0_mscoco_back.py
+</span></span></code></pre></div><p>要改的点有三个：</p><ol><li><code>device_ids</code>：这里代表的是你使用的 GPU 序号，如果只有一个 GPU 就只保留 [0]，两个就是 [0, 1]，以此类推。</li><li>所有跟 <code>./tmp_data</code> 有关的位置，这里相关的都是指定的数据集位置，官方举例是将数据集都放在了同 configs 同目录的 <code>tmp_data</code> 目录，但是我们放在了 <code>/data</code> 目录，因此要将所有的 <code>./tmp_data</code> 都改成 <code>/data</code></li><li><code>float_trainer</code>：这个参数是个 Dict，里面包含了一个 <code>num_epochs </code>，代表我们训练多少轮，这里默认是 300，可以根据自己需求调整，例如 5、10、100 等。</li></ol><h3 id=开始训练>开始训练！
+<a class=heading-link href=#%e5%bc%80%e5%a7%8b%e8%ae%ad%e7%bb%83><i class="fa fa-link" aria-hidden=true></i></a></h3><p>训练很简单，一行命令即可：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 进入 horizon_model_train_samples 目录</span>
+</span></span><span style=display:flex><span>cd /open_explorer/ddk/samples/ai_toolchain/horizon_model_train_samples
+</span></span><span style=display:flex><span><span style=color:#75715e># 开始训练</span>
+</span></span><span style=display:flex><span>python3 tools/train.py --step float --config configs/detection/fcos/fcos_efficientnetb0_mscoco.py
+</span></span></code></pre></div><p>如果不出意外，已经开始训练了，正常如下图所示：</p><p><img src=/images/hat-train-fcos/fcos_train.png alt=image-20230224180032520></p><p>顺便说一下，这里推荐配合 <a href=https://github.com/tmux/tmux>tmux</a> 工具来训练，可以让 session 在后台运行，防止意外中断，顺附一个 tmux 教程：<a href=https://www.ruanyifeng.com/blog/2019/10/tmux.html>Tmux 使用教程</a>。</p><h3 id=模型转换>模型转换
+<a class=heading-link href=#%e6%a8%a1%e5%9e%8b%e8%bd%ac%e6%8d%a2><i class="fa fa-link" aria-hidden=true></i></a></h3><p>训练的时间比较长，主要取决于数据集的大小，如果是 mscoco 这种大型数据集，一个 epoch 就要好久才行。</p><p>这里我训练了十轮就结束了，随后进入 <code>tmp_models</code> 目录，找到我们训练好的权重文件，如下图，这里的存放位置主要和配置文件中的 <code>task_name</code> 与 <code>ckpt_dir</code> 有关，可以按需修改：</p><p><img src=/images/hat-train-fcos/checkpoint.png alt=image-20230224180356435></p><p>接下来就是将权重文件导出成 ONNX 模型：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>python3 tools/export_onnx.py --config configs/detection/fcos/fcos_efficientnetb0_mscoco.py --ckpt tmp_models/fcos_efficientnetb0_mscoco/float-checkpoint-best.pth.tar --onnx-name fcos.onnx
+</span></span></code></pre></div><p>如上命令，将训练得到的 best 权重文件（float-checkpoint-best.pth.tar）导出成了 fcos.onnx 模型文件，这里也可以选择其他的权重，指定对模型路径即可。</p><p>接下来是使用地平线的工具链对 ONNX 模型进行量化，以便我们后面上板推理：</p><p>第一步，先移动一下得到的权重文件，方便后面的查找：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 进入 horizon_model_train_samples 目录</span>
+</span></span><span style=display:flex><span>cd /open_explorer/ddk/samples/ai_toolchain/horizon_model_train_samples
+</span></span><span style=display:flex><span><span style=color:#75715e># 建立文件夹</span>
+</span></span><span style=display:flex><span>mkdir -p ../horizon_model_convert_sample/08_customs
+</span></span><span style=display:flex><span><span style=color:#75715e># 移动 onnx 模型过去</span>
+</span></span><span style=display:flex><span>cp ./fcos.onnx ../horizon_model_convert_sample/08_customs
+</span></span></code></pre></div><p>接下来就是那套标准的转换流程，可以参考官方教程：<a href=https://developer.horizon.ai/api/v1/fileData/documents_pi/ai_toolchain_develop/quickstart.html>6.3 快速体验</a>，还有大佬的指南：<a href=https://developer.horizon.ai/forumDetail/107952931390742029>一文带你轻松走出模型部署新手村</a>。</p><p>主要是涉及模型地址和数据集地址的时候需要改成我们对应的即可，其他的都默认就行，接下来给出我的几个脚本及精简后的转换配置文件：</p><ul><li>01_check.sh</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 01_check.sh</span>
+</span></span><span style=display:flex><span>set -e -v
+</span></span><span style=display:flex><span>cd <span style=color:#66d9ef>$(</span>dirname $0<span style=color:#66d9ef>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>model_type<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;onnx&#34;</span>
+</span></span><span style=display:flex><span>onnx_model<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;../../../08_customs/fcos.onnx&#34;</span>
+</span></span><span style=display:flex><span>march<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;bernoulli2&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>hb_mapper checker --model-type <span style=color:#e6db74>${</span>model_type<span style=color:#e6db74>}</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>                  --model <span style=color:#e6db74>${</span>onnx_model<span style=color:#e6db74>}</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>                  --march <span style=color:#e6db74>${</span>march<span style=color:#e6db74>}</span>
+</span></span></code></pre></div><ul><li>02_preprocess.sh</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 02_preprocess.sh</span>
+</span></span><span style=display:flex><span>set -e -v
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>cd <span style=color:#66d9ef>$(</span>dirname $0<span style=color:#66d9ef>)</span> <span style=color:#f92672>||</span> exit
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>python3 ../../../data_preprocess.py <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --src_dir /data/mscoco/train2017 <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --dst_dir ./calibration_data_yuv_f32 <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --cal_img_num <span style=color:#ae81ff>50</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --pic_ext .yuv <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --read_mode opencv <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --saved_data_type float32
+</span></span></code></pre></div><ul><li>fcos_efficientnetb0_config.yaml</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#75715e># fcos_efficientnetb0_config.yaml</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>model_parameters</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>onnx_model</span>: <span style=color:#e6db74>&#39;../../../08_customs/fcos.onnx&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>march</span>: <span style=color:#e6db74>&#34;bernoulli2&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>layer_out_dump</span>: <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>working_dir</span>: <span style=color:#e6db74>&#39;fcos_test&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>output_model_file_prefix</span>: <span style=color:#e6db74>&#39;fcos_test&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>input_parameters</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>input_name</span>: <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>input_type_rt</span>: <span style=color:#e6db74>&#39;nv12&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>input_type_train</span>: <span style=color:#e6db74>&#39;yuv444&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>input_layout_train</span>: <span style=color:#e6db74>&#39;NCHW&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>input_shape</span>: <span style=color:#e6db74>&#39;&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>norm_type</span>: <span style=color:#e6db74>&#39;data_mean_and_scale&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>mean_value</span>: <span style=color:#ae81ff>128.0</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>scale_value</span>: <span style=color:#ae81ff>0.0078125</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>calibration_parameters</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>cal_data_dir</span>: <span style=color:#e6db74>&#39;./calibration_data_yuv_f32_qyun&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>cal_data_type</span>: <span style=color:#e6db74>&#39;float32&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>calibration_type</span>: <span style=color:#e6db74>&#39;max&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>max_percentile</span>: <span style=color:#ae81ff>0.99996</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>compiler_parameters</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>compile_mode</span>: <span style=color:#e6db74>&#39;latency&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>debug</span>: <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>optimize_level</span>: <span style=color:#e6db74>&#39;O3&#39;</span>
+</span></span></code></pre></div><p>这里理论上只需要执行完 <code>03_build.sh</code> 脚本转换即结束，不出意外在同目录下会生成 <code>fcos_test</code> 目录，已经在其中可找到 <code>fcos.bin</code> ，这即是我们后续上板推理需要的模型文件。</p><h3 id=模型推理>模型推理
+<a class=heading-link href=#%e6%a8%a1%e5%9e%8b%e6%8e%a8%e7%90%86><i class="fa fa-link" aria-hidden=true></i></a></h3><p>这里 Python 推理我参考了 X3M 板子上 <code>/app/ai_inference/02_usb_camera_sample/usb_camera_fcos.py</code> 目录下的推理脚本，直接上代码：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e>#!/usr/bin/env python3</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> os
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> hobot_dnn <span style=color:#f92672>import</span> pyeasy_dnn <span style=color:#66d9ef>as</span> dnn
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> hobot_vio <span style=color:#f92672>import</span> libsrcampy <span style=color:#66d9ef>as</span> srcampy
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> numpy <span style=color:#66d9ef>as</span> np
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> cv2
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> colorsys
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> time <span style=color:#f92672>import</span> time
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># detection model class names</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_classes</span>():
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> np<span style=color:#f92672>.</span>array([<span style=color:#e6db74>&#34;person&#34;</span>, <span style=color:#e6db74>&#34;bicycle&#34;</span>, <span style=color:#e6db74>&#34;car&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;motorcycle&#34;</span>, <span style=color:#e6db74>&#34;airplane&#34;</span>, <span style=color:#e6db74>&#34;bus&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;train&#34;</span>, <span style=color:#e6db74>&#34;truck&#34;</span>, <span style=color:#e6db74>&#34;boat&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;traffic light&#34;</span>, <span style=color:#e6db74>&#34;fire hydrant&#34;</span>, <span style=color:#e6db74>&#34;stop sign&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;parking meter&#34;</span>, <span style=color:#e6db74>&#34;bench&#34;</span>, <span style=color:#e6db74>&#34;bird&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;cat&#34;</span>, <span style=color:#e6db74>&#34;dog&#34;</span>, <span style=color:#e6db74>&#34;horse&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;sheep&#34;</span>, <span style=color:#e6db74>&#34;cow&#34;</span>, <span style=color:#e6db74>&#34;elephant&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;bear&#34;</span>, <span style=color:#e6db74>&#34;zebra&#34;</span>, <span style=color:#e6db74>&#34;giraffe&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;backpack&#34;</span>, <span style=color:#e6db74>&#34;umbrella&#34;</span>, <span style=color:#e6db74>&#34;handbag&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;tie&#34;</span>, <span style=color:#e6db74>&#34;suitcase&#34;</span>, <span style=color:#e6db74>&#34;frisbee&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;skis&#34;</span>, <span style=color:#e6db74>&#34;snowboard&#34;</span>, <span style=color:#e6db74>&#34;sports ball&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;kite&#34;</span>, <span style=color:#e6db74>&#34;baseball bat&#34;</span>, <span style=color:#e6db74>&#34;baseball glove&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;skateboard&#34;</span>, <span style=color:#e6db74>&#34;surfboard&#34;</span>, <span style=color:#e6db74>&#34;tennis racket&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;bottle&#34;</span>, <span style=color:#e6db74>&#34;wine glass&#34;</span>, <span style=color:#e6db74>&#34;cup&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;fork&#34;</span>, <span style=color:#e6db74>&#34;knife&#34;</span>, <span style=color:#e6db74>&#34;spoon&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;bowl&#34;</span>, <span style=color:#e6db74>&#34;banana&#34;</span>, <span style=color:#e6db74>&#34;apple&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;sandwich&#34;</span>, <span style=color:#e6db74>&#34;orange&#34;</span>, <span style=color:#e6db74>&#34;broccoli&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;carrot&#34;</span>, <span style=color:#e6db74>&#34;hot dog&#34;</span>, <span style=color:#e6db74>&#34;pizza&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;donut&#34;</span>, <span style=color:#e6db74>&#34;cake&#34;</span>, <span style=color:#e6db74>&#34;chair&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;couch&#34;</span>, <span style=color:#e6db74>&#34;potted plant&#34;</span>, <span style=color:#e6db74>&#34;bed&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;dining table&#34;</span>, <span style=color:#e6db74>&#34;toilet&#34;</span>, <span style=color:#e6db74>&#34;tv&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;laptop&#34;</span>, <span style=color:#e6db74>&#34;mouse&#34;</span>, <span style=color:#e6db74>&#34;remote&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;keyboard&#34;</span>, <span style=color:#e6db74>&#34;cell phone&#34;</span>, <span style=color:#e6db74>&#34;microwave&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;oven&#34;</span>, <span style=color:#e6db74>&#34;toaster&#34;</span>, <span style=color:#e6db74>&#34;sink&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;refrigerator&#34;</span>, <span style=color:#e6db74>&#34;book&#34;</span>, <span style=color:#e6db74>&#34;clock&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;vase&#34;</span>, <span style=color:#e6db74>&#34;scissors&#34;</span>, <span style=color:#e6db74>&#34;teddy bear&#34;</span>,
+</span></span><span style=display:flex><span>                     <span style=color:#e6db74>&#34;hair drier&#34;</span>, <span style=color:#e6db74>&#34;toothbrush&#34;</span>])
+</span></span><span style=display:flex><span>    <span style=color:#75715e># return np.array([&#34;tissue&#34;, &#34;sock&#34;, &#34;shoe&#34;, &#34;cable&#34;, &#34;bin&#34;])</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># bgr格式图片转换成 NV12格式</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>bgr2nv12_opencv</span>(image):
+</span></span><span style=display:flex><span>    height, width <span style=color:#f92672>=</span> image<span style=color:#f92672>.</span>shape[<span style=color:#ae81ff>0</span>], image<span style=color:#f92672>.</span>shape[<span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>    area <span style=color:#f92672>=</span> height <span style=color:#f92672>*</span> width
+</span></span><span style=display:flex><span>    yuv420p <span style=color:#f92672>=</span> cv2<span style=color:#f92672>.</span>cvtColor(
+</span></span><span style=display:flex><span>        image, cv2<span style=color:#f92672>.</span>COLOR_BGR2YUV_I420)<span style=color:#f92672>.</span>reshape((area <span style=color:#f92672>*</span> <span style=color:#ae81ff>3</span> <span style=color:#f92672>//</span> <span style=color:#ae81ff>2</span>,))
+</span></span><span style=display:flex><span>    y <span style=color:#f92672>=</span> yuv420p[:area]
+</span></span><span style=display:flex><span>    uv_planar <span style=color:#f92672>=</span> yuv420p[area:]<span style=color:#f92672>.</span>reshape((<span style=color:#ae81ff>2</span>, area <span style=color:#f92672>//</span> <span style=color:#ae81ff>4</span>))
+</span></span><span style=display:flex><span>    uv_packed <span style=color:#f92672>=</span> uv_planar<span style=color:#f92672>.</span>transpose((<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>0</span>))<span style=color:#f92672>.</span>reshape((area <span style=color:#f92672>//</span> <span style=color:#ae81ff>2</span>,))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    nv12 <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>zeros_like(yuv420p)
+</span></span><span style=display:flex><span>    nv12[:height <span style=color:#f92672>*</span> width] <span style=color:#f92672>=</span> y
+</span></span><span style=display:flex><span>    nv12[height <span style=color:#f92672>*</span> width:] <span style=color:#f92672>=</span> uv_packed
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> nv12
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>postprocess</span>(model_output,
+</span></span><span style=display:flex><span>                model_hw_shape,
+</span></span><span style=display:flex><span>                origin_image<span style=color:#f92672>=</span><span style=color:#66d9ef>None</span>,
+</span></span><span style=display:flex><span>                origin_img_shape<span style=color:#f92672>=</span><span style=color:#66d9ef>None</span>,
+</span></span><span style=display:flex><span>                score_threshold<span style=color:#f92672>=</span><span style=color:#ae81ff>0.5</span>,
+</span></span><span style=display:flex><span>                nms_threshold<span style=color:#f92672>=</span><span style=color:#ae81ff>0.6</span>,
+</span></span><span style=display:flex><span>                dump_image<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>):
+</span></span><span style=display:flex><span>    input_height <span style=color:#f92672>=</span> model_hw_shape[<span style=color:#ae81ff>0</span>]
+</span></span><span style=display:flex><span>    input_width <span style=color:#f92672>=</span> model_hw_shape[<span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> origin_image <span style=color:#f92672>is</span> <span style=color:#f92672>not</span> <span style=color:#66d9ef>None</span>:
+</span></span><span style=display:flex><span>        origin_image_shape <span style=color:#f92672>=</span> origin_image<span style=color:#f92672>.</span>shape[<span style=color:#ae81ff>0</span>:<span style=color:#ae81ff>2</span>]
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>        origin_image_shape <span style=color:#f92672>=</span> origin_img_shape
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    prediction_bbox <span style=color:#f92672>=</span> decode(outputs<span style=color:#f92672>=</span>model_output,
+</span></span><span style=display:flex><span>                             score_threshold<span style=color:#f92672>=</span>score_threshold,
+</span></span><span style=display:flex><span>                             origin_shape<span style=color:#f92672>=</span>origin_image_shape,
+</span></span><span style=display:flex><span>                             input_size<span style=color:#f92672>=</span><span style=color:#ae81ff>512</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    prediction_bbox <span style=color:#f92672>=</span> nms(prediction_bbox, iou_threshold<span style=color:#f92672>=</span>nms_threshold)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    prediction_bbox <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>array(prediction_bbox)
+</span></span><span style=display:flex><span>    topk <span style=color:#f92672>=</span> min(prediction_bbox<span style=color:#f92672>.</span>shape[<span style=color:#ae81ff>0</span>], <span style=color:#ae81ff>1000</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> topk <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>        idx <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>argpartition(prediction_bbox[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>4</span>], <span style=color:#f92672>-</span>topk)[<span style=color:#f92672>-</span>topk:]
+</span></span><span style=display:flex><span>        prediction_bbox <span style=color:#f92672>=</span> prediction_bbox[idx]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> dump_image <span style=color:#f92672>and</span> origin_image <span style=color:#f92672>is</span> <span style=color:#f92672>not</span> <span style=color:#66d9ef>None</span>:
+</span></span><span style=display:flex><span>        draw_bboxs(origin_image, prediction_bbox)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> prediction_bbox
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>draw_bboxs</span>(image, bboxes, gt_classes_index<span style=color:#f92672>=</span><span style=color:#66d9ef>None</span>, classes<span style=color:#f92672>=</span>get_classes()):
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;&#34;&#34;draw the bboxes in the original image
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    num_classes <span style=color:#f92672>=</span> len(classes)
+</span></span><span style=display:flex><span>    image_h, image_w, channel <span style=color:#f92672>=</span> image<span style=color:#f92672>.</span>shape
+</span></span><span style=display:flex><span>    hsv_tuples <span style=color:#f92672>=</span> [(<span style=color:#ae81ff>1.0</span> <span style=color:#f92672>*</span> x <span style=color:#f92672>/</span> num_classes, <span style=color:#ae81ff>1.</span>, <span style=color:#ae81ff>1.</span>) <span style=color:#66d9ef>for</span> x <span style=color:#f92672>in</span> range(num_classes)]
+</span></span><span style=display:flex><span>    colors <span style=color:#f92672>=</span> list(map(<span style=color:#66d9ef>lambda</span> x: colorsys<span style=color:#f92672>.</span>hsv_to_rgb(<span style=color:#f92672>*</span>x), hsv_tuples))
+</span></span><span style=display:flex><span>    colors <span style=color:#f92672>=</span> list(
+</span></span><span style=display:flex><span>        map(<span style=color:#66d9ef>lambda</span> x: (int(x[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>*</span> <span style=color:#ae81ff>255</span>), int(x[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>*</span> <span style=color:#ae81ff>255</span>), int(x[<span style=color:#ae81ff>2</span>] <span style=color:#f92672>*</span> <span style=color:#ae81ff>255</span>)),
+</span></span><span style=display:flex><span>            colors))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    fontScale <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.5</span>
+</span></span><span style=display:flex><span>    bbox_thick <span style=color:#f92672>=</span> int(<span style=color:#ae81ff>0.6</span> <span style=color:#f92672>*</span> (image_h <span style=color:#f92672>+</span> image_w) <span style=color:#f92672>/</span> <span style=color:#ae81ff>600</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i, bbox <span style=color:#f92672>in</span> enumerate(bboxes):
+</span></span><span style=display:flex><span>        coor <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>array(bbox[:<span style=color:#ae81ff>4</span>], dtype<span style=color:#f92672>=</span>np<span style=color:#f92672>.</span>int32)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> gt_classes_index <span style=color:#f92672>==</span> <span style=color:#66d9ef>None</span>:
+</span></span><span style=display:flex><span>            class_index <span style=color:#f92672>=</span> int(bbox[<span style=color:#ae81ff>5</span>])
+</span></span><span style=display:flex><span>            score <span style=color:#f92672>=</span> bbox[<span style=color:#ae81ff>4</span>]
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>            class_index <span style=color:#f92672>=</span> gt_classes_index[i]
+</span></span><span style=display:flex><span>            score <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        bbox_color <span style=color:#f92672>=</span> colors[class_index]
+</span></span><span style=display:flex><span>        c1, c2 <span style=color:#f92672>=</span> (coor[<span style=color:#ae81ff>0</span>], coor[<span style=color:#ae81ff>1</span>]), (coor[<span style=color:#ae81ff>2</span>], coor[<span style=color:#ae81ff>3</span>])
+</span></span><span style=display:flex><span>        cv2<span style=color:#f92672>.</span>rectangle(image, c1, c2, bbox_color, bbox_thick)
+</span></span><span style=display:flex><span>        classes_name <span style=color:#f92672>=</span> classes[class_index]
+</span></span><span style=display:flex><span>        bbox_mess <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;</span><span style=color:#e6db74>%s</span><span style=color:#e6db74>: </span><span style=color:#e6db74>%.2f</span><span style=color:#e6db74>&#39;</span> <span style=color:#f92672>%</span> (classes_name, score)
+</span></span><span style=display:flex><span>        t_size <span style=color:#f92672>=</span> cv2<span style=color:#f92672>.</span>getTextSize(bbox_mess,
+</span></span><span style=display:flex><span>                                 <span style=color:#ae81ff>0</span>,
+</span></span><span style=display:flex><span>                                 fontScale,
+</span></span><span style=display:flex><span>                                 thickness<span style=color:#f92672>=</span>bbox_thick <span style=color:#f92672>//</span> <span style=color:#ae81ff>2</span>)[<span style=color:#ae81ff>0</span>]
+</span></span><span style=display:flex><span>        cv2<span style=color:#f92672>.</span>rectangle(image, c1, (c1[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>+</span> t_size[<span style=color:#ae81ff>0</span>], c1[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>-</span> t_size[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>-</span> <span style=color:#ae81ff>3</span>),
+</span></span><span style=display:flex><span>                      bbox_color, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>        cv2<span style=color:#f92672>.</span>putText(image,
+</span></span><span style=display:flex><span>                    bbox_mess, (c1[<span style=color:#ae81ff>0</span>], c1[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>-</span> <span style=color:#ae81ff>2</span>),
+</span></span><span style=display:flex><span>                    cv2<span style=color:#f92672>.</span>FONT_HERSHEY_SIMPLEX,
+</span></span><span style=display:flex><span>                    fontScale, (<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>),
+</span></span><span style=display:flex><span>                    bbox_thick <span style=color:#f92672>//</span> <span style=color:#ae81ff>2</span>,
+</span></span><span style=display:flex><span>                    lineType<span style=color:#f92672>=</span>cv2<span style=color:#f92672>.</span>LINE_AA)
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74> is in the picture with confidence:</span><span style=color:#e6db74>{:.4f}</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>format(
+</span></span><span style=display:flex><span>            classes_name, score))
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#    cv2.imwrite(&#34;demo.jpg&#34;, image)</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> image
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>decode</span>(outputs, score_threshold, origin_shape, input_size<span style=color:#f92672>=</span><span style=color:#ae81ff>512</span>):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>_distance2bbox</span>(points, distance):
+</span></span><span style=display:flex><span>        x1 <span style=color:#f92672>=</span> points[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>0</span>] <span style=color:#f92672>-</span> distance[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>0</span>]
+</span></span><span style=display:flex><span>        y1 <span style=color:#f92672>=</span> points[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>1</span>] <span style=color:#f92672>-</span> distance[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>        x2 <span style=color:#f92672>=</span> points[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>0</span>] <span style=color:#f92672>+</span> distance[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>2</span>]
+</span></span><span style=display:flex><span>        y2 <span style=color:#f92672>=</span> points[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span> distance[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>3</span>]
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> np<span style=color:#f92672>.</span>stack([x1, y1, x2, y2], <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>_scores</span>(cls, ce):
+</span></span><span style=display:flex><span>        cls <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>/</span> (<span style=color:#ae81ff>1</span> <span style=color:#f92672>+</span> np<span style=color:#f92672>.</span>exp(<span style=color:#f92672>-</span>cls))
+</span></span><span style=display:flex><span>        ce <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>/</span> (<span style=color:#ae81ff>1</span> <span style=color:#f92672>+</span> np<span style=color:#f92672>.</span>exp(<span style=color:#f92672>-</span>ce))
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> np<span style=color:#f92672>.</span>sqrt(ce <span style=color:#f92672>*</span> cls)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>_bbox</span>(bbox, stride, origin_shape, input_size):
+</span></span><span style=display:flex><span>        <span style=color:#75715e># l t r b | h, w = t, r</span>
+</span></span><span style=display:flex><span>        h, w <span style=color:#f92672>=</span> bbox<span style=color:#f92672>.</span>shape[<span style=color:#ae81ff>1</span>:<span style=color:#ae81ff>3</span>]
+</span></span><span style=display:flex><span>        yv, xv <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>meshgrid(np<span style=color:#f92672>.</span>arange(h), np<span style=color:#f92672>.</span>arange(w))
+</span></span><span style=display:flex><span>        xy <span style=color:#f92672>=</span> (np<span style=color:#f92672>.</span>stack((yv, xv), <span style=color:#ae81ff>2</span>) <span style=color:#f92672>+</span> <span style=color:#ae81ff>0.5</span>) <span style=color:#f92672>*</span> stride
+</span></span><span style=display:flex><span>        bbox <span style=color:#f92672>=</span> _distance2bbox(xy, bbox)
+</span></span><span style=display:flex><span>        <span style=color:#75715e># opencv read, shape[1] is w, shape[0] is h</span>
+</span></span><span style=display:flex><span>        scale_w <span style=color:#f92672>=</span> origin_shape[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>/</span> input_size
+</span></span><span style=display:flex><span>        scale_h <span style=color:#f92672>=</span> origin_shape[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>/</span> input_size
+</span></span><span style=display:flex><span>        scale <span style=color:#f92672>=</span> max(origin_shape[<span style=color:#ae81ff>0</span>], origin_shape[<span style=color:#ae81ff>1</span>]) <span style=color:#f92672>/</span> input_size
+</span></span><span style=display:flex><span>        <span style=color:#75715e># origin img is pad resized</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># bbox = bbox * scale</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># origin img is resized</span>
+</span></span><span style=display:flex><span>        bbox <span style=color:#f92672>=</span> bbox <span style=color:#f92672>*</span> [scale_w, scale_h, scale_w, scale_h]
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> bbox
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    bboxes <span style=color:#f92672>=</span> list()
+</span></span><span style=display:flex><span>    strides <span style=color:#f92672>=</span> [<span style=color:#ae81ff>8</span>, <span style=color:#ae81ff>16</span>, <span style=color:#ae81ff>32</span>, <span style=color:#ae81ff>64</span>, <span style=color:#ae81ff>128</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 各个 stride 找符合的模型</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(strides)):
+</span></span><span style=display:flex><span>        cls <span style=color:#f92672>=</span> outputs[i]<span style=color:#f92672>.</span>buffer
+</span></span><span style=display:flex><span>        bbox <span style=color:#f92672>=</span> outputs[i <span style=color:#f92672>+</span> <span style=color:#ae81ff>5</span>]<span style=color:#f92672>.</span>buffer
+</span></span><span style=display:flex><span>        ce <span style=color:#f92672>=</span> outputs[i <span style=color:#f92672>+</span> <span style=color:#ae81ff>10</span>]<span style=color:#f92672>.</span>buffer
+</span></span><span style=display:flex><span>        scores <span style=color:#f92672>=</span> _scores(cls, ce)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        classes <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>argmax(scores, axis<span style=color:#f92672>=-</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>        classes <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>reshape(classes, [<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1</span>])
+</span></span><span style=display:flex><span>        max_score <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>max(scores, axis<span style=color:#f92672>=-</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>        max_score <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>reshape(max_score, [<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1</span>])
+</span></span><span style=display:flex><span>        bbox <span style=color:#f92672>=</span> _bbox(bbox, strides[i], origin_shape, input_size)
+</span></span><span style=display:flex><span>        bbox <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>reshape(bbox, [<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>4</span>])
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        pred_bbox <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>concatenate([bbox, max_score, classes], axis<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        index <span style=color:#f92672>=</span> pred_bbox[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>4</span>] <span style=color:#f92672>&gt;</span> score_threshold
+</span></span><span style=display:flex><span>        pred_bbox <span style=color:#f92672>=</span> pred_bbox[index]
+</span></span><span style=display:flex><span>        bboxes<span style=color:#f92672>.</span>append(pred_bbox)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> np<span style=color:#f92672>.</span>concatenate(bboxes)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>nms</span>(bboxes, iou_threshold, sigma<span style=color:#f92672>=</span><span style=color:#ae81ff>0.3</span>, method<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;nms&#39;</span>):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>bboxes_iou</span>(boxes1, boxes2):
+</span></span><span style=display:flex><span>        boxes1 <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>array(boxes1)
+</span></span><span style=display:flex><span>        boxes2 <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>array(boxes2)
+</span></span><span style=display:flex><span>        boxes1_area <span style=color:#f92672>=</span> (boxes1[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>2</span>] <span style=color:#f92672>-</span> boxes1[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>0</span>]) <span style=color:#f92672>*</span> \
+</span></span><span style=display:flex><span>                      (boxes1[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>3</span>] <span style=color:#f92672>-</span> boxes1[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>1</span>])
+</span></span><span style=display:flex><span>        boxes2_area <span style=color:#f92672>=</span> (boxes2[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>2</span>] <span style=color:#f92672>-</span> boxes2[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>0</span>]) <span style=color:#f92672>*</span> \
+</span></span><span style=display:flex><span>                      (boxes2[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>3</span>] <span style=color:#f92672>-</span> boxes2[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>1</span>])
+</span></span><span style=display:flex><span>        left_up <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>maximum(boxes1[<span style=color:#f92672>...</span>, :<span style=color:#ae81ff>2</span>], boxes2[<span style=color:#f92672>...</span>, :<span style=color:#ae81ff>2</span>])
+</span></span><span style=display:flex><span>        right_down <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>minimum(boxes1[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>2</span>:], boxes2[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>2</span>:])
+</span></span><span style=display:flex><span>        inter_section <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>maximum(right_down <span style=color:#f92672>-</span> left_up, <span style=color:#ae81ff>0.0</span>)
+</span></span><span style=display:flex><span>        inter_area <span style=color:#f92672>=</span> inter_section[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>0</span>] <span style=color:#f92672>*</span> inter_section[<span style=color:#f92672>...</span>, <span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>        union_area <span style=color:#f92672>=</span> boxes1_area <span style=color:#f92672>+</span> boxes2_area <span style=color:#f92672>-</span> inter_area
+</span></span><span style=display:flex><span>        ious <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>maximum(<span style=color:#ae81ff>1.0</span> <span style=color:#f92672>*</span> inter_area <span style=color:#f92672>/</span> union_area,
+</span></span><span style=display:flex><span>                          np<span style=color:#f92672>.</span>finfo(np<span style=color:#f92672>.</span>float32)<span style=color:#f92672>.</span>eps)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> ious
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    classes_in_img <span style=color:#f92672>=</span> list(set(bboxes[:, <span style=color:#ae81ff>5</span>]))
+</span></span><span style=display:flex><span>    best_bboxes <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> cls <span style=color:#f92672>in</span> classes_in_img:
+</span></span><span style=display:flex><span>        cls_mask <span style=color:#f92672>=</span> (bboxes[:, <span style=color:#ae81ff>5</span>] <span style=color:#f92672>==</span> cls)
+</span></span><span style=display:flex><span>        cls_bboxes <span style=color:#f92672>=</span> bboxes[cls_mask]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> len(cls_bboxes) <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>            max_ind <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>argmax(cls_bboxes[:, <span style=color:#ae81ff>4</span>])
+</span></span><span style=display:flex><span>            best_bbox <span style=color:#f92672>=</span> cls_bboxes[max_ind]
+</span></span><span style=display:flex><span>            best_bboxes<span style=color:#f92672>.</span>append(best_bbox)
+</span></span><span style=display:flex><span>            cls_bboxes <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>concatenate(
+</span></span><span style=display:flex><span>                [cls_bboxes[:max_ind], cls_bboxes[max_ind <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>:]])
+</span></span><span style=display:flex><span>            iou <span style=color:#f92672>=</span> bboxes_iou(best_bbox[np<span style=color:#f92672>.</span>newaxis, :<span style=color:#ae81ff>4</span>], cls_bboxes[:, :<span style=color:#ae81ff>4</span>])
+</span></span><span style=display:flex><span>            weight <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>ones((len(iou),), dtype<span style=color:#f92672>=</span>np<span style=color:#f92672>.</span>float32)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>assert</span> method <span style=color:#f92672>in</span> [<span style=color:#e6db74>&#39;nms&#39;</span>, <span style=color:#e6db74>&#39;soft-nms&#39;</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> method <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;nms&#39;</span>:
+</span></span><span style=display:flex><span>                iou_mask <span style=color:#f92672>=</span> iou <span style=color:#f92672>&gt;</span> iou_threshold
+</span></span><span style=display:flex><span>                weight[iou_mask] <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.0</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> method <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;soft-nms&#39;</span>:
+</span></span><span style=display:flex><span>                weight <span style=color:#f92672>=</span> np<span style=color:#f92672>.</span>exp(<span style=color:#f92672>-</span>(<span style=color:#ae81ff>1.0</span> <span style=color:#f92672>*</span> iou <span style=color:#f92672>**</span> <span style=color:#ae81ff>2</span> <span style=color:#f92672>/</span> sigma))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            cls_bboxes[:, <span style=color:#ae81ff>4</span>] <span style=color:#f92672>=</span> cls_bboxes[:, <span style=color:#ae81ff>4</span>] <span style=color:#f92672>*</span> weight
+</span></span><span style=display:flex><span>            score_mask <span style=color:#f92672>=</span> cls_bboxes[:, <span style=color:#ae81ff>4</span>] <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0.</span>
+</span></span><span style=display:flex><span>            cls_bboxes <span style=color:#f92672>=</span> cls_bboxes[score_mask]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> best_bboxes
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>print_properties</span>(pro):
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#34;tensor type:&#34;</span>, pro<span style=color:#f92672>.</span>tensor_type)
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#34;data type:&#34;</span>, pro<span style=color:#f92672>.</span>dtype)
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#34;layout:&#34;</span>, pro<span style=color:#f92672>.</span>layout)
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#34;shape:&#34;</span>, pro<span style=color:#f92672>.</span>shape)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> __name__ <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;__main__&#39;</span>:
+</span></span><span style=display:flex><span>    models <span style=color:#f92672>=</span> dnn<span style=color:#f92672>.</span>load(<span style=color:#e6db74>&#39;./models/fcos.bin&#39;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 打印输入 tensor 的属性</span>
+</span></span><span style=display:flex><span>    print_properties(models[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>.</span>inputs[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>.</span>properties)
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 打印输出 tensor 的属性</span>
+</span></span><span style=display:flex><span>    print(len(models[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>.</span>outputs))
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> output <span style=color:#f92672>in</span> models[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>.</span>outputs:
+</span></span><span style=display:flex><span>        print_properties(output<span style=color:#f92672>.</span>properties)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    frame <span style=color:#f92672>=</span> cv2<span style=color:#f92672>.</span>imread(<span style=color:#e6db74>&#34;./kite.jpg&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> frame <span style=color:#f92672>is</span> <span style=color:#66d9ef>None</span>:
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>&#34;Image is not exist.&#34;</span>)
+</span></span><span style=display:flex><span>    height, width <span style=color:#f92672>=</span> frame<span style=color:#f92672>.</span>shape[:<span style=color:#ae81ff>2</span>]
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#34;height: &#34;</span>, height, <span style=color:#e6db74>&#34;width: &#34;</span>, width)
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 把图片缩放到模型的输入尺寸</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 获取算法模型的输入tensor 的尺寸</span>
+</span></span><span style=display:flex><span>    h, w <span style=color:#f92672>=</span> models[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>.</span>inputs[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>.</span>properties<span style=color:#f92672>.</span>shape[<span style=color:#ae81ff>2</span>], models[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>.</span>inputs[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>.</span>properties<span style=color:#f92672>.</span>shape[<span style=color:#ae81ff>3</span>]
+</span></span><span style=display:flex><span>    des_dim <span style=color:#f92672>=</span> (w, h)
+</span></span><span style=display:flex><span>    resized_data <span style=color:#f92672>=</span> cv2<span style=color:#f92672>.</span>resize(frame, des_dim, interpolation<span style=color:#f92672>=</span>cv2<span style=color:#f92672>.</span>INTER_AREA)
+</span></span><span style=display:flex><span>    nv12_data <span style=color:#f92672>=</span> bgr2nv12_opencv(resized_data)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Forward</span>
+</span></span><span style=display:flex><span>    outputs <span style=color:#f92672>=</span> models[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>.</span>forward(nv12_data)
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Do post process</span>
+</span></span><span style=display:flex><span>    input_shape <span style=color:#f92672>=</span> (h, w)
+</span></span><span style=display:flex><span>    prediction_bbox <span style=color:#f92672>=</span> postprocess(
+</span></span><span style=display:flex><span>        outputs, input_shape, origin_img_shape<span style=color:#f92672>=</span>(height, width))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> frame<span style=color:#f92672>.</span>shape[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>!=</span> height <span style=color:#f92672>or</span> frame<span style=color:#f92672>.</span>shape[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>!=</span> width:
+</span></span><span style=display:flex><span>        frame <span style=color:#f92672>=</span> cv2<span style=color:#f92672>.</span>resize(frame, (width, height),
+</span></span><span style=display:flex><span>                           interpolation<span style=color:#f92672>=</span>cv2<span style=color:#f92672>.</span>INTER_AREA)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Draw bboxs</span>
+</span></span><span style=display:flex><span>    box_bgr <span style=color:#f92672>=</span> draw_bboxs(frame, prediction_bbox)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    cv2<span style=color:#f92672>.</span>imwrite(<span style=color:#e6db74>&#34;kite_with_bbox.jpg&#34;</span>, box_bgr)
+</span></span></code></pre></div><p>其实流程还是蛮简单的，就是 加载模型 -> 读取照片 -> Resize 照片到模型推理尺寸 -> 转化为 NV12 输入格式 -> 拿到输出 outputs -> 对数据集进行后处理得到 bbox 与 classes 等数据 -> Resize 照片到原尺寸绘制框 -> 写照片。</p><p>大家拿脚本推理的时候，只需要改变 models 和读取照片的位置即可，这里我采用的示例图片是在模型转化后测试推理使用的，可以在 OE 包的如下路径找到 <code>ai_toolchain/horizon_model_convert_sample/01_common/test_data/det_images/kite.jpg</code>。</p><p>接下来就是运行脚本进行推理，得到的推理结果如下：</p><p><img src=/images/hat-train-fcos/bad_kite_bbox.png alt=image-20230224191320596></p><p>为什么结果是这样的，起初我认为是我推理脚本写错了，因此我直接将权重替换为官方的权重，得到的结果如下：</p><p><img src=/images/hat-train-fcos/kite_bbox.png alt=image-20230224191427658></p><p>很显然，这次的推理是正确的，也就是说明，脚本是没问题，只是权重出了问题，因此我又仔细检查了训练和模型转换的各个步骤，但都没有发现问题。同时，使用官方提供的 mapper 目录下原 onnx 进行转换后，也是没有问题的。那么问题在哪里呢？</p><h3 id=查找问题>查找问题
+<a class=heading-link href=#%e6%9f%a5%e6%89%be%e9%97%ae%e9%a2%98><i class="fa fa-link" aria-hidden=true></i></a></h3><p>因为通过上面的排除可以确定，转化这个过程是没什么问题的，那也就只能是模型定义和训练中出现的问题，但是上面的效果又明显不是训练过拟合或者欠拟合导致的，因为框的位置是大致对的，就是太多了，而且太小了，因此我怀疑是模型上出了问题，可能是有节点不一致。</p><p>确定了方向，接下来我首先对官方原 onnx 模型文件和我自己训练得到的 onnx 模型使用了 <code>01_checker.sh</code> 脚本来进行检查，因为他会输出模型中的各个层，对比结果如下：</p><p><img src=/images/hat-train-fcos/compare_checker.png alt=image-20230224192435956></p><p>左侧是我自己训练得到的模型，右侧是我官方提供的模型，可以发现，两者存在差异，其实就是官方模型相比于训练得到的模型会多了几个 Mul 节点。</p><p>接下来进一步使用 netron 工具对两个模型进行对比，有区别的对比结果如下图所示：</p><p><img src=/images/hat-train-fcos/compare_netron.png alt=image-20230224193411063></p><p>左侧为自己训练的模型，右侧为官方模型。可以看到只有 bbox 信息（对于 FCOS 为（l, t, r, b）四元组）在输出时两个模型有区别，多了一步 Relu 激活函数和 Mul 节点，其他的经过对比没有区别。</p><p>同时观察发现，这里 Mul 节点对应的数值，其实是对应的 stride（这个大家可以使用 netron 去看看）</p><p>知道了问题所在，解决方案就有了，只需要改动下面这一行即可：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># Decode 函数中获取数据的部分</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 各个 stride 找符合的模型</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(strides)):
+</span></span><span style=display:flex><span>        cls <span style=color:#f92672>=</span> outputs[i]<span style=color:#f92672>.</span>buffer
+</span></span><span style=display:flex><span>        bbox <span style=color:#f92672>=</span> outputs[i <span style=color:#f92672>+</span> <span style=color:#ae81ff>5</span>]<span style=color:#f92672>.</span>buffer <span style=color:#f92672>*</span> strides[i]  <span style=color:#75715e># modified</span>
+</span></span><span style=display:flex><span>        ce <span style=color:#f92672>=</span> outputs[i <span style=color:#f92672>+</span> <span style=color:#ae81ff>10</span>]<span style=color:#f92672>.</span>buffer
+</span></span><span style=display:flex><span>        scores <span style=color:#f92672>=</span> _scores(cls, ce)
+</span></span></code></pre></div><p>很好理解，对 bbox 获得的原始数据乘了 <code>strides[i]</code>，这里我没有处理 Relu 函数，因为即使是负数，OpenCV 绘制也是不会出问题的。</p><p>再次运行获得的推理图如下，这次正常了：</p><p><img src=/images/hat-train-fcos/good_kite_bbox.png alt=image-20230224194418427></p><p>至此，训练 mscoco 数据集模型并进行部署就算结束了，接下来我们看看如何来处理自己得到的数据集。</p><h2 id=训练自采集数据集>训练自采集数据集
+<a class=heading-link href=#%e8%ae%ad%e7%bb%83%e8%87%aa%e9%87%87%e9%9b%86%e6%95%b0%e6%8d%ae%e9%9b%86><i class="fa fa-link" aria-hidden=true></i></a></h2><p>对于自采集数据集，最可能是数据处理打包、以及配置文件的配置这两部分存在问题，剩下的模型检查、校准数据准备、模型转化、以及上板推理部分可以说是根本没区别，所以就着重讲一下数据准备和配置部分。</p><h3 id=数据准备-1>数据准备
+<a class=heading-link href=#%e6%95%b0%e6%8d%ae%e5%87%86%e5%a4%87-1><i class="fa fa-link" aria-hidden=true></i></a></h3><p>首先数据准备要准备 COCO JSON 格式，他是跟通用 JSON 格式也是有区别的，这个就不详述了。</p><p>然后方便起见，可以复用官方的 <code>mscoco_packer.py</code> 脚本，我们把数据集也存为 <code>train2017</code>、<code>val2017</code> 和 <code>annotations</code> 三个文件夹，例如存在放在 <code>/data/selfcoco</code> 目录下，类似于下面：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#f92672>[</span>root@Z690-P selfcoco<span style=color:#f92672>]</span><span style=color:#75715e># tree</span>
+</span></span><span style=display:flex><span>.
+</span></span><span style=display:flex><span>├── annotations
+</span></span><span style=display:flex><span>│   ├── instances_train2017.json  <span style=color:#75715e># 训练集的 label</span>
+</span></span><span style=display:flex><span>│   └── instances_val2017.json    <span style=color:#75715e># 验证集的 label</span>
+</span></span><span style=display:flex><span>├── train2017   <span style=color:#75715e># 训练集照片</span>
+</span></span><span style=display:flex><span>└── val2017     <span style=color:#75715e># 验证集照片</span>
+</span></span></code></pre></div><p>这时候如果我们按照之前的操作，直接使用 <code>mscoco_packer.py</code> 脚本进行打包，会报错如下：</p><p><img src=/images/hat-train-fcos/coco_label_to_label.png alt=image-20230224232516565></p><p>报错大意就是访问了字典一个不存在的键，直接查看报错的位置，位于 <code>/usr/local/lib/python3.6/site-packages/hat/data/datasets/mscoco.py</code>，查看后发现 COCO_LABLE_TO_LABLE 这个字典是一个类别的映射，因为 mscoco 数据集类别包含 80 类，按顺序来是 [0, 80)，但是 mscoco 数据集原数据集类别序号范围为 [1, 90]，但是其中只有 80 个类别序号，所以需要做一个 [1, 90] -> [0, 80) 的类别映射，但是如果我们自制的数据集没有这个类别映射的需求，就不需要映射，把涉及到这个 Dict 的两行都去掉即可。</p><p>Btw：🤣 这里的 COCO_LABLE_TO_LABLE 是不是拼错了，要拼 LABEL 的？</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># 229 行</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># anno[0, 4] = COCO_LABLE_TO_LABLE[tar[&#34;category_id&#34;]]</span>
+</span></span><span style=display:flex><span>anno[<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>4</span>] <span style=color:#f92672>=</span> tar[<span style=color:#e6db74>&#34;category_id&#34;</span>]
+</span></span><span style=display:flex><span><span style=color:#75715e># 327 行</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># np.array([[COCO_LABLE_TO_LABLE[tar[&#34;category_id&#34;]]]])</span>
+</span></span><span style=display:flex><span>np<span style=color:#f92672>.</span>array([[tar[<span style=color:#e6db74>&#34;category_id&#34;</span>]]])
+</span></span></code></pre></div><p>随后打包即可</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 转换训练集</span>
+</span></span><span style=display:flex><span>python3 tools/datasets/mscoco_packer.py --src-data-dir /data/selfcoco --target-data-dir /data/selfcoco --split-name train --pack-type lmdb
+</span></span><span style=display:flex><span><span style=color:#75715e># 转换验证集</span>
+</span></span><span style=display:flex><span>python3 tools/datasets/mscoco_packer.py --src-data-dir /data/selfcoco --target-data-dir /data/selfcoco --split-name val --pack-type lmdb
+</span></span></code></pre></div><h3 id=配置文件修改>配置文件修改
+<a class=heading-link href=#%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6%e4%bf%ae%e6%94%b9><i class="fa fa-link" aria-hidden=true></i></a></h3><p>配置文件<strong>除了之前提到的三处需要修改</strong>，配置文件中还需要修改与类别相关的参数，大概有如下几个：</p><ol><li><code>num_classes</code>：这里就是一个全局变量类别数，例如我这里有五类 [0, 5)，那改为 5 即可。</li><li><code>model</code>：model 参数中还有很多涉及到 80 的，经过我查看源码后，发现这些 80 的位置都应该改成 num_classes 参数才可以，例如 model 中的 loss_cls 参数，其中的 num_classes 参数值 80+1 就需要改为 <code>num_classes + 1</code> ，post_process 参数中的 num_classes 参数值 80 也应该改为 <code>num_classes</code>，这里我认为是官方的疏忽，应该是忘记改了。</li></ol><p>修改完后就可以按之前的方法进行训练了：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 进入 horizon_model_train_samples 目录</span>
+</span></span><span style=display:flex><span>cd /open_explorer/ddk/samples/ai_toolchain/horizon_model_train_samples
+</span></span><span style=display:flex><span><span style=color:#75715e># 开始训练</span>
+</span></span><span style=display:flex><span>python3 tools/train.py --step float --config configs/detection/fcos/fcos_efficientnetb0_mscoco.py
+</span></span></code></pre></div><h3 id=校准数据准备>校准数据准备
+<a class=heading-link href=#%e6%a0%a1%e5%87%86%e6%95%b0%e6%8d%ae%e5%87%86%e5%a4%87><i class="fa fa-link" aria-hidden=true></i></a></h3><p>这里预处理的数据也应该选择我们训练的数据子集，需要修改一下，剩下的都不需要变：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 02_preprocess.sh</span>
+</span></span><span style=display:flex><span>set -e -v
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>cd <span style=color:#66d9ef>$(</span>dirname $0<span style=color:#66d9ef>)</span> <span style=color:#f92672>||</span> exit
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>python3 ../../../data_preprocess.py <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --src_dir /data/selfcoco/train2017 <span style=color:#ae81ff>\ </span><span style=color:#75715e># 重要</span>
+</span></span><span style=display:flex><span>  --dst_dir ./calibration_data_yuv_f32 <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --cal_img_num <span style=color:#ae81ff>50</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --pic_ext .yuv <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --read_mode opencv <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>  --saved_data_type float32
+</span></span></code></pre></div><h3 id=推理代码修改>推理代码修改
+<a class=heading-link href=#%e6%8e%a8%e7%90%86%e4%bb%a3%e7%a0%81%e4%bf%ae%e6%94%b9><i class="fa fa-link" aria-hidden=true></i></a></h3><p>这里需要修改 <code>get_classes</code> 函数返回的类别名，改成自己对应的类别 List.</p><p>推理得到结果如下：</p><p><img src=/images/hat-train-fcos/self_coco_bbox.png alt=image-20230225000213268></p><p>可以看到，识别可以正常的工作（因为我选的训练数据集有点捞，所以过拟合比较严重，就选了一张凑合能看的图，大家见谅）。</p><h2 id=后言>后言
+<a class=heading-link href=#%e5%90%8e%e8%a8%80><i class="fa fa-link" aria-hidden=true></i></a></h2><p>这样我们就完成了 FCOS 网络的训练和部署，但是基于 Python 的推理可能有点慢，大家可以参考 ai_benchmark 等部分进行 C++ 推理，主要关键就是 PostProcess 后处理部分，不过之前 <a href="https://developer.horizon.ai/college/detail/id=89018995415500842">开发者直播KE——AI板端部署实践</a> 张老师已经讲过一部分 API，如果大家有兴趣，我后面也可以给大家出个帖子讲讲 🤗。</p><p>探索的这几天，给我的感觉是，<strong>地平线做了很多，写了很多有用的工具、包，但是文档还是不够完善</strong>，而且文档有些混乱，版本比较混乱，位置比较混乱、等等，容易找不到、无从下手等等。</p><p>例如对于 FCOS 这部分的文档就很欠缺，对于 FCOS 训练配置的各个选项的详解，大家看到时候可能会有很多问题，例如：</p><ol><li>如何使用 CPU 进行训练而不是 GPU？</li><li>如何基于已有的模型进行迁移训练？中断训练后可以再继续进行吗？</li><li>可以 freeze 一部分参数进行 fine-tuning 吗？</li><li>训练时有数据增强吗？如果不需要可以去掉吗？</li></ol><p>不过现在也是在慢慢完善，不断进步，希望可以把这些好用的东西都能让大家快点方便的用起来。</p><p>文中涉及到的一些代码、脚本和模型等，可以在 <a href=https://github.com/zzsqwq/fcos_tutorial>Github 仓库</a> 中找到。</p><p>文章同步发布在我的博客：https://blog.zzsqwq.cn</p><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p><a href=https://developer.horizon.ai/forumDetail/118363910641451905>如何用工具链HAT训练fcos自定义数据集</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p><a href=https://developer.horizon.ai/forumDetail/118363914936419315>在OE包中训练focs模型</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><footer><div class=comments><script>let getTheme=window.localStorage&&window.localStorage.getItem("colorscheme");getTheme=getTheme??"preferred_color_scheme";let s=document.createElement("script");s.src="https://giscus.app/client.js",s.setAttribute("data-repo","zzsqwq/hugo-blog-comment"),s.setAttribute("data-repo-id","R_kgDOGgU1qQ"),s.setAttribute("data-category","Announcements"),s.setAttribute("data-category-id","DIC_kwDOGgU1qc4CSX1m"),s.setAttribute("data-mapping","pathname"),s.setAttribute("data-strict","0"),s.setAttribute("data-reactions-enabled","1"),s.setAttribute("data-emit-metadata","0"),s.setAttribute("data-input-position","bottom"),s.setAttribute("data-theme",getTheme),s.setAttribute("data-lang",""),s.setAttribute("crossorigin","anonymous"),s.setAttribute("async",""),document.querySelector("div.comments").innerHTML="",document.querySelector("div.comments").appendChild(s)</script></div></footer></article><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})'></script></section></div><footer class=footer><section class=container><a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></br>©
+2019 -
+2023
+·
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.be15ac3c39a2814b964880106561a86d9c95fe28c6a152b56914771a76d43bf6.js integrity="sha256-vhWsPDmigUuWSIAQZWGobZyV/ijGoVK1aRR3GnbUO/Y="></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WF7TH97J9X"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-WF7TH97J9X",{anonymize_ip:!1})}</script></body></html>
