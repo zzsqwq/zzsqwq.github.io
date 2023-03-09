@@ -3,13 +3,13 @@ title: "Friends"
 ---
 To request a link, please make sure your blog has [https](https://en.wikipedia.org/wiki/HTTPS) enabled.
 
-Orangii https://orangii.cn
-
-Xiaoheng https://fafacao.tech
+HuaDeity https://yizun.me
 
 70loKirin https://70lokirin.github.io
 
-HuaDeity https://yizun.me
+Orangii https://orangii.cn
+
+Xiaoheng https://fafacao.tech
 
 Bowen https://www.tomcatdeng.cn
 
