@@ -5,7 +5,7 @@ To request a link, please make sure your blog has [https](https://en.wikipedia.o
 
 HuaDeity https://yizun.me
 
-70loKirin https://70lokirin.github.io
+70loKirin https://qllokirin.github.io
 
 Orangii https://orangii.cn
 
