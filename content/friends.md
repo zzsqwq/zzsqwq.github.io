@@ -7,6 +7,8 @@ HuaDeity https://yizun.me
 
 70loKirin https://qllokirin.github.io
 
+MurphyHou https://cosmicdusty.cc
+
 Orangii https://orangii.cn
 
 Xiaoheng https://fafacao.tech
