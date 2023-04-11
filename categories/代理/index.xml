@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>代理 on Zs's Blog</title><link>https://blog.zzsqwq.cn/categories/%E4%BB%A3%E7%90%86/</link><description>Recent content in 代理 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 23 Apr 2022 19:04:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/categories/%E4%BB%A3%E7%90%86/index.xml" rel="self" type="application/rss+xml"/><item><title>如何在 Linux 上优雅的使用 Clash？</title><link>https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/</link><pubDate>Sat, 23 Apr 2022 19:04:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/</guid><description>Tip 此方式推荐在纯终端（无图形化界面）环境下使用，有图形化界面的情况下推荐使用 Clash for Windows 或 Clash Verge，相关博文可见—Linux 上 Clash For Windows 如何设置开机自启与桌面图标。 为什么选择 Clash？ 目前 Clash 由于其基于规则分流的强大代理功能，已经成为主流的代理内核，在各个平台都有对应的客户端。如 Windows 端的 Clash For Windows(CFW)，MacOS 端的 ClashX，Android 端的 Clash For Android，IOS 端 Choc。
-值得一提的是上述的 CFW 也能够运行于 Linux 平台，但是体验并不如 Windows 端那么丝滑。而 Linux 端还有一个名为 Clashy 的软件，实事求是的说，体验并不是很好。
 那么我们如何能够在 Linux 上优雅的使用 Clash 呢？
 一、基于 Docker 的实现 Docker 是一个开源的应用容器引擎，开发者可以把包和依赖等集成到一个容器中，并打包成镜像发布。用户可以直接拉取镜像并创建容器，而不会污染本地的环境，十分的好用。
 我现在在使用一个软件的时候一般都是有 docker 实现会优先使用 docker，配合 docker-compose 管理真的非常的方便。因此我们优先考虑使用 docker 来配置 clash 代理。
-1.1 安装 docker 大家可以参考 官网安装指南 来在 Linux 安装 docker，就不详细赘述了。</description></item></channel></rss>
+1.1 安装 docker 大家可以参考 官网安装指南 来在 Linux 安装 docker，就不详细赘述了。
+顺便可以参考 docker-compose 安装指南 来安装 docker-compose。
+安装结束后，使用 docker --version 以及 docker-compose --version 进行验证，输出如下进行下一步。</description></item></channel></rss>
