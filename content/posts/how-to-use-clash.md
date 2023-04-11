@@ -7,6 +7,8 @@ slug: "how-to-use-clash-on-linux"
 date: "2022-04-23 19:04:00"
 ---
 
+{{< notice tip >}} 此方式推荐在纯终端（无图形化界面）环境下使用，有图形化界面的情况下推荐使用 [Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg/releases) 或 [Clash Verge](https://github.com/zzzgydi/clash-verge)，相关博文可见—[Linux 上 Clash For Windows 如何设置开机自启与桌面图标](https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/)。{{< /notice >}}
+
 ## 为什么选择 Clash？
 
 目前 Clash 由于其基于规则分流的强大代理功能，已经成为主流的代理内核，在各个平台都有对应的客户端。如 Windows 端的 Clash For Windows(CFW)，MacOS 端的 ClashX，Android 端的 Clash For Android，IOS 端 Choc。
@@ -104,7 +106,7 @@ services:
 
 ```shell
 ~/Services/clash
-❯ wget -O https://github.com/Dreamacro/maxmind-geoip/releases/download/20220412/Country.mmdb
+❯ wget https://github.com/Dreamacro/maxmind-geoip/releases/download/20220412/Country.mmdb
 ```
 
 然后下载对应的 ui 控制面板，目前有两款，分别是 clash 原作者的 [clash-dashboard](https://github.com/Dreamacro/clash-dashboard) 以及另一位大佬的 [yacd-dashboard](https://github.com/haishanh/yacd) ，大家自选其一即可，我常用的是 `clash-dashboard`。
