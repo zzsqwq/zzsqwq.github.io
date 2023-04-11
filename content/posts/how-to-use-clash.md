@@ -13,8 +13,6 @@ date: "2022-04-23 19:04:00"
 
 目前 Clash 由于其基于规则分流的强大代理功能，已经成为主流的代理内核，在各个平台都有对应的客户端。如 Windows 端的 Clash For Windows(CFW)，MacOS 端的 ClashX，Android 端的 Clash For Android，IOS 端 Choc。
 
-值得一提的是上述的 CFW 也能够运行于 Linux 平台，但是体验并不如 Windows 端那么丝滑。而 Linux 端还有一个名为 Clashy 的软件，实事求是的说，体验并不是很好。 
-
 那么我们如何能够在 Linux 上优雅的使用 Clash 呢？
 
 ## 一、基于 Docker 的实现
