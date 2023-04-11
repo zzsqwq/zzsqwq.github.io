@@ -1536,7 +1536,13 @@ AI 绘图
 &lt;p>&lt;a href="https://blog.csdn.net/kangkanglou/article/details/90760529">公钥添加到authorized_keys到文件中之后仍无法免密登陆&lt;/a>&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;/div></description></item><item><title>如何在 Linux 上优雅的使用 Clash？</title><link>https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/</link><pubDate>Sat, 23 Apr 2022 19:04:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/</guid><description>&lt;h2 id="为什么选择-clash">
+&lt;/div></description></item><item><title>如何在 Linux 上优雅的使用 Clash？</title><link>https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/</link><pubDate>Sat, 23 Apr 2022 19:04:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/</guid><description>&lt;div class="notice tip">
+&lt;div class="notice-title">
+&lt;i class="fa fa-lightbulb-o" aria-hidden="true">&lt;/i>Tip
+&lt;/div>
+&lt;div class="notice-content">此方式推荐在纯终端（无图形化界面）环境下使用，有图形化界面的情况下推荐使用 &lt;a href="https://github.com/Fndroid/clash_for_windows_pkg/releases">Clash for Windows&lt;/a> 或 &lt;a href="https://github.com/zzzgydi/clash-verge">Clash Verge&lt;/a>，相关博文可见—&lt;a href="https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/">Linux 上 Clash For Windows 如何设置开机自启与桌面图标&lt;/a>。&lt;/div>
+&lt;/div>
+&lt;h2 id="为什么选择-clash">
 为什么选择 Clash？
 &lt;a class="heading-link" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e9%80%89%e6%8b%a9-clash">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1622,7 +1628,7 @@ AI 绘图
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ wget -O config.yaml $your-proxy-url
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后下载 &lt;code>Country.mmdb&lt;/code> 文件，虽然这个文件在没有的时候会自动下载，但是一般速度较慢，还是手动下载比较好，你可以在这里找到对应的文件 &lt;a href="https://github.com/Dreamacro/maxmind-geoip/releases">Dreamacro/maxmid-geoip/releases&lt;/a> 。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>~/Services/clash
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ wget -O https://github.com/Dreamacro/maxmind-geoip/releases/download/20220412/Country.mmdb
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ wget https://github.com/Dreamacro/maxmind-geoip/releases/download/20220412/Country.mmdb
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后下载对应的 ui 控制面板，目前有两款，分别是 clash 原作者的 &lt;a href="https://github.com/Dreamacro/clash-dashboard">clash-dashboard&lt;/a> 以及另一位大佬的 &lt;a href="https://github.com/haishanh/yacd">yacd-dashboard&lt;/a> ，大家自选其一即可，我常用的是 &lt;code>clash-dashboard&lt;/code>。&lt;/p>
 &lt;p>&lt;strong>Ps：这一步算是可有可无，大家可以直接访问对应的链接&lt;/strong>&lt;/p>
 &lt;ul>
