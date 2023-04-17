@@ -94,12 +94,6 @@ weight = 2
 url = "https://t.me/zzsqwq"
 
 [[params.social]]
-name = "LastBlog"
-icon = "fa fa-2x fa-home"
-weight = 6
-url = "https://zzsqwq.cn/"
-
-[[params.social]]
 name = "RSS"
 icon = "fa fa-2x fa-rss"
 weight = 4
