@@ -21,9 +21,3 @@ Welcome to know more about me through [my homepage](https://zzsqwq.cn).
 Blog is proudly powered by [Hugo](https://gohugo.io/).
 
 The theme used is [Coder](https://github.com/luizdepra/hugo-coder), I like this simple and atmospheric theme very much.
-
-I have used [Typecho](https://typecho.org/) and [Hexo](https://hexo.io/zh-cn/) to powered my blog in the past, typecho version is as follow.
-
-I have used a redirection rule in Apache to make it forward compatible!
-
-[Zs's Blog(Typecho)](https://lastblog.zzsqwq.cn)
