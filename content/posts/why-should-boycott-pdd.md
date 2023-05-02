@@ -30,7 +30,7 @@ typora-root-url: ../../static
 
 首先需要提到的就是拼多多的虚假宣传，主要是广告，相信大家都看到过，例如「为什么这些 Switch 游戏机只买 9.9 元都没人买，全部砸了算了」这种开头的，或者「你有 iPhone 13 吗，没有就打开拼多多抢一台」。铺天盖地的，无论是你看视频、还是刷QQ空间，还是刷朋友圈，总是能碰到这种广告，无非就是诱惑你点击下载拼多多，但是打开后却发现广告中说的点击就送、无门槛拿根本都是无稽之谈，要不就是限量两个，邀请最多的人才能领。下面是这类视频的合集，大家可能看到的时候都觉得尬和乐，但是却很少有人认识到这是虚假宣传，违规行为。
 
-<iframe width=854 height=480 src="//player.bilibili.com/player.html?aid=334427777&bvid=BV1uw411R78b&cid=378349675&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe  width="100%" height="500" src="//player.bilibili.com/player.html?aid=334427777&bvid=BV1uw411R78b&cid=378349675&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 根据百度百科对于虚假宣传的定义：
 
@@ -48,7 +48,7 @@ typora-root-url: ../../static
 
 当然这里也有砍成功的，不过是分价位的，你砍 100 元的红包，可能拉个七八个人就成功，如果都是新用户可能会更少，如果是砍 Switch、手机这种大件，需要砍的次数则就更多。当然砍 100 元的红包砍的多了，积累的价钱上去了，他也不会让你持续的薅，难度也是累加的。一个典型的案例可以看 [超级小桀](https://space.bilibili.com/29440965) 之前的视频，如下：
 
-<iframe width=854 height=480 src="//player.bilibili.com/player.html?aid=679818997&bvid=BV12S4y1u7rw&cid=553141060&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe width="100%" height="500" src="//player.bilibili.com/player.html?aid=679818997&bvid=BV12S4y1u7rw&cid=553141060&page=1&autoplay=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 上面这个视频简单概括一下就是，小桀在直播间突发奇想带水友一起砍一部 IQOO 手机，前期很长的过场动画都在提示你，马上可以直接拿到，进度已经到达 0.00%，但是还是需要收集 10 多个金币，邀请两三个人即可，后来小桀把二维码分享出来，非常多的水友扫码砍，后来导致二维码提示被封禁，小桀又把链接分享给了群里的水友，当时在线的水友不完全统计 6-7W，至少有上千人参与，但最终也没有让那 10 多个金币归零，打电话给客服询问，客服给出理由如下：
 
@@ -63,7 +63,7 @@ typora-root-url: ../../static
 
 附小桀对这件事情的声明：
 
-<img src="/images/why-should-boycott-pdd/2.jpeg" style="zoom:50%;" />
+<div align="center"><img src="/images/why-should-boycott-pdd/2.jpeg" style="zoom:50%;" /></div>
 
 ## 三、拉人助力  
 
@@ -111,7 +111,7 @@ typora-root-url: ../../static
 
 同时更令人恶心的是，「目前没有证据表明 Google Play Store 和苹果 App Store 的版本含有恶意代码，通过 Google 和苹果官方商店下载的拼多多应用是安全的。但通过第三方市场下载的 Android 用户则没有那么幸运了，鉴于拼多多有数亿用户，受影响的用户数量可能是非常惊人」，也就是说拼多多这还是定向打击、定向投毒，是看咱们国人好欺负？大家可能对于这种事情向来是不关心，能用就行可能就是大多数人奉行的宗旨，管他对我做了什么，管他有没有什么违法的事情，一味的这样只会助长拼多多这种恶心平台与 App 的气焰。
 
-<img src="https://pic2.zhimg.com/80/v2-6cf36124b40760b420f266ebe6117fd9_1440w.webp" alt="img" style="zoom:33%;" />
+<div align="center"><img src="https://pic2.zhimg.com/80/v2-6cf36124b40760b420f266ebe6117fd9_1440w.webp" alt="img" style="zoom:33%;" /></div>
 
 目前拼多多已经替换了利用漏洞 App 以及解散了漏洞挖掘与利用相关的团队，不过也有消息称仍有部份人留任继续挖掘。
 
