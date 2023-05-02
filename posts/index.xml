@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Zs's Blog</title><link>https://blog.zzsqwq.cn/posts/</link><description>Recent content in Posts on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 01 May 2023 23:35:01 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>为什么应该抵制拼多多？</title><link>https://blog.zzsqwq.cn/posts/why-should-boycott-pdd/</link><pubDate>Mon, 01 May 2023 23:35:01 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/why-should-boycott-pdd/</guid><description>TL;DR 本文旨在结合一系列事实总结拼多多过去的一系列恶心行为，包括不限于
 虚假宣传 砍一刀套路多 拉人助力 铺天盖地的广告 利用漏洞 希望大家抵制拼多多这种无良平台，非必要不使用拼多多。
-前言 最近看了很多拼多多令人反感的操作以及看了很多拼多多的软广，看到这么一个无良平台逐渐壮大实在是令人恼火，因此我觉得有必要写一篇文章来总结一下拼多多各种恶心人的操作来让大家了解这个无良平台，并呼吁大家可以联合抵制这个平台。
-本文会尽量客观理性，陈述已发生的事实而不是自己的观点，欢迎大家补充、批评、指正。
+前言 最近看了很多拼多多令人反感的操作以及看了很多拼多多的软广，如 拼多多，让谁不爽，看到这么一个无良平台逐渐壮大实在是令人恼火，因此我觉得有必要写一篇文章来总结一下拼多多各种恶心人的操作来让大家了解这个无良平台，来看看他到底为什么让人不爽，并呼吁大家可以联合抵制这个平台。
+本文会尽量客观理性，陈述已发生的事实而不是自己的观点，同时因为我不是商家，也不是拼多多的员工，本文只是作为用户角度评判。除了对用户方面的恶心行为，还有对员工及商家的压榨，这个后面有时间再写。欢迎大家补充、批评、指正。
 一、虚假宣传 首先需要提到的就是拼多多的虚假宣传，主要是广告，相信大家都看到过，例如「为什么这些 Switch 游戏机只买 9.9 元都没人买，全部砸了算了」这种开头的，或者「你有 iPhone 13 吗，没有就打开拼多多抢一台」。铺天盖地的，无论是你看视频、还是刷QQ空间，还是刷朋友圈，总是能碰到这种广告，无非就是诱惑你点击下载拼多多，但是打开后却发现广告中说的点击就送、无门槛拿根本都是无稽之谈，要不就是限量两个，邀请最多的人才能领。下面是这类视频的合集，大家可能看到的时候都觉得尬和乐，但是却很少有人认识到这是虚假宣传，违规行为。
 根据百度百科对于虚假宣传的定义：
 虚假宣传是指在商业活动中经营者利用广告或其他方法对商品或者服务做出与实际内容不相符的虚假信息，导致客户或消费者误解的行为。
@@ -14,8 +14,7 @@
 每个人砍都是概率砍成功，可能 100 人砍有 50 个人、80 个人砍成功，不是 100% 成功。 像这么多人砍价，系统检测到会封禁。 那我就有点疑问了，你这个东西本来就需要邀请很多人砍价才能成功，但是你人一多又要封禁，那么不邀请这么多人砍价，那么怎么成功呢？真的是「解释权归拼多多所有」。
 据小桀自己回应，直到3月17号下午2点40分左右下播，也没有砍成功，但是突然在4点40分左右莫名其妙的成功了，赠送了一张无门槛购物券可以下单此手机，随后客服回应：砍价不成功不属实，已经发放「特制」优惠券。这一通操作，实在是闻所未闻，谁也能看出来是事态发展到不可预料的地步搞了个东西出来封口的。
 实在是太像诈骗、传销了，即使这样广泛的虚假宣传，到现在也没有被整治，也还是随处可见。
-附小桀对这件事情的声明：
-三、拉人助力 拼多多最特色的行为，应该就是这个拉人助力，可能算是拉人助力的始祖了，如今算是各个软件的标配了，美团、饿了么、携程旅行、智行中也都随处可见。好处显而易见，可以提高自己活动的参与率、提高 App 的下载率、提高品牌知名度、提高用户粘性。</description></item><item><title>基于地平线 HAT 训练与部署 FCOS 全流程</title><link>https://blog.zzsqwq.cn/posts/hat-train-fcos/</link><pubDate>Sat, 25 Feb 2023 00:45:22 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/hat-train-fcos/</guid><description>前言 最近想要使用自己采集与标注的数据集来训练与部署一下地平线微调过的 FCOS 网络，在询问和查看文档后发现如果想基于官方微调的模型训练，需要使用提供 HAT（Horizon Algorithm Toolkit，海图） 来进行，具体的文档可以查看：Horizon Algorithm Toolkit 文档，这是在线的版本，版本可能会比较旧，想看最新版的可以查看离线的版本，位置在 OE（Open Explorer，天工开物） 包的 doc 目录下，如下图：
+附小桀对这件事情的声明：</description></item><item><title>基于地平线 HAT 训练与部署 FCOS 全流程</title><link>https://blog.zzsqwq.cn/posts/hat-train-fcos/</link><pubDate>Sat, 25 Feb 2023 00:45:22 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/hat-train-fcos/</guid><description>前言 最近想要使用自己采集与标注的数据集来训练与部署一下地平线微调过的 FCOS 网络，在询问和查看文档后发现如果想基于官方微调的模型训练，需要使用提供 HAT（Horizon Algorithm Toolkit，海图） 来进行，具体的文档可以查看：Horizon Algorithm Toolkit 文档，这是在线的版本，版本可能会比较旧，想看最新版的可以查看离线的版本，位置在 OE（Open Explorer，天工开物） 包的 doc 目录下，如下图：
 想要方便的查看离线文档可以通过 Python 来实现，在 doc 目录下执行：
 python3 -m http.server 3000 这样就可以在本地的 0.0.0.0:3000 地址开启一个 http server，随后可以在本地浏览器使用 localhost:3000 或者其他电脑浏览器使用 {ip}:3000 来访问文档。
 但是查看 文档 过后会发现，文档其实也没有那么的全面，讲的比较简单，尝试了一下中间坑还挺多的，社区里面关于这方面的帖子也不多12，因此想记录下我尝试的全流程，也可以作为对上面教程文档的补充。
