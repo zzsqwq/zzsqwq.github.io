@@ -63,7 +63,7 @@ typora-root-url: ../../static
 
 附小桀对这件事情的声明：
 
-<img src="https://img.ithome.com/newsuploadfiles/2022/3/1772a543-e51c-4dfd-b1c4-ea0f2a51f2db.jpg@s_2,w_820,h_1219" alt="当事主播回应拼多多六万人砍价失败：直播中并没有成功" style="zoom:50%;" />
+<img src="/images/why-should-boycott-pdd/2.jpeg" style="zoom:50%;" />
 
 ## 三、拉人助力  
 
