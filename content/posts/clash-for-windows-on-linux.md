@@ -45,8 +45,10 @@ Github release 链接：https://github.com/Fndroid/clash_for_windows_pkg/release
 
 ```bash
 ❯ mkdir -p ~/.local/bin
-❯ ln -s /home/user/Downloads/xxxx/cfw /home/user/.local/bin/cfw # 注意，一定要用绝对路径！！这里的 user 是指你的用户名
+❯ ln -s /home/user/Downloads/xxxx/cfw /home/user/.local/bin/cfw 
 ```
+
+注意，这里一定要用绝对路径！同时，这里的 user 是指你的用户名，下同。
 
 简单解释一下，这里首先创建了本地的一个 bin 目录，然后软链接了我们解压出的 `cfw` 到对应路径下，注意不要直接 `cp` 过去，会找不到动态库。
 
