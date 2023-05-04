@@ -1399,8 +1399,9 @@ AI 绘图
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>就会直接打开 Clash For Windows 了，与 Windows 版本基本平常无差。&lt;/p>
 &lt;p>接下来最好可以链接一个启动项来方便配置，不过，是可选的：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>❯ mkdir -p ~/.local/bin
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ ln -s /home/user/Downloads/xxxx/cfw /home/user/.local/bin/cfw &lt;span style="color:#75715e"># 注意，一定要用绝对路径！！这里的 user 是指你的用户名&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>简单解释一下，这里首先创建了本地的一个 bin 目录，然后软链接了我们解压出的 &lt;code>cfw&lt;/code> 到对应路径下，注意不要直接 &lt;code>cp&lt;/code> 过去，会找不到动态库。&lt;/p>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ ln -s /home/user/Downloads/xxxx/cfw /home/user/.local/bin/cfw
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>注意，这里一定要用绝对路径！同时，这里的 user 是指你的用户名，下同。&lt;/p>
+&lt;p>简单解释一下，这里首先创建了本地的一个 bin 目录，然后软链接了我们解压出的 &lt;code>cfw&lt;/code> 到对应路径下，注意不要直接 &lt;code>cp&lt;/code> 过去，会找不到动态库。&lt;/p>
 &lt;p>Ps：Ubuntu 的策略貌似是如果不存在 &lt;code>~/.local/bin&lt;/code> 目录那么是不会添加到环境变量的，但是如果有了，重启就会自动添加。因此现在可能没法在终端直接输入 &lt;code>cfw&lt;/code> 来启动 Clash，重启才行，不过没事，对下述过程没影响。&lt;/p>
 &lt;h2 id="配置快速启动图标">
 配置快速启动图标
