@@ -2,7 +2,7 @@
 title: "如何在 Linux 上优雅的使用 Clash？"
 categories: ["代理"]
 tags: ["clash","proxy"]
-draft: false
+draft: true
 slug: "how-to-use-clash-on-linux"
 date: "2022-04-23 19:04:00"
 ---
