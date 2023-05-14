@@ -6,17 +6,7 @@ Ubuntu 18.04 相关 Ubuntu 18.04 无法使用触摸板 Ubuntu 18.04 无法使用
 开机时也能够使用键盘。
 但是开机登录界面还是存在花屏、闪屏的问题，我通过自动登录解决。BIOS界面仍旧会闪屏。
 安装 Ubuntu 18.04 的问题 首先安装Ubuntu 18.04 还是比较顺利，没有什么坑。
-安装的话就是按流程来一遍——压缩卷、进入BIOS关闭安全启动模式(这里网上有部分同学说也需要关闭 Intel Platform Trust Technology 、但是我不关闭也是可以的)、然后Try Ubuntu看一下效果（这里Try Ubuntu我没法使用鼠标，不过安装的时候可以）、开始安装。</description></item><item><title>纯终端环境代理配置教程</title><link>https://blog.zzsqwq.cn/posts/212/</link><pubDate>Mon, 13 Sep 2021 18:15:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/212/</guid><description>纯终端环境代理配置教程 前言 我们在很多情况下，可能会在云服务器或是其他纯终端环境（例如树莓派服务器等），或者一些没有屏幕的情况下，只能 ssh 链接到服务器上进行一些操作。
-这些时候，如果我们想要克隆一个 Github 的仓库，或者下载一些镜像源中没有的文件，简直是难如登天，100kb/s 的速度都很罕见，因此在这种环境下配一个代理还是十分必要的！
-我们常在 Linux 上使用的 GUI 代理软件如 Qv2ray、Clash 这些就没法用了。因此需要考虑如何在纯终端环境中配置代理的问题，这篇教程就是为解决此问题而写的。
-教程 此教程搭配的是常用的 v2ray-core + v2rayA ，这里的 v2rayA 是一个网页端的代理管理工具，其中支持 v2ray、Xray、SS、SSR、Trojan 等多种协议。
-一、安装 v2ray-core 首先是需要安装 v2ray-core ，这里我们使用开源的项目 v2fly/fhs-install-v2ray 进行安装，它是一个脚本，可以直接运行完成 v2ray 的安装，安装的文件组织结构符合 Filesystem Hierarchy Standard ，十分方便简洁，很赞！
-具体步骤如下：
-下载 fhs-install-v2ray 源码 首先我们因为 Github 克隆很慢，可以先在自己的主机上克隆或者以 zip 包形式下载源码
-将源码上传到远端 键入下列代码，通过 scp 将解压后的代码文件夹目录上传到远端服务器的根目录（如果是树莓派的话可以连接同一局域网进行），注意这里的 path/to/fhs-install-v2ray 指的是本地文件夹的路径
-scp -r path/to/fhs-install-v2ray username@hostname:~
-下载 v2ray-core 源码 此脚本可以全自动安装，即自动检测本机类型是 Ubuntu 还是其他的版本，然后从远端仓库下载最新的 v2ray 进行安装，不过因为没有代理，这一步还是十分缓慢，因此我们可以进行本地安装。
-首先，我们去到 v2ray-core 的官方仓库的发布站 -&amp;gt; Releases · v2fly/v2ray-core ，在这里可以下载最新版本的的 v2ray-core，不过需要注意的是，需要自己辨别版本，如使用的是 arm 还是 x64_86 等，下载后是一个 zip 压缩包，我们直接通过 scp 上传到远端服务器根目录</description></item><item><title>关于Git的一些理解</title><link>https://blog.zzsqwq.cn/posts/201/</link><pubDate>Fri, 23 Jul 2021 14:17:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/201/</guid><description>前言 前段时间在 Github 学完了关于 git 的小游戏 learnGitBranching ，受益匪浅。
+安装的话就是按流程来一遍——压缩卷、进入BIOS关闭安全启动模式(这里网上有部分同学说也需要关闭 Intel Platform Trust Technology 、但是我不关闭也是可以的)、然后Try Ubuntu看一下效果（这里Try Ubuntu我没法使用鼠标，不过安装的时候可以）、开始安装。</description></item><item><title>关于Git的一些理解</title><link>https://blog.zzsqwq.cn/posts/201/</link><pubDate>Fri, 23 Jul 2021 14:17:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/201/</guid><description>前言 前段时间在 Github 学完了关于 git 的小游戏 learnGitBranching ，受益匪浅。
 它通过可视化的方式将分支的关系，每条命令的作用等都明明白白的体现出来，可以很直观的感受到你每条命令对整个分支树，每一个 ref 的作用。
 通过这种学习感觉自己对 Git 的理解更加深入一步，能够理解其中的原理，而不是浅尝辄止，照猫画虎。
 学习中记了一些零零散散的思路，想要写一篇笔记记录出来，之前已经写过一个简单的 Git 教程，这篇教程将会更加深入，希望可以帮助大家更好的掌握 Git。
@@ -44,14 +34,7 @@ $ sudo ifconfig 查看WiFi对应的IP，至此，树莓派可以摆脱屏幕，�
 $ ls | grep -i qq ​可以发现其中有一个名为 deepin.com.qq.im.desktop 的文件，我们打开后发现内容如下：
 #!/usr/bin/env xdg-open [Desktop Entry] Encoding=UTF-8 Type=Application X-Created-By=Deepin WINE Team Categories=chat; Icon=deepin.com.qq.im Exec=&amp;#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;#34; -u %u Name=QQ Name[zh_CN]=QQ Comment=Tencent QQ Client on Deepin Wine StartupWMClass=QQ.exe MimeType= ​可以看到Exec那一栏为 Exec=&amp;quot;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;quot; -u %u ，发现他是运行目录下的一个 run.sh 脚本来启动的。
 ​我们进入目录下直接运行该脚本，查看log信息：
-base ❯ ./run.sh Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.exe run Deepin-QQ progress pid Gtk-Message: 01:16:58.</description></item><item><title>Ubuntu如何利用AppImage创建Qv2ray快捷方式</title><link>https://blog.zzsqwq.cn/posts/193/</link><pubDate>Wed, 16 Jun 2021 00:54:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/193/</guid><description>前言 最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：
-原理 首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 \usr\share\applications 中，文件名为 **.desktop ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：
-[Desktop Entry] Name=Typora Comment=a minimal Markdown reading &amp;amp; writing app. Change Log: (https://typora.io/windows/dev_release.html) GenericName=Markdown Editor Exec=typora %U Icon=typora Type=Application StartupNotify=true Categories=Office;WordProcessor; MimeType=text/markdown;text/x-markdown; 可以看到里面的内容写的非常清晰，其中比较重要的有以下几个
-关键词 意义 [Desktop Entry] 文件头 Name 应用名称 Comment 描述 Exec 执行的命令 Icon 图标路径 Type 启动器类型 Categories 应用的类型（内容相关） StartupNotify 启动时是否打印输出信息 Terminal 是否在终端中运行 快捷方式的创建 明白以上原理，我们只需要创建一个 qv2ray.desktop ，文件内容如下：
-[Desktop Entry] Name=qv2ray Exec=/home/zs/proxy/v2ray/Qv2ray.v2.6.3.linux-x64.AppImage Icon=/home/zs/proxy/v2ray/qv2ray.512.png Type=Application StartupNotify=true 其中Exec为你AppImage的绝对路径，Icon为图标的绝对路径。
-其中各个大小的Qv2ray的icons可以在它的Github中找到，链接为：Qv2ray/icons
-创建完后执行
-$ sudo chmod +x qv2ray.</description></item><item><title>关于Anaconda中pip路径指向问题</title><link>https://blog.zzsqwq.cn/posts/169/</link><pubDate>Sat, 06 Mar 2021 20:51:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/169/</guid><description> 前言 最近使用Anaconda的时候遇到了一个很奇怪的问题，如当我新建环境 condatest 后，使用 pip -V 查看pip的路径指向，会发现pip指向的是另一个环境 CenterNet 的路径。搜索了很久得到一个有一些用的解决方法
+base ❯ ./run.sh Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.exe run Deepin-QQ progress pid Gtk-Message: 01:16:58.</description></item><item><title>关于Anaconda中pip路径指向问题</title><link>https://blog.zzsqwq.cn/posts/169/</link><pubDate>Sat, 06 Mar 2021 20:51:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/169/</guid><description> 前言 最近使用Anaconda的时候遇到了一个很奇怪的问题，如当我新建环境 condatest 后，使用 pip -V 查看pip的路径指向，会发现pip指向的是另一个环境 CenterNet 的路径。搜索了很久得到一个有一些用的解决方法
 解决方案 设有问题的环境为 condatest ，python版本为 3.6
 然后进入 ~/anaconda3/envs/condatest/lib/python3.6
 编辑目录下的 site.py 文件，将其中的 USER_SITE 的值修改为 /home/zs/anaconda3/envs/condatest ，注意这里路径里面的 zs 是你的当前用户名， USER_BASE 的值修改为 /home/zs/anaconda3/envs/condatest/lib/python3.6/site.py，然后问题应该就解决了。
