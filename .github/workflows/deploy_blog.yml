@@ -43,7 +43,7 @@ jobs:
         with:
           switches: -avzr --delete --exclude=".htaccess" --exclude="/usr/" --exclude=".user.ini" --exclude=".git/" --exclude=".well-known/"
           path: ./
-          remote_path: /www/wwwroot/new_blog/
-          remote_host: zzsqwq.cn
+          remote_path: /www/wwwroot/blog.zzsqwq.cn/
+          remote_host: blog.zzsqwq.cn
           remote_user: www
           remote_key: ${{ secrets.SSH_KEY }}
