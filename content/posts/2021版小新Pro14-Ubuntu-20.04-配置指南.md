@@ -9,6 +9,26 @@ date: "2021-11-02 01:16:00"
 
 # 2021版小新Pro14 Ubuntu 20.04 配置指南
 
+## 补充
+
+最近重装了 Ubuntu 20.04，又找了相关的一些帖子，发现 [聯想Yoga 14s 2021款裝機小記](https://blog.ryey.icu/lenovo-yoga-14s-2021.html#toc-entry-3) 中提到了下文中提到的**屏幕闪烁的问题**，解决办法是：只需要在内核参数中加入 `i915.enable_psr=0` 即可。
+
+具体操作步骤如下：
+
+```bash
+$ sudo vim /etc/default/grub
+```
+
+在 GRUB_CMDLINE_LINUX_DEFAULT 这一行的最后添加 `i915.enable_psr=0`，保存后终端运行：
+
+```bash
+$ sudo update-grub
+```
+
+然后重启即可。
+
+---
+
 ## 前言
 
 苦于沉重游戏本的迫害，新买了一台小新Pro14 2021款，上手感觉还挺不错的。如下是配置：
@@ -117,7 +137,7 @@ sudo reboot
 
 **但是！！！**
 
-安装完成后，我还是会花屏和黑屏，问题依旧没有解决。我突发奇想，考虑到我外接屏幕没有问题，而自带的屏幕有问题，**因为外接屏是 1920x1080 而内置屏幕是 2880x1800，我联想到会不会是高分辨率屏幕的问题，所以尝试着把外接屏的显示比例调成了 150%`(需要开启 Fractional Scaling)`，没想到歪打正着，居然好了，看起来也更加的顺眼，比例也更加协调。**具体的内部原因还不是很清楚。
+~~安装完成后，我还是会花屏和黑屏，问题依旧没有解决。我突发奇想，考虑到我外接屏幕没有问题，而自带的屏幕有问题，**因为外接屏是 1920x1080 而内置屏幕是 2880x1800，我联想到会不会是高分辨率屏幕的问题，所以尝试着把外接屏的显示比例调成了 150%`(需要开启 Fractional Scaling)`，没想到歪打正着，居然好了，看起来也更加的顺眼，比例也更加协调。**具体的内部原因还不是很清楚。~~  已解决，见本文开头。
 
 ![比例配置信息][2]
 
@@ -154,5 +174,5 @@ sudo reboot
 5. [Custom Resolution Ubuntu 20.04](https://askubuntu.com/questions/1252172/custom-resolution-ubuntu-20-04)
 6. [How can I change the resolution of the GRUB menu?](https://askubuntu.com/questions/1091778/how-can-i-change-the-resolution-of-the-grub-menu)
 
-  [1]: https://blog.zzsqwq.cn/usr/uploads/2021/11/3138090261.png
-  [2]: https://blog.zzsqwq.cn/usr/uploads/2021/11/3113030601.png
+[1]: https://blog.zzsqwq.cn/usr/uploads/2021/11/3138090261.png
+[2]: https://blog.zzsqwq.cn/usr/uploads/2021/11/3113030601.png
