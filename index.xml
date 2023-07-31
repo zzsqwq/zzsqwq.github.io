@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://blog.zzsqwq.cn/</link><atom:link href="https://blog.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml"/><description>Zs's Blog</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><lastBuildDate>Mon, 15 May 2023 02:20:00 +0800</lastBuildDate><item><title>关于部分博文链接失效的问题</title><link>https://blog.zzsqwq.cn/posts/about-some-posts-invalid/</link><pubDate>Mon, 15 May 2023 02:20:00 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/about-some-posts-invalid/</guid><description>&lt;p>最近删除了部分文章，因而导致了部分链接失效。&lt;/p>
-&lt;p>如果之前有同学收藏了对应的网址打开会对应跳转到此页面，十分抱歉。&lt;/p>
-&lt;p>如果您想要查看之前的文章，可查看此次更改对应的 commit， 链接为 &lt;a href="https://github.com/zzsqwq/zzsqwq.github.io/commit/b494d5adcfd4eae39552ed8982ba27a0a8cbc29f">Add four drafts.&lt;/a>。&lt;/p></description></item><item><title>为什么应该抵制拼多多？</title><link>https://blog.zzsqwq.cn/posts/why-should-boycott-pdd/</link><pubDate>Mon, 01 May 2023 23:35:01 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/why-should-boycott-pdd/</guid><description>&lt;h2 id="tldr">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zs's Blog</title><link>https://blog.zzsqwq.cn/</link><atom:link href="https://blog.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml"/><description>Zs's Blog</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en</language><lastBuildDate>Mon, 01 May 2023 23:35:01 +0800</lastBuildDate><item><title>为什么应该抵制拼多多？</title><link>https://blog.zzsqwq.cn/posts/why-should-boycott-pdd/</link><pubDate>Mon, 01 May 2023 23:35:01 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/why-should-boycott-pdd/</guid><description>&lt;h2 id="tldr">
 TL;DR
 &lt;a class="heading-link" href="#tldr">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -1375,6 +1373,107 @@ AI 绘图
 &lt;p>&lt;a href="https://changkun.de/modern-cpp/">https://changkun.de/modern-cpp/&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
+&lt;/div></description></item><item><title>Linux 上 Clash For Windows 如何设置开机自启与桌面图标</title><link>https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/</link><pubDate>Thu, 12 May 2022 22:37:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/</guid><description>&lt;h2 id="背景">
+背景
+&lt;a class="heading-link" href="#%e8%83%8c%e6%99%af">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>之前写过一篇 &lt;a href="https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/">如何在 Linux 上优雅的使用 Clash？ &lt;/a>的博客，不过用了一段时间后这么倒腾还是不如直接用 Clash For Windows 这种方便的图形化界面，主要是改配置文件啥的方便，不需要重启啥的。&lt;/p>
+&lt;p>配了一下发现 Linux 版本的 Clash For Windows 貌似打开 Start with Linux 没什么用处，因此顺便写个配置教程。&lt;/p>
+&lt;p>Clash For Windows 的具体使用可以查看官方教程：https://docs.cfw.lbyczf.com/&lt;/p>
+&lt;p>顺便说一句，Linux 版本的无法自动设置系统代理，需要自己手动设置，不过我推荐你使用 &lt;code>proxychains&lt;/code> 等工具在终端进行代理，使用 &lt;code>SwitchyOmega&lt;/code> 等工具在浏览器端代理。&lt;/p>
+&lt;h2 id="安装-clash-for-windows">
+安装 Clash For Windows
+&lt;a class="heading-link" href="#%e5%ae%89%e8%a3%85-clash-for-windows">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>首先在 Linux 上下载 Clash For Windows，&lt;/p>
+&lt;p>Github release 链接：https://github.com/Fndroid/clash_for_windows_pkg/releases&lt;/p>
+&lt;p>在其中找到需要的版本，然后下载即可，如果国内下载较慢的话，可以使用大佬提供的代理&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>，使用方式是在下载链接的前面加上 &lt;code>https://ghproxy.com/&lt;/code> 即可，例如一个下载链接为 &lt;code>https://github.com/aaa&lt;/code> ，则代理后的链接为 &lt;code>https://ghproxy.com/https://github.com/aaa&lt;/code>&lt;/p>
+&lt;p>下载后应该是名为 &lt;code>Clash.for.Windows-version-x64-linux.tar.gz&lt;/code> 的文件，然后解压：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>❯ tar -zxvf Clash.for.Windows.xxx &lt;span style="color:#75715e"># 这里是对应压缩包的名字&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>解压后会出现对应的文件夹，文件夹中会有一个名为 &lt;code>cfw&lt;/code> 的文件，按理说现在在文件中直接打开终端，然后运行&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>❯ ./cfw
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>就会直接打开 Clash For Windows 了，与 Windows 版本基本平常无差。&lt;/p>
+&lt;p>接下来最好可以链接一个启动项来方便配置，不过，是可选的：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>❯ mkdir -p ~/.local/bin
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ ln -s /home/user/Downloads/xxxx/cfw /home/user/.local/bin/cfw
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>注意，这里一定要用绝对路径！同时，这里的 user 是指你的用户名，下同。&lt;/p>
+&lt;p>简单解释一下，这里首先创建了本地的一个 bin 目录，然后软链接了我们解压出的 &lt;code>cfw&lt;/code> 到对应路径下，注意不要直接 &lt;code>cp&lt;/code> 过去，会找不到动态库。&lt;/p>
+&lt;p>Ps：Ubuntu 的策略貌似是如果不存在 &lt;code>~/.local/bin&lt;/code> 目录那么是不会添加到环境变量的，但是如果有了，重启就会自动添加。因此现在可能没法在终端直接输入 &lt;code>cfw&lt;/code> 来启动 Clash，重启才行，不过没事，对下述过程没影响。&lt;/p>
+&lt;h2 id="配置快速启动图标">
+配置快速启动图标
+&lt;a class="heading-link" href="#%e9%85%8d%e7%bd%ae%e5%bf%ab%e9%80%9f%e5%90%af%e5%8a%a8%e5%9b%be%e6%a0%87">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>每次在终端打开当然是有点烦的，因此最好可以直接在快速启动栏找到，像下面这样：&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/clash-for-windows-on-linux/desktop.png" alt="">&lt;/p>
+&lt;p>和我之前写过的 &lt;a href="https://blog.zzsqwq.cn/posts/193/">Ubuntu如何利用AppImage创建Qv2ray快捷方式&lt;/a> 差不多，&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>❯ sudo vim ~/.local/share/applications/clash.desktop &lt;span style="color:#75715e"># 编辑一个文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 写入如下内容&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>Desktop Entry&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Name&lt;span style="color:#f92672">=&lt;/span>Clash Fow Windows
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Exec&lt;span style="color:#f92672">=&lt;/span>/home/user/.local/bin/cfw
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Icon&lt;span style="color:#f92672">=&lt;/span>/home/user/.local/bin/cfw
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Type&lt;span style="color:#f92672">=&lt;/span>Application
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>StartupNotify&lt;span style="color:#f92672">=&lt;/span>true
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后添加可执行权限：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>❯ sudo chmod +x ~/.local/share/applications/clash.desktop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这里也是在 &lt;code>.local&lt;/code> 文件夹下操作的，这样只会影响到当前环境，当然你也可以在 &lt;code>/usr/share/applications&lt;/code> 路径下创建。可以在这里&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup> 找到对应的 Clash Logo，在 Icon 那里设置图标路径即可，如果还是不行，可以找到这个文件然后右键-&amp;gt;属性，点击图标更改。&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/clash-for-windows-on-linux/set_icon.png" alt="">&lt;/p>
+&lt;h2 id="配置开机自启动">
+配置开机自启动
+&lt;a class="heading-link" href="#%e9%85%8d%e7%bd%ae%e5%bc%80%e6%9c%ba%e8%87%aa%e5%90%af%e5%8a%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;div class="notice info">
+&lt;div class="notice-title">
+&lt;i class="fa fa-exclamation-circle" aria-hidden="true">&lt;/i>Info
+&lt;/div>
+&lt;div class="notice-content">在 2022/6/4 的更新中，已经修复了 Start with Linux 失效的问题。&lt;/div>
+&lt;/div>
+&lt;p>因为 Electron 的一些限制，点击 &lt;code>Start with Linux&lt;/code> 后貌似仍没法开机自启动，去官方仓库看了一下 Issue，找到了两个：&lt;/p>
+&lt;ol>
+&lt;li>&lt;a href="https://github.com/Fndroid/clash_for_windows_pkg/issues/2856">ubuntu下开启start with linux没有作用&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/Fndroid/clash_for_windows_pkg/issues/2230#issuecomment-922433716">在 Linux 上安装 | Install on Linux&lt;/a>&lt;/li>
+&lt;/ol>
+&lt;p>采取 &lt;a href="https://github.com/horizon86">horizon86 &lt;/a>大佬的方式&lt;/p>
+&lt;blockquote>
+&lt;p>我的临时解决方案是添加&lt;code>/etc/xdg/autostart/cfw.desktop&lt;/code>，内容如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>Desktop Entry&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Name&lt;span style="color:#f92672">=&lt;/span>CFW
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Name&lt;span style="color:#f92672">[&lt;/span>zh_CN&lt;span style="color:#f92672">]=&lt;/span>Clash &lt;span style="color:#66d9ef">for&lt;/span> windwos
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>GenericName&lt;span style="color:#f92672">=&lt;/span>Clash &lt;span style="color:#66d9ef">for&lt;/span> windows
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>GenericName&lt;span style="color:#f92672">[&lt;/span>zh_CN&lt;span style="color:#f92672">]=&lt;/span>Clash &lt;span style="color:#66d9ef">for&lt;/span> windows
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Comment&lt;span style="color:#f92672">=&lt;/span>Start Clash &lt;span style="color:#66d9ef">for&lt;/span> windows
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Comment&lt;span style="color:#f92672">[&lt;/span>zh_CN&lt;span style="color:#f92672">]=&lt;/span>启动Clash &lt;span style="color:#66d9ef">for&lt;/span> windows
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Exec&lt;span style="color:#f92672">=&lt;/span>/home/user/.local/bin/cfw
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Icon&lt;span style="color:#f92672">=&lt;/span>/home/user/.local/bin/cfw
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Terminal&lt;span style="color:#f92672">=&lt;/span>false
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Type&lt;span style="color:#f92672">=&lt;/span>Application
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Categories&lt;span style="color:#f92672">=&lt;/span>System;Utility;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>StartupNotify&lt;span style="color:#f92672">=&lt;/span>false
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>X-GNOME-AutoRestart&lt;span style="color:#f92672">=&lt;/span>false
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>X-GNOME-Autostart-Notify&lt;span style="color:#f92672">=&lt;/span>false
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>X-KDE-autostart-after&lt;span style="color:#f92672">=&lt;/span>panel
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>X-KDE-StartupNotify&lt;span style="color:#f92672">=&lt;/span>false
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/blockquote>
+&lt;p>注意这里的 &lt;code>Exec&lt;/code>、&lt;code>Icon&lt;/code> 字段保持与之前桌面启动图标中的一致即可，同样添加可执行权限即可&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo chmod +x /etc/xdg/autostart/cfw.desktop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://ghproxy.com/">https://ghproxy.com/&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>&lt;a href="https://zh.wikipedia.org/zh-sg/File:Clash_Logo.png">https://zh.wikipedia.org/zh-sg/File:Clash_Logo.png&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
 &lt;/div></description></item><item><title>一个基于 Hugo 的个人主页主题</title><link>https://blog.zzsqwq.cn/posts/my-hugo-academia-theme/</link><pubDate>Tue, 03 May 2022 21:40:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/my-hugo-academia-theme/</guid><description>&lt;h2 id="背景">
 背景
 &lt;a class="heading-link" href="#%e8%83%8c%e6%99%af">
@@ -1578,6 +1677,285 @@ AI 绘图
 &lt;/li>
 &lt;li id="fn:4">
 &lt;p>&lt;a href="https://blog.csdn.net/kangkanglou/article/details/90760529">公钥添加到authorized_keys到文件中之后仍无法免密登陆&lt;/a>&amp;#160;&lt;a href="#fnref:4" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>如何在 Linux 上优雅的使用 Clash？</title><link>https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/</link><pubDate>Sat, 23 Apr 2022 19:04:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/</guid><description>&lt;div class="notice tip">
+&lt;div class="notice-title">
+&lt;i class="fa fa-lightbulb-o" aria-hidden="true">&lt;/i>Tip
+&lt;/div>
+&lt;div class="notice-content">此方式推荐在纯终端（无图形化界面）环境下使用，有图形化界面的情况下推荐使用 &lt;a href="https://github.com/Fndroid/clash_for_windows_pkg/releases">Clash for Windows&lt;/a> 或 &lt;a href="https://github.com/zzzgydi/clash-verge">Clash Verge&lt;/a>，相关博文可见—&lt;a href="https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/">Linux 上 Clash For Windows 如何设置开机自启与桌面图标&lt;/a>。&lt;/div>
+&lt;/div>
+&lt;h2 id="为什么选择-clash">
+为什么选择 Clash？
+&lt;a class="heading-link" href="#%e4%b8%ba%e4%bb%80%e4%b9%88%e9%80%89%e6%8b%a9-clash">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>目前 Clash 由于其基于规则分流的强大代理功能，已经成为主流的代理内核，在各个平台都有对应的客户端。如 Windows 端的 Clash For Windows(CFW)，MacOS 端的 ClashX，Android 端的 Clash For Android，IOS 端 Choc。&lt;/p>
+&lt;p>那么我们如何能够在 Linux 上优雅的使用 Clash 呢？&lt;/p>
+&lt;h2 id="一基于-docker-的实现">
+一、基于 Docker 的实现
+&lt;a class="heading-link" href="#%e4%b8%80%e5%9f%ba%e4%ba%8e-docker-%e7%9a%84%e5%ae%9e%e7%8e%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.docker.com/">Docker&lt;/a> 是一个开源的应用容器引擎，开发者可以把包和依赖等集成到一个容器中，并打包成镜像发布。用户可以直接拉取镜像并创建容器，而不会污染本地的环境，&lt;strong>十分的好用&lt;/strong>。&lt;/p>
+&lt;p>我现在在使用一个软件的时候一般都是有 docker 实现会优先使用 docker，配合 &lt;a href="https://docs.docker.com/compose/">docker-compose&lt;/a> 管理真的非常的方便。因此我们优先考虑使用 docker 来配置 clash 代理。&lt;/p>
+&lt;h3 id="11-安装-docker">
+1.1 安装 docker
+&lt;a class="heading-link" href="#11-%e5%ae%89%e8%a3%85-docker">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>大家可以参考 &lt;a href="https://docs.docker.com/get-docker/">官网安装指南&lt;/a> 来在 Linux 安装 docker，就不详细赘述了。&lt;/p>
+&lt;p>顺便可以参考 &lt;a href="https://docs.docker.com/compose/install/">docker-compose 安装指南&lt;/a> 来安装 docker-compose。&lt;/p>
+&lt;p>安装结束后，使用 &lt;code>docker --version&lt;/code> 以及 &lt;code>docker-compose --version&lt;/code> 进行验证，输出如下进行下一步。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>❯ docker --version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Docker version 20.10.14, build a224086
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ docker-compose --version
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker-compose version 1.29.2, build 5becea4c
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="12-创建-docker-compose-文件">
+1.2 创建 docker-compose 文件
+&lt;a class="heading-link" href="#12-%e5%88%9b%e5%bb%ba-docker-compose-%e6%96%87%e4%bb%b6">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>首先打开一个新的终端，进入根目录，运行如下指令，创建文件夹存放 docker-compose 配置文件。这里是在当前用户家目录下创建了 Services 文件夹，并在其中创建了 clash 文件夹。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>❯ mkdir -p ~/Services/clash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后进入上述文件夹，并使用文本编辑器创建 &lt;code>docker-compose.yml&lt;/code> 文件&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>~
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ cd ~/Services/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>~/Services/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ vim docker-compose.yml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>在文件中填入下述内容，该文件参考&lt;a href="https://github.com/Dreamacro/clash/wiki/clash-as-a-daemon#docker">官方文档&lt;/a>，并进行了一定的改动&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>version: &lt;span style="color:#e6db74">&amp;#39;3&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>services:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> clash:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># ghcr.io/dreamacro/clash&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># ghcr.io/dreamacro/clash-premium&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># dreamacro/clash&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># dreamacro/clash-premium&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> image: dreamacro/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> container_name: clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> volumes:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - ./config.yaml:/root/.config/clash/config.yaml
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - ./Country.mmdb:/root/.config/clash/Country.mmdb
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - ./ui:/ui &lt;span style="color:#75715e"># dashboard volume&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ports:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#e6db74">&amp;#34;7890:7890&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#e6db74">&amp;#34;7891:7891&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> - &lt;span style="color:#e6db74">&amp;#34;9090:9090&amp;#34;&lt;/span> &lt;span style="color:#75715e"># external controller (Restful API)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># # TUN&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># cap_add:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># - NET_ADMIN&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># devices:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># - /dev/net/tun&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> restart: unless-stopped
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> network_mode: &lt;span style="color:#e6db74">&amp;#34;bridge&amp;#34;&lt;/span> &lt;span style="color:#75715e"># or &amp;#34;host&amp;#34; on Linux&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>我们映射了三个文件到容器内部，分别是代理配置文件 &lt;code>config.yaml&lt;/code> ，全球IP库文件 &lt;code>Country.mmdb&lt;/code> ，控制面板静态源码 &lt;code>ui&lt;/code> 文件夹。&lt;/p>
+&lt;p>然后映射了三个端口，上述三个端口分别对应了 &lt;code>config.yaml&lt;/code> 文件中的 &lt;code>port&lt;/code>、&lt;code>socks-port&lt;/code>、&lt;code>external-controller&lt;/code>。分别用于 http/https 流量代理，socks 流量代理，以及外部控制。&lt;/p>
+&lt;h3 id="13-下载对应的文件">
+1.3 下载对应的文件
+&lt;a class="heading-link" href="#13-%e4%b8%8b%e8%bd%bd%e5%af%b9%e5%ba%94%e7%9a%84%e6%96%87%e4%bb%b6">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>首先是 config.yaml 文件，这个就是下载你的配置文件，将 &lt;code>$your-proxy-url&lt;/code> 替换为对应的订阅链接即可。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>~/Services/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ cd ~/Services/clash &lt;span style="color:#75715e">#下述所有操作都在该文件夹执行&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>~/Services/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ wget -O config.yaml $your-proxy-url
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后下载 &lt;code>Country.mmdb&lt;/code> 文件，虽然这个文件在没有的时候会自动下载，但是一般速度较慢，还是手动下载比较好，你可以在这里找到对应的文件 &lt;a href="https://github.com/Dreamacro/maxmind-geoip/releases">Dreamacro/maxmid-geoip/releases&lt;/a> 。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>~/Services/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ wget https://github.com/Dreamacro/maxmind-geoip/releases/download/20220412/Country.mmdb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>然后下载对应的 ui 控制面板，目前有两款，分别是 clash 原作者的 &lt;a href="https://github.com/Dreamacro/clash-dashboard">clash-dashboard&lt;/a> 以及另一位大佬的 &lt;a href="https://github.com/haishanh/yacd">yacd-dashboard&lt;/a> ，大家自选其一即可，我常用的是 &lt;code>clash-dashboard&lt;/code>。&lt;/p>
+&lt;p>&lt;strong>Ps：这一步算是可有可无，大家可以直接访问对应的链接&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>clash-dashboard：http://clash.razord.top/&lt;/li>
+&lt;li>yacd-dashboard：http://yacd.haishan.me/&lt;/li>
+&lt;/ul>
+&lt;p>填入对应的 IP、端口、密钥进行控制，&lt;strong>如果上述需求已经足够，就无需配置后续的本地面板&lt;/strong>。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>~/Services/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ git clone -b gh-pages https://github.com/Dreamacro/clash-dashboard ui
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这样就克隆 &lt;a href="https://github.com/Dreamacro/clash-dashboard">clash-dashboard&lt;/a> 仓库的 gh-pages 分支到了 ui 文件夹。&lt;/p>
+&lt;p>然后配置一下我们的 &lt;code>config.yaml&lt;/code> 文件，确保下面四项如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>port: &lt;span style="color:#ae81ff">7890&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>socks-port: &lt;span style="color:#ae81ff">7891&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>external-controller: :9090
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>external-ui: /ui
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这里的 &lt;code>port&lt;/code> 是 http/https 代理端口，&lt;code>socks-port&lt;/code> 是 socks 流量代理端口，&lt;code>external-controller&lt;/code> 是外部控制端口，用于面板控制，&lt;code>external-ui&lt;/code> 是本地控制页面的源码，确保 &lt;code>localhost:external-controller/ui&lt;/code> 页面可以控制代理。&lt;/p>
+&lt;p>顺便说一下，这里其实严格意义上不是必须和我一样，只要和前面的 &lt;code>docker-compose.yml&lt;/code> 文件中的端口映射对应起来即可，但是如果你对 Docker 及 Clash 不够了解，推荐和我选择一样的配置。&lt;/p>
+&lt;h3 id="14-启动容器">
+1.4 启动容器
+&lt;a class="heading-link" href="#14-%e5%90%af%e5%8a%a8%e5%ae%b9%e5%99%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>在该目录下启动容器&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>~/Services/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ docker-compose up -d
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>后续可以通过 &lt;code>docker ps&lt;/code> 查看容器状态&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>~/Services/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ docker ps
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>304c4934e528 dreamacro/clash &lt;span style="color:#e6db74">&amp;#34;/clash&amp;#34;&lt;/span> &lt;span style="color:#ae81ff">53&lt;/span> minutes ago Up &lt;span style="color:#ae81ff">52&lt;/span> minutes 0.0.0.0:7890-7891-&amp;gt;7890-7891/tcp, :::7890-7891-&amp;gt;7890-7891/tcp, 0.0.0.0:9090-&amp;gt;9090/tcp, :::9090-&amp;gt;9090/tcp clash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>可以通过在该目录下执行 &lt;code>docker-compose logs&lt;/code> ，或在任何位置执行 &lt;code>docker logs clash&lt;/code> 查看容器日志&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>~/Services/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ docker-compose logs | tail -n &lt;span style="color:#ae81ff">20&lt;/span> &lt;span style="color:#75715e">#查看最近20条log&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>~
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ docker logs clash | tail -n &lt;span style="color:#ae81ff">30&lt;/span> &lt;span style="color:#75715e">#查看最近30条&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>关闭容器可以使用 &lt;code>docker-compose down&lt;/code>，即可停止并移除该容器，不留任何残余（&lt;del>干净又卫生啊兄弟们&lt;/del>）。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>~/Services/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ docker-compose down
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Stopping clash ... &lt;span style="color:#66d9ef">done&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Removing clash ... &lt;span style="color:#66d9ef">done&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="15-控制代理">
+1.5 控制代理
+&lt;a class="heading-link" href="#15-%e6%8e%a7%e5%88%b6%e4%bb%a3%e7%90%86">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>后续大家可以通过访问上述的两个公开链接，或者本地的 &lt;code>localhost:9090/ui&lt;/code>（必须配置了 &lt;code>external-ui&lt;/code> 参数才可使用）来对代理进行控制。&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/how-to-use-clash-on-linux/clash-dashboard-demo.png" alt="clash-dashboard 界面">&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/images/how-to-use-clash-on-linux/yacd-dashboard-demo.png" alt="yacd-dashboard 界面">&lt;/p>
+&lt;h2 id="二基于-systemd-的实现">
+二、基于 Systemd 的实现
+&lt;a class="heading-link" href="#%e4%ba%8c%e5%9f%ba%e4%ba%8e-systemd-%e7%9a%84%e5%ae%9e%e7%8e%b0">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>Systemd 是 Linux 系统工具，用来启动&lt;a href="https://www.ruanyifeng.com/blog/2016/02/linux-daemon.html">守护进程&lt;/a>，已成为大多数发行版的标准配置。&lt;/p>
+&lt;p>大家可以通过下面阮一峰老师的教程&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>来学习 Systemd 的一些基础知识。&lt;/p>
+&lt;h3 id="21-下载-clash-内核">
+2.1 下载 Clash 内核
+&lt;a class="heading-link" href="#21-%e4%b8%8b%e8%bd%bd-clash-%e5%86%85%e6%a0%b8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>首先下载 clash 内核并且移动到用户可执行目录下，你可以在这里找到最新的内核 &lt;a href="https://github.com/Dreamacro/clash/releases">clash-core&lt;/a>。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>~
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ cd ~/Downloads
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>~/Downloads
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ wget https://github.com/Dreamacro/clash/releases/download/v1.10.0/clash-linux-amd64-v1.10.0.gz &lt;span style="color:#75715e"># 如果速度较慢，可以添加 https://ghproxy.com/ 形成 https://ghproxy.com/https://github.com/Dreamacro/clash/releases/download/v1.10.0/clash-linux-amd64-v1.10.0.gz 式的链接进行加速&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 解压&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>~/Downloads
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ gunzip clash-linux-amd64-v1.10.0.gz
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 移动到 /usr/local/bin 目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>~/Downloads
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ sudo mv clash-linux-amd64-v1.10.0 /usr/local/bin/clash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="22-下载各类配置文件">
+2.2 下载各类配置文件
+&lt;a class="heading-link" href="#22-%e4%b8%8b%e8%bd%bd%e5%90%84%e7%b1%bb%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>这里跟上面的 &lt;strong>1.3 下载对应的文件&lt;/strong> 非常的相似，大家可以参考上面的进行，不过可以都统一下载到 &lt;code>/opt/clash&lt;/code> 文件夹中，包括 &lt;code>config.yaml&lt;/code>、 &lt;code>Country.mmdb&lt;/code> 文件及 &lt;code>ui&lt;/code> 文件夹（如果不需要本地面板，则不需要配置 ui）。&lt;/p>
+&lt;p>下面是创建文件夹等过程示例，下载配置文件请参考 1.3 节进行&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>~/Downloads
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ sudo mkdir -p /opt/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>~/Downloads
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ cd /opt/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/opt/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ wget -O config.yaml ..............
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 接下来下载对应的文件&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>最后结构目录应该如下所示，ui 为文件夹&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>/opt/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ ls -la
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>total &lt;span style="color:#ae81ff">5508&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>drwxr-xr-x &lt;span style="color:#ae81ff">3&lt;/span> root root &lt;span style="color:#ae81ff">4096&lt;/span> 4月 &lt;span style="color:#ae81ff">23&lt;/span> 20:30 .
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>drwxr-xr-x &lt;span style="color:#ae81ff">9&lt;/span> root root &lt;span style="color:#ae81ff">4096&lt;/span> 4月 &lt;span style="color:#ae81ff">22&lt;/span> 09:02 ..
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>-rw-r--r-- &lt;span style="color:#ae81ff">1&lt;/span> root root &lt;span style="color:#ae81ff">177047&lt;/span> 4月 &lt;span style="color:#ae81ff">22&lt;/span> 09:04 config.yaml
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>-rw-r--r-- &lt;span style="color:#ae81ff">1&lt;/span> root root &lt;span style="color:#ae81ff">5446245&lt;/span> 4月 &lt;span style="color:#ae81ff">12&lt;/span> 08:56 Country.mmdb
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>drwxr-xr-x &lt;span style="color:#ae81ff">4&lt;/span> root root &lt;span style="color:#ae81ff">4096&lt;/span> 4月 &lt;span style="color:#ae81ff">22&lt;/span> 08:40 ui
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="23-配置-clashservice-守护进程文件">
+2.3 配置 clash.service 守护进程文件
+&lt;a class="heading-link" href="#23-%e9%85%8d%e7%bd%ae-clashservice-%e5%ae%88%e6%8a%a4%e8%bf%9b%e7%a8%8b%e6%96%87%e4%bb%b6">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>~/Downloads
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ sudo vim /etc/systemd/system/clash.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>运行上述命令，并在文件中写入下列内容，这里参考了官网的文档&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>Unit&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Description&lt;span style="color:#f92672">=&lt;/span>Clash daemon, A rule-based proxy in Go.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>After&lt;span style="color:#f92672">=&lt;/span>network.target
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>Service&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Type&lt;span style="color:#f92672">=&lt;/span>simple
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>User&lt;span style="color:#f92672">=&lt;/span>root
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ExecStart&lt;span style="color:#f92672">=&lt;/span>/usr/local/bin/clash -d /opt/clash/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Restart&lt;span style="color:#f92672">=&lt;/span>on-failure
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>Install&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>WantedBy&lt;span style="color:#f92672">=&lt;/span>multi-user.target
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>大家如果对上述内容有疑问，可以参考阮一峰老师的教程。&lt;/p>
+&lt;h3 id="24-修改配置文件">
+2.4 修改配置文件
+&lt;a class="heading-link" href="#24-%e4%bf%ae%e6%94%b9%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>如 &lt;strong>1.3 下载对应的文件&lt;/strong> 所示，要确保配置文件中的下面四个参数对应如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>port: &lt;span style="color:#ae81ff">7890&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>socks-port: &lt;span style="color:#ae81ff">7891&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>external-controller: :9090
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>external-ui: /opt/clash/ui
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>具体参数的作用上面已经讲过了。&lt;/p>
+&lt;h3 id="25-启动并设置开机启动">
+2.5 启动并设置开机启动
+&lt;a class="heading-link" href="#25-%e5%90%af%e5%8a%a8%e5%b9%b6%e8%ae%be%e7%bd%ae%e5%bc%80%e6%9c%ba%e5%90%af%e5%8a%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>&lt;strong>启动 Clash service 守护进程&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>~/Services/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ sudo systemctl start clash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>设置为开机自启动&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>~/Services/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ sudo systemctl enable clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Created symlink /etc/systemd/system/multi-user.target.wants/clash.service → /etc/systemd/system/clash.service.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>查看 Clash 进程状态&lt;/strong>，确保下面的 &lt;code>Active&lt;/code> 为 &lt;code>active(running)&lt;/code> 即正常。如果有遇到问题可以评论或者通过搜索引擎。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>~/Services/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ sudo systemctl status clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>● clash.service - Clash daemon, A rule-based proxy in Go.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Loaded: loaded &lt;span style="color:#f92672">(&lt;/span>/etc/systemd/system/clash.service; disabled; vendor preset&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Active: active &lt;span style="color:#f92672">(&lt;/span>running&lt;span style="color:#f92672">)&lt;/span> since Sat 2022-04-23 21:49:39 CST; 43s ago
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Main PID: &lt;span style="color:#ae81ff">120629&lt;/span> &lt;span style="color:#f92672">(&lt;/span>clash&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Tasks: &lt;span style="color:#ae81ff">13&lt;/span> &lt;span style="color:#f92672">(&lt;/span>limit: 18860&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Memory: 16.1M
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CGroup: /system.slice/clash.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> └─120629 /usr/local/bin/clash -d /opt/clash/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>查看详细日志&lt;/strong>，可以使用 &lt;code>journalctl&lt;/code>，所有 Systemd 服务的日志都可以通过这个查看&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>~/Services/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ sudo journalctl -u clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>-- Logs begin at Thu 2022-04-14 23:14:57 CST, end at Sat 2022-04-23 21:53:15 CS&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>4月 &lt;span style="color:#ae81ff">15&lt;/span> 01:23:14 zs-XiaoXinPro systemd&lt;span style="color:#f92672">[&lt;/span>1&lt;span style="color:#f92672">]&lt;/span>: /etc/systemd/system/clash.service:5: &amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>4月 &lt;span style="color:#ae81ff">15&lt;/span> 01:23:14 zs-XiaoXinPro systemd&lt;span style="color:#f92672">[&lt;/span>1&lt;span style="color:#f92672">]&lt;/span>: Started clash daemon.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>取消开机自启动&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>~/Services/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ sudo systemctl disable clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Removed /etc/systemd/system/multi-user.target.wants/clash.service.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;strong>停止 Clash 服务守护进程&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>~/Services/clash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ sudo systemctl stop clash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>&lt;a href="https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html">Systemd 入门教程：命令篇&lt;/a> 以及 &lt;a href="https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html">Systemd 入门教程：实战篇&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>&lt;a href="https://github.com/Dreamacro/clash/wiki/clash-as-a-daemon">https://github.com/Dreamacro/clash/wiki/clash-as-a-daemon&lt;/a>&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
 &lt;/li>
 &lt;/ol>
 &lt;/div></description></item><item><title>关于春节期间的一些碎碎念</title><link>https://blog.zzsqwq.cn/posts/224/</link><pubDate>Thu, 10 Feb 2022 00:52:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/224/</guid><description>&lt;h2 id="前言">
@@ -2242,7 +2620,138 @@ Ubuntu 20.04 相关
 &lt;li>&lt;a href="https://askubuntu.com/questions/1041677/how-to-change-the-login-screen-resolution-in-ubuntu-18-04">How to change the login screen resolution in Ubuntu 18.04&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://askubuntu.com/questions/1252172/custom-resolution-ubuntu-20-04">Custom Resolution Ubuntu 20.04&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://askubuntu.com/questions/1091778/how-can-i-change-the-resolution-of-the-grub-menu">How can I change the resolution of the GRUB menu?&lt;/a>&lt;/li>
-&lt;/ol></description></item><item><title>Redmi AC2100刷写OpenWrt教程</title><link>https://blog.zzsqwq.cn/posts/209/</link><pubDate>Sun, 01 Aug 2021 21:48:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/209/</guid><description>&lt;h1 id="redmi-ac2100刷写openwrt教程">
+&lt;/ol></description></item><item><title>纯终端环境代理配置教程</title><link>https://blog.zzsqwq.cn/posts/212/</link><pubDate>Mon, 13 Sep 2021 18:15:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/212/</guid><description>&lt;h1 id="纯终端环境代理配置教程">
+纯终端环境代理配置教程
+&lt;a class="heading-link" href="#%e7%ba%af%e7%bb%88%e7%ab%af%e7%8e%af%e5%a2%83%e4%bb%a3%e7%90%86%e9%85%8d%e7%bd%ae%e6%95%99%e7%a8%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h1>
+&lt;h2 id="前言">
+前言
+&lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>我们在很多情况下，可能会在云服务器或是其他纯终端环境（例如树莓派服务器等），或者一些没有屏幕的情况下，只能 &lt;strong>ssh&lt;/strong> 链接到服务器上进行一些操作。&lt;/p>
+&lt;p>这些时候，如果我们想要克隆一个 Github 的仓库，或者下载一些镜像源中没有的文件，简直是难如登天，100kb/s 的速度都很罕见，因此在这种环境下配一个代理还是十分必要的！&lt;/p>
+&lt;p>我们常在 Linux 上使用的 GUI 代理软件如 &lt;strong>Qv2ray、Clash&lt;/strong> 这些就没法用了。因此需要考虑如何在纯终端环境中配置代理的问题，这篇教程就是为解决此问题而写的。&lt;/p>
+&lt;h2 id="教程">
+教程
+&lt;a class="heading-link" href="#%e6%95%99%e7%a8%8b">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h2>
+&lt;p>此教程搭配的是常用的 &lt;strong>v2ray-core + v2rayA&lt;/strong> ，这里的 &lt;strong>v2rayA&lt;/strong> 是一个网页端的代理管理工具，其中支持 &lt;strong>v2ray、Xray、SS、SSR、Trojan&lt;/strong> 等多种协议。&lt;/p>
+&lt;h3 id="一安装-v2ray-core">
+一、安装 v2ray-core
+&lt;a class="heading-link" href="#%e4%b8%80%e5%ae%89%e8%a3%85-v2ray-core">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>首先是需要安装 &lt;strong>v2ray-core&lt;/strong> ，这里我们使用开源的项目 &lt;a href="https://github.com/v2fly/fhs-install-v2ray">v2fly/fhs-install-v2ray&lt;/a> 进行安装，它是一个脚本，可以直接运行完成 &lt;strong>v2ray&lt;/strong> 的安装，安装的文件组织结构符合 &lt;a href="https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard">Filesystem Hierarchy Standard&lt;/a> ，十分方便简洁，很赞！&lt;/p>
+&lt;p>具体步骤如下：&lt;/p>
+&lt;h4 id="下载-fhs-install-v2ray-源码">
+下载 fhs-install-v2ray 源码
+&lt;a class="heading-link" href="#%e4%b8%8b%e8%bd%bd-fhs-install-v2ray-%e6%ba%90%e7%a0%81">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>首先我们因为 Github 克隆很慢，可以先在自己的主机上克隆或者以 &lt;strong>zip&lt;/strong> 包形式下载源码&lt;/p>
+&lt;h4 id="将源码上传到远端">
+将源码上传到远端
+&lt;a class="heading-link" href="#%e5%b0%86%e6%ba%90%e7%a0%81%e4%b8%8a%e4%bc%a0%e5%88%b0%e8%bf%9c%e7%ab%af">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>键入下列代码，通过 &lt;code>scp&lt;/code> 将解压后的代码文件夹目录上传到远端服务器的根目录（如果是树莓派的话可以连接同一局域网进行），注意这里的 &lt;strong>path/to/fhs-install-v2ray&lt;/strong> 指的是本地文件夹的路径&lt;/p>
+&lt;p>&lt;code>scp -r path/to/fhs-install-v2ray username@hostname:~&lt;/code>&lt;/p>
+&lt;h4 id="下载-v2ray-core-源码">
+下载 v2ray-core 源码
+&lt;a class="heading-link" href="#%e4%b8%8b%e8%bd%bd-v2ray-core-%e6%ba%90%e7%a0%81">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>此脚本可以全自动安装，即自动检测本机类型是 Ubuntu 还是其他的版本，然后从远端仓库下载最新的 &lt;strong>v2ray&lt;/strong> 进行安装，不过因为没有代理，这一步还是十分缓慢，因此我们可以进行本地安装。&lt;/p>
+&lt;p>首先，我们去到 &lt;strong>v2ray-core&lt;/strong> 的官方仓库的发布站 -&amp;gt; &lt;a href="https://github.com/v2fly/v2ray-core/releases">Releases · v2fly/v2ray-core &lt;/a>，在这里可以下载最新版本的的 &lt;strong>v2ray-core&lt;/strong>，不过需要注意的是，需要自己辨别版本，如使用的是 &lt;strong>arm&lt;/strong> 还是 &lt;strong>x64_86&lt;/strong> 等，下载后是一个 &lt;strong>zip&lt;/strong> 压缩包，我们直接通过 &lt;code>scp&lt;/code> 上传到远端服务器根目录&lt;/p>
+&lt;p>&lt;code>scp path/to/v2ray-linux-64.zip username@hostname:~&lt;/code>&lt;/p>
+&lt;h4 id="连接远程服务器">
+连接远程服务器
+&lt;a class="heading-link" href="#%e8%bf%9e%e6%8e%a5%e8%bf%9c%e7%a8%8b%e6%9c%8d%e5%8a%a1%e5%99%a8">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>接下来我们通过 &lt;strong>ssh&lt;/strong> 连接到远程服务器&lt;/p>
+&lt;p>&lt;code>ssh username@hostname&lt;/code>&lt;/p>
+&lt;h4 id="完成安装">
+完成安装
+&lt;a class="heading-link" href="#%e5%ae%8c%e6%88%90%e5%ae%89%e8%a3%85">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h4>
+&lt;p>然后进入根目录后，进入 &lt;code>fhs-install-v2ray&lt;/code> 文件夹，会发现里面有两个脚本，一个是 &lt;code>install-dat-release.sh&lt;/code> 另一个是 &lt;code>install-release.sh&lt;/code> ，前者是带有路由规则的，后者是不带有路由规则的。我试用后发现 &lt;code>install-dat-release.sh&lt;/code> 没有办法本地安装，而后者可以，同时因为 &lt;strong>v2rayA&lt;/strong> 中会自带路由规则，因此完全没有必要用前者，我们可以直接使用 &lt;code>install-release.sh&lt;/code> 进行安装。&lt;/p>
+&lt;p>执行 &lt;code>sudo chmod +x install-release.sh&lt;/code> ，添加执行权限&lt;/p>
+&lt;p>执行 &lt;code>sudo ./install-release.sh --local ../v2ray-linux-64.zip&lt;/code>&lt;/p>
+&lt;p>这里的 local 参数代表是本地安装，解析后面的文件，&lt;strong>注意这里是直接 zip 包&lt;/strong>，不需要解压。同时，这里的路径也是需要和你的下载的文件地址对应。&lt;/p>
+&lt;p>不出意外的话，瞬间就可以安装完成。截止到这里，&lt;strong>v2ray-core&lt;/strong> 已经安装成功。需要注意的是，这里不需要执行 &lt;code>sudo systemctl enable v2ray&lt;/code> ，因为后续的 &lt;strong>v2rayA&lt;/strong> 不依赖此服务。&lt;/p>
+&lt;p>安装的文件路径如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>installed: /usr/local/bin/v2ray &lt;span style="color:#75715e">#v2ray 主程序地址&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>installed: /usr/local/bin/v2ctl &lt;span style="color:#75715e">#v2ray 控制程序&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>installed: /usr/local/share/v2ray/geoip.dat &lt;span style="color:#75715e"># 可选，路由信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>installed: /usr/local/share/v2ray/geosite.dat &lt;span style="color:#75715e">#可选，路由信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>installed: /usr/local/etc/v2ray/config.json &lt;span style="color:#75715e">#代理配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>installed: /var/log/v2ray/ &lt;span style="color:#75715e">#下面三个都是log文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>installed: /var/log/v2ray/access.log
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>installed: /var/log/v2ray/error.log
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>installed: /etc/systemd/system/v2ray.service &lt;span style="color:#75715e">#v2ray 服务配置信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>installed: /etc/systemd/system/v2ray@.service
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>如果有报错的话，可以看对应的 &lt;code>error&lt;/code> 报错去 &lt;a href="https://github.com/v2fly/fhs-install-v2ray">v2fly/fhs-install-v2ray&lt;/a> 官方仓库 Issue 处查看。&lt;/p>
+&lt;h3 id="二安装-v2raya">
+二、安装 v2rayA
+&lt;a class="heading-link" href="#%e4%ba%8c%e5%ae%89%e8%a3%85-v2raya">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>首先，同样的是，为了防止 Github 下载太慢，我们也可以去到官方仓库的发布站 -&amp;gt; &lt;a href="https://github.com/v2rayA/v2rayA/releases">Releases · v2rayA/v2rayA &lt;/a> ，下载对应系统版本的安装包，然后通过 &lt;code>scp&lt;/code> 上传到远端。&lt;/p>
+&lt;p>这里以 &lt;strong>x64_86 版本的 Ubuntu 18.04.5 LTS&lt;/strong> 举例，我们直接下载 &lt;code>installer_debian_x64_v1.5.2.deb&lt;/code> 到本地，然后执行&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>scp path/to/installer_debian_x64_v1.5.2.deb username@hostname:~
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>将文件上传到远端。&lt;/p>
+&lt;p>然后 &lt;strong>ssh&lt;/strong> 到服务器执行：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>sudo dpkg -i installer_debian_x64_v1.5.2.deb
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>安装成功后依次执行：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 启动 v2raya&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl start v2raya
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 开机自启 v2raya&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl enable v2raya
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这样就成功开启了 &lt;code>v2rayA&lt;/code>，我们访问 &lt;code>ip:2017&lt;/code> ，前面是你云服务器的公网 &lt;code>ip&lt;/code> 或者是自建服务器的局域网 &lt;code>ip&lt;/code> ，我们就可以访问到对应的服务，界面大致如下：&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/09/2395630589.png" alt="v2rayA界面">&lt;/p>
+&lt;p>首次进入时会让你设置账号和密码，用于后续的管理。还会引导你导入链接，在导入链接后，就可以点击上方的第三栏，进行连接、查看或分享对应的代理了！&lt;/p>
+&lt;p>说一下我现在用的设置，点击右上角设置，&lt;strong>透明代理和规则端口的分流模式&lt;/strong>设置为&lt;strong>大陆白名单&lt;/strong>，然后实现方式我用的是 &lt;strong>redirect&lt;/strong>，每隔 24h 更新依次代理，左下角设置的地址与端口我用的是默认的，如下：&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/09/2537498828.png" alt="地址与端口设置">&lt;/p>
+&lt;p>这样我们就可以愉快的上网了！！可以 &lt;strong>ssh&lt;/strong> 到服务器试一下 &lt;code>wget google.com&lt;/code>，正常结果如下：&lt;/p>
+&lt;pre tabindex="0">&lt;code>❯ wget google.com
+--2021-09-13 18:11:04-- http://google.com/
+Resolving google.com (google.com)... 93.46.8.90
+Connecting to google.com (google.com)|93.46.8.90|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: http://www.google.com/ [following]
+--2021-09-13 18:11:05-- http://www.google.com/
+Resolving www.google.com (www.google.com)... 108.160.165.141, 2001::453f:b213
+Connecting to www.google.com (www.google.com)|108.160.165.141|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘index.html’
+index.html [ &amp;lt;=&amp;gt; ] 13.42K 59.8KB/s in 0.2s
+2021-09-13 18:11:06 (59.8 KB/s) - ‘index.html’ saved [13740]
+&lt;/code>&lt;/pre>&lt;p>这代表着，我们下载到了 &lt;strong>google.com&lt;/strong> 页面的源码，即可以连通 &lt;strong>Google&lt;/strong> 服务。&lt;/p>
+&lt;h3 id="一些存在的小问题">
+一些存在的小问题
+&lt;a class="heading-link" href="#%e4%b8%80%e4%ba%9b%e5%ad%98%e5%9c%a8%e7%9a%84%e5%b0%8f%e9%97%ae%e9%a2%98">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>我现在还没有搞清楚透明代理的作用，如果不开的话，我通过 &lt;code>proxychains&lt;/code> 配置对应的端口，发现并不能上网，但是如果我直接开了透明代理，不需要 &lt;code>proxychains&lt;/code> 也可以直接在终端使用代理，感觉是全局代理，不过不影响使用。&lt;/p>
+&lt;p>具体的一些细节还没有搞清楚，后续学习了再回来补更。&lt;/p></description></item><item><title>Redmi AC2100刷写OpenWrt教程</title><link>https://blog.zzsqwq.cn/posts/209/</link><pubDate>Sun, 01 Aug 2021 21:48:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/209/</guid><description>&lt;h1 id="redmi-ac2100刷写openwrt教程">
 Redmi AC2100刷写Openwrt教程
 &lt;a class="heading-link" href="#redmi-ac2100%e5%88%b7%e5%86%99openwrt%e6%95%99%e7%a8%8b">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
@@ -3118,7 +3627,107 @@ Git中的引用
 &lt;/a>
 &lt;/h3>
 &lt;p>虽然已经知道了解决方案，但是最终我还是选择卸载掉QQ，安装了wine版本的TIM，感觉和QQ没什么区别，而且更加简洁，而且可以流畅运行，没有N卡兼容问题！大家可以考虑一下~&lt;/p>
-&lt;p>而且QQ和TIM某些情况下会出现bug，字体全部变为方块，在 deepin-wine-ubuntu 的 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues">Issues&lt;/a> 中找到了解决方案 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/253">Ubuntu 安装QQ后中文方块解决方法&lt;/a> ，大家有同样困扰的也可以看一下~&lt;/p></description></item><item><title>利用神经网络进行波士顿房价预测</title><link>https://blog.zzsqwq.cn/posts/182/</link><pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/182/</guid><description>&lt;h3 id="前言">
+&lt;p>而且QQ和TIM某些情况下会出现bug，字体全部变为方块，在 deepin-wine-ubuntu 的 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues">Issues&lt;/a> 中找到了解决方案 &lt;a href="https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/253">Ubuntu 安装QQ后中文方块解决方法&lt;/a> ，大家有同样困扰的也可以看一下~&lt;/p></description></item><item><title>Ubuntu如何利用AppImage创建Qv2ray快捷方式</title><link>https://blog.zzsqwq.cn/posts/193/</link><pubDate>Wed, 16 Jun 2021 00:54:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/193/</guid><description>&lt;h3 id="前言">
+前言
+&lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>最近因为之前的Ubuntu系统有一些环境和神奇的问题，把Ubuntu重装了，在配置Qv2ray的时候，之前一直是把AppImage放到桌面上直接使用，这样的话一直用起来不仅难找而且操作有点困难，因此考虑将他放到命令行启动并且可以在快捷方式中找到。效果如下图所示：&lt;/p>
+&lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2021/06/2642879187.png" alt="快捷方式效果图">&lt;/p>
+&lt;h3 id="原理">
+原理
+&lt;a class="heading-link" href="#%e5%8e%9f%e7%90%86">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>首先需要明白的是这个里面的每个快捷方式，其实都是解析一个文件得到的，这些文件都存在于 &lt;code>\usr\share\applications&lt;/code> 中，文件名为 &lt;code>**.desktop&lt;/code> ，随便打开里面的一个文件看一下，Typora的启动文件内容如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>Desktop Entry&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Name&lt;span style="color:#f92672">=&lt;/span>Typora
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Comment&lt;span style="color:#f92672">=&lt;/span>a minimal Markdown reading &amp;amp; writing app. Change Log: &lt;span style="color:#f92672">(&lt;/span>https://typora.io/windows/dev_release.html&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>GenericName&lt;span style="color:#f92672">=&lt;/span>Markdown Editor
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Exec&lt;span style="color:#f92672">=&lt;/span>typora %U
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Icon&lt;span style="color:#f92672">=&lt;/span>typora
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Type&lt;span style="color:#f92672">=&lt;/span>Application
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>StartupNotify&lt;span style="color:#f92672">=&lt;/span>true
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Categories&lt;span style="color:#f92672">=&lt;/span>Office;WordProcessor;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>MimeType&lt;span style="color:#f92672">=&lt;/span>text/markdown;text/x-markdown;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>可以看到里面的内容写的非常清晰，其中比较重要的有以下几个&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>关键词&lt;/th>
+&lt;th>意义&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>[Desktop Entry]&lt;/td>
+&lt;td>文件头&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Name&lt;/td>
+&lt;td>应用名称&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Comment&lt;/td>
+&lt;td>描述&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Exec&lt;/td>
+&lt;td>执行的命令&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Icon&lt;/td>
+&lt;td>图标路径&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Type&lt;/td>
+&lt;td>启动器类型&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Categories&lt;/td>
+&lt;td>应用的类型（内容相关）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>StartupNotify&lt;/td>
+&lt;td>启动时是否打印输出信息&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Terminal&lt;/td>
+&lt;td>是否在终端中运行&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="快捷方式的创建">
+快捷方式的创建
+&lt;a class="heading-link" href="#%e5%bf%ab%e6%8d%b7%e6%96%b9%e5%bc%8f%e7%9a%84%e5%88%9b%e5%bb%ba">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>明白以上原理，我们只需要创建一个 &lt;code>qv2ray.desktop&lt;/code> ，文件内容如下：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>Desktop Entry&lt;span style="color:#f92672">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Name&lt;span style="color:#f92672">=&lt;/span>qv2ray
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Exec&lt;span style="color:#f92672">=&lt;/span>/home/zs/proxy/v2ray/Qv2ray.v2.6.3.linux-x64.AppImage
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Icon&lt;span style="color:#f92672">=&lt;/span>/home/zs/proxy/v2ray/qv2ray.512.png
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Type&lt;span style="color:#f92672">=&lt;/span>Application
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>StartupNotify&lt;span style="color:#f92672">=&lt;/span>true
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>其中Exec为你AppImage的绝对路径，Icon为图标的绝对路径。&lt;/p>
+&lt;p>其中各个大小的Qv2ray的icons可以在它的Github中找到，链接为：&lt;a href="https://github.com/Qv2ray/Qv2ray/tree/master/assets/icons">Qv2ray/icons&lt;/a>&lt;/p>
+&lt;p>创建完后执行&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ sudo chmod +x qv2ray.desktop
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>为文件添加可执行权限，然后执行&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ sudo cp qv2ray.desktop /usr/share/applications
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>将其加入到目录中，接下来我们就可以在应用库中找到对应的qv2ray了~&lt;/p>
+&lt;h3 id="命令行快捷方式的创建">
+命令行快捷方式的创建
+&lt;a class="heading-link" href="#%e5%91%bd%e4%bb%a4%e8%a1%8c%e5%bf%ab%e6%8d%b7%e6%96%b9%e5%bc%8f%e7%9a%84%e5%88%9b%e5%bb%ba">
+&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;/a>
+&lt;/h3>
+&lt;p>我们直接将AppImage加入到 &lt;code>/usr/bin&lt;/code> 中即可，即执行以下命令：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ sudo cp xxx.AppImage /usr/bin/qv2ray
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>接下来我们在终端中输入 &lt;code>qv2ray&lt;/code> ，发现已经可以成功打开qv2ray，大功告成！~&lt;/p></description></item><item><title>利用神经网络进行波士顿房价预测</title><link>https://blog.zzsqwq.cn/posts/182/</link><pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/182/</guid><description>&lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
 &lt;i class="fa fa-link" aria-hidden="true">&lt;/i>

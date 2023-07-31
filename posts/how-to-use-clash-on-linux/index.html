@@ -1,0 +1,185 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="zzsqwq"><meta name=description content="Tip 此方式推荐在纯终端（无图形化界面）环境下使用，有图形化界面的情况下推荐使用 Clash for Windows 或 Clash Verge，相关博文可见—Linux 上 Clash For Windows 如何设置开机自启与桌面图标。 为什么选择 Clash？ 目前 Clash 由于其基于规则分流的强大代理功能，已经成为主流的代理内核，在各个平台都有对应的客户端。如 Windows 端的 Clash For Windows(CFW)，MacOS 端的 ClashX，Android 端的 Clash For Android，IOS 端 Choc。
+那么我们如何能够在 Linux 上优雅的使用 Clash 呢？
+一、基于 Docker 的实现 Docker 是一个开源的应用容器引擎，开发者可以把包和依赖等集成到一个容器中，并打包成镜像发布。用户可以直接拉取镜像并创建容器，而不会污染本地的环境，十分的好用。
+我现在在使用一个软件的时候一般都是有 docker 实现会优先使用 docker，配合 docker-compose 管理真的非常的方便。因此我们优先考虑使用 docker 来配置 clash 代理。
+1.1 安装 docker 大家可以参考 官网安装指南 来在 Linux 安装 docker，就不详细赘述了。
+顺便可以参考 docker-compose 安装指南 来安装 docker-compose。
+安装结束后，使用 docker --version 以及 docker-compose --version 进行验证，输出如下进行下一步。"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="如何在 Linux 上优雅的使用 Clash？"><meta name=twitter:description content="Tip 此方式推荐在纯终端（无图形化界面）环境下使用，有图形化界面的情况下推荐使用 Clash for Windows 或 Clash Verge，相关博文可见—Linux 上 Clash For Windows 如何设置开机自启与桌面图标。 为什么选择 Clash？ 目前 Clash 由于其基于规则分流的强大代理功能，已经成为主流的代理内核，在各个平台都有对应的客户端。如 Windows 端的 Clash For Windows(CFW)，MacOS 端的 ClashX，Android 端的 Clash For Android，IOS 端 Choc。
+那么我们如何能够在 Linux 上优雅的使用 Clash 呢？
+一、基于 Docker 的实现 Docker 是一个开源的应用容器引擎，开发者可以把包和依赖等集成到一个容器中，并打包成镜像发布。用户可以直接拉取镜像并创建容器，而不会污染本地的环境，十分的好用。
+我现在在使用一个软件的时候一般都是有 docker 实现会优先使用 docker，配合 docker-compose 管理真的非常的方便。因此我们优先考虑使用 docker 来配置 clash 代理。
+1.1 安装 docker 大家可以参考 官网安装指南 来在 Linux 安装 docker，就不详细赘述了。
+顺便可以参考 docker-compose 安装指南 来安装 docker-compose。
+安装结束后，使用 docker --version 以及 docker-compose --version 进行验证，输出如下进行下一步。"><meta property="og:title" content="如何在 Linux 上优雅的使用 Clash？"><meta property="og:description" content="Tip 此方式推荐在纯终端（无图形化界面）环境下使用，有图形化界面的情况下推荐使用 Clash for Windows 或 Clash Verge，相关博文可见—Linux 上 Clash For Windows 如何设置开机自启与桌面图标。 为什么选择 Clash？ 目前 Clash 由于其基于规则分流的强大代理功能，已经成为主流的代理内核，在各个平台都有对应的客户端。如 Windows 端的 Clash For Windows(CFW)，MacOS 端的 ClashX，Android 端的 Clash For Android，IOS 端 Choc。
+那么我们如何能够在 Linux 上优雅的使用 Clash 呢？
+一、基于 Docker 的实现 Docker 是一个开源的应用容器引擎，开发者可以把包和依赖等集成到一个容器中，并打包成镜像发布。用户可以直接拉取镜像并创建容器，而不会污染本地的环境，十分的好用。
+我现在在使用一个软件的时候一般都是有 docker 实现会优先使用 docker，配合 docker-compose 管理真的非常的方便。因此我们优先考虑使用 docker 来配置 clash 代理。
+1.1 安装 docker 大家可以参考 官网安装指南 来在 Linux 安装 docker，就不详细赘述了。
+顺便可以参考 docker-compose 安装指南 来安装 docker-compose。
+安装结束后，使用 docker --version 以及 docker-compose --version 进行验证，输出如下进行下一步。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-04-23T19:04:00+00:00"><meta property="article:modified_time" content="2022-04-23T19:04:00+00:00"><title>如何在 Linux 上优雅的使用 Clash？ · Zs's Blog</title><link rel=canonical href=https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><meta name=generator content="Hugo 0.116.0"></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Zs's Blog</a>
+<input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/about/>About</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Posts</a></li><li class=navigation-item><a class=navigation-link href=/friends/>Friends</a></li><li class=navigation-item><a class=navigation-link href=/contact/>Contact Me</a></li><li class=navigation-item><a class=navigation-link href=https://zzsqwq.cn/>Homepage</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/>如何在 Linux 上优雅的使用 Clash？</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2022-04-23T19:04:00Z>April 23, 2022</time></span>
+<span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>
+11-minute read</span></div><div class=categories><i class="fa fa-folder" aria-hidden=true></i>
+<a href=/categories/%E4%BB%A3%E7%90%86/>代理</a></div><div class=tags><i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/clash/>clash</a></span>
+<span class=separator>•</span>
+<span class=tag><a href=/tags/proxy/>proxy</a></span></div></div></header><div><div class="notice tip"><div class=notice-title><i class="fa fa-lightbulb-o" aria-hidden=true></i>Tip</div><div class=notice-content>此方式推荐在纯终端（无图形化界面）环境下使用，有图形化界面的情况下推荐使用 <a href=https://github.com/Fndroid/clash_for_windows_pkg/releases>Clash for Windows</a> 或 <a href=https://github.com/zzzgydi/clash-verge>Clash Verge</a>，相关博文可见—<a href=https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/>Linux 上 Clash For Windows 如何设置开机自启与桌面图标</a>。</div></div><h2 id=为什么选择-clash>为什么选择 Clash？
+<a class=heading-link href=#%e4%b8%ba%e4%bb%80%e4%b9%88%e9%80%89%e6%8b%a9-clash><i class="fa fa-link" aria-hidden=true></i></a></h2><p>目前 Clash 由于其基于规则分流的强大代理功能，已经成为主流的代理内核，在各个平台都有对应的客户端。如 Windows 端的 Clash For Windows(CFW)，MacOS 端的 ClashX，Android 端的 Clash For Android，IOS 端 Choc。</p><p>那么我们如何能够在 Linux 上优雅的使用 Clash 呢？</p><h2 id=一基于-docker-的实现>一、基于 Docker 的实现
+<a class=heading-link href=#%e4%b8%80%e5%9f%ba%e4%ba%8e-docker-%e7%9a%84%e5%ae%9e%e7%8e%b0><i class="fa fa-link" aria-hidden=true></i></a></h2><p><a href=https://www.docker.com/>Docker</a> 是一个开源的应用容器引擎，开发者可以把包和依赖等集成到一个容器中，并打包成镜像发布。用户可以直接拉取镜像并创建容器，而不会污染本地的环境，<strong>十分的好用</strong>。</p><p>我现在在使用一个软件的时候一般都是有 docker 实现会优先使用 docker，配合 <a href=https://docs.docker.com/compose/>docker-compose</a> 管理真的非常的方便。因此我们优先考虑使用 docker 来配置 clash 代理。</p><h3 id=11-安装-docker>1.1 安装 docker
+<a class=heading-link href=#11-%e5%ae%89%e8%a3%85-docker><i class="fa fa-link" aria-hidden=true></i></a></h3><p>大家可以参考 <a href=https://docs.docker.com/get-docker/>官网安装指南</a> 来在 Linux 安装 docker，就不详细赘述了。</p><p>顺便可以参考 <a href=https://docs.docker.com/compose/install/>docker-compose 安装指南</a> 来安装 docker-compose。</p><p>安装结束后，使用 <code>docker --version</code> 以及 <code>docker-compose --version</code> 进行验证，输出如下进行下一步。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>❯ docker --version        
+</span></span><span style=display:flex><span>Docker version 20.10.14, build a224086
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>❯ docker-compose --version
+</span></span><span style=display:flex><span>docker-compose version 1.29.2, build 5becea4c
+</span></span></code></pre></div><h3 id=12-创建-docker-compose-文件>1.2 创建 docker-compose 文件
+<a class=heading-link href=#12-%e5%88%9b%e5%bb%ba-docker-compose-%e6%96%87%e4%bb%b6><i class="fa fa-link" aria-hidden=true></i></a></h3><p>首先打开一个新的终端，进入根目录，运行如下指令，创建文件夹存放 docker-compose 配置文件。这里是在当前用户家目录下创建了 Services 文件夹，并在其中创建了 clash 文件夹。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>❯ mkdir -p ~/Services/clash
+</span></span></code></pre></div><p>然后进入上述文件夹，并使用文本编辑器创建 <code>docker-compose.yml</code> 文件</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>~
+</span></span><span style=display:flex><span>❯ cd ~/Services/clash     
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>~/Services/clash
+</span></span><span style=display:flex><span>❯ vim docker-compose.yml
+</span></span></code></pre></div><p>在文件中填入下述内容，该文件参考<a href=https://github.com/Dreamacro/clash/wiki/clash-as-a-daemon#docker>官方文档</a>，并进行了一定的改动</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>version: <span style=color:#e6db74>&#39;3&#39;</span>
+</span></span><span style=display:flex><span>services:
+</span></span><span style=display:flex><span>  clash:
+</span></span><span style=display:flex><span>    <span style=color:#75715e># ghcr.io/dreamacro/clash</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># ghcr.io/dreamacro/clash-premium</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># dreamacro/clash</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># dreamacro/clash-premium</span>
+</span></span><span style=display:flex><span>    image: dreamacro/clash
+</span></span><span style=display:flex><span>    container_name: clash
+</span></span><span style=display:flex><span>    volumes:
+</span></span><span style=display:flex><span>      - ./config.yaml:/root/.config/clash/config.yaml
+</span></span><span style=display:flex><span>      - ./Country.mmdb:/root/.config/clash/Country.mmdb
+</span></span><span style=display:flex><span>      - ./ui:/ui <span style=color:#75715e># dashboard volume</span>
+</span></span><span style=display:flex><span>    ports:
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;7890:7890&#34;</span>
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;7891:7891&#34;</span>
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;9090:9090&#34;</span> <span style=color:#75715e># external controller (Restful API)</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># # TUN</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># cap_add:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   - NET_ADMIN</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># devices:</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#   - /dev/net/tun</span>
+</span></span><span style=display:flex><span>    restart: unless-stopped
+</span></span><span style=display:flex><span>    network_mode: <span style=color:#e6db74>&#34;bridge&#34;</span> <span style=color:#75715e># or &#34;host&#34; on Linux</span>
+</span></span></code></pre></div><p>我们映射了三个文件到容器内部，分别是代理配置文件 <code>config.yaml</code> ，全球IP库文件 <code>Country.mmdb</code> ，控制面板静态源码 <code>ui</code> 文件夹。</p><p>然后映射了三个端口，上述三个端口分别对应了 <code>config.yaml</code> 文件中的 <code>port</code>、<code>socks-port</code>、<code>external-controller</code>。分别用于 http/https 流量代理，socks 流量代理，以及外部控制。</p><h3 id=13-下载对应的文件>1.3 下载对应的文件
+<a class=heading-link href=#13-%e4%b8%8b%e8%bd%bd%e5%af%b9%e5%ba%94%e7%9a%84%e6%96%87%e4%bb%b6><i class="fa fa-link" aria-hidden=true></i></a></h3><p>首先是 config.yaml 文件，这个就是下载你的配置文件，将 <code>$your-proxy-url</code> 替换为对应的订阅链接即可。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>~/Services/clash
+</span></span><span style=display:flex><span>❯ cd ~/Services/clash <span style=color:#75715e>#下述所有操作都在该文件夹执行</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>~/Services/clash
+</span></span><span style=display:flex><span>❯ wget -O config.yaml $your-proxy-url
+</span></span></code></pre></div><p>然后下载 <code>Country.mmdb</code> 文件，虽然这个文件在没有的时候会自动下载，但是一般速度较慢，还是手动下载比较好，你可以在这里找到对应的文件 <a href=https://github.com/Dreamacro/maxmind-geoip/releases>Dreamacro/maxmid-geoip/releases</a> 。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>~/Services/clash
+</span></span><span style=display:flex><span>❯ wget https://github.com/Dreamacro/maxmind-geoip/releases/download/20220412/Country.mmdb
+</span></span></code></pre></div><p>然后下载对应的 ui 控制面板，目前有两款，分别是 clash 原作者的 <a href=https://github.com/Dreamacro/clash-dashboard>clash-dashboard</a> 以及另一位大佬的 <a href=https://github.com/haishanh/yacd>yacd-dashboard</a> ，大家自选其一即可，我常用的是 <code>clash-dashboard</code>。</p><p><strong>Ps：这一步算是可有可无，大家可以直接访问对应的链接</strong></p><ul><li>clash-dashboard：http://clash.razord.top/</li><li>yacd-dashboard：http://yacd.haishan.me/</li></ul><p>填入对应的 IP、端口、密钥进行控制，<strong>如果上述需求已经足够，就无需配置后续的本地面板</strong>。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>~/Services/clash
+</span></span><span style=display:flex><span>❯ git clone -b gh-pages https://github.com/Dreamacro/clash-dashboard ui
+</span></span></code></pre></div><p>这样就克隆 <a href=https://github.com/Dreamacro/clash-dashboard>clash-dashboard</a> 仓库的 gh-pages 分支到了 ui 文件夹。</p><p>然后配置一下我们的 <code>config.yaml</code> 文件，确保下面四项如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>port: <span style=color:#ae81ff>7890</span>
+</span></span><span style=display:flex><span>socks-port: <span style=color:#ae81ff>7891</span>
+</span></span><span style=display:flex><span>external-controller: :9090
+</span></span><span style=display:flex><span>external-ui: /ui
+</span></span></code></pre></div><p>这里的 <code>port</code> 是 http/https 代理端口，<code>socks-port</code> 是 socks 流量代理端口，<code>external-controller</code> 是外部控制端口，用于面板控制，<code>external-ui</code> 是本地控制页面的源码，确保 <code>localhost:external-controller/ui</code> 页面可以控制代理。</p><p>顺便说一下，这里其实严格意义上不是必须和我一样，只要和前面的 <code>docker-compose.yml</code> 文件中的端口映射对应起来即可，但是如果你对 Docker 及 Clash 不够了解，推荐和我选择一样的配置。</p><h3 id=14-启动容器>1.4 启动容器
+<a class=heading-link href=#14-%e5%90%af%e5%8a%a8%e5%ae%b9%e5%99%a8><i class="fa fa-link" aria-hidden=true></i></a></h3><p>在该目录下启动容器</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>~/Services/clash
+</span></span><span style=display:flex><span>❯ docker-compose up -d
+</span></span></code></pre></div><p>后续可以通过 <code>docker ps</code> 查看容器状态</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>~/Services/clash
+</span></span><span style=display:flex><span>❯ docker ps               
+</span></span><span style=display:flex><span>CONTAINER ID   IMAGE             COMMAND    CREATED          STATUS          PORTS                                                                                                      NAMES
+</span></span><span style=display:flex><span>304c4934e528   dreamacro/clash   <span style=color:#e6db74>&#34;/clash&#34;</span>   <span style=color:#ae81ff>53</span> minutes ago   Up <span style=color:#ae81ff>52</span> minutes   0.0.0.0:7890-7891-&gt;7890-7891/tcp, :::7890-7891-&gt;7890-7891/tcp, 0.0.0.0:9090-&gt;9090/tcp, :::9090-&gt;9090/tcp   clash
+</span></span></code></pre></div><p>可以通过在该目录下执行 <code>docker-compose logs</code> ，或在任何位置执行 <code>docker logs clash</code> 查看容器日志</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>~/Services/clash
+</span></span><span style=display:flex><span>❯ docker-compose logs | tail -n <span style=color:#ae81ff>20</span> <span style=color:#75715e>#查看最近20条log</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>~
+</span></span><span style=display:flex><span>❯ docker logs clash | tail -n <span style=color:#ae81ff>30</span> <span style=color:#75715e>#查看最近30条</span>
+</span></span></code></pre></div><p>关闭容器可以使用 <code>docker-compose down</code>，即可停止并移除该容器，不留任何残余（<del>干净又卫生啊兄弟们</del>）。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>~/Services/clash
+</span></span><span style=display:flex><span>❯ docker-compose down 
+</span></span><span style=display:flex><span>Stopping clash ... <span style=color:#66d9ef>done</span>
+</span></span><span style=display:flex><span>Removing clash ... <span style=color:#66d9ef>done</span>
+</span></span></code></pre></div><h3 id=15-控制代理>1.5 控制代理
+<a class=heading-link href=#15-%e6%8e%a7%e5%88%b6%e4%bb%a3%e7%90%86><i class="fa fa-link" aria-hidden=true></i></a></h3><p>后续大家可以通过访问上述的两个公开链接，或者本地的 <code>localhost:9090/ui</code>（必须配置了 <code>external-ui</code> 参数才可使用）来对代理进行控制。</p><p><img src=/images/how-to-use-clash-on-linux/clash-dashboard-demo.png alt="clash-dashboard 界面"></p><p><img src=/images/how-to-use-clash-on-linux/yacd-dashboard-demo.png alt="yacd-dashboard 界面"></p><h2 id=二基于-systemd-的实现>二、基于 Systemd 的实现
+<a class=heading-link href=#%e4%ba%8c%e5%9f%ba%e4%ba%8e-systemd-%e7%9a%84%e5%ae%9e%e7%8e%b0><i class="fa fa-link" aria-hidden=true></i></a></h2><p>Systemd 是 Linux 系统工具，用来启动<a href=https://www.ruanyifeng.com/blog/2016/02/linux-daemon.html>守护进程</a>，已成为大多数发行版的标准配置。</p><p>大家可以通过下面阮一峰老师的教程<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>来学习 Systemd 的一些基础知识。</p><h3 id=21-下载-clash-内核>2.1 下载 Clash 内核
+<a class=heading-link href=#21-%e4%b8%8b%e8%bd%bd-clash-%e5%86%85%e6%a0%b8><i class="fa fa-link" aria-hidden=true></i></a></h3><p>首先下载 clash 内核并且移动到用户可执行目录下，你可以在这里找到最新的内核 <a href=https://github.com/Dreamacro/clash/releases>clash-core</a>。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>~
+</span></span><span style=display:flex><span>❯ cd ~/Downloads
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>~/Downloads
+</span></span><span style=display:flex><span>❯ wget https://github.com/Dreamacro/clash/releases/download/v1.10.0/clash-linux-amd64-v1.10.0.gz <span style=color:#75715e># 如果速度较慢，可以添加 https://ghproxy.com/ 形成 https://ghproxy.com/https://github.com/Dreamacro/clash/releases/download/v1.10.0/clash-linux-amd64-v1.10.0.gz 式的链接进行加速</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 解压</span>
+</span></span><span style=display:flex><span>~/Downloads
+</span></span><span style=display:flex><span>❯ gunzip clash-linux-amd64-v1.10.0.gz
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 移动到 /usr/local/bin 目录</span>
+</span></span><span style=display:flex><span>~/Downloads
+</span></span><span style=display:flex><span>❯ sudo mv clash-linux-amd64-v1.10.0 /usr/local/bin/clash
+</span></span></code></pre></div><h3 id=22-下载各类配置文件>2.2 下载各类配置文件
+<a class=heading-link href=#22-%e4%b8%8b%e8%bd%bd%e5%90%84%e7%b1%bb%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6><i class="fa fa-link" aria-hidden=true></i></a></h3><p>这里跟上面的 <strong>1.3 下载对应的文件</strong> 非常的相似，大家可以参考上面的进行，不过可以都统一下载到 <code>/opt/clash</code> 文件夹中，包括 <code>config.yaml</code>、 <code>Country.mmdb</code> 文件及 <code>ui</code> 文件夹（如果不需要本地面板，则不需要配置 ui）。</p><p>下面是创建文件夹等过程示例，下载配置文件请参考 1.3 节进行</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>~/Downloads
+</span></span><span style=display:flex><span>❯ sudo mkdir -p /opt/clash
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>~/Downloads
+</span></span><span style=display:flex><span>❯ cd /opt/clash
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>/opt/clash
+</span></span><span style=display:flex><span>❯ wget -O config.yaml ..............
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 接下来下载对应的文件</span>
+</span></span></code></pre></div><p>最后结构目录应该如下所示，ui 为文件夹</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>/opt/clash
+</span></span><span style=display:flex><span>❯ ls -la
+</span></span><span style=display:flex><span>total <span style=color:#ae81ff>5508</span>
+</span></span><span style=display:flex><span>drwxr-xr-x <span style=color:#ae81ff>3</span> root root    <span style=color:#ae81ff>4096</span> 4月  <span style=color:#ae81ff>23</span> 20:30 .
+</span></span><span style=display:flex><span>drwxr-xr-x <span style=color:#ae81ff>9</span> root root    <span style=color:#ae81ff>4096</span> 4月  <span style=color:#ae81ff>22</span> 09:02 ..
+</span></span><span style=display:flex><span>-rw-r--r-- <span style=color:#ae81ff>1</span> root root  <span style=color:#ae81ff>177047</span> 4月  <span style=color:#ae81ff>22</span> 09:04 config.yaml
+</span></span><span style=display:flex><span>-rw-r--r-- <span style=color:#ae81ff>1</span> root root <span style=color:#ae81ff>5446245</span> 4月  <span style=color:#ae81ff>12</span> 08:56 Country.mmdb
+</span></span><span style=display:flex><span>drwxr-xr-x <span style=color:#ae81ff>4</span> root root    <span style=color:#ae81ff>4096</span> 4月  <span style=color:#ae81ff>22</span> 08:40 ui
+</span></span></code></pre></div><h3 id=23-配置-clashservice-守护进程文件>2.3 配置 clash.service 守护进程文件
+<a class=heading-link href=#23-%e9%85%8d%e7%bd%ae-clashservice-%e5%ae%88%e6%8a%a4%e8%bf%9b%e7%a8%8b%e6%96%87%e4%bb%b6><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>~/Downloads
+</span></span><span style=display:flex><span>❯ sudo vim /etc/systemd/system/clash.service
+</span></span></code></pre></div><p>运行上述命令，并在文件中写入下列内容，这里参考了官网的文档<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#f92672>[</span>Unit<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>Description<span style=color:#f92672>=</span>Clash daemon, A rule-based proxy in Go.
+</span></span><span style=display:flex><span>After<span style=color:#f92672>=</span>network.target
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Service<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>Type<span style=color:#f92672>=</span>simple
+</span></span><span style=display:flex><span>User<span style=color:#f92672>=</span>root
+</span></span><span style=display:flex><span>ExecStart<span style=color:#f92672>=</span>/usr/local/bin/clash -d /opt/clash/
+</span></span><span style=display:flex><span>Restart<span style=color:#f92672>=</span>on-failure
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Install<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>WantedBy<span style=color:#f92672>=</span>multi-user.target
+</span></span></code></pre></div><p>大家如果对上述内容有疑问，可以参考阮一峰老师的教程。</p><h3 id=24-修改配置文件>2.4 修改配置文件
+<a class=heading-link href=#24-%e4%bf%ae%e6%94%b9%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6><i class="fa fa-link" aria-hidden=true></i></a></h3><p>如 <strong>1.3 下载对应的文件</strong> 所示，要确保配置文件中的下面四个参数对应如下：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>port: <span style=color:#ae81ff>7890</span>
+</span></span><span style=display:flex><span>socks-port: <span style=color:#ae81ff>7891</span>
+</span></span><span style=display:flex><span>external-controller: :9090
+</span></span><span style=display:flex><span>external-ui: /opt/clash/ui
+</span></span></code></pre></div><p>具体参数的作用上面已经讲过了。</p><h3 id=25-启动并设置开机启动>2.5 启动并设置开机启动
+<a class=heading-link href=#25-%e5%90%af%e5%8a%a8%e5%b9%b6%e8%ae%be%e7%bd%ae%e5%bc%80%e6%9c%ba%e5%90%af%e5%8a%a8><i class="fa fa-link" aria-hidden=true></i></a></h3><p><strong>启动 Clash service 守护进程</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>~/Services/clash
+</span></span><span style=display:flex><span>❯ sudo systemctl start clash
+</span></span></code></pre></div><p><strong>设置为开机自启动</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>~/Services/clash
+</span></span><span style=display:flex><span>❯ sudo systemctl enable clash
+</span></span><span style=display:flex><span>Created symlink /etc/systemd/system/multi-user.target.wants/clash.service → /etc/systemd/system/clash.service.
+</span></span></code></pre></div><p><strong>查看 Clash 进程状态</strong>，确保下面的 <code>Active</code> 为 <code>active(running)</code> 即正常。如果有遇到问题可以评论或者通过搜索引擎。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>~/Services/clash
+</span></span><span style=display:flex><span>❯ sudo systemctl status clash
+</span></span><span style=display:flex><span>● clash.service - Clash daemon, A rule-based proxy in Go.
+</span></span><span style=display:flex><span>     Loaded: loaded <span style=color:#f92672>(</span>/etc/systemd/system/clash.service; disabled; vendor preset&gt;
+</span></span><span style=display:flex><span>     Active: active <span style=color:#f92672>(</span>running<span style=color:#f92672>)</span> since Sat 2022-04-23 21:49:39 CST; 43s ago
+</span></span><span style=display:flex><span>   Main PID: <span style=color:#ae81ff>120629</span> <span style=color:#f92672>(</span>clash<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>      Tasks: <span style=color:#ae81ff>13</span> <span style=color:#f92672>(</span>limit: 18860<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>     Memory: 16.1M
+</span></span><span style=display:flex><span>     CGroup: /system.slice/clash.service
+</span></span><span style=display:flex><span>             └─120629 /usr/local/bin/clash -d /opt/clash/
+</span></span></code></pre></div><p><strong>查看详细日志</strong>，可以使用 <code>journalctl</code>，所有 Systemd 服务的日志都可以通过这个查看</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>~/Services/clash
+</span></span><span style=display:flex><span>❯ sudo journalctl -u clash     
+</span></span><span style=display:flex><span>-- Logs begin at Thu 2022-04-14 23:14:57 CST, end at Sat 2022-04-23 21:53:15 CS&gt;
+</span></span><span style=display:flex><span>4月 <span style=color:#ae81ff>15</span> 01:23:14 zs-XiaoXinPro systemd<span style=color:#f92672>[</span>1<span style=color:#f92672>]</span>: /etc/systemd/system/clash.service:5: &gt;
+</span></span><span style=display:flex><span>4月 <span style=color:#ae81ff>15</span> 01:23:14 zs-XiaoXinPro systemd<span style=color:#f92672>[</span>1<span style=color:#f92672>]</span>: Started clash daemon.
+</span></span></code></pre></div><p><strong>取消开机自启动</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>~/Services/clash
+</span></span><span style=display:flex><span>❯ sudo systemctl disable clash
+</span></span><span style=display:flex><span>Removed /etc/systemd/system/multi-user.target.wants/clash.service.
+</span></span></code></pre></div><p><strong>停止 Clash 服务守护进程</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>~/Services/clash
+</span></span><span style=display:flex><span>❯ sudo systemctl stop clash
+</span></span></code></pre></div><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p><a href=https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html>Systemd 入门教程：命令篇</a> 以及 <a href=https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html>Systemd 入门教程：实战篇</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p><a href=https://github.com/Dreamacro/clash/wiki/clash-as-a-daemon>https://github.com/Dreamacro/clash/wiki/clash-as-a-daemon</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><footer><div class=comments><script>let getTheme=window.localStorage&&window.localStorage.getItem("colorscheme");getTheme=getTheme??"preferred_color_scheme";let s=document.createElement("script");s.src="https://giscus.app/client.js",s.setAttribute("data-repo","zzsqwq/hugo-blog-comment"),s.setAttribute("data-repo-id","R_kgDOGgU1qQ"),s.setAttribute("data-category","Announcements"),s.setAttribute("data-category-id","DIC_kwDOGgU1qc4CSX1m"),s.setAttribute("data-mapping","pathname"),s.setAttribute("data-strict","0"),s.setAttribute("data-reactions-enabled","1"),s.setAttribute("data-emit-metadata","0"),s.setAttribute("data-input-position","bottom"),s.setAttribute("data-theme",getTheme),s.setAttribute("data-lang",""),s.setAttribute("crossorigin","anonymous"),s.setAttribute("async",""),document.querySelector("div.comments").innerHTML="",document.querySelector("div.comments").appendChild(s)</script></div></footer></article><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})'></script></section></div><footer class=footer><section class=container><a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></br>©
+2019 -
+2023
+·
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.be15ac3c39a2814b964880106561a86d9c95fe28c6a152b56914771a76d43bf6.js integrity="sha256-vhWsPDmigUuWSIAQZWGobZyV/ijGoVK1aRR3GnbUO/Y="></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WF7TH97J9X"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-WF7TH97J9X",{anonymize_ip:!1})}</script></body></html>
