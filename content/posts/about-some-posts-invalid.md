@@ -2,7 +2,7 @@
 title: "关于部分博文链接失效的问题"
 categories: ["Notification"]
 tags: ["Notification"]
-draft: false
+draft: true
 slug: "about-some-posts-invalid"
 date: "2023-05-15T02:20:00+08:00"
 ---

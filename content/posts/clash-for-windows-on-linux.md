@@ -3,7 +3,7 @@
 title: "Linux 上 Clash For Windows 如何设置开机自启与桌面图标"
 categories: ["Linux","Clash"]
 tags: ["Clash","开启自启动","桌面图标"]
-draft: true
+draft: false
 slug: "clash-for-windows-on-linux"
 date: "2022-05-12 22:37:00"
 typora-root-url: ../../static

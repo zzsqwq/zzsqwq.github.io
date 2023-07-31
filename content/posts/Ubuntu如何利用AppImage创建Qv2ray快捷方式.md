@@ -2,7 +2,7 @@
 title: "Ubuntu如何利用AppImage创建Qv2ray快捷方式"
 categories: [ "杂学","Ubuntu" ]
 tags: [ "ubuntu","AppImage" ]
-draft: true 
+draft: false
 slug: "193"
 date: "2021-06-16 00:54:00"
 ---
