@@ -55,9 +55,9 @@ unsafe = true
 
 [params.giscus]
   repo = "zzsqwq/hugo-blog-comment"
-  repoId = "R_kgDOGgU1qQ"
+  repoID = "R_kgDOGgU1qQ"
   category = "Announcements"
-  categoryId  = "DIC_kwDOGgU1qc4CSX1m"
+  categoryID  = "DIC_kwDOGgU1qc4CSX1m"
   mapping = "pathname"
   strict = "0"
   reactionsEnabled = "1"
