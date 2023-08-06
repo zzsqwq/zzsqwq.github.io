@@ -331,7 +331,7 @@ Proxychains
 &lt;span class="sr-only">Link to heading&lt;/span>
 &lt;/a>
 &lt;/h3>
-&lt;p>如果是 proxychains 方式，使用 &lt;code>proxychains4 wget google.com &lt;/code>、环境变量可直接 &lt;code>wget google.com&lt;/code>。不要认为无法 ping 通 Google （&lt;code>ping google.com&lt;/code>）就是代理有问题，此种代理方式就是无法 ping 通。具体原因可以了解 VPN 和 OSI 七层模型。&lt;/p>
+&lt;p>如果是 proxychains 方式，使用 &lt;code>proxychains4 wget google.com &lt;/code>、环境变量可直接 &lt;code>wget google.com&lt;/code>。不要认为无法 ping 通 Google （&lt;code>ping google.com&lt;/code>）就是代理有问题，此种代理方式就是无法 ping 通。具体原因可以了解 SOCKS 代理方式和 OSI 七层模型。&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ubuntu@VM-16-11-ubuntu:~$ proxychains4 wget google.com &lt;span style="color:#75715e"># 如果是环境变量的方式，直接 wget google.com 即可。&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>proxychains&lt;span style="color:#f92672">]&lt;/span> config file found: /etc/proxychains4.conf
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>proxychains&lt;span style="color:#f92672">]&lt;/span> preloading /usr/lib/x86_64-linux-gnu/libproxychains.so.4
