@@ -4,7 +4,7 @@ categories: ["代理"]
 tags: ["clash","proxy"]
 draft: false
 slug: "how-to-use-clash-on-linux"
-date: "2022-04-23 19:04:00"
+date: "2023-08-07T02:26:22+08:00"
 ---
 
 {{< notice tip >}} 此方式推荐在纯终端（无图形化界面）环境下使用，有图形化界面的情况下推荐使用 [Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg/releases) 或 [Clash Verge](https://github.com/zzzgydi/clash-verge)，相关博文可见—[Linux 上 Clash For Windows 如何设置开机自启与桌面图标](https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/)。{{< /notice >}}
@@ -175,7 +175,10 @@ Removing clash ... done
 
 ### 1.5 控制代理
 
-后续大家可以通过访问上述的两个公开链接，或者本地的 `localhost:9090/ui`（必须配置了 `external-ui` 参数才可使用）来对代理进行控制。 
++ clash-dashboard：http://clash.razord.top/
++ yacd-dashboard：http://yacd.haishan.me/
+
+后续大家可以通过访问上述的两个公开链接，或者本地的 `localhost:9090/ui`（必须配置了 `external-ui` 参数才可使用）来对代理进行控制。 **其中 Host 为你的服务器 IP 地址或者域名，端口为 9090，密码默认为空。**
 
 ![clash-dashboard 界面][1]
 
@@ -334,6 +337,84 @@ Removed /etc/systemd/system/multi-user.target.wants/clash.service.
 ~/Services/clash
 ❯ sudo systemctl stop clash
 ```
+
+## 三、测试代理
+
+完成后上述两种方式之一就可以使用代理了，其中 http 代理端口为 7890、socks 代理端口为 7891（有时 7890 也是混合端口，两种都可以。）
+
+接下来浏览器代理可以使用 [Proxy SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif?hl=zh-CN) 插件，Linux 命令行中的代理推荐使用 [proxychains](https://github.com/haad/proxychains)，或者可以设置环境变量。但是环境变量的方式有的流量无法代理到，例如 apt 需要单独设置才可以，而 proxychains 可以解决。但是 proxychains 也有不足之处，无法代理 Go 编译程序，想要代理 Go 程序可以使用 [graftcp](https://github.com/hmgle/graftcp)。
+
+### Proxychains 
+
+首先安装
+
+```bash
+$ sudo apt update
+$ sudo apt install proxychains-ng 
+```
+
+接下来设置相关配置文件
+
+```bash
+$ sudo vim /etc/proxychains4.conf 
+```
+
+注释掉其他无关的，最下方添加我们设置的代理
+
+```bash
+[ProxyList]
+http 127.0.0.1 7890
+socks5  127.0.0.1 7891
+```
+
+接下来 :wq 保存退出即可。
+
+### 环境变量
+
+只需要设置如下环境变量即可：
+
+```bash
+export proxy_url="http://127.0.0.1:7890"
+export http_proxy=$proxy_url
+export https_proxy=$proxy_url
+export ftp_proxy=$proxy_url
+export no_proxy="localhost, 127.0.0.1, ::1"
+```
+
+如果想要持久化，只需要编辑 `.bashrc` 或者 `.zshrc`（如果你使用的是 zsh），将上述命令加入到最后即可。
+
+### 测试
+
+```bash
+$ proxychains4 wget google.com ## 如果是环境变量的方式，直接 wget google.com 即可。
+ubuntu@VM-16-11-ubuntu:~$ proxychains4 wget google.com
+[proxychains] config file found: /etc/proxychains4.conf
+[proxychains] preloading /usr/lib/x86_64-linux-gnu/libproxychains.so.4
+[proxychains] DLL init: proxychains-ng 4.14
+--2023-08-07 02:15:20--  http://google.com/
+Resolving google.com (google.com)... 224.0.0.1
+Connecting to google.com (google.com)|224.0.0.1|:80... [proxychains] Strict chain  ...  127.0.0.1:7890  ...  127.0.0.1:7891  ...  google.com:80  ...  OK
+connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: http://www.google.com/ [following]
+--2023-08-07 02:15:20--  http://www.google.com/
+Resolving www.google.com (www.google.com)... 224.0.0.2
+Connecting to www.google.com (www.google.com)|224.0.0.2|:80... [proxychains] Strict chain  ...  127.0.0.1:7890  ...  127.0.0.1:7891  ...  www.google.com:80  ...  OK
+connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘index.html’
+
+index.html                               [ <=>                                                                  ]  18.87K  --.-KB/s    in 0s
+
+2023-08-07 02:15:20 (204 MB/s) - ‘index.html’ saved [19321]
+```
+
+输出如上即正确，如果想要不输出中间的 log，可以使用 `proxychains4 -q`。
+
+不要认为无法 ping 通 Google 就是代理有问题，此种代理方式就是无法 ping 通。
+
+如果还有问题，可以使用 `docker-compose logs -f ` 命令查看容器的相关日志，看是否有请求到达。同时可以检查配置文件是否正确，如果不确定可以通过 [ACL4SSR 在线订阅转换 (acl4ssr-sub.github.io)](https://acl4ssr-sub.github.io/) 转换下试试（非推广，无法保证安全性，请使用前自行考量）。如果还是无法解决，可以留言评论探讨。
 
 [^1]: [Systemd 入门教程：命令篇](https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html) 以及 [Systemd 入门教程：实战篇](https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-part-two.html)
 [^2]: https://github.com/Dreamacro/clash/wiki/clash-as-a-daemon
