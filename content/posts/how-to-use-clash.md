@@ -385,9 +385,10 @@ export no_proxy="localhost, 127.0.0.1, ::1"
 
 ### 测试
 
+如果是 proxychains 方式，使用 `proxychains4 wget google.com `、环境变量可直接 `wget google.com`。不要认为无法 ping 通 Google （`ping google.com`）就是代理有问题，此种代理方式就是无法 ping 通。具体原因可以了解 VPN 和 OSI 七层模型。
+
 ```bash
-$ proxychains4 wget google.com ## 如果是环境变量的方式，直接 wget google.com 即可。
-ubuntu@VM-16-11-ubuntu:~$ proxychains4 wget google.com
+ubuntu@VM-16-11-ubuntu:~$ proxychains4 wget google.com # 如果是环境变量的方式，直接 wget google.com 即可。
 [proxychains] config file found: /etc/proxychains4.conf
 [proxychains] preloading /usr/lib/x86_64-linux-gnu/libproxychains.so.4
 [proxychains] DLL init: proxychains-ng 4.14
@@ -410,9 +411,7 @@ index.html                               [ <=>                                  
 2023-08-07 02:15:20 (204 MB/s) - ‘index.html’ saved [19321]
 ```
 
-输出如上即正确，如果想要不输出中间的 log，可以使用 `proxychains4 -q`。
-
-不要认为无法 ping 通 Google 就是代理有问题，此种代理方式就是无法 ping 通。
+输出如上（正确 download index.html）即正确，如果想要不输出中间的 log，可以使用 `proxychains4 -q`。
 
 如果还有问题，可以使用 `docker-compose logs -f ` 命令查看容器的相关日志，看是否有请求到达。同时可以检查配置文件是否正确，如果不确定可以通过 [ACL4SSR 在线订阅转换 (acl4ssr-sub.github.io)](https://acl4ssr-sub.github.io/) 转换下试试（非推广，无法保证安全性，请使用前自行考量）。如果还是无法解决，可以留言评论探讨。
 
