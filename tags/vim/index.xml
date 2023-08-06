@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vim on Zs's Blog</title><link>https://blog.zzsqwq.cn/tags/vim/</link><description>Recent content in Vim on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 30 Mar 2020 01:18:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/vim/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux和Vim入门</title><link>https://blog.zzsqwq.cn/posts/63/</link><pubDate>Mon, 30 Mar 2020 01:18:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/63/</guid><description>&lt;h2 id="linux系统常见命令">
 Linux系统常见命令
 &lt;a class="heading-link" href="#linux%e7%b3%bb%e7%bb%9f%e5%b8%b8%e8%a7%81%e5%91%bd%e4%bb%a4">
-&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+&lt;span class="sr-only">Link to heading&lt;/span>
 &lt;/a>
 &lt;/h2>
 &lt;h3 id="基本操作">
 基本操作
 &lt;a class="heading-link" href="#%e5%9f%ba%e6%9c%ac%e6%93%8d%e4%bd%9c">
-&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+&lt;span class="sr-only">Link to heading&lt;/span>
 &lt;/a>
 &lt;/h3>
 &lt;ul>

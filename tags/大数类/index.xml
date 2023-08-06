@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>大数类 on Zs's Blog</title><link>https://blog.zzsqwq.cn/tags/%E5%A4%A7%E6%95%B0%E7%B1%BB/</link><description>Recent content in 大数类 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 06 Apr 2020 01:22:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/%E5%A4%A7%E6%95%B0%E7%B1%BB/index.xml" rel="self" type="application/rss+xml"/><item><title>C++大数类的实现</title><link>https://blog.zzsqwq.cn/posts/64/</link><pubDate>Mon, 06 Apr 2020 01:22:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/64/</guid><description>&lt;h1 id="c大数类设计思路">
 C++大数类设计思路
 &lt;a class="heading-link" href="#c%e5%a4%a7%e6%95%b0%e7%b1%bb%e8%ae%be%e8%ae%a1%e6%80%9d%e8%b7%af">
-&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+&lt;span class="sr-only">Link to heading&lt;/span>
 &lt;/a>
 &lt;/h1>
 &lt;h3 id="洛谷大数类httpswwwluogucomcnproblemu111551的评测结果开了氧气优化">
-&lt;a href="https://www.luogu.com.cn/problem/U111551">洛谷大数类&lt;/a>的评测结果(开了氧气优化)
+&lt;a href="https://www.luogu.com.cn/problem/U111551" class="external-link" target="_blank" rel="noopener">洛谷大数类&lt;/a>的评测结果(开了氧气优化)
 &lt;a class="heading-link" href="#%e6%b4%9b%e8%b0%b7%e5%a4%a7%e6%95%b0%e7%b1%bbhttpswwwluogucomcnproblemu111551%e7%9a%84%e8%af%84%e6%b5%8b%e7%bb%93%e6%9e%9c%e5%bc%80%e4%ba%86%e6%b0%a7%e6%b0%94%e4%bc%98%e5%8c%96">
-&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+&lt;span class="sr-only">Link to heading&lt;/span>
 &lt;/a>
 &lt;/h3>
 &lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/4200651250.png" alt="BigNumber.png">&lt;/p>

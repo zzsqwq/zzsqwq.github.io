@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>足基 on Zs's Blog</title><link>https://blog.zzsqwq.cn/tags/%E8%B6%B3%E5%9F%BA/</link><description>Recent content in 足基 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 30 Apr 2021 17:32:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/%E8%B6%B3%E5%9F%BA/index.xml" rel="self" type="application/rss+xml"/><item><title>2021RoboMaster中国赛比赛记录</title><link>https://blog.zzsqwq.cn/posts/173/</link><pubDate>Fri, 30 Apr 2021 17:32:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/173/</guid><description>前言 ​说起来的话今天距离比赛已经过去近一个月了，比赛结束一直想要记录一下and总结一下经验，但是实在是太懒了，临近五一假期，在四月的末尾为这次中国赛画一个句号吧。
-比赛过程 ​如果没记错的话比赛是3.30号（周二）去，4.1号（周四）结束，共三天。但是因为第三天没做什么有意义的事情，就只记录两天了。
-第一天 ​第一天大概中午十点到的吧，去的时候登记完领了牌，就在当地布置场地了。到了场地上才发现，我们好像是拿的东西最多的，包括外接显示屏和集成主机，好像都基本没人带过去····集成主机拿了过去也没怎么用到，本来预想用到的哨岗相机因为 ROS 的通信问题也没能跑成，最后两个机器人还是各跑各的策略了。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>足基 on Zs's Blog</title><link>https://blog.zzsqwq.cn/tags/%E8%B6%B3%E5%9F%BA/</link><description>Recent content in 足基 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 30 Apr 2021 17:32:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/%E8%B6%B3%E5%9F%BA/index.xml" rel="self" type="application/rss+xml"/><item><title>2021RoboMaster中国赛比赛记录</title><link>https://blog.zzsqwq.cn/posts/173/</link><pubDate>Fri, 30 Apr 2021 17:32:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/173/</guid><description>前言 Link to heading ​说起来的话今天距离比赛已经过去近一个月了，比赛结束一直想要记录一下and总结一下经验，但是实在是太懒了，临近五一假期，在四月的末尾为这次中国赛画一个句号吧。
+比赛过程 Link to heading ​如果没记错的话比赛是3.30号（周二）去，4.1号（周四）结束，共三天。但是因为第三天没做什么有意义的事情，就只记录两天了。
+第一天 Link to heading ​第一天大概中午十点到的吧，去的时候登记完领了牌，就在当地布置场地了。到了场地上才发现，我们好像是拿的东西最多的，包括外接显示屏和集成主机，好像都基本没人带过去····集成主机拿了过去也没怎么用到，本来预想用到的哨岗相机因为 ROS 的通信问题也没能跑成，最后两个机器人还是各跑各的策略了。
 ​调试的时候出了一点问题，两个哨岗相机通过20m的USB延长线后，只有一个能连接，后来排查了一下，好像是因为有一条线是光纤USB3.0的线，跟相机的接口不兼容···这个问题还没想好怎么解决，可能会考虑到时候自己带一根USB延长线过去。
 ​犹记得调试的时候是和青海大学一起调的，有点可惜的是调试中的我方机器人一直在一个地方鬼畜。那晚上我记得大家熬到了很晚···很可惜的视觉因为用的是学习的框架可调性很差，并没有帮上太大的忙。
-第二天 ​第二天记得一共有三场比赛，分别是打哈工大，哈工大深圳，以及青海大学。
+第二天 Link to heading ​第二天记得一共有三场比赛，分别是打哈工大，哈工大深圳，以及青海大学。
 ​在比赛过程中其实对视觉，我没有做太多的调整，主要还是大家在写导航和策略相关的东西吧。
 ​跟哈工大打的那一场二车因为没有写好启动判定被罚下了，一车因为点位有问题一直卡在障碍物上。
 ​跟哈工深和哈工大两场之间还隔了挺长时间，一个上午是一个下午，中间大家调试了很久，幸好在下午和哈工深打的时候基本没有鬼畜，可以正常的对局，只是因为实力不够强，很明显的一个问题就是视觉做的有问题吧，很多时间在朝着自己的队友打，还有就是会朝着场外的人员打，这是需要改进的点。

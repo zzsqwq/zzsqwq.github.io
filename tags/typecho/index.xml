@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Typecho on Zs's Blog</title><link>https://blog.zzsqwq.cn/tags/typecho/</link><description>Recent content in Typecho on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 26 Aug 2020 16:34:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/typecho/index.xml" rel="self" type="application/rss+xml"/><item><title>自买服务器建站教程</title><link>https://blog.zzsqwq.cn/posts/77/</link><pubDate>Wed, 26 Aug 2020 16:34:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/77/</guid><description>&lt;h2 id="引言">
 引言
 &lt;a class="heading-link" href="#%e5%bc%95%e8%a8%80">
-&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+&lt;span class="sr-only">Link to heading&lt;/span>
 &lt;/a>
 &lt;/h2>
 &lt;p>本来之前是用的 &lt;strong>Hexo + Github&lt;/strong> 搭建的，虽然用的是 &lt;strong>Github&lt;/strong> 的服务器，但是我用家里的移动网访问起来还是没什么压力，就是慢一点，可以接受。&lt;/p>

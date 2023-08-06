@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MATLAB on Zs's Blog</title><link>https://blog.zzsqwq.cn/categories/matlab/</link><description>Recent content in MATLAB on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 23 Mar 2020 01:14:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/categories/matlab/index.xml" rel="self" type="application/rss+xml"/><item><title>专题四:MATLAB绘图</title><link>https://blog.zzsqwq.cn/posts/51/</link><pubDate>Mon, 23 Mar 2020 01:14:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/51/</guid><description>&lt;h2 id="41-二维曲线">
 4.1 二维曲线
 &lt;a class="heading-link" href="#41-%e4%ba%8c%e7%bb%b4%e6%9b%b2%e7%ba%bf">
-&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+&lt;span class="sr-only">Link to heading&lt;/span>
 &lt;/a>
 &lt;/h2>
 &lt;h3 id="span-idjumpplot函数span">
 &lt;span id="jump">plot函数&lt;/span>
 &lt;a class="heading-link" href="#span-idjumpplot%e5%87%bd%e6%95%b0span">
-&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+&lt;span class="sr-only">Link to heading&lt;/span>
 &lt;/a>
 &lt;/h3>
 &lt;ul>
@@ -21,25 +23,29 @@
 &lt;/ul></description></item><item><title>专题三:MATLAB程序流程控制</title><link>https://blog.zzsqwq.cn/posts/36/</link><pubDate>Wed, 18 Mar 2020 01:09:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/36/</guid><description>&lt;h2 id="31-顺序结构程序">
 3.1 顺序结构程序
 &lt;a class="heading-link" href="#31-%e9%a1%ba%e5%ba%8f%e7%bb%93%e6%9e%84%e7%a8%8b%e5%ba%8f">
-&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+&lt;span class="sr-only">Link to heading&lt;/span>
 &lt;/a>
 &lt;/h2>
 &lt;h3 id="程序设计的基本步骤">
 程序设计的基本步骤
 &lt;a class="heading-link" href="#%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1%e7%9a%84%e5%9f%ba%e6%9c%ac%e6%ad%a5%e9%aa%a4">
-&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+&lt;span class="sr-only">Link to heading&lt;/span>
 &lt;/a>
 &lt;/h3>
 &lt;p>&lt;img src="https://blog.zzsqwq.cn/usr/uploads/2020/08/2521586228.png" alt="step.png">&lt;/p></description></item><item><title>专题二:MATLAB矩阵处理</title><link>https://blog.zzsqwq.cn/posts/34/</link><pubDate>Sun, 15 Mar 2020 01:07:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/34/</guid><description>&lt;h2 id="21-特殊矩阵">
 2.1 特殊矩阵
 &lt;a class="heading-link" href="#21-%e7%89%b9%e6%ae%8a%e7%9f%a9%e9%98%b5">
-&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+&lt;span class="sr-only">Link to heading&lt;/span>
 &lt;/a>
 &lt;/h2>
 &lt;h3 id="通用的特殊矩阵">
 通用的特殊矩阵
 &lt;a class="heading-link" href="#%e9%80%9a%e7%94%a8%e7%9a%84%e7%89%b9%e6%ae%8a%e7%9f%a9%e9%98%b5">
-&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+&lt;span class="sr-only">Link to heading&lt;/span>
 &lt;/a>
 &lt;/h3>
 &lt;ul>
@@ -67,13 +73,15 @@
 &lt;/ul></description></item><item><title>专题一:MATLAB基础知识</title><link>https://blog.zzsqwq.cn/posts/33/</link><pubDate>Sat, 14 Mar 2020 01:05:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/33/</guid><description>&lt;h2 id="11-matlab系统环境">
 1.1 MATLAB系统环境
 &lt;a class="heading-link" href="#11-matlab%e7%b3%bb%e7%bb%9f%e7%8e%af%e5%a2%83">
-&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+&lt;span class="sr-only">Link to heading&lt;/span>
 &lt;/a>
 &lt;/h2>
 &lt;h3 id="matlab操作界面的组成">
 MATLAB操作界面的组成
 &lt;a class="heading-link" href="#matlab%e6%93%8d%e4%bd%9c%e7%95%8c%e9%9d%a2%e7%9a%84%e7%bb%84%e6%88%90">
-&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+&lt;span class="sr-only">Link to heading&lt;/span>
 &lt;/a>
 &lt;/h3>
 &lt;ol>

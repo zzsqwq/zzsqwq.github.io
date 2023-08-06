@@ -1,40 +1,46 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="zzsqwq"><meta name=description content="
+<!doctype html><html lang=en><head><title>dp练习 · Zs's Blog</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="zzsqwq"><meta name=description content="
   A. 矩阵取数游戏
   
     
+    Link to heading
   
 
 
   题意
   
     
+    Link to heading
   
 
 给定一个 $n\times m$ 的矩阵，其中每个元素为非负整数。每次你可以从每行的行首或行末取一个元素，得到的分数为当前元素的值 $a_{ij}\times 2^k$  ，$k$ 为当前是第几次取该行上的元素。 问最大得分为多少。"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="dp练习"><meta name=twitter:description content="
   A. 矩阵取数游戏
   
     
+    Link to heading
   
 
 
   题意
   
     
+    Link to heading
   
 
 给定一个 $n\times m$ 的矩阵，其中每个元素为非负整数。每次你可以从每行的行首或行末取一个元素，得到的分数为当前元素的值 $a_{ij}\times 2^k$  ，$k$ 为当前是第几次取该行上的元素。 问最大得分为多少。"><meta property="og:title" content="dp练习"><meta property="og:description" content="
   A. 矩阵取数游戏
   
     
+    Link to heading
   
 
 
   题意
   
     
+    Link to heading
   
 
-给定一个 $n\times m$ 的矩阵，其中每个元素为非负整数。每次你可以从每行的行首或行末取一个元素，得到的分数为当前元素的值 $a_{ij}\times 2^k$  ，$k$ 为当前是第几次取该行上的元素。 问最大得分为多少。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.zzsqwq.cn/posts/29/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-02-18T01:00:00+00:00"><meta property="article:modified_time" content="2020-02-18T01:00:00+00:00"><title>dp练习 · Zs's Blog</title><link rel=canonical href=https://blog.zzsqwq.cn/posts/29/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.51826c3279995d763cb22e72350b665aa46733ab8df12b1cae00617abd81a149.css integrity="sha256-UYJsMnmZXXY8si5yNQtmWqRnM6uN8SscrgBher2BoUk=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><meta name=generator content="Hugo 0.116.0"></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Zs's Blog</a>
+给定一个 $n\times m$ 的矩阵，其中每个元素为非负整数。每次你可以从每行的行首或行末取一个元素，得到的分数为当前元素的值 $a_{ij}\times 2^k$  ，$k$ 为当前是第几次取该行上的元素。 问最大得分为多少。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.zzsqwq.cn/posts/29/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-02-18T01:00:00+00:00"><meta property="article:modified_time" content="2020-02-18T01:00:00+00:00"><link rel=canonical href=https://blog.zzsqwq.cn/posts/29/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.f765a0ff3020452ae08fb0d0500e0b84e5baedb574f7c611e8b2b2cea0323eee.css integrity="sha256-92Wg/zAgRSrgj7DQUA4LhOW67bV098YR6LKyzqAyPu4=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Zs's Blog</a>
 <input type=checkbox id=menu-toggle>
 <label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/about/>About</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Posts</a></li><li class=navigation-item><a class=navigation-link href=/friends/>Friends</a></li><li class=navigation-item><a class=navigation-link href=/contact/>Contact Me</a></li><li class=navigation-item><a class=navigation-link href=https://zzsqwq.cn/>Homepage</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://blog.zzsqwq.cn/posts/29/>dp练习</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
 <time datetime=2020-02-18T01:00:00Z>February 18, 2020</time></span>
@@ -43,13 +49,17 @@
 <a href=/categories/dp/>dp</a></div><div class=tags><i class="fa fa-tag" aria-hidden=true></i>
 <span class=tag><a href=/tags/luogu/>Luogu</a></span>
 <span class=separator>•</span>
-<span class=tag><a href=/tags/dp/>dp</a></span></div></div></header><div><h2 id=a-矩阵取数游戏httpswwwluogucomcnproblemp1005>A. <a href=https://www.luogu.com.cn/problem/P1005>矩阵取数游戏</a>
-<a class=heading-link href=#a-%e7%9f%a9%e9%98%b5%e5%8f%96%e6%95%b0%e6%b8%b8%e6%88%8fhttpswwwluogucomcnproblemp1005><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=题意>题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f><i class="fa fa-link" aria-hidden=true></i></a></h3><p>给定一个 $n\times m$ 的矩阵，其中每个元素为非负整数。每次你可以从每行的行首或行末取一个元素，得到的分数为当前元素的值 $a_{ij}\times 2^k$ ，$k$ 为当前是第几次取该行上的元素。 问最大得分为多少。</p><h3 id=思路>思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af><i class="fa fa-link" aria-hidden=true></i></a></h3><p>首先我们发现，虽然答案问的是 $n$ 行，但是我们发现，不同行之间是不会相互影响的，我们只需要讨论一行的情况，然后对每行都处理一遍就可以了。
+<span class=tag><a href=/tags/dp/>dp</a></span></div></div></header><div class=post-content><h2 id=a-矩阵取数游戏httpswwwluogucomcnproblemp1005>A. <a href=https://www.luogu.com.cn/problem/P1005 class=external-link target=_blank rel=noopener>矩阵取数游戏</a>
+<a class=heading-link href=#a-%e7%9f%a9%e9%98%b5%e5%8f%96%e6%95%b0%e6%b8%b8%e6%88%8fhttpswwwluogucomcnproblemp1005><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><h3 id=题意>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><p>给定一个 $n\times m$ 的矩阵，其中每个元素为非负整数。每次你可以从每行的行首或行末取一个元素，得到的分数为当前元素的值 $a_{ij}\times 2^k$ ，$k$ 为当前是第几次取该行上的元素。 问最大得分为多少。</p><h3 id=思路>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><p>首先我们发现，虽然答案问的是 $n$ 行，但是我们发现，不同行之间是不会相互影响的，我们只需要讨论一行的情况，然后对每行都处理一遍就可以了。
 那么对于一行上的 $m$ 个元素，我们每一次取都有两种选择，一个是取行首，一个是取行尾。我们发现这是一个区间问题，对于区间 $[i,j]$ 的最优情况，我们可以从 $[i+1,j]$ 和 $[i,j-1]$ 这两个的最优情况转移过来，因此我们可以定义 $f[i][j]$ 是从第 $i$ 个元素到第 $j$ 的元素得分的最大值，然后从上述两个状态转移过来。
 还有一个问题就是我们的 $2^k$ 问题，我们考虑到大区间的最优值是从小区间转移来，也就是说小区间乘的指数高，大区间乘的指数低，我们又是从小区间推到大区间，转移一次就乘一次，最后肯定是大区间的少，小区间的多了。qwq因为这个题的次数可能很高，会爆long long，实在是不想写高精度，就用了__int128，第一次用，感觉还不错QAQ..</p><h3 id=代码实现>代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
 </span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
 </span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
 </span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
@@ -104,12 +114,16 @@
 </span></span><span style=display:flex><span>	out(ans);
 </span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div></br><h2 id=b-关路灯httpswwwluogucomcnproblemp1220>B. <a href=https://www.luogu.com.cn/problem/P1220>关路灯</a>
-<a class=heading-link href=#b-%e5%85%b3%e8%b7%af%e7%81%afhttpswwwluogucomcnproblemp1220><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=题意-1>题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f-1><i class="fa fa-link" aria-hidden=true></i></a></h3><p>在一条街道上有 $n$ 个路灯开着，他们可以看作分布在 $x$ 轴上，每个路灯有一定的坐标，也就是代表他们的位置。每个路灯也有一定的功率 $x$ ，代表一秒钟消耗多少电能。姜大佬初始位置在 $c$ ，他每天早晨出来关掉路灯。它可以先关左边的也可以先关右边的，他的行走速率是 $1m/s$ ，问最少消耗多少电能能关掉所有路灯。</p><h3 id=思路-1>思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af-1><i class="fa fa-link" aria-hidden=true></i></a></h3><p>又是一道区间dp的题，那么我们可以思考一下，首先小姜老师肯定不能跳着关路灯，也就是说这个区间内中间的路灯都被关闭了，他会关一个区间的左端点或者右端点，而不会关这个区间外面的。那么我们就可以枚举区间长度来解决这个问题，从小的枚举到大的。
+</span></span></code></pre></div></br><h2 id=b-关路灯httpswwwluogucomcnproblemp1220>B. <a href=https://www.luogu.com.cn/problem/P1220 class=external-link target=_blank rel=noopener>关路灯</a>
+<a class=heading-link href=#b-%e5%85%b3%e8%b7%af%e7%81%afhttpswwwluogucomcnproblemp1220><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><h3 id=题意-1>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f-1><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><p>在一条街道上有 $n$ 个路灯开着，他们可以看作分布在 $x$ 轴上，每个路灯有一定的坐标，也就是代表他们的位置。每个路灯也有一定的功率 $x$ ，代表一秒钟消耗多少电能。姜大佬初始位置在 $c$ ，他每天早晨出来关掉路灯。它可以先关左边的也可以先关右边的，他的行走速率是 $1m/s$ ，问最少消耗多少电能能关掉所有路灯。</p><h3 id=思路-1>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af-1><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><p>又是一道区间dp的题，那么我们可以思考一下，首先小姜老师肯定不能跳着关路灯，也就是说这个区间内中间的路灯都被关闭了，他会关一个区间的左端点或者右端点，而不会关这个区间外面的。那么我们就可以枚举区间长度来解决这个问题，从小的枚举到大的。
 那么我们思考一下如何定义这个状态。我们可以定义关闭区间 $[i,j]$ 的路灯，最少消耗电能为 $f[i][j]$ ，如果需要转移状态的话，我们想到，对于一个方向，小姜老师可以继续往前走，关掉前面那盏灯，也可以返回去，关闭它屁股后面那盏灯。因为是有两个方向的，所以我们可以拓宽一维，用 $f[i][j][0/1]$ 来表示小姜老师现在是在往左走还是往右走，那么很明显 $f[i][j][0]$ 这个状态可以从 $f[i+1][j][0/1]$ 来转移分别对应着小姜老师继续往前走关眼前的，和返回关屁股后的。相应的 $f[i][j][1]$ 就可以从 $f[i][j-1][0/1]$ ，转移的时候再加上消耗的电能即可！</p><h3 id=代码实现-1>代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
 </span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
 </span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
 </span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
@@ -156,11 +170,15 @@
 </span></span><span style=display:flex><span>	printf(<span style=color:#e6db74>&#34;%d&#34;</span>,min(dp[<span style=color:#ae81ff>1</span>][n][<span style=color:#ae81ff>0</span>],dp[<span style=color:#ae81ff>1</span>][n][<span style=color:#ae81ff>1</span>]));
 </span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div></br><h2 id=c-小a和uim之大逃离httpswwwluogucomcnproblemp1373>C. <a href=https://www.luogu.com.cn/problem/P1373>小a和uim之大逃离</a>
-<a class=heading-link href=#c-%e5%b0%8fa%e5%92%8cuim%e4%b9%8b%e5%a4%a7%e9%80%83%e7%a6%bbhttpswwwluogucomcnproblemp1373><i class="fa fa-link" aria-hidden=true></i></a></h2><h3 id=题意-2>题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f-2><i class="fa fa-link" aria-hidden=true></i></a></h3><p>给定一个 $n\times m$ 的矩阵，每个格子中有 $0\sim k$ 滴魔液，小姜老师和它朋友可以从任意地点开始，一起向右或者向下走，他们每个人有一个容量为 $k$ 的瓶子，由小姜老师开始轮流收集地上的魔液，当收集魔液大于 $k$ 的时候，会对 $k+1$ 取模，问他们有多少种方法使得收集的魔液数量相同。</p><h3 id=思路-2>思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af-2><i class="fa fa-link" aria-hidden=true></i></a></h3><p>很显然我们可以写一个5维dp，用 $f[i][j][p][l][0/1]$ 来表示，当到了坐标为 $(i,j)$ 的格子的时候，小姜老师拥有魔液 $p$ 滴，他的朋友拥有魔液 $l$ 滴，并且这一次是由小姜老师采集的/由他的朋友采集的。这样的话，感觉比较好些，但是。。空间占用非常的高，我们优化一下，因为问的是收集相等，所以只需要维护他们的差就可以了，也就是说，只需要将 $(p-l+k)\%k$ 维护一下就可以了，因此循环枚举坐标以及他们的差，从低的向高的转移就可以了。</p><h3 id=代码实现-2>代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-2><i class="fa fa-link" aria-hidden=true></i></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
+</span></span></code></pre></div></br><h2 id=c-小a和uim之大逃离httpswwwluogucomcnproblemp1373>C. <a href=https://www.luogu.com.cn/problem/P1373 class=external-link target=_blank rel=noopener>小a和uim之大逃离</a>
+<a class=heading-link href=#c-%e5%b0%8fa%e5%92%8cuim%e4%b9%8b%e5%a4%a7%e9%80%83%e7%a6%bbhttpswwwluogucomcnproblemp1373><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><h3 id=题意-2>题意
+<a class=heading-link href=#%e9%a2%98%e6%84%8f-2><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><p>给定一个 $n\times m$ 的矩阵，每个格子中有 $0\sim k$ 滴魔液，小姜老师和它朋友可以从任意地点开始，一起向右或者向下走，他们每个人有一个容量为 $k$ 的瓶子，由小姜老师开始轮流收集地上的魔液，当收集魔液大于 $k$ 的时候，会对 $k+1$ 取模，问他们有多少种方法使得收集的魔液数量相同。</p><h3 id=思路-2>思路
+<a class=heading-link href=#%e6%80%9d%e8%b7%af-2><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><p>很显然我们可以写一个5维dp，用 $f[i][j][p][l][0/1]$ 来表示，当到了坐标为 $(i,j)$ 的格子的时候，小姜老师拥有魔液 $p$ 滴，他的朋友拥有魔液 $l$ 滴，并且这一次是由小姜老师采集的/由他的朋友采集的。这样的话，感觉比较好些，但是。。空间占用非常的高，我们优化一下，因为问的是收集相等，所以只需要维护他们的差就可以了，也就是说，只需要将 $(p-l+k)\%k$ 维护一下就可以了，因此循环枚举坐标以及他们的差，从低的向高的转移就可以了。</p><h3 id=代码实现-2>代码实现
+<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-2><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
 </span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
 </span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
 </span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
@@ -210,11 +228,11 @@
 </span></span><span style=display:flex><span>	}
 </span></span><span style=display:flex><span>	printf(<span style=color:#e6db74>&#34;%lld&#34;</span>,ans);
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div></div><footer><div class=comments><script>let getTheme=window.localStorage&&window.localStorage.getItem("colorscheme");getTheme=getTheme??"preferred_color_scheme";let s=document.createElement("script");s.src="https://giscus.app/client.js",s.setAttribute("data-repo","zzsqwq/hugo-blog-comment"),s.setAttribute("data-repo-id","R_kgDOGgU1qQ"),s.setAttribute("data-category","Announcements"),s.setAttribute("data-category-id","DIC_kwDOGgU1qc4CSX1m"),s.setAttribute("data-mapping","pathname"),s.setAttribute("data-strict","0"),s.setAttribute("data-reactions-enabled","1"),s.setAttribute("data-emit-metadata","0"),s.setAttribute("data-input-position","bottom"),s.setAttribute("data-theme",getTheme),s.setAttribute("data-lang",""),s.setAttribute("crossorigin","anonymous"),s.setAttribute("async",""),document.querySelector("div.comments").innerHTML="",document.querySelector("div.comments").appendChild(s)</script></div></footer></article><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})'></script></section></div><footer class=footer><section class=container><a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></br>©
+</span></span></code></pre></div></div><footer><div class=comments><script>let getTheme=window.localStorage&&window.localStorage.getItem("colorscheme");getTheme=getTheme??"preferred_color_scheme";let s=document.createElement("script");s.src="https://giscus.app/client.js",s.setAttribute("data-repo","zzsqwq/hugo-blog-comment"),s.setAttribute("data-repo-id","R_kgDOGgU1qQ"),s.setAttribute("data-category","Announcements"),s.setAttribute("data-category-id","DIC_kwDOGgU1qc4CSX1m"),s.setAttribute("data-mapping","pathname"),s.setAttribute("data-strict","0"),s.setAttribute("data-reactions-enabled","1"),s.setAttribute("data-emit-metadata","0"),s.setAttribute("data-input-position","bottom"),s.setAttribute("data-theme",getTheme),s.setAttribute("data-lang",""),s.setAttribute("crossorigin","anonymous"),s.setAttribute("async",""),document.querySelector("div.comments").innerHTML="",document.querySelector("div.comments").appendChild(s)</script></div><div class=comments><script>let getTheme=window.localStorage&&window.localStorage.getItem("colorscheme");getTheme=getTheme??"preferred_color_scheme";let s=document.createElement("script");s.src="https://giscus.app/client.js",s.setAttribute("data-repo","zzsqwq/hugo-blog-comment"),s.setAttribute("data-repo-id","R_kgDOGgU1qQ"),s.setAttribute("data-category","Announcements"),s.setAttribute("data-category-id","DIC_kwDOGgU1qc4CSX1m"),s.setAttribute("data-mapping","pathname"),s.setAttribute("data-term",""),s.setAttribute("data-strict","0"),s.setAttribute("data-reactions-enabled","1"),s.setAttribute("data-emit-metadata","0"),s.setAttribute("data-input-position","bottom"),s.setAttribute("data-theme",getTheme),s.setAttribute("data-lang","en"),s.setAttribute("data-loading",""),s.setAttribute("crossorigin","anonymous"),s.setAttribute("async",""),document.querySelector("div.comments").innerHTML="",document.querySelector("div.comments").appendChild(s)</script></div></footer></article><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css integrity=sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0 crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js integrity=sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})'></script></section></div><footer class=footer><section class=container><a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></br>©
 2019 -
 2023
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.be15ac3c39a2814b964880106561a86d9c95fe28c6a152b56914771a76d43bf6.js integrity="sha256-vhWsPDmigUuWSIAQZWGobZyV/ijGoVK1aRR3GnbUO/Y="></script>
+Powered by <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/ target=_blank rel=noopener>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WF7TH97J9X"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-WF7TH97J9X",{anonymize_ip:!1})}</script></body></html>

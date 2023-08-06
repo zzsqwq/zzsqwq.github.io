@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Horizon Robotics on Zs's Blog</title><link>https://blog.zzsqwq.cn/tags/horizon-robotics/</link><description>Recent content in Horizon Robotics on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 25 Feb 2023 00:45:22 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/horizon-robotics/index.xml" rel="self" type="application/rss+xml"/><item><title>基于地平线 HAT 训练与部署 FCOS 全流程</title><link>https://blog.zzsqwq.cn/posts/hat-train-fcos/</link><pubDate>Sat, 25 Feb 2023 00:45:22 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/hat-train-fcos/</guid><description>前言 最近想要使用自己采集与标注的数据集来训练与部署一下地平线微调过的 FCOS 网络，在询问和查看文档后发现如果想基于官方微调的模型训练，需要使用提供 HAT（Horizon Algorithm Toolkit，海图） 来进行，具体的文档可以查看：Horizon Algorithm Toolkit 文档，这是在线的版本，版本可能会比较旧，想看最新版的可以查看离线的版本，位置在 OE（Open Explorer，天工开物） 包的 doc 目录下，如下图：
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Horizon Robotics on Zs's Blog</title><link>https://blog.zzsqwq.cn/tags/horizon-robotics/</link><description>Recent content in Horizon Robotics on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 25 Feb 2023 00:45:22 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/horizon-robotics/index.xml" rel="self" type="application/rss+xml"/><item><title>基于地平线 HAT 训练与部署 FCOS 全流程</title><link>https://blog.zzsqwq.cn/posts/hat-train-fcos/</link><pubDate>Sat, 25 Feb 2023 00:45:22 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/hat-train-fcos/</guid><description>前言 Link to heading 最近想要使用自己采集与标注的数据集来训练与部署一下地平线微调过的 FCOS 网络，在询问和查看文档后发现如果想基于官方微调的模型训练，需要使用提供 HAT（Horizon Algorithm Toolkit，海图） 来进行，具体的文档可以查看：Horizon Algorithm Toolkit 文档，这是在线的版本，版本可能会比较旧，想看最新版的可以查看离线的版本，位置在 OE（Open Explorer，天工开物） 包的 doc 目录下，如下图：
 想要方便的查看离线文档可以通过 Python 来实现，在 doc 目录下执行：
 python3 -m http.server 3000 这样就可以在本地的 0.0.0.0:3000 地址开启一个 http server，随后可以在本地浏览器使用 localhost:3000 或者其他电脑浏览器使用 {ip}:3000 来访问文档。
 但是查看 文档 过后会发现，文档其实也没有那么的全面，讲的比较简单，尝试了一下中间坑还挺多的，社区里面关于这方面的帖子也不多12，因此想记录下我尝试的全流程，也可以作为对上面教程文档的补充。
@@ -7,9 +7,7 @@ python3 -m http.server 3000 这样就可以在本地的 0.0.0.0:3000 地址开�
 如何基于官方的 COCO 数据集训练？这里就是指基于 mscoco 发布的包含 80 类的数据集。
 如何基于自己的数据集进行训练？这里就是指自己建立的，自定义类别的，可能只有四五类，没有 80 类的数据集。
 下方涉及到的一些代码、脚本和模型等，可以在 Github 仓库 中找到。
-训练的环境配置 我自己环境配置如下：
+训练的环境配置 Link to heading 我自己环境配置如下：
 OS: Ubuntu 20.04
 Docker: 20.10.23
-Nvidia Docker: 2.11.0-1
-GPU: RTX3090
-NVIDIA Driver Version: 515.65.01</description></item></channel></rss>
+Nvidia Docker: 2.11.0-1</description></item></channel></rss>

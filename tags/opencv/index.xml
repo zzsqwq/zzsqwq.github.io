@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OpenCV on Zs's Blog</title><link>https://blog.zzsqwq.cn/tags/opencv/</link><description>Recent content in OpenCV on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 31 Oct 2020 20:38:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/opencv/index.xml" rel="self" type="application/rss+xml"/><item><title>Visual Studio 2019 中 OpenCV 配置教程</title><link>https://blog.zzsqwq.cn/posts/114/</link><pubDate>Sat, 31 Oct 2020 20:38:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/114/</guid><description>&lt;h2 id="windows-平台-visual-studio-2019-中-opencv-配置教程">
 Windows 平台 Visual Studio 2019 中 OpenCV 配置教程
 &lt;a class="heading-link" href="#windows-%e5%b9%b3%e5%8f%b0-visual-studio-2019-%e4%b8%ad-opencv-%e9%85%8d%e7%bd%ae%e6%95%99%e7%a8%8b">
-&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+&lt;span class="sr-only">Link to heading&lt;/span>
 &lt;/a>
 &lt;/h2>
 &lt;h3 id="前言">
 前言
 &lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
-&lt;i class="fa fa-link" aria-hidden="true">&lt;/i>
+&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+&lt;span class="sr-only">Link to heading&lt;/span>
 &lt;/a>
 &lt;/h3>
 &lt;p>我这里配置用的是4.5.0版本，但实际配置过程中需要的大部分时间只是路径，因此和版本基本无关。&lt;/p>
