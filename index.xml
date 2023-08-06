@@ -331,8 +331,8 @@ Proxychains
 &lt;span class="sr-only">Link to heading&lt;/span>
 &lt;/a>
 &lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ proxychains4 wget google.com &lt;span style="color:#75715e">## 如果是环境变量的方式，直接 wget google.com 即可。&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ubuntu@VM-16-11-ubuntu:~$ proxychains4 wget google.com
+&lt;p>如果是 proxychains 方式，使用 &lt;code>proxychains4 wget google.com &lt;/code>、环境变量可直接 &lt;code>wget google.com&lt;/code>。不要认为无法 ping 通 Google （&lt;code>ping google.com&lt;/code>）就是代理有问题，此种代理方式就是无法 ping 通。具体原因可以了解 VPN 和 OSI 七层模型。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ubuntu@VM-16-11-ubuntu:~$ proxychains4 wget google.com &lt;span style="color:#75715e"># 如果是环境变量的方式，直接 wget google.com 即可。&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>proxychains&lt;span style="color:#f92672">]&lt;/span> config file found: /etc/proxychains4.conf
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>proxychains&lt;span style="color:#f92672">]&lt;/span> preloading /usr/lib/x86_64-linux-gnu/libproxychains.so.4
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>proxychains&lt;span style="color:#f92672">]&lt;/span> DLL init: proxychains-ng 4.14
@@ -353,8 +353,7 @@ Proxychains
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>index.html &lt;span style="color:#f92672">[&lt;/span> &amp;lt;&lt;span style="color:#f92672">=&lt;/span>&amp;gt; &lt;span style="color:#f92672">]&lt;/span> 18.87K --.-KB/s in 0s
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>2023-08-07 02:15:20 &lt;span style="color:#f92672">(&lt;/span>&lt;span style="color:#ae81ff">204&lt;/span> MB/s&lt;span style="color:#f92672">)&lt;/span> - ‘index.html’ saved &lt;span style="color:#f92672">[&lt;/span>19321&lt;span style="color:#f92672">]&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>输出如上即正确，如果想要不输出中间的 log，可以使用 &lt;code>proxychains4 -q&lt;/code>。&lt;/p>
-&lt;p>不要认为无法 ping 通 Google 就是代理有问题，此种代理方式就是无法 ping 通。&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>输出如上（正确 download index.html）即正确，如果想要不输出中间的 log，可以使用 &lt;code>proxychains4 -q&lt;/code>。&lt;/p>
 &lt;p>如果还有问题，可以使用 &lt;code>docker-compose logs -f &lt;/code> 命令查看容器的相关日志，看是否有请求到达。同时可以检查配置文件是否正确，如果不确定可以通过 &lt;a href="https://acl4ssr-sub.github.io/" class="external-link" target="_blank" rel="noopener">ACL4SSR 在线订阅转换 (acl4ssr-sub.github.io)&lt;/a> 转换下试试（非推广，无法保证安全性，请使用前自行考量）。如果还是无法解决，可以留言评论探讨。&lt;/p>
 &lt;div class="footnotes" role="doc-endnotes">
 &lt;hr>
