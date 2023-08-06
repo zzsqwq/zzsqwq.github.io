@@ -385,7 +385,7 @@ export no_proxy="localhost, 127.0.0.1, ::1"
 
 ### 测试
 
-如果是 proxychains 方式，使用 `proxychains4 wget google.com `、环境变量可直接 `wget google.com`。不要认为无法 ping 通 Google （`ping google.com`）就是代理有问题，此种代理方式就是无法 ping 通。具体原因可以了解 VPN 和 OSI 七层模型。
+如果是 proxychains 方式，使用 `proxychains4 wget google.com `、环境变量可直接 `wget google.com`。不要认为无法 ping 通 Google （`ping google.com`）就是代理有问题，此种代理方式就是无法 ping 通。具体原因可以了解 SOCKS 代理方式和 OSI 七层模型。
 
 ```bash
 ubuntu@VM-16-11-ubuntu:~$ proxychains4 wget google.com # 如果是环境变量的方式，直接 wget google.com 即可。
