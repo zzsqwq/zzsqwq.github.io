@@ -29,4 +29,4 @@ Zhang Jiale https://zjlzjl.com
 
 Zepeng https://bzpovo.xyz
 
-Zaihua https://www.vzaihua.com
+Zaihua https://www.zaihua.net

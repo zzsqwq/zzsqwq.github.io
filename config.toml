@@ -95,12 +95,20 @@ weight = 2
 url = "https://t.me/zzsqwq"
 
 [[params.social]]
+name = "Memos"
+icon = "fa fa-2x fa-pencil"
+weight = 4
+url = "https://memos.zzsqwq.cn"
+
+[[params.social]]
 name = "RSS"
 icon = "fa fa-2x fa-rss"
-weight = 4
+weight = 5
+
 url = "https://blog.zzsqwq.cn/index.xml"
 rel = "alternate"
 type = "application/rss+xml"
+
 
 [languages.en]
 languageName = ":uk:"
