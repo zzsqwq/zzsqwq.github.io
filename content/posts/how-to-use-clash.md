@@ -123,16 +123,17 @@ services:
 
 这样就克隆 [clash-dashboard](https://github.com/Dreamacro/clash-dashboard) 仓库的 gh-pages 分支到了 ui 文件夹。
 
-然后配置一下我们的 `config.yaml` 文件，确保下面四项如下：
+然后配置一下我们的 `config.yaml` 文件，确保下面五项四项如下：
 
 ```shell
 port: 7890
 socks-port: 7891
+allow-lan: true
 external-controller: :9090
 external-ui: /ui
 ```
 
-这里的 `port` 是 http/https 代理端口，`socks-port` 是 socks 流量代理端口，`external-controller` 是外部控制端口，用于面板控制，`external-ui` 是本地控制页面的源码，确保 `localhost:external-controller/ui` 页面可以控制代理。
+这里的 `port` 是 http/https 代理端口，`socks-port` 是 socks 流量代理端口，`allow-lan` 配置是否局域网代理，这里如果你的 Docker 网络模式是 host 模式可以不开启，如果是 bridge 模式一定要开启，如果你不知道其中区别，设置为 `true` 即可（感谢 [@Yapwn](https://github.com/Yapwn) 同学补充）。 `external-controller` 是外部控制端口，用于面板控制，`external-ui` 是本地控制页面的源码，确保 `localhost:external-controller/ui` 页面可以控制代理。
 
 顺便说一下，这里其实严格意义上不是必须和我一样，只要和前面的 `docker-compose.yml` 文件中的端口映射对应起来即可，但是如果你对 Docker 及 Clash 不够了解，推荐和我选择一样的配置。
 
