@@ -105,12 +105,13 @@
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>~/Services/clash
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>❯ git clone -b gh-pages https://github.com/Dreamacro/clash-dashboard ui
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这样就克隆 &lt;a href="https://github.com/Dreamacro/clash-dashboard" class="external-link" target="_blank" rel="noopener">clash-dashboard&lt;/a> 仓库的 gh-pages 分支到了 ui 文件夹。&lt;/p>
-&lt;p>然后配置一下我们的 &lt;code>config.yaml&lt;/code> 文件，确保下面四项如下：&lt;/p>
+&lt;p>然后配置一下我们的 &lt;code>config.yaml&lt;/code> 文件，确保下面五项四项如下：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>port: &lt;span style="color:#ae81ff">7890&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>socks-port: &lt;span style="color:#ae81ff">7891&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>allow-lan: true
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>external-controller: :9090
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>external-ui: /ui
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这里的 &lt;code>port&lt;/code> 是 http/https 代理端口，&lt;code>socks-port&lt;/code> 是 socks 流量代理端口，&lt;code>external-controller&lt;/code> 是外部控制端口，用于面板控制，&lt;code>external-ui&lt;/code> 是本地控制页面的源码，确保 &lt;code>localhost:external-controller/ui&lt;/code> 页面可以控制代理。&lt;/p>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>这里的 &lt;code>port&lt;/code> 是 http/https 代理端口，&lt;code>socks-port&lt;/code> 是 socks 流量代理端口，&lt;code>allow-lan&lt;/code> 配置是否局域网代理，这里如果你的 Docker 网络模式是 host 模式可以不开启，如果是 bridge 模式一定要开启，如果你不知道其中区别，设置为 &lt;code>true&lt;/code> 即可（感谢 &lt;a href="https://github.com/Yapwn" class="external-link" target="_blank" rel="noopener">@Yapwn&lt;/a> 同学补充）。 &lt;code>external-controller&lt;/code> 是外部控制端口，用于面板控制，&lt;code>external-ui&lt;/code> 是本地控制页面的源码，确保 &lt;code>localhost:external-controller/ui&lt;/code> 页面可以控制代理。&lt;/p>
 &lt;p>顺便说一下，这里其实严格意义上不是必须和我一样，只要和前面的 &lt;code>docker-compose.yml&lt;/code> 文件中的端口映射对应起来即可，但是如果你对 Docker 及 Clash 不够了解，推荐和我选择一样的配置。&lt;/p>
 &lt;h3 id="14-启动容器">
 1.4 启动容器
