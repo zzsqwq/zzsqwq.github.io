@@ -8,8 +8,7 @@ paginate = 20
 # pygmentsStyle = "autumn"
 # pygmentsCodeFences = true
 # pygmentsCodeFencesGuessSyntax = true
-enableEmoji = true
-googleAnalytics = 'G-WF7TH97J9X'
+enableEmoji = true googleAnalytics = 'G-WF7TH97J9X'
 
 [markup.goldmark.renderer]
 unsafe = true
@@ -93,12 +92,6 @@ name = "Telegram"
 icon = "fa fa-2x fa-telegram"
 weight = 2
 url = "https://t.me/zzsqwq"
-
-[[params.social]]
-name = "Memos"
-icon = "fa fa-2x fa-pencil"
-weight = 4
-url = "https://memos.zzsqwq.cn"
 
 [[params.social]]
 name = "RSS"
