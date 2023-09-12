@@ -8,7 +8,8 @@ paginate = 20
 # pygmentsStyle = "autumn"
 # pygmentsCodeFences = true
 # pygmentsCodeFencesGuessSyntax = true
-enableEmoji = true googleAnalytics = 'G-WF7TH97J9X'
+enableEmoji = true 
+googleAnalytics = 'G-WF7TH97J9X'
 
 [markup.goldmark.renderer]
 unsafe = true
@@ -97,7 +98,6 @@ url = "https://t.me/zzsqwq"
 name = "RSS"
 icon = "fa fa-2x fa-rss"
 weight = 5
-
 url = "https://blog.zzsqwq.cn/index.xml"
 rel = "alternate"
 type = "application/rss+xml"
