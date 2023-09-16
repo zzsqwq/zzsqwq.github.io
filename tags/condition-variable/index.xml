@@ -1,5 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Condition variable on Zs's Blog</title><link>https://blog.zzsqwq.cn/tags/condition-variable/</link><description>Recent content in Condition variable on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 24 Aug 2022 23:37:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/condition-variable/index.xml" rel="self" type="application/rss+xml"/><item><title>为什么要使用条件变量？</title><link>https://blog.zzsqwq.cn/posts/why-use-condition-variable/</link><pubDate>Wed, 24 Aug 2022 23:37:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/why-use-condition-variable/</guid><description>为什么要使用条件变量？ Link to heading 前言 Link to heading 最近看了很多与线程有关的 C++ 新特性，条件变量是见的比较多的一个特性。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Condition variable on Zs&#39;s Blog</title>
+    <link>https://blog.zzsqwq.cn/tags/condition-variable/</link>
+    <description>Recent content in Condition variable on Zs&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 24 Aug 2022 23:37:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/condition-variable/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>为什么要使用条件变量？</title>
+      <link>https://blog.zzsqwq.cn/posts/why-use-condition-variable/</link>
+      <pubDate>Wed, 24 Aug 2022 23:37:00 +0000</pubDate>
+      
+      <guid>https://blog.zzsqwq.cn/posts/why-use-condition-variable/</guid>
+      <description>为什么要使用条件变量？ 前言 最近看了很多与线程有关的 C++ 新特性，条件变量是见的比较多的一个特性。
 看的时候我发现，想要理解一个新的特性，关键的要看它的引入到底解决了哪些问题，没有什么特性我们要实现相同的功能要怎么做？
 以我的理解来看，条件变量是一个线程间互相同步与通知的手段，他通过主动唤醒的方式减小了各个线程的开销，取代了简单但是消耗较大的一直被动循环检验与等待。
-没有条件变量我们如何实现相同的需求？ Link to heading 这里采用现代C++教程1 中关于条件变量的一个例子作为基础：
-不使用条件变量版本 Link to heading #include &amp;lt;queue&amp;gt; #include &amp;lt;chrono&amp;gt; #include &amp;lt;mutex&amp;gt; #include &amp;lt;thread&amp;gt; #include &amp;lt;iostream&amp;gt; #include &amp;lt;condition_variable&amp;gt; int main() { std::queue&amp;lt;int&amp;gt; produced_nums; std::mutex mtx; // 生产者 auto producer = [&amp;amp;]() { for (int i = 0; ; i++) { std::this_thread::sleep_for(std::chrono::milliseconds(900)); std::unique_lock&amp;lt;std::mutex&amp;gt; lock(mtx); std::cout &amp;lt;&amp;lt; &amp;#34;producing &amp;#34; &amp;lt;&amp;lt; i &amp;lt;&amp;lt; std::endl; produced_nums.push(i); } }; // 消费者 auto consumer = [&amp;amp;]() { while (true) { { std::unique_lock&amp;lt;std::mutex&amp;gt; lock(mtx); if(produced_nums.</description></item></channel></rss>
+没有条件变量我们如何实现相同的需求？ 这里采用现代C++教程1 中关于条件变量的一个例子作为基础：
+不使用条件变量版本 #include &amp;lt;queue&amp;gt; #include &amp;lt;chrono&amp;gt; #include &amp;lt;mutex&amp;gt; #include &amp;lt;thread&amp;gt; #include &amp;lt;iostream&amp;gt; #include &amp;lt;condition_variable&amp;gt; int main() { std::queue&amp;lt;int&amp;gt; produced_nums; std::mutex mtx; // 生产者 auto producer = [&amp;amp;]() { for (int i = 0; ; i++) { std::this_thread::sleep_for(std::chrono::milliseconds(900)); std::unique_lock&amp;lt;std::mutex&amp;gt; lock(mtx); std::cout &amp;lt;&amp;lt; &amp;#34;producing &amp;#34; &amp;lt;&amp;lt; i &amp;lt;&amp;lt; std::endl; produced_nums.push(i); } }; // 消费者 auto consumer = [&amp;amp;]() { while (true) { { std::unique_lock&amp;lt;std::mutex&amp;gt; lock(mtx); if(produced_nums.</description>
+    </item>
+    
+  </channel>
+</rss>

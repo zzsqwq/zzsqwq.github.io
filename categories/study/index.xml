@@ -1,10 +1,30 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Study on Zs's Blog</title><link>https://blog.zzsqwq.cn/categories/study/</link><description>Recent content in Study on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 30 Oct 2022 00:31:00 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/categories/study/index.xml" rel="self" type="application/rss+xml"/><item><title>如何善用搜索引擎？</title><link>https://blog.zzsqwq.cn/posts/how-to-search/</link><pubDate>Sun, 30 Oct 2022 00:31:00 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/how-to-search/</guid><description>前言 Link to heading 我们使用搜索引擎可能是为了搜集信息、或者是解决一些问题。但如果不能正确的使用搜索引擎，使用关键字等，可能搜到的答案就与问题相关不大，或者与我们的问题相差甚远。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Study on Zs&#39;s Blog</title>
+    <link>https://blog.zzsqwq.cn/categories/study/</link>
+    <description>Recent content in Study on Zs&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 30 Oct 2022 00:31:00 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/categories/study/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何善用搜索引擎？</title>
+      <link>https://blog.zzsqwq.cn/posts/how-to-search/</link>
+      <pubDate>Sun, 30 Oct 2022 00:31:00 +0800</pubDate>
+      
+      <guid>https://blog.zzsqwq.cn/posts/how-to-search/</guid>
+      <description>前言 我们使用搜索引擎可能是为了搜集信息、或者是解决一些问题。但如果不能正确的使用搜索引擎，使用关键字等，可能搜到的答案就与问题相关不大，或者与我们的问题相差甚远。
 这篇文章意在分享我个人在学习、工作中使用搜索引擎的一些技巧与思考，可能后续会不断的更新，如有纰漏，还请大家指正。
-应该使用什么搜索平台？ Link to heading 想要提高搜索的效率，选择一个好的搜索引擎或者内容平台颇为重要。
+应该使用什么搜索平台？ 想要提高搜索的效率，选择一个好的搜索引擎或者内容平台颇为重要。
 下面列举的是我平时会使用的一些平台，列出的顺序代表了我个人对于他们的推荐程度：
 通用搜索引擎：Google、Bing、DuckDuckGo、Baidu 编程相关问题：Stack Overflow、Github Issue、segmentfault、稀土掘金、腾讯云开发者社区、CSDN、华为云开发者社区 日常问题：V2EX 第一类为通用搜索引擎，例如 为什么最近头发掉的更多了？ 在其上可以搜索任何问题，其中 Google 的使用门槛相对较高，而 Bing 针对国内用户来说是一个相对不错的选择，不建议常用 Baidu，因为其上广告非常多，有用信息密度相对较小。
 第二类为编程相关问题，例如 CMake 为什么报错了？ 其中 Stack Overflow、Github 虽均为国外的平台，但是国内是可以访问的，不过在 Baidu 搜索引擎中词条相对靠后，同时也需要使用英文来进行问题检索。（Btw，Stack 系列还有例如 Stack Exchange 平台，它的模式与前者相同，但是更偏日常一些。）除此以外，后面的平台均为国内平台，所列是我平时常见的一些，整体而言，前面的文章质量普遍会比后面的高一些，其中腾讯云开发者社区、CSDN、华为云开发者社区三者内容重叠度较高。
 第三类为日常问题，例如 Mac 上有什么好用的 App ？可以在 V2EX 上寻找答案，当然，它也是包罗万象的，只不过我常用它来解决日常各类小问题。
-如何正确的知道问题所在？ Link to heading 我们遇到一个问题，要首先能够定位这个问题的关键。
+如何正确的知道问题所在？ 我们遇到一个问题，要首先能够定位这个问题的关键。
 例如编译中出错了，可能有很多 log，你必须能够精确定位到到底哪一条 log 才是这次编译出错的关键，进而才能解决这个问题。
-以 CMake 为例，编译时报错 log 一般为红色，警告 log 一般为黄色，普通 log 一般为白色。得益于这种等级/颜色分明的 log ，我们可以快速的定位报错。我们日常编程中，为了便于 Debug，最好也遵循这个规范，例如在 C++ 中打印错误 log 时推荐使用 std::stderr 而不是 std::stdout 。</description></item></channel></rss>
+以 CMake 为例，编译时报错 log 一般为红色，警告 log 一般为黄色，普通 log 一般为白色。得益于这种等级/颜色分明的 log ，我们可以快速的定位报错。我们日常编程中，为了便于 Debug，最好也遵循这个规范，例如在 C++ 中打印错误 log 时推荐使用 std::stderr 而不是 std::stdout 。
+见过很多身边的同学遇到了报错，就一股脑粘贴所有的报错 log，然后贴到搜索引擎中，发现相关的错误基本没有。这就是没有其中错误的关键，报错时的 log 可能 100 行只有 10 行是关键的，甚至只有一行是关键的，例如 100 行 log 中只有 未定义的引用(undefined reference to &amp;lsquo;xxx&amp;rsquo;) 这一句是最关键的。</description>
+    </item>
+    
+  </channel>
+</rss>

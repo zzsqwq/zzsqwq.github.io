@@ -1,7 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>QQ on Zs's Blog</title><link>https://blog.zzsqwq.cn/tags/qq/</link><description>Recent content in QQ on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 16 Jun 2021 01:38:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/qq/index.xml" rel="self" type="application/rss+xml"/><item><title>deepin-wine-qq-9.1.8版本无法正常启动的解决方案</title><link>https://blog.zzsqwq.cn/posts/195/</link><pubDate>Wed, 16 Jun 2021 01:38:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/195/</guid><description>问题描述 Link to heading ​Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题
-解决方案 Link to heading ​首先我们根据上文的启示，因为每一个应用程序对应了一个 xxx.desktop 文件，因此在应用库中的QQ一定也有一个对应的 desktop 文件
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>QQ on Zs&#39;s Blog</title>
+    <link>https://blog.zzsqwq.cn/tags/qq/</link>
+    <description>Recent content in QQ on Zs&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 16 Jun 2021 01:38:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/qq/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>deepin-wine-qq-9.1.8版本无法正常启动的解决方案</title>
+      <link>https://blog.zzsqwq.cn/posts/195/</link>
+      <pubDate>Wed, 16 Jun 2021 01:38:00 +0000</pubDate>
+      
+      <guid>https://blog.zzsqwq.cn/posts/195/</guid>
+      <description>问题描述 ​Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题
+解决方案 ​首先我们根据上文的启示，因为每一个应用程序对应了一个 xxx.desktop 文件，因此在应用库中的QQ一定也有一个对应的 desktop 文件
 ​我们进入到 /usr/share/applications ，运行
 $ ls | grep -i qq ​可以发现其中有一个名为 deepin.com.qq.im.desktop 的文件，我们打开后发现内容如下：
 #!/usr/bin/env xdg-open [Desktop Entry] Encoding=UTF-8 Type=Application X-Created-By=Deepin WINE Team Categories=chat; Icon=deepin.com.qq.im Exec=&amp;#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;#34; -u %u Name=QQ Name[zh_CN]=QQ Comment=Tencent QQ Client on Deepin Wine StartupWMClass=QQ.exe MimeType= ​可以看到Exec那一栏为 Exec=&amp;quot;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;quot; -u %u ，发现他是运行目录下的一个 run.sh 脚本来启动的。
 ​我们进入目录下直接运行该脚本，查看log信息：
-base ❯ ./run.sh Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.</description></item></channel></rss>
+base ❯ ./run.sh Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.exe run Deepin-QQ progress pid Gtk-Message: 01:16:58.069: GtkDialog mapped without a transient parent.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,50 +1,45 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nowcoder on Zs's Blog</title><link>https://blog.zzsqwq.cn/tags/nowcoder/</link><description>Recent content in Nowcoder on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 19 Aug 2020 13:21:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/nowcoder/index.xml" rel="self" type="application/rss+xml"/><item><title>排位三和四记录</title><link>https://blog.zzsqwq.cn/posts/68/</link><pubDate>Wed, 19 Aug 2020 13:21:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/68/</guid><description>&lt;h1 id="day-3">
-Day 3
-&lt;a class="heading-link" href="#day-3">
-&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
-&lt;span class="sr-only">Link to heading&lt;/span>
-&lt;/a>
-&lt;/h1>
-&lt;h2 id="a-黑妹的游戏httpsacnowcodercomacmcontest6956a">
-A. &lt;a href="https://ac.nowcoder.com/acm/contest/6956/A" class="external-link" target="_blank" rel="noopener">黑妹的游戏Ⅰ&lt;/a>
-&lt;a class="heading-link" href="#a-%e9%bb%91%e5%a6%b9%e7%9a%84%e6%b8%b8%e6%88%8fhttpsacnowcodercomacmcontest6956a">
-&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
-&lt;span class="sr-only">Link to heading&lt;/span>
-&lt;/a>
-&lt;/h2>
-&lt;h3 id="题意">
-题意
-&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f">
-&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
-&lt;span class="sr-only">Link to heading&lt;/span>
-&lt;/a>
-&lt;/h3>
-&lt;p>给出三个不同的初始数字$a,b,c$，黑妹每次选择两个不同的数字，计算出差的绝对值后如果黑板上没有就写在黑板上。问黑妹最多能添加多少个数字。&lt;/p></description></item><item><title>排位一和二记录</title><link>https://blog.zzsqwq.cn/posts/5/</link><pubDate>Mon, 17 Aug 2020 20:04:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/5/</guid><description>&lt;h1 id="day-1">
-Day 1
-&lt;a class="heading-link" href="#day-1">
-&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
-&lt;span class="sr-only">Link to heading&lt;/span>
-&lt;/a>
-&lt;/h1>
-&lt;h2 id="a-兔子的区间密码httpsacnowcodercomacmcontest6954a">
-A. &lt;a href="https://ac.nowcoder.com/acm/contest/6954/A" class="external-link" target="_blank" rel="noopener">兔子的区间密码&lt;/a>
-&lt;a class="heading-link" href="#a-%e5%85%94%e5%ad%90%e7%9a%84%e5%8c%ba%e9%97%b4%e5%af%86%e7%a0%81httpsacnowcodercomacmcontest6954a">
-&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
-&lt;span class="sr-only">Link to heading&lt;/span>
-&lt;/a>
-&lt;/h2>
-&lt;h3 id="题意">
-题意
-&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f">
-&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
-&lt;span class="sr-only">Link to heading&lt;/span>
-&lt;/a>
-&lt;/h3>
-&lt;p>给定一个区间$[L,R]$ ，求从这个区间任意取两个整数(可以相同)，两者异或后能得到的最大值是多少？&lt;/p></description></item><item><title>日常水题</title><link>https://blog.zzsqwq.cn/posts/25/</link><pubDate>Thu, 13 Feb 2020 00:47:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/25/</guid><description>&lt;h2 id="前言">
-前言
-&lt;a class="heading-link" href="#%e5%89%8d%e8%a8%80">
-&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
-&lt;span class="sr-only">Link to heading&lt;/span>
-&lt;/a>
-&lt;/h2>
-&lt;p>今天又是颓废的一天，被大佬拉去跟他一起做牛客网的题，QAQ&amp;hellip;那我会点啥嘛，就只能替大佬写两道水题了···&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Nowcoder on Zs&#39;s Blog</title>
+    <link>https://blog.zzsqwq.cn/tags/nowcoder/</link>
+    <description>Recent content in Nowcoder on Zs&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 19 Aug 2020 13:21:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/nowcoder/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>排位三和四记录</title>
+      <link>https://blog.zzsqwq.cn/posts/68/</link>
+      <pubDate>Wed, 19 Aug 2020 13:21:00 +0000</pubDate>
+      
+      <guid>https://blog.zzsqwq.cn/posts/68/</guid>
+      <description>&lt;h1 id=&#34;day-3&#34;&gt;Day 3&lt;/h1&gt;
+&lt;h2 id=&#34;a-黑妹的游戏httpsacnowcodercomacmcontest6956a&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6956/A&#34;&gt;黑妹的游戏Ⅰ&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
+&lt;p&gt;给出三个不同的初始数字$a,b,c$，黑妹每次选择两个不同的数字，计算出差的绝对值后如果黑板上没有就写在黑板上。问黑妹最多能添加多少个数字。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>排位一和二记录</title>
+      <link>https://blog.zzsqwq.cn/posts/5/</link>
+      <pubDate>Mon, 17 Aug 2020 20:04:00 +0000</pubDate>
+      
+      <guid>https://blog.zzsqwq.cn/posts/5/</guid>
+      <description>&lt;h1 id=&#34;day-1&#34;&gt;Day 1&lt;/h1&gt;
+&lt;h2 id=&#34;a-兔子的区间密码httpsacnowcodercomacmcontest6954a&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6954/A&#34;&gt;兔子的区间密码&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
+&lt;p&gt;给定一个区间$[L,R]$ ，求从这个区间任意取两个整数(可以相同)，两者异或后能得到的最大值是多少？&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>日常水题</title>
+      <link>https://blog.zzsqwq.cn/posts/25/</link>
+      <pubDate>Thu, 13 Feb 2020 00:47:00 +0000</pubDate>
+      
+      <guid>https://blog.zzsqwq.cn/posts/25/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;今天又是颓废的一天，被大佬拉去跟他一起做牛客网的题，QAQ&amp;hellip;那我会点啥嘛，就只能替大佬写两道水题了···&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

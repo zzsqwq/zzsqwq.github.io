@@ -1,16 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>搜索 on Zs's Blog</title><link>https://blog.zzsqwq.cn/categories/%E6%90%9C%E7%B4%A2/</link><description>Recent content in 搜索 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 04 Feb 2020 23:02:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/categories/%E6%90%9C%E7%B4%A2/index.xml" rel="self" type="application/rss+xml"/><item><title>洛谷的一些搜索题</title><link>https://blog.zzsqwq.cn/posts/16/</link><pubDate>Tue, 04 Feb 2020 23:02:00 +0000</pubDate><guid>https://blog.zzsqwq.cn/posts/16/</guid><description>&lt;h3 id="1-p1378-油滴扩展httpswwwluogucomcnproblemp1378">
-1. &lt;a href="https://www.luogu.com.cn/problem/P1378" class="external-link" target="_blank" rel="noopener">P1378 油滴扩展&lt;/a>
-&lt;a class="heading-link" href="#1-p1378-%e6%b2%b9%e6%bb%b4%e6%89%a9%e5%b1%95httpswwwluogucomcnproblemp1378">
-&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
-&lt;span class="sr-only">Link to heading&lt;/span>
-&lt;/a>
-&lt;/h3>
-&lt;hr>
-&lt;h4 id="题意">
-题意
-&lt;a class="heading-link" href="#%e9%a2%98%e6%84%8f">
-&lt;i class="fa fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
-&lt;span class="sr-only">Link to heading&lt;/span>
-&lt;/a>
-&lt;/h4>
-&lt;p>在长方形框中，最多有 n ($0\le{n}\le6$)个相异点，在框中点上依次放置可扩展的油滴，当碰到其他油滴边界或者长方形边框时会停止，扩展呈圆形展开。放置下一个时会确保上一个已经扩展完成。问通过变换放置顺序可使得最终框中剩下的面积最小为多少。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>搜索 on Zs&#39;s Blog</title>
+    <link>https://blog.zzsqwq.cn/categories/%E6%90%9C%E7%B4%A2/</link>
+    <description>Recent content in 搜索 on Zs&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 04 Feb 2020 23:02:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/categories/%E6%90%9C%E7%B4%A2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>洛谷的一些搜索题</title>
+      <link>https://blog.zzsqwq.cn/posts/16/</link>
+      <pubDate>Tue, 04 Feb 2020 23:02:00 +0000</pubDate>
+      
+      <guid>https://blog.zzsqwq.cn/posts/16/</guid>
+      <description>&lt;h3 id=&#34;1-p1378-油滴扩展httpswwwluogucomcnproblemp1378&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1378&#34;&gt;P1378 油滴扩展&lt;/a&gt;&lt;/h3&gt;
+&lt;hr&gt;
+&lt;h4 id=&#34;题意&#34;&gt;题意&lt;/h4&gt;
+&lt;p&gt;在长方形框中，最多有 n ($0\le{n}\le6$)个相异点，在框中点上依次放置可扩展的油滴，当碰到其他油滴边界或者长方形边框时会停止，扩展呈圆形展开。放置下一个时会确保上一个已经扩展完成。问通过变换放置顺序可使得最终框中剩下的面积最小为多少。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

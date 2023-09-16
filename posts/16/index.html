@@ -1,271 +1,200 @@
-<!doctype html><html lang=en><head><title>洛谷的一些搜索题 · Zs's Blog</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="zzsqwq"><meta name=description content="
-  1. P1378 油滴扩展
-  
-    
-    Link to heading
-  
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>洛谷的一些搜索题 | Zs's Blog</title><meta name=keywords content="Luogu,搜索"><meta name=description content="1. P1378 油滴扩展
 
+题意
+在长方形框中，最多有 n ($0\le{n}\le6$)个相异点，在框中点上依次放置可扩展的油滴，当碰到其他油滴边界或者长方形边框时会停止，扩展呈圆形展开。放置下一个时会确保上一个已经扩展完成。问通过变换放置顺序可使得最终框中剩下的面积最小为多少。"><meta name=author content="zzsqwq"><link rel=canonical href=https://blog.zzsqwq.cn/posts/16/><meta name=google-site-verification content="G-WF7TH97J9X"><link crossorigin=anonymous href=/assets/css/stylesheet.0c4fd3725171366f335155acde6fb3c7b7042cd2fd075bebf5023d9b28a701b2.css integrity="sha256-DE/TclFxNm8zUVWs3m+zx7cELNL9B1vr9QI9myinAbI=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zzsqwq.cn/images/avatar.png><link rel=icon type=image/png sizes=16x16 href=https://blog.zzsqwq.cn/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://blog.zzsqwq.cn/images/favicon-32x32.png><link rel=apple-touch-icon href=https://blog.zzsqwq.cn/apple-touch-icon.png><link rel=mask-icon href=https://blog.zzsqwq.cn/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=G-WF7TH97J9X"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-WF7TH97J9X",{anonymize_ip:!1})}</script><meta property="og:title" content="洛谷的一些搜索题"><meta property="og:description" content="1. P1378 油滴扩展
 
+题意
+在长方形框中，最多有 n ($0\le{n}\le6$)个相异点，在框中点上依次放置可扩展的油滴，当碰到其他油滴边界或者长方形边框时会停止，扩展呈圆形展开。放置下一个时会确保上一个已经扩展完成。问通过变换放置顺序可使得最终框中剩下的面积最小为多少。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.zzsqwq.cn/posts/16/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-02-04T23:02:00+00:00"><meta property="article:modified_time" content="2020-02-04T23:02:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="洛谷的一些搜索题"><meta name=twitter:description content="1. P1378 油滴扩展
 
-  题意
-  
-    
-    Link to heading
-  
-
-在长方形框中，最多有 n ($0\le{n}\le6$)个相异点，在框中点上依次放置可扩展的油滴，当碰到其他油滴边界或者长方形边框时会停止，扩展呈圆形展开。放置下一个时会确保上一个已经扩展完成。问通过变换放置顺序可使得最终框中剩下的面积最小为多少。"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="洛谷的一些搜索题"><meta name=twitter:description content="
-  1. P1378 油滴扩展
-  
-    
-    Link to heading
-  
-
-
-
-  题意
-  
-    
-    Link to heading
-  
-
-在长方形框中，最多有 n ($0\le{n}\le6$)个相异点，在框中点上依次放置可扩展的油滴，当碰到其他油滴边界或者长方形边框时会停止，扩展呈圆形展开。放置下一个时会确保上一个已经扩展完成。问通过变换放置顺序可使得最终框中剩下的面积最小为多少。"><meta property="og:title" content="洛谷的一些搜索题"><meta property="og:description" content="
-  1. P1378 油滴扩展
-  
-    
-    Link to heading
-  
-
-
-
-  题意
-  
-    
-    Link to heading
-  
-
-在长方形框中，最多有 n ($0\le{n}\le6$)个相异点，在框中点上依次放置可扩展的油滴，当碰到其他油滴边界或者长方形边框时会停止，扩展呈圆形展开。放置下一个时会确保上一个已经扩展完成。问通过变换放置顺序可使得最终框中剩下的面积最小为多少。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.zzsqwq.cn/posts/16/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-02-04T23:02:00+00:00"><meta property="article:modified_time" content="2020-02-04T23:02:00+00:00"><link rel=canonical href=https://blog.zzsqwq.cn/posts/16/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.f765a0ff3020452ae08fb0d0500e0b84e5baedb574f7c611e8b2b2cea0323eee.css integrity="sha256-92Wg/zAgRSrgj7DQUA4LhOW67bV098YR6LKyzqAyPu4=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Zs's Blog</a>
-<input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/about/>About</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Posts</a></li><li class=navigation-item><a class=navigation-link href=/friends/>Friends</a></li><li class=navigation-item><a class=navigation-link href=/contact/>Contact Me</a></li><li class=navigation-item><a class=navigation-link href=https://zzsqwq.cn/>Homepage</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://blog.zzsqwq.cn/posts/16/>洛谷的一些搜索题</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
-<time datetime=2020-02-04T23:02:00Z>February 4, 2020</time></span>
-<span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>
-8-minute read</span></div><div class=categories><i class="fa fa-folder" aria-hidden=true></i>
-<a href=/categories/%E6%90%9C%E7%B4%A2/>搜索</a></div><div class=tags><i class="fa fa-tag" aria-hidden=true></i>
-<span class=tag><a href=/tags/luogu/>Luogu</a></span>
-<span class=separator>•</span>
-<span class=tag><a href=/tags/%E6%90%9C%E7%B4%A2/>搜索</a></span></div></div></header><div class=post-content><h3 id=1-p1378-油滴扩展httpswwwluogucomcnproblemp1378>1. <a href=https://www.luogu.com.cn/problem/P1378 class=external-link target=_blank rel=noopener>P1378 油滴扩展</a>
-<a class=heading-link href=#1-p1378-%e6%b2%b9%e6%bb%b4%e6%89%a9%e5%b1%95httpswwwluogucomcnproblemp1378><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><hr><h4 id=题意>题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h4><p>在长方形框中，最多有 n ($0\le{n}\le6$)个相异点，在框中点上依次放置可扩展的油滴，当碰到其他油滴边界或者长方形边框时会停止，扩展呈圆形展开。放置下一个时会确保上一个已经扩展完成。问通过变换放置顺序可使得最终框中剩下的面积最小为多少。</p><hr><h4 id=思路>思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h4><p>这是个裸的dfs，情况最多也就 $6! = 720$ 种，所以我们可以只需要设置一个vis数组来记录是否已经放置过这个油滴，计算已扩展油滴和将要放的油滴之间的距离可以用 <strong>两点距离-扩展油滴的半径</strong>来实现 ，但是有个坑需要注意，就是当一个油滴已经放在已经有扩展油滴覆盖的区域，那么他俩的距离是0，而不是负数，因此在计算半径的时候需要优化一下。</p><hr><h4 id=代码实现>代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#75715e>#define pi 3.1415926
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> n,x,y,xx,yy;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>double</span> rx[maxn];
-</span></span><span style=display:flex><span><span style=color:#66d9ef>double</span> maxans;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>bool</span> vis[maxn];
-</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> dx[maxn],dy[maxn];
-</span></span><span style=display:flex><span><span style=color:#66d9ef>double</span> <span style=color:#a6e22e>diss</span>(<span style=color:#66d9ef>int</span> x1,<span style=color:#66d9ef>int</span> y1,<span style=color:#66d9ef>int</span> x2,<span style=color:#66d9ef>int</span> y2) <span style=color:#75715e>//计算两点距离
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> sqrt((x1<span style=color:#f92672>-</span>x2)<span style=color:#f92672>*</span>(x1<span style=color:#f92672>-</span>x2)<span style=color:#f92672>+</span>(y1<span style=color:#f92672>-</span>y2)<span style=color:#f92672>*</span>(y1<span style=color:#f92672>-</span>y2));
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span><span style=color:#66d9ef>double</span> <span style=color:#a6e22e>radius</span>(<span style=color:#66d9ef>int</span> p) <span style=color:#75715e>//计算半径
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>double</span> ans<span style=color:#f92672>=</span>min(abs(dx[p]<span style=color:#f92672>-</span>x),min(abs(dy[p]<span style=color:#f92672>-</span>y),min(abs(dx[p]<span style=color:#f92672>-</span>xx),abs(dy[p]<span style=color:#f92672>-</span>yy))));
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-</span></span><span style=display:flex><span>	{
-</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(vis[i]<span style=color:#f92672>&amp;&amp;</span>i<span style=color:#f92672>!=</span>p)
-</span></span><span style=display:flex><span>		{
-</span></span><span style=display:flex><span>			<span style=color:#66d9ef>double</span> dis<span style=color:#f92672>=</span>diss(dx[i],dy[i],dx[p],dy[p]);
-</span></span><span style=display:flex><span>			ans<span style=color:#f92672>=</span>min(ans,max(dis<span style=color:#f92672>-</span>rx[i],<span style=color:#ae81ff>0.0</span>)); 
-</span></span><span style=display:flex><span>		}
-</span></span><span style=display:flex><span>	}
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> ans;
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>dfs</span>(<span style=color:#66d9ef>int</span> nowcnt,<span style=color:#66d9ef>double</span> area) <span style=color:#75715e>//area为拓展总面积 nowcnt为现在已经放置了几个 
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(nowcnt<span style=color:#f92672>==</span>n)
-</span></span><span style=display:flex><span>	{
-</span></span><span style=display:flex><span>		maxans<span style=color:#f92672>=</span>max(maxans,area);
-</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> ; 
-</span></span><span style=display:flex><span>	}
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-</span></span><span style=display:flex><span>	{
-</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>vis[i])
-</span></span><span style=display:flex><span>		{
-</span></span><span style=display:flex><span>			vis[i]<span style=color:#f92672>=</span>true;
-</span></span><span style=display:flex><span>			rx[i]<span style=color:#f92672>=</span>radius(i);
-</span></span><span style=display:flex><span>			dfs(nowcnt<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,area<span style=color:#f92672>+</span>pi<span style=color:#f92672>*</span>rx[i]<span style=color:#f92672>*</span>rx[i]);
-</span></span><span style=display:flex><span>			rx[i]<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
-</span></span><span style=display:flex><span>			vis[i]<span style=color:#f92672>=</span>false;
-</span></span><span style=display:flex><span>		}
-</span></span><span style=display:flex><span>	}
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-</span></span><span style=display:flex><span>{
-</span></span><span style=display:flex><span>	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
-</span></span><span style=display:flex><span>	scanf(<span style=color:#e6db74>&#34;%d%d%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>x,<span style=color:#f92672>&amp;</span>y,<span style=color:#f92672>&amp;</span>xx,<span style=color:#f92672>&amp;</span>yy);
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>double</span> sum<span style=color:#f92672>=</span>abs(x<span style=color:#f92672>-</span>xx)<span style=color:#f92672>*</span>abs(y<span style=color:#f92672>-</span>yy); <span style=color:#75715e>//矩形总面积 
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-</span></span><span style=display:flex><span>	{
-</span></span><span style=display:flex><span>		scanf(<span style=color:#e6db74>&#34;%d%d&#34;</span>,<span style=color:#f92672>&amp;</span>dx[i],<span style=color:#f92672>&amp;</span>dy[i]);
-</span></span><span style=display:flex><span>	}
-</span></span><span style=display:flex><span>	dfs(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0.0</span>);
-</span></span><span style=display:flex><span>	printf(<span style=color:#e6db74>&#34;%0.0lf&#34;</span>,sum<span style=color:#f92672>-</span>maxans);
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><hr><h3 id=2-p1120-小木棍httpswwwluogucomcnproblemp1120>2. <a href=https://www.luogu.com.cn/problem/P1120 class=external-link target=_blank rel=noopener>P1120 小木棍</a>
-<a class=heading-link href=#2-p1120-%e5%b0%8f%e6%9c%a8%e6%a3%8dhttpswwwluogucomcnproblemp1120><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><hr><h4 id=题意-1>题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f-1><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h4><p>将一些长度为 <strong>x</strong> 的等长木棍全部切成 <strong>n</strong> 段不超过50的小木棍，求长木棍长度 <strong>x</strong> 的最小长度。</p><hr><h4 id=思路-1>思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af-1><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h4><p>首先这个题是有个坑的，题目给出来了，输入的小木棍长度可能会有大于50的，因此我们需要筛掉它。</p><p>那么很显然这个题是一道搜索题，我们可以写搜索函数<code>dfs(int nowcnt,int nxt,int lenlast,int len)</code>.上述参数分别表示: 现在在寻找第几根小木棍，我们寻找下一个拼接段应该从哪里开始找，当前这根拼接还需要多长，以及我们要拼成多长的木棍。搜索的复杂度这么高，对于 $n\le65$ 的数据肯定不能直接无脑搜，因此需要想想怎么优化。</p><ul><li><p>首先要从大到小排序这个很关键的，因为你从大的先凑就能够保证后面选择的时候容错率更高一些。</p></li><li><p>很显然我们可以剪掉当 lenlast&lt;0 的情况，这个地方我们可以在拼接的时候就判断，也可以在拼接后判断。</p></li><li><p>在寻找下一个拼接片段的时候，我们可以通过二分搜索来查找下一个不超过lenlast的片段，我选择了直接用STL的库中的lower_bound函数。<del>(其实因为是我的二分总是写炸)</del></p></li><li><p>再就是我们对于相等片段的处理，很显然当前片段不符合情况那么与他等长的也都不会符合，因此我们可以直接循环筛掉。当然更优的方法可以提前处理一个跳表，直接跳到下一个与他不同的位置。</p></li><li><p>最后这个优化还是挺难想的，就是如果当前片段搜下去已经不符合情况，但是当前的lenlast是等于当前片段长度的，也就是说你正好用了尽可能满足条件的一个方案，也还是没达到目的，你们你继续往下搜，用比他还要劣的方案肯定也是不可能的，因此直接就break跳出循环不需要往下搜了。</p><p><del>不过就算加了这么多优化我还是T了三个点，直接 O<sub>2</sub>一开跑路了嘿嘿</del></p></li></ul><hr><h4 id=代码实现-1>代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;iostream&gt;</span><span style=color:#75715e>
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> maxn<span style=color:#f92672>=</span><span style=color:#ae81ff>70</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> n,a[maxn],temp,icnt<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> totlen,maxlen,cnt;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>bool</span> vis[maxn],finish;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>cmp</span>(<span style=color:#66d9ef>int</span> a,<span style=color:#66d9ef>int</span> b)
-</span></span><span style=display:flex><span>{
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> a<span style=color:#f92672>&gt;</span>b;
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>dfs</span>(<span style=color:#66d9ef>int</span> nowcnt,<span style=color:#66d9ef>int</span> nxt,<span style=color:#66d9ef>int</span> lenlast,<span style=color:#66d9ef>int</span> len)
-</span></span><span style=display:flex><span><span style=color:#75715e>//nowcnt:现在正在拼接第几根 
-</span></span></span><span style=display:flex><span><span style=color:#75715e>//nxt:我们应该从哪里开始检索 
-</span></span></span><span style=display:flex><span><span style=color:#75715e>//lenlast:现在拼接还需要多少才能拼接完成 
-</span></span></span><span style=display:flex><span><span style=color:#75715e>//len:每根木棍的理想长度 
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>{
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(lenlast<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>0</span>) <span style=color:#66d9ef>return</span>;
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(lenlast<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>)
-</span></span><span style=display:flex><span>	{
-</span></span><span style=display:flex><span><span style=color:#75715e>//		printf(&#34;test\n&#34;);
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>		<span style=color:#66d9ef>if</span>(nowcnt<span style=color:#f92672>==</span>cnt) 
-</span></span><span style=display:flex><span>		{
-</span></span><span style=display:flex><span>			printf(<span style=color:#e6db74>&#34;%d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,len);
-</span></span><span style=display:flex><span>			finish<span style=color:#f92672>=</span>true;
-</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> ;
-</span></span><span style=display:flex><span>		}
-</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span> p<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;
-</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(p<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;p<span style=color:#f92672>&lt;=</span>n;p<span style=color:#f92672>++</span>) <span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>vis[p]) <span style=color:#66d9ef>break</span>;
-</span></span><span style=display:flex><span>		vis[p]<span style=color:#f92672>=</span>true;
-</span></span><span style=display:flex><span>		dfs(nowcnt<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,p<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,len<span style=color:#f92672>-</span>a[p],len);
-</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(finish) <span style=color:#66d9ef>return</span> ;
-</span></span><span style=display:flex><span>		vis[p]<span style=color:#f92672>=</span>false;
-</span></span><span style=display:flex><span>	}
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>else</span>
-</span></span><span style=display:flex><span>	{
-</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span> pos<span style=color:#f92672>=</span>lower_bound(a<span style=color:#f92672>+</span>nxt,a<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span><span style=color:#f92672>+</span>n,lenlast,greater<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;</span>())<span style=color:#f92672>-</span>a;
-</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span>pos;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-</span></span><span style=display:flex><span>		{
-</span></span><span style=display:flex><span><span style=color:#75715e>//			printf(&#34;what\n&#34;);
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>			<span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span>vis[i]<span style=color:#f92672>&amp;&amp;</span>lenlast<span style=color:#f92672>-</span>a[i]<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>0</span>)
-</span></span><span style=display:flex><span>			{
-</span></span><span style=display:flex><span>				vis[i]<span style=color:#f92672>=</span>true;
-</span></span><span style=display:flex><span>				dfs(nowcnt,i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,lenlast<span style=color:#f92672>-</span>a[i],len);
-</span></span><span style=display:flex><span>				<span style=color:#66d9ef>if</span>(finish) <span style=color:#66d9ef>return</span>;
-</span></span><span style=display:flex><span>				vis[i]<span style=color:#f92672>=</span>false;
-</span></span><span style=display:flex><span>				
-</span></span><span style=display:flex><span>				<span style=color:#66d9ef>while</span>(a[i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>==</span>a[i]) i<span style=color:#f92672>++</span>;
-</span></span><span style=display:flex><span>				<span style=color:#66d9ef>if</span>(i<span style=color:#f92672>==</span>n) <span style=color:#66d9ef>return</span>;
-</span></span><span style=display:flex><span>				<span style=color:#66d9ef>if</span>(lenlast<span style=color:#f92672>-</span>a[i]<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span>) <span style=color:#66d9ef>break</span>; 
-</span></span><span style=display:flex><span>			}
-</span></span><span style=display:flex><span>		}
-</span></span><span style=display:flex><span>	}
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-</span></span><span style=display:flex><span>{
-</span></span><span style=display:flex><span><span style=color:#75715e>//	freopen(&#34;test.in&#34;,&#34;r&#34;,stdin);
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n);
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;i<span style=color:#f92672>&lt;=</span>n;i<span style=color:#f92672>++</span>)
-</span></span><span style=display:flex><span>	{
-</span></span><span style=display:flex><span>		scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>temp);
-</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(temp<span style=color:#f92672>&gt;</span><span style=color:#ae81ff>50</span>) a[i]<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
-</span></span><span style=display:flex><span>		<span style=color:#66d9ef>else</span> a[i]<span style=color:#f92672>=</span>temp;
-</span></span><span style=display:flex><span>		maxlen<span style=color:#f92672>=</span>max(maxlen,a[i]);
-</span></span><span style=display:flex><span>		totlen<span style=color:#f92672>+=</span>a[i];
-</span></span><span style=display:flex><span>	}
-</span></span><span style=display:flex><span>	sort(a<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,a<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span><span style=color:#f92672>+</span>n,cmp);
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>while</span>(<span style=color:#f92672>!</span>a[n]) n<span style=color:#f92672>--</span>;
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> l<span style=color:#f92672>=</span>maxlen;l<span style=color:#f92672>&lt;=</span>totlen;l<span style=color:#f92672>++</span>)
-</span></span><span style=display:flex><span>	{
-</span></span><span style=display:flex><span>		finish<span style=color:#f92672>=</span>false;
-</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(totlen<span style=color:#f92672>%</span>l<span style=color:#f92672>!=</span><span style=color:#ae81ff>0</span>) <span style=color:#66d9ef>continue</span>;
-</span></span><span style=display:flex><span>		cnt<span style=color:#f92672>=</span>totlen<span style=color:#f92672>/</span>l;
-</span></span><span style=display:flex><span>		vis[<span style=color:#ae81ff>1</span>]<span style=color:#f92672>=</span>true;
-</span></span><span style=display:flex><span>		dfs(<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,l<span style=color:#f92672>-</span>a[<span style=color:#ae81ff>1</span>],l);
-</span></span><span style=display:flex><span>		vis[<span style=color:#ae81ff>1</span>]<span style=color:#f92672>=</span>false;
-</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(finish) <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-</span></span><span style=display:flex><span>	}
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
-</span></span><span style=display:flex><span>} 
-</span></span></code></pre></div><hr><h3 id=3-yokof---power-calculushttpswwwspojcomproblemsyokof>3. <a href=https://www.spoj.com/problems/YOKOF/ class=external-link target=_blank rel=noopener>YOKOF - Power Calculus</a>
-<a class=heading-link href=#3-yokof---power-calculushttpswwwspojcomproblemsyokof><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><hr><h4 id=题意-2>题意
-<a class=heading-link href=#%e9%a2%98%e6%84%8f-2><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h4><p>给出一个正整数 <strong>n</strong> ，只能使用乘法或者除法，可以乘除 $x$ 或者过程中产生的中间值 $x^i$ ，输出使得 $x$ 变为 $x^n$ 所需的最少步数。$(n\le100)$</p><hr><h4 id=思路-2>思路
-<a class=heading-link href=#%e6%80%9d%e8%b7%af-2><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h4><p>很显然我们一直是对指数进行操作，看似是乘除，直接转化为指数的加减。因此我们需要记录一个状态数组来记录乘除中间所产生的 $x^i$ ，以便后续过程中使用。但是这道题直接搜索的话，又会超时，因为他把大量的时间浪费在高深度上，但是这个却不一定是最优解。因此需要用到迭代加深搜索(IDDFS).</p><blockquote><p>迭代加深搜索(IDDFS)主要用于处理一些题目可能会搜到很深但是答案却不是最优的问题。有的时候dfs搜索的深度是无穷的，而且他的复杂度是呈指数级增长的，因此这其中某些情况就可以用IDDFS，在每次搜索的时候，我们给深度一个限制，当达到这个最大深度却没有得到答案的时候，就返回，然后逐步提升深度，这样我们就可以避免将时间浪费在那些无谓的高深度搜索上了。</p></blockquote><p>$$
+题意
+在长方形框中，最多有 n ($0\le{n}\le6$)个相异点，在框中点上依次放置可扩展的油滴，当碰到其他油滴边界或者长方形边框时会停止，扩展呈圆形展开。放置下一个时会确保上一个已经扩展完成。问通过变换放置顺序可使得最终框中剩下的面积最小为多少。"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://blog.zzsqwq.cn/posts/"},{"@type":"ListItem","position":3,"name":"洛谷的一些搜索题","item":"https://blog.zzsqwq.cn/posts/16/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"洛谷的一些搜索题","name":"洛谷的一些搜索题","description":"1. P1378 油滴扩展 题意 在长方形框中，最多有 n ($0\\le{n}\\le6$)个相异点，在框中点上依次放置可扩展的油滴，当碰到其他油滴边界或者长方形边框时会停止，扩展呈圆形展开。放置下一个时会确保上一个已经扩展完成。问通过变换放置顺序可使得最终框中剩下的面积最小为多少。\n","keywords":["Luogu","搜索"],"articleBody":"1. P1378 油滴扩展 题意 在长方形框中，最多有 n ($0\\le{n}\\le6$)个相异点，在框中点上依次放置可扩展的油滴，当碰到其他油滴边界或者长方形边框时会停止，扩展呈圆形展开。放置下一个时会确保上一个已经扩展完成。问通过变换放置顺序可使得最终框中剩下的面积最小为多少。\n思路 这是个裸的dfs，情况最多也就 $6! = 720$ 种，所以我们可以只需要设置一个vis数组来记录是否已经放置过这个油滴，计算已扩展油滴和将要放的油滴之间的距离可以用 两点距离-扩展油滴的半径来实现 ，但是有个坑需要注意，就是当一个油滴已经放在已经有扩展油滴覆盖的区域，那么他俩的距离是0，而不是负数，因此在计算半径的时候需要优化一下。\n代码实现 #include #include #include #include #include #define pi 3.1415926 using namespace std; const int maxn=10; int n,x,y,xx,yy; double rx[maxn]; double maxans; bool vis[maxn]; int dx[maxn],dy[maxn]; double diss(int x1,int y1,int x2,int y2) //计算两点距离 { return sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2)); } double radius(int p) //计算半径 { double ans=min(abs(dx[p]-x),min(abs(dy[p]-y),min(abs(dx[p]-xx),abs(dy[p]-yy)))); for(int i=1;i\u003c=n;i++) { if(vis[i]\u0026\u0026i!=p) { double dis=diss(dx[i],dy[i],dx[p],dy[p]); ans=min(ans,max(dis-rx[i],0.0)); } } return ans; } void dfs(int nowcnt,double area) //area为拓展总面积 nowcnt为现在已经放置了几个 { if(nowcnt==n) { maxans=max(maxans,area); return ; } for(int i=1;i\u003c=n;i++) { if(!vis[i]) { vis[i]=true; rx[i]=radius(i); dfs(nowcnt+1,area+pi*rx[i]*rx[i]); rx[i]=0; vis[i]=false; } } } int main() { scanf(\"%d\",\u0026n); scanf(\"%d%d%d%d\",\u0026x,\u0026y,\u0026xx,\u0026yy); double sum=abs(x-xx)*abs(y-yy); //矩形总面积 for(int i=1;i\u003c=n;i++) { scanf(\"%d%d\",\u0026dx[i],\u0026dy[i]); } dfs(0,0.0); printf(\"%0.0lf\",sum-maxans); return 0; } 2. P1120 小木棍 题意 将一些长度为 x 的等长木棍全部切成 n 段不超过50的小木棍，求长木棍长度 x 的最小长度。\n思路 首先这个题是有个坑的，题目给出来了，输入的小木棍长度可能会有大于50的，因此我们需要筛掉它。\n那么很显然这个题是一道搜索题，我们可以写搜索函数dfs(int nowcnt,int nxt,int lenlast,int len).上述参数分别表示: 现在在寻找第几根小木棍，我们寻找下一个拼接段应该从哪里开始找，当前这根拼接还需要多长，以及我们要拼成多长的木棍。搜索的复杂度这么高，对于 $n\\le65$ 的数据肯定不能直接无脑搜，因此需要想想怎么优化。\n首先要从大到小排序这个很关键的，因为你从大的先凑就能够保证后面选择的时候容错率更高一些。\n很显然我们可以剪掉当 lenlast\u003c0 的情况，这个地方我们可以在拼接的时候就判断，也可以在拼接后判断。\n在寻找下一个拼接片段的时候，我们可以通过二分搜索来查找下一个不超过lenlast的片段，我选择了直接用STL的库中的lower_bound函数。(其实因为是我的二分总是写炸)\n再就是我们对于相等片段的处理，很显然当前片段不符合情况那么与他等长的也都不会符合，因此我们可以直接循环筛掉。当然更优的方法可以提前处理一个跳表，直接跳到下一个与他不同的位置。\n最后这个优化还是挺难想的，就是如果当前片段搜下去已经不符合情况，但是当前的lenlast是等于当前片段长度的，也就是说你正好用了尽可能满足条件的一个方案，也还是没达到目的，你们你继续往下搜，用比他还要劣的方案肯定也是不可能的，因此直接就break跳出循环不需要往下搜了。\n不过就算加了这么多优化我还是T了三个点，直接 O2一开跑路了嘿嘿\n代码实现 #include #include #include #include #include using namespace std; const int maxn=70; int n,a[maxn],temp,icnt=1; int totlen,maxlen,cnt; bool vis[maxn],finish; int cmp(int a,int b) { return a\u003eb; } void dfs(int nowcnt,int nxt,int lenlast,int len) //nowcnt:现在正在拼接第几根 //nxt:我们应该从哪里开始检索 //lenlast:现在拼接还需要多少才能拼接完成 //len:每根木棍的理想长度 { if(lenlast\u003c0) return; if(lenlast==0) { //\tprintf(\"test\\n\"); if(nowcnt==cnt) { printf(\"%d\\n\",len); finish=true; return ; } int p=1; for(p=1;p\u003c=n;p++) if(!vis[p]) break; vis[p]=true; dfs(nowcnt+1,p+1,len-a[p],len); if(finish) return ; vis[p]=false; } else { int pos=lower_bound(a+nxt,a+1+n,lenlast,greater\u003cint\u003e())-a; for(int i=pos;i\u003c=n;i++) { //\tprintf(\"what\\n\"); if(!vis[i]\u0026\u0026lenlast-a[i]\u003e=0) { vis[i]=true; dfs(nowcnt,i+1,lenlast-a[i],len); if(finish) return; vis[i]=false; while(a[i+1]==a[i]) i++; if(i==n) return; if(lenlast-a[i]==0) break; } } } } int main() { //\tfreopen(\"test.in\",\"r\",stdin); scanf(\"%d\",\u0026n); for(int i=1;i\u003c=n;i++) { scanf(\"%d\",\u0026temp); if(temp\u003e50) a[i]=0; else a[i]=temp; maxlen=max(maxlen,a[i]); totlen+=a[i]; } sort(a+1,a+1+n,cmp); while(!a[n]) n--; for(int l=maxlen;l\u003c=totlen;l++) { finish=false; if(totlen%l!=0) continue; cnt=totlen/l; vis[1]=true; dfs(1,2,l-a[1],l); vis[1]=false; if(finish) return 0; } return 0; } 3. YOKOF - Power Calculus 题意 给出一个正整数 n ，只能使用乘法或者除法，可以乘除 $x$ 或者过程中产生的中间值 $x^i$ ，输出使得 $x$ 变为 $x^n$ 所需的最少步数。$(n\\le100)$\n思路 很显然我们一直是对指数进行操作，看似是乘除，直接转化为指数的加减。因此我们需要记录一个状态数组来记录乘除中间所产生的 $x^i$ ，以便后续过程中使用。但是这道题直接搜索的话，又会超时，因为他把大量的时间浪费在高深度上，但是这个却不一定是最优解。因此需要用到迭代加深搜索(IDDFS).\n迭代加深搜索(IDDFS)主要用于处理一些题目可能会搜到很深但是答案却不是最优的问题。有的时候dfs搜索的深度是无穷的，而且他的复杂度是呈指数级增长的，因此这其中某些情况就可以用IDDFS，在每次搜索的时候，我们给深度一个限制，当达到这个最大深度却没有得到答案的时候，就返回，然后逐步提升深度，这样我们就可以避免将时间浪费在那些无谓的高深度搜索上了。\n$$ \\sum_{i=0}^n2^i=2^{n+1}-1（指数级别增长实例） $$\n代码实现 #include #include #include #include using namespace std; int n; int x[1005]; //用来记录每次生成的中间状态 bool dfs(int k,int dep,int maxdep) { if(k\u003c=0||dep\u003emaxdep||k\u003c\u003c(maxdep-dep)\u003cn) return false; if(k==n||k\u003c\u003c(maxdep-dep)==n) return true; x[dep]=k; for(int i=0;i\u003c=dep;i++) { if(dfs(k+x[i],dep+1,maxdep)) return true; //对应乘法 if(dfs(k-x[i],dep+1,maxdep)) return true; //对应除法 } x[dep]=0; return false; } int main() { while(scanf(\"%d\",\u0026n)\u0026\u0026n) { for(int i=0;;i++) { if(dfs(1,0,i)) { printf(\"%d\\n\",i); break; } } } } ","wordCount":"353","inLanguage":"en","datePublished":"2020-02-04T23:02:00Z","dateModified":"2020-02-04T23:02:00Z","author":{"@type":"Person","name":"zzsqwq"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.zzsqwq.cn/posts/16/"},"publisher":{"@type":"Organization","name":"Zs's Blog","logo":{"@type":"ImageObject","url":"https://blog.zzsqwq.cn/images/avatar.png"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://blog.zzsqwq.cn accesskey=h title="Zs's Blog (Alt + H)">Zs's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://blog.zzsqwq.cn/about title=About><span>About</span></a></li><li><a href=https://blog.zzsqwq.cn/posts title=Posts><span>Posts</span></a></li><li><a href=https://blog.zzsqwq.cn/friends title=Friends><span>Friends</span></a></li><li><a href=https://blog.zzsqwq.cn/contact title=Contact><span>Contact</span></a></li><li><a href=https://blog.zzsqwq.cn/search title="Search (Alt + /)" accesskey=/><span>Search</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://blog.zzsqwq.cn>Home</a>&nbsp;»&nbsp;<a href=https://blog.zzsqwq.cn/posts/>Posts</a></div><h1 class=post-title>洛谷的一些搜索题</h1><div class=post-meta><span title='2020-02-04 23:02:00 +0000 UTC'>February 4, 2020</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;zzsqwq&nbsp;|&nbsp;<a href=https://github.com/zzsqwq/zzsqwq.github.io/tree/master/content/posts/%e6%b4%9b%e8%b0%b7%e7%9a%84%e4%b8%80%e4%ba%9b%e6%90%9c%e7%b4%a2%e9%a2%98.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#1-p1378-%e6%b2%b9%e6%bb%b4%e6%89%a9%e5%b1%95httpswwwluogucomcnproblemp1378 aria-label="1. P1378 油滴扩展">1. <a href=https://www.luogu.com.cn/problem/P1378>P1378 油滴扩展</a></a><ul><li><a href=#%e9%a2%98%e6%84%8f aria-label=题意>题意</a></li><li><a href=#%e6%80%9d%e8%b7%af aria-label=思路>思路</a></li><li><a href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0 aria-label=代码实现>代码实现</a></li></ul></li><li><a href=#2-p1120-%e5%b0%8f%e6%9c%a8%e6%a3%8dhttpswwwluogucomcnproblemp1120 aria-label="2. P1120 小木棍">2. <a href=https://www.luogu.com.cn/problem/P1120>P1120 小木棍</a></a><ul><li><a href=#%e9%a2%98%e6%84%8f-1 aria-label=题意>题意</a></li><li><a href=#%e6%80%9d%e8%b7%af-1 aria-label=思路>思路</a></li><li><a href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-1 aria-label=代码实现>代码实现</a></li></ul></li><li><a href=#3-yokof---power-calculushttpswwwspojcomproblemsyokof aria-label="3. YOKOF - Power Calculus">3. <a href=https://www.spoj.com/problems/YOKOF/>YOKOF - Power Calculus</a></a><ul><li><a href=#%e9%a2%98%e6%84%8f-2 aria-label=题意>题意</a></li><li><a href=#%e6%80%9d%e8%b7%af-2 aria-label=思路>思路</a></li><li><a href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-2 aria-label=代码实现>代码实现</a></li></ul></li></ul></div></details></div><div class=post-content><h3 id=1-p1378-油滴扩展httpswwwluogucomcnproblemp1378>1. <a href=https://www.luogu.com.cn/problem/P1378>P1378 油滴扩展</a><a hidden class=anchor aria-hidden=true href=#1-p1378-油滴扩展httpswwwluogucomcnproblemp1378>#</a></h3><hr><h4 id=题意>题意<a hidden class=anchor aria-hidden=true href=#题意>#</a></h4><p>在长方形框中，最多有 n ($0\le{n}\le6$)个相异点，在框中点上依次放置可扩展的油滴，当碰到其他油滴边界或者长方形边框时会停止，扩展呈圆形展开。放置下一个时会确保上一个已经扩展完成。问通过变换放置顺序可使得最终框中剩下的面积最小为多少。</p><hr><h4 id=思路>思路<a hidden class=anchor aria-hidden=true href=#思路>#</a></h4><p>这是个裸的dfs，情况最多也就 $6! = 720$ 种，所以我们可以只需要设置一个vis数组来记录是否已经放置过这个油滴，计算已扩展油滴和将要放的油滴之间的距离可以用 <strong>两点距离-扩展油滴的半径</strong>来实现 ，但是有个坑需要注意，就是当一个油滴已经放在已经有扩展油滴覆盖的区域，那么他俩的距离是0，而不是负数，因此在计算半径的时候需要优化一下。</p><hr><h4 id=代码实现>代码实现<a hidden class=anchor aria-hidden=true href=#代码实现>#</a></h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;cstdio&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;cstring&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;algorithm&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;cmath&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;iostream&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=cp>#define pi 3.1415926
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>const</span> <span class=kt>int</span> <span class=n>maxn</span><span class=o>=</span><span class=mi>10</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=n>n</span><span class=p>,</span><span class=n>x</span><span class=p>,</span><span class=n>y</span><span class=p>,</span><span class=n>xx</span><span class=p>,</span><span class=n>yy</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kt>double</span> <span class=n>rx</span><span class=p>[</span><span class=n>maxn</span><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=kt>double</span> <span class=n>maxans</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kt>bool</span> <span class=n>vis</span><span class=p>[</span><span class=n>maxn</span><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=n>dx</span><span class=p>[</span><span class=n>maxn</span><span class=p>],</span><span class=n>dy</span><span class=p>[</span><span class=n>maxn</span><span class=p>];</span>
+</span></span><span class=line><span class=cl><span class=kt>double</span> <span class=nf>diss</span><span class=p>(</span><span class=kt>int</span> <span class=n>x1</span><span class=p>,</span><span class=kt>int</span> <span class=n>y1</span><span class=p>,</span><span class=kt>int</span> <span class=n>x2</span><span class=p>,</span><span class=kt>int</span> <span class=n>y2</span><span class=p>)</span> <span class=c1>//计算两点距离
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=n>sqrt</span><span class=p>((</span><span class=n>x1</span><span class=o>-</span><span class=n>x2</span><span class=p>)</span><span class=o>*</span><span class=p>(</span><span class=n>x1</span><span class=o>-</span><span class=n>x2</span><span class=p>)</span><span class=o>+</span><span class=p>(</span><span class=n>y1</span><span class=o>-</span><span class=n>y2</span><span class=p>)</span><span class=o>*</span><span class=p>(</span><span class=n>y1</span><span class=o>-</span><span class=n>y2</span><span class=p>));</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=kt>double</span> <span class=nf>radius</span><span class=p>(</span><span class=kt>int</span> <span class=n>p</span><span class=p>)</span> <span class=c1>//计算半径
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=kt>double</span> <span class=n>ans</span><span class=o>=</span><span class=n>min</span><span class=p>(</span><span class=n>abs</span><span class=p>(</span><span class=n>dx</span><span class=p>[</span><span class=n>p</span><span class=p>]</span><span class=o>-</span><span class=n>x</span><span class=p>),</span><span class=n>min</span><span class=p>(</span><span class=n>abs</span><span class=p>(</span><span class=n>dy</span><span class=p>[</span><span class=n>p</span><span class=p>]</span><span class=o>-</span><span class=n>y</span><span class=p>),</span><span class=n>min</span><span class=p>(</span><span class=n>abs</span><span class=p>(</span><span class=n>dx</span><span class=p>[</span><span class=n>p</span><span class=p>]</span><span class=o>-</span><span class=n>xx</span><span class=p>),</span><span class=n>abs</span><span class=p>(</span><span class=n>dy</span><span class=p>[</span><span class=n>p</span><span class=p>]</span><span class=o>-</span><span class=n>yy</span><span class=p>))));</span>
+</span></span><span class=line><span class=cl>	<span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;=</span><span class=n>n</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span><span class=p>(</span><span class=n>vis</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>&amp;&amp;</span><span class=n>i</span><span class=o>!=</span><span class=n>p</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=kt>double</span> <span class=n>dis</span><span class=o>=</span><span class=n>diss</span><span class=p>(</span><span class=n>dx</span><span class=p>[</span><span class=n>i</span><span class=p>],</span><span class=n>dy</span><span class=p>[</span><span class=n>i</span><span class=p>],</span><span class=n>dx</span><span class=p>[</span><span class=n>p</span><span class=p>],</span><span class=n>dy</span><span class=p>[</span><span class=n>p</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>			<span class=n>ans</span><span class=o>=</span><span class=n>min</span><span class=p>(</span><span class=n>ans</span><span class=p>,</span><span class=n>max</span><span class=p>(</span><span class=n>dis</span><span class=o>-</span><span class=n>rx</span><span class=p>[</span><span class=n>i</span><span class=p>],</span><span class=mf>0.0</span><span class=p>));</span> 
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=n>ans</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>dfs</span><span class=p>(</span><span class=kt>int</span> <span class=n>nowcnt</span><span class=p>,</span><span class=kt>double</span> <span class=n>area</span><span class=p>)</span> <span class=c1>//area为拓展总面积 nowcnt为现在已经放置了几个 
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span><span class=p>(</span><span class=n>nowcnt</span><span class=o>==</span><span class=n>n</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=n>maxans</span><span class=o>=</span><span class=n>max</span><span class=p>(</span><span class=n>maxans</span><span class=p>,</span><span class=n>area</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=p>;</span> 
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;=</span><span class=n>n</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span><span class=p>(</span><span class=o>!</span><span class=n>vis</span><span class=p>[</span><span class=n>i</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=n>vis</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>=</span><span class=nb>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=n>rx</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>=</span><span class=n>radius</span><span class=p>(</span><span class=n>i</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>			<span class=n>dfs</span><span class=p>(</span><span class=n>nowcnt</span><span class=o>+</span><span class=mi>1</span><span class=p>,</span><span class=n>area</span><span class=o>+</span><span class=n>pi</span><span class=o>*</span><span class=n>rx</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>*</span><span class=n>rx</span><span class=p>[</span><span class=n>i</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>			<span class=n>rx</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=n>vis</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>=</span><span class=nb>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>scanf</span><span class=p>(</span><span class=s>&#34;%d&#34;</span><span class=p>,</span><span class=o>&amp;</span><span class=n>n</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=n>scanf</span><span class=p>(</span><span class=s>&#34;%d%d%d%d&#34;</span><span class=p>,</span><span class=o>&amp;</span><span class=n>x</span><span class=p>,</span><span class=o>&amp;</span><span class=n>y</span><span class=p>,</span><span class=o>&amp;</span><span class=n>xx</span><span class=p>,</span><span class=o>&amp;</span><span class=n>yy</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=kt>double</span> <span class=n>sum</span><span class=o>=</span><span class=n>abs</span><span class=p>(</span><span class=n>x</span><span class=o>-</span><span class=n>xx</span><span class=p>)</span><span class=o>*</span><span class=n>abs</span><span class=p>(</span><span class=n>y</span><span class=o>-</span><span class=n>yy</span><span class=p>);</span> <span class=c1>//矩形总面积 
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;=</span><span class=n>n</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=n>scanf</span><span class=p>(</span><span class=s>&#34;%d%d&#34;</span><span class=p>,</span><span class=o>&amp;</span><span class=n>dx</span><span class=p>[</span><span class=n>i</span><span class=p>],</span><span class=o>&amp;</span><span class=n>dy</span><span class=p>[</span><span class=n>i</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=n>dfs</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span><span class=mf>0.0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=n>printf</span><span class=p>(</span><span class=s>&#34;%0.0lf&#34;</span><span class=p>,</span><span class=n>sum</span><span class=o>-</span><span class=n>maxans</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><hr><h3 id=2-p1120-小木棍httpswwwluogucomcnproblemp1120>2. <a href=https://www.luogu.com.cn/problem/P1120>P1120 小木棍</a><a hidden class=anchor aria-hidden=true href=#2-p1120-小木棍httpswwwluogucomcnproblemp1120>#</a></h3><hr><h4 id=题意-1>题意<a hidden class=anchor aria-hidden=true href=#题意-1>#</a></h4><p>将一些长度为 <strong>x</strong> 的等长木棍全部切成 <strong>n</strong> 段不超过50的小木棍，求长木棍长度 <strong>x</strong> 的最小长度。</p><hr><h4 id=思路-1>思路<a hidden class=anchor aria-hidden=true href=#思路-1>#</a></h4><p>首先这个题是有个坑的，题目给出来了，输入的小木棍长度可能会有大于50的，因此我们需要筛掉它。</p><p>那么很显然这个题是一道搜索题，我们可以写搜索函数<code>dfs(int nowcnt,int nxt,int lenlast,int len)</code>.上述参数分别表示: 现在在寻找第几根小木棍，我们寻找下一个拼接段应该从哪里开始找，当前这根拼接还需要多长，以及我们要拼成多长的木棍。搜索的复杂度这么高，对于 $n\le65$ 的数据肯定不能直接无脑搜，因此需要想想怎么优化。</p><ul><li><p>首先要从大到小排序这个很关键的，因为你从大的先凑就能够保证后面选择的时候容错率更高一些。</p></li><li><p>很显然我们可以剪掉当 lenlast&lt;0 的情况，这个地方我们可以在拼接的时候就判断，也可以在拼接后判断。</p></li><li><p>在寻找下一个拼接片段的时候，我们可以通过二分搜索来查找下一个不超过lenlast的片段，我选择了直接用STL的库中的lower_bound函数。<del>(其实因为是我的二分总是写炸)</del></p></li><li><p>再就是我们对于相等片段的处理，很显然当前片段不符合情况那么与他等长的也都不会符合，因此我们可以直接循环筛掉。当然更优的方法可以提前处理一个跳表，直接跳到下一个与他不同的位置。</p></li><li><p>最后这个优化还是挺难想的，就是如果当前片段搜下去已经不符合情况，但是当前的lenlast是等于当前片段长度的，也就是说你正好用了尽可能满足条件的一个方案，也还是没达到目的，你们你继续往下搜，用比他还要劣的方案肯定也是不可能的，因此直接就break跳出循环不需要往下搜了。</p><p><del>不过就算加了这么多优化我还是T了三个点，直接 O<sub>2</sub>一开跑路了嘿嘿</del></p></li></ul><hr><h4 id=代码实现-1>代码实现<a hidden class=anchor aria-hidden=true href=#代码实现-1>#</a></h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;cstdio&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;cstring&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;algorithm&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;cmath&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;iostream&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>const</span> <span class=kt>int</span> <span class=n>maxn</span><span class=o>=</span><span class=mi>70</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=n>n</span><span class=p>,</span><span class=n>a</span><span class=p>[</span><span class=n>maxn</span><span class=p>],</span><span class=n>temp</span><span class=p>,</span><span class=n>icnt</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=n>totlen</span><span class=p>,</span><span class=n>maxlen</span><span class=p>,</span><span class=n>cnt</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kt>bool</span> <span class=n>vis</span><span class=p>[</span><span class=n>maxn</span><span class=p>],</span><span class=n>finish</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>cmp</span><span class=p>(</span><span class=kt>int</span> <span class=n>a</span><span class=p>,</span><span class=kt>int</span> <span class=n>b</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=n>a</span><span class=o>&gt;</span><span class=n>b</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>dfs</span><span class=p>(</span><span class=kt>int</span> <span class=n>nowcnt</span><span class=p>,</span><span class=kt>int</span> <span class=n>nxt</span><span class=p>,</span><span class=kt>int</span> <span class=n>lenlast</span><span class=p>,</span><span class=kt>int</span> <span class=n>len</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=c1>//nowcnt:现在正在拼接第几根 
+</span></span></span><span class=line><span class=cl><span class=c1>//nxt:我们应该从哪里开始检索 
+</span></span></span><span class=line><span class=cl><span class=c1>//lenlast:现在拼接还需要多少才能拼接完成 
+</span></span></span><span class=line><span class=cl><span class=c1>//len:每根木棍的理想长度 
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span><span class=p>(</span><span class=n>lenlast</span><span class=o>&lt;</span><span class=mi>0</span><span class=p>)</span> <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span><span class=p>(</span><span class=n>lenlast</span><span class=o>==</span><span class=mi>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=c1>//		printf(&#34;test\n&#34;);
+</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=k>if</span><span class=p>(</span><span class=n>nowcnt</span><span class=o>==</span><span class=n>cnt</span><span class=p>)</span> 
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=n>printf</span><span class=p>(</span><span class=s>&#34;%d</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span><span class=n>len</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>			<span class=n>finish</span><span class=o>=</span><span class=nb>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=k>return</span> <span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>		<span class=kt>int</span> <span class=n>p</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=k>for</span><span class=p>(</span><span class=n>p</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span><span class=n>p</span><span class=o>&lt;=</span><span class=n>n</span><span class=p>;</span><span class=n>p</span><span class=o>++</span><span class=p>)</span> <span class=k>if</span><span class=p>(</span><span class=o>!</span><span class=n>vis</span><span class=p>[</span><span class=n>p</span><span class=p>])</span> <span class=k>break</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=n>vis</span><span class=p>[</span><span class=n>p</span><span class=p>]</span><span class=o>=</span><span class=nb>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=n>dfs</span><span class=p>(</span><span class=n>nowcnt</span><span class=o>+</span><span class=mi>1</span><span class=p>,</span><span class=n>p</span><span class=o>+</span><span class=mi>1</span><span class=p>,</span><span class=n>len</span><span class=o>-</span><span class=n>a</span><span class=p>[</span><span class=n>p</span><span class=p>],</span><span class=n>len</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span><span class=p>(</span><span class=n>finish</span><span class=p>)</span> <span class=k>return</span> <span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=n>vis</span><span class=p>[</span><span class=n>p</span><span class=p>]</span><span class=o>=</span><span class=nb>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>else</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=kt>int</span> <span class=n>pos</span><span class=o>=</span><span class=n>lower_bound</span><span class=p>(</span><span class=n>a</span><span class=o>+</span><span class=n>nxt</span><span class=p>,</span><span class=n>a</span><span class=o>+</span><span class=mi>1</span><span class=o>+</span><span class=n>n</span><span class=p>,</span><span class=n>lenlast</span><span class=p>,</span><span class=n>greater</span><span class=o>&lt;</span><span class=kt>int</span><span class=o>&gt;</span><span class=p>())</span><span class=o>-</span><span class=n>a</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=n>pos</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;=</span><span class=n>n</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=c1>//			printf(&#34;what\n&#34;);
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=k>if</span><span class=p>(</span><span class=o>!</span><span class=n>vis</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>&amp;&amp;</span><span class=n>lenlast</span><span class=o>-</span><span class=n>a</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>&gt;=</span><span class=mi>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>			<span class=p>{</span>
+</span></span><span class=line><span class=cl>				<span class=n>vis</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>=</span><span class=nb>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>				<span class=n>dfs</span><span class=p>(</span><span class=n>nowcnt</span><span class=p>,</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>,</span><span class=n>lenlast</span><span class=o>-</span><span class=n>a</span><span class=p>[</span><span class=n>i</span><span class=p>],</span><span class=n>len</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>				<span class=k>if</span><span class=p>(</span><span class=n>finish</span><span class=p>)</span> <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>				<span class=n>vis</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>=</span><span class=nb>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>				
+</span></span><span class=line><span class=cl>				<span class=k>while</span><span class=p>(</span><span class=n>a</span><span class=p>[</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>]</span><span class=o>==</span><span class=n>a</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=n>i</span><span class=o>++</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>				<span class=k>if</span><span class=p>(</span><span class=n>i</span><span class=o>==</span><span class=n>n</span><span class=p>)</span> <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>				<span class=k>if</span><span class=p>(</span><span class=n>lenlast</span><span class=o>-</span><span class=n>a</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>==</span><span class=mi>0</span><span class=p>)</span> <span class=k>break</span><span class=p>;</span> 
+</span></span><span class=line><span class=cl>			<span class=p>}</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl><span class=c1>//	freopen(&#34;test.in&#34;,&#34;r&#34;,stdin);
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>scanf</span><span class=p>(</span><span class=s>&#34;%d&#34;</span><span class=p>,</span><span class=o>&amp;</span><span class=n>n</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;=</span><span class=n>n</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=n>scanf</span><span class=p>(</span><span class=s>&#34;%d&#34;</span><span class=p>,</span><span class=o>&amp;</span><span class=n>temp</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span><span class=p>(</span><span class=n>temp</span><span class=o>&gt;</span><span class=mi>50</span><span class=p>)</span> <span class=n>a</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=k>else</span> <span class=n>a</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>=</span><span class=n>temp</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=n>maxlen</span><span class=o>=</span><span class=n>max</span><span class=p>(</span><span class=n>maxlen</span><span class=p>,</span><span class=n>a</span><span class=p>[</span><span class=n>i</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>		<span class=n>totlen</span><span class=o>+=</span><span class=n>a</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=n>sort</span><span class=p>(</span><span class=n>a</span><span class=o>+</span><span class=mi>1</span><span class=p>,</span><span class=n>a</span><span class=o>+</span><span class=mi>1</span><span class=o>+</span><span class=n>n</span><span class=p>,</span><span class=n>cmp</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=k>while</span><span class=p>(</span><span class=o>!</span><span class=n>a</span><span class=p>[</span><span class=n>n</span><span class=p>])</span> <span class=n>n</span><span class=o>--</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>l</span><span class=o>=</span><span class=n>maxlen</span><span class=p>;</span><span class=n>l</span><span class=o>&lt;=</span><span class=n>totlen</span><span class=p>;</span><span class=n>l</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=n>finish</span><span class=o>=</span><span class=nb>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span><span class=p>(</span><span class=n>totlen</span><span class=o>%</span><span class=n>l</span><span class=o>!=</span><span class=mi>0</span><span class=p>)</span> <span class=k>continue</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=n>cnt</span><span class=o>=</span><span class=n>totlen</span><span class=o>/</span><span class=n>l</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=n>vis</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span><span class=o>=</span><span class=nb>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=n>dfs</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=n>l</span><span class=o>-</span><span class=n>a</span><span class=p>[</span><span class=mi>1</span><span class=p>],</span><span class=n>l</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>		<span class=n>vis</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span><span class=o>=</span><span class=nb>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span><span class=p>(</span><span class=n>finish</span><span class=p>)</span> <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span> 
+</span></span></code></pre></div><hr><h3 id=3-yokof---power-calculushttpswwwspojcomproblemsyokof>3. <a href=https://www.spoj.com/problems/YOKOF/>YOKOF - Power Calculus</a><a hidden class=anchor aria-hidden=true href=#3-yokof---power-calculushttpswwwspojcomproblemsyokof>#</a></h3><hr><h4 id=题意-2>题意<a hidden class=anchor aria-hidden=true href=#题意-2>#</a></h4><p>给出一个正整数 <strong>n</strong> ，只能使用乘法或者除法，可以乘除 $x$ 或者过程中产生的中间值 $x^i$ ，输出使得 $x$ 变为 $x^n$ 所需的最少步数。$(n\le100)$</p><hr><h4 id=思路-2>思路<a hidden class=anchor aria-hidden=true href=#思路-2>#</a></h4><p>很显然我们一直是对指数进行操作，看似是乘除，直接转化为指数的加减。因此我们需要记录一个状态数组来记录乘除中间所产生的 $x^i$ ，以便后续过程中使用。但是这道题直接搜索的话，又会超时，因为他把大量的时间浪费在高深度上，但是这个却不一定是最优解。因此需要用到迭代加深搜索(IDDFS).</p><blockquote><p>迭代加深搜索(IDDFS)主要用于处理一些题目可能会搜到很深但是答案却不是最优的问题。有的时候dfs搜索的深度是无穷的，而且他的复杂度是呈指数级增长的，因此这其中某些情况就可以用IDDFS，在每次搜索的时候，我们给深度一个限制，当达到这个最大深度却没有得到答案的时候，就返回，然后逐步提升深度，这样我们就可以避免将时间浪费在那些无谓的高深度搜索上了。</p></blockquote><p>$$
 \sum_{i=0}^n2^i=2^{n+1}-1（指数级别增长实例）
-$$</p><hr><h4 id=代码实现-2>代码实现
-<a class=heading-link href=#%e4%bb%a3%e7%a0%81%e5%ae%9e%e7%8e%b0-2><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstdio&gt;</span><span style=color:#75715e>
-</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cstring&gt;</span><span style=color:#75715e>
-</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;algorithm&gt;</span><span style=color:#75715e>
-</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;cmath&gt;</span><span style=color:#75715e>
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>using</span> <span style=color:#66d9ef>namespace</span> std;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> n;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> x[<span style=color:#ae81ff>1005</span>]; <span style=color:#75715e>//用来记录每次生成的中间状态 
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>bool</span> <span style=color:#a6e22e>dfs</span>(<span style=color:#66d9ef>int</span> k,<span style=color:#66d9ef>int</span> dep,<span style=color:#66d9ef>int</span> maxdep)
-</span></span><span style=display:flex><span>{
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(k<span style=color:#f92672>&lt;=</span><span style=color:#ae81ff>0</span><span style=color:#f92672>||</span>dep<span style=color:#f92672>&gt;</span>maxdep<span style=color:#f92672>||</span>k<span style=color:#f92672>&lt;&lt;</span>(maxdep<span style=color:#f92672>-</span>dep)<span style=color:#f92672>&lt;</span>n) <span style=color:#66d9ef>return</span> false;
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span>(k<span style=color:#f92672>==</span>n<span style=color:#f92672>||</span>k<span style=color:#f92672>&lt;&lt;</span>(maxdep<span style=color:#f92672>-</span>dep)<span style=color:#f92672>==</span>n) <span style=color:#66d9ef>return</span> true;
-</span></span><span style=display:flex><span>	x[dep]<span style=color:#f92672>=</span>k;
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;i<span style=color:#f92672>&lt;=</span>dep;i<span style=color:#f92672>++</span>)
-</span></span><span style=display:flex><span>	{
-</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span>(dfs(k<span style=color:#f92672>+</span>x[i],dep<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,maxdep)) <span style=color:#66d9ef>return</span> true; <span style=color:#75715e>//对应乘法 
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>		<span style=color:#66d9ef>if</span>(dfs(k<span style=color:#f92672>-</span>x[i],dep<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,maxdep)) <span style=color:#66d9ef>return</span> true; <span style=color:#75715e>//对应除法 
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	}
-</span></span><span style=display:flex><span>	x[dep]<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> false;  
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
-</span></span><span style=display:flex><span>{
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>while</span>(scanf(<span style=color:#e6db74>&#34;%d&#34;</span>,<span style=color:#f92672>&amp;</span>n)<span style=color:#f92672>&amp;&amp;</span>n)
-</span></span><span style=display:flex><span>	{
-</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>int</span> i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>;;i<span style=color:#f92672>++</span>)
-</span></span><span style=display:flex><span>		{
-</span></span><span style=display:flex><span>			<span style=color:#66d9ef>if</span>(dfs(<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>0</span>,i))
-</span></span><span style=display:flex><span>			{
-</span></span><span style=display:flex><span>				printf(<span style=color:#e6db74>&#34;%d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>,i);
-</span></span><span style=display:flex><span>				<span style=color:#66d9ef>break</span>;
-</span></span><span style=display:flex><span>			}
-</span></span><span style=display:flex><span>		}
-</span></span><span style=display:flex><span>	}
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><hr></div><footer><div class=comments><script>let getTheme=window.localStorage&&window.localStorage.getItem("colorscheme");getTheme=getTheme??"preferred_color_scheme";let s=document.createElement("script");s.src="https://giscus.app/client.js",s.setAttribute("data-repo","zzsqwq/hugo-blog-comment"),s.setAttribute("data-repo-id","R_kgDOGgU1qQ"),s.setAttribute("data-category","Announcements"),s.setAttribute("data-category-id","DIC_kwDOGgU1qc4CSX1m"),s.setAttribute("data-mapping","pathname"),s.setAttribute("data-strict","0"),s.setAttribute("data-reactions-enabled","1"),s.setAttribute("data-emit-metadata","0"),s.setAttribute("data-input-position","top"),s.setAttribute("data-theme",getTheme),s.setAttribute("data-lang",""),s.setAttribute("crossorigin","anonymous"),s.setAttribute("async",""),document.querySelector("div.comments").innerHTML="",document.querySelector("div.comments").appendChild(s)</script></div><div class=comments><script>let getTheme=window.localStorage&&window.localStorage.getItem("colorscheme");getTheme=getTheme??"preferred_color_scheme";let s=document.createElement("script");s.src="https://giscus.app/client.js",s.setAttribute("data-repo","zzsqwq/hugo-blog-comment"),s.setAttribute("data-repo-id","R_kgDOGgU1qQ"),s.setAttribute("data-category","Announcements"),s.setAttribute("data-category-id","DIC_kwDOGgU1qc4CSX1m"),s.setAttribute("data-mapping","pathname"),s.setAttribute("data-term",""),s.setAttribute("data-strict","0"),s.setAttribute("data-reactions-enabled","1"),s.setAttribute("data-emit-metadata","0"),s.setAttribute("data-input-position","top"),s.setAttribute("data-theme",getTheme),s.setAttribute("data-lang","en"),s.setAttribute("data-loading","lazy"),s.setAttribute("crossorigin","anonymous"),s.setAttribute("async",""),document.querySelector("div.comments").innerHTML="",document.querySelector("div.comments").appendChild(s)</script></div></footer></article><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css integrity=sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0 crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js integrity=sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4 crossorigin=anonymous></script>
-<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})'></script></section></div><footer class=footer><section class=container><a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></br>©
-2019 -
-2023
-·
-Powered by <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/ target=_blank rel=noopener>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WF7TH97J9X"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-WF7TH97J9X",{anonymize_ip:!1})}</script></body></html>
+$$</p><hr><h4 id=代码实现-2>代码实现<a hidden class=anchor aria-hidden=true href=#代码实现-2>#</a></h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;cstdio&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;cstring&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;algorithm&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;cmath&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=k>using</span> <span class=k>namespace</span> <span class=n>std</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=n>n</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=n>x</span><span class=p>[</span><span class=mi>1005</span><span class=p>];</span> <span class=c1>//用来记录每次生成的中间状态 
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>bool</span> <span class=nf>dfs</span><span class=p>(</span><span class=kt>int</span> <span class=n>k</span><span class=p>,</span><span class=kt>int</span> <span class=n>dep</span><span class=p>,</span><span class=kt>int</span> <span class=n>maxdep</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span><span class=p>(</span><span class=n>k</span><span class=o>&lt;=</span><span class=mi>0</span><span class=o>||</span><span class=n>dep</span><span class=o>&gt;</span><span class=n>maxdep</span><span class=o>||</span><span class=n>k</span><span class=o>&lt;&lt;</span><span class=p>(</span><span class=n>maxdep</span><span class=o>-</span><span class=n>dep</span><span class=p>)</span><span class=o>&lt;</span><span class=n>n</span><span class=p>)</span> <span class=k>return</span> <span class=nb>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span><span class=p>(</span><span class=n>k</span><span class=o>==</span><span class=n>n</span><span class=o>||</span><span class=n>k</span><span class=o>&lt;&lt;</span><span class=p>(</span><span class=n>maxdep</span><span class=o>-</span><span class=n>dep</span><span class=p>)</span><span class=o>==</span><span class=n>n</span><span class=p>)</span> <span class=k>return</span> <span class=nb>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=n>x</span><span class=p>[</span><span class=n>dep</span><span class=p>]</span><span class=o>=</span><span class=n>k</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;=</span><span class=n>dep</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span><span class=p>(</span><span class=n>dfs</span><span class=p>(</span><span class=n>k</span><span class=o>+</span><span class=n>x</span><span class=p>[</span><span class=n>i</span><span class=p>],</span><span class=n>dep</span><span class=o>+</span><span class=mi>1</span><span class=p>,</span><span class=n>maxdep</span><span class=p>))</span> <span class=k>return</span> <span class=nb>true</span><span class=p>;</span> <span class=c1>//对应乘法 
+</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=k>if</span><span class=p>(</span><span class=n>dfs</span><span class=p>(</span><span class=n>k</span><span class=o>-</span><span class=n>x</span><span class=p>[</span><span class=n>i</span><span class=p>],</span><span class=n>dep</span><span class=o>+</span><span class=mi>1</span><span class=p>,</span><span class=n>maxdep</span><span class=p>))</span> <span class=k>return</span> <span class=nb>true</span><span class=p>;</span> <span class=c1>//对应除法 
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=n>x</span><span class=p>[</span><span class=n>dep</span><span class=p>]</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nb>false</span><span class=p>;</span>  
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=k>while</span><span class=p>(</span><span class=n>scanf</span><span class=p>(</span><span class=s>&#34;%d&#34;</span><span class=p>,</span><span class=o>&amp;</span><span class=n>n</span><span class=p>)</span><span class=o>&amp;&amp;</span><span class=n>n</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;;</span><span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=k>if</span><span class=p>(</span><span class=n>dfs</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span><span class=mi>0</span><span class=p>,</span><span class=n>i</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>			<span class=p>{</span>
+</span></span><span class=line><span class=cl>				<span class=n>printf</span><span class=p>(</span><span class=s>&#34;%d</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span><span class=n>i</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>				<span class=k>break</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=p>}</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><hr></div><footer class=post-footer><ul class=post-tags><li><a href=https://blog.zzsqwq.cn/tags/luogu/>Luogu</a></li><li><a href=https://blog.zzsqwq.cn/tags/%E6%90%9C%E7%B4%A2/>搜索</a></li></ul><nav class=paginav><a class=prev href=https://blog.zzsqwq.cn/posts/17/><span class=title>« Prev</span><br><span>Codeforces#617(Div.3)</span></a>
+<a class=next href=https://blog.zzsqwq.cn/posts/10/><span class=title>Next »</span><br><span>LaTeX的一些总结</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2023 <a href=https://blog.zzsqwq.cn>Zs's Blog</a></span>
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

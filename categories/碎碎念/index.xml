@@ -1,4 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>碎碎念 on Zs's Blog</title><link>https://blog.zzsqwq.cn/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/</link><description>Recent content in 碎碎念 on Zs's Blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 01 Jan 2023 16:13:45 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/index.xml" rel="self" type="application/rss+xml"/><item><title>2022 年度总结</title><link>https://blog.zzsqwq.cn/posts/summary-2022/</link><pubDate>Sun, 01 Jan 2023 16:13:45 +0800</pubDate><guid>https://blog.zzsqwq.cn/posts/summary-2022/</guid><description>2022 依旧是被疫情伴随的一年，时间正着看总是要比回看慢很多，现在回头看过往一年似乎一瞬间就过去了。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>碎碎念 on Zs&#39;s Blog</title>
+    <link>https://blog.zzsqwq.cn/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/</link>
+    <description>Recent content in 碎碎念 on Zs&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 01 Jan 2023 16:13:45 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2022 年度总结</title>
+      <link>https://blog.zzsqwq.cn/posts/summary-2022/</link>
+      <pubDate>Sun, 01 Jan 2023 16:13:45 +0800</pubDate>
+      
+      <guid>https://blog.zzsqwq.cn/posts/summary-2022/</guid>
+      <description>2022 依旧是被疫情伴随的一年，时间正着看总是要比回看慢很多，现在回头看过往一年似乎一瞬间就过去了。
 今年共发了 11 篇文章，其中还包含了两篇碎碎念，还是没有达到月更，新的一年希望可以。2022 年对我来说变化很大，算是暂时摆脱了学生生活，体验了社畜的感觉，打卡了北上广深中的北和深。
 接下来按月份盘点一些值得纪念的事情吧。
 一月：
@@ -29,4 +44,8 @@
 同时这个月还和乐乐和雷宝一起去了深圳的欢乐谷游玩，体验了失重的感觉，下次不敢了。
 十一月：平淡的一个月，上班、吃吃吃、玩玩玩。卓卓越来越好看了。
 十二月：
-学长从 HK 带回来了最新版的 Apple TV，苹果生态又添一员。现在的联动已经非常棒了，手机可以直接推流到 Homepod、电视、Mac、耳机等。</description></item></channel></rss>
+学长从 HK 带回来了最新版的 Apple TV，苹果生态又添一员。现在的联动已经非常棒了，手机可以直接推流到 Homepod、电视、Mac、耳机等。</description>
+    </item>
+    
+  </channel>
+</rss>
