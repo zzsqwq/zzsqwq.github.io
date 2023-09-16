@@ -77,19 +77,19 @@ params:
     since: 2019
 
     giscus:
-      repo: zzsqwq/hugo-blog-comment
-      repoID: R_kgDOGgU1qQ
-      category: Announcements
-      category: DIC_kwDOGgU1qc4CSX1m
-      mapping: pathname
-      strict: 0
-      reactionsEnabled: 1
-      emitMetadata: 0
-      inputPosition: top
-      theme: preferred_color_scheme
-      lang: en
-      loading: lazy
-      crossorigin: anonymous
+      repo: "zzsqwq/hugo-blog-comment"
+      repoID: "R_kgDOGgU1qQ"
+      category: "Announcements"
+      categoryID: "DIC_kwDOGgU1qc4CSX1m"
+      mapping: "pathname"
+      strict: "0"
+      reactionsEnabled: "1"
+      emitMetadata: "0"
+      inputPosition: "top"
+      theme: "preferred_color_scheme"
+      lang: "en"
+      loading: "lazy"
+      crossorigin: "anonymous"
 
     profileMode:
         enabled: true
