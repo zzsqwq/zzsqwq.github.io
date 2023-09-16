@@ -1,0 +1,169 @@
+baseURL: "https://blog.zzsqwq.cn"
+title: Zs's Blog
+paginate: 5
+theme: hugo-PaperMod
+languageCode: en
+defaultContentLanguage: en
+googleAnalytics: 'G-WF7TH97J9X'
+
+enableInlineShortcodes: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+enableEmoji: true
+pygmentsUseClasses: true
+# googleAnalytics: UA-123-45
+
+minify:
+    disableXML: true
+    # minifyOutput: true
+
+languages:
+    en:
+        languageName: "English"
+        weight: 1
+        taxonomies:
+          category: categories
+          tag: tags
+          series: series
+        menu:
+          main:
+            - name: About
+              url: about
+              weight: 1
+            - name: Posts
+              url: posts
+              weight: 5
+            - name: Friends
+              url: friends
+              weight: 6
+            - name: Contact
+              url: contact
+              weight: 10
+            - name: Search
+              url: search
+              weight: 10
+
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
+
+params:
+    env: production # to enable google analytics, opengraph, twitter-cards and schema.
+    author: zzsqwq 
+    description: "Zs's personal website."
+    # author: ["Me", "You"] # multiple authors
+
+    defaultTheme: auto
+    # disableThemeToggle: true
+    ShowShareButtons: false
+    ShowReadingTime: true
+    # disableSpecial1stPost: true
+    displayFullLangName: true
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: true
+    ShowCodeCopyButtons: true
+    ShowRssButtonInSectionTermList: true
+    ShowToc: true
+    comments: true
+    # images: ["papermod-cover.png"]
+    avatarURL: "images/avatar.png"
+    favicon_32: "images/favicon-32x32.png"
+    dateFormat: "January 2, 2006"
+    since: 2019
+
+    profileMode:
+        enabled: true
+        title: zzsqwq
+        imageUrl: "images/avatar.png"
+        imageTitle: Profile avatar
+        imageWidth: 200
+        imageHeight: 200
+        subtitle: "Do whatever you want."
+
+
+    socialIcons:
+        - name: github
+          url: "https://github.com/zzsqwq"
+        - name: gitlab
+          url: "https://gitlab.com/zzsqwq"
+        - name: telegram
+          url: "https://t.me/zzsqwq"
+        - name: Rss
+          url: "index.xml"
+
+    editPost:
+        URL: "https://github.com/zzsqwq/zzsqwq.github.io/tree/master/content"
+        Text: "Suggest Changes" # edit text
+        appendFilePath: true # to append file path to Edit link
+
+    # label:
+    #     text: "Home"
+    #     icon: icon.png
+    #     iconHeight: 35
+
+    analytics:
+        google:
+            SiteVerificationTag: "G-WF7TH97J9X"
+
+    assets:
+        disableHLJS: true
+        favicon: "images/avatar.png"
+    #     favicon16x16: "<link / abs url>"
+        favicon32x32: "images/favicon-32x32.png"
+    #     apple_touch_icon: "<link / abs url>"
+    #     safari_pinned_tab: "<link / abs url>"
+
+    # cover:
+    #     hidden: true # hide everywhere but not in structured data
+    #     hiddenInList: true # hide on list pages and home
+    #     hiddenInSingle: true # hide on single page
+
+    # fuseOpts:
+    #     isCaseSensitive: false
+    #     shouldSort: true
+    #     location: 0
+    #     distance: 1000
+    #     threshold: 0.4
+    #     minMatchCharLength: 0
+    #     limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+    #     keys: ["title", "permalink", "summary", "content"]
+
+markup:
+    goldmark:
+        renderer:
+            unsafe: true
+    highlight:
+        noClasses: true
+        # anchorLineNos: true
+        # codeFences: true
+        # guessSyntax: true
+        # lineNos: true
+        # style: monokai
+
+privacy:
+    vimeo:
+        disabled: false
+        simple: true
+
+    twitter:
+        disabled: false
+        enableDNT: true
+        simple: true
+
+    instagram:
+        disabled: false
+        simple: true
+
+    youtube:
+        disabled: false
+        privacyEnhanced: true
+
+services:
+    instagram:
+        disableInlineCSS: true
+    twitter:
+        disableInlineCSS: true

@@ -7,7 +7,7 @@ slug: "how-to-use-clash-on-linux"
 date: "2023-08-07T02:26:22+08:00"
 ---
 
-{{< notice tip >}} 此方式推荐在纯终端（无图形化界面）环境下使用，有图形化界面的情况下推荐使用 [Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg/releases) 或 [Clash Verge](https://github.com/zzzgydi/clash-verge)，相关博文可见—[Linux 上 Clash For Windows 如何设置开机自启与桌面图标](https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/)。{{< /notice >}}
+>  此方式推荐在纯终端（无图形化界面）环境下使用，有图形化界面的情况下推荐使用 [Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg/releases) 或 [Clash Verge](https://github.com/zzzgydi/clash-verge)，相关博文可见—[Linux 上 Clash For Windows 如何设置开机自启与桌面图标](https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/)。
 
 ## 为什么选择 Clash？
 
