@@ -14,6 +14,6 @@ Welcome to know more about me through [my homepage](https://zzsqwq.cn).
 
 # About Blog
 
-Blog is proudly powered by [Hugo](https://gohugo.io/).
+Blog is powered by [Hugo](https://gohugo.io/).
 
-The theme used is [hugo-coder](https://github.com/luizdepra/hugo-coder), my fork version is [here](https://github.com/zzsqwq/hugo-coder).
+The theme used is [hugo-PaperMod](https://github.com/adityatelange/hugo-PaperMod), my fork version is [here](https://github.com/zzsqwq/hugo-PaperMod).
