@@ -69,11 +69,27 @@ params:
     ShowRssButtonInSectionTermList: true
     ShowToc: true
     comments: true
+
     # images: ["papermod-cover.png"]
     avatarURL: "images/avatar.png"
     favicon_32: "images/favicon-32x32.png"
     dateFormat: "January 2, 2006"
     since: 2019
+
+    giscus:
+      repo: zzsqwq/hugo-blog-comment
+      repoID: R_kgDOGgU1qQ
+      category: Announcements
+      category: DIC_kwDOGgU1qc4CSX1m
+      mapping: pathname
+      strict: 0
+      reactionsEnabled: 1
+      emitMetadata: 0
+      inputPosition: top
+      theme: preferred_color_scheme
+      lang: en
+      loading: lazy
+      crossorigin: anonymous
 
     profileMode:
         enabled: true
