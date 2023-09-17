@@ -27,6 +27,4 @@ immortalqx https://immortalqx.github.io
 
 Zhang Jiale https://zjlzjl.com
 
-Zepeng https://bzpovo.xyz
-
 Zaihua https://www.zaihua.net
