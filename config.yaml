@@ -126,7 +126,7 @@ params:
             SiteVerificationTag: "G-WF7TH97J9X"
 
     assets:
-        disableHLJS: true
+        disableHLJS: false
         favicon: "images/avatar.png"
     #     favicon16x16: "<link / abs url>"
         favicon32x32: "images/favicon-32x32.png"
