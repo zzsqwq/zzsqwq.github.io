@@ -3,28 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.zzsqwq.cn/categories/</loc>
-    <lastmod>2023-08-07T02:26:22+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/clash/</loc>
-    <lastmod>2023-08-07T02:26:22+08:00</lastmod>
+    <lastmod>2023-05-01T23:35:01+08:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/posts/</loc>
-    <lastmod>2023-08-07T02:26:22+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/proxy/</loc>
-    <lastmod>2023-08-07T02:26:22+08:00</lastmod>
+    <lastmod>2023-05-01T23:35:01+08:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/tags/</loc>
-    <lastmod>2023-08-07T02:26:22+08:00</lastmod>
+    <lastmod>2023-05-01T23:35:01+08:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/</loc>
-    <lastmod>2023-08-07T02:26:22+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/%E4%BB%A3%E7%90%86/</loc>
-    <lastmod>2023-08-07T02:26:22+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/</loc>
-    <lastmod>2023-08-07T02:26:22+08:00</lastmod>
+    <lastmod>2023-05-01T23:35:01+08:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/posts/why-should-boycott-pdd/</loc>
     <lastmod>2023-05-01T23:35:01+08:00</lastmod>
@@ -122,21 +110,6 @@
     <loc>https://blog.zzsqwq.cn/posts/why-use-condition-variable/</loc>
     <lastmod>2022-08-24T23:37:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/clash/</loc>
-    <lastmod>2022-05-12T22:37:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/linux/</loc>
-    <lastmod>2022-05-12T22:37:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/</loc>
-    <lastmod>2022-05-12T22:37:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/%E5%BC%80%E5%90%AF%E8%87%AA%E5%90%AF%E5%8A%A8/</loc>
-    <lastmod>2022-05-12T22:37:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87/</loc>
-    <lastmod>2022-05-12T22:37:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.zzsqwq.cn/tags/academia/</loc>
     <lastmod>2022-05-03T21:40:00+00:00</lastmod>
   </url><url>
@@ -220,18 +193,6 @@
   </url><url>
     <loc>https://blog.zzsqwq.cn/tags/%E9%94%90%E7%82%AC/</loc>
     <lastmod>2021-11-02T01:16:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/linux/</loc>
-    <lastmod>2021-09-13T18:15:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/v2ray/</loc>
-    <lastmod>2021-09-13T18:15:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/%E4%BB%A3%E7%90%86/</loc>
-    <lastmod>2021-09-13T18:15:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.zzsqwq.cn/posts/212/</loc>
-    <lastmod>2021-09-13T18:15:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/posts/209/</loc>
     <lastmod>2021-08-01T21:48:00+00:00</lastmod>
@@ -343,6 +304,9 @@
   </url><url>
     <loc>https://blog.zzsqwq.cn/posts/157/</loc>
     <lastmod>2020-12-05T20:26:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.zzsqwq.cn/tags/linux/</loc>
+    <lastmod>2020-12-04T01:39:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/posts/141/</loc>
     <lastmod>2020-12-04T01:39:00+00:00</lastmod>

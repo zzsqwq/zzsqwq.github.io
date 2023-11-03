@@ -6,25 +6,7 @@
     <description>Recent content in Tags on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 07 Aug 2023 02:26:22 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Clash</title>
-      <link>https://blog.zzsqwq.cn/tags/clash/</link>
-      <pubDate>Mon, 07 Aug 2023 02:26:22 +0800</pubDate>
-      
-      <guid>https://blog.zzsqwq.cn/tags/clash/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>proxy</title>
-      <link>https://blog.zzsqwq.cn/tags/proxy/</link>
-      <pubDate>Mon, 07 Aug 2023 02:26:22 +0800</pubDate>
-      
-      <guid>https://blog.zzsqwq.cn/tags/proxy/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Mon, 01 May 2023 23:35:01 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>抵制</title>
       <link>https://blog.zzsqwq.cn/tags/%E6%8A%B5%E5%88%B6/</link>
@@ -170,24 +152,6 @@
     </item>
     
     <item>
-      <title>开启自启动</title>
-      <link>https://blog.zzsqwq.cn/tags/%E5%BC%80%E5%90%AF%E8%87%AA%E5%90%AF%E5%8A%A8/</link>
-      <pubDate>Thu, 12 May 2022 22:37:00 +0000</pubDate>
-      
-      <guid>https://blog.zzsqwq.cn/tags/%E5%BC%80%E5%90%AF%E8%87%AA%E5%90%AF%E5%8A%A8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>桌面图标</title>
-      <link>https://blog.zzsqwq.cn/tags/%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87/</link>
-      <pubDate>Thu, 12 May 2022 22:37:00 +0000</pubDate>
-      
-      <guid>https://blog.zzsqwq.cn/tags/%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>academia</title>
       <link>https://blog.zzsqwq.cn/tags/academia/</link>
       <pubDate>Tue, 03 May 2022 21:40:00 +0000</pubDate>
@@ -328,33 +292,6 @@
       <pubDate>Tue, 02 Nov 2021 01:16:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/tags/%E9%94%90%E7%82%AC/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://blog.zzsqwq.cn/tags/linux/</link>
-      <pubDate>Mon, 13 Sep 2021 18:15:00 +0000</pubDate>
-      
-      <guid>https://blog.zzsqwq.cn/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>v2ray</title>
-      <link>https://blog.zzsqwq.cn/tags/v2ray/</link>
-      <pubDate>Mon, 13 Sep 2021 18:15:00 +0000</pubDate>
-      
-      <guid>https://blog.zzsqwq.cn/tags/v2ray/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>代理</title>
-      <link>https://blog.zzsqwq.cn/tags/%E4%BB%A3%E7%90%86/</link>
-      <pubDate>Mon, 13 Sep 2021 18:15:00 +0000</pubDate>
-      
-      <guid>https://blog.zzsqwq.cn/tags/%E4%BB%A3%E7%90%86/</guid>
       <description></description>
     </item>
     
@@ -544,6 +481,15 @@
       <pubDate>Wed, 27 Jan 2021 11:50:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/tags/centernet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://blog.zzsqwq.cn/tags/linux/</link>
+      <pubDate>Fri, 04 Dec 2020 01:39:00 +0000</pubDate>
+      
+      <guid>https://blog.zzsqwq.cn/tags/linux/</guid>
       <description></description>
     </item>
     

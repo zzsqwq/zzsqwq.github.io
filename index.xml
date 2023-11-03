@@ -6,23 +6,7 @@
     <description>Recent content on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 07 Aug 2023 02:26:22 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>如何在 Linux 上优雅的使用 Clash？</title>
-      <link>https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/</link>
-      <pubDate>Mon, 07 Aug 2023 02:26:22 +0800</pubDate>
-      
-      <guid>https://blog.zzsqwq.cn/posts/how-to-use-clash-on-linux/</guid>
-      <description>此方式推荐在纯终端（无图形化界面）环境下使用，有图形化界面的情况下推荐使用 Clash for Windows 或 Clash Verge，相关博文可见—Linux 上 Clash For Windows 如何设置开机自启与桌面图标。
-为什么选择 Clash？ 目前 Clash 由于其基于规则分流的强大代理功能，已经成为主流的代理内核，在各个平台都有对应的客户端。如 Windows 端的 Clash For Windows(CFW)，MacOS 端的 ClashX，Android 端的 Clash For Android，IOS 端 Choc。
-那么我们如何能够在 Linux 上优雅的使用 Clash 呢？
-一、基于 Docker 的实现 Docker 是一个开源的应用容器引擎，开发者可以把包和依赖等集成到一个容器中，并打包成镜像发布。用户可以直接拉取镜像并创建容器，而不会污染本地的环境，十分的好用。
-我现在在使用一个软件的时候一般都是有 docker 实现会优先使用 docker，配合 docker-compose 管理真的非常的方便。因此我们优先考虑使用 docker 来配置 clash 代理。
-1.1 安装 docker 大家可以参考 官网安装指南 来在 Linux 安装 docker，就不详细赘述了。
-顺便可以参考 docker-compose 安装指南 来安装 docker-compose。
-安装结束后，使用 docker --version 以及 docker-compose --version 进行验证，输出如下进行下一步。</description>
-    </item>
-    
+    <lastBuildDate>Mon, 01 May 2023 23:35:01 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>为什么应该抵制拼多多？</title>
       <link>https://blog.zzsqwq.cn/posts/why-should-boycott-pdd/</link>
@@ -202,24 +186,6 @@ AI 绘图 看网上有人调侃说，愿意称 2022 年为 AI 绘图元年。</d
     </item>
     
     <item>
-      <title>Linux 上 Clash For Windows 如何设置开机自启与桌面图标</title>
-      <link>https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/</link>
-      <pubDate>Thu, 12 May 2022 22:37:00 +0000</pubDate>
-      
-      <guid>https://blog.zzsqwq.cn/posts/clash-for-windows-on-linux/</guid>
-      <description>背景 之前写过一篇 如何在 Linux 上优雅的使用 Clash？ 的博客，不过用了一段时间后这么倒腾还是不如直接用 Clash For Windows 这种方便的图形化界面，主要是改配置文件啥的方便，不需要重启啥的。
-配了一下发现 Linux 版本的 Clash For Windows 貌似打开 Start with Linux 没什么用处，因此顺便写个配置教程。
-Clash For Windows 的具体使用可以查看官方教程：https://docs.cfw.lbyczf.com/
-顺便说一句，Linux 版本的无法自动设置系统代理，需要自己手动设置，不过我推荐你使用 proxychains 等工具在终端进行代理，使用 SwitchyOmega 等工具在浏览器端代理。
-安装 Clash For Windows 首先在 Linux 上下载 Clash For Windows，
-Github release 链接：https://github.com/Fndroid/clash_for_windows_pkg/releases
-在其中找到需要的版本，然后下载即可，如果国内下载较慢的话，可以使用大佬提供的代理1，使用方式是在下载链接的前面加上 https://ghproxy.com/ 即可，例如一个下载链接为 https://github.com/aaa ，则代理后的链接为 https://ghproxy.com/https://github.com/aaa
-下载后应该是名为 Clash.for.Windows-version-x64-linux.tar.gz 的文件，然后解压：
-❯ tar -zxvf Clash.for.Windows.xxx # 这里是对应压缩包的名字 解压后会出现对应的文件夹，文件夹中会有一个名为 cfw 的文件，按理说现在在文件中直接打开终端，然后运行
-❯ ./cfw 就会直接打开 Clash For Windows 了，与 Windows 版本基本平常无差。</description>
-    </item>
-    
-    <item>
       <title>一个基于 Hugo 的个人主页主题</title>
       <link>https://blog.zzsqwq.cn/posts/my-hugo-academia-theme/</link>
       <pubDate>Tue, 03 May 2022 21:40:00 +0000</pubDate>
@@ -382,25 +348,6 @@ CPU：酷睿 i5-11300H 显卡：集成显卡 Intel 锐炬Iris Xe 内存：16G �
 为了工作的需要，要装一个Ubuntu，先是装了之前用过的 Ubuntu 18.04，安装后发现触摸板无法使用，一系列探索后无果，在朋友的推荐下，还是决定安装 Ubuntu 20.04 试一下，踩了一些坑，在这里记录一下。
 问题列表 如果你遇到了以下问题，那么这篇文章的方法可能会对你有益处：
 Ubuntu 18.04 相关 Ubuntu 18.04 无法使用触摸板 Ubuntu 18.04 无法使用内置键盘 Ubuntu 18.04 无法调节亮 Ubuntu 18.04 查看GPU发现是llvm，而不是Iris Xe Ubuntu 20.04 相关 Ubuntu 20.</description>
-    </item>
-    
-    <item>
-      <title>纯终端环境代理配置教程</title>
-      <link>https://blog.zzsqwq.cn/posts/212/</link>
-      <pubDate>Mon, 13 Sep 2021 18:15:00 +0000</pubDate>
-      
-      <guid>https://blog.zzsqwq.cn/posts/212/</guid>
-      <description>纯终端环境代理配置教程 前言 我们在很多情况下，可能会在云服务器或是其他纯终端环境（例如树莓派服务器等），或者一些没有屏幕的情况下，只能 ssh 链接到服务器上进行一些操作。
-这些时候，如果我们想要克隆一个 Github 的仓库，或者下载一些镜像源中没有的文件，简直是难如登天，100kb/s 的速度都很罕见，因此在这种环境下配一个代理还是十分必要的！
-我们常在 Linux 上使用的 GUI 代理软件如 Qv2ray、Clash 这些就没法用了。因此需要考虑如何在纯终端环境中配置代理的问题，这篇教程就是为解决此问题而写的。
-教程 此教程搭配的是常用的 v2ray-core + v2rayA ，这里的 v2rayA 是一个网页端的代理管理工具，其中支持 v2ray、Xray、SS、SSR、Trojan 等多种协议。
-一、安装 v2ray-core 首先是需要安装 v2ray-core ，这里我们使用开源的项目 v2fly/fhs-install-v2ray 进行安装，它是一个脚本，可以直接运行完成 v2ray 的安装，安装的文件组织结构符合 Filesystem Hierarchy Standard ，十分方便简洁，很赞！
-具体步骤如下：
-下载 fhs-install-v2ray 源码 首先我们因为 Github 克隆很慢，可以先在自己的主机上克隆或者以 zip 包形式下载源码
-将源码上传到远端 键入下列代码，通过 scp 将解压后的代码文件夹目录上传到远端服务器的根目录（如果是树莓派的话可以连接同一局域网进行），注意这里的 path/to/fhs-install-v2ray 指的是本地文件夹的路径
-scp -r path/to/fhs-install-v2ray username@hostname:~
-下载 v2ray-core 源码 此脚本可以全自动安装，即自动检测本机类型是 Ubuntu 还是其他的版本，然后从远端仓库下载最新的 v2ray 进行安装，不过因为没有代理，这一步还是十分缓慢，因此我们可以进行本地安装。
-首先，我们去到 v2ray-core 的官方仓库的发布站 -&amp;gt; Releases · v2fly/v2ray-core ，在这里可以下载最新版本的的 v2ray-core，不过需要注意的是，需要自己辨别版本，如使用的是 arm 还是 x64_86 等，下载后是一个 zip 压缩包，我们直接通过 scp 上传到远端服务器根目录</description>
     </item>
     
     <item>
