@@ -6,7 +6,24 @@
     <description>Recent content in Posts on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 01 May 2023 23:35:01 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Nov 2023 23:36:41 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>记一次 GitHub 账号突然被 suspended 的经历</title>
+      <link>https://blog.zzsqwq.cn/posts/github-suspended-for-no-reason/</link>
+      <pubDate>Sun, 12 Nov 2023 23:36:41 +0800</pubDate>
+      
+      <guid>https://blog.zzsqwq.cn/posts/github-suspended-for-no-reason/</guid>
+      <description>TL;DR 我在 2023.11.07 凌晨被 GitHub 封禁了账号，GitHub 账号被 suspended 后会在 GitHub 上完全除名（只有自建创建的组织不会消失）。
+如果被封禁了请首先通过 API：https://api.github.com/users/[username]/starred 备份自己 star 过的项目。
+同时通过 Can&amp;rsquo;t sign-in form 来在无法登陆的情况下发起 GitHub Support 工单来询问/请求解封/询问原因等，一般在两天内会收到回复。
+我此次被封禁的原因是由于管理的组织内部有成员被盗号，在组织内创建了违法仓库，因此管理员和被盗号的成员都被封禁了，但后续都被解除了封禁。同时也有可能因为创建违反 DCMA 条款的仓库、fork 违反 DCMA 条款的仓库、贩卖学生/教师教育包等原因被封禁。
+背景 大约在 2023.11.07 凌晨 00:30 左右，在 GitHub 上看到了一个不错的项目想要 Star，被提示没有登陆。当时我还在想：“怎么这次 session 过期的这么快？” 就当我边疑惑边重新登录后，突然收到了下图的提示我的账号「Account suspended」：
+确认无法登录后，查看邮箱没有任何相关通知。同时我查看了其他内容是否还存在，最后综合表现如下：
+没有任何邮件/信息通知被封禁及更加具体的封禁原因，只告诉违反了 ToS 个人页面（https://github.com/zzsqwq）无法访问，访问显示 404 提的相关 Issue 全部被删除（隐藏），无法找到 个人创建的所有项目，访问全部 404，也无法拉取 自己参与的项目，被除名 自己加入的组织，被除名 自己创建的组织，访问 404 简单说就是跟这个账号从来没存在过一样，除了仍可以登陆，但是显示 suspended。接下来开始尝试找办法恢复。
+恢复经过 试图查找封禁原因 首先看提示上显示违反了 Github Terms of Service，快速的看了一眼 ToS 没发现我有什么明显违规的地方。
+通过搜索引擎搜索 「Github 账号 suspended」相关信息，找到了两个比较强相关的帖子：</description>
+    </item>
+    
     <item>
       <title>为什么应该抵制拼多多？</title>
       <link>https://blog.zzsqwq.cn/posts/why-should-boycott-pdd/</link>
