@@ -12,11 +12,11 @@ typora-root-url: ../../static
 
 我在 2023.11.07 凌晨被 GitHub 封禁了账号，GitHub 账号被 suspended 后会在 GitHub 上完全除名（只有自建创建的组织不会消失）。
 
-如果被封禁了请首先通过 API：`https://api.github.com/users/[username]/starred` 备份自己 star 过的项目。
+被封禁后我首先通过 Google 查找了相关的文章。
 
-同时通过 [Can't sign-in form](https://support.github.com/contact/cannot_sign_in) 来在无法登陆的情况下发起 GitHub Support 工单来询问/请求解封/询问原因等，一般在两天内会收到回复。
+根据博主 [@phith0n](https://github.com/phith0n) 的指引首先通过 API：`https://api.github.com/users/[username]/starred` 备份了自己 star 过的项目，同时通过 [Can't sign-in form](https://support.github.com/contact/cannot_sign_in) 来在无法登陆的情况下发起 GitHub Support 工单来询问/请求解封/询问原因等，一般在两天内收到了回复。最终账号顺利恢复。
 
-我此次被封禁的原因是由于管理的组织内部有成员被盗号，在组织内创建了违法仓库，因此管理员和被盗号的成员都被封禁了，但后续都被解除了封禁。同时也有可能因为创建违反 DCMA 条款的仓库、fork 违反 DCMA 条款的仓库、贩卖学生/教师教育包等原因被封禁。
+我此次被封禁的原因是由于管理的组织内部有成员被盗号，在组织内创建了违法仓库，因此管理员和被盗号的成员都被封禁了，但后续都被解除了封禁。同时也有可能因为创建违反 [DMCA 条款](https://en.wikipedia.org/wiki/Digital_Millennium_Copyright_Act) 的仓库、fork 违反 DMCA 条款的仓库、贩卖学生/教师教育包等原因被封禁。
 
 ## 背景 
 
@@ -47,9 +47,9 @@ typora-root-url: ../../static
 + [分享下我 GitHub 被封的经历](https://www.leavesongs.com/THINK/my-github-account-used-to-be-suspended.html)
 + [GitHub 无预警突然封号](https://www.v2ex.com/t/836086)
 
-其中第一个是因为 fork 了违反 DCMA 的仓库而被封禁，第二个看起来是因为购买了违规的教师包而被封禁。
+其中第一个是因为 fork 了违反 DMCA 的仓库而被封禁，第二个看起来是因为购买了违规的教师包而被封禁。
 
-首先我是使用正规身份申请的学生教育包，第二个博主的情况可以排除。关于第一个，我仔细想了一下我过去几天的行为：由于过去几天大量 Clash 相关仓库被删除和停止维护，我 fork 了五个与 Clash 有关的仓库，但是理论上 Clash 相关的仓库是不存在违反 DCMA 这一说的，因此第一个博主的情况也可以被排除。
+首先我是使用正规身份申请的学生教育包，第二个博主的情况可以排除。关于第一个，我仔细想了一下我过去几天的行为：由于过去几天大量 Clash 相关仓库被删除和停止维护，我 fork 了五个与 Clash 有关的仓库，但是理论上 Clash 相关的仓库是不存在违反 DMCA 这一说的，因此第一个博主的情况也可以被排除。
 
 **同时第一个博主提到**，我们可以通过 API：`https://api.github.com/users/[username]/starred` 来找到之前 star 过的仓库，我试了一下确实，遂备份了一份 json 文件。同时查看了关于关注和被关注相关的 API：`https://api.github.com/users/[username]/followers` 和  `https://api.github.com/users/[username]/following`，均为空，看来只能找到 star 过的仓库。
 
