@@ -13,14 +13,38 @@
       <pubDate>Sat, 31 Dec 2022 16:34:42 +0800</pubDate>
       
       <guid>https://blog.zzsqwq.cn/posts/orangepi4-lts-with-openwrt/</guid>
-      <description>前言 最近同居的学长从香港带了个最新版的 Apple TV 回来，但是 Apple TV 在国内用不了，必须要代理才可以，所以考虑到了路由器代理的方案。但是现在家里在用的路由器是 Redmi AX3000，没法刷固件，也不想再买个 R2S 这种软路由了，因此就计划将公司之前用完的 香橙派(OrangePi) 4 LTS 利用一下。它的芯片是 RK3399，用来做路由器绰绰有余，不用可惜了。
-为什么是旁路由？ 不熟悉旁路由的同学可以看篇指南：从听说到上手，人人都能看懂的旁路由入门指南
-找了一些常见的固件，貌似只有针对于 OrangePi R1 和 OrangePi R1 Plus 编译的软路由固件，并且讯龙官方也有放出针对这两个板子的 Openwrt 固件1，可以说是就是为软路由而生，价格也比较便宜，200 左右，性能和 R2S 差别不大。
-试了一下在 4 LTS 上跑 R1 和 R1 Plus 的固件2，都无法正常点亮，可能可以自己编译一个对应架构的 OpenWrt，但是有点麻烦，还是没尝试。
-考虑到 4 LTS 上可以使用 Docker，因此可以在上面用 Docker 跑一个 OpenWrt 然后做旁路由，到时候只需要把 Apple TV 或者路由器的网关和 DNS 改一下就可以，因此最终选择使用旁路由方案。
-具体方案 这里直接参考了小苏的教程：https://mlapp.cn/376.html，写的很清晰，而且很好的考虑了没有基础的同学，赞一个！
-里面写的很详细，但是需要注意的是，因为香橙派4 LTS是 ARMv8 架构的，但是直接拉教程里面的默认 latest 镜像是 ARMv7 的，因此需要指定一下镜像的版本，具体的镜像版本可以看 Docker Hub 中的介绍。
-docker pull registry.</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近同居的学长从香港带了个最新版的 Apple TV 回来，但是 Apple TV 在国内用不了，必须要代理才可以，所以考虑到了路由器代理的方案。但是现在家里在用的路由器是 Redmi AX3000，没法刷固件，也不想再买个 R2S 这种软路由了，因此就计划将公司之前用完的 &lt;a href=&#34;http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-4-LTS.html&#34;&gt;香橙派(OrangePi) 4 LTS&lt;/a&gt; 利用一下。它的芯片是 RK3399，用来做路由器绰绰有余，不用可惜了。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/orangepi4-lts-with-openwrt/orangepi4-lts.jpeg&#34; alt=&#34;旁路由成品图&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;为什么是旁路由&#34;&gt;为什么是旁路由？&lt;/h2&gt;
+&lt;p&gt;不熟悉旁路由的同学可以看篇指南：&lt;a href=&#34;https://sspai.com/post/59708&#34;&gt;从听说到上手，人人都能看懂的旁路由入门指南&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;找了一些常见的固件，貌似只有针对于 OrangePi R1 和 OrangePi R1 Plus 编译的软路由固件，并且讯龙官方也有放出针对这两个板子的 Openwrt 固件&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，可以说是就是为软路由而生，价格也比较便宜，200 左右，性能和 R2S 差别不大。&lt;/p&gt;
+&lt;p&gt;试了一下在 4 LTS 上跑 R1 和 R1 Plus 的固件&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;，都无法正常点亮，可能可以自己编译一个对应架构的 OpenWrt，但是有点麻烦，还是没尝试。&lt;/p&gt;
+&lt;p&gt;考虑到 4 LTS 上可以使用 Docker，因此可以在上面用 Docker 跑一个 OpenWrt 然后做旁路由，到时候只需要把 Apple TV 或者路由器的网关和 DNS 改一下就可以，因此最终选择使用旁路由方案。&lt;/p&gt;
+&lt;h2 id=&#34;具体方案&#34;&gt;具体方案&lt;/h2&gt;
+&lt;p&gt;这里直接参考了小苏的教程：https://mlapp.cn/376.html，写的很清晰，而且很好的考虑了没有基础的同学，赞一个！&lt;/p&gt;
+&lt;p&gt;里面写的很详细，但是需要注意的是，因为香橙派4 LTS是 ARMv8 架构的，但是直接拉教程里面的默认 latest 镜像是 ARMv7 的，因此需要指定一下镜像的版本，具体的镜像版本可以看 Docker Hub 中的&lt;a href=&#34;https://hub.docker.com/r/sulinggg/openwrt&#34;&gt;介绍&lt;/a&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker pull registry.cn-shanghai.aliyuncs.com/suling/openwrt:armv8
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run --restart always --name openwrt -d --network macnet --privileged registry.cn-shanghai.aliyuncs.com/suling/openwrt:armv8 /sbin/init
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;除此以外，根据它的指导来基本就不会有问题，其中如果需要给路由器下所有设备代理就把路由器的网关和 DNS 改为旁路由的 IP，如果是单独给某个设备（例如只给 Apple TV 终端），就可以只给单个设备设置 DNS 和 网关。&lt;/p&gt;
+&lt;h2 id=&#34;udp-代理&#34;&gt;UDP 代理&lt;/h2&gt;
+&lt;p&gt;我们想在 Apple TV 上联机玩狂野飙车8，启动多人对战一直报加入服务器错误，观察了一下发现应该是 UDP 流量没有被代理到，因此开启了 OpenClash 的 &lt;a href=&#34;https://github.com/vernesong/OpenClash/wiki/%E5%B8%B8%E8%A7%84%E8%AE%BE%E7%BD%AE&#34;&gt;TUN 模式&lt;/a&gt;，开启以后发现更糟了，直接无法上网。搜了一下发现已经有&lt;a href=&#34;https://github.com/vernesong/OpenClash/issues/1835&#34;&gt;对应的 Issue&lt;/a&gt;，疑似是旁路由和 OpenClash 防火墙设置有冲突，删掉对应的规则即可。&lt;/p&gt;
+&lt;p&gt;顺便说一句 Apple TV 真的有点香，这个价位，这个性能。&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://openwrt.org/toh/xunlong/orange_pi_r1_plus&#34;&gt;https://openwrt.org/toh/xunlong/orange_pi_r1_plus&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/SuLingGG/OpenWrt-Rpi&#34;&gt;https://github.com/SuLingGG/OpenWrt-Rpi&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
     </item>
     
   </channel>

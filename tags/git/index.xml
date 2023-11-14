@@ -13,15 +13,135 @@
       <pubDate>Fri, 23 Jul 2021 14:17:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/posts/201/</guid>
-      <description>前言 前段时间在 Github 学完了关于 git 的小游戏 learnGitBranching ，受益匪浅。
-它通过可视化的方式将分支的关系，每条命令的作用等都明明白白的体现出来，可以很直观的感受到你每条命令对整个分支树，每一个 ref 的作用。
-通过这种学习感觉自己对 Git 的理解更加深入一步，能够理解其中的原理，而不是浅尝辄止，照猫画虎。
-学习中记了一些零零散散的思路，想要写一篇笔记记录出来，之前已经写过一个简单的 Git 教程，这篇教程将会更加深入，希望可以帮助大家更好的掌握 Git。
-窃认为，想要学好 Git ，必须要理解清楚其中的分区以及引用，学会了这两个，各种基本操作就很容易理解了。接下来的笔记也基本以此思路展开。
-Git中的分区 首先，Git中存在三大分区，分别是工作区、暂存区、版本库。其中，
-工作区即我们工作的目录，暂存区是我们执行 git add 后文件存在的区域。
-我们可以通过 git status 对两种状态进行查看，例如：
-~/test master* base ❯ git status On branch master Changes to be committed: (use &amp;#34;git restore --staged &amp;lt;file&amp;gt;...&amp;#34; to unstage) modified: test Changes not staged for commit: (use &amp;#34;git add &amp;lt;file&amp;gt;...&amp;#34; to update what will be committed) (use &amp;#34;git restore &amp;lt;file&amp;gt;.</description>
+      <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+&lt;p&gt;前段时间在 Github 学完了关于 git 的小游戏 &lt;a href=&#34;https://github.com/pcottle/learnGitBranching&#34;&gt;learnGitBranching&lt;/a&gt; ，受益匪浅。&lt;/p&gt;
+&lt;p&gt;它通过可视化的方式将分支的关系，每条命令的作用等都明明白白的体现出来，可以很直观的感受到你每条命令对整个分支树，每一个 ref 的作用。&lt;/p&gt;
+&lt;p&gt;通过这种学习感觉自己对 Git 的理解更加深入一步，能够理解其中的原理，而不是浅尝辄止，照猫画虎。&lt;/p&gt;
+&lt;p&gt;学习中记了一些零零散散的思路，想要写一篇笔记记录出来，之前已经写过一个简单的 Git 教程，这篇教程将会更加深入，希望可以帮助大家更好的掌握 Git。&lt;/p&gt;
+&lt;p&gt;窃认为，想要学好 Git ，必须要理解清楚其中的分区以及引用，学会了这两个，各种基本操作就很容易理解了。接下来的笔记也基本以此思路展开。&lt;/p&gt;
+&lt;h1 id=&#34;git中的分区&#34;&gt;Git中的分区&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/07/612956951.jpg&#34; alt=&#34;Git中的三大分区，图片来源自掘金GabrielPanda&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;首先，Git中存在三大分区，分别是&lt;strong&gt;工作区、暂存区、版本库&lt;/strong&gt;。其中，&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;工作区&lt;/strong&gt;即我们工作的目录，&lt;strong&gt;暂存区&lt;/strong&gt;是我们执行 &lt;code&gt;git add&lt;/code&gt; 后文件存在的区域。&lt;/p&gt;
+&lt;p&gt;我们可以通过 &lt;code&gt;git status&lt;/code&gt; 对两种状态进行查看，例如：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-sheel&#34; data-lang=&#34;sheel&#34;&gt;~/test master*
+base ❯ git status  
+On branch master
+Changes to be committed:
+  (use &amp;#34;git restore --staged &amp;lt;file&amp;gt;...&amp;#34; to unstage)
+	modified:   test
+
+Changes not staged for commit:
+  (use &amp;#34;git add &amp;lt;file&amp;gt;...&amp;#34; to update what will be committed)
+  (use &amp;#34;git restore &amp;lt;file&amp;gt;...&amp;#34; to discard changes in working directory)
+	modified:   test
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上图中存在两部分， 分别为 &lt;code&gt;Changes to be committed&lt;/code&gt; 这里是表示的版本库与暂存区的区别，还有&lt;code&gt;Changes not staged for commit&lt;/code&gt; ，它表示的是工作区与暂存区的区别。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;版本库&lt;/strong&gt;是我们执行 &lt;code&gt;git commit -m &amp;quot;xxx&amp;quot;&lt;/code&gt; 后，文件存在的区域。在上述过程中，Git 记录暂存区与版本库的差异，生成版本号，记录下来。我们可以通过 &lt;code&gt;git log&lt;/code&gt; 来查看我们产生的更改，内容如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;commit 9da52a0e4800547ca46bd6bb919d1105cea43f1e &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;HEAD -&amp;gt; master&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Author: zs &amp;lt;2459958352@qq.com&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Date:   Thu Jul &lt;span class=&#34;m&#34;&gt;22&lt;/span&gt; 22:09:45 &lt;span class=&#34;m&#34;&gt;2021&lt;/span&gt; +0800
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;test&lt;/span&gt; commit
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中包含了版本号、当前节点上的 ref 记录、作者、邮箱、日期以及此次提交的注释。&lt;/p&gt;
+&lt;h1 id=&#34;git中的引用&#34;&gt;Git中的引用&lt;/h1&gt;
+&lt;p&gt;在 Git 中，引用到处可见，引用类似于给某一个 &lt;code&gt;commit-id&lt;/code&gt; 即某一次提交的 &lt;code&gt;SHA-1&lt;/code&gt; 值起一个简单的名字，如 &lt;code&gt;branch&lt;/code&gt; ，&lt;code&gt;tag&lt;/code&gt; 这些都是引用。&lt;/p&gt;
+&lt;p&gt;Git 中存在一个命令， &lt;code&gt;git update-ref&lt;/code&gt; ，你可能几乎没见过，但可能天天在用。&lt;/p&gt;
+&lt;p&gt;当运行类似于 &lt;code&gt;git branch &amp;lt;branch&amp;gt;&lt;/code&gt; 这样的命令时，Git 实际上会运行 &lt;code&gt;git update-ref&lt;/code&gt; 命令，例如，运行 &lt;code&gt;git branch zs&lt;/code&gt;，就等效于&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git update-ref refs/heads/zs &amp;lt;commit-id&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里的 &lt;code&gt;commit-id&lt;/code&gt; 就是当前提交的 &lt;code&gt;commit-id&lt;/code&gt; ，那他是如何获得的呢？&lt;/p&gt;
+&lt;p&gt;使用过 Git 的人一定知道，Git 中存在一个名叫 &lt;code&gt;HEAD&lt;/code&gt; 的引用，它可能是引用，也可能是引用的引用。即它很多时候是指向某一个引用，如指向分支 &lt;code&gt;master&lt;/code&gt; 这个引用。不过，它也可以与引用分离，称为&lt;code&gt;游离的HEAD&lt;/code&gt;，即不指向某个引用，而指向单独的一个 &lt;code&gt;commit&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;可以通过 &lt;code&gt;git commit commit-id&lt;/code&gt; 来实现，不过，我们一般&lt;strong&gt;不推荐这种操作&lt;/strong&gt;。下面的讨论，我们都是基于 &lt;code&gt;HEAD&lt;/code&gt; 是指向某一分支的。&lt;/p&gt;
+&lt;p&gt;下面是关于一个引用的小例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/test master*
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;base ❯ git branch zs                                                    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/test master*
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;base ❯ cat .git/refs/heads/zs 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;9da52a0e4800547ca46bd6bb919d1105cea43f1e
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/test master*
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;base ❯ git update-ref refs/heads/test 9da52a
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/test master*
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;base ❯ cat .git/HEAD             
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ref: refs/heads/master
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/test master*
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;base ❯ cat .git/refs/heads/master
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;9da52a0e4800547ca46bd6bb919d1105cea43f1e
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/test master*
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;base ❯ cat .git/refs/heads/test 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;9da52a0e4800547ca46bd6bb919d1105cea43f1e
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以发现，例子中 HEAD 指向 master ，master,zs,test 同时都指向 id 为 &lt;code&gt;9da52a&lt;/code&gt; 的提交。&lt;/p&gt;
+&lt;h1 id=&#34;撤销更改&#34;&gt;撤销更改&lt;/h1&gt;
+&lt;h2 id=&#34;撤销本地更改&#34;&gt;撤销本地更改&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;通过&lt;strong&gt;版本库&lt;/strong&gt;撤销&lt;strong&gt;暂存区&lt;/strong&gt;更改，&lt;strong&gt;工作区&lt;/strong&gt;不改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git reset HEAD^ &lt;span class=&#34;c1&#34;&gt;#撤销一次更改&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git reset HEAD~nums &lt;span class=&#34;c1&#34;&gt;#撤销HEAD往前nums次更改&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;直接通过&lt;strong&gt;版本库&lt;/strong&gt;撤销&lt;strong&gt;工作区&lt;/strong&gt;的更改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git reset HEAD^ --hard     &lt;span class=&#34;c1&#34;&gt;#撤销一次更改&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git reset HEAD~nums --hard &lt;span class=&#34;c1&#34;&gt;#撤销HEAD往前nums次更改&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以发现只要加了 &lt;code&gt;--hard&lt;/code&gt; ，就可以直接也把工作区改掉，不过建议三思而后行！&lt;/p&gt;
+&lt;h2 id=&#34;撤销远程更改&#34;&gt;撤销远程更改&lt;/h2&gt;
+&lt;p&gt;上面说的是你本地的&lt;strong&gt;工作区&lt;/strong&gt; or &lt;strong&gt;暂存区&lt;/strong&gt;的撤销&lt;/p&gt;
+&lt;p&gt;如果你已经把更改推送到了远端仓库，那么你想要去掉那次改动怎么办？&lt;/p&gt;
+&lt;p&gt;可能你会想，直接通过 &lt;code&gt;git reset&lt;/code&gt; 切换到上面的某个需要的节点，然后再改？But，很容易想到这样会产生严重的冲突。&lt;strong&gt;一旦commit已经被push到远程仓库，那么是坚决不允许去reset它的。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;还好，Git 给我们提供了一个更好的选择，你可以通过 &lt;code&gt;git revert&lt;/code&gt; 产生一个类似于补丁的东西来消除掉更改，很容易理解，这样没有改变树的结构，相对于 &lt;code&gt;git reset&lt;/code&gt; 他会往前走而不是回溯，这不会对之前的历史产生重要的影响。&lt;/p&gt;
+&lt;p&gt;需要注意的是， &lt;code&gt;git revert &lt;/code&gt; 的用法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git revert HEAD &lt;span class=&#34;c1&#34;&gt;#撤销掉HEAD这次更改，回到HEAD的上次版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git revert &amp;lt;commit_id&amp;gt; &lt;span class=&#34;c1&#34;&gt;#撤销掉这次cmmit的修改&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;两种合并方式&#34;&gt;两种合并方式&lt;/h1&gt;
+&lt;p&gt;我们知道，Git 中存在两种合并分支的方式，分别为 &lt;code&gt;git merge&lt;/code&gt; 和 &lt;code&gt;git rebase&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;两种方式各有优劣，简单说，&lt;code&gt;rabase&lt;/code&gt; 是把两条分支的提交记录整理到某一主分支上，它有着历史的完整记录。而 &lt;code&gt;merge&lt;/code&gt; 虽然也是整理了提交，但是某一分支的中间提交更改的过程合并后并不会体现在主分支上，中间过程可以说是在主分支上不可见的。&lt;/p&gt;
+&lt;p&gt;很容易发现，&lt;code&gt;rebase&lt;/code&gt; 产生的主分支提交记录会更加的详细，它记录了每一步小的改动。而 &lt;code&gt;merge&lt;/code&gt; 产生的更简洁，有点类似于封装的意味，只是告诉你我这个提交完成了这个任务的开发，内部的实现细节却不会告诉你。&lt;/p&gt;
+&lt;p&gt;而 &lt;code&gt;rebase&lt;/code&gt; 相比与 &lt;code&gt;merge&lt;/code&gt; 也会更加繁琐一些，你也可以通过 &lt;code&gt;git rebase -i&lt;/code&gt; 来通过可视化界面（可视化文本列表）的方式，来对记录做取舍与改动，不过还是没有 &lt;code&gt;merge&lt;/code&gt;  方便，远程仓库的合并操作一般都是使用  &lt;code&gt;merge&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;需要注意的是，两种方法的使用习惯很不一样：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git merge &amp;lt;branch&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;代表的是将 &lt;code&gt;&amp;lt;branch&amp;gt;&lt;/code&gt; 分支合并到当前 &lt;code&gt;HEAD&lt;/code&gt; 所在的分支。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git rebase &amp;lt;branch1&amp;gt; &amp;lt;branch2&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;代表的是将 &lt;code&gt;branch2&lt;/code&gt; 合并到 &lt;code&gt;&amp;lt;branch1&amp;gt;&lt;/code&gt; 的位置。如果省略 &lt;code&gt;&amp;lt;branch2&amp;gt;&lt;/code&gt; ，那么就是合并 &lt;code&gt;HEAD&lt;/code&gt; 所在分支到 &lt;code&gt;&amp;lt;branch1&amp;gt;&lt;/code&gt; 分支。&lt;/p&gt;
+&lt;p&gt;可以发现 &lt;code&gt;merge&lt;/code&gt; 体现的是一种， &lt;code&gt;merge xx&lt;/code&gt; 到当前位置。而 &lt;code&gt;rebase&lt;/code&gt; 体现的是将自己合并到 &lt;code&gt;xx&lt;/code&gt; 那里去。一个是别人过来，一个是自己过去。建议两个命令改成 &lt;code&gt;merge from&lt;/code&gt; ，&lt;code&gt;rebase into&lt;/code&gt;，哈哈。&lt;/p&gt;
+&lt;p&gt;顺便提一下， &lt;code&gt;merge&lt;/code&gt; 会导致一个节点有多个父节点，通过上文我们知道可以通过 &lt;code&gt;~&lt;/code&gt; 在一条线上移动，在这里，我们可以通过 &lt;code&gt;^&lt;/code&gt; 来指定第几个父节点，如 &lt;code&gt;HEAD^3&lt;/code&gt; 就是指 &lt;code&gt;HEAD&lt;/code&gt; 所在节点的第三个父节点。&lt;/p&gt;
+&lt;h1 id=&#34;整理提交记录&#34;&gt;整理提交记录&lt;/h1&gt;
+&lt;p&gt;我们有时会需要把另一个分支的部分更改放到主分支上来，即整理我们所有的提交记录，拿到我们所需要的来组成一个完整功能。&lt;/p&gt;
+&lt;p&gt;为了完成这件事，我们想到，这有点像合并分支，不过可能不需要某一个分支上的全部更改，只需要其中的一部分就可以了。&lt;/p&gt;
+&lt;p&gt;上面提到，通过 &lt;code&gt;git rebase -i&lt;/code&gt; 可以进行交互式的 &lt;code&gt;rebase&lt;/code&gt; ，可以对提交记录进行取舍，因此这样就可以满足我们的需求，只不过可能合并的时候需要想明白是从哪里变到哪里，有一些烧脑。&lt;/p&gt;
+&lt;p&gt;幸运的是，Git 还给我们提供了另一个更加简洁的方式——&lt;code&gt;git cherry-pick&lt;/code&gt; ，语法如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git cherry-pick &amp;lt;commid-id&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;你可以通过这种方式，将树上的任意一个节点的提交添加到当前 &lt;code&gt;HEAD&lt;/code&gt; 所在分支的下方，这真是功能强大的命令！你也可以通过空格间隔，来顺序摘取多个提交。&lt;/p&gt;
+&lt;h1 id=&#34;两条万能指令&#34;&gt;两条万能指令&lt;/h1&gt;
+&lt;p&gt;除了上面我觉得值得说道的问题，我还想推荐两条我认为非常有用的指令，掌握了他们，你就可以在分支树上随心所欲的移动！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;移动分支&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git branch -f &amp;lt;branch&amp;gt; &amp;lt;commit-id&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通过这条指令，你可以将 &lt;code&gt;&amp;lt;branch&amp;gt;&lt;/code&gt; 的引用指向 &lt;code&gt;commit-id&lt;/code&gt; ，如果你读懂了上面的内容，你会发现它只是通过 &lt;code&gt;update-ref&lt;/code&gt; 更新了对应的引用。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;移动 HEAD&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git checkout &amp;lt;branch&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git checkout &amp;lt;commit-id&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通过这条指令，你可以自由的移动 &lt;code&gt;HEAD&lt;/code&gt; 引用，前者让他指向了 &lt;code&gt;&amp;lt;branch&amp;gt;&lt;/code&gt; 分支，后者让他指向了SHA-1为 &lt;code&gt;&amp;lt;commit-id&amp;gt;&lt;/code&gt; 的提交。&lt;/p&gt;
+&lt;h1 id=&#34;推荐的资料&#34;&gt;推荐的资料&lt;/h1&gt;
+&lt;p&gt;在学习的过程中，看了很多资料，一并推荐给大家！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/pcottle/learnGitBranching&#34;&gt;learnGitBranching&lt;/a&gt;：有趣的闯关游戏，但也干货满满。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://events.jianshu.io/p/9b3d7b6fe738&#34;&gt;Git三大分区概念&lt;/a&gt;：讲解了关于分区的概念，还有直观清晰的图片！&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-Git-%E5%BC%95%E7%94%A8&#34;&gt;Git的引用&lt;/a&gt;：来自 Git 官方的讲解，十分硬核。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
@@ -30,30 +150,149 @@ Git中的分区 首先，Git中存在三大分区，分别是工作区、暂存�
       <pubDate>Sat, 05 Dec 2020 20:26:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/posts/157/</guid>
-      <description>前言 最近在复习Git，因此顺手做个笔记分享出来，方便大家学习和查阅。相信无论是以后的课程作业还是工作，我们都会或多或少的接触/用到Git。
-什么是Git？ Git你可能没听说过，但是我相信你应该听说过Github，毕竟是全球最大的同性交友网站。他和Git有着密不可分的联系，我们后续再详细介绍。
-Git的中文全称叫 分布式版本控制系统 ，版本控制系统是什么意思呢？我们举一个简单的例子，你在做一个大作业，很可能要写上千行的代码，但是你可能写完一个功能以后，对他不够满意，但是又害怕改了以后后悔了，又找不回来了，所以你可能就有很多版本，版本1，版本2，版本3等等等。Git就是解决这个问题的，让你文件能够保持最新，但是又能恢复到之前的版本。
-那么既然有分布式版本控制系统，就有 集中式版本控制系统，前者的代表是 Git ，后者的代表有 SVN、CVS 等。
-关于两者的区别，对于集中式版本控制系统，如果你想要对做一个项目的内容做修改，那么你要先从中央服务器把最近的版本拉取(Pull)下来，然后修改完以后，把修改后的版本推送(Push)上去，你本地只有最新的版本，而没有完整的版本库，分布式版本控制系统所作的工作与集中式的相差不大，只是它的本地会有一个完整的版本库，因此它十分的安全。
-这里贴一个他人总结的区别，供大家参考。
-Git的安装 Linux系统
-因为我只用过Ubuntu，所以我只会Ubuntu的QAQ..
-Ubuntu中安装Git只需要在终端中输入 sudo apt-get install git 即可。
-如果是其他的linux系统，我猜你在终端中输入git即可获得安装提示，不然的话借助搜索引擎也可以。
-Windows系统
-直接去 Git官网 下载安装程序然后安装即可。关于安装时候的选项，我都是用的默认的。
-Mac OS
-太穷了，没用过Mac，但是参考链接中给出了方法，大家有需求可以参考。
-Git的基本使用 Git可以做许多事情，好比版本更新，版本修改，提交到远程仓库等等，这里我们只写一写大概以后用的会比较多的。
-需要注意的是，我们安装以后大概会有一个 Git GUI 还有一个 Git Bash ，开发中多用 Git Bash，下面的教程也是基于Git Bash的。
-表明身份
-在Git所有仓库中我们都要有一个所有者的身份，用于标识是谁的仓库，用如下方式标识
-git config --global user.name &amp;#34;Your Name&amp;#34; git config --global user.email &amp;#34;Your email&amp;#34; 创建版本库
-我们想要把一个文件夹的内容用git来管理，只需要在文件夹目录运行
-git init 顾名思义这就是一个初始化的过程，运行以后在当前目录生成一个 .git 文件夹，里面是我们版本控制的数据，一般不要修改。
-把文件添加到Git的暂存区
-这里出现了 暂存区 这个名词，Git内部的逻辑大概把我们工作的过程分为了三部分
-一个是 工作区 ，这个就是我们本地的文件夹。 一个是 暂存区 ，这是我们把文件暂时放到暂存区里，没有决定更新我们的版本。 一个是 最终分支，这就是我们最终的版本存放的位置。 贴一张廖雪峰老师教程中的一张图，我觉得还挺形象的。</description>
+      <description>&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
+&lt;p&gt;最近在复习Git，因此顺手做个笔记分享出来，方便大家学习和查阅。相信无论是以后的课程作业还是工作，我们都会或多或少的接触/用到Git。&lt;/p&gt;
+&lt;h3 id=&#34;什么是git&#34;&gt;什么是Git？&lt;/h3&gt;
+&lt;p&gt;Git你可能没听说过，但是我相信你应该听说过Github，&lt;del&gt;毕竟是全球最大的同性交友网站&lt;/del&gt;。他和Git有着密不可分的联系，我们后续再详细介绍。&lt;/p&gt;
+&lt;p&gt;Git的中文全称叫 &lt;strong&gt;分布式版本控制系统&lt;/strong&gt; ，版本控制系统是什么意思呢？我们举一个简单的例子，你在做一个大作业，很可能要写上千行的代码，但是你可能写完一个功能以后，对他不够满意，但是又害怕改了以后后悔了，又找不回来了，所以你可能就有很多版本，版本1，版本2，版本3等等等。Git就是解决这个问题的，让你文件能够保持最新，但是又能恢复到之前的版本。&lt;/p&gt;
+&lt;p&gt;那么既然有分布式版本控制系统，就有 &lt;strong&gt;集中式版本控制系统&lt;/strong&gt;，前者的代表是 &lt;strong&gt;Git&lt;/strong&gt; ，后者的代表有 &lt;strong&gt;SVN、CVS&lt;/strong&gt; 等。&lt;/p&gt;
+&lt;p&gt;关于两者的区别，对于集中式版本控制系统，如果你想要对做一个项目的内容做修改，那么你要先从中央服务器把最近的版本拉取(Pull)下来，然后修改完以后，把修改后的版本推送(Push)上去，你本地只有最新的版本，而没有完整的版本库，分布式版本控制系统所作的工作与集中式的相差不大，只是它的本地会有一个完整的版本库，因此它十分的安全。&lt;/p&gt;
+&lt;p&gt;这里贴一个他人总结的区别，供大家参考。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/12/2911747011.png&#34; alt=&#34;集中式与分布式版本控制系统的区别&#34;  /&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;git的安装&#34;&gt;Git的安装&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Linux系统&lt;/p&gt;
+&lt;p&gt;因为我只用过Ubuntu，所以我只会Ubuntu的QAQ..&lt;/p&gt;
+&lt;p&gt;Ubuntu中安装Git只需要在终端中输入  &lt;code&gt;sudo apt-get install git&lt;/code&gt; 即可。&lt;/p&gt;
+&lt;p&gt;如果是其他的linux系统，我猜你在终端中输入git即可获得安装提示，不然的话借助搜索引擎也可以。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Windows系统&lt;/p&gt;
+&lt;p&gt;直接去 &lt;a href=&#34;https://git-scm.com/downloads&#34;&gt;Git官网&lt;/a&gt;  下载安装程序然后安装即可。关于安装时候的选项，我都是用的默认的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Mac OS&lt;/p&gt;
+&lt;p&gt;太穷了，没用过Mac，但是参考链接中给出了方法，大家有需求可以参考。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;git的基本使用&#34;&gt;Git的基本使用&lt;/h3&gt;
+&lt;p&gt;Git可以做许多事情，好比版本更新，版本修改，提交到远程仓库等等，这里我们只写一写大概以后用的会比较多的。&lt;/p&gt;
+&lt;p&gt;需要注意的是，我们安装以后大概会有一个 &lt;strong&gt;Git GUI&lt;/strong&gt; 还有一个 &lt;strong&gt;Git Bash&lt;/strong&gt; ，开发中多用 &lt;strong&gt;Git Bash&lt;/strong&gt;，下面的教程也是基于&lt;strong&gt;Git Bash&lt;/strong&gt;的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;表明身份&lt;/p&gt;
+&lt;p&gt;在Git所有仓库中我们都要有一个所有者的身份，用于标识是谁的仓库，用如下方式标识&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.name &lt;span class=&#34;s2&#34;&gt;&amp;#34;Your Name&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git config --global user.email &lt;span class=&#34;s2&#34;&gt;&amp;#34;Your email&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;创建版本库&lt;/p&gt;
+&lt;p&gt;我们想要把一个文件夹的内容用git来管理，只需要在文件夹目录运行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git init
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;顾名思义这就是一个初始化的过程，运行以后在当前目录生成一个 &lt;code&gt;.git&lt;/code&gt; 文件夹，里面是我们版本控制的数据，一般不要修改。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;把文件添加到Git的暂存区&lt;/p&gt;
+&lt;p&gt;这里出现了 &lt;strong&gt;暂存区&lt;/strong&gt; 这个名词，Git内部的逻辑大概把我们工作的过程分为了三部分&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;一个是 &lt;strong&gt;工作区&lt;/strong&gt; ，这个就是我们本地的文件夹。&lt;/li&gt;
+&lt;li&gt;一个是 &lt;strong&gt;暂存区&lt;/strong&gt; ，这是我们把文件暂时放到暂存区里，没有决定更新我们的版本。&lt;/li&gt;
+&lt;li&gt;一个是 &lt;strong&gt;最终分支&lt;/strong&gt;，这就是我们最终的版本存放的位置。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;贴一张廖雪峰老师教程中的一张图，我觉得还挺形象的。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://static.liaoxuefeng.com/files/attachments/919020037470528/0&#34; alt=&#34;git-repo&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;我们清楚了上面的三个分区，那么考虑一下如何把文件夹中的文件从工作区推到暂存区，通过如下命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add filepath
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们就可以把文件推到暂存区，最后的filepath就是我们需要推送的文件的路径，一般都用相对路径。&lt;/p&gt;
+&lt;p&gt;上面是添加单个文件的方法，我们也可以把目录中所有做过更改的文件都加到暂存区中，就用&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;从暂存区推送到最后分支&lt;/p&gt;
+&lt;p&gt;我们可以把暂存区推送到最终分支，以完成我们的版本更新，通过&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit -m &lt;span class=&#34;s2&#34;&gt;&amp;#34;description&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中description的内容是我们对该次版本更新的一次描述，好比增加什么功能。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;版本回退&lt;/p&gt;
+&lt;p&gt;那么既然我们每次有更新版本，我们如何从最新的版本回退到之前的某个版本呢？&lt;/p&gt;
+&lt;p&gt;这里我们需要了解到，我们有一个指针 &lt;code&gt;HEAD&lt;/code&gt; 来指向我们当前的版本，因此我们只需要指定HEAD指针指向的版本，就可以做到更改版本。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git reset --hard 版本号
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git reset --hard HEAD^
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git reset --hard HEAD~cnt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里三个命令都可以回退版本，每一个版本有一个版本号，可以指定版本号直接回到对应的版本。此外，通过 &lt;code&gt;git reflog&lt;/code&gt; 可以查看每个版本的版本号。&lt;/p&gt;
+&lt;p&gt;第二个和第三个有点像，都是往前回退几个版本，有几个&lt;code&gt;^&lt;/code&gt;就是回退几个，后面&lt;code&gt;cnt&lt;/code&gt;是几就回退几个。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;分支结构&lt;/p&gt;
+&lt;p&gt;Git支持分支结构，可以使我们的版本管理变得十分有序，以不至于逻辑混乱。&lt;/p&gt;
+&lt;p&gt;Git有一个初始主分支master，我们可以&lt;/p&gt;
+&lt;p&gt;创建分支&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git branch 分支名称
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;切换分支(两个命令都可以)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git switch 分支名称
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git checkout 分支名称
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;创建并切换分支&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git checkout -b 分支名称
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;好了，学了这些，其实就已经够让我们在日常生活中管理文件了，下面说一些用于团队合作的。&lt;/p&gt;
+&lt;h3 id=&#34;github的作用&#34;&gt;Github的作用&lt;/h3&gt;
+&lt;p&gt;众所周知，一个大项目，想要一个人完成是很难的，大多数优秀的项目都是集思广益，大家一起出力建造出来的。&lt;/p&gt;
+&lt;p&gt;我们上面提到的Github就是这样的一个平台，他是一个代码托管仓库，我们可以把新建一个仓库，然后把代码存储到上面，用的时候从上面Pull下来，而且只要经过你的同意，大家都可以为你的仓库贡献代码。由于这种开源的性质，Github有着许许多多优秀的项目，大家闲的没事可以去知乎搜搜Github上好玩的项目去玩一玩，好比 &lt;del&gt;狗屁不通文章生成器&lt;/del&gt; 。&lt;/p&gt;
+&lt;h3 id=&#34;git与github的协同&#34;&gt;Git与Github的协同&lt;/h3&gt;
+&lt;p&gt;Git和Github密不可分，我们可以使用Git往Github上推送代码，从上面拉取代码等。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;从Github克隆代码&lt;/p&gt;
+&lt;p&gt;我们如果想要从一个公有仓库中，把它的代码克隆到自己的本地，然后对他做一些应用。我们可以使用&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone 仓库地址
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样就可以克隆仓库到本地，这里的仓库地址支持 &lt;code&gt;https&lt;/code&gt; 或者 &lt;code&gt;ssh&lt;/code&gt; 协议。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;推送本地仓库到Github&lt;/p&gt;
+&lt;p&gt;首先我们要在Github上有一个自己的仓库，才能将自己的代码推送上去，因此需要在Github上创建自己的公有/私有仓库。&lt;/p&gt;
+&lt;p&gt;然后我们在本地仓库做完修改，&lt;code&gt;commit&lt;/code&gt; 以后，输入如下命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git remote add origin 仓库地址
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git push -u origin master
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这两步一个是与远程仓库建立关联，一个是将代码push上去。&lt;/p&gt;
+&lt;p&gt;通过这两步就可以把我们当地仓库推送到Github。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;github的pull-request&#34;&gt;Github的Pull Request&lt;/h3&gt;
+&lt;p&gt;项目需要团队合作，&lt;strong&gt;Pull Request&lt;/strong&gt;就是为了团队协作而生的。&lt;/p&gt;
+&lt;p&gt;你可以把他人的代码clone下来做完修改以后，向仓库所有者提交Pull Request，请求将自己的代码与他的代码合并，如果所有者同意，即可把你的代码合并到他的仓库中，以完成版本的更新，而你，就对这个项目做了一份贡献。&lt;/p&gt;
+&lt;p&gt;那么如何提交Pull Request呢？&lt;/p&gt;
+&lt;p&gt;对于对仓库有所有权的人来说，只需要把代码clone下来，然后创建并切换到自己的分支，对当前分支进行修改后，push到仓库中，然后创建合并请求即可。&lt;/p&gt;
+&lt;p&gt;对于非仓库所有者而言，你需要先把代码 &lt;code&gt;fork&lt;/code&gt; 下来，然后clone你 &lt;code&gt;fork&lt;/code&gt; 的仓库，关联对方的远程仓库，修改后推上去，然后创建合并请求。&lt;/p&gt;
+&lt;p&gt;大家对开源项目的贡献多是用第二种，自己团队内的协作多是第一种。&lt;/p&gt;
+&lt;h3 id=&#34;一个总结&#34;&gt;一个总结&lt;/h3&gt;
+&lt;p&gt;这篇文章讲的内容不多，QAQ只讲了部分我们可能用的比较多的。&lt;/p&gt;
+&lt;p&gt;关于Git的基本使用，还有很多内容，好比 &lt;code&gt;git merge&lt;/code&gt; ，&lt;code&gt;git diff  &lt;/code&gt; 啥的，我们用的可能比较少，我就没提。大家如果有需求可以翻下面的参考链接进行学习。&lt;/p&gt;
+&lt;p&gt;之后的内容多是团队协作会用到的，大家可以有需要的时候再看。学会使用Git可以有效地帮助我们管理文件，进行团队协作，提高工作效率。&lt;/p&gt;
+&lt;p&gt;关于后续的学习，大家可以选择 &lt;strong&gt;廖雪峰老师的Git教程&lt;/strong&gt; ，实例丰富、简单易懂，此外还有 &lt;strong&gt;Pro Git&lt;/strong&gt; ，内容丰富，涵盖了基本所有的命令，以及Github上的一个开源项目 &lt;strong&gt;learnGitBranching&lt;/strong&gt; ，有着可视化的界面与闯关机制，趣味十足。&lt;/p&gt;
+&lt;h3 id=&#34;参考文档&#34;&gt;参考文档&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.liaoxuefeng.com/wiki/896043488029600&#34;&gt;廖雪峰的Git教程&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://git-scm.com/book/zh/v2&#34;&gt;Pro Git&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/wx1993/p/7680877.html&#34;&gt;集中式(SVN)和分布式(Git)版本控制系统的简单比较&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/qq_33429968/article/details/62219783&#34;&gt;git学习-Github上如何进行PR(Pull Request)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/pcottle/learnGitBranching&#34;&gt;pcottle/learnGitBranching: An interactive git visualization to challenge and educate! (github.com)&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
   </channel>

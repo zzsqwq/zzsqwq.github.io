@@ -13,12 +13,133 @@
       <pubDate>Sun, 24 Apr 2022 13:46:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/posts/docker-gitlab-ssh/</guid>
-      <description>背景 在使用 Docker 搭建 Gitlab/Gitee 会导致无法与主机端共用 22 端口，这导致 ssh 连接的时候会使用形如 ssh://git@git.xxxx.cn:4022/zs/zsblog.git 的 ssh 链接，而不是像官方 Gitlab 那种非常干净的 git@git.xxxx.cn/zs/zsblog.git 链接。这对于我这种强迫症而言非常的难受啊，但因为主机的 22 端口已经被占用了，无法共用，所以需要考虑两者共享端口的问题。
-虽说是两者共用，但其实还是使用类似于端口转发的特点，简单说就是在主机设置 git 用户，然后通过一个脚本将 git 用户的所有 ssh 流量转发到 Gitlab 容器中，从而完成对应的事情。
-关于 Gitee 的设置，Gitee 官方的 Docker 部署教程1已经说的很清楚了，按照该步骤执行完全没问题。
-而关于 Gitlab 貌似没有比较详尽的教程，搜索后发现了一个 Issue2 以及一篇博文3，后者讲的比较清楚，但是经过实践后发现存在一定问题，因此决定将可行的方案记录下来。
-具体步骤 一、初始设置 在开始之前，docker-compose.yml 中设置比较关键的几个配置如下：
-gitlab-web: image: &amp;#39;gitlab/gitlab-ce:latest&amp;#39; container_name: &amp;#39;gitlab&amp;#39; restart: always environment: GITLAB_OMNIBUS_CONFIG: | gitlab_rails[&amp;#39;gitlab_shell_ssh_port&amp;#39;] = 4022 ports: - &amp;#39;3090:80&amp;#39; - &amp;#39;4022:22&amp;#39; - &amp;#39;6060:6060&amp;#39; volumes: - &amp;#39;/srv/gitlab/config:/etc/gitlab&amp;#39; - &amp;#39;/srv/gitlab/logs:/var/log/gitlab&amp;#39; - &amp;#39;/srv/gitlab/data:/var/opt/gitlab&amp;#39; - .</description>
+      <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
+&lt;p&gt;在使用 Docker 搭建 Gitlab/Gitee 会导致无法与主机端共用 22 端口，这导致 ssh 连接的时候会使用形如 &lt;code&gt;ssh://git@git.xxxx.cn:4022/zs/zsblog.git&lt;/code&gt; 的 ssh 链接，而不是像官方 Gitlab 那种非常干净的 &lt;code&gt;git@git.xxxx.cn/zs/zsblog.git&lt;/code&gt; 链接。这对于我这种强迫症而言非常的难受啊，但因为主机的 22 端口已经被占用了，无法共用，所以需要考虑两者共享端口的问题。&lt;/p&gt;
+&lt;p&gt;虽说是两者共用，但其实还是使用类似于端口转发的特点，简单说就是在主机设置 &lt;code&gt;git&lt;/code&gt; 用户，然后通过一个脚本将 &lt;code&gt;git&lt;/code&gt; 用户的所有 ssh 流量转发到 Gitlab 容器中，从而完成对应的事情。&lt;/p&gt;
+&lt;p&gt;关于 Gitee 的设置，Gitee 官方的 Docker 部署教程&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;已经说的很清楚了，按照该步骤执行完全没问题。&lt;/p&gt;
+&lt;p&gt;而关于 Gitlab 貌似没有比较详尽的教程，搜索后发现了一个 Issue&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt; 以及一篇博文&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;，后者讲的比较清楚，但是经过实践后发现存在一定问题，因此决定将可行的方案记录下来。&lt;/p&gt;
+&lt;h2 id=&#34;具体步骤&#34;&gt;具体步骤&lt;/h2&gt;
+&lt;h3 id=&#34;一初始设置&#34;&gt;一、初始设置&lt;/h3&gt;
+&lt;p&gt;在开始之前，&lt;code&gt;docker-compose.yml&lt;/code&gt; 中设置比较关键的几个配置如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;gitlab-web:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	image: &lt;span class=&#34;s1&#34;&gt;&amp;#39;gitlab/gitlab-ce:latest&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	container_name: &lt;span class=&#34;s1&#34;&gt;&amp;#39;gitlab&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	restart: always
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	environment:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		GITLAB_OMNIBUS_CONFIG: &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;			gitlab_rails&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;gitlab_shell_ssh_port&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;4022&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	ports:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		- &lt;span class=&#34;s1&#34;&gt;&amp;#39;3090:80&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		- &lt;span class=&#34;s1&#34;&gt;&amp;#39;4022:22&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		- &lt;span class=&#34;s1&#34;&gt;&amp;#39;6060:6060&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	volumes:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		- &lt;span class=&#34;s1&#34;&gt;&amp;#39;/srv/gitlab/config:/etc/gitlab&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		- &lt;span class=&#34;s1&#34;&gt;&amp;#39;/srv/gitlab/logs:/var/log/gitlab&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		- &lt;span class=&#34;s1&#34;&gt;&amp;#39;/srv/gitlab/data:/var/opt/gitlab&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		- .... &lt;span class=&#34;c1&#34;&gt;#一些其他的配置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如上设置基本可以确保 Gitlab 形如 &lt;code&gt;ssh://git@git.xxxx.cn:4022/zs/zsblog.git&lt;/code&gt; 的链接可以使用。&lt;/p&gt;
+&lt;h3 id=&#34;二在-host-宿主机创建与-gitlab-相同的-git-user&#34;&gt;二、在 Host 宿主机创建与 Gitlab 相同的 git user&lt;/h3&gt;
+&lt;p&gt;为了确保后续一些麻烦的权限问题，我们需要在宿主机也创建一个 &lt;code&gt;git&lt;/code&gt; 用户。&lt;/p&gt;
+&lt;p&gt;首先我们要检查 Gitlab 容器中 &lt;code&gt;git&lt;/code&gt; 用户的 UID 以及 GID，如果不出意外的话，两者都已被&lt;a href=&#34;https://gitlab.com/gitlab-org/omnibus-gitlab/blob/d4f3f5d57b16dbf1e1a59f9a5f5cc041ddacf05a/docker/assets/setup&#34;&gt;硬编码为 998&lt;/a&gt; 。不过为了以防万一，我们可以通过下述指令进一步确认：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ docker &lt;span class=&#34;nb&#34;&gt;exec&lt;/span&gt; -it gitlab cat /etc/passwd &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; awk -F&lt;span class=&#34;s1&#34;&gt;&amp;#39;:&amp;#39;&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;{if($1==&amp;#34;git&amp;#34;) printf(&amp;#34;uid: %s; gid: %s\n&amp;#34;), $3, $4}&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 不出意外结果如下，证明 git 账户的 UID 与 GID 都为 998.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;uid: 998&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; gid: &lt;span class=&#34;m&#34;&gt;998&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这条指令会给出我们对应的 UID 以及 GID。&lt;/p&gt;
+&lt;p&gt;接下来我们需要在宿主机中也创建 &lt;code&gt;git&lt;/code&gt; 用户，确保 UID 及 GID 都与 Gitlab 容器内的一致。大家可以通过如下指令查看是否已有 &lt;code&gt;git&lt;/code&gt; 用户，以及其 UID 与 GID。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ cat /etc/passwd &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; awk -F&lt;span class=&#34;s1&#34;&gt;&amp;#39;:&amp;#39;&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;{if($1==&amp;#34;git&amp;#34;) printf(&amp;#34;uid: %s; gid: %s\n&amp;#34;), $3, $4}&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;如果没有任何结果，说明没有 &lt;code&gt;git&lt;/code&gt; 用户&lt;/li&gt;
+&lt;li&gt;如果有结果，并且 UID 与 GID 不为 998，说明需要重新该一下对应的 UID 与 GID，大家可以自行搜索解决方案。&lt;/li&gt;
+&lt;li&gt;我们还需要查看 &lt;code&gt;/etc/passwd&lt;/code&gt; 与 &lt;code&gt;/etc/group&lt;/code&gt; 两个文件确保 998 没有被使用，如果有使用也需要做对应改变。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果没有 &lt;code&gt;git&lt;/code&gt; 用户，则使用下面指令创建并指定家目录为 &lt;code&gt;/home/git&lt;/code&gt; （在 root 用户下）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ groupadd -g &lt;span class=&#34;m&#34;&gt;998&lt;/span&gt; git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ useradd -m -u &lt;span class=&#34;m&#34;&gt;998&lt;/span&gt; -g git -s /bin/sh -d /home/git git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果已有，则确保其 UID 与 GID 和 Gitlab 容器中 &lt;code&gt;git&lt;/code&gt; 用户相同，并确保有家目录 &lt;code&gt;/home/git&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;三复制-gitlab-密钥文件&#34;&gt;三、复制 Gitlab 密钥文件&lt;/h3&gt;
+&lt;p&gt;Gitlab 的密钥文件目前存放在容器的 &lt;code&gt;/var/opt/gitlab/.ssh&lt;/code&gt; 中，然后根据你在 &lt;code&gt;docker-compose.yml&lt;/code&gt; 配置的映射位置看，好比我配置的映射是 &lt;code&gt;/srv/gitlab/data:/var/opt/gitlab&lt;/code&gt;，你就可以直接在 &lt;code&gt;/srv/gitlab/data/.ssh&lt;/code&gt; 目录下找到对应的密钥文件。&lt;/p&gt;
+&lt;p&gt;然后首先在 &lt;code&gt;root&lt;/code&gt; 用户权限下执行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ cp -r /srv/gitlab/data/.ssh /home/git/.ssh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;将对应的文件夹复制到 &lt;code&gt;git&lt;/code&gt; 用户家目录下，然后执行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ chown -R git:git /home/git/.ssh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;将所有的文件的权限及组权限都更改为 &lt;code&gt;git&lt;/code&gt; 用户&lt;/p&gt;
+&lt;p&gt;现在 &lt;code&gt;git&lt;/code&gt; 用户的 &lt;code&gt;.ssh&lt;/code&gt; 目录结构应该如下，也要确保 &lt;code&gt;.ssh&lt;/code&gt; 文件权限为 &lt;code&gt;700&lt;/code&gt;，&lt;code&gt;authorized_keys&lt;/code&gt; 权限为 600&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ ls -la
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;total &lt;span class=&#34;m&#34;&gt;72&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;drwx------ &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; git git  &lt;span class=&#34;m&#34;&gt;4096&lt;/span&gt; Apr &lt;span class=&#34;m&#34;&gt;24&lt;/span&gt; 15:40 .
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;drwxr-xr-x &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt; git git  &lt;span class=&#34;m&#34;&gt;4096&lt;/span&gt; Apr &lt;span class=&#34;m&#34;&gt;24&lt;/span&gt; 02:00 ..
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw------- &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; git git &lt;span class=&#34;m&#34;&gt;50122&lt;/span&gt; Apr &lt;span class=&#34;m&#34;&gt;24&lt;/span&gt; 02:00 authorized_keys
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-r--r-- &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; git git     &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; Apr &lt;span class=&#34;m&#34;&gt;24&lt;/span&gt; 01:57 authorized_keys.lock
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw------- &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; git git  &lt;span class=&#34;m&#34;&gt;1679&lt;/span&gt; Apr &lt;span class=&#34;m&#34;&gt;24&lt;/span&gt; 01:48 id_rsa
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-r--r-- &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; git git   &lt;span class=&#34;m&#34;&gt;390&lt;/span&gt; Apr &lt;span class=&#34;m&#34;&gt;24&lt;/span&gt; 01:48 id_rsa.pub
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-rw-r--r-- &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; git git   &lt;span class=&#34;m&#34;&gt;222&lt;/span&gt; Apr &lt;span class=&#34;m&#34;&gt;24&lt;/span&gt; 02:00 known_hosts
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;四生成密钥文件&#34;&gt;四、生成密钥文件&lt;/h3&gt;
+&lt;p&gt;切换到 &lt;code&gt;git&lt;/code&gt; 用户并生成密钥对&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ su - git
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ ssh-keygen &lt;span class=&#34;c1&#34;&gt;#然后一路回车&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后将公钥加入 &lt;code&gt;authorized_keys&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ cat ~/.ssh/id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;五创建脚本文件&#34;&gt;五、创建脚本文件&lt;/h3&gt;
+&lt;p&gt;我们不妨看一下现在的 &lt;code&gt;authorized_keys&lt;/code&gt; 文件，里面应该有形如下面的内容一些行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;command&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;/opt/gitlab/embedded/service/gitlab-shell/bin/gitlab-shell key-105&amp;#34;&lt;/span&gt;,no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty ssh-ed25519 xxxxxxxx
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里说明我们提交时会执行一个 &lt;code&gt;/opt/gitlab/embedded/service/gitlab-shell/bin/gitlab-shell&lt;/code&gt; 脚本，这里本应该执行的是容器内的脚本，但是我们现在把它放在了容器外，因此我们需要设置一个脚本将请求转发进去，因此选择在本机的 &lt;code&gt;/opt/gitlab/embedded/service/gitlab-shell/bin&lt;/code&gt; 目录下创建一个名为 &lt;code&gt;gitlab-shell&lt;/code&gt; 的脚本，命令如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 创建文件夹&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ sudo mkdir -p /opt/gitlab/embedded/service/gitlab-shell/bin
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 进入文件夹&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ &lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /opt/gitlab/embedded/service/gitlab-shell/bin
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 创建文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ sudo vim gitlab-shell
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;文件内容如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/bin/sh
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh -i /home/git/.ssh/id_rsa -p &lt;span class=&#34;m&#34;&gt;4022&lt;/span&gt; -o &lt;span class=&#34;nv&#34;&gt;StrictHostKeyChecking&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;no git@127.0.0.1 &lt;span class=&#34;s2&#34;&gt;&amp;#34;SSH_ORIGINAL_COMMAND=\&amp;#34;&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$SSH_ORIGINAL_COMMAND&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;\&amp;#34; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$0&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$@&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;需要注意的是，这里的 &lt;code&gt;4022&lt;/code&gt; 是指在 &lt;code&gt;docker-compose.yml&lt;/code&gt; 文件映射的 &lt;code&gt;4022:22&lt;/code&gt; 端口，如果你是 &lt;code&gt;xxx:22&lt;/code&gt; ，则需要在这里填写 &lt;code&gt;xxx&lt;/code&gt;，对应起来。内&lt;/p&gt;
+&lt;p&gt;然后不要忘记添加执行权限&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ sudo chmod +x /opt/gitlab/embedded/service/gitlab-shell/bin/gitlab-shell
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;六挂载额外的文件到-gitlab-容器&#34;&gt;六、挂载额外的文件到 Gitlab 容器&lt;/h3&gt;
+&lt;p&gt;修改我们的 &lt;code&gt;docker-compose.yml&lt;/code&gt; ，注释掉 &lt;code&gt;gitlab_rails[&#39;gitlab_shell_ssh_port&#39;] = 4022&lt;/code&gt; 以及添加 &lt;code&gt;&#39;/home/git/.ssh/:/var/opt/gitlab/.ssh&#39;&lt;/code&gt; ，将 &lt;code&gt;git&lt;/code&gt; 用户的 &lt;code&gt;.ssh&lt;/code&gt; 目录挂载到容器内。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;gitlab-web:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	image: &lt;span class=&#34;s1&#34;&gt;&amp;#39;gitlab/gitlab-ce:latest&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	container_name: &lt;span class=&#34;s1&#34;&gt;&amp;#39;gitlab&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	restart: always
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	environment:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		GITLAB_OMNIBUS_CONFIG: &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;				....
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	ports:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		- &lt;span class=&#34;s1&#34;&gt;&amp;#39;3090:80&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		- &lt;span class=&#34;s1&#34;&gt;&amp;#39;4022:22&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		- &lt;span class=&#34;s1&#34;&gt;&amp;#39;6060:6060&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	volumes:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		- &lt;span class=&#34;s1&#34;&gt;&amp;#39;/srv/gitlab/config:/etc/gitlab&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		- &lt;span class=&#34;s1&#34;&gt;&amp;#39;/srv/gitlab/logs:/var/log/gitlab&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		- &lt;span class=&#34;s1&#34;&gt;&amp;#39;/srv/gitlab/data:/var/opt/gitlab&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		- &lt;span class=&#34;s1&#34;&gt;&amp;#39;/home/git/.ssh/:/var/opt/gitlab/.ssh&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		- .... &lt;span class=&#34;c1&#34;&gt;#一些其他的配置&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最后，重启容器即可生效。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;❯ docker-compose up -d
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;简单的原理说明&#34;&gt;简单的原理说明&lt;/h2&gt;
+&lt;p&gt;使用的原理就是将主机 &lt;code&gt;git&lt;/code&gt; 用户的所有 ssh 流量都转发到容器内部。&lt;/p&gt;
+&lt;p&gt;转发使用的是宿主机中的&lt;code&gt;/opt/gitlab/embedded/service/gitlab-shell/bin/gitlab-shell&lt;/code&gt; 脚本，而因为已经将主机 &lt;code&gt;git&lt;/code&gt; 用户 &lt;code&gt;id_rsa.pub&lt;/code&gt; 添加到了 &lt;code&gt;authorized_keys&lt;/code&gt; 中，因此可以直接免密转发内容到容器内部。&lt;/p&gt;
+&lt;p&gt;随后，容器内的 &lt;code&gt;gitlab-shell&lt;/code&gt; 脚本对请求进行处理，完成 ssh 请求。&lt;/p&gt;
+&lt;p&gt;这里很巧妙的使用了同一个位置的脚本，这也是需要将 &lt;code&gt;git&lt;/code&gt; 用户的 &lt;code&gt;.ssh&lt;/code&gt; 目录挂载到 Gitlab 内部的原因，但是每个脚本却作用不同，十分的巧妙。&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.gitea.io/zh-cn/install-with-docker/&#34;&gt;使用 Docker 安装&lt;/a&gt; ↩&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/sameersbn/docker-gitlab/issues/1517&#34;&gt;Sharing SSH port between host and the container&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.xiaket.org/2017/exposing.ssh.port.in.dockerized.gitlab-ce.html&#34;&gt;Exposing ssh port in dockerized gitlab-ce&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/kangkanglou/article/details/90760529&#34;&gt;公钥添加到authorized_keys到文件中之后仍无法免密登陆&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
     </item>
     
   </channel>

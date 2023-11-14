@@ -13,22 +13,74 @@
       <pubDate>Wed, 19 Jan 2022 00:24:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/posts/223/</guid>
-      <description>前言 最近看了一些 js 有关的知识，其中令我这种初学者感到很头疼的一个问题就是异步问题。
-今天就我碰到的一个小问题详解一个关于异步的小技巧。
-背景 我在程序中需要鉴权，来判断一个用户是普通用户还是管理员，针对不同的用户渲染不同的页面。
-每个用户具有唯一的 ID，因此我只需要将管理员的 ID 放到数据库，然后加载程序的时候一一比对即可。
-但是我的主程序初始化与页面的初始化是异步的，管理员的判断逻辑我放在了主程序初始化中，这也就意味着很可能我页面在加载时，主程序还没有判断完用户的身份。
-每个人默认不是管理员，因此这就会导致一个问题——管理员可能也会显示成普通用户的页面，因为渲染页面的时候程序还不知道这个用户是管理员。
-方案 这个方案其实是我从官方的代码上学到的，其实就结合代码给大家讲一下。
-官方这里是在获取用户的 userInfo 时用到的。
-主程序初始化部分代码：
-这里主程序的逻辑就是在 getSetting 调用成功后，判断是否已经获得过 userInfo ，如果已经获得过，则可以直接调用 getUserInfo 函数获取值，赋值成一个主程序的全局变量，所有页面都可以用。
-接下来就是一个比较奇怪的点了
-可以看到官方的注释为
-由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-所以此处加入 callback 以防止这种情况
-这里判断了主程序内是否含有 userInfoReadyCallback 这个函数，如果有的话就执行。
-qq.getSetting({ success: res =&amp;gt; { if (res.authSetting[&amp;#39;scope.userInfo&amp;#39;]) { // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框 qq.getUserInfo({ success: res =&amp;gt; { // 可以将 res 发送给后台解码出 unionId this.globalData.userInfo = res.userInfo // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回 // 所以此处加入 callback 以防止这种情况 if (this.</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近看了一些 js 有关的知识，其中令我这种初学者感到很头疼的一个问题就是异步问题。&lt;/p&gt;
+&lt;p&gt;今天就我碰到的一个小问题详解一个关于异步的小技巧。&lt;/p&gt;
+&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
+&lt;p&gt;我在程序中需要鉴权，来判断一个用户是&lt;strong&gt;普通用户&lt;/strong&gt;还是&lt;strong&gt;管理员&lt;/strong&gt;，针对不同的用户渲染不同的页面。&lt;/p&gt;
+&lt;p&gt;每个用户具有唯一的 ID，因此我只需要将管理员的 ID 放到数据库，然后加载程序的时候一一比对即可。&lt;/p&gt;
+&lt;p&gt;但是我的主程序初始化与页面的初始化是异步的，管理员的判断逻辑我放在了主程序初始化中，这也就意味着很可能我页面在加载时，主程序还没有判断完用户的身份。&lt;/p&gt;
+&lt;p&gt;每个人默认不是管理员，因此这就会导致一个问题——&lt;strong&gt;管理员可能也会显示成普通用户的页面&lt;/strong&gt;，因为渲染页面的时候程序还不知道这个用户是管理员。&lt;/p&gt;
+&lt;h2 id=&#34;方案&#34;&gt;方案&lt;/h2&gt;
+&lt;p&gt;这个方案其实是我从官方的代码上学到的，其实就结合代码给大家讲一下。&lt;/p&gt;
+&lt;p&gt;官方这里是在获取用户的 userInfo 时用到的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;主程序初始化部分代码&lt;/strong&gt;：&lt;/p&gt;
+&lt;p&gt;这里主程序的逻辑就是在 &lt;code&gt;getSetting&lt;/code&gt; 调用成功后，判断是否已经获得过 userInfo ，如果已经获得过，则可以直接调用 &lt;code&gt;getUserInfo&lt;/code&gt; 函数获取值，赋值成一个主程序的全局变量，所有页面都可以用。&lt;/p&gt;
+&lt;p&gt;接下来就是一个比较奇怪的点了&lt;/p&gt;
+&lt;p&gt;可以看到官方的注释为&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回&lt;/p&gt;
+&lt;p&gt;所以此处加入 callback 以防止这种情况&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里判断了主程序内是否含有 &lt;code&gt;userInfoReadyCallback&lt;/code&gt; 这个函数，如果有的话就执行。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;qq&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getSetting&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nx&#34;&gt;success&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;res&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;authSetting&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;scope.userInfo&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;c1&#34;&gt;// 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;                    &lt;span class=&#34;nx&#34;&gt;qq&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getUserInfo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                        &lt;span class=&#34;nx&#34;&gt;success&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                            &lt;span class=&#34;c1&#34;&gt;// 可以将 res 发送给后台解码出 unionId
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;                            &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;globalData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;userInfo&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;res&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;userInfo&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                            &lt;span class=&#34;c1&#34;&gt;// 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;                            &lt;span class=&#34;c1&#34;&gt;// 所以此处加入 callback 以防止这种情况
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;                            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;userInfoReadyCallback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                                &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;userInfoReadyCallback&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;res&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;p&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;页面初始化部分代码：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;页面初始化部分的逻辑首先判断全局变量中是否包含 &lt;code&gt;userInfo&lt;/code&gt; 这个这个变量，我们从上文得知，如果我们在此段程序执行前主程序已经执行完毕，那么这里是包含 &lt;code&gt;userInfo&lt;/code&gt; 这个函数的，我们直接赋值给当前的环境变量。&lt;/p&gt;
+&lt;p&gt;而如果没有 &lt;code&gt;userInfo&lt;/code&gt; 没有定义，也就是&lt;strong&gt;主程序还未完成变量的初始化&lt;/strong&gt;，这就出现了我们之前提到的问题，页面加载时主程序未初始化完。&lt;/p&gt;
+&lt;p&gt;定义了 &lt;code&gt;userInfoReadyCallback&lt;/code&gt; 函数，接受 res 参数，进行赋值。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;globalData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;userInfo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;setData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;nx&#34;&gt;userInfo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;globalData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;userInfo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;nx&#34;&gt;hasUserInfo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;canIUse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;c1&#34;&gt;// 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;c1&#34;&gt;// 所以此处加入 callback 以防止这种情况
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;            &lt;span class=&#34;nx&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;userInfoReadyCallback&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;setData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;nx&#34;&gt;userInfo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;res&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;userInfo&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                    &lt;span class=&#34;nx&#34;&gt;hasUserInfo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                &lt;span class=&#34;p&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//......
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;读完上面的程序大家应该已经可以搞懂了，其实类似于设置了两个标志(flag)。&lt;/p&gt;
+&lt;p&gt;一个标志是全局变量 &lt;code&gt;userInfo&lt;/code&gt;、一个是全局函数 &lt;code&gt;userInfoReadyCallback&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;如果 &lt;code&gt;userInfo&lt;/code&gt; 已经定义，说明页面初始化前页面主程序变量已初始化完毕，渲染不会出问题。&lt;/p&gt;
+&lt;p&gt;而如果 &lt;code&gt;userInfo&lt;/code&gt; 未定义，说明与上面相反，则在页面中定义&lt;code&gt;userInfoReadyCallback&lt;/code&gt; 函数，后续主程序初始化到最后得知该函数已定义，则调用其来进行初始化。&lt;/p&gt;
+&lt;p&gt;这样就总能够保证局部 &lt;code&gt;userInfo&lt;/code&gt; 这个变量的取值总是正确的，也即页面总是渲染正确的！&lt;/p&gt;
+&lt;h2 id=&#34;后记&#34;&gt;后记&lt;/h2&gt;
+&lt;p&gt;这个问题应该总是可以解决两个页面同时加载但却存在变量依赖的问题。&lt;/p&gt;
+&lt;p&gt;大家如果有什么更加优秀的解决方案也希望不吝赐教。&lt;/p&gt;
+</description>
     </item>
     
   </channel>

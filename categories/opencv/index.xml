@@ -16,7 +16,114 @@
       <description>&lt;h2 id=&#34;windows-平台-visual-studio-2019-中-opencv-配置教程&#34;&gt;Windows 平台 Visual Studio 2019 中 OpenCV 配置教程&lt;/h2&gt;
 &lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
 &lt;p&gt;我这里配置用的是4.5.0版本，但实际配置过程中需要的大部分时间只是路径，因此和版本基本无关。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;只有一个地方是和版本有关系的，在配置链接器的 &lt;code&gt;opencv_wordxyzd.lib&lt;/code&gt; 时，大家一定要注意！！&lt;/strong&gt;&lt;/p&gt;</description>
+&lt;p&gt;&lt;strong&gt;只有一个地方是和版本有关系的，在配置链接器的 &lt;code&gt;opencv_wordxyzd.lib&lt;/code&gt; 时，大家一定要注意！！&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;1下载opencv&#34;&gt;1.下载OpenCV&lt;/h3&gt;
+&lt;p&gt;首先我们进入 &lt;a href=&#34;https://opencv.org/releases/&#34;&gt;https://opencv.org/releases/&lt;/a&gt; 在这其中下载OpenCV ，我这里下载的4.5.0 ，选择Windows下载即可。&lt;/p&gt;
+&lt;p&gt;下载结束后我们双击安装包，指定解压目录，我这里解压在了我的G盘，具体路径为 &lt;code&gt;G:\Opencv450&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2设置opencv的环境变量&#34;&gt;2.设置OpenCV的环境变量&lt;/h3&gt;
+&lt;p&gt;我们在 此电脑右键 -&amp;gt; 属性 -&amp;gt; 高级系统设置 -&amp;gt; 环境变量 -&amp;gt; 系统变量 -&amp;gt; 双击Path -&amp;gt;添加如下的环境&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;G:\Opencv450\build\x64\vc15\bin&lt;/code&gt; ，这里的路径是根据上面那个路径来看的，如果你上面那个跟我不同，也请看请自己的路径。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/10/1401048133.png&#34; alt=&#34;此电脑属性中的高级系统设置&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/10/705625531.png&#34; alt=&#34;高级系统设置中的环境变量&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/10/3556583146.png&#34; alt=&#34;双击系统环境变量中的Path&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/10/3685752206.png&#34; alt=&#34;新建并加入我们的bin路径&#34;  /&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;配置visual-studio&#34;&gt;配置Visual Studio&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;新建一个C++类型的空项目，随便你如何命名，将模式调节为 &lt;strong&gt;Debug x64&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/10/3001499231.png&#34; alt=&#34;新建空项目并将模式调节为Debug x64&#34;  /&gt;
+&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;依次点击 &lt;strong&gt;视图&lt;/strong&gt; -&amp;gt; &lt;strong&gt;其他窗口&lt;/strong&gt; -&amp;gt; &lt;strong&gt;属性管理器&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在打开的 &lt;strong&gt;属性管理器&lt;/strong&gt; 中添加新项目属性表，我是4.5.0的版本，为了好记，新建属性表命名为&lt;strong&gt;OpenCV450Debug&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/10/1199777575.png&#34; alt=&#34;新建一个属性表&#34;  /&gt;
+&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;建好以后在其上右键，选择&lt;strong&gt;属性&lt;/strong&gt; ，然后依次选择 &lt;strong&gt;VC++ 目录&lt;/strong&gt; -&amp;gt; &lt;strong&gt;包含目录&lt;/strong&gt; -&amp;gt; &lt;strong&gt;编辑&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;添加下面两个路径，当然，这两个路径也是取决于你安装OpenCV的路径的。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;G:\Opencv450\build\include&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;G:\Opencv450\build\include\opencv2&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/10/2408130113.png&#34; alt=&#34;更改VC&amp;#43;&amp;#43;中的包含目录&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/10/958765988.png&#34; alt=&#34;更改包含目录中的内容&#34;  /&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;接下来选择 &lt;strong&gt;VC++ 目录&lt;/strong&gt; 中的 &lt;strong&gt;库目录&lt;/strong&gt; -&amp;gt; &lt;strong&gt;编辑&lt;/strong&gt; ，然后添加（与你OpenCV路径对应）&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;G:\Opencv450\build\x64\vc15\lib&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/10/2096976051.png&#34; alt=&#34;编辑VC&amp;#43;&amp;#43;目录中库目录&#34;  /&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;接下来选择 &lt;strong&gt;链接器&lt;/strong&gt; -&amp;gt; &lt;strong&gt;输入&lt;/strong&gt; -&amp;gt; &lt;strong&gt;附加依赖项&lt;/strong&gt; -&amp;gt; &lt;strong&gt;编辑&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在其中加入 &lt;code&gt;opencv_world450d.lib&lt;/code&gt; ！ 大家这里请注意，不同的版本这里的添加名称不同，通常来说如果你的版本是 &lt;code&gt;x.y.z&lt;/code&gt;  那么就是 &lt;code&gt;opencv_worldxyzd.lib&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/10/1791849957.png&#34; alt=&#34;附加依赖项&#34;  /&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最后我们点击确定，然后退出&lt;strong&gt;属性编辑器&lt;/strong&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;测试opencv的配置&#34;&gt;测试OpenCV的配置&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在源文件中添加一个 &lt;strong&gt;C++&lt;/strong&gt; 源程序，我添加的为 &lt;code&gt;main.cpp&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在其中输入如下测试代码&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;opencv2/core.hpp&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;opencv2/imgcodecs.hpp&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;opencv2/highgui.hpp&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;argc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;**&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;imageName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;HappyFish.jpg&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// by default
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argc&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;imageName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;Mat&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;image&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;imread&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;samples&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;findFile&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;imageName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;IMREAD_COLOR&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// Read the file
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;empty&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;// Check for invalid input
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Could not open or find the image&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;namedWindow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Display window&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;WINDOW_AUTOSIZE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// Create a window for display.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;imshow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Display window&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;                &lt;span class=&#34;c1&#34;&gt;// Show our image inside it.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;waitKey&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// Wait for a keystroke in the window
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/10/1422866535.png&#34; alt=&#34;添加代码源文件&#34;  /&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;接下来我们随便找一张 &lt;strong&gt;jpg&lt;/strong&gt; 图片文件，命名为 &lt;code&gt;HappyFish.jpg&lt;/code&gt; ，保存在你的工程的根目录下/和 &lt;strong&gt;cpp&lt;/strong&gt; 文件一个路径。这里我放一张 &lt;strong&gt;jpg&lt;/strong&gt; 图片供大家使用~&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/10/1938099554.png&#34; alt=&#34;将图片放在项目目录下/和cpp一个路径&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/10/1150699358.jpg&#34; alt=&#34;HappyFish.jpg&#34;  /&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后在我们的 &lt;strong&gt;Visual Studio 2019&lt;/strong&gt; 中按下快捷键 &lt;strong&gt;Ctrl + F5&lt;/strong&gt; 编译运行程序，会发现我们成功打开了这张图片，配置就成功了~&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/10/2092454279.png&#34; alt=&#34;配置成功标志&#34;  /&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;参考链接&#34;&gt;参考链接&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/908551afa8fd&#34;&gt;VS2019 上配置 OpenCV4.2.0&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
   </channel>

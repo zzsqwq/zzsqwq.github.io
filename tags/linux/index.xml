@@ -13,22 +13,111 @@
       <pubDate>Fri, 04 Dec 2020 01:39:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/posts/141/</guid>
-      <description>前言 因为最近Ubuntu用的比较频繁，所以前一阵把Ubuntu16.04换成Ubuntu18.04了，并且囿于机械硬盘那启动速度，我忍痛割爱把我80G的固态硬盘分给了Ubuntu。
-后来，用着用着就觉得这个Ubuntu的原始界面确实不是特别的好看，配色偏基佬紫的感觉。“工欲善其事，必先利其器“，我们只有将自己的工作环境布置的舒心一些才能有做下去的动力！所以我想给Ubuntu换一个看起来舒服点的界面，然后上网找教程乱七八糟的倒腾了一会，感觉换完以后完全不一样了，这个界面真的好看！！用起来也特别的舒心，感觉自己马上就要告别Windows投奔Linux的怀抱了。后续还有一些其他的优化，例如装QQ、微信、配置终端等，一并写在这里吧。
-Ubuntu界面的优化 具体效果 先放几张效果图上来，是我改后的界面。大概就是这样(自我感觉挺好看的)，当然也有其他的主题可供选择。
-1.安装GNOME桌面环境主题配置工具 如果要改主题，那么首先要有一个利器，这里我用的Ubuntu18.04，桌面环境为 GNOME 3.28.2 ，因为我目前接触的只有GNOME桌面环境的，Ubuntu18.04本来的桌面环境就是GNOME，但是Ubuntu16.04好像没有自带，但是可以安装，这里大家可以自行百度了解。
-然后我们已经有了GNOME桌面环境后，安装主题配置工具 GNOME Tweaks ，在终端中输入如下内容：
-sudo apt-get update sudo apt-get install gnome-tweak-tool 我们先更新软件源，然后安装后直接打开他就行，在系统软件中中文大概叫 优化 。
-2.拓展上述工具 安装完上述工具后，我们可能发现了一个问题，就是外观那一栏目的Shell有一个感叹号，无法更改，这是因为我们没有安装拓展导致的。我们在终端中运行
-sudo apt-get install gnome-shell-extensions 然后重启一下电脑。再打开软件找到左侧的拓展，把 User themes 那一栏目打开。切换回去就可以发现Shell那边的感叹号无了。
-3.寻找自己喜欢的主题 这里我大家可以去这个网址去找自己喜欢的 GNOME-LOOK.ORG
-这里面包含了图标，主题这些，下面介绍一下如何安装。
-好比我们找到一个自己喜欢的主题，然后我们点击下面的 Files ，可能会有很多文件，但是多是同一个主题的不同风格，好比暗风格和亮风格这样的，还有不同的版本的，我多是安装那个下载量最多的，我们下载那个对应的文件(多是tar.xz安装包)。
-对于主题的安装，我们只需要把解压出来的文件，移动或复制到 /usr/share/themes/ 目录下，如果是光标\图标的安装，那么就把文件夹移动到 /usr/share/icons 目录下。
-然后我们回到 GNOME Tweaks 软件中就可以发现，我们已经可以在主题\图标\光标\Shell清单中找到我们移动到文件夹中的文件了，然后选择就可以切换了。这里需要注意的，很多主题都是自带Shell的，你下了一个主题，那么你可以在Shell和主题这两个栏目中都找到他们，是一个配套的。
-4.一些后续的调整 我们后续可以改变左边收藏夹的位置，我觉得放在左边有一丢丢的丑，所以我选择把它放在的下面。
-我们去Ubuntu软件中搜索 Dash to dock，然后安装这个拓展，然后打开 GNOME Tweaks 软件在拓展中找到他就可以随心所欲的调我们的收藏夹的位置了。
-5.我自己的配置 theme&amp;amp;shell Canta-light-compact icons 01-McMojave-circle 6.界面修改的参考链接 Ubuntu18.04美化主题(mac主题) Ubuntu18.04美化主题(完整版) GNOME-LOOK.ORG 30个非常不错的Ubuntu主题供你选择 ubuntu18.</description>
+      <description>&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
+&lt;p&gt;因为最近Ubuntu用的比较频繁，所以前一阵把Ubuntu16.04换成Ubuntu18.04了，并且囿于机械硬盘那启动速度，我忍痛割爱把我80G的固态硬盘分给了Ubuntu。&lt;/p&gt;
+&lt;p&gt;后来，用着用着就觉得这个Ubuntu的原始界面确实不是特别的好看，&lt;del&gt;配色偏基佬紫的感觉&lt;/del&gt;。“工欲善其事，必先利其器“，我们只有将自己的工作环境布置的舒心一些才能有做下去的动力！所以我想给Ubuntu换一个看起来舒服点的界面，然后上网找教程乱七八糟的倒腾了一会，感觉换完以后完全不一样了，这个界面真的好看！！用起来也特别的舒心，感觉自己马上就要告别Windows投奔Linux的怀抱了。后续还有一些其他的优化，例如装QQ、微信、配置终端等，一并写在这里吧。&lt;/p&gt;
+&lt;h3 id=&#34;ubuntu界面的优化&#34;&gt;Ubuntu界面的优化&lt;/h3&gt;
+&lt;h4 id=&#34;具体效果&#34;&gt;具体效果&lt;/h4&gt;
+&lt;p&gt;先放几张效果图上来，是我改后的界面。大概就是这样(自我感觉挺好看的)，当然也有其他的主题可供选择。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/12/171170690.png&#34; alt=&#34;桌面风格&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/12/3724154221.png&#34; alt=&#34;文件夹风格&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/12/3559388649.png&#34; alt=&#34;效果图&#34;  /&gt;
+&lt;/p&gt;
+&lt;h4 id=&#34;1安装gnome桌面环境主题配置工具&#34;&gt;1.安装GNOME桌面环境主题配置工具&lt;/h4&gt;
+&lt;p&gt;如果要改主题，那么首先要有一个利器，这里我用的&lt;code&gt;Ubuntu18.04&lt;/code&gt;，桌面环境为 &lt;code&gt;GNOME 3.28.2&lt;/code&gt; ，因为我目前接触的只有GNOME桌面环境的，Ubuntu18.04本来的桌面环境就是GNOME，但是Ubuntu16.04好像没有自带，但是可以安装，这里大家可以自行百度了解。&lt;/p&gt;
+&lt;p&gt;然后我们已经有了GNOME桌面环境后，安装主题配置工具 &lt;code&gt;GNOME Tweaks &lt;/code&gt; ，在终端中输入如下内容：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install gnome-tweak-tool 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们先更新软件源，然后安装后直接打开他就行，在系统软件中中文大概叫 &lt;strong&gt;优化&lt;/strong&gt; 。&lt;/p&gt;
+&lt;h4 id=&#34;2拓展上述工具&#34;&gt;2.拓展上述工具&lt;/h4&gt;
+&lt;p&gt;安装完上述工具后，我们可能发现了一个问题，就是外观那一栏目的Shell有一个感叹号，无法更改，这是因为我们没有安装拓展导致的。我们在终端中运行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install gnome-shell-extensions
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后重启一下电脑。再打开软件找到左侧的拓展，把 &lt;code&gt;User themes&lt;/code&gt; 那一栏目打开。切换回去就可以发现Shell那边的感叹号无了。&lt;/p&gt;
+&lt;h4 id=&#34;3寻找自己喜欢的主题&#34;&gt;3.寻找自己喜欢的主题&lt;/h4&gt;
+&lt;p&gt;这里我大家可以去这个网址去找自己喜欢的 &lt;a href=&#34;https://www.gnome-look.org&#34;&gt;GNOME-LOOK.ORG&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这里面包含了图标，主题这些，下面介绍一下如何安装。&lt;/p&gt;
+&lt;p&gt;好比我们找到一个自己喜欢的主题，然后我们点击下面的 &lt;strong&gt;Files&lt;/strong&gt; ，可能会有很多文件，但是多是同一个主题的不同风格，好比暗风格和亮风格这样的，还有不同的版本的，我多是安装那个下载量最多的，我们下载那个对应的文件(多是tar.xz安装包)。&lt;/p&gt;
+&lt;p&gt;对于主题的安装，我们只需要把解压出来的文件，移动或复制到 &lt;code&gt;/usr/share/themes/&lt;/code&gt; 目录下，如果是光标\图标的安装，那么就把文件夹移动到 &lt;code&gt;/usr/share/icons&lt;/code&gt; 目录下。&lt;/p&gt;
+&lt;p&gt;然后我们回到 &lt;code&gt;GNOME Tweaks&lt;/code&gt; 软件中就可以发现，我们已经可以在主题\图标\光标\Shell清单中找到我们移动到文件夹中的文件了，然后选择就可以切换了。这里需要注意的，很多主题都是自带Shell的，你下了一个主题，那么你可以在Shell和主题这两个栏目中都找到他们，是一个配套的。&lt;/p&gt;
+&lt;h4 id=&#34;4一些后续的调整&#34;&gt;4.一些后续的调整&lt;/h4&gt;
+&lt;p&gt;我们后续可以改变左边收藏夹的位置，我觉得放在左边有一丢丢的丑，所以我选择把它放在的下面。&lt;/p&gt;
+&lt;p&gt;我们去Ubuntu软件中搜索 Dash to dock，然后安装这个拓展，然后打开 &lt;code&gt;GNOME Tweaks&lt;/code&gt; 软件在拓展中找到他就可以随心所欲的调我们的收藏夹的位置了。&lt;/p&gt;
+&lt;h4 id=&#34;5我自己的配置&#34;&gt;5.我自己的配置&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;theme&amp;amp;shell   Canta-light-compact
+icons 01-McMojave-circle
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;6界面修改的参考链接&#34;&gt;6.界面修改的参考链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/lishanleilixin/article/details/80453565&#34;&gt;Ubuntu18.04美化主题(mac主题)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/qq_42527676/article/details/91356154&#34;&gt;Ubuntu18.04美化主题(完整版)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.gnome-look.org&#34;&gt;GNOME-LOOK.ORG&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.jianshu.com/p/4fb5e4657695&#34;&gt;30个非常不错的Ubuntu主题供你选择&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/maodexuedinge_/article/details/106652323&#34;&gt;ubuntu18.04更换鼠标游标主题&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;配置终端&#34;&gt;配置终端&lt;/h3&gt;
+&lt;h4 id=&#34;前言-1&#34;&gt;前言&lt;/h4&gt;
+&lt;p&gt;唔，终端本来用起来感觉也还行，感觉终端就是linux的灵魂，啥都能干。&lt;/p&gt;
+&lt;p&gt;但是听说有更好用的终端，现在ubuntu普遍用的好像都是bash，但是好像还有zsh，fish这样的，他们可以有一些代码补全，功能更强，可拓展性也高，大家都zsh和fish哪个好用一直争执不停，但是我发现ROS对 &lt;code&gt;zsh&lt;/code&gt; 支持的很好，但是对 &lt;code&gt;fish&lt;/code&gt; 的支持有点拉胯，考虑到以后可能ros会用的比较多，因此我选择使用zsh。效果图如下&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/12/3375893306.png&#34; alt=&#34;终端效果图&#34;  /&gt;
+&lt;/p&gt;
+&lt;h4 id=&#34;1下载zsh&#34;&gt;1.下载zsh&lt;/h4&gt;
+&lt;p&gt;直接在终端执行下列语句&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install zsh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;2安装oh-my-zsh&#34;&gt;2.安装oh my zsh&lt;/h4&gt;
+&lt;p&gt;zsh其实配置起来很麻烦，这一点相比与fish不太行，fish下载下来就已经具备了常用的功能，例如代码补全等。&lt;/p&gt;
+&lt;p&gt;但是我们有先人铺路，在Github上有一个开源的项目 &lt;a href=&#34;https://github.com/ohmyzsh/ohmyzsh&#34;&gt;oh my zsh&lt;/a&gt;，就是专门用来导入这个zsh的配置的，&lt;/p&gt;
+&lt;p&gt;我们直接运行如下代码，就可以直接安装了&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget sh -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后我们可以通过在终端中输入zsh来切换到zsh，也可以通过输入bash切换回去&lt;/p&gt;
+&lt;p&gt;我们也可以通过如下命令来切换默认的终端系统，首先查找一下zsh的目录，然后切换过去。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;whereis zsh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;chsh -s zsh路径
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;3配置插件&#34;&gt;3.配置插件&lt;/h4&gt;
+&lt;p&gt;在zsh里面有许多好用的插件，在这里推荐两个&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;自动补全 &lt;a href=&#34;https://github.com/zsh-users/zsh-autosuggestions&#34;&gt;zsh-autosuggestions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;语法高亮 &lt;a href=&#34;https://github.com/zsh-users/zsh-syntax-highlighting&#34;&gt;zsh-syntax-highlighting&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;关于下载的方法，在这两个项目里面都说了，我们只需要把下载的文件放到  &lt;code&gt;~/.oh-my-zsh/plugins&lt;/code&gt; 目录中，然后编辑 &lt;code&gt;~/.zshrc&lt;/code&gt; 在 &lt;code&gt;plugin = (插件1 插件2)&lt;/code&gt; 写上你所要启用的插件名称即可。&lt;/p&gt;
+&lt;p&gt;然后在终端中 &lt;code&gt;source ~/.zshrc&lt;/code&gt; 更新一下配置即可。&lt;/p&gt;
+&lt;h4 id=&#34;4配置主题&#34;&gt;4.配置主题&lt;/h4&gt;
+&lt;p&gt;zsh有许多可用的主题选择，我自己最喜欢的一个叫 &lt;a href=&#34;https://github.com/sindresorhus/pure&#34;&gt;pure&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我觉得害挺好看的，效果就跟上图一样吧。&lt;/p&gt;
+&lt;p&gt;安装方法就是先把pure下载到一个路径，然后编辑 &lt;code&gt;~/.zshrc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在下面加入&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;fpath+=安装路径
+autoload -U promptinit; promptinit
+prompt pure
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后我们&lt;code&gt;source&lt;/code&gt;一下&lt;code&gt;.zshrc&lt;/code&gt; 就可以使用了。&lt;/p&gt;
+&lt;p&gt;但是如果是使用zsh本来自带的一些主题，和这个有些差别，只需要下载好主题然后放到 &lt;code&gt;~/.oh-my-zsh/themes&lt;/code&gt; ，然后在 &lt;code&gt;.zshrc &lt;/code&gt;中启用即可。&lt;/p&gt;
+&lt;h4 id=&#34;5参考链接&#34;&gt;5.参考链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/rainy0426/articles/13163167.html&#34;&gt;linux终端shell:zsh配置和使用&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/shengzhu1/article/details/55272234/&#34;&gt;zsh和oh-my-zsh的一些好用的主题和插件&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/yuqiongran/article/details/52280522&#34;&gt;linux安装oh my zsh终端及简单使用方法&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/497b4af1334d&#34;&gt;配置oh-my-zsh主题&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/a94e2c59f244&#34;&gt;Zsh 常用插件&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://linux.cn/article-11426-1.html&#34;&gt;给Zsh添加主题和插件&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/61447507&#34;&gt;常用的oh-my-zsh插件&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;还有一些其他的配置有时间再写吧……咕咕咕&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -52,7 +141,275 @@ sudo apt-get install gnome-shell-extensions 然后重启一下电脑。再打开
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/1228769729.png&#34; alt=&#34;image-20200330164354765.png&#34;  /&gt;
 &lt;/p&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ls (List)&lt;/strong&gt; 命令：列出当前目录文件&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ls&lt;/strong&gt; ： 显示当前目录文件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ls -a&lt;/strong&gt;：显示全部的文件及文件夹，包括隐藏的文件和文件夹。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ls -l&lt;/strong&gt;  ： 显示较全的文件信息，包括权限，用户，用户组。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/364135134.png&#34; alt=&#34;image-20200330164408910.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Tab&lt;/strong&gt; 键：通过按Tab可以进行自动补全。如果当前目录有前缀相同的文件，则按两下Tab可以显示出所有以具有该前缀的文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;mv (Move)&lt;/strong&gt; 命令：移动（剪切）文件，也可以用作一个等效给文件或目录的重命名。&lt;/p&gt;
+&lt;p&gt;通过 &lt;code&gt;mv 文件x 目录a&lt;/code&gt; 可以将当前目录下的文件x移入目录k。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/2649793930.png&#34; alt=&#34;image-20200330164434299.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;cp (Copy)&lt;/strong&gt; 命令：拷贝，将一个文件或目录拷贝到另一个文件或目录。&lt;/p&gt;
+&lt;p&gt;通过 &lt;code&gt;cp [options] 文件x 目录a&lt;/code&gt; 可以将当前目录下的文件x复制到目录a。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;-a&lt;/strong&gt;：此选项通常在复制目录时使用，它保留链接、文件属性，并复制目录下的所有内容。其作用等于dpR参数组合。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;-d&lt;/strong&gt;：复制时保留链接。这里所说的链接相当于Windows系统中的快捷方式。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;-f&lt;/strong&gt;：覆盖已经存在的目标文件而不给出提示。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;-i&lt;/strong&gt;：与-f选项相反，在覆盖目标文件之前给出提示，要求用户确认是否覆盖，回答&amp;quot;y&amp;quot;时目标文件将被覆盖。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;-p&lt;/strong&gt;：除复制文件的内容外，还把修改时间和访问权限也复制到新文件中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;-r&lt;/strong&gt;：若给出的源文件是一个目录文件，此时将复制该目录下所有的子目录和文件。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;-l&lt;/strong&gt;：不复制文件，只是生成链接文件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;pwd(Print Working Directory)&lt;/strong&gt;  命令：打印出当前工作目录&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;mkdir&lt;/strong&gt; 命令 ： &lt;code&gt;mkdir name&lt;/code&gt;创建一个名为name的文件夹&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;rm (Remove)&lt;/strong&gt; 命令 ：删除文件，删除文件后不可恢复。特殊的 ，**rmdir ** 为删除文件夹命令，&lt;strong&gt;rm -r&lt;/strong&gt;是先删除目录内的内容，再删除目录。 &lt;strong&gt;rm -i&lt;/strong&gt; 为交互式进行删除，一个个确定。&lt;strong&gt;rm -f&lt;/strong&gt; 为强制删除（慎用）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;gedit&lt;/strong&gt; 命令：&lt;code&gt;gedit path&lt;/code&gt;  打开编辑某个文件。path为绝对路径或相对路径。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;touch&lt;/strong&gt; 命令：&lt;code&gt;touch name&lt;/code&gt; 创建一个文件，name包含拓展名。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;cat&lt;/strong&gt; 命令：打开指定文件， 并显示其中内容在终端，并且可以将其复制到一个另文件中。如果cat后面加多个文件名，那么就会打开多个文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;tar&lt;/strong&gt; 命令：压缩或解压命令。&lt;code&gt;tar [参数] 打包文件名 要打包的各个文件 &lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;参数表：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-c&lt;/td&gt;
+&lt;td&gt;生成档案文件，创建打包文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-v&lt;/td&gt;
+&lt;td&gt;列出归档解档的详细过程，显示进度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-f&lt;/td&gt;
+&lt;td&gt;指定档案文件名称，f后面一定是.tar文件，所以放选项最后&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-t&lt;/td&gt;
+&lt;td&gt;列出档案中包含的文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-x&lt;/td&gt;
+&lt;td&gt;解开档案文件&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;打包实例： &lt;code&gt;tar -cvf 文件名 要打包的文件&lt;/code&gt;  解压实例：&lt;code&gt;tar -xvf 压缩包名&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/2524054836.png&#34; alt=&#34;image-20200330164654339.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;不同的查找方式&#34;&gt;不同的查找方式&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;find&lt;/strong&gt; ：使用方法为&lt;code&gt;find &amp;lt;指定目录&amp;gt;&amp;lt;指定条件&amp;gt;&amp;lt;指定动作&amp;gt; &lt;/code&gt; ，如何find后面不加任何参数，那么就默认搜索当前目录及其子目录，并显示在屏幕上。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;lt;指定目录&amp;gt;：用于指定要搜索的目录，默认为当前所在目录。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&amp;lt;指定条件&amp;gt;：指定所要搜索文件的特征。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;-name&lt;/strong&gt; ：按文件名查找&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-perm&lt;/strong&gt;：按文件权限查找&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-depth&lt;/strong&gt;：查找时先在当前目录查找，然后查找其他子目录。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-prune&lt;/strong&gt;：不在当前指定路径查找。如果同时指定-depth，则此选项被忽略。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-user/-nouser&lt;/strong&gt;：按照文件属主查找/查找无效属主文件&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-group/-nogroup&lt;/strong&gt;：按照文件属组查找/查找无效属组文件&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-newer file1 !file2&lt;/strong&gt;：查找更改时间比file1新比file2旧的文件。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-type&lt;/strong&gt;：查找某一类型文件，b：块设备文件，d：目录，c：字符设备文件，P：管道文件，l：符号链接文件，f：普通文件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/3627533122.png&#34; alt=&#34;image-20200330164709797.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/13609959.png&#34; alt=&#34;image-20200330164721033.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;locate&lt;/strong&gt; ：等价于 &lt;code&gt;find -name&lt;/code&gt; ，但是速度要快，因为locate在一个本地数据库中存放了所有本地文件信息，每天自动更新，我们查找之前需要通过 &lt;code&gt;updatedb&lt;/code&gt; 手动更新其中内容，不然可能会导致新改动的文件查找不到。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/496389565.png&#34; alt=&#34;image-20200330164733755.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;whereis&lt;/strong&gt; ：whereis可以用于程序名的搜索，可以通过参数 &lt;strong&gt;-s，-m，-s&lt;/strong&gt; 分别搜索二进制文件，man说明文件，和源代码文件。如果省略参数，则返回所有信息。不过这个也是从本地数据库里面进行搜索。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;which&lt;/strong&gt; ：只能用于寻找可执行文件，并通过path变量寻找。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关于查找方式的总结，find命令非常强大，搜索全盘，而且可以配合多种参数进行各种各样的搜索。&lt;/strong&gt;
+&lt;strong&gt;而locate能做到搜索的更快，因为一种特殊的搜索位置，但是功能要略逊于find。whereis和which都是对于指定类型的搜索，专精某一方面。&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;软链接和硬链接&#34;&gt;软链接和硬链接&lt;/h3&gt;
+&lt;p&gt;首先我了解到，linux文件系统中，每一个文件都会有一个编号，称为索引节点号inode。也就是i节点。&lt;/p&gt;
+&lt;p&gt;链接呢，我的感觉就是，建立一个源文件和链接文件的映射，两个之间会有一定的关系存在。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;创建链接&lt;/strong&gt;的方式为 &lt;code&gt;ln 源文件 目标文件&lt;/code&gt; ，默认为硬链接，软链接为 &lt;code&gt;ln -s 源文件 目标文件&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;对于软链接&lt;/strong&gt;，很像快捷方式，可以跨文件系统（也就是说可以存在于不同的文件系统中），而且他有一个单独的inode，然后通过软连接可以打开源文件。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;对于硬链接&lt;/strong&gt;，就像是整了一个毛一样的东西出来，很像备份吧，而且两者名字可不同，他们的inode是同一个，只是把&lt;strong&gt;inode link count&lt;/strong&gt; 域增加了1，也就是多了加了一个索引项，因为他们是一毛一样的东西，那么就肯定不能跨文件系统了，因为你这个东西在这个文件系统里面是代表这个东西，在另一个里面就不一定是了，会产生错误。&lt;/p&gt;
+&lt;p&gt;关于他们的几点其他区别如下&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;软链接可以对一个不存在的文件名进行链接，如果用编辑器打开这个目标文件，那么会默认创建一个名为filename的文件，而硬链接肯定不行了，因为你文件不存在，他也就没有inode，无从创建链接。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;软链接可以跨文件系统，硬链接不行。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;软链接可以链接目录，硬链接不行。百度了解到，因为硬链接和源文件用的一个inode，用硬链接链接可以会形成循环依赖，导致系统死机。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;硬链接在源文件删除后依然可以访问，因为它具有源文件的inode，而软链接在源文件删除后无法对源文件进行访问，因为inode没有了，索引不到了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;我们对硬链接文件中的内容进行修改也会影响到源文件，因为他们是同一个文件。当然软链接也可以，因为他就是相当于打开了源文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;其他常见操作&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;新建一个用户：通过&lt;code&gt;sudo useradd -m name&lt;/code&gt; 会创建一个名为name的用户，看/home文件下会显示名为name的用户，可以通过 &lt;code&gt;sudo passwd name&lt;/code&gt; 来为用户设置密码，通过&lt;code&gt;su name&lt;/code&gt;来切换用户，如果想要删除则通过&lt;code&gt;sudo userdel [-r] name&lt;/code&gt; 来删除，加上-r代表删除对应文件夹。我们可以通过命令来查看etc中的passwd文件，就能够看到是否创建成功。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/4029946989.png&#34; alt=&#34;image-20200330164751936.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/3948877620.png&#34; alt=&#34;image-20200330164808040.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;权限的修改：我们可以通过&lt;code&gt;sudo gedit /etc/sudoers&lt;/code&gt; 打开sudoers文件修改 # User privilege specification 下的目录，添加&lt;code&gt;&amp;lt;用户名&amp;gt; ALL=(ALL:ALL) ALL&lt;/code&gt; 来为用户添加sudo权限。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;连接网络&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;无线网
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;nmcli dev wifi&lt;/code&gt; 查看可连接的无线网络&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nmcli dev wifi connect name  password password&lt;/code&gt; name为对应的wifi名称，而后面的password则是对应的密码。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;有线网拨号上网
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sudo ifconfig eth0 down/up&lt;/code&gt; 为关闭或者开启网卡驱动。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sudo pppoeconf&lt;/code&gt; 建立拨号连接，对于有线网卡输入 &lt;code&gt;sudo pppoeconf eth0&lt;/code&gt; 然后输入拨号的用户名以及密码即可连接到网络。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;sudo和su一些区别&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;su（substitute user）：切换用户。&lt;/li&gt;
+&lt;li&gt;sudo：sudo是通过另一个用户来执行命令，也就是说一个命令需要root权限，你并不需要直接跑到root用户下执行，只需要通过sudo然后输入root的密码即可执行相应的命令。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;apt-get&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;apt-get&lt;/em&gt;，是一条linux命令，适用于deb包管理式的操作系统，主要用于自动从互联网的软件仓库中搜索、安装、升级、卸载软件或操作系统。通常搭配sudo命令使用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;vim的常用操作&#34;&gt;Vim的常用操作&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;首先通过 &lt;code&gt;sudo apt-get install vim&lt;/code&gt; 来安装Vim&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/1435335493.png&#34; alt=&#34;image-20200330164821953.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;通过 &lt;code&gt;vim name&lt;/code&gt; 来编辑name这个文件，如果不存在那么就会创建一个。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Vim的使用&lt;/p&gt;
+&lt;p&gt;Vim分为了三种模式，分别是&lt;strong&gt;命令模式（Command mode）&lt;/strong&gt;，&lt;strong&gt;输入模式（Insert mode）&lt;/strong&gt;，&lt;strong&gt;底线命令模式（Last line mode）&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;命令模式&lt;/p&gt;
+&lt;p&gt;我们刚进入vim就是进入了命令模式，可以通过输入 &lt;strong&gt;i或a或o&lt;/strong&gt; 来切换到输入模式，也可以通过输入x来删除当前光标后的字符，还有一系列操作可以进行，也可以输入 &lt;strong&gt;:&lt;/strong&gt; 来进入底线命令模式。&lt;/p&gt;
+&lt;p&gt;一些常用命令&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;/word&lt;/strong&gt; 或 &lt;strong&gt;?word&lt;/strong&gt; ：向光标之下 / 光标之上搜索word这个字符串。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;n / N&lt;/strong&gt; ：继续上一个搜索操作 / 进行与上一个搜索操作相反的搜索&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ZZ&lt;/strong&gt; ：按两下大写的Z，那么就是直接保存后离开。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;输入模式&lt;/p&gt;
+&lt;p&gt;输入模式也就是对文本进行编辑，和普通的类似。里面好像有挺多快捷键的，可以通过&lt;strong&gt;Page Up/Page Down&lt;/strong&gt; 来上下翻页，可以通过 &lt;strong&gt;HOME/END&lt;/strong&gt; 来将光标移到行首/行尾。通过 &lt;strong&gt;Insert&lt;/strong&gt; 可以将光标切换为&lt;strong&gt;输入/替换模式&lt;/strong&gt;，光标相应的变为&lt;strong&gt;竖线/下划线&lt;/strong&gt;。通过 &lt;strong&gt;Esc&lt;/strong&gt; 可以退出输入模式，切换到命令模式。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;底线命令模式&lt;/p&gt;
+&lt;p&gt;输入 &lt;code&gt;:命令&lt;/code&gt; 可以执行非常多的操作，一些常用命令如下。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;:set nu / :set nonu&lt;/strong&gt; ： 设置行号，取消行号。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:n1,n2s/word1/word2/g&lt;/strong&gt; ：将n1~n2行中所有的word1替换为word2，g后加c则每次替换前需要用户手动确认，如果加上i则忽略大小写。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:1,$s/word1/word2/g&lt;/strong&gt; 或 &lt;strong&gt;$s/word1/word2/g&lt;/strong&gt; ：将第一行到最后一行中的word1替换为word2，g后加 &lt;strong&gt;c&lt;/strong&gt; 则每次替换前需要用户确认，如果加上 &lt;strong&gt;i (ignore)&lt;/strong&gt; 则忽略大小写。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:w / :w!&lt;/strong&gt; ：分别为保存，强制保存。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:q / :q!&lt;/strong&gt; ：分别为离开vim，强制离开vim，后者是不需要保存的时候可以选择直接退出。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:wq / :wq!&lt;/strong&gt; : 分别为存储后离开，强制存储后离开，我们发现加个叹号！一般就是强制的意思。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:w [filename]&lt;/strong&gt; ：将文本保存成一个叫filename的文件，类似于另存为。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:r [filename]&lt;/strong&gt; ：将文本文件filename读入写在光标之后。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:n1,n2 w filename&lt;/strong&gt; ：将文本n1~n2行保存在的filename中（新建一个文件保存）。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:! command&lt;/strong&gt; ：暂时离开vim到终端中&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/2041226361.png&#34; alt=&#34;vim.png&#34;  /&gt;
+&lt;/p&gt;</description>
     </item>
     
   </channel>

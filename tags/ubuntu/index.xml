@@ -13,15 +13,106 @@
       <pubDate>Tue, 02 Nov 2021 01:16:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/posts/215/</guid>
-      <description>2021版小新Pro14 Ubuntu 20.04 配置指南 补充 最近重装了 Ubuntu 20.04，又找了相关的一些帖子，发现 聯想Yoga 14s 2021款裝機小記 中提到了下文中提到的屏幕闪烁的问题，解决办法是：只需要在内核参数中加入 i915.enable_psr=0 即可。
-具体操作步骤如下：
-$ sudo vim /etc/default/grub 在 GRUB_CMDLINE_LINUX_DEFAULT 这一行的最后添加 i915.enable_psr=0，保存后终端运行：
-$ sudo update-grub 然后重启即可。
-前言 苦于沉重游戏本的迫害，新买了一台小新Pro14 2021款，上手感觉还挺不错的。如下是配置：
-CPU：酷睿 i5-11300H 显卡：集成显卡 Intel 锐炬Iris Xe 内存：16G 外存：512 SSD 屏幕：分辨率 2880x1800、400nits、100%sRGB 这里需要注意的是，不同时间出的小新Pro14配置是不太一样的，所以我这里列了一下配置。主要区别在于有一部分是2.2K分辨率+MX450显卡，而我这个是2.8K分辨率+锐炬Iris Xe显卡。
-为了工作的需要，要装一个Ubuntu，先是装了之前用过的 Ubuntu 18.04，安装后发现触摸板无法使用，一系列探索后无果，在朋友的推荐下，还是决定安装 Ubuntu 20.04 试一下，踩了一些坑，在这里记录一下。
-问题列表 如果你遇到了以下问题，那么这篇文章的方法可能会对你有益处：
-Ubuntu 18.04 相关 Ubuntu 18.04 无法使用触摸板 Ubuntu 18.04 无法使用内置键盘 Ubuntu 18.04 无法调节亮 Ubuntu 18.04 查看GPU发现是llvm，而不是Iris Xe Ubuntu 20.04 相关 Ubuntu 20.</description>
+      <description>&lt;h1 id=&#34;2021版小新pro14-ubuntu-2004-配置指南&#34;&gt;2021版小新Pro14 Ubuntu 20.04 配置指南&lt;/h1&gt;
+&lt;h2 id=&#34;补充&#34;&gt;补充&lt;/h2&gt;
+&lt;p&gt;最近重装了 Ubuntu 20.04，又找了相关的一些帖子，发现 &lt;a href=&#34;https://blog.ryey.icu/lenovo-yoga-14s-2021.html#toc-entry-3&#34;&gt;聯想Yoga 14s 2021款裝機小記&lt;/a&gt; 中提到了下文中提到的&lt;strong&gt;屏幕闪烁的问题&lt;/strong&gt;，解决办法是：只需要在内核参数中加入 &lt;code&gt;i915.enable_psr=0&lt;/code&gt; 即可。&lt;/p&gt;
+&lt;p&gt;具体操作步骤如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo vim /etc/default/grub
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 GRUB_CMDLINE_LINUX_DEFAULT 这一行的最后添加 &lt;code&gt;i915.enable_psr=0&lt;/code&gt;，保存后终端运行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo update-grub
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后重启即可。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;苦于沉重游戏本的迫害，新买了一台小新Pro14 2021款，上手感觉还挺不错的。如下是配置：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CPU：酷睿 i5-11300H&lt;/li&gt;
+&lt;li&gt;显卡：集成显卡 Intel 锐炬Iris Xe&lt;/li&gt;
+&lt;li&gt;内存：16G&lt;/li&gt;
+&lt;li&gt;外存：512 SSD&lt;/li&gt;
+&lt;li&gt;屏幕：分辨率 2880x1800、400nits、100%sRGB&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/11/3138090261.png&#34; alt=&#34;电脑配置信息&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;这里需要注意的是，不同时间出的小新Pro14配置是不太一样的，所以我这里列了一下配置。主要区别在于有一部分是2.2K分辨率+MX450显卡，而我这个是2.8K分辨率+锐炬Iris Xe显卡。&lt;/p&gt;
+&lt;p&gt;为了工作的需要，要装一个Ubuntu，先是装了之前用过的 Ubuntu 18.04，安装后发现触摸板无法使用，一系列探索后无果，在朋友的推荐下，还是决定安装 Ubuntu 20.04 试一下，踩了一些坑，在这里记录一下。&lt;/p&gt;
+&lt;h2 id=&#34;问题列表&#34;&gt;问题列表&lt;/h2&gt;
+&lt;p&gt;如果你遇到了以下问题，那么这篇文章的方法可能会对你有益处：&lt;/p&gt;
+&lt;h3 id=&#34;ubuntu-1804-相关&#34;&gt;Ubuntu 18.04 相关&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Ubuntu 18.04 无法使用触摸板&lt;/li&gt;
+&lt;li&gt;Ubuntu 18.04 无法使用内置键盘&lt;/li&gt;
+&lt;li&gt;Ubuntu 18.04 无法调节亮&lt;/li&gt;
+&lt;li&gt;Ubuntu 18.04 查看GPU发现是llvm，而不是Iris Xe&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;ubuntu-2004-相关&#34;&gt;Ubuntu 20.04 相关&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Ubuntu 20.04 进入后屏幕花屏、黑屏&lt;/li&gt;
+&lt;li&gt;Ubuntu 20.04 查看GPU发现是llvm，而不是Iris Xe&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;现在达成的效果&#34;&gt;现在达成的效果&lt;/h2&gt;
+&lt;p&gt;Ubuntu 20.04 能够正常使用，触摸板以及外界屏幕，亮度调节均无问题。&lt;/p&gt;
+&lt;p&gt;开机时也能够使用键盘。&lt;/p&gt;
+&lt;p&gt;但是开机登录界面还是存在花屏、闪屏的问题，我通过自动登录解决。BIOS界面仍旧会闪屏。&lt;/p&gt;
+&lt;h2 id=&#34;安装-ubuntu-1804-的问题&#34;&gt;安装 Ubuntu 18.04 的问题&lt;/h2&gt;
+&lt;p&gt;首先安装Ubuntu 18.04 还是比较顺利，没有什么坑。&lt;/p&gt;
+&lt;p&gt;安装的话就是按流程来一遍——压缩卷、进入BIOS关闭安全启动模式&lt;code&gt;(这里网上有部分同学说也需要关闭 Intel Platform Trust Technology 、但是我不关闭也是可以的)&lt;/code&gt;、然后Try Ubuntu看一下效果&lt;code&gt;（这里Try Ubuntu我没法使用鼠标，不过安装的时候可以）&lt;/code&gt;、开始安装。&lt;/p&gt;
+&lt;p&gt;安装过程一般没啥问题，进入系统后我们就会发现一些问题，首先是你的**触摸板用不了，然后键盘也用不了。**再就是屏幕没法调节亮度（这个是小问题我觉得，好像也可以通过安装插件解决，大家可以自行搜索。）&lt;/p&gt;
+&lt;p&gt;经过查询资料，这里有同学已经提出很好的解决方案：https://zhuanlan.zhihu.com/p/322377515&lt;/p&gt;
+&lt;p&gt;简而言之，键盘用不了需要在 grub 启动项中加入 i8042.dumbkbd 参数，然后运行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo update-grub2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即可在每次启动后保证键盘可用。&lt;/p&gt;
+&lt;p&gt;关于没法使用触摸板和调节亮度，办法就是升级内核，据说是内核升级到5.9.8以上可用，Ubuntu 18.04内置版本是5.4.0.84好像是，但是我在更新后会花屏、黑屏等来回鬼畜，试了好多四五个内核依旧不管用，我猜想是因为我是2.8K的屏幕而网上的教程多是基于2.2K屏幕的，锐炬显卡对于高分辨率的屏幕支持并没有那么优秀。&lt;/p&gt;
+&lt;p&gt;于是一直被这个问题折磨，搜了很多的教程也没有解决办法，最后决定换Ubuntu 20.04 尝试一下，之前一直觉得系统版本是个不可逾越的鸿沟，但是随着实践的越来越多，发现很多版本不兼容的问题都是有可解决办法的，因此也下定决心尝试一下未曾试过的 20.04。&lt;/p&gt;
+&lt;h2 id=&#34;安装ubuntu-2004-的问题&#34;&gt;安装Ubuntu 20.04 的问题&lt;/h2&gt;
+&lt;p&gt;首先是关于安装的问题&lt;/p&gt;
+&lt;p&gt;在安装Ubuntu 18.04 的时候只有四个选项，应该是一个 Try Ubuntu、一个直接安装，一个高级模式，一个进BIOS&lt;/p&gt;
+&lt;p&gt;而安装Ubuntu 20.04 的时候却有五个选项，分别是Ubuntu、Ubuntu&lt;code&gt;(safe graphics)&lt;/code&gt;、OEM install&lt;code&gt;(for manufacturers)&lt;/code&gt;、还有就是一个是高级模式、一个是进BIOS&lt;/p&gt;
+&lt;p&gt;说一下三个安装方式的区别&lt;/p&gt;
+&lt;p&gt;第一个模式与第二个模式的区别就是，第二个模式对于grub启动项目中添加了一个 &lt;code&gt;nomodeset&lt;/code&gt;  选项，那么这个选项是做什么的？以下是他的解释：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The newest kernels have moved the video mode setting into the kernel. So all the programming of the hardware specific clock rates and registers on the video card happen in the kernel rather than in the X driver when the X server starts.. This makes it possible to have high resolution nice looking splash (boot) screens and flicker free transitions from boot splash to login screen. Unfortunately, on some cards this doesn’t work properly and you end up with a black screen. Adding the nomodeset parameter instructs the kernel to not load video drivers and use BIOS modes instead until X is loaded.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;大概意思是在最新的内核中，已经能够在BIOS引导阶段启用显卡，这样做的目的是很好的适应高分辨率屏，但是很遗憾的是某些显卡并不能很好的适配，通过 &lt;code&gt;nomodeset&lt;/code&gt; 参数可以防止以不支持的显卡驱动视频流。&lt;/p&gt;
+&lt;p&gt;很遗憾，锐炬显卡刚好没有被适配，所以选第一个选项&lt;code&gt;(Ubuntu)&lt;/code&gt;来安装也会屏幕一闪一闪的，因此我们安装选择Ubuntu&lt;code&gt;(safe graphics)&lt;/code&gt;选项来进行安装然后流程是一样的，蛮顺利。&lt;/p&gt;
+&lt;p&gt;这里装完就没有触摸板的问题，屏幕亮度调节也没有问题。不过键盘依旧有问题，可以根据上面描述进行更改。&lt;/p&gt;
+&lt;p&gt;然后更鬼畜的问题来了，只要这么一搞，从BIOS引导阶段开始，就会一直闪屏，尤其是输入密码进行登录的时候，会卡个好长时间，几乎无法使用，不过很有意思的是，只要外接屏幕，外接的屏幕显示不会有问题。&lt;/p&gt;
+&lt;p&gt;因此求助于搜索引擎，因为怀疑是显卡的问题，所以搜索了关键词 &lt;code&gt;Ubuntu Iris Xe&lt;/code&gt;，找到了以下两个比较有用的答案：&lt;/p&gt;
+&lt;p&gt;StackOverflow：&lt;a href=&#34;https://askubuntu.com/questions/1299067/ubuntu-20-04-no-driver-loaded-for-intel-iris-xe-graphics&#34;&gt;Ubuntu 20.04 no driver loaded for Intel Iris Xe Graphics&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Intel：&lt;a href=&#34;https://dgpu-docs.intel.com/devices/iris-xe-max-graphics/index.html&#34;&gt;Intel Iris Xe MAX Graphics with Linux&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这两个帖子都说了一个问题吧，就是如何在 Ubuntu 20.04 上更好的使用锐炬显卡&lt;/p&gt;
+&lt;p&gt;这个问题实质解决的是没有在Ubuntu 20.04 上启动起来显卡，所以你会在你的 Ubuntu-&amp;gt;Settings-&amp;gt;About 页面看到的是 llvm 有关的字眼，而不是上面我截图所示的 &lt;code&gt;Mesa Intel® Xe Graphics (TGL GT2)&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;解决这个问题比较关键的步骤是&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install linux-oem-20.04
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo reboot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样开机再启动应该就会正常启动显卡了，这个方式在Ubuntu18.04是否奏效我没有实验过，可能可以安装对应的 &lt;code&gt;linux-oem-18.04&lt;/code&gt;  包。&lt;/p&gt;
+&lt;p&gt;在 Intel 官方的教程中，还添加了 grub 启动项等，我并没有发现他们的实际作用，在他后续的测试中我也没有达到期待的效果，因此没有继续尝试，如果有同学跟着文档做成功了，可以一起来讨论一下。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;但是！！！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;安装完成后，我还是会花屏和黑屏，问题依旧没有解决。我突发奇想，考虑到我外接屏幕没有问题，而自带的屏幕有问题，**因为外接屏是 1920x1080 而内置屏幕是 2880x1800，我联想到会不会是高分辨率屏幕的问题，所以尝试着把外接屏的显示比例调成了 150%&lt;code&gt;(需要开启 Fractional Scaling)&lt;/code&gt;，没想到歪打正着，居然好了，看起来也更加的顺眼，比例也更加协调。**具体的内部原因还不是很清楚。&lt;/del&gt;  已解决，见本文开头。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/11/3113030601.png&#34; alt=&#34;比例配置信息&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;但是还是有一个小瑕疵，就是在BIOS引导阶段与输入密码登录的界面，我仍旧是会花屏、闪屏，我考虑到这是还没有初始化屏幕设置的问题，尝试搜索了修改BIOS比例、提前初始化login界面的分辨率，依旧没有找到比较好的解决办法，&lt;/p&gt;
+&lt;p&gt;因此最后只好启动自动登录来跳过登录界面，这样就&lt;strong&gt;看上去算是一个完好的系统&lt;/strong&gt;了QAQ。。&lt;/p&gt;
+&lt;p&gt;这里给出一些可能有价值的资料，大家可以自行查阅&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://askubuntu.com/questions/1041677/how-to-change-the-login-screen-resolution-in-ubuntu-18-04&#34;&gt;How to change the login screen resolution in Ubuntu 18.04&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://askubuntu.com/questions/1252172/custom-resolution-ubuntu-20-04&#34;&gt;Custom Resolution Ubuntu 20.04&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://askubuntu.com/questions/1091778/how-can-i-change-the-resolution-of-the-grub-menu&#34;&gt;How can I change the resolution of the GRUB menu?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;根据上述第三个教程，我修改了 GRUB 的显示分辨率为 1920x1080，还是会闪屏。&lt;/p&gt;
+&lt;p&gt;如果有大佬有想法或者解决了，欢迎留言一起探讨。&lt;/p&gt;
+&lt;h2 id=&#34;后记与感想&#34;&gt;后记与感想&lt;/h2&gt;
+&lt;p&gt;折腾了一下午加一晚上，终于把系统整的能用了，不过又要重新配置各种软件，还是挺麻烦的。&lt;/p&gt;
+&lt;p&gt;不过尝试新鲜事物、好比Windows11、最新款的电脑，还是挺高血压的，需要应付各种Bug，这可能也是一种平衡？hhhh，想要尝试新的事物、走在前沿、就必须要有付出。&lt;/p&gt;
+&lt;p&gt;此外，发现查英文的资料要比中文靠谱的多，尤其是这种比较新的问题、要多去StackOverflow和AskUbuntu等论坛和官网查看，有奇效。&lt;/p&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/322377515&#34;&gt;联想小新pro14安装Ubuntu20.04&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/1299067/ubuntu-20-04-no-driver-loaded-for-intel-iris-xe-graphics&#34;&gt;Ubuntu 20.04 no driver loaded for Intel Iris Xe Graphics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dgpu-docs.intel.com/devices/iris-xe-max-graphics/index.html&#34;&gt;Intel Iris Xe MAX Graphics with Linux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/1041677/how-to-change-the-login-screen-resolution-in-ubuntu-18-04&#34;&gt;How to change the login screen resolution in Ubuntu 18.04&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/1252172/custom-resolution-ubuntu-20-04&#34;&gt;Custom Resolution Ubuntu 20.04&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/1091778/how-can-i-change-the-resolution-of-the-grub-menu&#34;&gt;How can I change the resolution of the GRUB menu?&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
     </item>
     
     <item>
@@ -30,13 +121,115 @@ Ubuntu 18.04 相关 Ubuntu 18.04 无法使用触摸板 Ubuntu 18.04 无法使用
       <pubDate>Wed, 16 Jun 2021 01:38:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/posts/195/</guid>
-      <description>问题描述 ​Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题
-解决方案 ​首先我们根据上文的启示，因为每一个应用程序对应了一个 xxx.desktop 文件，因此在应用库中的QQ一定也有一个对应的 desktop 文件
-​我们进入到 /usr/share/applications ，运行
-$ ls | grep -i qq ​可以发现其中有一个名为 deepin.com.qq.im.desktop 的文件，我们打开后发现内容如下：
-#!/usr/bin/env xdg-open [Desktop Entry] Encoding=UTF-8 Type=Application X-Created-By=Deepin WINE Team Categories=chat; Icon=deepin.com.qq.im Exec=&amp;#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;#34; -u %u Name=QQ Name[zh_CN]=QQ Comment=Tencent QQ Client on Deepin Wine StartupWMClass=QQ.exe MimeType= ​可以看到Exec那一栏为 Exec=&amp;quot;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;quot; -u %u ，发现他是运行目录下的一个 run.sh 脚本来启动的。
-​我们进入目录下直接运行该脚本，查看log信息：
-base ❯ ./run.sh Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.exe run Deepin-QQ progress pid Gtk-Message: 01:16:58.069: GtkDialog mapped without a transient parent.</description>
+      <description>&lt;h3 id=&#34;问题描述&#34;&gt;问题描述&lt;/h3&gt;
+&lt;p&gt;​Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题&lt;/p&gt;
+&lt;h3 id=&#34;解决方案&#34;&gt;解决方案&lt;/h3&gt;
+&lt;p&gt;​首先我们根据上文的启示，因为每一个应用程序对应了一个 &lt;code&gt;xxx.desktop&lt;/code&gt; 文件，因此在应用库中的QQ一定也有一个对应的 &lt;code&gt;desktop&lt;/code&gt; 文件&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/06/75817321.png&#34; alt=&#34;QQ的启动方式&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;​我们进入到 &lt;code&gt;/usr/share/applications&lt;/code&gt; ，运行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ ls &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep -i qq
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;​可以发现其中有一个名为 &lt;code&gt;deepin.com.qq.im.desktop&lt;/code&gt; 的文件，我们打开后发现内容如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/usr/bin/env xdg-open
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Desktop Entry&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;Encoding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;UTF-8
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;Type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Application
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;X-Created-By&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Deepin WINE Team
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;Categories&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;chat&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;Icon&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;deepin.com.qq.im
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;Exec&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;#34;&lt;/span&gt; -u %u
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;Name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;QQ
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Name&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;zh_CN&lt;span class=&#34;o&#34;&gt;]=&lt;/span&gt;QQ
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;Comment&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Tencent QQ Client on Deepin Wine
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;StartupWMClass&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;QQ.exe
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;MimeType&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;​可以看到Exec那一栏为 &lt;code&gt;Exec=&amp;quot;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;quot; -u %u&lt;/code&gt; ，发现他是运行目录下的一个 &lt;code&gt;run.sh&lt;/code&gt;  脚本来启动的。&lt;/p&gt;
+&lt;p&gt;​我们进入目录下直接运行该脚本，查看log信息：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;base ❯ ./run.sh                   
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.exe
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;run Deepin-QQ progress pid 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Gtk-Message: 01:16:58.069: GtkDialog mapped without a transient parent. This is discouraged.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;total &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;16&lt;/span&gt; 01:16 c: -&amp;gt; ../drive_c
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com1 -&amp;gt; /dev/ttyS0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com10 -&amp;gt; /dev/ttyS9
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com11 -&amp;gt; /dev/ttyS10
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com12 -&amp;gt; /dev/ttyS11
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com13 -&amp;gt; /dev/ttyS12
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com14 -&amp;gt; /dev/ttyS13
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com15 -&amp;gt; /dev/ttyS14
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com16 -&amp;gt; /dev/ttyS15
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com17 -&amp;gt; /dev/ttyS16
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com18 -&amp;gt; /dev/ttyS17
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com19 -&amp;gt; /dev/ttyS18
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com2 -&amp;gt; /dev/ttyS1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com20 -&amp;gt; /dev/ttyS19
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com21 -&amp;gt; /dev/ttyS20
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com22 -&amp;gt; /dev/ttyS21
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com23 -&amp;gt; /dev/ttyS22
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com24 -&amp;gt; /dev/ttyS23
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com25 -&amp;gt; /dev/ttyS24
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com26 -&amp;gt; /dev/ttyS25
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com27 -&amp;gt; /dev/ttyS26
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com28 -&amp;gt; /dev/ttyS27
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com29 -&amp;gt; /dev/ttyS28
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com3 -&amp;gt; /dev/ttyS2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com30 -&amp;gt; /dev/ttyS29
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com31 -&amp;gt; /dev/ttyS30
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com32 -&amp;gt; /dev/ttyS31
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com4 -&amp;gt; /dev/ttyS3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com5 -&amp;gt; /dev/ttyS4
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com6 -&amp;gt; /dev/ttyS5
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com7 -&amp;gt; /dev/ttyS6
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com8 -&amp;gt; /dev/ttyS7
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com9 -&amp;gt; /dev/ttyS8
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs  &lt;span class=&#34;m&#34;&gt;8&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;16&lt;/span&gt; 01:16 y: -&amp;gt; /home/zs
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;16&lt;/span&gt; 01:16 z: -&amp;gt; /
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;CallApp Deepin-QQ c:/Program Files/Tencent/QQ/Bin/QQ.exe
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2021年 06月 16日 星期三 01:16:58 CST:kill QQ.exe block
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2021年 06月 16日 星期三 01:16:58 CST:No wine process found
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/home/zs/.deepinwine/Deepin-QQ/drive_c/Program Files/Tencent/QQ/Bin
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Starting process c:/Program Files/Tencent/QQ/Bin/QQ.exe ...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/opt/deepinwine/apps/Deepin-QQ
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;base ❯ wine: cannot find L&lt;span class=&#34;s2&#34;&gt;&amp;#34;C:\\windows\\system32\\winemenubuilder.exe&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wine version: 2.18
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;libGL error: No matching fbConfigs or visuals found
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;libGL error: failed to load driver: swrast
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;X Error of failed request:  GLXBadContext
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Major opcode of failed request:  &lt;span class=&#34;m&#34;&gt;152&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;GLX&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Minor opcode of failed request:  &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;X_GLXIsDirect&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Serial number of failed request:  &lt;span class=&#34;m&#34;&gt;207&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Current serial number in output stream:  &lt;span class=&#34;m&#34;&gt;206&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;​可以发现最下面的log信息有一些异常，首先第一行是因为我们是Ubuntu系统，可以暂且不关注&lt;/p&gt;
+&lt;p&gt;​接下来可以看到有一个LibGL的错误，我们通过Google搜索&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;libGL error: No matching fbConfigs or visuals found
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;libGL error: failed to load driver: swrast
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;X Error of failed request:  GLXBadContext
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Major opcode of failed request:  &lt;span class=&#34;m&#34;&gt;152&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;GLX&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Minor opcode of failed request:  &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;X_GLXIsDirect&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Serial number of failed request:  &lt;span class=&#34;m&#34;&gt;207&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Current serial number in output stream:  &lt;span class=&#34;m&#34;&gt;206&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;​发现类似的错误及解决方案如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://bbs.archlinux.org/viewtopic.php?id=255385&#34;&gt;SOLVED] LibGL errors with osu! and wine&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://askubuntu.com/questions/834254/steam-libgl-error-no-matching-fbconfigs-or-visuals-found-libgl-error-failed-t&#34;&gt;Steam: libGL error: No matching fbConfigs or visuals found libGL error: failed to load driver: swrast&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​从搜索结果来看，这个问题还是非常常见的，用steam也会遇到，一般都是因为电脑安装了64位的NVIDIA显卡驱动，但是因为应用是32位的导致不能兼容，因此无法启动&lt;/p&gt;
+&lt;p&gt;​最终解决方案有两个&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果是不常用NVIDIA驱动的人，普通的办公一下，可以搜索网上教程关闭独显，只启用集显，可以发现QQ可以正常启动，&lt;/li&gt;
+&lt;li&gt;重新安装32位的NVIDIA驱动&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;最后&#34;&gt;最后&lt;/h3&gt;
+&lt;p&gt;虽然已经知道了解决方案，但是最终我还是选择卸载掉QQ，安装了wine版本的TIM，感觉和QQ没什么区别，而且更加简洁，而且可以流畅运行，没有N卡兼容问题！大家可以考虑一下~&lt;/p&gt;
+&lt;p&gt;而且QQ和TIM某些情况下会出现bug，字体全部变为方块，在 deepin-wine-ubuntu 的 &lt;a href=&#34;https://github.com/wszqkzqk/deepin-wine-ubuntu/issues&#34;&gt;Issues&lt;/a&gt; 中找到了解决方案 &lt;a href=&#34;https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/253&#34;&gt;Ubuntu 安装QQ后中文方块解决方法&lt;/a&gt; ，大家有同样困扰的也可以看一下~&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -45,22 +238,111 @@ base ❯ ./run.sh Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.
       <pubDate>Fri, 04 Dec 2020 01:39:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/posts/141/</guid>
-      <description>前言 因为最近Ubuntu用的比较频繁，所以前一阵把Ubuntu16.04换成Ubuntu18.04了，并且囿于机械硬盘那启动速度，我忍痛割爱把我80G的固态硬盘分给了Ubuntu。
-后来，用着用着就觉得这个Ubuntu的原始界面确实不是特别的好看，配色偏基佬紫的感觉。“工欲善其事，必先利其器“，我们只有将自己的工作环境布置的舒心一些才能有做下去的动力！所以我想给Ubuntu换一个看起来舒服点的界面，然后上网找教程乱七八糟的倒腾了一会，感觉换完以后完全不一样了，这个界面真的好看！！用起来也特别的舒心，感觉自己马上就要告别Windows投奔Linux的怀抱了。后续还有一些其他的优化，例如装QQ、微信、配置终端等，一并写在这里吧。
-Ubuntu界面的优化 具体效果 先放几张效果图上来，是我改后的界面。大概就是这样(自我感觉挺好看的)，当然也有其他的主题可供选择。
-1.安装GNOME桌面环境主题配置工具 如果要改主题，那么首先要有一个利器，这里我用的Ubuntu18.04，桌面环境为 GNOME 3.28.2 ，因为我目前接触的只有GNOME桌面环境的，Ubuntu18.04本来的桌面环境就是GNOME，但是Ubuntu16.04好像没有自带，但是可以安装，这里大家可以自行百度了解。
-然后我们已经有了GNOME桌面环境后，安装主题配置工具 GNOME Tweaks ，在终端中输入如下内容：
-sudo apt-get update sudo apt-get install gnome-tweak-tool 我们先更新软件源，然后安装后直接打开他就行，在系统软件中中文大概叫 优化 。
-2.拓展上述工具 安装完上述工具后，我们可能发现了一个问题，就是外观那一栏目的Shell有一个感叹号，无法更改，这是因为我们没有安装拓展导致的。我们在终端中运行
-sudo apt-get install gnome-shell-extensions 然后重启一下电脑。再打开软件找到左侧的拓展，把 User themes 那一栏目打开。切换回去就可以发现Shell那边的感叹号无了。
-3.寻找自己喜欢的主题 这里我大家可以去这个网址去找自己喜欢的 GNOME-LOOK.ORG
-这里面包含了图标，主题这些，下面介绍一下如何安装。
-好比我们找到一个自己喜欢的主题，然后我们点击下面的 Files ，可能会有很多文件，但是多是同一个主题的不同风格，好比暗风格和亮风格这样的，还有不同的版本的，我多是安装那个下载量最多的，我们下载那个对应的文件(多是tar.xz安装包)。
-对于主题的安装，我们只需要把解压出来的文件，移动或复制到 /usr/share/themes/ 目录下，如果是光标\图标的安装，那么就把文件夹移动到 /usr/share/icons 目录下。
-然后我们回到 GNOME Tweaks 软件中就可以发现，我们已经可以在主题\图标\光标\Shell清单中找到我们移动到文件夹中的文件了，然后选择就可以切换了。这里需要注意的，很多主题都是自带Shell的，你下了一个主题，那么你可以在Shell和主题这两个栏目中都找到他们，是一个配套的。
-4.一些后续的调整 我们后续可以改变左边收藏夹的位置，我觉得放在左边有一丢丢的丑，所以我选择把它放在的下面。
-我们去Ubuntu软件中搜索 Dash to dock，然后安装这个拓展，然后打开 GNOME Tweaks 软件在拓展中找到他就可以随心所欲的调我们的收藏夹的位置了。
-5.我自己的配置 theme&amp;amp;shell Canta-light-compact icons 01-McMojave-circle 6.界面修改的参考链接 Ubuntu18.04美化主题(mac主题) Ubuntu18.04美化主题(完整版) GNOME-LOOK.ORG 30个非常不错的Ubuntu主题供你选择 ubuntu18.</description>
+      <description>&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
+&lt;p&gt;因为最近Ubuntu用的比较频繁，所以前一阵把Ubuntu16.04换成Ubuntu18.04了，并且囿于机械硬盘那启动速度，我忍痛割爱把我80G的固态硬盘分给了Ubuntu。&lt;/p&gt;
+&lt;p&gt;后来，用着用着就觉得这个Ubuntu的原始界面确实不是特别的好看，&lt;del&gt;配色偏基佬紫的感觉&lt;/del&gt;。“工欲善其事，必先利其器“，我们只有将自己的工作环境布置的舒心一些才能有做下去的动力！所以我想给Ubuntu换一个看起来舒服点的界面，然后上网找教程乱七八糟的倒腾了一会，感觉换完以后完全不一样了，这个界面真的好看！！用起来也特别的舒心，感觉自己马上就要告别Windows投奔Linux的怀抱了。后续还有一些其他的优化，例如装QQ、微信、配置终端等，一并写在这里吧。&lt;/p&gt;
+&lt;h3 id=&#34;ubuntu界面的优化&#34;&gt;Ubuntu界面的优化&lt;/h3&gt;
+&lt;h4 id=&#34;具体效果&#34;&gt;具体效果&lt;/h4&gt;
+&lt;p&gt;先放几张效果图上来，是我改后的界面。大概就是这样(自我感觉挺好看的)，当然也有其他的主题可供选择。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/12/171170690.png&#34; alt=&#34;桌面风格&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/12/3724154221.png&#34; alt=&#34;文件夹风格&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/12/3559388649.png&#34; alt=&#34;效果图&#34;  /&gt;
+&lt;/p&gt;
+&lt;h4 id=&#34;1安装gnome桌面环境主题配置工具&#34;&gt;1.安装GNOME桌面环境主题配置工具&lt;/h4&gt;
+&lt;p&gt;如果要改主题，那么首先要有一个利器，这里我用的&lt;code&gt;Ubuntu18.04&lt;/code&gt;，桌面环境为 &lt;code&gt;GNOME 3.28.2&lt;/code&gt; ，因为我目前接触的只有GNOME桌面环境的，Ubuntu18.04本来的桌面环境就是GNOME，但是Ubuntu16.04好像没有自带，但是可以安装，这里大家可以自行百度了解。&lt;/p&gt;
+&lt;p&gt;然后我们已经有了GNOME桌面环境后，安装主题配置工具 &lt;code&gt;GNOME Tweaks &lt;/code&gt; ，在终端中输入如下内容：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install gnome-tweak-tool 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们先更新软件源，然后安装后直接打开他就行，在系统软件中中文大概叫 &lt;strong&gt;优化&lt;/strong&gt; 。&lt;/p&gt;
+&lt;h4 id=&#34;2拓展上述工具&#34;&gt;2.拓展上述工具&lt;/h4&gt;
+&lt;p&gt;安装完上述工具后，我们可能发现了一个问题，就是外观那一栏目的Shell有一个感叹号，无法更改，这是因为我们没有安装拓展导致的。我们在终端中运行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install gnome-shell-extensions
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后重启一下电脑。再打开软件找到左侧的拓展，把 &lt;code&gt;User themes&lt;/code&gt; 那一栏目打开。切换回去就可以发现Shell那边的感叹号无了。&lt;/p&gt;
+&lt;h4 id=&#34;3寻找自己喜欢的主题&#34;&gt;3.寻找自己喜欢的主题&lt;/h4&gt;
+&lt;p&gt;这里我大家可以去这个网址去找自己喜欢的 &lt;a href=&#34;https://www.gnome-look.org&#34;&gt;GNOME-LOOK.ORG&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这里面包含了图标，主题这些，下面介绍一下如何安装。&lt;/p&gt;
+&lt;p&gt;好比我们找到一个自己喜欢的主题，然后我们点击下面的 &lt;strong&gt;Files&lt;/strong&gt; ，可能会有很多文件，但是多是同一个主题的不同风格，好比暗风格和亮风格这样的，还有不同的版本的，我多是安装那个下载量最多的，我们下载那个对应的文件(多是tar.xz安装包)。&lt;/p&gt;
+&lt;p&gt;对于主题的安装，我们只需要把解压出来的文件，移动或复制到 &lt;code&gt;/usr/share/themes/&lt;/code&gt; 目录下，如果是光标\图标的安装，那么就把文件夹移动到 &lt;code&gt;/usr/share/icons&lt;/code&gt; 目录下。&lt;/p&gt;
+&lt;p&gt;然后我们回到 &lt;code&gt;GNOME Tweaks&lt;/code&gt; 软件中就可以发现，我们已经可以在主题\图标\光标\Shell清单中找到我们移动到文件夹中的文件了，然后选择就可以切换了。这里需要注意的，很多主题都是自带Shell的，你下了一个主题，那么你可以在Shell和主题这两个栏目中都找到他们，是一个配套的。&lt;/p&gt;
+&lt;h4 id=&#34;4一些后续的调整&#34;&gt;4.一些后续的调整&lt;/h4&gt;
+&lt;p&gt;我们后续可以改变左边收藏夹的位置，我觉得放在左边有一丢丢的丑，所以我选择把它放在的下面。&lt;/p&gt;
+&lt;p&gt;我们去Ubuntu软件中搜索 Dash to dock，然后安装这个拓展，然后打开 &lt;code&gt;GNOME Tweaks&lt;/code&gt; 软件在拓展中找到他就可以随心所欲的调我们的收藏夹的位置了。&lt;/p&gt;
+&lt;h4 id=&#34;5我自己的配置&#34;&gt;5.我自己的配置&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;theme&amp;amp;shell   Canta-light-compact
+icons 01-McMojave-circle
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;6界面修改的参考链接&#34;&gt;6.界面修改的参考链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/lishanleilixin/article/details/80453565&#34;&gt;Ubuntu18.04美化主题(mac主题)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/qq_42527676/article/details/91356154&#34;&gt;Ubuntu18.04美化主题(完整版)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.gnome-look.org&#34;&gt;GNOME-LOOK.ORG&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.jianshu.com/p/4fb5e4657695&#34;&gt;30个非常不错的Ubuntu主题供你选择&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/maodexuedinge_/article/details/106652323&#34;&gt;ubuntu18.04更换鼠标游标主题&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;配置终端&#34;&gt;配置终端&lt;/h3&gt;
+&lt;h4 id=&#34;前言-1&#34;&gt;前言&lt;/h4&gt;
+&lt;p&gt;唔，终端本来用起来感觉也还行，感觉终端就是linux的灵魂，啥都能干。&lt;/p&gt;
+&lt;p&gt;但是听说有更好用的终端，现在ubuntu普遍用的好像都是bash，但是好像还有zsh，fish这样的，他们可以有一些代码补全，功能更强，可拓展性也高，大家都zsh和fish哪个好用一直争执不停，但是我发现ROS对 &lt;code&gt;zsh&lt;/code&gt; 支持的很好，但是对 &lt;code&gt;fish&lt;/code&gt; 的支持有点拉胯，考虑到以后可能ros会用的比较多，因此我选择使用zsh。效果图如下&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/12/3375893306.png&#34; alt=&#34;终端效果图&#34;  /&gt;
+&lt;/p&gt;
+&lt;h4 id=&#34;1下载zsh&#34;&gt;1.下载zsh&lt;/h4&gt;
+&lt;p&gt;直接在终端执行下列语句&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install zsh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;2安装oh-my-zsh&#34;&gt;2.安装oh my zsh&lt;/h4&gt;
+&lt;p&gt;zsh其实配置起来很麻烦，这一点相比与fish不太行，fish下载下来就已经具备了常用的功能，例如代码补全等。&lt;/p&gt;
+&lt;p&gt;但是我们有先人铺路，在Github上有一个开源的项目 &lt;a href=&#34;https://github.com/ohmyzsh/ohmyzsh&#34;&gt;oh my zsh&lt;/a&gt;，就是专门用来导入这个zsh的配置的，&lt;/p&gt;
+&lt;p&gt;我们直接运行如下代码，就可以直接安装了&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget sh -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后我们可以通过在终端中输入zsh来切换到zsh，也可以通过输入bash切换回去&lt;/p&gt;
+&lt;p&gt;我们也可以通过如下命令来切换默认的终端系统，首先查找一下zsh的目录，然后切换过去。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;whereis zsh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;chsh -s zsh路径
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;3配置插件&#34;&gt;3.配置插件&lt;/h4&gt;
+&lt;p&gt;在zsh里面有许多好用的插件，在这里推荐两个&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;自动补全 &lt;a href=&#34;https://github.com/zsh-users/zsh-autosuggestions&#34;&gt;zsh-autosuggestions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;语法高亮 &lt;a href=&#34;https://github.com/zsh-users/zsh-syntax-highlighting&#34;&gt;zsh-syntax-highlighting&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;关于下载的方法，在这两个项目里面都说了，我们只需要把下载的文件放到  &lt;code&gt;~/.oh-my-zsh/plugins&lt;/code&gt; 目录中，然后编辑 &lt;code&gt;~/.zshrc&lt;/code&gt; 在 &lt;code&gt;plugin = (插件1 插件2)&lt;/code&gt; 写上你所要启用的插件名称即可。&lt;/p&gt;
+&lt;p&gt;然后在终端中 &lt;code&gt;source ~/.zshrc&lt;/code&gt; 更新一下配置即可。&lt;/p&gt;
+&lt;h4 id=&#34;4配置主题&#34;&gt;4.配置主题&lt;/h4&gt;
+&lt;p&gt;zsh有许多可用的主题选择，我自己最喜欢的一个叫 &lt;a href=&#34;https://github.com/sindresorhus/pure&#34;&gt;pure&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我觉得害挺好看的，效果就跟上图一样吧。&lt;/p&gt;
+&lt;p&gt;安装方法就是先把pure下载到一个路径，然后编辑 &lt;code&gt;~/.zshrc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在下面加入&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;fpath+=安装路径
+autoload -U promptinit; promptinit
+prompt pure
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后我们&lt;code&gt;source&lt;/code&gt;一下&lt;code&gt;.zshrc&lt;/code&gt; 就可以使用了。&lt;/p&gt;
+&lt;p&gt;但是如果是使用zsh本来自带的一些主题，和这个有些差别，只需要下载好主题然后放到 &lt;code&gt;~/.oh-my-zsh/themes&lt;/code&gt; ，然后在 &lt;code&gt;.zshrc &lt;/code&gt;中启用即可。&lt;/p&gt;
+&lt;h4 id=&#34;5参考链接&#34;&gt;5.参考链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/rainy0426/articles/13163167.html&#34;&gt;linux终端shell:zsh配置和使用&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/shengzhu1/article/details/55272234/&#34;&gt;zsh和oh-my-zsh的一些好用的主题和插件&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/yuqiongran/article/details/52280522&#34;&gt;linux安装oh my zsh终端及简单使用方法&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/497b4af1334d&#34;&gt;配置oh-my-zsh主题&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/a94e2c59f244&#34;&gt;Zsh 常用插件&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://linux.cn/article-11426-1.html&#34;&gt;给Zsh添加主题和插件&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/61447507&#34;&gt;常用的oh-my-zsh插件&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;还有一些其他的配置有时间再写吧……咕咕咕&lt;/p&gt;
+</description>
     </item>
     
   </channel>

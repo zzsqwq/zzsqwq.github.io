@@ -13,21 +13,129 @@
       <pubDate>Sun, 18 Jul 2021 16:03:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/posts/198/</guid>
-      <description>前言 最近基地的打印机突然又好起来了。
-因为基地的打印机型号比较老——HP LaserJet 1020，没有无线打印的功能。所以之前一位学长1 用树莓派配置了打印机的无线打印功能，但是后来发现有一些问题，有时候发送打印请求树莓派无法接收，而且不知道为何，学长之前用的是树莓派自己创建WiFi，连接对应WiFi才能打印，但是这个显然不是最优的解决办法。
-考虑到之间已经配置好基地WiFi，我决定重新配置一下打印功能，使其连接基地WiFi即可实现局域网打印。
-配置过程 查看树莓派内容 通过ssh连接树莓派，发现里面除了Github上的一个开源项目create_ap ，就没有什么其他的内容了，连接屏幕后发现没有任何图像信号，无从下手，因此考虑重新刷机。
-对树莓派进行刷机 把数据备份了一下，看了一下树莓派版本是2015年生产的 Raspberry Pi 3 model B V1.2 ，是老古董了。
-去官网看了一下，因为我对Ubuntu比较熟悉，我计划安装一个 Ubuntu20.04版本的，考虑到版本比较老，就装了server版本的，相比与desktop版本负担更小一些。
-其实就是下一个官方的软件，Raspberry Pi Imager ，直接用读卡器对树莓派的存储卡刷机即可。
-这里是对应的镜像以及教程： 镜像下载 安装教程
-配置网络相关 Ubuntu的server版本有个比较蛋疼的问题就是上网比较困难，如果是用的学校网线，必须要PPPOE拨号才能上网，但是server版本居然没有 net-tools 和 network-manager ，连接WiFi啥的试了很多办法但还是没有什么作用。
-解决办法：用网线直接连接树莓派和有网的路由器，安装 net-tools 和 network-manager ，执行
-$ sudo nmtui 选择 Activate a connect 连接无线的WiFi，执行
-$ sudo ifconfig 查看WiFi对应的IP，至此，树莓派可以摆脱屏幕，我们可以使用电脑进行使用 ssh 连接。
-这里也可以使用网线进行连接，具体操作如下
-用网线连接树莓派和自己的电脑。
-在树莓派的利用 nmtui 选择 Edit a connection ，Add一个Ethernet connect，对IPv4 CONFIGURATION进行设置，首先讲 Automatic 设置为 Manual，设置 Address 为 静态IP 如 192.</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近基地的打印机突然又好起来了。&lt;/p&gt;
+&lt;p&gt;因为基地的打印机型号比较老——HP LaserJet 1020，没有无线打印的功能。所以之前一位学长&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; 用树莓派配置了打印机的无线打印功能，但是后来发现有一些问题，有时候发送打印请求树莓派无法接收，而且不知道为何，学长之前用的是树莓派自己创建WiFi，连接对应WiFi才能打印，但是这个显然不是最优的解决办法。&lt;/p&gt;
+&lt;p&gt;考虑到之间已经配置好基地WiFi，我决定重新配置一下打印功能，使其连接基地WiFi即可实现局域网打印。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;配置过程&#34;&gt;配置过程&lt;/h2&gt;
+&lt;h3 id=&#34;查看树莓派内容&#34;&gt;查看树莓派内容&lt;/h3&gt;
+&lt;p&gt;通过ssh连接树莓派，发现里面除了Github上的一个开源项目&lt;a href=&#34;https://github.com/oblique/create_ap&#34;&gt;create_ap&lt;/a&gt; ，就没有什么其他的内容了，连接屏幕后发现没有任何图像信号，无从下手，因此考虑重新刷机。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;对树莓派进行刷机&#34;&gt;对树莓派进行刷机&lt;/h3&gt;
+&lt;p&gt;把数据备份了一下，看了一下树莓派版本是2015年生产的 &lt;code&gt;Raspberry Pi 3 model B V1.2&lt;/code&gt; ，是老古董了。&lt;/p&gt;
+&lt;p&gt;去官网看了一下，因为我对Ubuntu比较熟悉，我计划安装一个 Ubuntu20.04版本的，考虑到版本比较老，就装了&lt;strong&gt;server&lt;/strong&gt;版本的，相比与desktop版本负担更小一些。&lt;/p&gt;
+&lt;p&gt;其实就是下一个官方的软件，&lt;code&gt;Raspberry Pi Imager&lt;/code&gt; ，直接用读卡器对树莓派的存储卡刷机即可。&lt;/p&gt;
+&lt;p&gt;这里是对应的镜像以及教程： &lt;a href=&#34;https://ubuntu.com/download/raspberry-pi&#34;&gt;镜像下载&lt;/a&gt;   &lt;a href=&#34;https://ubuntu.com/tutorials/how-to-install-ubuntu-desktop-on-raspberry-pi-4#1-overview&#34;&gt;安装教程&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;配置网络相关&#34;&gt;配置网络相关&lt;/h3&gt;
+&lt;p&gt;Ubuntu的server版本有个比较蛋疼的问题就是上网比较困难，如果是用的学校网线，必须要PPPOE拨号才能上网，但是server版本居然没有 &lt;code&gt;net-tools&lt;/code&gt; 和 &lt;code&gt;network-manager&lt;/code&gt; ，连接WiFi啥的试了很多办法但还是没有什么作用。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决办法：用网线直接连接树莓派和有网的路由器，安装 &lt;code&gt;net-tools&lt;/code&gt; 和 &lt;code&gt;network-manager&lt;/code&gt; ，执行&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo nmtui
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;选择 &lt;code&gt;Activate a connect &lt;/code&gt; 连接无线的WiFi，执行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo ifconfig
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;查看WiFi对应的IP，至此，树莓派可以摆脱屏幕，我们可以使用电脑进行使用 &lt;code&gt;ssh&lt;/code&gt; 连接。&lt;/p&gt;
+&lt;p&gt;这里也可以使用网线进行连接，具体操作如下&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;用网线连接树莓派和自己的电脑。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在树莓派的利用 &lt;code&gt;nmtui&lt;/code&gt; 选择 &lt;code&gt;Edit a connection &lt;/code&gt; ，Add一个Ethernet connect，对IPv4 CONFIGURATION进行设置，首先讲 &lt;code&gt;Automatic&lt;/code&gt; 设置为 &lt;code&gt;Manual&lt;/code&gt;，设置 &lt;code&gt;Address&lt;/code&gt; 为 &lt;strong&gt;静态IP&lt;/strong&gt; 如 &lt;code&gt;192.168.3.2&lt;/code&gt; ，&lt;code&gt;Gateway&lt;/code&gt; 设置为 &lt;code&gt;192.168.3.1&lt;/code&gt; 。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在自己电脑利用 &lt;code&gt;nmtui&lt;/code&gt; 同上不过设置 &lt;code&gt;Address&lt;/code&gt; 为 &lt;code&gt;192.168.3.3&lt;/code&gt; ，只要是位于同一网段即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这时候就可以通过网线进行 &lt;code&gt;ssh&lt;/code&gt; 连接了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;配置cups&#34;&gt;配置cups&lt;/h3&gt;
+&lt;p&gt;以下大多参考：&lt;a href=&#34;https://sspai.com/post/40997&#34;&gt;如何正确地用树莓派共享打印机&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;大佬言：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其实，这一步的工作量非常少，因为软件包 CUPS 就是为共享打印机而生。我们要做的只是将打印机用 USB 线缆连接树莓派，然后安装并配置 CUPS。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;然而，事实并非如此。&lt;/p&gt;
+&lt;h4 id=&#34;换源&#34;&gt;换源&lt;/h4&gt;
+&lt;p&gt;在安装之前需要换源，如果不换源的话，安装会十分缓慢，具体的流程可以看上面的blog，因为我们基地的WiFi自带代理，因此这一步我没有做。&lt;/p&gt;
+&lt;h4 id=&#34;安装驱动及打印程序&#34;&gt;安装驱动及打印程序&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;首先更新源并安装Hp的打印机驱动 &lt;code&gt;hplip&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo apt install hplip
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;然后安装Apple开源的远程打印工具 &lt;code&gt;cups&lt;/code&gt;，并配置相应权限&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo apt install cups  &lt;span class=&#34;c1&#34;&gt;# Install cups package&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo usermod -aG lpadmin pi &lt;span class=&#34;c1&#34;&gt;# Add user to lpadmin group,pi is your user name&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo cupsctl --remote-any &lt;span class=&#34;c1&#34;&gt;# open remote access &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;然后使用在同一局域网的电脑，访问 &lt;code&gt;https://树莓派IP:631&lt;/code&gt;，可以进入如下界面，按照下图设置右侧的&lt;code&gt;Server Settings&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/07/2334607761.png&#34; alt=&#34;cups管理页面&#34;  /&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;连接打印机和树莓派&lt;/strong&gt;，点击Add Printer添加打印机，在弹出的窗口中输入对应的用户信息，使用在上一步中用户组中添加的用户&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/07/3556322742.png&#34; alt=&#34;cups登录界面&#34;  /&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后按着一步步的指引，选择HP LaserJet 1020打印机，然后按照提示，选择和名称对应的驱动，我们会发现 &lt;strong&gt;LaserJet 1020&lt;/strong&gt; 对应驱动会提示：HP laserjet requires proprietary plugin，也就是我们不仅需要这个通用的驱动，而且需要一些额外的插件，打印机才能正常工作。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查阅资料发现：HP官方已经给出了&lt;a href=&#34;https://developers.hp.com/hp-linux-imaging-and-printing/binary_plugin.html&#34;&gt;说明&lt;/a&gt;，我们需要查看hplip版本，然后安装对应的驱动插件。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先我们查看一下版本，发现是3.20.3版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo apt show hplip 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Package: hplip
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Version: 3.20.3+dfsg0-2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Priority: optional
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Section: utils
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Origin: Ubuntu
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Maintainer: Ubuntu Developers &amp;lt;ubuntu-devel-discuss@lists.ubuntu.com&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Original-Maintainer: Debian Printing Team &amp;lt;debian-printing@lists.debian.org&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Installed-Size: &lt;span class=&#34;m&#34;&gt;518&lt;/span&gt; kB
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;然后在 &lt;a href=&#34;https://developers.hp.com/hp-linux-imaging-and-printing/plugins&#34;&gt;插件列表&lt;/a&gt; 中找到 3.20.3 对应的&lt;code&gt;hplip-3.20.3-plugin.run&lt;/code&gt;和&lt;code&gt;hplip-3.20.3-plugin.run.asc&lt;/code&gt;，使用wget下载到树莓派本地。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;运行 &lt;code&gt;hp-setup -i&lt;/code&gt; 使用命令行进行安装，按照提示命令，进行插件的安装。&lt;/p&gt;
+&lt;p&gt;[scode type=&amp;ldquo;yellow&amp;rdquo;]这里建议提前下好安装，而不是直接联网下载，速度较快，指定路径需要为绝对路径[/scode]&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;至此，我们可以尝试使用手机或者电脑搜索打印机来进行打印测试，没有其他意外的话，可以发现打印成功！&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;结语&#34;&gt;结语&lt;/h2&gt;
+&lt;p&gt;其实这个配置过程远没有这么简单，期间还有很多小问题，但是大致的流程大概就是如上述所示，全写出来可能太啰嗦，大家如果配置过程中遇到更多的疑问，可以在下方评论一起探讨~&lt;/p&gt;
+&lt;h2 id=&#34;参考链接&#34;&gt;参考链接&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.hp.com/hp-linux-imaging-and-printing/binary_plugin.html&#34;&gt;What is the HPLIP Binary Plug-In and How Do I Install It?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.hp.com/hp-linux-imaging-and-printing/plugins&#34;&gt;Plugins&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.openprinting.org/download/printdriver/auxfiles/HP/plugins/&#34;&gt;Other Plugins&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/apple/cups&#34;&gt;cups&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.jianshu.com/p/d3752c584e01&#34;&gt;使用树莓派搭建无线打印机&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sspai.com/post/40997&#34;&gt;如何正确地用树莓派共享打印机&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;学长的博客在这里:	&lt;a href=&#34;https://tec.blog.ykai.top/&#34;&gt;dykai&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
     </item>
     
   </channel>

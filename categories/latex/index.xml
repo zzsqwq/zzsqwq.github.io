@@ -15,7 +15,162 @@
       <guid>https://blog.zzsqwq.cn/posts/10/</guid>
       <description>&lt;h3 id=&#34;希腊字母表&#34;&gt;希腊字母表&lt;/h3&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/248320705.png&#34; alt=&#34;xila.png&#34;  /&gt;
-&lt;/p&gt;</description>
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;一些技巧和特殊符号&#34;&gt;一些技巧和特殊符号&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;上标：num_i  -&amp;gt;  $num_i$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下标：e^x -&amp;gt;  $e^x$  （如果下标或上标不明显，可嵌套多层来达到目的）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;上下标是一串字符的话可用{}括起来表示&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;根号：\sqrt&lt;a href=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/1186889784.png&#34;&gt;3&lt;/a&gt;{x} -&amp;gt; $\sqrt&lt;a href=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/1186889784.png&#34;&gt;3&lt;/a&gt;{x}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;省略号： 在下面\dots -&amp;gt; $\dots$     在中间\cdots -&amp;gt;  $\cdots$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;方框:  \boxed{example}  -&amp;gt;  $\boxed{example}$   (还有一个\fbox与此类似  \fobx{example} -&amp;gt; $\fbox{example}$)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;字体加粗:  \mathbf{example} -&amp;gt; $\mathbf{example}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;字体斜体且加粗:  \boldsymbol{example}  -&amp;gt;  $\boldsymbol{example}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;插入普通文本（自适应大小）:  \text{测试}  -&amp;gt; $\text{测试}$&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/935141993.png&#34; alt=&#34;specialsign.png&#34;  /&gt;
+
+&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/1186889784.png&#34; alt=&#34;specialsign2.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;一些基本符号&#34;&gt;一些基本符号&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;求和:  \sum_1^n  -&amp;gt;  $\sum_1^n$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;积分:  \int_1^n -&amp;gt; $\int_1^n$   \iint -&amp;gt; $\iint$  以此类推$\cdots$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;极限:  \lim_{x \to +\infty}  -&amp;gt; $\lim_{x \to +\infty}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;分数:  \frac{1}{2} -&amp;gt; $\frac{1}{2}$   如果要写多层分数可以用\cfrac （可以避免字母逐层缩小的限制）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;组合数: \binom{5}{2} -&amp;gt; $\binom{5}{2}$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下取整: \lfloor{x}\rfloor -&amp;gt;  $\lfloor{x}\rfloor$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下取整: \lceil{x}\rceil -&amp;gt; $\lceil{x}\rceil$&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/2438601090.png&#34; alt=&#34;qita.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/303386698.png&#34; alt=&#34;qita2.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;关于矩阵和行列式&#34;&gt;关于矩阵和行列式&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;矩阵：用法如下，元素中间使用&amp;amp;来分割同行元素，用\\来换行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-latex&#34; data-lang=&#34;latex&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;\begin&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{&lt;/span&gt;matrix&lt;span class=&#34;nb&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	1 &lt;span class=&#34;nb&#34;&gt;&amp;amp;&lt;/span&gt; 2 &lt;span class=&#34;nb&#34;&gt;&amp;amp;&lt;/span&gt; 3&lt;span class=&#34;k&#34;&gt;\\&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	4 &lt;span class=&#34;nb&#34;&gt;&amp;amp;&lt;/span&gt; 5 &lt;span class=&#34;nb&#34;&gt;&amp;amp;&lt;/span&gt; 6&lt;span class=&#34;k&#34;&gt;\\&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	7 &lt;span class=&#34;nb&#34;&gt;&amp;amp;&lt;/span&gt; 8 &lt;span class=&#34;nb&#34;&gt;&amp;amp;&lt;/span&gt; 9&lt;span class=&#34;k&#34;&gt;\\&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;\end&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{&lt;/span&gt;matrix&lt;span class=&#34;nb&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;$$
+\begin{matrix}
+1 &amp;amp; 2 &amp;amp; 3\
+4 &amp;amp; 5 &amp;amp; 6\
+7 &amp;amp; 8 &amp;amp; 9\
+\end{matrix}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;行列式: 与矩阵相似，加上行列式的名字以及左右分割线即可&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-latex&#34; data-lang=&#34;latex&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;A=  &lt;span class=&#34;k&#34;&gt;\left&lt;/span&gt;|
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;\begin&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{&lt;/span&gt;matrix&lt;span class=&#34;nb&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	1 &lt;span class=&#34;nb&#34;&gt;&amp;amp;&lt;/span&gt; 2 &lt;span class=&#34;nb&#34;&gt;&amp;amp;&lt;/span&gt; 3 &lt;span class=&#34;k&#34;&gt;\\&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	4 &lt;span class=&#34;nb&#34;&gt;&amp;amp;&lt;/span&gt; 5 &lt;span class=&#34;nb&#34;&gt;&amp;amp;&lt;/span&gt; 6 &lt;span class=&#34;k&#34;&gt;\\&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	7 &lt;span class=&#34;nb&#34;&gt;&amp;amp;&lt;/span&gt; 8 &lt;span class=&#34;nb&#34;&gt;&amp;amp;&lt;/span&gt; 9 &lt;span class=&#34;k&#34;&gt;\\&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;\end&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{&lt;/span&gt;matrix&lt;span class=&#34;nb&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;\right&lt;/span&gt;|
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;$$
+A=  \left|
+\begin{matrix}
+1 &amp;amp; 2 &amp;amp; 3 \
+4 &amp;amp; 5 &amp;amp; 6 \
+7 &amp;amp; 8 &amp;amp; 9 \
+\end{matrix}
+\right|
+$$&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;分段函数和方程组&#34;&gt;分段函数和方程组&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;分段函数：写法如下，每一个条件用 表达式和条件之间用 &lt;strong&gt;&amp;amp;&lt;/strong&gt; 连接&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-latex&#34; data-lang=&#34;latex&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;f(x)=
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;\begin&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{&lt;/span&gt;cases&lt;span class=&#34;nb&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		x/2, &lt;span class=&#34;nb&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;{&lt;/span&gt;n&amp;gt;2&lt;span class=&#34;nb&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;\\&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		2x , &lt;span class=&#34;nb&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;{&lt;/span&gt;n=2&lt;span class=&#34;nb&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;\\&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		3x , &lt;span class=&#34;nb&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;{&lt;/span&gt;n&amp;lt;2&lt;span class=&#34;nb&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;\\&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;\end&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{&lt;/span&gt;cases&lt;span class=&#34;nb&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;$$
+f(x)=
+\begin{cases}
+x/2, &amp;amp; {n&amp;gt;2}\
+2x , &amp;amp; {n=2}\
+3x , &amp;amp; {n&amp;lt;2}\
+\end{cases}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;方程组: 写法如下，不是一个对称的，注意left后面为{ ，right后面为. 用\\换行&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-latex&#34; data-lang=&#34;latex&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;\left\{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;\begin&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{&lt;/span&gt;array&lt;span class=&#34;nb&#34;&gt;}{}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		a&lt;span class=&#34;nb&#34;&gt;_&lt;/span&gt;1x+b&lt;span class=&#34;nb&#34;&gt;_&lt;/span&gt;1y+c&lt;span class=&#34;nb&#34;&gt;_&lt;/span&gt;1z=d&lt;span class=&#34;nb&#34;&gt;_&lt;/span&gt;1&lt;span class=&#34;k&#34;&gt;\\&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		a&lt;span class=&#34;nb&#34;&gt;_&lt;/span&gt;2x+b&lt;span class=&#34;nb&#34;&gt;_&lt;/span&gt;2y+c&lt;span class=&#34;nb&#34;&gt;_&lt;/span&gt;2z=d&lt;span class=&#34;nb&#34;&gt;_&lt;/span&gt;2&lt;span class=&#34;k&#34;&gt;\\&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;		a&lt;span class=&#34;nb&#34;&gt;_&lt;/span&gt;3x+b&lt;span class=&#34;nb&#34;&gt;_&lt;/span&gt;3y+c&lt;span class=&#34;nb&#34;&gt;_&lt;/span&gt;3z=d&lt;span class=&#34;nb&#34;&gt;_&lt;/span&gt;3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;\end&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;{&lt;/span&gt;array&lt;span class=&#34;nb&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;\right&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;$$
+\left{
+\begin{array}{}
+a_1x+b_1y+c_1z=d_1\
+a_2x+b_2y+c_2z=d_2\
+a_3x+b_3y+c_3z=d_3
+\end{array}
+\right.
+$$&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Ps: 上面的矩阵，行列式，分段函数和方程组有一个问题需要我们注意，因为反斜杠 \ 需要转义，那么对于每次换行需要两个\\ ，也就是说你打的时候总需要打四个，对于前面声明begin和end，或者left和right前面的反斜杠，你打的时候就要打两个，对于markdown编辑器里面编辑LaTeX可能会自适应，不会自动转义，但是我们推博客的时候，一定要注意这个地方，不然会显示错误。也就是对于上述描述中的反斜杠，都要按两倍来写&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2020.8.17更新&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对于Hexo搭建的博客，用mathjax渲染，需要上述的规则。如果博客用的是typecho系统并且LaTeX插件为MardownKatex，那么不需要注意上述规则。（其他的系统我没有试过，暂且不谈）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;先总结这么多，后面那些进阶的用到了再总结。&lt;/p&gt;
+&lt;p&gt;参考文献:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/happyday_d/article/details/83715440&#34;&gt;Typora中利用LaTeX 插入数学公式&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/22117d964baf&#34;&gt;LATEX 公式总结&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
   </channel>

@@ -13,15 +13,106 @@
       <pubDate>Tue, 02 Nov 2021 01:16:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/posts/215/</guid>
-      <description>2021版小新Pro14 Ubuntu 20.04 配置指南 补充 最近重装了 Ubuntu 20.04，又找了相关的一些帖子，发现 聯想Yoga 14s 2021款裝機小記 中提到了下文中提到的屏幕闪烁的问题，解决办法是：只需要在内核参数中加入 i915.enable_psr=0 即可。
-具体操作步骤如下：
-$ sudo vim /etc/default/grub 在 GRUB_CMDLINE_LINUX_DEFAULT 这一行的最后添加 i915.enable_psr=0，保存后终端运行：
-$ sudo update-grub 然后重启即可。
-前言 苦于沉重游戏本的迫害，新买了一台小新Pro14 2021款，上手感觉还挺不错的。如下是配置：
-CPU：酷睿 i5-11300H 显卡：集成显卡 Intel 锐炬Iris Xe 内存：16G 外存：512 SSD 屏幕：分辨率 2880x1800、400nits、100%sRGB 这里需要注意的是，不同时间出的小新Pro14配置是不太一样的，所以我这里列了一下配置。主要区别在于有一部分是2.2K分辨率+MX450显卡，而我这个是2.8K分辨率+锐炬Iris Xe显卡。
-为了工作的需要，要装一个Ubuntu，先是装了之前用过的 Ubuntu 18.04，安装后发现触摸板无法使用，一系列探索后无果，在朋友的推荐下，还是决定安装 Ubuntu 20.04 试一下，踩了一些坑，在这里记录一下。
-问题列表 如果你遇到了以下问题，那么这篇文章的方法可能会对你有益处：
-Ubuntu 18.04 相关 Ubuntu 18.04 无法使用触摸板 Ubuntu 18.04 无法使用内置键盘 Ubuntu 18.04 无法调节亮 Ubuntu 18.04 查看GPU发现是llvm，而不是Iris Xe Ubuntu 20.04 相关 Ubuntu 20.</description>
+      <description>&lt;h1 id=&#34;2021版小新pro14-ubuntu-2004-配置指南&#34;&gt;2021版小新Pro14 Ubuntu 20.04 配置指南&lt;/h1&gt;
+&lt;h2 id=&#34;补充&#34;&gt;补充&lt;/h2&gt;
+&lt;p&gt;最近重装了 Ubuntu 20.04，又找了相关的一些帖子，发现 &lt;a href=&#34;https://blog.ryey.icu/lenovo-yoga-14s-2021.html#toc-entry-3&#34;&gt;聯想Yoga 14s 2021款裝機小記&lt;/a&gt; 中提到了下文中提到的&lt;strong&gt;屏幕闪烁的问题&lt;/strong&gt;，解决办法是：只需要在内核参数中加入 &lt;code&gt;i915.enable_psr=0&lt;/code&gt; 即可。&lt;/p&gt;
+&lt;p&gt;具体操作步骤如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo vim /etc/default/grub
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 GRUB_CMDLINE_LINUX_DEFAULT 这一行的最后添加 &lt;code&gt;i915.enable_psr=0&lt;/code&gt;，保存后终端运行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo update-grub
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后重启即可。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;苦于沉重游戏本的迫害，新买了一台小新Pro14 2021款，上手感觉还挺不错的。如下是配置：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CPU：酷睿 i5-11300H&lt;/li&gt;
+&lt;li&gt;显卡：集成显卡 Intel 锐炬Iris Xe&lt;/li&gt;
+&lt;li&gt;内存：16G&lt;/li&gt;
+&lt;li&gt;外存：512 SSD&lt;/li&gt;
+&lt;li&gt;屏幕：分辨率 2880x1800、400nits、100%sRGB&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/11/3138090261.png&#34; alt=&#34;电脑配置信息&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;这里需要注意的是，不同时间出的小新Pro14配置是不太一样的，所以我这里列了一下配置。主要区别在于有一部分是2.2K分辨率+MX450显卡，而我这个是2.8K分辨率+锐炬Iris Xe显卡。&lt;/p&gt;
+&lt;p&gt;为了工作的需要，要装一个Ubuntu，先是装了之前用过的 Ubuntu 18.04，安装后发现触摸板无法使用，一系列探索后无果，在朋友的推荐下，还是决定安装 Ubuntu 20.04 试一下，踩了一些坑，在这里记录一下。&lt;/p&gt;
+&lt;h2 id=&#34;问题列表&#34;&gt;问题列表&lt;/h2&gt;
+&lt;p&gt;如果你遇到了以下问题，那么这篇文章的方法可能会对你有益处：&lt;/p&gt;
+&lt;h3 id=&#34;ubuntu-1804-相关&#34;&gt;Ubuntu 18.04 相关&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Ubuntu 18.04 无法使用触摸板&lt;/li&gt;
+&lt;li&gt;Ubuntu 18.04 无法使用内置键盘&lt;/li&gt;
+&lt;li&gt;Ubuntu 18.04 无法调节亮&lt;/li&gt;
+&lt;li&gt;Ubuntu 18.04 查看GPU发现是llvm，而不是Iris Xe&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;ubuntu-2004-相关&#34;&gt;Ubuntu 20.04 相关&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Ubuntu 20.04 进入后屏幕花屏、黑屏&lt;/li&gt;
+&lt;li&gt;Ubuntu 20.04 查看GPU发现是llvm，而不是Iris Xe&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;现在达成的效果&#34;&gt;现在达成的效果&lt;/h2&gt;
+&lt;p&gt;Ubuntu 20.04 能够正常使用，触摸板以及外界屏幕，亮度调节均无问题。&lt;/p&gt;
+&lt;p&gt;开机时也能够使用键盘。&lt;/p&gt;
+&lt;p&gt;但是开机登录界面还是存在花屏、闪屏的问题，我通过自动登录解决。BIOS界面仍旧会闪屏。&lt;/p&gt;
+&lt;h2 id=&#34;安装-ubuntu-1804-的问题&#34;&gt;安装 Ubuntu 18.04 的问题&lt;/h2&gt;
+&lt;p&gt;首先安装Ubuntu 18.04 还是比较顺利，没有什么坑。&lt;/p&gt;
+&lt;p&gt;安装的话就是按流程来一遍——压缩卷、进入BIOS关闭安全启动模式&lt;code&gt;(这里网上有部分同学说也需要关闭 Intel Platform Trust Technology 、但是我不关闭也是可以的)&lt;/code&gt;、然后Try Ubuntu看一下效果&lt;code&gt;（这里Try Ubuntu我没法使用鼠标，不过安装的时候可以）&lt;/code&gt;、开始安装。&lt;/p&gt;
+&lt;p&gt;安装过程一般没啥问题，进入系统后我们就会发现一些问题，首先是你的**触摸板用不了，然后键盘也用不了。**再就是屏幕没法调节亮度（这个是小问题我觉得，好像也可以通过安装插件解决，大家可以自行搜索。）&lt;/p&gt;
+&lt;p&gt;经过查询资料，这里有同学已经提出很好的解决方案：https://zhuanlan.zhihu.com/p/322377515&lt;/p&gt;
+&lt;p&gt;简而言之，键盘用不了需要在 grub 启动项中加入 i8042.dumbkbd 参数，然后运行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo update-grub2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即可在每次启动后保证键盘可用。&lt;/p&gt;
+&lt;p&gt;关于没法使用触摸板和调节亮度，办法就是升级内核，据说是内核升级到5.9.8以上可用，Ubuntu 18.04内置版本是5.4.0.84好像是，但是我在更新后会花屏、黑屏等来回鬼畜，试了好多四五个内核依旧不管用，我猜想是因为我是2.8K的屏幕而网上的教程多是基于2.2K屏幕的，锐炬显卡对于高分辨率的屏幕支持并没有那么优秀。&lt;/p&gt;
+&lt;p&gt;于是一直被这个问题折磨，搜了很多的教程也没有解决办法，最后决定换Ubuntu 20.04 尝试一下，之前一直觉得系统版本是个不可逾越的鸿沟，但是随着实践的越来越多，发现很多版本不兼容的问题都是有可解决办法的，因此也下定决心尝试一下未曾试过的 20.04。&lt;/p&gt;
+&lt;h2 id=&#34;安装ubuntu-2004-的问题&#34;&gt;安装Ubuntu 20.04 的问题&lt;/h2&gt;
+&lt;p&gt;首先是关于安装的问题&lt;/p&gt;
+&lt;p&gt;在安装Ubuntu 18.04 的时候只有四个选项，应该是一个 Try Ubuntu、一个直接安装，一个高级模式，一个进BIOS&lt;/p&gt;
+&lt;p&gt;而安装Ubuntu 20.04 的时候却有五个选项，分别是Ubuntu、Ubuntu&lt;code&gt;(safe graphics)&lt;/code&gt;、OEM install&lt;code&gt;(for manufacturers)&lt;/code&gt;、还有就是一个是高级模式、一个是进BIOS&lt;/p&gt;
+&lt;p&gt;说一下三个安装方式的区别&lt;/p&gt;
+&lt;p&gt;第一个模式与第二个模式的区别就是，第二个模式对于grub启动项目中添加了一个 &lt;code&gt;nomodeset&lt;/code&gt;  选项，那么这个选项是做什么的？以下是他的解释：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The newest kernels have moved the video mode setting into the kernel. So all the programming of the hardware specific clock rates and registers on the video card happen in the kernel rather than in the X driver when the X server starts.. This makes it possible to have high resolution nice looking splash (boot) screens and flicker free transitions from boot splash to login screen. Unfortunately, on some cards this doesn’t work properly and you end up with a black screen. Adding the nomodeset parameter instructs the kernel to not load video drivers and use BIOS modes instead until X is loaded.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;大概意思是在最新的内核中，已经能够在BIOS引导阶段启用显卡，这样做的目的是很好的适应高分辨率屏，但是很遗憾的是某些显卡并不能很好的适配，通过 &lt;code&gt;nomodeset&lt;/code&gt; 参数可以防止以不支持的显卡驱动视频流。&lt;/p&gt;
+&lt;p&gt;很遗憾，锐炬显卡刚好没有被适配，所以选第一个选项&lt;code&gt;(Ubuntu)&lt;/code&gt;来安装也会屏幕一闪一闪的，因此我们安装选择Ubuntu&lt;code&gt;(safe graphics)&lt;/code&gt;选项来进行安装然后流程是一样的，蛮顺利。&lt;/p&gt;
+&lt;p&gt;这里装完就没有触摸板的问题，屏幕亮度调节也没有问题。不过键盘依旧有问题，可以根据上面描述进行更改。&lt;/p&gt;
+&lt;p&gt;然后更鬼畜的问题来了，只要这么一搞，从BIOS引导阶段开始，就会一直闪屏，尤其是输入密码进行登录的时候，会卡个好长时间，几乎无法使用，不过很有意思的是，只要外接屏幕，外接的屏幕显示不会有问题。&lt;/p&gt;
+&lt;p&gt;因此求助于搜索引擎，因为怀疑是显卡的问题，所以搜索了关键词 &lt;code&gt;Ubuntu Iris Xe&lt;/code&gt;，找到了以下两个比较有用的答案：&lt;/p&gt;
+&lt;p&gt;StackOverflow：&lt;a href=&#34;https://askubuntu.com/questions/1299067/ubuntu-20-04-no-driver-loaded-for-intel-iris-xe-graphics&#34;&gt;Ubuntu 20.04 no driver loaded for Intel Iris Xe Graphics&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Intel：&lt;a href=&#34;https://dgpu-docs.intel.com/devices/iris-xe-max-graphics/index.html&#34;&gt;Intel Iris Xe MAX Graphics with Linux&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这两个帖子都说了一个问题吧，就是如何在 Ubuntu 20.04 上更好的使用锐炬显卡&lt;/p&gt;
+&lt;p&gt;这个问题实质解决的是没有在Ubuntu 20.04 上启动起来显卡，所以你会在你的 Ubuntu-&amp;gt;Settings-&amp;gt;About 页面看到的是 llvm 有关的字眼，而不是上面我截图所示的 &lt;code&gt;Mesa Intel® Xe Graphics (TGL GT2)&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;解决这个问题比较关键的步骤是&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install linux-oem-20.04
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo reboot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样开机再启动应该就会正常启动显卡了，这个方式在Ubuntu18.04是否奏效我没有实验过，可能可以安装对应的 &lt;code&gt;linux-oem-18.04&lt;/code&gt;  包。&lt;/p&gt;
+&lt;p&gt;在 Intel 官方的教程中，还添加了 grub 启动项等，我并没有发现他们的实际作用，在他后续的测试中我也没有达到期待的效果，因此没有继续尝试，如果有同学跟着文档做成功了，可以一起来讨论一下。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;但是！！！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;安装完成后，我还是会花屏和黑屏，问题依旧没有解决。我突发奇想，考虑到我外接屏幕没有问题，而自带的屏幕有问题，**因为外接屏是 1920x1080 而内置屏幕是 2880x1800，我联想到会不会是高分辨率屏幕的问题，所以尝试着把外接屏的显示比例调成了 150%&lt;code&gt;(需要开启 Fractional Scaling)&lt;/code&gt;，没想到歪打正着，居然好了，看起来也更加的顺眼，比例也更加协调。**具体的内部原因还不是很清楚。&lt;/del&gt;  已解决，见本文开头。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/11/3113030601.png&#34; alt=&#34;比例配置信息&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;但是还是有一个小瑕疵，就是在BIOS引导阶段与输入密码登录的界面，我仍旧是会花屏、闪屏，我考虑到这是还没有初始化屏幕设置的问题，尝试搜索了修改BIOS比例、提前初始化login界面的分辨率，依旧没有找到比较好的解决办法，&lt;/p&gt;
+&lt;p&gt;因此最后只好启动自动登录来跳过登录界面，这样就&lt;strong&gt;看上去算是一个完好的系统&lt;/strong&gt;了QAQ。。&lt;/p&gt;
+&lt;p&gt;这里给出一些可能有价值的资料，大家可以自行查阅&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://askubuntu.com/questions/1041677/how-to-change-the-login-screen-resolution-in-ubuntu-18-04&#34;&gt;How to change the login screen resolution in Ubuntu 18.04&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://askubuntu.com/questions/1252172/custom-resolution-ubuntu-20-04&#34;&gt;Custom Resolution Ubuntu 20.04&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://askubuntu.com/questions/1091778/how-can-i-change-the-resolution-of-the-grub-menu&#34;&gt;How can I change the resolution of the GRUB menu?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;根据上述第三个教程，我修改了 GRUB 的显示分辨率为 1920x1080，还是会闪屏。&lt;/p&gt;
+&lt;p&gt;如果有大佬有想法或者解决了，欢迎留言一起探讨。&lt;/p&gt;
+&lt;h2 id=&#34;后记与感想&#34;&gt;后记与感想&lt;/h2&gt;
+&lt;p&gt;折腾了一下午加一晚上，终于把系统整的能用了，不过又要重新配置各种软件，还是挺麻烦的。&lt;/p&gt;
+&lt;p&gt;不过尝试新鲜事物、好比Windows11、最新款的电脑，还是挺高血压的，需要应付各种Bug，这可能也是一种平衡？hhhh，想要尝试新的事物、走在前沿、就必须要有付出。&lt;/p&gt;
+&lt;p&gt;此外，发现查英文的资料要比中文靠谱的多，尤其是这种比较新的问题、要多去StackOverflow和AskUbuntu等论坛和官网查看，有奇效。&lt;/p&gt;
+&lt;h2 id=&#34;参考资料&#34;&gt;参考资料&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/322377515&#34;&gt;联想小新pro14安装Ubuntu20.04&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/1299067/ubuntu-20-04-no-driver-loaded-for-intel-iris-xe-graphics&#34;&gt;Ubuntu 20.04 no driver loaded for Intel Iris Xe Graphics&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dgpu-docs.intel.com/devices/iris-xe-max-graphics/index.html&#34;&gt;Intel Iris Xe MAX Graphics with Linux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/1041677/how-to-change-the-login-screen-resolution-in-ubuntu-18-04&#34;&gt;How to change the login screen resolution in Ubuntu 18.04&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/1252172/custom-resolution-ubuntu-20-04&#34;&gt;Custom Resolution Ubuntu 20.04&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://askubuntu.com/questions/1091778/how-can-i-change-the-resolution-of-the-grub-menu&#34;&gt;How can I change the resolution of the GRUB menu?&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
     </item>
     
     <item>
@@ -30,15 +121,135 @@ Ubuntu 18.04 相关 Ubuntu 18.04 无法使用触摸板 Ubuntu 18.04 无法使用
       <pubDate>Fri, 23 Jul 2021 14:17:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/posts/201/</guid>
-      <description>前言 前段时间在 Github 学完了关于 git 的小游戏 learnGitBranching ，受益匪浅。
-它通过可视化的方式将分支的关系，每条命令的作用等都明明白白的体现出来，可以很直观的感受到你每条命令对整个分支树，每一个 ref 的作用。
-通过这种学习感觉自己对 Git 的理解更加深入一步，能够理解其中的原理，而不是浅尝辄止，照猫画虎。
-学习中记了一些零零散散的思路，想要写一篇笔记记录出来，之前已经写过一个简单的 Git 教程，这篇教程将会更加深入，希望可以帮助大家更好的掌握 Git。
-窃认为，想要学好 Git ，必须要理解清楚其中的分区以及引用，学会了这两个，各种基本操作就很容易理解了。接下来的笔记也基本以此思路展开。
-Git中的分区 首先，Git中存在三大分区，分别是工作区、暂存区、版本库。其中，
-工作区即我们工作的目录，暂存区是我们执行 git add 后文件存在的区域。
-我们可以通过 git status 对两种状态进行查看，例如：
-~/test master* base ❯ git status On branch master Changes to be committed: (use &amp;#34;git restore --staged &amp;lt;file&amp;gt;...&amp;#34; to unstage) modified: test Changes not staged for commit: (use &amp;#34;git add &amp;lt;file&amp;gt;...&amp;#34; to update what will be committed) (use &amp;#34;git restore &amp;lt;file&amp;gt;.</description>
+      <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
+&lt;p&gt;前段时间在 Github 学完了关于 git 的小游戏 &lt;a href=&#34;https://github.com/pcottle/learnGitBranching&#34;&gt;learnGitBranching&lt;/a&gt; ，受益匪浅。&lt;/p&gt;
+&lt;p&gt;它通过可视化的方式将分支的关系，每条命令的作用等都明明白白的体现出来，可以很直观的感受到你每条命令对整个分支树，每一个 ref 的作用。&lt;/p&gt;
+&lt;p&gt;通过这种学习感觉自己对 Git 的理解更加深入一步，能够理解其中的原理，而不是浅尝辄止，照猫画虎。&lt;/p&gt;
+&lt;p&gt;学习中记了一些零零散散的思路，想要写一篇笔记记录出来，之前已经写过一个简单的 Git 教程，这篇教程将会更加深入，希望可以帮助大家更好的掌握 Git。&lt;/p&gt;
+&lt;p&gt;窃认为，想要学好 Git ，必须要理解清楚其中的分区以及引用，学会了这两个，各种基本操作就很容易理解了。接下来的笔记也基本以此思路展开。&lt;/p&gt;
+&lt;h1 id=&#34;git中的分区&#34;&gt;Git中的分区&lt;/h1&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/07/612956951.jpg&#34; alt=&#34;Git中的三大分区，图片来源自掘金GabrielPanda&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;首先，Git中存在三大分区，分别是&lt;strong&gt;工作区、暂存区、版本库&lt;/strong&gt;。其中，&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;工作区&lt;/strong&gt;即我们工作的目录，&lt;strong&gt;暂存区&lt;/strong&gt;是我们执行 &lt;code&gt;git add&lt;/code&gt; 后文件存在的区域。&lt;/p&gt;
+&lt;p&gt;我们可以通过 &lt;code&gt;git status&lt;/code&gt; 对两种状态进行查看，例如：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-sheel&#34; data-lang=&#34;sheel&#34;&gt;~/test master*
+base ❯ git status  
+On branch master
+Changes to be committed:
+  (use &amp;#34;git restore --staged &amp;lt;file&amp;gt;...&amp;#34; to unstage)
+	modified:   test
+
+Changes not staged for commit:
+  (use &amp;#34;git add &amp;lt;file&amp;gt;...&amp;#34; to update what will be committed)
+  (use &amp;#34;git restore &amp;lt;file&amp;gt;...&amp;#34; to discard changes in working directory)
+	modified:   test
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上图中存在两部分， 分别为 &lt;code&gt;Changes to be committed&lt;/code&gt; 这里是表示的版本库与暂存区的区别，还有&lt;code&gt;Changes not staged for commit&lt;/code&gt; ，它表示的是工作区与暂存区的区别。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;版本库&lt;/strong&gt;是我们执行 &lt;code&gt;git commit -m &amp;quot;xxx&amp;quot;&lt;/code&gt; 后，文件存在的区域。在上述过程中，Git 记录暂存区与版本库的差异，生成版本号，记录下来。我们可以通过 &lt;code&gt;git log&lt;/code&gt; 来查看我们产生的更改，内容如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;commit 9da52a0e4800547ca46bd6bb919d1105cea43f1e &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;HEAD -&amp;gt; master&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Author: zs &amp;lt;2459958352@qq.com&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Date:   Thu Jul &lt;span class=&#34;m&#34;&gt;22&lt;/span&gt; 22:09:45 &lt;span class=&#34;m&#34;&gt;2021&lt;/span&gt; +0800
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;test&lt;/span&gt; commit
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中包含了版本号、当前节点上的 ref 记录、作者、邮箱、日期以及此次提交的注释。&lt;/p&gt;
+&lt;h1 id=&#34;git中的引用&#34;&gt;Git中的引用&lt;/h1&gt;
+&lt;p&gt;在 Git 中，引用到处可见，引用类似于给某一个 &lt;code&gt;commit-id&lt;/code&gt; 即某一次提交的 &lt;code&gt;SHA-1&lt;/code&gt; 值起一个简单的名字，如 &lt;code&gt;branch&lt;/code&gt; ，&lt;code&gt;tag&lt;/code&gt; 这些都是引用。&lt;/p&gt;
+&lt;p&gt;Git 中存在一个命令， &lt;code&gt;git update-ref&lt;/code&gt; ，你可能几乎没见过，但可能天天在用。&lt;/p&gt;
+&lt;p&gt;当运行类似于 &lt;code&gt;git branch &amp;lt;branch&amp;gt;&lt;/code&gt; 这样的命令时，Git 实际上会运行 &lt;code&gt;git update-ref&lt;/code&gt; 命令，例如，运行 &lt;code&gt;git branch zs&lt;/code&gt;，就等效于&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git update-ref refs/heads/zs &amp;lt;commit-id&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里的 &lt;code&gt;commit-id&lt;/code&gt; 就是当前提交的 &lt;code&gt;commit-id&lt;/code&gt; ，那他是如何获得的呢？&lt;/p&gt;
+&lt;p&gt;使用过 Git 的人一定知道，Git 中存在一个名叫 &lt;code&gt;HEAD&lt;/code&gt; 的引用，它可能是引用，也可能是引用的引用。即它很多时候是指向某一个引用，如指向分支 &lt;code&gt;master&lt;/code&gt; 这个引用。不过，它也可以与引用分离，称为&lt;code&gt;游离的HEAD&lt;/code&gt;，即不指向某个引用，而指向单独的一个 &lt;code&gt;commit&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;可以通过 &lt;code&gt;git commit commit-id&lt;/code&gt; 来实现，不过，我们一般&lt;strong&gt;不推荐这种操作&lt;/strong&gt;。下面的讨论，我们都是基于 &lt;code&gt;HEAD&lt;/code&gt; 是指向某一分支的。&lt;/p&gt;
+&lt;p&gt;下面是关于一个引用的小例子：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/test master*
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;base ❯ git branch zs                                                    
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/test master*
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;base ❯ cat .git/refs/heads/zs 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;9da52a0e4800547ca46bd6bb919d1105cea43f1e
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/test master*
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;base ❯ git update-ref refs/heads/test 9da52a
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/test master*
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;base ❯ cat .git/HEAD             
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ref: refs/heads/master
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/test master*
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;base ❯ cat .git/refs/heads/master
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;9da52a0e4800547ca46bd6bb919d1105cea43f1e
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/test master*
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;base ❯ cat .git/refs/heads/test 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;9da52a0e4800547ca46bd6bb919d1105cea43f1e
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以发现，例子中 HEAD 指向 master ，master,zs,test 同时都指向 id 为 &lt;code&gt;9da52a&lt;/code&gt; 的提交。&lt;/p&gt;
+&lt;h1 id=&#34;撤销更改&#34;&gt;撤销更改&lt;/h1&gt;
+&lt;h2 id=&#34;撤销本地更改&#34;&gt;撤销本地更改&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;通过&lt;strong&gt;版本库&lt;/strong&gt;撤销&lt;strong&gt;暂存区&lt;/strong&gt;更改，&lt;strong&gt;工作区&lt;/strong&gt;不改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git reset HEAD^ &lt;span class=&#34;c1&#34;&gt;#撤销一次更改&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git reset HEAD~nums &lt;span class=&#34;c1&#34;&gt;#撤销HEAD往前nums次更改&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;直接通过&lt;strong&gt;版本库&lt;/strong&gt;撤销&lt;strong&gt;工作区&lt;/strong&gt;的更改&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git reset HEAD^ --hard     &lt;span class=&#34;c1&#34;&gt;#撤销一次更改&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git reset HEAD~nums --hard &lt;span class=&#34;c1&#34;&gt;#撤销HEAD往前nums次更改&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以发现只要加了 &lt;code&gt;--hard&lt;/code&gt; ，就可以直接也把工作区改掉，不过建议三思而后行！&lt;/p&gt;
+&lt;h2 id=&#34;撤销远程更改&#34;&gt;撤销远程更改&lt;/h2&gt;
+&lt;p&gt;上面说的是你本地的&lt;strong&gt;工作区&lt;/strong&gt; or &lt;strong&gt;暂存区&lt;/strong&gt;的撤销&lt;/p&gt;
+&lt;p&gt;如果你已经把更改推送到了远端仓库，那么你想要去掉那次改动怎么办？&lt;/p&gt;
+&lt;p&gt;可能你会想，直接通过 &lt;code&gt;git reset&lt;/code&gt; 切换到上面的某个需要的节点，然后再改？But，很容易想到这样会产生严重的冲突。&lt;strong&gt;一旦commit已经被push到远程仓库，那么是坚决不允许去reset它的。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;还好，Git 给我们提供了一个更好的选择，你可以通过 &lt;code&gt;git revert&lt;/code&gt; 产生一个类似于补丁的东西来消除掉更改，很容易理解，这样没有改变树的结构，相对于 &lt;code&gt;git reset&lt;/code&gt; 他会往前走而不是回溯，这不会对之前的历史产生重要的影响。&lt;/p&gt;
+&lt;p&gt;需要注意的是， &lt;code&gt;git revert &lt;/code&gt; 的用法：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git revert HEAD &lt;span class=&#34;c1&#34;&gt;#撤销掉HEAD这次更改，回到HEAD的上次版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git revert &amp;lt;commit_id&amp;gt; &lt;span class=&#34;c1&#34;&gt;#撤销掉这次cmmit的修改&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;两种合并方式&#34;&gt;两种合并方式&lt;/h1&gt;
+&lt;p&gt;我们知道，Git 中存在两种合并分支的方式，分别为 &lt;code&gt;git merge&lt;/code&gt; 和 &lt;code&gt;git rebase&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;两种方式各有优劣，简单说，&lt;code&gt;rabase&lt;/code&gt; 是把两条分支的提交记录整理到某一主分支上，它有着历史的完整记录。而 &lt;code&gt;merge&lt;/code&gt; 虽然也是整理了提交，但是某一分支的中间提交更改的过程合并后并不会体现在主分支上，中间过程可以说是在主分支上不可见的。&lt;/p&gt;
+&lt;p&gt;很容易发现，&lt;code&gt;rebase&lt;/code&gt; 产生的主分支提交记录会更加的详细，它记录了每一步小的改动。而 &lt;code&gt;merge&lt;/code&gt; 产生的更简洁，有点类似于封装的意味，只是告诉你我这个提交完成了这个任务的开发，内部的实现细节却不会告诉你。&lt;/p&gt;
+&lt;p&gt;而 &lt;code&gt;rebase&lt;/code&gt; 相比与 &lt;code&gt;merge&lt;/code&gt; 也会更加繁琐一些，你也可以通过 &lt;code&gt;git rebase -i&lt;/code&gt; 来通过可视化界面（可视化文本列表）的方式，来对记录做取舍与改动，不过还是没有 &lt;code&gt;merge&lt;/code&gt;  方便，远程仓库的合并操作一般都是使用  &lt;code&gt;merge&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;需要注意的是，两种方法的使用习惯很不一样：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git merge &amp;lt;branch&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;代表的是将 &lt;code&gt;&amp;lt;branch&amp;gt;&lt;/code&gt; 分支合并到当前 &lt;code&gt;HEAD&lt;/code&gt; 所在的分支。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git rebase &amp;lt;branch1&amp;gt; &amp;lt;branch2&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;代表的是将 &lt;code&gt;branch2&lt;/code&gt; 合并到 &lt;code&gt;&amp;lt;branch1&amp;gt;&lt;/code&gt; 的位置。如果省略 &lt;code&gt;&amp;lt;branch2&amp;gt;&lt;/code&gt; ，那么就是合并 &lt;code&gt;HEAD&lt;/code&gt; 所在分支到 &lt;code&gt;&amp;lt;branch1&amp;gt;&lt;/code&gt; 分支。&lt;/p&gt;
+&lt;p&gt;可以发现 &lt;code&gt;merge&lt;/code&gt; 体现的是一种， &lt;code&gt;merge xx&lt;/code&gt; 到当前位置。而 &lt;code&gt;rebase&lt;/code&gt; 体现的是将自己合并到 &lt;code&gt;xx&lt;/code&gt; 那里去。一个是别人过来，一个是自己过去。建议两个命令改成 &lt;code&gt;merge from&lt;/code&gt; ，&lt;code&gt;rebase into&lt;/code&gt;，哈哈。&lt;/p&gt;
+&lt;p&gt;顺便提一下， &lt;code&gt;merge&lt;/code&gt; 会导致一个节点有多个父节点，通过上文我们知道可以通过 &lt;code&gt;~&lt;/code&gt; 在一条线上移动，在这里，我们可以通过 &lt;code&gt;^&lt;/code&gt; 来指定第几个父节点，如 &lt;code&gt;HEAD^3&lt;/code&gt; 就是指 &lt;code&gt;HEAD&lt;/code&gt; 所在节点的第三个父节点。&lt;/p&gt;
+&lt;h1 id=&#34;整理提交记录&#34;&gt;整理提交记录&lt;/h1&gt;
+&lt;p&gt;我们有时会需要把另一个分支的部分更改放到主分支上来，即整理我们所有的提交记录，拿到我们所需要的来组成一个完整功能。&lt;/p&gt;
+&lt;p&gt;为了完成这件事，我们想到，这有点像合并分支，不过可能不需要某一个分支上的全部更改，只需要其中的一部分就可以了。&lt;/p&gt;
+&lt;p&gt;上面提到，通过 &lt;code&gt;git rebase -i&lt;/code&gt; 可以进行交互式的 &lt;code&gt;rebase&lt;/code&gt; ，可以对提交记录进行取舍，因此这样就可以满足我们的需求，只不过可能合并的时候需要想明白是从哪里变到哪里，有一些烧脑。&lt;/p&gt;
+&lt;p&gt;幸运的是，Git 还给我们提供了另一个更加简洁的方式——&lt;code&gt;git cherry-pick&lt;/code&gt; ，语法如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git cherry-pick &amp;lt;commid-id&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;你可以通过这种方式，将树上的任意一个节点的提交添加到当前 &lt;code&gt;HEAD&lt;/code&gt; 所在分支的下方，这真是功能强大的命令！你也可以通过空格间隔，来顺序摘取多个提交。&lt;/p&gt;
+&lt;h1 id=&#34;两条万能指令&#34;&gt;两条万能指令&lt;/h1&gt;
+&lt;p&gt;除了上面我觉得值得说道的问题，我还想推荐两条我认为非常有用的指令，掌握了他们，你就可以在分支树上随心所欲的移动！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;移动分支&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git branch -f &amp;lt;branch&amp;gt; &amp;lt;commit-id&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通过这条指令，你可以将 &lt;code&gt;&amp;lt;branch&amp;gt;&lt;/code&gt; 的引用指向 &lt;code&gt;commit-id&lt;/code&gt; ，如果你读懂了上面的内容，你会发现它只是通过 &lt;code&gt;update-ref&lt;/code&gt; 更新了对应的引用。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;移动 HEAD&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git checkout &amp;lt;branch&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git checkout &amp;lt;commit-id&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通过这条指令，你可以自由的移动 &lt;code&gt;HEAD&lt;/code&gt; 引用，前者让他指向了 &lt;code&gt;&amp;lt;branch&amp;gt;&lt;/code&gt; 分支，后者让他指向了SHA-1为 &lt;code&gt;&amp;lt;commit-id&amp;gt;&lt;/code&gt; 的提交。&lt;/p&gt;
+&lt;h1 id=&#34;推荐的资料&#34;&gt;推荐的资料&lt;/h1&gt;
+&lt;p&gt;在学习的过程中，看了很多资料，一并推荐给大家！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/pcottle/learnGitBranching&#34;&gt;learnGitBranching&lt;/a&gt;：有趣的闯关游戏，但也干货满满。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://events.jianshu.io/p/9b3d7b6fe738&#34;&gt;Git三大分区概念&lt;/a&gt;：讲解了关于分区的概念，还有直观清晰的图片！&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-Git-%E5%BC%95%E7%94%A8&#34;&gt;Git的引用&lt;/a&gt;：来自 Git 官方的讲解，十分硬核。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
@@ -47,21 +258,129 @@ Git中的分区 首先，Git中存在三大分区，分别是工作区、暂存�
       <pubDate>Sun, 18 Jul 2021 16:03:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/posts/198/</guid>
-      <description>前言 最近基地的打印机突然又好起来了。
-因为基地的打印机型号比较老——HP LaserJet 1020，没有无线打印的功能。所以之前一位学长1 用树莓派配置了打印机的无线打印功能，但是后来发现有一些问题，有时候发送打印请求树莓派无法接收，而且不知道为何，学长之前用的是树莓派自己创建WiFi，连接对应WiFi才能打印，但是这个显然不是最优的解决办法。
-考虑到之间已经配置好基地WiFi，我决定重新配置一下打印功能，使其连接基地WiFi即可实现局域网打印。
-配置过程 查看树莓派内容 通过ssh连接树莓派，发现里面除了Github上的一个开源项目create_ap ，就没有什么其他的内容了，连接屏幕后发现没有任何图像信号，无从下手，因此考虑重新刷机。
-对树莓派进行刷机 把数据备份了一下，看了一下树莓派版本是2015年生产的 Raspberry Pi 3 model B V1.2 ，是老古董了。
-去官网看了一下，因为我对Ubuntu比较熟悉，我计划安装一个 Ubuntu20.04版本的，考虑到版本比较老，就装了server版本的，相比与desktop版本负担更小一些。
-其实就是下一个官方的软件，Raspberry Pi Imager ，直接用读卡器对树莓派的存储卡刷机即可。
-这里是对应的镜像以及教程： 镜像下载 安装教程
-配置网络相关 Ubuntu的server版本有个比较蛋疼的问题就是上网比较困难，如果是用的学校网线，必须要PPPOE拨号才能上网，但是server版本居然没有 net-tools 和 network-manager ，连接WiFi啥的试了很多办法但还是没有什么作用。
-解决办法：用网线直接连接树莓派和有网的路由器，安装 net-tools 和 network-manager ，执行
-$ sudo nmtui 选择 Activate a connect 连接无线的WiFi，执行
-$ sudo ifconfig 查看WiFi对应的IP，至此，树莓派可以摆脱屏幕，我们可以使用电脑进行使用 ssh 连接。
-这里也可以使用网线进行连接，具体操作如下
-用网线连接树莓派和自己的电脑。
-在树莓派的利用 nmtui 选择 Edit a connection ，Add一个Ethernet connect，对IPv4 CONFIGURATION进行设置，首先讲 Automatic 设置为 Manual，设置 Address 为 静态IP 如 192.</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近基地的打印机突然又好起来了。&lt;/p&gt;
+&lt;p&gt;因为基地的打印机型号比较老——HP LaserJet 1020，没有无线打印的功能。所以之前一位学长&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; 用树莓派配置了打印机的无线打印功能，但是后来发现有一些问题，有时候发送打印请求树莓派无法接收，而且不知道为何，学长之前用的是树莓派自己创建WiFi，连接对应WiFi才能打印，但是这个显然不是最优的解决办法。&lt;/p&gt;
+&lt;p&gt;考虑到之间已经配置好基地WiFi，我决定重新配置一下打印功能，使其连接基地WiFi即可实现局域网打印。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;配置过程&#34;&gt;配置过程&lt;/h2&gt;
+&lt;h3 id=&#34;查看树莓派内容&#34;&gt;查看树莓派内容&lt;/h3&gt;
+&lt;p&gt;通过ssh连接树莓派，发现里面除了Github上的一个开源项目&lt;a href=&#34;https://github.com/oblique/create_ap&#34;&gt;create_ap&lt;/a&gt; ，就没有什么其他的内容了，连接屏幕后发现没有任何图像信号，无从下手，因此考虑重新刷机。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;对树莓派进行刷机&#34;&gt;对树莓派进行刷机&lt;/h3&gt;
+&lt;p&gt;把数据备份了一下，看了一下树莓派版本是2015年生产的 &lt;code&gt;Raspberry Pi 3 model B V1.2&lt;/code&gt; ，是老古董了。&lt;/p&gt;
+&lt;p&gt;去官网看了一下，因为我对Ubuntu比较熟悉，我计划安装一个 Ubuntu20.04版本的，考虑到版本比较老，就装了&lt;strong&gt;server&lt;/strong&gt;版本的，相比与desktop版本负担更小一些。&lt;/p&gt;
+&lt;p&gt;其实就是下一个官方的软件，&lt;code&gt;Raspberry Pi Imager&lt;/code&gt; ，直接用读卡器对树莓派的存储卡刷机即可。&lt;/p&gt;
+&lt;p&gt;这里是对应的镜像以及教程： &lt;a href=&#34;https://ubuntu.com/download/raspberry-pi&#34;&gt;镜像下载&lt;/a&gt;   &lt;a href=&#34;https://ubuntu.com/tutorials/how-to-install-ubuntu-desktop-on-raspberry-pi-4#1-overview&#34;&gt;安装教程&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;配置网络相关&#34;&gt;配置网络相关&lt;/h3&gt;
+&lt;p&gt;Ubuntu的server版本有个比较蛋疼的问题就是上网比较困难，如果是用的学校网线，必须要PPPOE拨号才能上网，但是server版本居然没有 &lt;code&gt;net-tools&lt;/code&gt; 和 &lt;code&gt;network-manager&lt;/code&gt; ，连接WiFi啥的试了很多办法但还是没有什么作用。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决办法：用网线直接连接树莓派和有网的路由器，安装 &lt;code&gt;net-tools&lt;/code&gt; 和 &lt;code&gt;network-manager&lt;/code&gt; ，执行&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo nmtui
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;选择 &lt;code&gt;Activate a connect &lt;/code&gt; 连接无线的WiFi，执行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo ifconfig
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;查看WiFi对应的IP，至此，树莓派可以摆脱屏幕，我们可以使用电脑进行使用 &lt;code&gt;ssh&lt;/code&gt; 连接。&lt;/p&gt;
+&lt;p&gt;这里也可以使用网线进行连接，具体操作如下&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;用网线连接树莓派和自己的电脑。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在树莓派的利用 &lt;code&gt;nmtui&lt;/code&gt; 选择 &lt;code&gt;Edit a connection &lt;/code&gt; ，Add一个Ethernet connect，对IPv4 CONFIGURATION进行设置，首先讲 &lt;code&gt;Automatic&lt;/code&gt; 设置为 &lt;code&gt;Manual&lt;/code&gt;，设置 &lt;code&gt;Address&lt;/code&gt; 为 &lt;strong&gt;静态IP&lt;/strong&gt; 如 &lt;code&gt;192.168.3.2&lt;/code&gt; ，&lt;code&gt;Gateway&lt;/code&gt; 设置为 &lt;code&gt;192.168.3.1&lt;/code&gt; 。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在自己电脑利用 &lt;code&gt;nmtui&lt;/code&gt; 同上不过设置 &lt;code&gt;Address&lt;/code&gt; 为 &lt;code&gt;192.168.3.3&lt;/code&gt; ，只要是位于同一网段即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;这时候就可以通过网线进行 &lt;code&gt;ssh&lt;/code&gt; 连接了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;配置cups&#34;&gt;配置cups&lt;/h3&gt;
+&lt;p&gt;以下大多参考：&lt;a href=&#34;https://sspai.com/post/40997&#34;&gt;如何正确地用树莓派共享打印机&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;大佬言：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;其实，这一步的工作量非常少，因为软件包 CUPS 就是为共享打印机而生。我们要做的只是将打印机用 USB 线缆连接树莓派，然后安装并配置 CUPS。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;然而，事实并非如此。&lt;/p&gt;
+&lt;h4 id=&#34;换源&#34;&gt;换源&lt;/h4&gt;
+&lt;p&gt;在安装之前需要换源，如果不换源的话，安装会十分缓慢，具体的流程可以看上面的blog，因为我们基地的WiFi自带代理，因此这一步我没有做。&lt;/p&gt;
+&lt;h4 id=&#34;安装驱动及打印程序&#34;&gt;安装驱动及打印程序&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;首先更新源并安装Hp的打印机驱动 &lt;code&gt;hplip&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo apt update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo apt install hplip
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;然后安装Apple开源的远程打印工具 &lt;code&gt;cups&lt;/code&gt;，并配置相应权限&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo apt install cups  &lt;span class=&#34;c1&#34;&gt;# Install cups package&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo usermod -aG lpadmin pi &lt;span class=&#34;c1&#34;&gt;# Add user to lpadmin group,pi is your user name&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo cupsctl --remote-any &lt;span class=&#34;c1&#34;&gt;# open remote access &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;然后使用在同一局域网的电脑，访问 &lt;code&gt;https://树莓派IP:631&lt;/code&gt;，可以进入如下界面，按照下图设置右侧的&lt;code&gt;Server Settings&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/07/2334607761.png&#34; alt=&#34;cups管理页面&#34;  /&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;连接打印机和树莓派&lt;/strong&gt;，点击Add Printer添加打印机，在弹出的窗口中输入对应的用户信息，使用在上一步中用户组中添加的用户&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/07/3556322742.png&#34; alt=&#34;cups登录界面&#34;  /&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后按着一步步的指引，选择HP LaserJet 1020打印机，然后按照提示，选择和名称对应的驱动，我们会发现 &lt;strong&gt;LaserJet 1020&lt;/strong&gt; 对应驱动会提示：HP laserjet requires proprietary plugin，也就是我们不仅需要这个通用的驱动，而且需要一些额外的插件，打印机才能正常工作。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;查阅资料发现：HP官方已经给出了&lt;a href=&#34;https://developers.hp.com/hp-linux-imaging-and-printing/binary_plugin.html&#34;&gt;说明&lt;/a&gt;，我们需要查看hplip版本，然后安装对应的驱动插件。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先我们查看一下版本，发现是3.20.3版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ sudo apt show hplip 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Package: hplip
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Version: 3.20.3+dfsg0-2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Priority: optional
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Section: utils
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Origin: Ubuntu
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Maintainer: Ubuntu Developers &amp;lt;ubuntu-devel-discuss@lists.ubuntu.com&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Original-Maintainer: Debian Printing Team &amp;lt;debian-printing@lists.debian.org&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Installed-Size: &lt;span class=&#34;m&#34;&gt;518&lt;/span&gt; kB
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;然后在 &lt;a href=&#34;https://developers.hp.com/hp-linux-imaging-and-printing/plugins&#34;&gt;插件列表&lt;/a&gt; 中找到 3.20.3 对应的&lt;code&gt;hplip-3.20.3-plugin.run&lt;/code&gt;和&lt;code&gt;hplip-3.20.3-plugin.run.asc&lt;/code&gt;，使用wget下载到树莓派本地。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;运行 &lt;code&gt;hp-setup -i&lt;/code&gt; 使用命令行进行安装，按照提示命令，进行插件的安装。&lt;/p&gt;
+&lt;p&gt;[scode type=&amp;ldquo;yellow&amp;rdquo;]这里建议提前下好安装，而不是直接联网下载，速度较快，指定路径需要为绝对路径[/scode]&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;至此，我们可以尝试使用手机或者电脑搜索打印机来进行打印测试，没有其他意外的话，可以发现打印成功！&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;结语&#34;&gt;结语&lt;/h2&gt;
+&lt;p&gt;其实这个配置过程远没有这么简单，期间还有很多小问题，但是大致的流程大概就是如上述所示，全写出来可能太啰嗦，大家如果配置过程中遇到更多的疑问，可以在下方评论一起探讨~&lt;/p&gt;
+&lt;h2 id=&#34;参考链接&#34;&gt;参考链接&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.hp.com/hp-linux-imaging-and-printing/binary_plugin.html&#34;&gt;What is the HPLIP Binary Plug-In and How Do I Install It?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.hp.com/hp-linux-imaging-and-printing/plugins&#34;&gt;Plugins&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.openprinting.org/download/printdriver/auxfiles/HP/plugins/&#34;&gt;Other Plugins&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/apple/cups&#34;&gt;cups&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.jianshu.com/p/d3752c584e01&#34;&gt;使用树莓派搭建无线打印机&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sspai.com/post/40997&#34;&gt;如何正确地用树莓派共享打印机&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;学长的博客在这里:	&lt;a href=&#34;https://tec.blog.ykai.top/&#34;&gt;dykai&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
     </item>
     
     <item>
@@ -70,13 +389,115 @@ $ sudo ifconfig 查看WiFi对应的IP，至此，树莓派可以摆脱屏幕，�
       <pubDate>Wed, 16 Jun 2021 01:38:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/posts/195/</guid>
-      <description>问题描述 ​Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题
-解决方案 ​首先我们根据上文的启示，因为每一个应用程序对应了一个 xxx.desktop 文件，因此在应用库中的QQ一定也有一个对应的 desktop 文件
-​我们进入到 /usr/share/applications ，运行
-$ ls | grep -i qq ​可以发现其中有一个名为 deepin.com.qq.im.desktop 的文件，我们打开后发现内容如下：
-#!/usr/bin/env xdg-open [Desktop Entry] Encoding=UTF-8 Type=Application X-Created-By=Deepin WINE Team Categories=chat; Icon=deepin.com.qq.im Exec=&amp;#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;#34; -u %u Name=QQ Name[zh_CN]=QQ Comment=Tencent QQ Client on Deepin Wine StartupWMClass=QQ.exe MimeType= ​可以看到Exec那一栏为 Exec=&amp;quot;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;quot; -u %u ，发现他是运行目录下的一个 run.sh 脚本来启动的。
-​我们进入目录下直接运行该脚本，查看log信息：
-base ❯ ./run.sh Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.exe run Deepin-QQ progress pid Gtk-Message: 01:16:58.069: GtkDialog mapped without a transient parent.</description>
+      <description>&lt;h3 id=&#34;问题描述&#34;&gt;问题描述&lt;/h3&gt;
+&lt;p&gt;​Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题&lt;/p&gt;
+&lt;h3 id=&#34;解决方案&#34;&gt;解决方案&lt;/h3&gt;
+&lt;p&gt;​首先我们根据上文的启示，因为每一个应用程序对应了一个 &lt;code&gt;xxx.desktop&lt;/code&gt; 文件，因此在应用库中的QQ一定也有一个对应的 &lt;code&gt;desktop&lt;/code&gt; 文件&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/06/75817321.png&#34; alt=&#34;QQ的启动方式&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;​我们进入到 &lt;code&gt;/usr/share/applications&lt;/code&gt; ，运行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ ls &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep -i qq
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;​可以发现其中有一个名为 &lt;code&gt;deepin.com.qq.im.desktop&lt;/code&gt; 的文件，我们打开后发现内容如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#!/usr/bin/env xdg-open
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;Desktop Entry&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;Encoding&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;UTF-8
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;Type&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Application
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;X-Created-By&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Deepin WINE Team
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;Categories&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;chat&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;Icon&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;deepin.com.qq.im
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;Exec&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;#34;&lt;/span&gt; -u %u
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;Name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;QQ
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Name&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;zh_CN&lt;span class=&#34;o&#34;&gt;]=&lt;/span&gt;QQ
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;Comment&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;Tencent QQ Client on Deepin Wine
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;StartupWMClass&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;QQ.exe
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;MimeType&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;​可以看到Exec那一栏为 &lt;code&gt;Exec=&amp;quot;/opt/deepinwine/apps/Deepin-QQ/run.sh&amp;quot; -u %u&lt;/code&gt; ，发现他是运行目录下的一个 &lt;code&gt;run.sh&lt;/code&gt;  脚本来启动的。&lt;/p&gt;
+&lt;p&gt;​我们进入目录下直接运行该脚本，查看log信息：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;base ❯ ./run.sh                   
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.exe
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;run Deepin-QQ progress pid 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Gtk-Message: 01:16:58.069: GtkDialog mapped without a transient parent. This is discouraged.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;total &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;16&lt;/span&gt; 01:16 c: -&amp;gt; ../drive_c
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com1 -&amp;gt; /dev/ttyS0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com10 -&amp;gt; /dev/ttyS9
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com11 -&amp;gt; /dev/ttyS10
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com12 -&amp;gt; /dev/ttyS11
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com13 -&amp;gt; /dev/ttyS12
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com14 -&amp;gt; /dev/ttyS13
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com15 -&amp;gt; /dev/ttyS14
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com16 -&amp;gt; /dev/ttyS15
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com17 -&amp;gt; /dev/ttyS16
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com18 -&amp;gt; /dev/ttyS17
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com19 -&amp;gt; /dev/ttyS18
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com2 -&amp;gt; /dev/ttyS1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com20 -&amp;gt; /dev/ttyS19
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com21 -&amp;gt; /dev/ttyS20
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com22 -&amp;gt; /dev/ttyS21
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com23 -&amp;gt; /dev/ttyS22
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com24 -&amp;gt; /dev/ttyS23
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com25 -&amp;gt; /dev/ttyS24
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com26 -&amp;gt; /dev/ttyS25
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com27 -&amp;gt; /dev/ttyS26
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com28 -&amp;gt; /dev/ttyS27
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com29 -&amp;gt; /dev/ttyS28
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com3 -&amp;gt; /dev/ttyS2
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com30 -&amp;gt; /dev/ttyS29
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com31 -&amp;gt; /dev/ttyS30
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;11&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com32 -&amp;gt; /dev/ttyS31
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com4 -&amp;gt; /dev/ttyS3
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com5 -&amp;gt; /dev/ttyS4
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com6 -&amp;gt; /dev/ttyS5
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com7 -&amp;gt; /dev/ttyS6
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com8 -&amp;gt; /dev/ttyS7
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs &lt;span class=&#34;m&#34;&gt;10&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;15&lt;/span&gt; 23:36 com9 -&amp;gt; /dev/ttyS8
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs  &lt;span class=&#34;m&#34;&gt;8&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;16&lt;/span&gt; 01:16 y: -&amp;gt; /home/zs
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lrwxrwxrwx &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; zs zs  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; 6月  &lt;span class=&#34;m&#34;&gt;16&lt;/span&gt; 01:16 z: -&amp;gt; /
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;CallApp Deepin-QQ c:/Program Files/Tencent/QQ/Bin/QQ.exe
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2021年 06月 16日 星期三 01:16:58 CST:kill QQ.exe block
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2021年 06月 16日 星期三 01:16:58 CST:No wine process found
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/home/zs/.deepinwine/Deepin-QQ/drive_c/Program Files/Tencent/QQ/Bin
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Starting process c:/Program Files/Tencent/QQ/Bin/QQ.exe ...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;/opt/deepinwine/apps/Deepin-QQ
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;base ❯ wine: cannot find L&lt;span class=&#34;s2&#34;&gt;&amp;#34;C:\\windows\\system32\\winemenubuilder.exe&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wine version: 2.18
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;libGL error: No matching fbConfigs or visuals found
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;libGL error: failed to load driver: swrast
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;X Error of failed request:  GLXBadContext
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Major opcode of failed request:  &lt;span class=&#34;m&#34;&gt;152&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;GLX&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Minor opcode of failed request:  &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;X_GLXIsDirect&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Serial number of failed request:  &lt;span class=&#34;m&#34;&gt;207&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Current serial number in output stream:  &lt;span class=&#34;m&#34;&gt;206&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;​可以发现最下面的log信息有一些异常，首先第一行是因为我们是Ubuntu系统，可以暂且不关注&lt;/p&gt;
+&lt;p&gt;​接下来可以看到有一个LibGL的错误，我们通过Google搜索&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;libGL error: No matching fbConfigs or visuals found
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;libGL error: failed to load driver: swrast
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;X Error of failed request:  GLXBadContext
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Major opcode of failed request:  &lt;span class=&#34;m&#34;&gt;152&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;GLX&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Minor opcode of failed request:  &lt;span class=&#34;m&#34;&gt;6&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;X_GLXIsDirect&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Serial number of failed request:  &lt;span class=&#34;m&#34;&gt;207&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  Current serial number in output stream:  &lt;span class=&#34;m&#34;&gt;206&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;​发现类似的错误及解决方案如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://bbs.archlinux.org/viewtopic.php?id=255385&#34;&gt;SOLVED] LibGL errors with osu! and wine&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://askubuntu.com/questions/834254/steam-libgl-error-no-matching-fbconfigs-or-visuals-found-libgl-error-failed-t&#34;&gt;Steam: libGL error: No matching fbConfigs or visuals found libGL error: failed to load driver: swrast&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​从搜索结果来看，这个问题还是非常常见的，用steam也会遇到，一般都是因为电脑安装了64位的NVIDIA显卡驱动，但是因为应用是32位的导致不能兼容，因此无法启动&lt;/p&gt;
+&lt;p&gt;​最终解决方案有两个&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果是不常用NVIDIA驱动的人，普通的办公一下，可以搜索网上教程关闭独显，只启用集显，可以发现QQ可以正常启动，&lt;/li&gt;
+&lt;li&gt;重新安装32位的NVIDIA驱动&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;最后&#34;&gt;最后&lt;/h3&gt;
+&lt;p&gt;虽然已经知道了解决方案，但是最终我还是选择卸载掉QQ，安装了wine版本的TIM，感觉和QQ没什么区别，而且更加简洁，而且可以流畅运行，没有N卡兼容问题！大家可以考虑一下~&lt;/p&gt;
+&lt;p&gt;而且QQ和TIM某些情况下会出现bug，字体全部变为方块，在 deepin-wine-ubuntu 的 &lt;a href=&#34;https://github.com/wszqkzqk/deepin-wine-ubuntu/issues&#34;&gt;Issues&lt;/a&gt; 中找到了解决方案 &lt;a href=&#34;https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/253&#34;&gt;Ubuntu 安装QQ后中文方块解决方法&lt;/a&gt; ，大家有同样困扰的也可以看一下~&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -85,12 +506,18 @@ base ❯ ./run.sh Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.
       <pubDate>Sat, 06 Mar 2021 20:51:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/posts/169/</guid>
-      <description>前言 最近使用Anaconda的时候遇到了一个很奇怪的问题，如当我新建环境 condatest 后，使用 pip -V 查看pip的路径指向，会发现pip指向的是另一个环境 CenterNet 的路径。搜索了很久得到一个有一些用的解决方法
-解决方案 设有问题的环境为 condatest ，python版本为 3.6
-然后进入 ~/anaconda3/envs/condatest/lib/python3.6
-编辑目录下的 site.py 文件，将其中的 USER_SITE 的值修改为 /home/zs/anaconda3/envs/condatest ，注意这里路径里面的 zs 是你的当前用户名， USER_BASE 的值修改为 /home/zs/anaconda3/envs/condatest/lib/python3.6/site.py，然后问题应该就解决了。
-因为如果环境问题的话，上面两个字符串都为空，猜测的原因是因为有同python版本的环境导致默认指向错误，此方式为修改conda中pip的指向。
-参考链接 更改conda环境中的pip包安装的默认路径 </description>
+      <description>&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
+&lt;p&gt;最近使用Anaconda的时候遇到了一个很奇怪的问题，如当我新建环境 &lt;strong&gt;condatest&lt;/strong&gt; 后，使用 &lt;code&gt;pip -V&lt;/code&gt; 查看pip的路径指向，会发现pip指向的是另一个环境 &lt;strong&gt;CenterNet&lt;/strong&gt; 的路径。搜索了很久得到一个有一些用的解决方法&lt;/p&gt;
+&lt;h3 id=&#34;解决方案&#34;&gt;解决方案&lt;/h3&gt;
+&lt;p&gt;设有问题的环境为 &lt;strong&gt;condatest&lt;/strong&gt; ，python版本为 &lt;strong&gt;3.6&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;然后进入 &lt;code&gt;~/anaconda3/envs/condatest/lib/python3.6&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;编辑目录下的 &lt;code&gt;site.py&lt;/code&gt; 文件，将其中的 &lt;code&gt;USER_SITE&lt;/code&gt; 的值修改为 &lt;code&gt;/home/zs/anaconda3/envs/condatest&lt;/code&gt; ，注意这里路径里面的 &lt;code&gt;zs&lt;/code&gt; 是你的当前用户名， &lt;code&gt;USER_BASE&lt;/code&gt; 的值修改为 &lt;code&gt;/home/zs/anaconda3/envs/condatest/lib/python3.6/site.py&lt;/code&gt;，然后问题应该就解决了。&lt;/p&gt;
+&lt;p&gt;因为如果环境问题的话，上面两个字符串都为空，猜测的原因是因为有同python版本的环境导致默认指向错误，此方式为修改conda中pip的指向。&lt;/p&gt;
+&lt;h3 id=&#34;参考链接&#34;&gt;参考链接&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.pythonf.cn/read/51713&#34;&gt;更改conda环境中的pip包安装的默认路径&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
@@ -99,20 +526,105 @@ base ❯ ./run.sh Run Deepin-QQ 9.1.8deepin0 c:/Program Files/Tencent/QQ/Bin/QQ.
       <pubDate>Wed, 27 Jan 2021 11:50:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/posts/164/</guid>
-      <description>CenterNet—Objects as Points介绍 ​CenterNet是一个anchor-free的目标检测网络，与YOLOv3相比，精度有所提升，此外他不仅能够用于2D目标检测，也能够用于人体姿态识别，3D目标检测等···
-安装CenterNet ​其实安装CenterNet的过程就是一个配置环境的问题，直接跟着官方给出的这里Install.md配置一下即可，十分推荐使用Conda来管理环境，这里给出我的环境给大家参考一下：
-Ubuntu = 18.04 LTS
-pytorch = 1.2.0
-python = 3.6.12
-torchvision = 0.4.0
-cuda = 10.2
-​需要注意的是：
-官方给出的教程里面使用的是 pytorch 0.4.1，但是我个人在实测过程中遇到了一些问题，遂安装网上的教程更改为 pytorch 1.2.0，并且需要把 ${CenterNet_Root}/src/lib/models/networks/DCNv2 中的这个DCNv2网络更改为官方的最新版。 这里使用的cuda版本最好和你的显卡匹配，之前因为显卡驱动的一些问题导致重装了电脑，根据我们学长学姐的建议，最好直接去cuda官网那边去下载deb包直接安装。 遇到环境配置问题可以先去Google一下，一般作者都在CenterNet&amp;rsquo;s Issues中给出了回复，如果没有，可以发邮件给作者询问，当然也可以发消息/邮箱给我，大家一起探讨一下~ 运行CenterNet的demo ​想要运行demo，首先要去 Model zoo 中下载一下我们需要使用的model，2D目标检测使用的是 ctdet_coco_dla_2x.pth ，人体姿态评估使用的是 multi_pose_dla_3x.pth ，下载后统一将他们放在CenterNet根目录中的model文件夹中。
-​然后使用conda切换到CenterNet的环境，在终端中运行：
-python demo.py ctdet --demo ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg --load_model ../models/ctdet_coco_dla_2x.pth ​这里需要注意的是 --demo 后面的 ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg ，这里我使用的是官方给出的实例图片，它位于CenterNet根目录的images文件夹中，前面的 ${CenterNet_Root} 代表的是 CenterNet根目录，好比我的就位于 /home/zs/CenterNet 。
-​如果不出意外的话效果应该如下图所示：
-运行CenterNet的3D目标检测 配置数据集和模型 ​我们可以直接参考官方的 DATA.md 来配置我们的数据集。
-​然后到 Model zoo 下载3D检测使用的模型 ddd_3dop.</description>
+      <description>&lt;h2 id=&#34;centernetobjects-as-points介绍&#34;&gt;CenterNet—Objects as Points介绍&lt;/h2&gt;
+&lt;p&gt;​&lt;a href=&#34;https://github.com/xingyizhou/CenterNet&#34;&gt;CenterNet&lt;/a&gt;是一个anchor-free的目标检测网络，与YOLOv3相比，精度有所提升，此外他不仅能够用于2D目标检测，也能够用于人体姿态识别，3D目标检测等···&lt;/p&gt;
+&lt;h3 id=&#34;安装centernet&#34;&gt;安装CenterNet&lt;/h3&gt;
+&lt;p&gt;​其实安装&lt;a href=&#34;https://github.com/xingyizhou/CenterNet&#34;&gt;CenterNet&lt;/a&gt;的过程就是一个配置环境的问题，直接跟着官方给出的这里&lt;a href=&#34;https://github.com/xingyizhou/CenterNet/blob/master/readme/INSTALL.md&#34;&gt;Install.md&lt;/a&gt;配置一下即可，十分推荐使用Conda来管理环境，这里给出我的环境给大家参考一下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ubuntu = 18.04 LTS&lt;/p&gt;
+&lt;p&gt;pytorch = 1.2.0&lt;/p&gt;
+&lt;p&gt;python = 3.6.12&lt;/p&gt;
+&lt;p&gt;torchvision = 0.4.0&lt;/p&gt;
+&lt;p&gt;cuda = 10.2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​需要注意的是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;官方给出的教程里面使用的是 &lt;code&gt;pytorch 0.4.1&lt;/code&gt;，但是我个人在实测过程中遇到了一些问题，遂安装网上的教程更改为 &lt;code&gt;pytorch 1.2.0&lt;/code&gt;，并且需要把 &lt;code&gt;${CenterNet_Root}/src/lib/models/networks/DCNv2&lt;/code&gt; 中的这个&lt;a href=&#34;https://github.com/CharlesShang/DCNv2&#34;&gt;DCNv2&lt;/a&gt;网络更改为官方的最新版。&lt;/li&gt;
+&lt;li&gt;这里使用的cuda版本最好和你的显卡匹配，之前因为显卡驱动的一些问题导致重装了电脑，根据我们学长学姐的建议，最好直接去cuda官网那边去下载deb包直接安装。&lt;/li&gt;
+&lt;li&gt;遇到环境配置问题可以先去Google一下，一般作者都在CenterNet&amp;rsquo;s Issues中给出了回复，如果没有，可以发邮件给作者询问，当然也可以发消息/邮箱给我，大家一起探讨一下~&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;运行centernet的demo&#34;&gt;运行CenterNet的demo&lt;/h3&gt;
+&lt;p&gt;​想要运行demo，首先要去 &lt;a href=&#34;https://github.com/xingyizhou/CenterNet/blob/master/readme/MODEL_ZOO.md&#34;&gt;Model zoo&lt;/a&gt; 中下载一下我们需要使用的model，2D目标检测使用的是 &lt;a href=&#34;https://drive.google.com/open?id=1pl_-ael8wERdUREEnaIfqOV_VF2bEVRT&#34;&gt;ctdet_coco_dla_2x.pth&lt;/a&gt; ，人体姿态评估使用的是 &lt;a href=&#34;https://drive.google.com/open?id=1PO1Ax_GDtjiemEmDVD7oPWwqQkUu28PI&#34;&gt;multi_pose_dla_3x.pth&lt;/a&gt; ，下载后统一将他们放在CenterNet根目录中的model文件夹中。&lt;/p&gt;
+&lt;p&gt;​然后使用conda切换到CenterNet的环境，在终端中运行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;python demo.py ctdet --demo &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;CenterNet_Root&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;/images/17790319373_bd19b24cfc_k.jpg --load_model ../models/ctdet_coco_dla_2x.pth 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;​这里需要注意的是 &lt;code&gt;--demo&lt;/code&gt; 后面的 &lt;code&gt;${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg&lt;/code&gt; ，这里我使用的是官方给出的实例图片，它位于CenterNet根目录的images文件夹中，前面的 &lt;code&gt;${CenterNet_Root} &lt;/code&gt; 代表的是 CenterNet根目录，好比我的就位于 &lt;code&gt;/home/zs/CenterNet&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;​如果不出意外的话效果应该如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/01/2469782097.jpg&#34; alt=&#34;2D目标检测效果&#34;  /&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;运行centernet的3d目标检测&#34;&gt;运行CenterNet的3D目标检测&lt;/h3&gt;
+&lt;h4 id=&#34;配置数据集和模型&#34;&gt;配置数据集和模型&lt;/h4&gt;
+&lt;p&gt;​我们可以直接参考官方的 &lt;code&gt;DATA.md&lt;/code&gt; 来配置我们的数据集。&lt;/p&gt;
+&lt;p&gt;​然后到 &lt;a href=&#34;https://github.com/xingyizhou/CenterNet/blob/master/readme/MODEL_ZOO.md&#34;&gt;Model zoo&lt;/a&gt; 下载3D检测使用的模型 &lt;a href=&#34;https://drive.google.com/open?id=1znsM6E-aVTkATreDuUVxoU0ajL1az8rz&#34;&gt;ddd_3dop.pth&lt;/a&gt; 。&lt;/p&gt;
+&lt;p&gt;​这里说一下遇到的几个坑：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;首先是配置数据集的过程中，我们需要配置的目录结构如图所示（官方给出的结构树有点模糊不清的感觉）&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;.
+├── ImageSets_3dop
+│   ├── test.txt
+│   ├── train.txt
+│   ├── trainval.txt
+│   └── val.txt
+├── ImageSets_subcnn
+│   ├── test.txt
+│   ├── train.txt
+│   ├── trainval.txt
+│   └── val.txt
+└── training
+       ├── calib
+       ├── image_2
+       └── label_2
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后去到 &lt;code&gt;${CenterNet_ROOT}/src/tools&lt;/code&gt;目录下，运行 &lt;code&gt;python convert_kitti_to_coco.py &lt;/code&gt; 将 &lt;strong&gt;kitti&lt;/strong&gt; 数据集转换为 &lt;strong&gt;coco&lt;/strong&gt; 数据集的格式，不出意外应该会报错如下：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/01/3420056939.png&#34; alt=&#34;转换时报错&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;这里的解决方案参考CenterNet中的一个Issue , &lt;a href=&#34;https://github.com/xingyizhou/CenterNet/issues/54&#34;&gt;How to generate the image dir in kitti?&lt;/a&gt; ，我们需要回到 &lt;code&gt;data/kitti&lt;/code&gt; 目录下手动创建一个 &lt;code&gt;annotations&lt;/code&gt; 文件夹，然后再回去运行转换程序。转换后目录结构如下：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;.
+├── annotations
+│   ├── kitti_3dop_train.json
+│   ├── kitti_3dop_val.json
+│   ├── kitti_subcnn_train.json
+│   └── kitti_subcnn_val.json
+├── ImageSets_3dop
+│   ├── test.txt
+│   ├── train.txt
+│   ├── trainval.txt
+│   └── val.txt
+├── ImageSets_subcnn
+│   ├── test.txt
+│   ├── train.txt
+│   ├── trainval.txt
+│   └── val.txt
+└── training
+       ├── calib
+       ├── image_2
+       └── label_2
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;然后根据官方的教程，我们需要创建一个images文件夹，然后将其 &lt;code&gt;training/image_2&lt;/code&gt; 链接到 &lt;code&gt;images/trainval&lt;/code&gt;，我在实际的测试中，发现此方法并不可行。参考CenterNet中的一个Issue: &lt;a href=&#34;https://github.com/xingyizhou/CenterNet/issues/575#&#34;&gt;Evaluate kitti&amp;ndash;AttributeError: &amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;shape&amp;rsquo;&lt;/a&gt; ，其中 juanmed给出了解决方案：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I had the same problem. For some reason the simlinks that are created during the data preparation process described in DATA.md are not working. So instead of creating simlinks I simply copied the actual data into the directories indicated in DATA.md. In other words the folders &lt;code&gt;data/kitti/images/test&lt;/code&gt; and &lt;code&gt;data/kitti/images/trainval&lt;/code&gt; do contain the actual images.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;意思就是说，我们在 &lt;strong&gt;images&lt;/strong&gt; 中的图片必须都是真实的照片，而不能只是软链接过去。&lt;/p&gt;
+&lt;p&gt;解决方案很显然，只需要在 &lt;strong&gt;images&lt;/strong&gt; 文件夹中建立一个 &lt;strong&gt;trainval&lt;/strong&gt; 文件夹，将 &lt;code&gt;training/image_2&lt;/code&gt; 中的所有图像都移入其中即可。如果有test的照片，那么也照规在 &lt;strong&gt;images&lt;/strong&gt; 新建一个 &lt;strong&gt;test&lt;/strong&gt; 文件夹，把测试的照片移入其中即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;运行测试程序&#34;&gt;运行测试程序&lt;/h4&gt;
+&lt;p&gt;接下来我们就可以根据官方给出的 &lt;a href=&#34;https://github.com/xingyizhou/CenterNet/blob/master/readme/GETTING_STARTED.md&#34;&gt;GETTING_STARTED.md&lt;/a&gt; 来进行我们的检测了。&lt;/p&gt;
+&lt;p&gt;即先编译一下评估工具，然后运行测试程序，但其实还是有一点点小问题。&lt;/p&gt;
+&lt;p&gt;具体问题可以参考 Issus: &lt;a href=&#34;https://github.com/xingyizhou/CenterNet/issues/55&#34;&gt;kitti test: Couldn&amp;rsquo;t read: 006042.txt of ground truth.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Issue下 &lt;strong&gt;lhyfst&lt;/strong&gt; 已经给出了解决方案 ：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The solution is quite simple.
+&lt;code&gt;cd data/kitti&lt;/code&gt;
+&lt;code&gt;mv label_2 label_val&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​    更改后，运行成功~&lt;/p&gt;
+&lt;p&gt;我们应该可以在 &lt;code&gt;${CenterNet_ROOT}/exp/ddd/3dop/results&lt;/code&gt; 看到我们得到的结果，只不过运行得到的是点的坐标，而不是图像，如果需要图像的话可能还需要自己绘制一下。&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -121,22 +633,111 @@ python demo.py ctdet --demo ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jp
       <pubDate>Fri, 04 Dec 2020 01:39:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/posts/141/</guid>
-      <description>前言 因为最近Ubuntu用的比较频繁，所以前一阵把Ubuntu16.04换成Ubuntu18.04了，并且囿于机械硬盘那启动速度，我忍痛割爱把我80G的固态硬盘分给了Ubuntu。
-后来，用着用着就觉得这个Ubuntu的原始界面确实不是特别的好看，配色偏基佬紫的感觉。“工欲善其事，必先利其器“，我们只有将自己的工作环境布置的舒心一些才能有做下去的动力！所以我想给Ubuntu换一个看起来舒服点的界面，然后上网找教程乱七八糟的倒腾了一会，感觉换完以后完全不一样了，这个界面真的好看！！用起来也特别的舒心，感觉自己马上就要告别Windows投奔Linux的怀抱了。后续还有一些其他的优化，例如装QQ、微信、配置终端等，一并写在这里吧。
-Ubuntu界面的优化 具体效果 先放几张效果图上来，是我改后的界面。大概就是这样(自我感觉挺好看的)，当然也有其他的主题可供选择。
-1.安装GNOME桌面环境主题配置工具 如果要改主题，那么首先要有一个利器，这里我用的Ubuntu18.04，桌面环境为 GNOME 3.28.2 ，因为我目前接触的只有GNOME桌面环境的，Ubuntu18.04本来的桌面环境就是GNOME，但是Ubuntu16.04好像没有自带，但是可以安装，这里大家可以自行百度了解。
-然后我们已经有了GNOME桌面环境后，安装主题配置工具 GNOME Tweaks ，在终端中输入如下内容：
-sudo apt-get update sudo apt-get install gnome-tweak-tool 我们先更新软件源，然后安装后直接打开他就行，在系统软件中中文大概叫 优化 。
-2.拓展上述工具 安装完上述工具后，我们可能发现了一个问题，就是外观那一栏目的Shell有一个感叹号，无法更改，这是因为我们没有安装拓展导致的。我们在终端中运行
-sudo apt-get install gnome-shell-extensions 然后重启一下电脑。再打开软件找到左侧的拓展，把 User themes 那一栏目打开。切换回去就可以发现Shell那边的感叹号无了。
-3.寻找自己喜欢的主题 这里我大家可以去这个网址去找自己喜欢的 GNOME-LOOK.ORG
-这里面包含了图标，主题这些，下面介绍一下如何安装。
-好比我们找到一个自己喜欢的主题，然后我们点击下面的 Files ，可能会有很多文件，但是多是同一个主题的不同风格，好比暗风格和亮风格这样的，还有不同的版本的，我多是安装那个下载量最多的，我们下载那个对应的文件(多是tar.xz安装包)。
-对于主题的安装，我们只需要把解压出来的文件，移动或复制到 /usr/share/themes/ 目录下，如果是光标\图标的安装，那么就把文件夹移动到 /usr/share/icons 目录下。
-然后我们回到 GNOME Tweaks 软件中就可以发现，我们已经可以在主题\图标\光标\Shell清单中找到我们移动到文件夹中的文件了，然后选择就可以切换了。这里需要注意的，很多主题都是自带Shell的，你下了一个主题，那么你可以在Shell和主题这两个栏目中都找到他们，是一个配套的。
-4.一些后续的调整 我们后续可以改变左边收藏夹的位置，我觉得放在左边有一丢丢的丑，所以我选择把它放在的下面。
-我们去Ubuntu软件中搜索 Dash to dock，然后安装这个拓展，然后打开 GNOME Tweaks 软件在拓展中找到他就可以随心所欲的调我们的收藏夹的位置了。
-5.我自己的配置 theme&amp;amp;shell Canta-light-compact icons 01-McMojave-circle 6.界面修改的参考链接 Ubuntu18.04美化主题(mac主题) Ubuntu18.04美化主题(完整版) GNOME-LOOK.ORG 30个非常不错的Ubuntu主题供你选择 ubuntu18.</description>
+      <description>&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
+&lt;p&gt;因为最近Ubuntu用的比较频繁，所以前一阵把Ubuntu16.04换成Ubuntu18.04了，并且囿于机械硬盘那启动速度，我忍痛割爱把我80G的固态硬盘分给了Ubuntu。&lt;/p&gt;
+&lt;p&gt;后来，用着用着就觉得这个Ubuntu的原始界面确实不是特别的好看，&lt;del&gt;配色偏基佬紫的感觉&lt;/del&gt;。“工欲善其事，必先利其器“，我们只有将自己的工作环境布置的舒心一些才能有做下去的动力！所以我想给Ubuntu换一个看起来舒服点的界面，然后上网找教程乱七八糟的倒腾了一会，感觉换完以后完全不一样了，这个界面真的好看！！用起来也特别的舒心，感觉自己马上就要告别Windows投奔Linux的怀抱了。后续还有一些其他的优化，例如装QQ、微信、配置终端等，一并写在这里吧。&lt;/p&gt;
+&lt;h3 id=&#34;ubuntu界面的优化&#34;&gt;Ubuntu界面的优化&lt;/h3&gt;
+&lt;h4 id=&#34;具体效果&#34;&gt;具体效果&lt;/h4&gt;
+&lt;p&gt;先放几张效果图上来，是我改后的界面。大概就是这样(自我感觉挺好看的)，当然也有其他的主题可供选择。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/12/171170690.png&#34; alt=&#34;桌面风格&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/12/3724154221.png&#34; alt=&#34;文件夹风格&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/12/3559388649.png&#34; alt=&#34;效果图&#34;  /&gt;
+&lt;/p&gt;
+&lt;h4 id=&#34;1安装gnome桌面环境主题配置工具&#34;&gt;1.安装GNOME桌面环境主题配置工具&lt;/h4&gt;
+&lt;p&gt;如果要改主题，那么首先要有一个利器，这里我用的&lt;code&gt;Ubuntu18.04&lt;/code&gt;，桌面环境为 &lt;code&gt;GNOME 3.28.2&lt;/code&gt; ，因为我目前接触的只有GNOME桌面环境的，Ubuntu18.04本来的桌面环境就是GNOME，但是Ubuntu16.04好像没有自带，但是可以安装，这里大家可以自行百度了解。&lt;/p&gt;
+&lt;p&gt;然后我们已经有了GNOME桌面环境后，安装主题配置工具 &lt;code&gt;GNOME Tweaks &lt;/code&gt; ，在终端中输入如下内容：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install gnome-tweak-tool 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们先更新软件源，然后安装后直接打开他就行，在系统软件中中文大概叫 &lt;strong&gt;优化&lt;/strong&gt; 。&lt;/p&gt;
+&lt;h4 id=&#34;2拓展上述工具&#34;&gt;2.拓展上述工具&lt;/h4&gt;
+&lt;p&gt;安装完上述工具后，我们可能发现了一个问题，就是外观那一栏目的Shell有一个感叹号，无法更改，这是因为我们没有安装拓展导致的。我们在终端中运行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install gnome-shell-extensions
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后重启一下电脑。再打开软件找到左侧的拓展，把 &lt;code&gt;User themes&lt;/code&gt; 那一栏目打开。切换回去就可以发现Shell那边的感叹号无了。&lt;/p&gt;
+&lt;h4 id=&#34;3寻找自己喜欢的主题&#34;&gt;3.寻找自己喜欢的主题&lt;/h4&gt;
+&lt;p&gt;这里我大家可以去这个网址去找自己喜欢的 &lt;a href=&#34;https://www.gnome-look.org&#34;&gt;GNOME-LOOK.ORG&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这里面包含了图标，主题这些，下面介绍一下如何安装。&lt;/p&gt;
+&lt;p&gt;好比我们找到一个自己喜欢的主题，然后我们点击下面的 &lt;strong&gt;Files&lt;/strong&gt; ，可能会有很多文件，但是多是同一个主题的不同风格，好比暗风格和亮风格这样的，还有不同的版本的，我多是安装那个下载量最多的，我们下载那个对应的文件(多是tar.xz安装包)。&lt;/p&gt;
+&lt;p&gt;对于主题的安装，我们只需要把解压出来的文件，移动或复制到 &lt;code&gt;/usr/share/themes/&lt;/code&gt; 目录下，如果是光标\图标的安装，那么就把文件夹移动到 &lt;code&gt;/usr/share/icons&lt;/code&gt; 目录下。&lt;/p&gt;
+&lt;p&gt;然后我们回到 &lt;code&gt;GNOME Tweaks&lt;/code&gt; 软件中就可以发现，我们已经可以在主题\图标\光标\Shell清单中找到我们移动到文件夹中的文件了，然后选择就可以切换了。这里需要注意的，很多主题都是自带Shell的，你下了一个主题，那么你可以在Shell和主题这两个栏目中都找到他们，是一个配套的。&lt;/p&gt;
+&lt;h4 id=&#34;4一些后续的调整&#34;&gt;4.一些后续的调整&lt;/h4&gt;
+&lt;p&gt;我们后续可以改变左边收藏夹的位置，我觉得放在左边有一丢丢的丑，所以我选择把它放在的下面。&lt;/p&gt;
+&lt;p&gt;我们去Ubuntu软件中搜索 Dash to dock，然后安装这个拓展，然后打开 &lt;code&gt;GNOME Tweaks&lt;/code&gt; 软件在拓展中找到他就可以随心所欲的调我们的收藏夹的位置了。&lt;/p&gt;
+&lt;h4 id=&#34;5我自己的配置&#34;&gt;5.我自己的配置&lt;/h4&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;theme&amp;amp;shell   Canta-light-compact
+icons 01-McMojave-circle
+&lt;/code&gt;&lt;/pre&gt;&lt;h4 id=&#34;6界面修改的参考链接&#34;&gt;6.界面修改的参考链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/lishanleilixin/article/details/80453565&#34;&gt;Ubuntu18.04美化主题(mac主题)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/qq_42527676/article/details/91356154&#34;&gt;Ubuntu18.04美化主题(完整版)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.gnome-look.org&#34;&gt;GNOME-LOOK.ORG&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.jianshu.com/p/4fb5e4657695&#34;&gt;30个非常不错的Ubuntu主题供你选择&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/maodexuedinge_/article/details/106652323&#34;&gt;ubuntu18.04更换鼠标游标主题&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;配置终端&#34;&gt;配置终端&lt;/h3&gt;
+&lt;h4 id=&#34;前言-1&#34;&gt;前言&lt;/h4&gt;
+&lt;p&gt;唔，终端本来用起来感觉也还行，感觉终端就是linux的灵魂，啥都能干。&lt;/p&gt;
+&lt;p&gt;但是听说有更好用的终端，现在ubuntu普遍用的好像都是bash，但是好像还有zsh，fish这样的，他们可以有一些代码补全，功能更强，可拓展性也高，大家都zsh和fish哪个好用一直争执不停，但是我发现ROS对 &lt;code&gt;zsh&lt;/code&gt; 支持的很好，但是对 &lt;code&gt;fish&lt;/code&gt; 的支持有点拉胯，考虑到以后可能ros会用的比较多，因此我选择使用zsh。效果图如下&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/12/3375893306.png&#34; alt=&#34;终端效果图&#34;  /&gt;
+&lt;/p&gt;
+&lt;h4 id=&#34;1下载zsh&#34;&gt;1.下载zsh&lt;/h4&gt;
+&lt;p&gt;直接在终端执行下列语句&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install zsh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;2安装oh-my-zsh&#34;&gt;2.安装oh my zsh&lt;/h4&gt;
+&lt;p&gt;zsh其实配置起来很麻烦，这一点相比与fish不太行，fish下载下来就已经具备了常用的功能，例如代码补全等。&lt;/p&gt;
+&lt;p&gt;但是我们有先人铺路，在Github上有一个开源的项目 &lt;a href=&#34;https://github.com/ohmyzsh/ohmyzsh&#34;&gt;oh my zsh&lt;/a&gt;，就是专门用来导入这个zsh的配置的，&lt;/p&gt;
+&lt;p&gt;我们直接运行如下代码，就可以直接安装了&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget sh -c &lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;$(&lt;/span&gt;wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh&lt;span class=&#34;k&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后我们可以通过在终端中输入zsh来切换到zsh，也可以通过输入bash切换回去&lt;/p&gt;
+&lt;p&gt;我们也可以通过如下命令来切换默认的终端系统，首先查找一下zsh的目录，然后切换过去。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;whereis zsh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;chsh -s zsh路径
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;3配置插件&#34;&gt;3.配置插件&lt;/h4&gt;
+&lt;p&gt;在zsh里面有许多好用的插件，在这里推荐两个&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;自动补全 &lt;a href=&#34;https://github.com/zsh-users/zsh-autosuggestions&#34;&gt;zsh-autosuggestions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;语法高亮 &lt;a href=&#34;https://github.com/zsh-users/zsh-syntax-highlighting&#34;&gt;zsh-syntax-highlighting&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;关于下载的方法，在这两个项目里面都说了，我们只需要把下载的文件放到  &lt;code&gt;~/.oh-my-zsh/plugins&lt;/code&gt; 目录中，然后编辑 &lt;code&gt;~/.zshrc&lt;/code&gt; 在 &lt;code&gt;plugin = (插件1 插件2)&lt;/code&gt; 写上你所要启用的插件名称即可。&lt;/p&gt;
+&lt;p&gt;然后在终端中 &lt;code&gt;source ~/.zshrc&lt;/code&gt; 更新一下配置即可。&lt;/p&gt;
+&lt;h4 id=&#34;4配置主题&#34;&gt;4.配置主题&lt;/h4&gt;
+&lt;p&gt;zsh有许多可用的主题选择，我自己最喜欢的一个叫 &lt;a href=&#34;https://github.com/sindresorhus/pure&#34;&gt;pure&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我觉得害挺好看的，效果就跟上图一样吧。&lt;/p&gt;
+&lt;p&gt;安装方法就是先把pure下载到一个路径，然后编辑 &lt;code&gt;~/.zshrc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在下面加入&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;fpath+=安装路径
+autoload -U promptinit; promptinit
+prompt pure
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后我们&lt;code&gt;source&lt;/code&gt;一下&lt;code&gt;.zshrc&lt;/code&gt; 就可以使用了。&lt;/p&gt;
+&lt;p&gt;但是如果是使用zsh本来自带的一些主题，和这个有些差别，只需要下载好主题然后放到 &lt;code&gt;~/.oh-my-zsh/themes&lt;/code&gt; ，然后在 &lt;code&gt;.zshrc &lt;/code&gt;中启用即可。&lt;/p&gt;
+&lt;h4 id=&#34;5参考链接&#34;&gt;5.参考链接&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/rainy0426/articles/13163167.html&#34;&gt;linux终端shell:zsh配置和使用&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/shengzhu1/article/details/55272234/&#34;&gt;zsh和oh-my-zsh的一些好用的主题和插件&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/yuqiongran/article/details/52280522&#34;&gt;linux安装oh my zsh终端及简单使用方法&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/497b4af1334d&#34;&gt;配置oh-my-zsh主题&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jianshu.com/p/a94e2c59f244&#34;&gt;Zsh 常用插件&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://linux.cn/article-11426-1.html&#34;&gt;给Zsh添加主题和插件&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/61447507&#34;&gt;常用的oh-my-zsh插件&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;还有一些其他的配置有时间再写吧……咕咕咕&lt;/p&gt;
+</description>
     </item>
     
   </channel>

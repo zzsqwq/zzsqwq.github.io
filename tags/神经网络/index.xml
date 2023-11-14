@@ -13,17 +13,239 @@
       <pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/posts/182/</guid>
-      <description>前言 前一阵学校有五一数模节校赛，和朋友一起参加做B题，波士顿房价预测，算是第一次自己动手实现一个简单的小网络吧，虽然很简单，但还是想记录一下。
-题目介绍 波士顿住房数据由哈里森和鲁宾菲尔德于1978年Harrison and Rubinfeld1收集。它包括了波士顿大区每个调查行政区的506个观察值。1980年Belsley et al.2曾对此数据做过分析。
-数据一共14列，每一列的含义分别如下：
-英文简称 详细含义 CRIM 城镇的人均犯罪率 ZN 大于25,000平方英尺的地块的住宅用地比例。 INDUS 每个镇的非零售业务英亩的比例。 CHAS 查尔斯河虚拟变量（如果环河，则等于1；否则等于0） NOX 一氧化氮的浓度（百万分之几） RM 每个住宅的平均房间数 AGE 1940年之前建造的自有住房的比例 DIS 到五个波士顿就业中心的加权距离 RAD 径向公路通达性的指标 TAX 每一万美元的全值财产税率 PTRATIO 各镇的师生比率 B 计算方法为 $1000(B_k-0.63)^2$，其中Bk是按城镇划分的非裔美国人的比例 LSTAT 底层人口的百分比(%) price 自有住房数的中位数，单位（千美元） 基于上述数据，请完成以下问题：
-建立波士顿房价预测模型并对预测结果进行评价。
-问题分析 首先这道题目的很明确，数据一共是 $506×14$ 的一个矩阵，有十三维的自变量，通过建立一个模型来拟合回归出最终的因变量 price，即户主拥有住房价值的中位数。这是一个回归问题，综合考虑有以下两个思路
-通过各种回归算法（GradientBoostingRegressor，RandomForestRegressor，ExtraTreesRegressor，LinearRegressor等）结合全部或部分自变量来回归最终的price
-建立前馈神经网络模型，根据通用逼近定理，我们可以拟合此回归模型。
-我们对上述模型来进行实现并确定评估标准来对他们进行比较，选择最优的模型作为预测模型。
-算法流程 传统的回归算法 自变量的选择 首先，考虑到数据集中13列自变量其中某一些可能和最终的房价并无强相关性，如果全部使用进行预测可能会对模型引入噪声，因此我们首先计算了房价price与各个自变量之间的相关系数 $r$ ，其中 $r$ 计算公式如下： $$ r = \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum(x_i-\bar{x})^2\sum(y_i-\bar{y})^2}} $$ 其中 $x_i,y_i$ 为数据的每个分量，$\bar{x}，\bar{y}$ 为数据的均值
-该系数反映了两变量之间的相关性，$r$ 的绝对值介于 $[0,1]$ 区间内，$|r|$ 越接近1，表示两数据相关性越高，反之越低。计算后结果如下：</description>
+      <description>&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
+&lt;p&gt;前一阵学校有五一数模节校赛，和朋友一起参加做B题，波士顿房价预测，算是第一次自己动手实现一个简单的小网络吧，虽然很简单，但还是想记录一下。&lt;/p&gt;
+&lt;h3 id=&#34;题目介绍&#34;&gt;题目介绍&lt;/h3&gt;
+&lt;p&gt;波士顿住房数据由哈里森和鲁宾菲尔德于1978年Harrison and Rubinfeld&lt;sup&gt;&lt;a href=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/05/406125417.png&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;收集。它包括了波士顿大区每个调查行政区的506个观察值。1980年Belsley et al.&lt;sup&gt;&lt;a href=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/05/3238192089.png&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;曾对此数据做过分析。&lt;/p&gt;
+&lt;p&gt;数据一共14列，每一列的含义分别如下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;英文简称&lt;/th&gt;
+&lt;th&gt;详细含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;CRIM&lt;/td&gt;
+&lt;td&gt;城镇的人均犯罪率&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ZN&lt;/td&gt;
+&lt;td&gt;大于25,000平方英尺的地块的住宅用地比例。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;INDUS&lt;/td&gt;
+&lt;td&gt;每个镇的非零售业务英亩的比例。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;CHAS&lt;/td&gt;
+&lt;td&gt;查尔斯河虚拟变量（如果环河，则等于1；否则等于0）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;NOX&lt;/td&gt;
+&lt;td&gt;一氧化氮的浓度（百万分之几）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RM&lt;/td&gt;
+&lt;td&gt;每个住宅的平均房间数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AGE&lt;/td&gt;
+&lt;td&gt;1940年之前建造的自有住房的比例&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DIS&lt;/td&gt;
+&lt;td&gt;到五个波士顿就业中心的加权距离&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RAD&lt;/td&gt;
+&lt;td&gt;径向公路通达性的指标&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TAX&lt;/td&gt;
+&lt;td&gt;每一万美元的全值财产税率&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PTRATIO&lt;/td&gt;
+&lt;td&gt;各镇的师生比率&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;B&lt;/td&gt;
+&lt;td&gt;计算方法为 $1000(B_k-0.63)^2$，其中Bk是按城镇划分的非裔美国人的比例&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LSTAT&lt;/td&gt;
+&lt;td&gt;底层人口的百分比(%)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;price&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;自有住房数的中位数，单位（千美元）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;基于上述数据，请完成以下问题：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;建立波士顿房价预测模型并对预测结果进行评价。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;问题分析&#34;&gt;问题分析&lt;/h3&gt;
+&lt;p&gt;首先这道题目的很明确，数据一共是 $506×14$ 的一个矩阵，有十三维的自变量，通过建立一个模型来拟合回归出最终的因变量 price，即户主拥有住房价值的中位数。这是一个回归问题，综合考虑有以下两个思路&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;通过各种回归算法（GradientBoostingRegressor，RandomForestRegressor，ExtraTreesRegressor，LinearRegressor等）结合全部或部分自变量来回归最终的price&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;建立前馈神经网络模型，根据通用逼近定理，我们可以拟合此回归模型。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我们对上述模型来进行实现并确定评估标准来对他们进行比较，选择最优的模型作为预测模型。&lt;/p&gt;
+&lt;h3 id=&#34;算法流程&#34;&gt;算法流程&lt;/h3&gt;
+&lt;h4 id=&#34;传统的回归算法&#34;&gt;传统的回归算法&lt;/h4&gt;
+&lt;h5 id=&#34;自变量的选择&#34;&gt;自变量的选择&lt;/h5&gt;
+&lt;p&gt;首先，考虑到数据集中13列自变量其中某一些可能和最终的房价并无强相关性，如果全部使用进行预测可能会对模型引入噪声，因此我们首先计算了房价price与各个自变量之间的相关系数 $r$ ，其中 $r$ 计算公式如下：
+$$
+r = \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum(x_i-\bar{x})^2\sum(y_i-\bar{y})^2}}
+$$
+其中 $x_i,y_i$ 为数据的每个分量，$\bar{x}，\bar{y}$ 为数据的均值&lt;/p&gt;
+&lt;p&gt;该系数反映了两变量之间的相关性，$r$ 的绝对值介于 $[0,1]$ 区间内，$|r|$ 越接近1，表示两数据相关性越高，反之越低。计算后结果如下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;CRIM&lt;/th&gt;
+&lt;th&gt;ZN&lt;/th&gt;
+&lt;th&gt;INDUS&lt;/th&gt;
+&lt;th&gt;CHAS&lt;/th&gt;
+&lt;th&gt;NOX&lt;/th&gt;
+&lt;th&gt;RM&lt;/th&gt;
+&lt;th&gt;LSTAT&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;-0.385832&lt;/td&gt;
+&lt;td&gt;0.360445&lt;/td&gt;
+&lt;td&gt;-0.483725&lt;/td&gt;
+&lt;td&gt;0.175260&lt;/td&gt;
+&lt;td&gt;-0.427321&lt;/td&gt;
+&lt;td&gt;0.695360&lt;/td&gt;
+&lt;td&gt;-0.737663&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;AGE&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;DIS&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;RAD&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;TAX&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;PTRATIO&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;B&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;-0.376955&lt;/td&gt;
+&lt;td&gt;0.249929&lt;/td&gt;
+&lt;td&gt;-0.381626&lt;/td&gt;
+&lt;td&gt;-0.468536&lt;/td&gt;
+&lt;td&gt;-0.507787&lt;/td&gt;
+&lt;td&gt;0.333461&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;观察结果可以发现，在给定的十三个变量中，&lt;strong&gt;LSTAT &lt;strong&gt;与 &lt;strong&gt;price&lt;/strong&gt; 的相关程度最高$(|r|&amp;gt;0.7)$，其次是 &lt;strong&gt;RM&lt;/strong&gt; 与&lt;/strong&gt;PTRATIO&lt;/strong&gt; $(|r|&amp;gt;0.5)$，再者是 &lt;strong&gt;TAX,INDUS,NOX&lt;/strong&gt; $(|r|&amp;gt;0.4)$，除上述之外的七个变量都与 &lt;strong&gt;price&lt;/strong&gt; 无较强的相关性，因此我们考虑使用六个相关性较强变量和十三个变量分别来对房价进行预测，并对他们进行对比，来寻找最优的回归模型。&lt;/p&gt;
+&lt;h5 id=&#34;模型的构建&#34;&gt;模型的构建&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;首先我们使用了sklearn中自带的 boston 数据集，并将整体数据集随机划分为了训练集和测试集两部分，所占比例分别为80%和20%。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后，我们利用Linear,Ridge,Lasso,ElasticNet,DecisionTree,GradientBoosting,RandomForest,ExtraTrees八种模型通过训练集对其进行训练。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;接下来，我们利用训练集拟合得到的模型，使用测试集对其进行测试，与 Ground Truth 进行对比，并通过 $R^2$ 来评价该预测结果，其中 $R^2$ 计算公式如下，其是衡量回归模型好坏的常见指标，其值一般处于[0,1]之间，$R^2$ 越接近1，说明模型的性能越好。
+$$
+R^2 = 1-\frac{\sum(\hat{y_i}-y_i)^2}{\sum(\bar{y}-y_i)^2}
+$$&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;最后，考虑到模型的训练及预测可能具有偶然性，因此我们对于每一个模型进行20次训练及预测，利用20次的结果对其进行综合评价。利用得到的结果绘制 &lt;strong&gt;箱线图&lt;/strong&gt; 所得结果如下：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/05/406125417.png&#34; alt=&#34;使用六变量和十三个变量进行拟合的对比&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;分析最终结果可以发现，无论是使用六个相关性较强变量还是十三个变量来进行预测，GradientBoost（梯度提升决策树）回归模型都是最好的，此外，我们可以发现，利用十三个变量要比利用六个主要变量来进行预测比有着更好的效果。&lt;/p&gt;
+&lt;h4 id=&#34;前馈神经网络&#34;&gt;前馈神经网络&lt;/h4&gt;
+&lt;h5 id=&#34;模型的构建-1&#34;&gt;模型的构建&lt;/h5&gt;
+&lt;p&gt;近年来，神经网络理论不断发展，前馈神经网络（多层感知机、全连接神经网络）越来越多的被利用到数据分析中，因此考虑使用前馈神经网络来解决此问题。&lt;/p&gt;
+&lt;p&gt;前馈神经网络（全连接神经网络）的网络结构一般由三部分构成，输入层，隐藏层，以及输出层，输入层与输出层一般只有一层，隐藏层可有多层。中间利用非线性函数作为激活函数可以使得网络具有拟合非线性函数的能力&lt;/p&gt;
+&lt;p&gt;根据通用近似定理:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;通用近似定理&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;对于具有线性输出层和至少一个使用“挤压”性质的激活函数的隐藏层组成的前馈神经网络，只要其隐藏层神经元的数量足够，它可以以任意精度来近似任何从一个定义在实数空间中的有界闭集函数。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;只要隐藏层网络维度够高，就可以拟合任意的函数。&lt;/p&gt;
+&lt;p&gt;考虑到我们的模型有六维or十三维的数据输入，因此我们建立两层前馈神经网络，中间具有一层隐藏层，维度为1000维，激活函数使用Relu，Relu函数有以下优点:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Relu相比于传统的Sigmoid、Tanh，导数更加好求，反向传播就是不断的更新参数的过程，因为其导数不复杂形式简单，可以使得网络训练更快速。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;此外，当数值过大或者过小，Sigmoid，Tanh的导数接近于0，Relu为非饱和激活函数则不存在这种现象，可以很好的解决梯度消失的问题&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Relu函数及网络结构图如图所示：&lt;/p&gt;
+&lt;p&gt;$$
+Relu:f(x) = max(0,x)
+$$&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/05/3238192089.png&#34; alt=&#34;构建的前馈神经网络结构图&#34;  /&gt;
+&lt;/p&gt;
+&lt;h5 id=&#34;具体实现&#34;&gt;具体实现&lt;/h5&gt;
+&lt;p&gt;利用流行的深度学习框架 &lt;strong&gt;Pytorch&lt;/strong&gt; 来对模型进行实现。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先，将数据集随机划分为训练集和测试集两部分，分别占80%和20%，并将其转化为Pytorch中的张量形式。&lt;/li&gt;
+&lt;li&gt;然后，利用MinMaxScaler对输入数据进行归一化，利用下列公式将其统一归一化为 $[0,1]$ 之间，以求模型能够更快的收敛。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+MinMaxScaler:x^{*} = \frac{x-min(x)}{max(x)-min(x)}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;接下来，构建网络模型，利用 mseloss 作为损失函数，在训练过程中利用反向传播使其最终收敛为0。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+MseLoss = \frac{1}{2n}\sum||y(x)-a^L(x)||^2
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;最后，我们设置网络的学习率为0.01，训练10000个epoch，发现其loss最终降低到0.3%左右，我们利用上文提到的 $R^2$ 对结果进行评估并与回归模型进行对比，通过观察图片可以发现，前馈神经网络相比于传统的回归模型有着更好的拟合效果， 20次预测得到的$R^2$平均值达到了0.95，此外中位数，最大值，最小值也要比回归模型更加优秀，因此我们采用前馈神经网络模型来对最后的房价进行预测。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/05/2897732866.png&#34; alt=&#34;添加前馈神经网络后与其他模型进行比较&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/05/3640570809.jpg&#34; alt=&#34;训练过程中的loss曲线&#34;  /&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;最终预测&#34;&gt;最终预测&lt;/h3&gt;
+&lt;p&gt;最终我们利用构建的前馈神经网络模型进行预测，利用测试集对其进行对比，绘制预测如下：&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/05/1130005314.png&#34; alt=&#34;predict_groundtruth.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;​&lt;/p&gt;
+&lt;p&gt;可以看到其中很多点都覆盖的很好，即预测准确。&lt;/p&gt;
+&lt;p&gt;通过理论对模型进行量化分析，计算预测的 $R^2$
+$$
+R^2 = 1-\frac{\sum(\hat{y_i}-y_i)^2}{\sum(\bar{y}-y_i)^2} = 1-0.01357 = 0.98643=98.643%
+$$
+可以发现 $R^2$ 十分接近1，说明回归模型性能良好，符合要求。&lt;/p&gt;
+&lt;h3 id=&#34;实现代码&#34;&gt;实现代码&lt;/h3&gt;
+&lt;p&gt;代码放在我的Github了，其中写了较详细的README，链接为 &lt;a href=&#34;https://github.com/zzsqwq/BostonPredict&#34;&gt;BostonPredict &lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;参考链接&#34;&gt;参考链接&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/89873990&#34;&gt;很系统的波士顿房价预测研究报告（期中作业）&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/gwj23/p/10604611.html&#34;&gt;作业-机器学习-波士顿房价预测 四种回归算法&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/48702850&#34;&gt;基于Python预测波士顿房价&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://cloud.tencent.com/developer/article/1574255&#34;&gt;波士顿房价预测——回归分析案例（献给初学者）&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
     </item>
     
     <item>
@@ -32,20 +254,105 @@
       <pubDate>Wed, 27 Jan 2021 11:50:00 +0000</pubDate>
       
       <guid>https://blog.zzsqwq.cn/posts/164/</guid>
-      <description>CenterNet—Objects as Points介绍 ​CenterNet是一个anchor-free的目标检测网络，与YOLOv3相比，精度有所提升，此外他不仅能够用于2D目标检测，也能够用于人体姿态识别，3D目标检测等···
-安装CenterNet ​其实安装CenterNet的过程就是一个配置环境的问题，直接跟着官方给出的这里Install.md配置一下即可，十分推荐使用Conda来管理环境，这里给出我的环境给大家参考一下：
-Ubuntu = 18.04 LTS
-pytorch = 1.2.0
-python = 3.6.12
-torchvision = 0.4.0
-cuda = 10.2
-​需要注意的是：
-官方给出的教程里面使用的是 pytorch 0.4.1，但是我个人在实测过程中遇到了一些问题，遂安装网上的教程更改为 pytorch 1.2.0，并且需要把 ${CenterNet_Root}/src/lib/models/networks/DCNv2 中的这个DCNv2网络更改为官方的最新版。 这里使用的cuda版本最好和你的显卡匹配，之前因为显卡驱动的一些问题导致重装了电脑，根据我们学长学姐的建议，最好直接去cuda官网那边去下载deb包直接安装。 遇到环境配置问题可以先去Google一下，一般作者都在CenterNet&amp;rsquo;s Issues中给出了回复，如果没有，可以发邮件给作者询问，当然也可以发消息/邮箱给我，大家一起探讨一下~ 运行CenterNet的demo ​想要运行demo，首先要去 Model zoo 中下载一下我们需要使用的model，2D目标检测使用的是 ctdet_coco_dla_2x.pth ，人体姿态评估使用的是 multi_pose_dla_3x.pth ，下载后统一将他们放在CenterNet根目录中的model文件夹中。
-​然后使用conda切换到CenterNet的环境，在终端中运行：
-python demo.py ctdet --demo ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg --load_model ../models/ctdet_coco_dla_2x.pth ​这里需要注意的是 --demo 后面的 ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg ，这里我使用的是官方给出的实例图片，它位于CenterNet根目录的images文件夹中，前面的 ${CenterNet_Root} 代表的是 CenterNet根目录，好比我的就位于 /home/zs/CenterNet 。
-​如果不出意外的话效果应该如下图所示：
-运行CenterNet的3D目标检测 配置数据集和模型 ​我们可以直接参考官方的 DATA.md 来配置我们的数据集。
-​然后到 Model zoo 下载3D检测使用的模型 ddd_3dop.</description>
+      <description>&lt;h2 id=&#34;centernetobjects-as-points介绍&#34;&gt;CenterNet—Objects as Points介绍&lt;/h2&gt;
+&lt;p&gt;​&lt;a href=&#34;https://github.com/xingyizhou/CenterNet&#34;&gt;CenterNet&lt;/a&gt;是一个anchor-free的目标检测网络，与YOLOv3相比，精度有所提升，此外他不仅能够用于2D目标检测，也能够用于人体姿态识别，3D目标检测等···&lt;/p&gt;
+&lt;h3 id=&#34;安装centernet&#34;&gt;安装CenterNet&lt;/h3&gt;
+&lt;p&gt;​其实安装&lt;a href=&#34;https://github.com/xingyizhou/CenterNet&#34;&gt;CenterNet&lt;/a&gt;的过程就是一个配置环境的问题，直接跟着官方给出的这里&lt;a href=&#34;https://github.com/xingyizhou/CenterNet/blob/master/readme/INSTALL.md&#34;&gt;Install.md&lt;/a&gt;配置一下即可，十分推荐使用Conda来管理环境，这里给出我的环境给大家参考一下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ubuntu = 18.04 LTS&lt;/p&gt;
+&lt;p&gt;pytorch = 1.2.0&lt;/p&gt;
+&lt;p&gt;python = 3.6.12&lt;/p&gt;
+&lt;p&gt;torchvision = 0.4.0&lt;/p&gt;
+&lt;p&gt;cuda = 10.2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​需要注意的是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;官方给出的教程里面使用的是 &lt;code&gt;pytorch 0.4.1&lt;/code&gt;，但是我个人在实测过程中遇到了一些问题，遂安装网上的教程更改为 &lt;code&gt;pytorch 1.2.0&lt;/code&gt;，并且需要把 &lt;code&gt;${CenterNet_Root}/src/lib/models/networks/DCNv2&lt;/code&gt; 中的这个&lt;a href=&#34;https://github.com/CharlesShang/DCNv2&#34;&gt;DCNv2&lt;/a&gt;网络更改为官方的最新版。&lt;/li&gt;
+&lt;li&gt;这里使用的cuda版本最好和你的显卡匹配，之前因为显卡驱动的一些问题导致重装了电脑，根据我们学长学姐的建议，最好直接去cuda官网那边去下载deb包直接安装。&lt;/li&gt;
+&lt;li&gt;遇到环境配置问题可以先去Google一下，一般作者都在CenterNet&amp;rsquo;s Issues中给出了回复，如果没有，可以发邮件给作者询问，当然也可以发消息/邮箱给我，大家一起探讨一下~&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;运行centernet的demo&#34;&gt;运行CenterNet的demo&lt;/h3&gt;
+&lt;p&gt;​想要运行demo，首先要去 &lt;a href=&#34;https://github.com/xingyizhou/CenterNet/blob/master/readme/MODEL_ZOO.md&#34;&gt;Model zoo&lt;/a&gt; 中下载一下我们需要使用的model，2D目标检测使用的是 &lt;a href=&#34;https://drive.google.com/open?id=1pl_-ael8wERdUREEnaIfqOV_VF2bEVRT&#34;&gt;ctdet_coco_dla_2x.pth&lt;/a&gt; ，人体姿态评估使用的是 &lt;a href=&#34;https://drive.google.com/open?id=1PO1Ax_GDtjiemEmDVD7oPWwqQkUu28PI&#34;&gt;multi_pose_dla_3x.pth&lt;/a&gt; ，下载后统一将他们放在CenterNet根目录中的model文件夹中。&lt;/p&gt;
+&lt;p&gt;​然后使用conda切换到CenterNet的环境，在终端中运行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;python demo.py ctdet --demo &lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;CenterNet_Root&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;/images/17790319373_bd19b24cfc_k.jpg --load_model ../models/ctdet_coco_dla_2x.pth 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;​这里需要注意的是 &lt;code&gt;--demo&lt;/code&gt; 后面的 &lt;code&gt;${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jpg&lt;/code&gt; ，这里我使用的是官方给出的实例图片，它位于CenterNet根目录的images文件夹中，前面的 &lt;code&gt;${CenterNet_Root} &lt;/code&gt; 代表的是 CenterNet根目录，好比我的就位于 &lt;code&gt;/home/zs/CenterNet&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;​如果不出意外的话效果应该如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/01/2469782097.jpg&#34; alt=&#34;2D目标检测效果&#34;  /&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;运行centernet的3d目标检测&#34;&gt;运行CenterNet的3D目标检测&lt;/h3&gt;
+&lt;h4 id=&#34;配置数据集和模型&#34;&gt;配置数据集和模型&lt;/h4&gt;
+&lt;p&gt;​我们可以直接参考官方的 &lt;code&gt;DATA.md&lt;/code&gt; 来配置我们的数据集。&lt;/p&gt;
+&lt;p&gt;​然后到 &lt;a href=&#34;https://github.com/xingyizhou/CenterNet/blob/master/readme/MODEL_ZOO.md&#34;&gt;Model zoo&lt;/a&gt; 下载3D检测使用的模型 &lt;a href=&#34;https://drive.google.com/open?id=1znsM6E-aVTkATreDuUVxoU0ajL1az8rz&#34;&gt;ddd_3dop.pth&lt;/a&gt; 。&lt;/p&gt;
+&lt;p&gt;​这里说一下遇到的几个坑：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;首先是配置数据集的过程中，我们需要配置的目录结构如图所示（官方给出的结构树有点模糊不清的感觉）&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;.
+├── ImageSets_3dop
+│   ├── test.txt
+│   ├── train.txt
+│   ├── trainval.txt
+│   └── val.txt
+├── ImageSets_subcnn
+│   ├── test.txt
+│   ├── train.txt
+│   ├── trainval.txt
+│   └── val.txt
+└── training
+       ├── calib
+       ├── image_2
+       └── label_2
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后去到 &lt;code&gt;${CenterNet_ROOT}/src/tools&lt;/code&gt;目录下，运行 &lt;code&gt;python convert_kitti_to_coco.py &lt;/code&gt; 将 &lt;strong&gt;kitti&lt;/strong&gt; 数据集转换为 &lt;strong&gt;coco&lt;/strong&gt; 数据集的格式，不出意外应该会报错如下：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/01/3420056939.png&#34; alt=&#34;转换时报错&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;这里的解决方案参考CenterNet中的一个Issue , &lt;a href=&#34;https://github.com/xingyizhou/CenterNet/issues/54&#34;&gt;How to generate the image dir in kitti?&lt;/a&gt; ，我们需要回到 &lt;code&gt;data/kitti&lt;/code&gt; 目录下手动创建一个 &lt;code&gt;annotations&lt;/code&gt; 文件夹，然后再回去运行转换程序。转换后目录结构如下：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;.
+├── annotations
+│   ├── kitti_3dop_train.json
+│   ├── kitti_3dop_val.json
+│   ├── kitti_subcnn_train.json
+│   └── kitti_subcnn_val.json
+├── ImageSets_3dop
+│   ├── test.txt
+│   ├── train.txt
+│   ├── trainval.txt
+│   └── val.txt
+├── ImageSets_subcnn
+│   ├── test.txt
+│   ├── train.txt
+│   ├── trainval.txt
+│   └── val.txt
+└── training
+       ├── calib
+       ├── image_2
+       └── label_2
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;然后根据官方的教程，我们需要创建一个images文件夹，然后将其 &lt;code&gt;training/image_2&lt;/code&gt; 链接到 &lt;code&gt;images/trainval&lt;/code&gt;，我在实际的测试中，发现此方法并不可行。参考CenterNet中的一个Issue: &lt;a href=&#34;https://github.com/xingyizhou/CenterNet/issues/575#&#34;&gt;Evaluate kitti&amp;ndash;AttributeError: &amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;shape&amp;rsquo;&lt;/a&gt; ，其中 juanmed给出了解决方案：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I had the same problem. For some reason the simlinks that are created during the data preparation process described in DATA.md are not working. So instead of creating simlinks I simply copied the actual data into the directories indicated in DATA.md. In other words the folders &lt;code&gt;data/kitti/images/test&lt;/code&gt; and &lt;code&gt;data/kitti/images/trainval&lt;/code&gt; do contain the actual images.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;意思就是说，我们在 &lt;strong&gt;images&lt;/strong&gt; 中的图片必须都是真实的照片，而不能只是软链接过去。&lt;/p&gt;
+&lt;p&gt;解决方案很显然，只需要在 &lt;strong&gt;images&lt;/strong&gt; 文件夹中建立一个 &lt;strong&gt;trainval&lt;/strong&gt; 文件夹，将 &lt;code&gt;training/image_2&lt;/code&gt; 中的所有图像都移入其中即可。如果有test的照片，那么也照规在 &lt;strong&gt;images&lt;/strong&gt; 新建一个 &lt;strong&gt;test&lt;/strong&gt; 文件夹，把测试的照片移入其中即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;运行测试程序&#34;&gt;运行测试程序&lt;/h4&gt;
+&lt;p&gt;接下来我们就可以根据官方给出的 &lt;a href=&#34;https://github.com/xingyizhou/CenterNet/blob/master/readme/GETTING_STARTED.md&#34;&gt;GETTING_STARTED.md&lt;/a&gt; 来进行我们的检测了。&lt;/p&gt;
+&lt;p&gt;即先编译一下评估工具，然后运行测试程序，但其实还是有一点点小问题。&lt;/p&gt;
+&lt;p&gt;具体问题可以参考 Issus: &lt;a href=&#34;https://github.com/xingyizhou/CenterNet/issues/55&#34;&gt;kitti test: Couldn&amp;rsquo;t read: 006042.txt of ground truth.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Issue下 &lt;strong&gt;lhyfst&lt;/strong&gt; 已经给出了解决方案 ：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The solution is quite simple.
+&lt;code&gt;cd data/kitti&lt;/code&gt;
+&lt;code&gt;mv label_2 label_val&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​    更改后，运行成功~&lt;/p&gt;
+&lt;p&gt;我们应该可以在 &lt;code&gt;${CenterNet_ROOT}/exp/ddd/3dop/results&lt;/code&gt; 看到我们得到的结果，只不过运行得到的是点的坐标，而不是图像，如果需要图像的话可能还需要自己绘制一下。&lt;/p&gt;
+</description>
     </item>
     
   </channel>
