@@ -4,7 +4,7 @@ categories: ['App']
 tags: ['macOS', 'App']
 date: 2023-12-03T23:44:24+08:00
 draft: false
-slug: "macos-app-use-experitence-record"
+slug: "macos-app-use-experience-record"
 typora-root-url: ../../static
 ---
 平时很喜欢倒腾各种 Apple 平台的各种软件，所以体验了很多 iOS/iPadOS/macOS 上的软件，所以计划汇总一下自己的一些简短的使用体验和评价等，希望能在大家后续选择软件的时候起到一些参考和帮助。
@@ -15,7 +15,7 @@ typora-root-url: ../../static
 
 | App 名称              | 简短描述                              | 功能限制                           | 订阅形式 | 价格 | 购入时间 | 购入渠道 | 同类型产品                                                   |
 | --------------------- | ------------------------------------- | ---------------------------------- | -------- | ---- | -------- | -------- | ------------------------------------------------------------ |
-| AIDente               | 电池电量管理                          | 有免费使用功能，但有共功能需要收费 | 买断     | Free |          |          |                                                              |
+| AIDente               | 电池电量管理                          | 有免费使用功能，但有共功能需要收费 | 买断     | Free |          |          | Battery, BatFi                                               |
 | AdGuard               | 广告拦截软件                          |                                    |          |      |          |          |                                                              |
 | AltTab                | 增强 macOS App 切换                   |                                    |          |      |          |          | Command-Tab Plus, Contexts,HyperSwitch,                      |
 | Bartender 5           | Menubar 管理                          |                                    |          |      |          |          |                                                              |
@@ -65,3 +65,20 @@ typora-root-url: ../../static
 
 ## 详细信息
 
+### AIDente
+
++ 介绍：可以限制充电上限，据称电池电量维持在 70-80% 是比较健康的，不适宜过高。
+
++ 目前是否在用：是
+
++ 收费形式：139/3设备
+
++ 评价：好用，界面也挺好看的
+
++ 同类型产品：Battery, BatFi
+
++ 软件快照：
+
+  ![Aldente-1](/images/macos-app-use-experience-record/Aldente-1.png)
+
+TODO...
