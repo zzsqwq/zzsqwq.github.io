@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 03 Dec 2023 23:44:24 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>App 使用体会记录 - macOS 篇</title>
-      <link>https://blog.zzsqwq.cn/posts/macos-app-use-experitence-record/</link>
+      <link>https://blog.zzsqwq.cn/posts/macos-app-use-experience-record/</link>
       <pubDate>Sun, 03 Dec 2023 23:44:24 +0800</pubDate>
       
-      <guid>https://blog.zzsqwq.cn/posts/macos-app-use-experitence-record/</guid>
+      <guid>https://blog.zzsqwq.cn/posts/macos-app-use-experience-record/</guid>
       <description>&lt;p&gt;平时很喜欢倒腾各种 Apple 平台的各种软件，所以体验了很多 iOS/iPadOS/macOS 上的软件，所以计划汇总一下自己的一些简短的使用体验和评价等，希望能在大家后续选择软件的时候起到一些参考和帮助。&lt;/p&gt;
 &lt;p&gt;由于软件可能较多，不能一次性写完。同时，因为我也在不断体验新的软件，有新的感受，因此这篇博客应该是持续更新的，欢迎常来看看。&lt;/p&gt;
 &lt;h2 id=&#34;速览表&#34;&gt;速览表&lt;/h2&gt;
@@ -38,7 +38,7 @@
 &lt;td&gt;Free&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;td&gt;&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;Battery, BatFi&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;AdGuard&lt;/td&gt;
@@ -503,6 +503,30 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;详细信息&#34;&gt;详细信息&lt;/h2&gt;
+&lt;h3 id=&#34;aidente&#34;&gt;AIDente&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;介绍：可以限制充电上限，据称电池电量维持在 70-80% 是比较健康的，不适宜过高。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;目前是否在用：是&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;收费形式：139/3设备&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;评价：好用，界面也挺好看的&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;同类型产品：Battery, BatFi&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;软件快照：&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/macos-app-use-experience-record/Aldente-1.png&#34; alt=&#34;Aldente-1&#34;  /&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;TODO&amp;hellip;&lt;/p&gt;
 </description>
     </item>
     
