@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>App on Zs&#39;s Blog</title>
+    <link>https://blog.zzsqwq.cn/tags/app/</link>
+    <description>Recent content in App on Zs&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 03 Dec 2023 21:30:48 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My App Defaults - 2023 Fall</title>
+      <link>https://blog.zzsqwq.cn/posts/default-apps-f2023/</link>
+      <pubDate>Sun, 03 Dec 2023 21:30:48 +0800</pubDate>
+      
+      <guid>https://blog.zzsqwq.cn/posts/default-apps-f2023/</guid>
+      <description>&lt;p&gt;After seeing &lt;a href=&#34;https://listen.hemisphericviews.com/097&#34;&gt;Duel of the Defaults&lt;/a&gt; and &lt;a href=&#34;https://defaults.rknight.me/&#34;&gt;App Defaults&lt;/a&gt;, I&amp;rsquo;d like to share here some of my app defaults at the end of 2023.&lt;/p&gt;
+&lt;p&gt;Since I am from China, some apps may not be suitable to everyone, such as &lt;a href=&#34;https://www.wechat.com/&#34;&gt;WeChat&lt;/a&gt;, &lt;a href=&#34;https://music.163.com/&#34;&gt;NeteaseMusic&lt;/a&gt;, etc.&lt;/p&gt;
+&lt;p&gt;The software built-in on iPhone or Mac will have the &lt;strong&gt;.app&lt;/strong&gt; extension.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;📨 Mail Client&lt;/strong&gt;：&lt;a href=&#34;https://apps.apple.com/us/app/gmail-email-by-google/id422689480/&#34;&gt;Gmail&lt;/a&gt;, Mail.app&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📮 Mail Server&lt;/strong&gt;：&lt;a href=&#34;https://mail.google.com/&#34;&gt;Gmail&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📝 Notes&lt;/strong&gt;：&lt;a href=&#34;https://obsidian.md/&#34;&gt;Obsidian&lt;/a&gt;, &lt;a href=&#34;https://typora.io/&#34;&gt;Typora&lt;/a&gt;, Notes.app&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;✅ To-Do&lt;/strong&gt;：Reminders.app&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📷 iPhone Photo Shooting&lt;/strong&gt;: Camera.app&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📸 Photo Shooting&lt;/strong&gt;: &lt;a href=&#34;https://www.nikon.com.sg/mirrorless-z-fc&#34;&gt;Nikon ZFC&lt;/a&gt;, &lt;a href=&#34;https://www.apple.com/iphone-13/specs/&#34;&gt;iPhone 13&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🟦 Photo Management &amp;amp; Editing:&lt;/strong&gt; Photos.app, &lt;a href=&#34;https://www.captureone.com/en&#34;&gt;Capture One&lt;/a&gt;, &lt;a href=&#34;https://www.pixelmator.com/pro/&#34;&gt;Pixelmator Pro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📆 Calendar&lt;/strong&gt;: &lt;a href=&#34;https://apps.apple.com/us/app/dato/id1470584107?mt=12&#34;&gt;Dato&lt;/a&gt;, Calendar.app&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📁 Cloud File Storage&lt;/strong&gt;: &lt;a href=&#34;https://www.icloud.com/iclouddrive&#34;&gt;iCloud Drive&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📖 RSS Client&lt;/strong&gt;: &lt;a href=&#34;https://netnewswire.com/&#34;&gt;NetNewsWire&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📖 RSS Server&lt;/strong&gt;: &lt;a href=&#34;https://freshrss.org/index.html&#34;&gt;FreshRSS&lt;/a&gt; with &lt;a href=&#34;https://docs.rsshub.app/&#34;&gt;RSSHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🙍🏻‍♂️ Contacts&lt;/strong&gt;: Contacts.app&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🌐 Browser&lt;/strong&gt;: &lt;a href=&#34;https://www.microsoft.com/en-us/edge&#34;&gt;Microsoft Edge&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;💬 Chat&lt;/strong&gt;: &lt;a href=&#34;https://telegram.org/&#34;&gt;Telegram&lt;/a&gt;, &lt;a href=&#34;https://www.wechat.com/&#34;&gt;WeChat&lt;/a&gt;(Not recommended, unless absolutely necessary.), iMeesage.app?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔖 Bookmarks&lt;/strong&gt;: &lt;a href=&#34;https://www.microsoft.com/en-us/edge&#34;&gt;Microsoft Edge&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📑 Read It Later&lt;/strong&gt;: &lt;a href=&#34;https://omnivore.app/&#34;&gt;Omnivore&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📜 Word Processing&lt;/strong&gt;: &lt;a href=&#34;https://www.larksuite.com/en_us&#34;&gt;Lark&lt;/a&gt; Docs, &lt;a href=&#34;https://www.office.com/&#34;&gt;Microsoft 365&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📈 Spreadsheets&lt;/strong&gt;: N/A&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📊 Presentations&lt;/strong&gt;: &lt;a href=&#34;https://www.microsoft.com/en-us/microsoft-365/powerpoint&#34;&gt;Microsoft PowerPoint&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🛒 Shopping Lists&lt;/strong&gt;: N/A&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🍴 Meal Planning&lt;/strong&gt;: N/A&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;💰 Budgeting and Personal Finance&lt;/strong&gt;: &lt;a href=&#34;https://apps.apple.com/us/app/icost-%E8%AE%B0%E8%B4%A6-%E5%BF%AB%E9%80%9F%E7%AE%80%E6%B4%81%E5%A5%BD%E7%94%A8%E7%9A%84%E7%90%86%E8%B4%A2%E5%8A%A9%E6%89%8B/id1484262528&#34;&gt;iCost&lt;/a&gt;, &lt;a href=&#34;https://apps.apple.com/sg/app/%E8%AE%A2%E9%98%85%E9%80%9A/id1577082754?l=zh&#34;&gt;Subscriptions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;📰 News&lt;/strong&gt;: Channels on &lt;a href=&#34;https://telegram.org/&#34;&gt;Telegram&lt;/a&gt;, RSS, Web&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🎵 Music&lt;/strong&gt;: &lt;a href=&#34;https://music.163.com/&#34;&gt;NeteaseMusic&lt;/a&gt;, Music.app&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🎤 Podcasts&lt;/strong&gt;: N/A&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🔐 Password Management&lt;/strong&gt;: &lt;a href=&#34;https://www.icloud.com/&#34;&gt;iCloud&lt;/a&gt; Keychain&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🧑‍💻 Code Editor&lt;/strong&gt;: &lt;a href=&#34;https://www.jetbrains.com/all/&#34;&gt;JetBrains Series&lt;/a&gt;, &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;VS Code&lt;/a&gt;, &lt;a href=&#34;https://www.vim.org/&#34;&gt;Vim&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;🪄 Launcher&lt;/strong&gt;: &lt;a href=&#34;https://www.hapigo.com/&#34;&gt;HapiGo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;😘 Blog Platform&lt;/strong&gt;:  &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
