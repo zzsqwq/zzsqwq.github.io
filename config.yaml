@@ -129,7 +129,7 @@ params:
         disableHLJS: false
         favicon: "images/avatar.png"
     #     favicon16x16: "<link / abs url>"
-        favicon32x32: "images/favicon-32x32.png"
+        favicon32x32: "images/favicon-32x32.ico"
     #     apple_touch_icon: "<link / abs url>"
     #     safari_pinned_tab: "<link / abs url>"
 
