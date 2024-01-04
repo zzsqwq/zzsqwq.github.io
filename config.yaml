@@ -33,7 +33,7 @@ languages:
               url: about
               weight: 1
             - name: Posts
-              url: posts
+              url: archives
               weight: 5
             - name: Friends
               url: friends
