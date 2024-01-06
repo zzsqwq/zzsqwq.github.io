@@ -32,7 +32,7 @@ typora-root-url: ../../static
 
 同时二月家里还来了个新朋友 —— 波妞，是只公布偶猫（虽然一开始以为是母的）。准确来说是朋友养的，但是当时偶尔寄养在这边。但怎么说我也是短暂的成为了拥有两只猫的人了，值得记录一下。
 
-<div align="center"><img src="/images/summary-2023/two-cats.JPG" style="zoom:15%;" /></div>
+<div align="center"><img src="/images/summary-2023/two-cats.jpg" style="zoom:15%;" /></div>
 
 <div align="center" style="color: gray; font-size: 14px;">二者同框</div>
 
@@ -58,7 +58,7 @@ typora-root-url: ../../static
 
 月初和朋友去海底捞过了生日，~~属于是 404 的企业文化了~~。然后终于把毕设给忙完了，返校进行了答辩，结果还算顺利。这个月也见了很多老朋友，舍友、基地的伙伴们、学弟们（是的应该是没有什么学妹），约了数不清次数的饭。
 
-<div align="center"><img src="/images/summary-2023/friends.JPG" style="zoom:20%;" /></div>
+<div align="center"><img src="/images/summary-2023/friends.jpg" style="zoom:20%;" /></div>
 
 <div align="center" style="color: gray; font-size: 14px;">基地的大伙聚会</div>
 
