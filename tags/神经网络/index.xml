@@ -332,7 +332,7 @@ $$
        └── label_2
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;然后根据官方的教程，我们需要创建一个images文件夹，然后将其 &lt;code&gt;training/image_2&lt;/code&gt; 链接到 &lt;code&gt;images/trainval&lt;/code&gt;，我在实际的测试中，发现此方法并不可行。参考CenterNet中的一个Issue: &lt;a href=&#34;https://github.com/xingyizhou/CenterNet/issues/575#&#34;&gt;Evaluate kitti&amp;ndash;AttributeError: &amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;shape&amp;rsquo;&lt;/a&gt; ，其中 juanmed给出了解决方案：&lt;/p&gt;
+&lt;p&gt;然后根据官方的教程，我们需要创建一个images文件夹，然后将其 &lt;code&gt;training/image_2&lt;/code&gt; 链接到 &lt;code&gt;images/trainval&lt;/code&gt;，我在实际的测试中，发现此方法并不可行。参考CenterNet中的一个Issue: &lt;a href=&#34;https://github.com/xingyizhou/CenterNet/issues/575&#34;&gt;Evaluate kitti&amp;ndash;AttributeError: &amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;shape&amp;rsquo;&lt;/a&gt; ，其中 juanmed给出了解决方案：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;I had the same problem. For some reason the simlinks that are created during the data preparation process described in DATA.md are not working. So instead of creating simlinks I simply copied the actual data into the directories indicated in DATA.md. In other words the folders &lt;code&gt;data/kitti/images/test&lt;/code&gt; and &lt;code&gt;data/kitti/images/trainval&lt;/code&gt; do contain the actual images.&lt;/p&gt;
 &lt;/blockquote&gt;

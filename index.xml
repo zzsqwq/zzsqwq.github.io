@@ -763,7 +763,7 @@ GitHub Support&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;希望 GitHub 后续可以改进这个流程。&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;Ps：这次导致封号的违规仓库居然还是 fork 的 &lt;a href=&#34;%5D(https://github.com/RoboMaster/RoboRTS)&#34;&gt;RoboRTS&lt;/a&gt;，就连这个都跟 RM 有关，有点离谱。&lt;/p&gt;
+&lt;p&gt;Ps：这次导致封号的违规仓库居然还是 fork 的 &lt;a href=&#34;https://github.com/RoboMaster/RoboRTS&#34;&gt;RoboRTS&lt;/a&gt; ，就连这个都跟 RM 有关，有点离谱。&lt;/p&gt;
 </description>
     </item>
     
@@ -1687,7 +1687,7 @@ GitHub Support&lt;/p&gt;
 &lt;h2 id=&#34;参考资料及拓展阅读资料&#34;&gt;参考资料及拓展阅读资料&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/3127454/how-do-c-class-members-get-initialized-if-i-dont-do-it-explicitly#&#34;&gt;How do C++ class members get initialized if I don&amp;rsquo;t do it explicitly?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/3127454/how-do-c-class-members-get-initialized-if-i-dont-do-it-explicitly&#34;&gt;How do C++ class members get initialized if I don&amp;rsquo;t do it explicitly?&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/25612262/why-does-auto-x3-deduce-an-initializer-list&#34;&gt;Why does auto x{3} deduce an initializer_list?&lt;/a&gt;&lt;/p&gt;
@@ -3394,7 +3394,7 @@ $$
        └── label_2
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;然后根据官方的教程，我们需要创建一个images文件夹，然后将其 &lt;code&gt;training/image_2&lt;/code&gt; 链接到 &lt;code&gt;images/trainval&lt;/code&gt;，我在实际的测试中，发现此方法并不可行。参考CenterNet中的一个Issue: &lt;a href=&#34;https://github.com/xingyizhou/CenterNet/issues/575#&#34;&gt;Evaluate kitti&amp;ndash;AttributeError: &amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;shape&amp;rsquo;&lt;/a&gt; ，其中 juanmed给出了解决方案：&lt;/p&gt;
+&lt;p&gt;然后根据官方的教程，我们需要创建一个images文件夹，然后将其 &lt;code&gt;training/image_2&lt;/code&gt; 链接到 &lt;code&gt;images/trainval&lt;/code&gt;，我在实际的测试中，发现此方法并不可行。参考CenterNet中的一个Issue: &lt;a href=&#34;https://github.com/xingyizhou/CenterNet/issues/575&#34;&gt;Evaluate kitti&amp;ndash;AttributeError: &amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;shape&amp;rsquo;&lt;/a&gt; ，其中 juanmed给出了解决方案：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;I had the same problem. For some reason the simlinks that are created during the data preparation process described in DATA.md are not working. So instead of creating simlinks I simply copied the actual data into the directories indicated in DATA.md. In other words the folders &lt;code&gt;data/kitti/images/test&lt;/code&gt; and &lt;code&gt;data/kitti/images/trainval&lt;/code&gt; do contain the actual images.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -6435,7 +6435,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;散点图&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;scatter&lt;/strong&gt; 函数：&lt;code&gt;scatter(x,y,选项,&#39;filled&#39;)&lt;/code&gt; ，其中x和y通常为同等大小向量，代表了一定数量的点。选项与&lt;a href=&#34;#jump&#34;&gt;plot函数&lt;/a&gt;类似，用于限制颜色，线型，以及数据点标记，如果采用数据点标记，则可以用 &lt;strong&gt;&amp;lsquo;filled&amp;rsquo;&lt;/strong&gt; 参数来填充数据点，如果缺省，则标记数据点为空心。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;scatter&lt;/strong&gt; 函数：&lt;code&gt;scatter(x,y,选项,&#39;filled&#39;)&lt;/code&gt; ，其中x和y通常为同等大小向量，代表了一定数量的点。选项与&lt;a href=&#34;https://blog.zzsqwq.cn/posts/51/#jump&#34;&gt;plot函数&lt;/a&gt;类似，用于限制颜色，线型，以及数据点标记，如果采用数据点标记，则可以用 &lt;strong&gt;&amp;lsquo;filled&amp;rsquo;&lt;/strong&gt; 参数来填充数据点，如果缺省，则标记数据点为空心。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;阶梯图&lt;/strong&gt;
@@ -6462,13 +6462,13 @@ $$&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;罗盘图&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;compasser&lt;/strong&gt;函数：与 &lt;a href=&#34;#jump&#34;&gt;&lt;strong&gt;plot&lt;/strong&gt; 函数&lt;/a&gt;类似。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;compasser&lt;/strong&gt;函数：与 &lt;a href=&#34;https://blog.zzsqwq.cn/posts/51/#jump&#34;&gt;&lt;strong&gt;plot&lt;/strong&gt; 函数&lt;/a&gt;类似。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;羽毛图&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;feather&lt;/strong&gt; 函数：与 &lt;a href=&#34;#jump&#34;&gt;&lt;strong&gt;plot&lt;/strong&gt; 函数&lt;/a&gt;类似。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;feather&lt;/strong&gt; 函数：与 &lt;a href=&#34;https://blog.zzsqwq.cn/posts/51/#jump&#34;&gt;&lt;strong&gt;plot&lt;/strong&gt; 函数&lt;/a&gt;类似。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -6516,12 +6516,12 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;含选项的plot3函数&lt;/strong&gt;：&lt;code&gt;plot(x,y,z,选项)&lt;/code&gt; 选项与功能与&lt;a href=&#34;#jump&#34;&gt;plot函数&lt;/a&gt;类似。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;含选项的plot3函数&lt;/strong&gt;：&lt;code&gt;plot(x,y,z,选项)&lt;/code&gt; 选项与功能与&lt;a href=&#34;https://blog.zzsqwq.cn/posts/51/#jump&#34;&gt;plot函数&lt;/a&gt;类似。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;fplot3函数&#34;&gt;fplot3函数&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;基本用法&lt;/strong&gt;：与&lt;a href=&#34;#jump2&#34;&gt;fplot函数&lt;/a&gt;类似&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;基本用法&lt;/strong&gt;：与&lt;a href=&#34;https://blog.zzsqwq.cn/posts/51/#jump2&#34;&gt;fplot函数&lt;/a&gt;类似&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;/br&gt;
@@ -11385,6 +11385,7 @@ $$&lt;/p&gt;
       <description>&lt;p&gt;To request a link, please make sure your blog has &lt;a href=&#34;https://en.wikipedia.org/wiki/HTTPS&#34;&gt;https&lt;/a&gt; enabled.&lt;/p&gt;
 &lt;p&gt;HuaDeity &lt;a href=&#34;https://blog.huadeity.com&#34;&gt;https://blog.huadeity.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;70loKirin &lt;a href=&#34;https://qllokirin.github.io&#34;&gt;https://qllokirin.github.io&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Angine &lt;a href=&#34;https://angine.tech&#34;&gt;https://angine.tech&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;MurphyHou &lt;a href=&#34;https://cosmicdusty.cc&#34;&gt;https://cosmicdusty.cc&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Orangii &lt;a href=&#34;https://orangii.cn&#34;&gt;https://orangii.cn&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;pg999w &lt;a href=&#34;https://blog.pg999w.top&#34;&gt;https://blog.pg999w.top&lt;/a&gt;&lt;/p&gt;
@@ -11396,7 +11397,6 @@ $$&lt;/p&gt;
 &lt;p&gt;immortalqx &lt;a href=&#34;https://immortalqx.github.io&#34;&gt;https://immortalqx.github.io&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Kehan &lt;a href=&#34;https://blog.kehan.xyz&#34;&gt;https://blog.kehan.xyz&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Zhang Jiale &lt;a href=&#34;https://zjlzjl.com&#34;&gt;https://zjlzjl.com&lt;/a&gt;&lt;/p&gt;
-&lt;!-- Zaihua https://www.zaihua.net --&gt;
 </description>
     </item>
     
