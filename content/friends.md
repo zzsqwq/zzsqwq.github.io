@@ -7,6 +7,8 @@ HuaDeity https://blog.huadeity.com
 
 70loKirin https://qllokirin.github.io
 
+Angine https://angine.tech
+
 MurphyHou https://cosmicdusty.cc
 
 Orangii https://orangii.cn
@@ -28,5 +30,3 @@ immortalqx https://immortalqx.github.io
 Kehan https://blog.kehan.xyz
 
 Zhang Jiale https://zjlzjl.com
-
-<!-- Zaihua https://www.zaihua.net -->
