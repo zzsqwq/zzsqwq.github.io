@@ -143,5 +143,5 @@ typora-root-url: ../../static
 
 ---
 
-Ps：这次导致封号的违规仓库居然还是 fork 的 [RoboRTS](](https://github.com/RoboMaster/RoboRTS) )，就连这个都跟 RM 有关，有点离谱。
+Ps：这次导致封号的违规仓库居然还是 fork 的 [RoboRTS](https://github.com/RoboMaster/RoboRTS) ，就连这个都跟 RM 有关，有点离谱。
 
