@@ -6,12 +6,12 @@
     <description>Recent content in Steam on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 16 Jun 2021 01:38:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/steam/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Jun 2021 01:38:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/tags/steam/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>deepin-wine-qq-9.1.8版本无法正常启动的解决方案</title>
       <link>https://blog.zzsqwq.cn/posts/195/</link>
       <pubDate>Wed, 16 Jun 2021 01:38:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/195/</guid>
       <description>&lt;h3 id=&#34;问题描述&#34;&gt;问题描述&lt;/h3&gt;
 &lt;p&gt;​Ubuntu下想要使用QQ有一个比较好的解决方案就是deepin-wine的版本，deepin-wine版本的QQ一共有两个版本，分别是 8.9.1 和 9.1.8 ，前者安装后发现无法登陆，登录时会提示版本过低的问题，于是我换到9.1.8版本后，启动初始化后就无任何信息了，于是开始排查问题&lt;/p&gt;
@@ -123,6 +123,5 @@
 &lt;p&gt;而且QQ和TIM某些情况下会出现bug，字体全部变为方块，在 deepin-wine-ubuntu 的 &lt;a href=&#34;https://github.com/wszqkzqk/deepin-wine-ubuntu/issues&#34;&gt;Issues&lt;/a&gt; 中找到了解决方案 &lt;a href=&#34;https://github.com/wszqkzqk/deepin-wine-ubuntu/issues/253&#34;&gt;Ubuntu 安装QQ后中文方块解决方法&lt;/a&gt; ，大家有同样困扰的也可以看一下~&lt;/p&gt;
 </description>
     </item>
-    
   </channel>
 </rss>

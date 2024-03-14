@@ -6,12 +6,12 @@
     <description>Recent content in Suspended on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 12 Nov 2023 23:36:41 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/suspended/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Nov 2023 23:36:41 +0800</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/tags/suspended/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>记一次 GitHub 账号突然被 suspended 的经历</title>
       <link>https://blog.zzsqwq.cn/posts/github-suspended-for-no-reason/</link>
       <pubDate>Sun, 12 Nov 2023 23:36:41 +0800</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/github-suspended-for-no-reason/</guid>
       <description>&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;
 &lt;p&gt;我在 2023.11.07 凌晨被 GitHub 封禁了账号，GitHub 账号被 suspended 后会在 GitHub 上完全除名（只有自建创建的组织不会消失）。&lt;/p&gt;
@@ -100,6 +100,5 @@ GitHub Support&lt;/p&gt;
 &lt;p&gt;Ps：这次导致封号的违规仓库居然还是 fork 的 &lt;a href=&#34;https://github.com/RoboMaster/RoboRTS&#34;&gt;RoboRTS&lt;/a&gt; ，就连这个都跟 RM 有关，有点离谱。&lt;/p&gt;
 </description>
     </item>
-    
   </channel>
 </rss>

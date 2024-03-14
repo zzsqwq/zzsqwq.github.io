@@ -6,12 +6,12 @@
     <description>Recent content in MacOS on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 03 Dec 2023 23:44:24 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Dec 2023 23:44:24 +0800</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/tags/macos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>App 使用体会记录 - macOS 篇</title>
       <link>https://blog.zzsqwq.cn/posts/macos-app-use-experience-record/</link>
       <pubDate>Sun, 03 Dec 2023 23:44:24 +0800</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/macos-app-use-experience-record/</guid>
       <description>&lt;p&gt;平时很喜欢倒腾各种 Apple 平台的各种软件，所以体验了很多 iOS/iPadOS/macOS 上的软件，所以计划汇总一下自己的一些简短的使用体验和评价等，希望能在大家后续选择软件的时候起到一些参考和帮助。&lt;/p&gt;
 &lt;p&gt;由于软件可能较多，不能一次性写完。同时，因为我也在不断体验新的软件，有新的感受，因此这篇博客应该是持续更新的，欢迎常来看看。&lt;/p&gt;
@@ -529,6 +529,5 @@
 &lt;p&gt;TODO&amp;hellip;&lt;/p&gt;
 </description>
     </item>
-    
   </channel>
 </rss>

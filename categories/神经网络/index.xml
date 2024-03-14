@@ -6,12 +6,12 @@
     <description>Recent content in 神经网络 on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 May 2021 15:19:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 May 2021 15:19:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>利用神经网络进行波士顿房价预测</title>
       <link>https://blog.zzsqwq.cn/posts/182/</link>
       <pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/182/</guid>
       <description>&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
 &lt;p&gt;前一阵学校有五一数模节校赛，和朋友一起参加做B题，波士顿房价预测，算是第一次自己动手实现一个简单的小网络吧，虽然很简单，但还是想记录一下。&lt;/p&gt;
@@ -247,6 +247,5 @@ $$
 &lt;/ul&gt;
 </description>
     </item>
-    
   </channel>
 </rss>

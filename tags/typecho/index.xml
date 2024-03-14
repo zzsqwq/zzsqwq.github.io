@@ -6,12 +6,12 @@
     <description>Recent content in Typecho on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 26 Aug 2020 16:34:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/typecho/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Aug 2020 16:34:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/tags/typecho/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>自买服务器建站教程</title>
       <link>https://blog.zzsqwq.cn/posts/77/</link>
       <pubDate>Wed, 26 Aug 2020 16:34:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/77/</guid>
       <description>&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;
 &lt;p&gt;本来之前是用的 &lt;strong&gt;Hexo + Github&lt;/strong&gt; 搭建的，虽然用的是 &lt;strong&gt;Github&lt;/strong&gt; 的服务器，但是我用家里的移动网访问起来还是没什么压力，就是慢一点，可以接受。&lt;/p&gt;
@@ -71,6 +71,5 @@
 &lt;/p&gt;
 &lt;p&gt;还有一些后续的优化例如安装 &lt;strong&gt;https安全证书（我自己现在还没搞好QAQ）&lt;/strong&gt; ，加入 &lt;strong&gt;SEO优化&lt;/strong&gt; ，提交申请让 &lt;strong&gt;搜索引擎收录&lt;/strong&gt; 等等……大家有兴趣的可以自行探索！&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

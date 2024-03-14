@@ -6,12 +6,12 @@
     <description>Recent content in Hugo on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 03 May 2022 21:40:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 03 May 2022 21:40:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>一个基于 Hugo 的个人主页主题</title>
       <link>https://blog.zzsqwq.cn/posts/my-hugo-academia-theme/</link>
       <pubDate>Tue, 03 May 2022 21:40:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/my-hugo-academia-theme/</guid>
       <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
 &lt;p&gt;之前看到过学长学姐做过个人主页，多是用来申请一些学校的夏令营使用的，觉得非常的 Nice，自己也想搞一个。&lt;/p&gt;
@@ -38,6 +38,5 @@
 &lt;/p&gt;
 </description>
     </item>
-    
   </channel>
 </rss>

@@ -6,12 +6,12 @@
     <description>Recent content in C&#43;&#43; on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 09 Nov 2022 22:40:41 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Nov 2022 22:40:41 +0800</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43; 类使用注意事项</title>
       <link>https://blog.zzsqwq.cn/posts/cxx-class-skills/</link>
       <pubDate>Wed, 09 Nov 2022 22:40:41 +0800</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/cxx-class-skills/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;本文包含一些在使用 C++ 类时的注意事项，可避免一些常见问题，&lt;strong&gt;并能让你在写代码时更加自信&lt;/strong&gt;。&lt;/p&gt;
@@ -119,12 +119,10 @@
 &lt;/ol&gt;
 </description>
     </item>
-    
     <item>
       <title>为什么要使用条件变量？</title>
       <link>https://blog.zzsqwq.cn/posts/why-use-condition-variable/</link>
       <pubDate>Wed, 24 Aug 2022 23:37:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/why-use-condition-variable/</guid>
       <description>&lt;h1 id=&#34;为什么要使用条件变量&#34;&gt;为什么要使用条件变量？&lt;/h1&gt;
 &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
@@ -297,12 +295,10 @@
 &lt;/div&gt;
 </description>
     </item>
-    
     <item>
       <title>C&#43;&#43;大数类的实现</title>
       <link>https://blog.zzsqwq.cn/posts/64/</link>
       <pubDate>Mon, 06 Apr 2020 01:22:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/64/</guid>
       <description>&lt;h1 id=&#34;c大数类设计思路&#34;&gt;C++大数类设计思路&lt;/h1&gt;
 &lt;h3 id=&#34;洛谷大数类httpswwwluogucomcnproblemu111551的评测结果开了氧气优化&#34;&gt;&lt;a href=&#34;https://www.luogu.com.cn/problem/U111551&#34;&gt;洛谷大数类&lt;/a&gt;的评测结果(开了氧气优化)&lt;/h3&gt;
@@ -842,6 +838,5 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
   </channel>
 </rss>

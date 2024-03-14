@@ -6,12 +6,12 @@
     <description>Recent content in Defaults on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 03 Dec 2023 21:30:48 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/defaults/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Dec 2023 21:30:48 +0800</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/tags/defaults/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My App Defaults - 2023 Fall</title>
       <link>https://blog.zzsqwq.cn/posts/default-apps-f2023/</link>
       <pubDate>Sun, 03 Dec 2023 21:30:48 +0800</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/default-apps-f2023/</guid>
       <description>&lt;p&gt;After seeing &lt;a href=&#34;https://listen.hemisphericviews.com/097&#34;&gt;Duel of the Defaults&lt;/a&gt; and &lt;a href=&#34;https://defaults.rknight.me/&#34;&gt;App Defaults&lt;/a&gt;, I&amp;rsquo;d like to share here some of my app defaults at the end of 2023.&lt;/p&gt;
 &lt;p&gt;Since I am from China, some apps may not be suitable to everyone, such as &lt;a href=&#34;https://www.wechat.com/&#34;&gt;WeChat&lt;/a&gt;, &lt;a href=&#34;https://music.163.com/&#34;&gt;NeteaseMusic&lt;/a&gt;, etc.&lt;/p&gt;
@@ -49,6 +49,5 @@
 &lt;/ul&gt;
 </description>
     </item>
-    
   </channel>
 </rss>

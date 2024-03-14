@@ -6,12 +6,12 @@
     <description>Recent content in OrangePi4-Lts on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 31 Dec 2022 16:34:42 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/orangepi4-lts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 Dec 2022 16:34:42 +0800</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/tags/orangepi4-lts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用 OrangePi 4 LTS 做旁路由</title>
       <link>https://blog.zzsqwq.cn/posts/orangepi4-lts-with-openwrt/</link>
       <pubDate>Sat, 31 Dec 2022 16:34:42 +0800</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/orangepi4-lts-with-openwrt/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近同居的学长从香港带了个最新版的 Apple TV 回来，但是 Apple TV 在国内用不了，必须要代理才可以，所以考虑到了路由器代理的方案。但是现在家里在用的路由器是 Redmi AX3000，没法刷固件，也不想再买个 R2S 这种软路由了，因此就计划将公司之前用完的 &lt;a href=&#34;http://www.orangepi.cn/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-4-LTS.html&#34;&gt;香橙派(OrangePi) 4 LTS&lt;/a&gt; 利用一下。它的芯片是 RK3399，用来做路由器绰绰有余，不用可惜了。&lt;/p&gt;
@@ -46,6 +46,5 @@
 &lt;/div&gt;
 </description>
     </item>
-    
   </channel>
 </rss>

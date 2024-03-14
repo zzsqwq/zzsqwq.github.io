@@ -6,12 +6,12 @@
     <description>Recent content in 碎碎念 on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 03 Jan 2024 12:56:41 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Jan 2024 12:56:41 +0800</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2023 年度总结</title>
       <link>https://blog.zzsqwq.cn/posts/summary-2023/</link>
       <pubDate>Wed, 03 Jan 2024 12:56:41 +0800</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/summary-2023/</guid>
       <description>&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
 &lt;p&gt;在回望过去时，我们常感叹时间飞逝，我想这或许是因为过去发生的无数大小事情最终在脑海中留存的只有寥寥几件。因此，撰写年度总结这件事似乎变得格外有意义，它能帮助我们&lt;strong&gt;更充分地回味&lt;/strong&gt;过去的一年。可能正是因为如此，现在各大 APP 似乎都很喜欢推出年度总结，例如网易云、QQ音乐、知乎、飞书、京东、美团、支付宝等。为此，我写下了这篇 2023 年度总结。&lt;/p&gt;
@@ -106,12 +106,10 @@
 &lt;div align=&#34;center&#34; style=&#34;color: gray; font-size: 14px;&#34;&gt;感谢 Apple Photos 的时间线整理助我完成这篇文章&lt;/div&gt;
 </description>
     </item>
-    
     <item>
       <title>2022 年度总结</title>
       <link>https://blog.zzsqwq.cn/posts/summary-2022/</link>
       <pubDate>Sun, 01 Jan 2023 16:13:45 +0800</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/summary-2022/</guid>
       <description>&lt;p&gt;2022 依旧是被疫情伴随的一年，时间正着看总是要比回看慢很多，现在回头看过往一年似乎一瞬间就过去了。&lt;/p&gt;
 &lt;p&gt;今年共发了 11 篇文章，其中还包含了两篇碎碎念，还是没有达到月更，新的一年希望可以。2022 年对我来说变化很大，算是暂时摆脱了学生生活，体验了社畜的感觉，打卡了北上广深中的北和深。&lt;/p&gt;
@@ -175,6 +173,5 @@
 &lt;p&gt;同时新的一年也看了更多的书、学到了很多新的知识，Modern C++、Rust、Swift、SwiftUI、Vue3 等等，拓宽了自己知识面。无限进步，无论什么时候都要坚持读书，我感觉读书仍是目前收益非常高的一个选择，即使读一些很久远的书，也能从中获得各种各样的启发，&lt;strong&gt;希望新的一年我也可以坚持不懈的读书&lt;/strong&gt;！&lt;/p&gt;
 </description>
     </item>
-    
   </channel>
 </rss>

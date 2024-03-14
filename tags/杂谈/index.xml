@@ -6,12 +6,12 @@
     <description>Recent content in 杂谈 on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 10 Feb 2022 00:52:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Feb 2022 00:52:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/tags/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于春节期间的一些碎碎念</title>
       <link>https://blog.zzsqwq.cn/posts/224/</link>
       <pubDate>Thu, 10 Feb 2022 00:52:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/224/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;春节期间，走亲访友是必不可少的。交谈的多了，免不得一些问题的讨论。&lt;/p&gt;
@@ -58,12 +58,10 @@
 &lt;p&gt;&lt;strong&gt;我以后也会这样吗？&lt;/strong&gt;&lt;/p&gt;
 </description>
     </item>
-    
     <item>
       <title>记一次博客迁移记录</title>
       <link>https://blog.zzsqwq.cn/posts/221/</link>
       <pubDate>Mon, 13 Dec 2021 02:59:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/221/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;更换博客系统的想法已经萌生很久了，一个是感觉 Handsome 这个主题有点看腻了，但是在 Typecho 中好似已经没有更好的博客主题可选择了。&lt;/p&gt;
@@ -172,6 +170,5 @@
 &lt;p&gt;同时，为了保持主题的可配置性，我 fork 了一份主题，并且针对做了一些修改，仓库地址：&lt;a href=&#34;https://github.com/zzsqwq/hugo-coder&#34;&gt;zzsqwq/hugo-coder&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
-    
   </channel>
 </rss>

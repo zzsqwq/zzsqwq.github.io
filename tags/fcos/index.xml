@@ -6,12 +6,12 @@
     <description>Recent content in FCOS on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 25 Feb 2023 00:45:22 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/fcos/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Feb 2023 00:45:22 +0800</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/tags/fcos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>基于地平线 HAT 训练与部署 FCOS 全流程</title>
       <link>https://blog.zzsqwq.cn/posts/hat-train-fcos/</link>
       <pubDate>Sat, 25 Feb 2023 00:45:22 +0800</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/hat-train-fcos/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近想要使用自己采集与标注的数据集来训练与部署一下地平线微调过的 FCOS 网络，在询问和查看文档后发现如果想基于官方微调的模型训练，需要使用提供 HAT（Horizon Algorithm Toolkit，海图） 来进行，具体的文档可以查看：&lt;a href=&#34;https://developer.horizon.ai/api/v1/fileData/doc/ddk_doc/navigation/ai_toolchain/docs_cn/horizon_algorithm_toolkit/index.html&#34;&gt;Horizon Algorithm Toolkit 文档&lt;/a&gt;，这是在线的版本，版本可能会比较旧，想看最新版的可以查看离线的版本，位置在 OE（Open Explorer，天工开物） 包的 doc 目录下，如下图：&lt;/p&gt;
@@ -605,6 +605,5 @@
 &lt;/div&gt;
 </description>
     </item>
-    
   </channel>
 </rss>

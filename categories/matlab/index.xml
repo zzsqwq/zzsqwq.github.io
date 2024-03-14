@@ -6,12 +6,12 @@
     <description>Recent content in MATLAB on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 23 Mar 2020 01:14:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/categories/matlab/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Mar 2020 01:14:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/categories/matlab/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>专题四:MATLAB绘图</title>
       <link>https://blog.zzsqwq.cn/posts/51/</link>
       <pubDate>Mon, 23 Mar 2020 01:14:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/51/</guid>
       <description>&lt;h2 id=&#34;41-二维曲线&#34;&gt;4.1 二维曲线&lt;/h2&gt;
 &lt;h3 id=&#34;span-idjumpplot函数span&#34;&gt;&lt;span id=&#34;jump&#34;&gt;plot函数&lt;/span&gt;&lt;/h3&gt;
@@ -416,12 +416,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/4183580283.png&#34; alt=&#34;mesh.png&#34;  /&gt;
 &lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>专题三:MATLAB程序流程控制</title>
       <link>https://blog.zzsqwq.cn/posts/36/</link>
       <pubDate>Wed, 18 Mar 2020 01:09:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/36/</guid>
       <description>&lt;h2 id=&#34;31-顺序结构程序&#34;&gt;3.1 顺序结构程序&lt;/h2&gt;
 &lt;h3 id=&#34;程序设计的基本步骤&#34;&gt;程序设计的基本步骤&lt;/h3&gt;
@@ -727,12 +725,10 @@ end
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;solve&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
     <item>
       <title>专题二:MATLAB矩阵处理</title>
       <link>https://blog.zzsqwq.cn/posts/34/</link>
       <pubDate>Sun, 15 Mar 2020 01:07:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/34/</guid>
       <description>&lt;h2 id=&#34;21-特殊矩阵&#34;&gt;2.1 特殊矩阵&lt;/h2&gt;
 &lt;h3 id=&#34;通用的特殊矩阵&#34;&gt;通用的特殊矩阵&lt;/h3&gt;
@@ -965,12 +961,10 @@ $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
-    
     <item>
       <title>专题一:MATLAB基础知识</title>
       <link>https://blog.zzsqwq.cn/posts/33/</link>
       <pubDate>Sat, 14 Mar 2020 01:05:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/33/</guid>
       <description>&lt;h2 id=&#34;11-matlab系统环境&#34;&gt;1.1 MATLAB系统环境&lt;/h2&gt;
 &lt;h3 id=&#34;matlab操作界面的组成&#34;&gt;MATLAB操作界面的组成&lt;/h3&gt;
@@ -1386,6 +1380,5 @@ $$&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
-    
   </channel>
 </rss>

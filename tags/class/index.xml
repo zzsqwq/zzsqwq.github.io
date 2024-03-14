@@ -6,12 +6,12 @@
     <description>Recent content in Class on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 09 Nov 2022 22:40:41 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/class/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 09 Nov 2022 22:40:41 +0800</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/tags/class/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43; 类使用注意事项</title>
       <link>https://blog.zzsqwq.cn/posts/cxx-class-skills/</link>
       <pubDate>Wed, 09 Nov 2022 22:40:41 +0800</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/cxx-class-skills/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;本文包含一些在使用 C++ 类时的注意事项，可避免一些常见问题，&lt;strong&gt;并能让你在写代码时更加自信&lt;/strong&gt;。&lt;/p&gt;
@@ -119,6 +119,5 @@
 &lt;/ol&gt;
 </description>
     </item>
-    
   </channel>
 </rss>

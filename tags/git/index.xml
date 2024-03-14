@@ -6,12 +6,12 @@
     <description>Recent content in Git on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 23 Jul 2021 14:17:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Jul 2021 14:17:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于Git的一些理解</title>
       <link>https://blog.zzsqwq.cn/posts/201/</link>
       <pubDate>Fri, 23 Jul 2021 14:17:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/201/</guid>
       <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
 &lt;p&gt;前段时间在 Github 学完了关于 git 的小游戏 &lt;a href=&#34;https://github.com/pcottle/learnGitBranching&#34;&gt;learnGitBranching&lt;/a&gt; ，受益匪浅。&lt;/p&gt;
@@ -143,12 +143,10 @@ Changes not staged for commit:
 &lt;/ul&gt;
 </description>
     </item>
-    
     <item>
       <title>Git的简易教程</title>
       <link>https://blog.zzsqwq.cn/posts/157/</link>
       <pubDate>Sat, 05 Dec 2020 20:26:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/157/</guid>
       <description>&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
 &lt;p&gt;最近在复习Git，因此顺手做个笔记分享出来，方便大家学习和查阅。相信无论是以后的课程作业还是工作，我们都会或多或少的接触/用到Git。&lt;/p&gt;
@@ -294,6 +292,5 @@ Changes not staged for commit:
 &lt;/ul&gt;
 </description>
     </item>
-    
   </channel>
 </rss>

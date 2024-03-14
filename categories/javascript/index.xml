@@ -6,12 +6,12 @@
     <description>Recent content in Javascript on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 19 Jan 2022 00:24:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Jan 2022 00:24:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>一个 Javascript 中异步的小技巧</title>
       <link>https://blog.zzsqwq.cn/posts/223/</link>
       <pubDate>Wed, 19 Jan 2022 00:24:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/223/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近看了一些 js 有关的知识，其中令我这种初学者感到很头疼的一个问题就是异步问题。&lt;/p&gt;
@@ -82,6 +82,5 @@
 &lt;p&gt;大家如果有什么更加优秀的解决方案也希望不吝赐教。&lt;/p&gt;
 </description>
     </item>
-    
   </channel>
 </rss>

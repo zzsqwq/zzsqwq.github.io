@@ -6,12 +6,12 @@
     <description>Recent content in Study on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 30 Oct 2022 00:31:00 +0800</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/categories/study/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Oct 2022 00:31:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/categories/study/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何善用搜索引擎？</title>
       <link>https://blog.zzsqwq.cn/posts/how-to-search/</link>
       <pubDate>Sun, 30 Oct 2022 00:31:00 +0800</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/how-to-search/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;我们使用搜索引擎可能是为了搜集信息、或者是解决一些问题。但如果不能正确的使用搜索引擎，使用关键字等，可能搜到的答案就与问题相关不大，或者与我们的问题相差甚远。&lt;/p&gt;
@@ -53,6 +53,5 @@
 &lt;/div&gt;
 </description>
     </item>
-    
   </channel>
 </rss>

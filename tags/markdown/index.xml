@@ -6,12 +6,12 @@
     <description>Recent content in Markdown on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 01 Dec 2021 20:12:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Dec 2021 20:12:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Markdown 编辑器推荐</title>
       <link>https://blog.zzsqwq.cn/posts/220/</link>
       <pubDate>Wed, 01 Dec 2021 20:12:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/220/</guid>
       <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
 &lt;p&gt;近期著名 Markdown 编辑器 &lt;a href=&#34;https://typora.io/&#34;&gt;Typora&lt;/a&gt; 宣布收费了，起初感觉很难受，后来感慨之余也觉得算是合理，毕竟 Typora 用起来感觉是真的很良心，也在考虑是否买一份支持一下。&lt;/p&gt;
@@ -145,6 +145,5 @@
 &lt;p&gt;如果大家有更好的 Markdown 编辑器推荐，欢迎在下面留言！&lt;/p&gt;
 </description>
     </item>
-    
   </channel>
 </rss>

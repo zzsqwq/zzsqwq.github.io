@@ -6,12 +6,12 @@
     <description>Recent content in 大数类 on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 06 Apr 2020 01:22:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/%E5%A4%A7%E6%95%B0%E7%B1%BB/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Apr 2020 01:22:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/tags/%E5%A4%A7%E6%95%B0%E7%B1%BB/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43;大数类的实现</title>
       <link>https://blog.zzsqwq.cn/posts/64/</link>
       <pubDate>Mon, 06 Apr 2020 01:22:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/64/</guid>
       <description>&lt;h1 id=&#34;c大数类设计思路&#34;&gt;C++大数类设计思路&lt;/h1&gt;
 &lt;h3 id=&#34;洛谷大数类httpswwwluogucomcnproblemu111551的评测结果开了氧气优化&#34;&gt;&lt;a href=&#34;https://www.luogu.com.cn/problem/U111551&#34;&gt;洛谷大数类&lt;/a&gt;的评测结果(开了氧气优化)&lt;/h3&gt;
@@ -551,6 +551,5 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
   </channel>
 </rss>

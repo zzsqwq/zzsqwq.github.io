@@ -6,12 +6,12 @@
     <description>Recent content in Dp on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 20 Feb 2020 01:04:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/dp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Feb 2020 01:04:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/tags/dp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>树形dp例题</title>
       <link>https://blog.zzsqwq.cn/posts/31/</link>
       <pubDate>Thu, 20 Feb 2020 01:04:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/31/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;学OI的时候就做过树形dp的题，不过那时候全在划水。看了看题解还不太懂就直接照着题解写了，现在再回来看还是不会QAQ，所以就再看看然后自己写了一遍。&lt;/p&gt;
@@ -217,12 +217,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
     <item>
       <title>dp练习</title>
       <link>https://blog.zzsqwq.cn/posts/29/</link>
       <pubDate>Tue, 18 Feb 2020 01:00:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/29/</guid>
       <description>&lt;h2 id=&#34;a-矩阵取数游戏httpswwwluogucomcnproblemp1005&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1005&#34;&gt;矩阵取数游戏&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
@@ -401,12 +399,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
     <item>
       <title>dp习题练习</title>
       <link>https://blog.zzsqwq.cn/posts/24/</link>
       <pubDate>Wed, 12 Feb 2020 00:45:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/24/</guid>
       <description>&lt;h2 id=&#34;a-方格取数httpswwwluogucomcnproblemp1004&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1004&#34;&gt;方格取数&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
@@ -643,12 +639,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
     <item>
       <title>背包进阶</title>
       <link>https://blog.zzsqwq.cn/posts/21/</link>
       <pubDate>Sun, 09 Feb 2020 00:38:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/21/</guid>
       <description>&lt;h3 id=&#34;1-分组背包httpswwwluogucomcnproblemp1757&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1757&#34;&gt;分组背包&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
@@ -868,12 +862,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description>
     </item>
-    
     <item>
       <title>一些关于背包的题</title>
       <link>https://blog.zzsqwq.cn/posts/20/</link>
       <pubDate>Sat, 08 Feb 2020 00:33:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/20/</guid>
       <description>&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
 &lt;p&gt;今天跟着背包九讲把背包再学习一下，dd_engi大佬的背包九讲Github链接: &lt;a href=&#34;https://github.com/tianyicui/pack&#34;&gt;背包九讲&lt;/a&gt;&lt;/p&gt;
@@ -1009,12 +1001,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description>
     </item>
-    
     <item>
       <title>基础线性dp例题 #2</title>
       <link>https://blog.zzsqwq.cn/posts/19/</link>
       <pubDate>Fri, 07 Feb 2020 00:22:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/19/</guid>
       <description>&lt;h3 id=&#34;1-石子归并httpswww51nodcomchallengeproblemhtmlproblemid1021&#34;&gt;1. &lt;a href=&#34;https://www.51nod.com/Challenge/Problem.html#problemId=1021&#34;&gt;石子归并&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
@@ -1248,12 +1238,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;</description>
     </item>
-    
     <item>
       <title>基础线性dp例题</title>
       <link>https://blog.zzsqwq.cn/posts/18/</link>
       <pubDate>Thu, 06 Feb 2020 00:09:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/18/</guid>
       <description>&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
 &lt;hr&gt;
@@ -1376,6 +1364,5 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
 &lt;p&gt;我太懒了····就写了两道，明天继续加油吧。。&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

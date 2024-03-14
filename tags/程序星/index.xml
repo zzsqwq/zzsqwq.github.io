@@ -6,12 +6,12 @@
     <description>Recent content in 程序星 on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 12 Nov 2020 23:13:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/%E7%A8%8B%E5%BA%8F%E6%98%9F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Nov 2020 23:13:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/tags/%E7%A8%8B%E5%BA%8F%E6%98%9F/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>“程序星编程之路”第二次作业题解</title>
       <link>https://blog.zzsqwq.cn/posts/136/</link>
       <pubDate>Thu, 12 Nov 2020 23:13:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/136/</guid>
       <description>&lt;h2 id=&#34;程序星编程之路第二次作业httpswwwluogucomcncontest36509题解&#34;&gt;&lt;a href=&#34;https://www.luogu.com.cn/contest/36509&#34;&gt;“程序星编程之路”第二次作业&lt;/a&gt;题解&lt;/h2&gt;
 &lt;h3 id=&#34;a-zs的回文质数httpswwwluogucomcnproblemu138527contestid36509&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/U138527?contestId=36509&#34;&gt;Zs的回文质数&lt;/a&gt;&lt;/h3&gt;
@@ -226,6 +226,5 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;提示：n个人的约瑟夫环杀掉一个人后组成一个新的人数为 n-1 的约瑟夫环&lt;/strong&gt;&lt;/p&gt;
 </description>
     </item>
-    
   </channel>
 </rss>

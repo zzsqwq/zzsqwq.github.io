@@ -6,12 +6,12 @@
     <description>Recent content in 神经网络 on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 May 2021 15:19:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 May 2021 15:19:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>利用神经网络进行波士顿房价预测</title>
       <link>https://blog.zzsqwq.cn/posts/182/</link>
       <pubDate>Sun, 16 May 2021 15:19:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/182/</guid>
       <description>&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
 &lt;p&gt;前一阵学校有五一数模节校赛，和朋友一起参加做B题，波士顿房价预测，算是第一次自己动手实现一个简单的小网络吧，虽然很简单，但还是想记录一下。&lt;/p&gt;
@@ -247,12 +247,10 @@ $$
 &lt;/ul&gt;
 </description>
     </item>
-    
     <item>
       <title>如何使用CenterNet做3D目标检测测试</title>
       <link>https://blog.zzsqwq.cn/posts/164/</link>
       <pubDate>Wed, 27 Jan 2021 11:50:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/164/</guid>
       <description>&lt;h2 id=&#34;centernetobjects-as-points介绍&#34;&gt;CenterNet—Objects as Points介绍&lt;/h2&gt;
 &lt;p&gt;​&lt;a href=&#34;https://github.com/xingyizhou/CenterNet&#34;&gt;CenterNet&lt;/a&gt;是一个anchor-free的目标检测网络，与YOLOv3相比，精度有所提升，此外他不仅能够用于2D目标检测，也能够用于人体姿态识别，3D目标检测等···&lt;/p&gt;
@@ -354,6 +352,5 @@ $$
 &lt;p&gt;我们应该可以在 &lt;code&gt;${CenterNet_ROOT}/exp/ddd/3dop/results&lt;/code&gt; 看到我们得到的结果，只不过运行得到的是点的坐标，而不是图像，如果需要图像的话可能还需要自己绘制一下。&lt;/p&gt;
 </description>
     </item>
-    
   </channel>
 </rss>

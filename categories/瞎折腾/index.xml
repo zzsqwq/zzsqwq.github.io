@@ -6,12 +6,12 @@
     <description>Recent content in 瞎折腾 on Zs&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 24 Apr 2022 13:46:00 +0000</lastBuildDate><atom:link href="https://blog.zzsqwq.cn/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Apr 2022 13:46:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.zzsqwq.cn/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker-Gitlab 与主机共用 ssh 的 22 端口</title>
       <link>https://blog.zzsqwq.cn/posts/docker-gitlab-ssh/</link>
       <pubDate>Sun, 24 Apr 2022 13:46:00 +0000</pubDate>
-      
       <guid>https://blog.zzsqwq.cn/posts/docker-gitlab-ssh/</guid>
       <description>&lt;h2 id=&#34;背景&#34;&gt;背景&lt;/h2&gt;
 &lt;p&gt;在使用 Docker 搭建 Gitlab/Gitee 会导致无法与主机端共用 22 端口，这导致 ssh 连接的时候会使用形如 &lt;code&gt;ssh://git@git.xxxx.cn:4022/zs/zsblog.git&lt;/code&gt; 的 ssh 链接，而不是像官方 Gitlab 那种非常干净的 &lt;code&gt;git@git.xxxx.cn/zs/zsblog.git&lt;/code&gt; 链接。这对于我这种强迫症而言非常的难受啊，但因为主机的 22 端口已经被占用了，无法共用，所以需要考虑两者共享端口的问题。&lt;/p&gt;
@@ -141,6 +141,5 @@
 &lt;/div&gt;
 </description>
     </item>
-    
   </channel>
 </rss>
