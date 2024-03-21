@@ -23,7 +23,7 @@ SiYun https://siyun916.github.io
 
 <!-- Bowen https://www.tomcatdeng.cn -->
 
-Sun's Blog https://www.vhrise.com
+斯文孙 https://www.vhrise.com
 
 immortalqx https://immortalqx.github.io
 
