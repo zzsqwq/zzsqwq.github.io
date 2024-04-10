@@ -38,9 +38,6 @@ languages:
             - name: Friends
               url: friends
               weight: 6
-            - name: Contact
-              url: contact
-              weight: 10
             - name: Search
               url: search
               weight: 10
