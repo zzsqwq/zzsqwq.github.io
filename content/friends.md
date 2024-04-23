@@ -21,7 +21,7 @@ SiYun https://siyun916.github.io
 
 <!-- Kircute https://kircute.jimmytoluene.com -->
 
-<!-- Bowen https://www.tomcatdeng.cn -->
+Bowen https://www.tomcatdeng.cn
 
 斯文孙 https://www.vhrise.com
 
