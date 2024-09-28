@@ -1,17 +1,362 @@
 <!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>为什么要使用条件变量？ | Zs's Blog</title>
-<meta name=keywords content="C++,Condition variable,Multithread"><meta name=description content='为什么要使用条件变量？ 前言 最近看了很多与线程有关的 C++ 新特性，条件变量是见的比较多的一个特性。
+<meta name=keywords content="C++,Condition variable,Multithread"><meta name=description content='为什么要使用条件变量？
+前言
+最近看了很多与线程有关的 C++ 新特性，条件变量是见的比较多的一个特性。
 看的时候我发现，想要理解一个新的特性，关键的要看它的引入到底解决了哪些问题，没有什么特性我们要实现相同的功能要怎么做？
 以我的理解来看，条件变量是一个线程间互相同步与通知的手段，他通过主动唤醒的方式减小了各个线程的开销，取代了简单但是消耗较大的一直被动循环检验与等待。
-没有条件变量我们如何实现相同的需求？ 这里采用现代C++教程1 中关于条件变量的一个例子作为基础：
-不使用条件变量版本 #include <queue> #include <chrono> #include <mutex> #include <thread> #include <iostream> #include <condition_variable> int main() { std::queue<int> produced_nums; std::mutex mtx; // 生产者 auto producer = [&]() { for (int i = 0; ; i++) { std::this_thread::sleep_for(std::chrono::milliseconds(900)); std::unique_lock<std::mutex> lock(mtx); std::cout << "producing " << i << std::endl; produced_nums.push(i); } }; // 消费者 auto consumer = [&]() { while (true) { { std::unique_lock<std::mutex> lock(mtx); if(produced_nums.'><meta name=author content="zzsqwq"><link rel=canonical href=https://blog.zzsqwq.cn/posts/why-use-condition-variable/><meta name=google-site-verification content="G-WF7TH97J9X"><link crossorigin=anonymous href=/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z+V9+cO1A=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zzsqwq.cn/images/avatar.png><link rel=icon type=image/png sizes=16x16 href=https://blog.zzsqwq.cn/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://blog.zzsqwq.cn/images/favicon-32x32.ico><link rel=apple-touch-icon href=https://blog.zzsqwq.cn/apple-touch-icon.png><link rel=mask-icon href=https://blog.zzsqwq.cn/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://blog.zzsqwq.cn/posts/why-use-condition-variable/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=G-WF7TH97J9X"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-WF7TH97J9X")}</script><meta property="og:title" content="为什么要使用条件变量？"><meta property="og:description" content='为什么要使用条件变量？ 前言 最近看了很多与线程有关的 C++ 新特性，条件变量是见的比较多的一个特性。
+没有条件变量我们如何实现相同的需求？
+这里采用现代C++教程1 中关于条件变量的一个例子作为基础：
+不使用条件变量版本
+#include <queue>
+#include <chrono>
+#include <mutex>
+#include <thread>
+#include <iostream>
+#include <condition_variable>
+
+
+int main() {
+    std::queue<int> produced_nums;
+    std::mutex mtx;
+
+    // 生产者
+    auto producer = [&]() {
+        for (int i = 0; ; i++) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(900));
+            std::unique_lock<std::mutex> lock(mtx);
+            std::cout << "producing " << i << std::endl;
+            produced_nums.push(i);
+        }
+    };
+    // 消费者
+    auto consumer = [&]() {
+        while (true) {
+            {
+              std::unique_lock<std::mutex> lock(mtx);
+              if(produced_nums.empty()) continue;
+            }
+            std::unique_lock<std::mutex> lock(mtx);
+            // 短暂取消锁，使得生产者有机会在消费者消费空前继续生产
+            lock.unlock();
+            // 消费者慢于生产者
+            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            lock.lock();
+            while (!produced_nums.empty()) {
+                std::cout << "consuming " << produced_nums.front() << std::endl;
+                produced_nums.pop();
+            }
+        }
+    };
+
+    // 分别在不同的线程中运行
+    std::thread p(producer);
+    std::thread cs[2];
+    for (int i = 0; i < 2; ++i) {
+        cs[i] = std::thread(consumer);
+    }
+    p.join();
+    for (int i = 0; i < 2; ++i) {
+        cs[i].join();
+    }
+    return 0;
+}
+使用条件变量版本
+#include <queue>
+#include <chrono>
+#include <mutex>
+#include <thread>
+#include <iostream>
+#include <condition_variable>
+
+
+int main() {
+    std::queue<int> produced_nums;
+    std::mutex mtx;
+    std::condition_variable cv;
+    bool notified = false;  // 通知信号
+
+    // 生产者
+    auto producer = [&]() {
+        for (int i = 0; ; i++) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(900));
+            std::unique_lock<std::mutex> lock(mtx);
+            std::cout << "producing " << i << std::endl;
+            produced_nums.push(i);
+            notified = true;
+            cv.notify_all(); // 此处也可以使用 notify_one
+        }
+    };
+    // 消费者
+    auto consumer = [&]() {
+        while (true) {
+            std::unique_lock<std::mutex> lock(mtx);
+            while (!notified) {  // 避免虚假唤醒
+                cv.wait(lock);
+            }
+            // 短暂取消锁，使得生产者有机会在消费者消费空前继续生产
+            lock.unlock();
+            // 消费者慢于生产者
+            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            lock.lock();
+            while (!produced_nums.empty()) {
+                std::cout << "consuming " << produced_nums.front() << std::endl;
+                produced_nums.pop();
+            }
+            notified = false;
+        }
+    };
+
+    // 分别在不同的线程中运行
+    std::thread p(producer);
+    std::thread cs[2];
+    for (int i = 0; i < 2; ++i) {
+        cs[i] = std::thread(consumer);
+    }
+    p.join();
+    for (int i = 0; i < 2; ++i) {
+        cs[i].join();
+    }
+    return 0;
+}
+这两段代码在效果上是等效的，都是一个生产者两个消费者。'><meta name=author content="zzsqwq"><link rel=canonical href=https://blog.zzsqwq.cn/posts/why-use-condition-variable/><meta name=google-site-verification content="G-WF7TH97J9X"><link crossorigin=anonymous href=/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z+V9+cO1A=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.zzsqwq.cn/images/avatar.png><link rel=icon type=image/png sizes=16x16 href=https://blog.zzsqwq.cn/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://blog.zzsqwq.cn/images/favicon-32x32.ico><link rel=apple-touch-icon href=https://blog.zzsqwq.cn/apple-touch-icon.png><link rel=mask-icon href=https://blog.zzsqwq.cn/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://blog.zzsqwq.cn/posts/why-use-condition-variable/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=G-WF7TH97J9X"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-WF7TH97J9X")}</script><meta property="og:title" content="为什么要使用条件变量？"><meta property="og:description" content='为什么要使用条件变量？
+前言
+最近看了很多与线程有关的 C++ 新特性，条件变量是见的比较多的一个特性。
 看的时候我发现，想要理解一个新的特性，关键的要看它的引入到底解决了哪些问题，没有什么特性我们要实现相同的功能要怎么做？
 以我的理解来看，条件变量是一个线程间互相同步与通知的手段，他通过主动唤醒的方式减小了各个线程的开销，取代了简单但是消耗较大的一直被动循环检验与等待。
-没有条件变量我们如何实现相同的需求？ 这里采用现代C++教程1 中关于条件变量的一个例子作为基础：
-不使用条件变量版本 #include <queue> #include <chrono> #include <mutex> #include <thread> #include <iostream> #include <condition_variable> int main() { std::queue<int> produced_nums; std::mutex mtx; // 生产者 auto producer = [&]() { for (int i = 0; ; i++) { std::this_thread::sleep_for(std::chrono::milliseconds(900)); std::unique_lock<std::mutex> lock(mtx); std::cout << "producing " << i << std::endl; produced_nums.push(i); } }; // 消费者 auto consumer = [&]() { while (true) { { std::unique_lock<std::mutex> lock(mtx); if(produced_nums.'><meta property="og:type" content="article"><meta property="og:url" content="https://blog.zzsqwq.cn/posts/why-use-condition-variable/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-08-24T23:37:00+00:00"><meta property="article:modified_time" content="2022-08-24T23:37:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="为什么要使用条件变量？"><meta name=twitter:description content='为什么要使用条件变量？ 前言 最近看了很多与线程有关的 C++ 新特性，条件变量是见的比较多的一个特性。
+没有条件变量我们如何实现相同的需求？
+这里采用现代C++教程1 中关于条件变量的一个例子作为基础：
+不使用条件变量版本
+#include <queue>
+#include <chrono>
+#include <mutex>
+#include <thread>
+#include <iostream>
+#include <condition_variable>
+
+
+int main() {
+    std::queue<int> produced_nums;
+    std::mutex mtx;
+
+    // 生产者
+    auto producer = [&]() {
+        for (int i = 0; ; i++) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(900));
+            std::unique_lock<std::mutex> lock(mtx);
+            std::cout << "producing " << i << std::endl;
+            produced_nums.push(i);
+        }
+    };
+    // 消费者
+    auto consumer = [&]() {
+        while (true) {
+            {
+              std::unique_lock<std::mutex> lock(mtx);
+              if(produced_nums.empty()) continue;
+            }
+            std::unique_lock<std::mutex> lock(mtx);
+            // 短暂取消锁，使得生产者有机会在消费者消费空前继续生产
+            lock.unlock();
+            // 消费者慢于生产者
+            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            lock.lock();
+            while (!produced_nums.empty()) {
+                std::cout << "consuming " << produced_nums.front() << std::endl;
+                produced_nums.pop();
+            }
+        }
+    };
+
+    // 分别在不同的线程中运行
+    std::thread p(producer);
+    std::thread cs[2];
+    for (int i = 0; i < 2; ++i) {
+        cs[i] = std::thread(consumer);
+    }
+    p.join();
+    for (int i = 0; i < 2; ++i) {
+        cs[i].join();
+    }
+    return 0;
+}
+使用条件变量版本
+#include <queue>
+#include <chrono>
+#include <mutex>
+#include <thread>
+#include <iostream>
+#include <condition_variable>
+
+
+int main() {
+    std::queue<int> produced_nums;
+    std::mutex mtx;
+    std::condition_variable cv;
+    bool notified = false;  // 通知信号
+
+    // 生产者
+    auto producer = [&]() {
+        for (int i = 0; ; i++) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(900));
+            std::unique_lock<std::mutex> lock(mtx);
+            std::cout << "producing " << i << std::endl;
+            produced_nums.push(i);
+            notified = true;
+            cv.notify_all(); // 此处也可以使用 notify_one
+        }
+    };
+    // 消费者
+    auto consumer = [&]() {
+        while (true) {
+            std::unique_lock<std::mutex> lock(mtx);
+            while (!notified) {  // 避免虚假唤醒
+                cv.wait(lock);
+            }
+            // 短暂取消锁，使得生产者有机会在消费者消费空前继续生产
+            lock.unlock();
+            // 消费者慢于生产者
+            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            lock.lock();
+            while (!produced_nums.empty()) {
+                std::cout << "consuming " << produced_nums.front() << std::endl;
+                produced_nums.pop();
+            }
+            notified = false;
+        }
+    };
+
+    // 分别在不同的线程中运行
+    std::thread p(producer);
+    std::thread cs[2];
+    for (int i = 0; i < 2; ++i) {
+        cs[i] = std::thread(consumer);
+    }
+    p.join();
+    for (int i = 0; i < 2; ++i) {
+        cs[i].join();
+    }
+    return 0;
+}
+这两段代码在效果上是等效的，都是一个生产者两个消费者。'><meta property="og:type" content="article"><meta property="og:url" content="https://blog.zzsqwq.cn/posts/why-use-condition-variable/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-08-24T23:37:00+00:00"><meta property="article:modified_time" content="2022-08-24T23:37:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="为什么要使用条件变量？"><meta name=twitter:description content='为什么要使用条件变量？
+前言
+最近看了很多与线程有关的 C++ 新特性，条件变量是见的比较多的一个特性。
 看的时候我发现，想要理解一个新的特性，关键的要看它的引入到底解决了哪些问题，没有什么特性我们要实现相同的功能要怎么做？
 以我的理解来看，条件变量是一个线程间互相同步与通知的手段，他通过主动唤醒的方式减小了各个线程的开销，取代了简单但是消耗较大的一直被动循环检验与等待。
-没有条件变量我们如何实现相同的需求？ 这里采用现代C++教程1 中关于条件变量的一个例子作为基础：
-不使用条件变量版本 #include <queue> #include <chrono> #include <mutex> #include <thread> #include <iostream> #include <condition_variable> int main() { std::queue<int> produced_nums; std::mutex mtx; // 生产者 auto producer = [&]() { for (int i = 0; ; i++) { std::this_thread::sleep_for(std::chrono::milliseconds(900)); std::unique_lock<std::mutex> lock(mtx); std::cout << "producing " << i << std::endl; produced_nums.push(i); } }; // 消费者 auto consumer = [&]() { while (true) { { std::unique_lock<std::mutex> lock(mtx); if(produced_nums.'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://blog.zzsqwq.cn/posts/"},{"@type":"ListItem","position":2,"name":"为什么要使用条件变量？","item":"https://blog.zzsqwq.cn/posts/why-use-condition-variable/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"为什么要使用条件变量？","name":"为什么要使用条件变量？","description":"为什么要使用条件变量？ 前言 最近看了很多与线程有关的 C++ 新特性，条件变量是见的比较多的一个特性。\n看的时候我发现，想要理解一个新的特性，关键的要看它的引入到底解决了哪些问题，没有什么特性我们要实现相同的功能要怎么做？\n以我的理解来看，条件变量是一个线程间互相同步与通知的手段，他通过主动唤醒的方式减小了各个线程的开销，取代了简单但是消耗较大的一直被动循环检验与等待。\n没有条件变量我们如何实现相同的需求？ 这里采用现代C++教程1 中关于条件变量的一个例子作为基础：\n不使用条件变量版本 #include \u0026lt;queue\u0026gt; #include \u0026lt;chrono\u0026gt; #include \u0026lt;mutex\u0026gt; #include \u0026lt;thread\u0026gt; #include \u0026lt;iostream\u0026gt; #include \u0026lt;condition_variable\u0026gt; int main() { std::queue\u0026lt;int\u0026gt; produced_nums; std::mutex mtx; // 生产者 auto producer = [\u0026amp;]() { for (int i = 0; ; i++) { std::this_thread::sleep_for(std::chrono::milliseconds(900)); std::unique_lock\u0026lt;std::mutex\u0026gt; lock(mtx); std::cout \u0026lt;\u0026lt; \u0026#34;producing \u0026#34; \u0026lt;\u0026lt; i \u0026lt;\u0026lt; std::endl; produced_nums.push(i); } }; // 消费者 auto consumer = [\u0026amp;]() { while (true) { { std::unique_lock\u0026lt;std::mutex\u0026gt; lock(mtx); if(produced_nums.","keywords":["C++","Condition variable","Multithread"],"articleBody":"为什么要使用条件变量？ 前言 最近看了很多与线程有关的 C++ 新特性，条件变量是见的比较多的一个特性。\n看的时候我发现，想要理解一个新的特性，关键的要看它的引入到底解决了哪些问题，没有什么特性我们要实现相同的功能要怎么做？\n以我的理解来看，条件变量是一个线程间互相同步与通知的手段，他通过主动唤醒的方式减小了各个线程的开销，取代了简单但是消耗较大的一直被动循环检验与等待。\n没有条件变量我们如何实现相同的需求？ 这里采用现代C++教程1 中关于条件变量的一个例子作为基础：\n不使用条件变量版本 #include #include #include #include #include #include int main() { std::queue\u003cint\u003e produced_nums; std::mutex mtx; // 生产者 auto producer = [\u0026]() { for (int i = 0; ; i++) { std::this_thread::sleep_for(std::chrono::milliseconds(900)); std::unique_lock\u003cstd::mutex\u003e lock(mtx); std::cout \u003c\u003c \"producing \" \u003c\u003c i \u003c\u003c std::endl; produced_nums.push(i); } }; // 消费者 auto consumer = [\u0026]() { while (true) { { std::unique_lock\u003cstd::mutex\u003e lock(mtx); if(produced_nums.empty()) continue; } std::unique_lock\u003cstd::mutex\u003e lock(mtx); // 短暂取消锁，使得生产者有机会在消费者消费空前继续生产 lock.unlock(); // 消费者慢于生产者 std::this_thread::sleep_for(std::chrono::milliseconds(1000)); lock.lock(); while (!produced_nums.empty()) { std::cout \u003c\u003c \"consuming \" \u003c\u003c produced_nums.front() \u003c\u003c std::endl; produced_nums.pop(); } } }; // 分别在不同的线程中运行 std::thread p(producer); std::thread cs[2]; for (int i = 0; i \u003c 2; ++i) { cs[i] = std::thread(consumer); } p.join(); for (int i = 0; i \u003c 2; ++i) { cs[i].join(); } return 0; } 使用条件变量版本 #include #include #include #include #include #include int main() { std::queue\u003cint\u003e produced_nums; std::mutex mtx; std::condition_variable cv; bool notified = false; // 通知信号 // 生产者 auto producer = [\u0026]() { for (int i = 0; ; i++) { std::this_thread::sleep_for(std::chrono::milliseconds(900)); std::unique_lock\u003cstd::mutex\u003e lock(mtx); std::cout \u003c\u003c \"producing \" \u003c\u003c i \u003c\u003c std::endl; produced_nums.push(i); notified = true; cv.notify_all(); // 此处也可以使用 notify_one } }; // 消费者 auto consumer = [\u0026]() { while (true) { std::unique_lock\u003cstd::mutex\u003e lock(mtx); while (!notified) { // 避免虚假唤醒 cv.wait(lock); } // 短暂取消锁，使得生产者有机会在消费者消费空前继续生产 lock.unlock(); // 消费者慢于生产者 std::this_thread::sleep_for(std::chrono::milliseconds(1000)); lock.lock(); while (!produced_nums.empty()) { std::cout \u003c\u003c \"consuming \" \u003c\u003c produced_nums.front() \u003c\u003c std::endl; produced_nums.pop(); } notified = false; } }; // 分别在不同的线程中运行 std::thread p(producer); std::thread cs[2]; for (int i = 0; i \u003c 2; ++i) { cs[i] = std::thread(consumer); } p.join(); for (int i = 0; i \u003c 2; ++i) { cs[i].join(); } return 0; } 这两段代码在效果上是等效的，都是一个生产者两个消费者。\n前者使用了 while 循环来一直检查是否可以消费，后者使用了 cv.wait(lock) 条件变量来实现阻塞等待可消费的提醒。\n可以发现在这个例子里，前者是主动的去检查是否可以消费，后者是被动的被提醒可以消费，而主动则代表着需要一直询问查询，主动的 while 循环检查始终在重复如下流程：\n而这个上锁、检查、释放锁的过程就是非常冗余、消耗资源、效率低下的，而条件变量解决了这个问题，条件变量做的事：\n这里需要注意的一点是，在条件变量调用 wait() 时，做了两件事，一个是阻塞线程等待其他线程唤醒、另一个是释放锁，只有这样才会让别的线程有机会获得锁，而被唤醒后又会自动上锁。\n为什么要和 mutex 与 lock 一起用？ 我们常见的搭配就是 condition_variable、mutex、unique_lock 一起使用，那么为什么要这么做呢？\n一个比较常见的说法是，在调用 wait() 函数与线程真正的阻塞等待状态是存在一定时间差的，那么就会存在唤醒丢失的问题，一种情况如下：\n线程A： ------- 调用 wait() 函数 ------- 进入等待状态 ------ 线程B： -------------------------唤醒A------------------- 而我们希望的是：\n线程A： ------- 调用 wait() 函数 ------- 进入等待状态 ------ 线程B： -------------------------------------------唤醒A- 我们总是要确保，在线程 A 真正进入等待状态后再进行唤醒，因此这里需要一个 lock 来保证我们对于一个线程空闲/等待的改变是原子性的，也就是不应该被其他线程中途干扰。\n为什么使用 unique_lock 而不使用 scoped_lock 或 lock_guard 首先三个函数都是 RAII 的锁管理函数，可以有效解决 lock 后忘记 unlock 的情形，而目前在 C++17 后推荐统一使用 scoped_lock 而不是 lock_guard。\n而使用 unique_lock 是因为我们在使用条件变量时，需要在条件变量 wait 时解除 lock，只有 unique_lock 能够满足这个条件，实现自己更细粒度的锁区间的划分。\n什么是虚假唤醒？ 可以注意到在第一部分代码中有这么一段：\nauto consumer = [\u0026]() { while (true) { std::unique_lock\u003cstd::mutex\u003e lock(mtx); while (!notified) { // 避免虚假唤醒 cv.wait(lock); } // ... notified = false; } }; 避免虚假唤醒，那么什么是虚假唤醒呢？\n虚假唤醒简而言之就是，没有满足消费的条件却被唤醒后进行了消费。\n这个发生的可能多是在系统调度层面，具体的可以参考此知乎问题：为什么条件锁会产生虚假唤醒现象（spurious wakeup）？\n而解决的方案就是在消费之前再检查一下是否满足消费的条件，而这个消费条件多是用一个形如 notified 的 bool 变量来标识是否可以消费。\n如果不检查，带条件变量的执行流程就会像如下这样：\n其中少了一步检查是否可以消费的过程。\n后记 本文记录了我在学习条件变量过程中的一些疑问，如有错误之处，敬请交流指正。\nhttps://changkun.de/modern-cpp/ ↩︎\n","wordCount":"395","inLanguage":"en","datePublished":"2022-08-24T23:37:00Z","dateModified":"2022-08-24T23:37:00Z","author":{"@type":"Person","name":"zzsqwq"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.zzsqwq.cn/posts/why-use-condition-variable/"},"publisher":{"@type":"Organization","name":"Zs's Blog","logo":{"@type":"ImageObject","url":"https://blog.zzsqwq.cn/images/avatar.png"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://blog.zzsqwq.cn/ accesskey=h title="Zs's Blog (Alt + H)">Zs's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://blog.zzsqwq.cn/about title=About><span>About</span></a></li><li><a href=https://blog.zzsqwq.cn/archives title=Posts><span>Posts</span></a></li><li><a href=https://blog.zzsqwq.cn/friends title=Friends><span>Friends</span></a></li><li><a href=https://blog.zzsqwq.cn/search title="Search (Alt + /)" accesskey=/><span>Search</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://blog.zzsqwq.cn/>Home</a>&nbsp;»&nbsp;<a href=https://blog.zzsqwq.cn/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">为什么要使用条件变量？</h1><div class=post-meta><span title='2022-08-24 23:37:00 +0000 UTC'>August 24, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;zzsqwq&nbsp;|&nbsp;<a href=https://github.com/zzsqwq/zzsqwq.github.io/tree/master/content/posts/why-use-condition-variable.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e4%bd%bf%e7%94%a8%e6%9d%a1%e4%bb%b6%e5%8f%98%e9%87%8f aria-label=为什么要使用条件变量？>为什么要使用条件变量？</a><ul><li><a href=#%e5%89%8d%e8%a8%80 aria-label=前言>前言</a></li><li><a href=#%e6%b2%a1%e6%9c%89%e6%9d%a1%e4%bb%b6%e5%8f%98%e9%87%8f%e6%88%91%e4%bb%ac%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e7%9b%b8%e5%90%8c%e7%9a%84%e9%9c%80%e6%b1%82 aria-label=没有条件变量我们如何实现相同的需求？>没有条件变量我们如何实现相同的需求？</a><ul><li><a href=#%e4%b8%8d%e4%bd%bf%e7%94%a8%e6%9d%a1%e4%bb%b6%e5%8f%98%e9%87%8f%e7%89%88%e6%9c%ac aria-label=不使用条件变量版本>不使用条件变量版本</a></li><li><a href=#%e4%bd%bf%e7%94%a8%e6%9d%a1%e4%bb%b6%e5%8f%98%e9%87%8f%e7%89%88%e6%9c%ac aria-label=使用条件变量版本>使用条件变量版本</a></li></ul></li><li><a href=#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e5%92%8c-mutex-%e4%b8%8e-lock-%e4%b8%80%e8%b5%b7%e7%94%a8 aria-label="为什么要和 mutex 与 lock 一起用？">为什么要和 mutex 与 lock 一起用？</a></li><li><a href=#%e4%b8%ba%e4%bb%80%e4%b9%88%e4%bd%bf%e7%94%a8-unique_lock-%e8%80%8c%e4%b8%8d%e4%bd%bf%e7%94%a8-scoped_lock-%e6%88%96-lock_guard aria-label="为什么使用 unique_lock 而不使用 scoped_lock 或 lock_guard">为什么使用 unique_lock 而不使用 scoped_lock 或 lock_guard</a></li><li><a href=#%e4%bb%80%e4%b9%88%e6%98%af%e8%99%9a%e5%81%87%e5%94%a4%e9%86%92 aria-label=什么是虚假唤醒？>什么是虚假唤醒？</a></li><li><a href=#%e5%90%8e%e8%ae%b0 aria-label=后记>后记</a></li></ul></li></ul></div></details></div><div class=post-content><h1 id=为什么要使用条件变量>为什么要使用条件变量？<a hidden class=anchor aria-hidden=true href=#为什么要使用条件变量>#</a></h1><h2 id=前言>前言<a hidden class=anchor aria-hidden=true href=#前言>#</a></h2><p>最近看了很多与线程有关的 C++ 新特性，条件变量是见的比较多的一个特性。</p><p>看的时候我发现，想要理解一个新的特性，关键的要看它的引入到底解决了哪些问题，没有什么特性我们要实现相同的功能要怎么做？</p><p>以我的理解来看，条件变量是一个线程间互相同步与通知的手段，他通过<strong>主动唤醒</strong>的方式减小了各个线程的开销，取代了简单但是消耗较大的一直<strong>被动循环检验与等待</strong>。</p><h2 id=没有条件变量我们如何实现相同的需求>没有条件变量我们如何实现相同的需求？<a hidden class=anchor aria-hidden=true href=#没有条件变量我们如何实现相同的需求>#</a></h2><p>这里采用现代C++教程<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> 中关于条件变量的一个例子作为基础：</p><h3 id=不使用条件变量版本>不使用条件变量版本<a hidden class=anchor aria-hidden=true href=#不使用条件变量版本>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-C++ data-lang=C++><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;queue&gt;</span><span class=cp>
+没有条件变量我们如何实现相同的需求？
+这里采用现代C++教程1 中关于条件变量的一个例子作为基础：
+不使用条件变量版本
+#include <queue>
+#include <chrono>
+#include <mutex>
+#include <thread>
+#include <iostream>
+#include <condition_variable>
+
+
+int main() {
+    std::queue<int> produced_nums;
+    std::mutex mtx;
+
+    // 生产者
+    auto producer = [&]() {
+        for (int i = 0; ; i++) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(900));
+            std::unique_lock<std::mutex> lock(mtx);
+            std::cout << "producing " << i << std::endl;
+            produced_nums.push(i);
+        }
+    };
+    // 消费者
+    auto consumer = [&]() {
+        while (true) {
+            {
+              std::unique_lock<std::mutex> lock(mtx);
+              if(produced_nums.empty()) continue;
+            }
+            std::unique_lock<std::mutex> lock(mtx);
+            // 短暂取消锁，使得生产者有机会在消费者消费空前继续生产
+            lock.unlock();
+            // 消费者慢于生产者
+            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            lock.lock();
+            while (!produced_nums.empty()) {
+                std::cout << "consuming " << produced_nums.front() << std::endl;
+                produced_nums.pop();
+            }
+        }
+    };
+
+    // 分别在不同的线程中运行
+    std::thread p(producer);
+    std::thread cs[2];
+    for (int i = 0; i < 2; ++i) {
+        cs[i] = std::thread(consumer);
+    }
+    p.join();
+    for (int i = 0; i < 2; ++i) {
+        cs[i].join();
+    }
+    return 0;
+}
+使用条件变量版本
+#include <queue>
+#include <chrono>
+#include <mutex>
+#include <thread>
+#include <iostream>
+#include <condition_variable>
+
+
+int main() {
+    std::queue<int> produced_nums;
+    std::mutex mtx;
+    std::condition_variable cv;
+    bool notified = false;  // 通知信号
+
+    // 生产者
+    auto producer = [&]() {
+        for (int i = 0; ; i++) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(900));
+            std::unique_lock<std::mutex> lock(mtx);
+            std::cout << "producing " << i << std::endl;
+            produced_nums.push(i);
+            notified = true;
+            cv.notify_all(); // 此处也可以使用 notify_one
+        }
+    };
+    // 消费者
+    auto consumer = [&]() {
+        while (true) {
+            std::unique_lock<std::mutex> lock(mtx);
+            while (!notified) {  // 避免虚假唤醒
+                cv.wait(lock);
+            }
+            // 短暂取消锁，使得生产者有机会在消费者消费空前继续生产
+            lock.unlock();
+            // 消费者慢于生产者
+            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            lock.lock();
+            while (!produced_nums.empty()) {
+                std::cout << "consuming " << produced_nums.front() << std::endl;
+                produced_nums.pop();
+            }
+            notified = false;
+        }
+    };
+
+    // 分别在不同的线程中运行
+    std::thread p(producer);
+    std::thread cs[2];
+    for (int i = 0; i < 2; ++i) {
+        cs[i] = std::thread(consumer);
+    }
+    p.join();
+    for (int i = 0; i < 2; ++i) {
+        cs[i].join();
+    }
+    return 0;
+}
+这两段代码在效果上是等效的，都是一个生产者两个消费者。'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://blog.zzsqwq.cn/posts/"},{"@type":"ListItem","position":2,"name":"为什么要使用条件变量？","item":"https://blog.zzsqwq.cn/posts/why-use-condition-variable/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"为什么要使用条件变量？","name":"为什么要使用条件变量？","description":"为什么要使用条件变量？ 前言 最近看了很多与线程有关的 C++ 新特性，条件变量是见的比较多的一个特性。\n看的时候我发现，想要理解一个新的特性，关键的要看它的引入到底解决了哪些问题，没有什么特性我们要实现相同的功能要怎么做？\n以我的理解来看，条件变量是一个线程间互相同步与通知的手段，他通过主动唤醒的方式减小了各个线程的开销，取代了简单但是消耗较大的一直被动循环检验与等待。\n没有条件变量我们如何实现相同的需求？ 这里采用现代C++教程1 中关于条件变量的一个例子作为基础：\n不使用条件变量版本 #include \u0026lt;queue\u0026gt; #include \u0026lt;chrono\u0026gt; #include \u0026lt;mutex\u0026gt; #include \u0026lt;thread\u0026gt; #include \u0026lt;iostream\u0026gt; #include \u0026lt;condition_variable\u0026gt; int main() { std::queue\u0026lt;int\u0026gt; produced_nums; std::mutex mtx; // 生产者 auto producer = [\u0026amp;]() { for (int i = 0; ; i++) { std::this_thread::sleep_for(std::chrono::milliseconds(900)); std::unique_lock\u0026lt;std::mutex\u0026gt; lock(mtx); std::cout \u0026lt;\u0026lt; \u0026#34;producing \u0026#34; \u0026lt;\u0026lt; i \u0026lt;\u0026lt; std::endl; produced_nums.push(i); } }; // 消费者 auto consumer = [\u0026amp;]() { while (true) { { std::unique_lock\u0026lt;std::mutex\u0026gt; lock(mtx); if(produced_nums.empty()) continue; } std::unique_lock\u0026lt;std::mutex\u0026gt; lock(mtx); // 短暂取消锁，使得生产者有机会在消费者消费空前继续生产 lock.unlock(); // 消费者慢于生产者 std::this_thread::sleep_for(std::chrono::milliseconds(1000)); lock.lock(); while (!produced_nums.empty()) { std::cout \u0026lt;\u0026lt; \u0026#34;consuming \u0026#34; \u0026lt;\u0026lt; produced_nums.front() \u0026lt;\u0026lt; std::endl; produced_nums.pop(); } } }; // 分别在不同的线程中运行 std::thread p(producer); std::thread cs[2]; for (int i = 0; i \u0026lt; 2; ++i) { cs[i] = std::thread(consumer); } p.join(); for (int i = 0; i \u0026lt; 2; ++i) { cs[i].join(); } return 0; } 使用条件变量版本 #include \u0026lt;queue\u0026gt; #include \u0026lt;chrono\u0026gt; #include \u0026lt;mutex\u0026gt; #include \u0026lt;thread\u0026gt; #include \u0026lt;iostream\u0026gt; #include \u0026lt;condition_variable\u0026gt; int main() { std::queue\u0026lt;int\u0026gt; produced_nums; std::mutex mtx; std::condition_variable cv; bool notified = false; // 通知信号 // 生产者 auto producer = [\u0026amp;]() { for (int i = 0; ; i++) { std::this_thread::sleep_for(std::chrono::milliseconds(900)); std::unique_lock\u0026lt;std::mutex\u0026gt; lock(mtx); std::cout \u0026lt;\u0026lt; \u0026#34;producing \u0026#34; \u0026lt;\u0026lt; i \u0026lt;\u0026lt; std::endl; produced_nums.push(i); notified = true; cv.notify_all(); // 此处也可以使用 notify_one } }; // 消费者 auto consumer = [\u0026amp;]() { while (true) { std::unique_lock\u0026lt;std::mutex\u0026gt; lock(mtx); while (!notified) { // 避免虚假唤醒 cv.wait(lock); } // 短暂取消锁，使得生产者有机会在消费者消费空前继续生产 lock.unlock(); // 消费者慢于生产者 std::this_thread::sleep_for(std::chrono::milliseconds(1000)); lock.lock(); while (!produced_nums.empty()) { std::cout \u0026lt;\u0026lt; \u0026#34;consuming \u0026#34; \u0026lt;\u0026lt; produced_nums.front() \u0026lt;\u0026lt; std::endl; produced_nums.pop(); } notified = false; } }; // 分别在不同的线程中运行 std::thread p(producer); std::thread cs[2]; for (int i = 0; i \u0026lt; 2; ++i) { cs[i] = std::thread(consumer); } p.join(); for (int i = 0; i \u0026lt; 2; ++i) { cs[i].join(); } return 0; } 这两段代码在效果上是等效的，都是一个生产者两个消费者。\n","keywords":["C++","Condition variable","Multithread"],"articleBody":"为什么要使用条件变量？ 前言 最近看了很多与线程有关的 C++ 新特性，条件变量是见的比较多的一个特性。\n看的时候我发现，想要理解一个新的特性，关键的要看它的引入到底解决了哪些问题，没有什么特性我们要实现相同的功能要怎么做？\n以我的理解来看，条件变量是一个线程间互相同步与通知的手段，他通过主动唤醒的方式减小了各个线程的开销，取代了简单但是消耗较大的一直被动循环检验与等待。\n没有条件变量我们如何实现相同的需求？ 这里采用现代C++教程1 中关于条件变量的一个例子作为基础：\n不使用条件变量版本 #include #include #include #include #include #include int main() { std::queue\u003cint\u003e produced_nums; std::mutex mtx; // 生产者 auto producer = [\u0026]() { for (int i = 0; ; i++) { std::this_thread::sleep_for(std::chrono::milliseconds(900)); std::unique_lock\u003cstd::mutex\u003e lock(mtx); std::cout \u003c\u003c \"producing \" \u003c\u003c i \u003c\u003c std::endl; produced_nums.push(i); } }; // 消费者 auto consumer = [\u0026]() { while (true) { { std::unique_lock\u003cstd::mutex\u003e lock(mtx); if(produced_nums.empty()) continue; } std::unique_lock\u003cstd::mutex\u003e lock(mtx); // 短暂取消锁，使得生产者有机会在消费者消费空前继续生产 lock.unlock(); // 消费者慢于生产者 std::this_thread::sleep_for(std::chrono::milliseconds(1000)); lock.lock(); while (!produced_nums.empty()) { std::cout \u003c\u003c \"consuming \" \u003c\u003c produced_nums.front() \u003c\u003c std::endl; produced_nums.pop(); } } }; // 分别在不同的线程中运行 std::thread p(producer); std::thread cs[2]; for (int i = 0; i \u003c 2; ++i) { cs[i] = std::thread(consumer); } p.join(); for (int i = 0; i \u003c 2; ++i) { cs[i].join(); } return 0; } 使用条件变量版本 #include #include #include #include #include #include int main() { std::queue\u003cint\u003e produced_nums; std::mutex mtx; std::condition_variable cv; bool notified = false; // 通知信号 // 生产者 auto producer = [\u0026]() { for (int i = 0; ; i++) { std::this_thread::sleep_for(std::chrono::milliseconds(900)); std::unique_lock\u003cstd::mutex\u003e lock(mtx); std::cout \u003c\u003c \"producing \" \u003c\u003c i \u003c\u003c std::endl; produced_nums.push(i); notified = true; cv.notify_all(); // 此处也可以使用 notify_one } }; // 消费者 auto consumer = [\u0026]() { while (true) { std::unique_lock\u003cstd::mutex\u003e lock(mtx); while (!notified) { // 避免虚假唤醒 cv.wait(lock); } // 短暂取消锁，使得生产者有机会在消费者消费空前继续生产 lock.unlock(); // 消费者慢于生产者 std::this_thread::sleep_for(std::chrono::milliseconds(1000)); lock.lock(); while (!produced_nums.empty()) { std::cout \u003c\u003c \"consuming \" \u003c\u003c produced_nums.front() \u003c\u003c std::endl; produced_nums.pop(); } notified = false; } }; // 分别在不同的线程中运行 std::thread p(producer); std::thread cs[2]; for (int i = 0; i \u003c 2; ++i) { cs[i] = std::thread(consumer); } p.join(); for (int i = 0; i \u003c 2; ++i) { cs[i].join(); } return 0; } 这两段代码在效果上是等效的，都是一个生产者两个消费者。\n前者使用了 while 循环来一直检查是否可以消费，后者使用了 cv.wait(lock) 条件变量来实现阻塞等待可消费的提醒。\n可以发现在这个例子里，前者是主动的去检查是否可以消费，后者是被动的被提醒可以消费，而主动则代表着需要一直询问查询，主动的 while 循环检查始终在重复如下流程：\n而这个上锁、检查、释放锁的过程就是非常冗余、消耗资源、效率低下的，而条件变量解决了这个问题，条件变量做的事：\n这里需要注意的一点是，在条件变量调用 wait() 时，做了两件事，一个是阻塞线程等待其他线程唤醒、另一个是释放锁，只有这样才会让别的线程有机会获得锁，而被唤醒后又会自动上锁。\n为什么要和 mutex 与 lock 一起用？ 我们常见的搭配就是 condition_variable、mutex、unique_lock 一起使用，那么为什么要这么做呢？\n一个比较常见的说法是，在调用 wait() 函数与线程真正的阻塞等待状态是存在一定时间差的，那么就会存在唤醒丢失的问题，一种情况如下：\n线程A： ------- 调用 wait() 函数 ------- 进入等待状态 ------ 线程B： -------------------------唤醒A------------------- 而我们希望的是：\n线程A： ------- 调用 wait() 函数 ------- 进入等待状态 ------ 线程B： -------------------------------------------唤醒A- 我们总是要确保，在线程 A 真正进入等待状态后再进行唤醒，因此这里需要一个 lock 来保证我们对于一个线程空闲/等待的改变是原子性的，也就是不应该被其他线程中途干扰。\n为什么使用 unique_lock 而不使用 scoped_lock 或 lock_guard 首先三个函数都是 RAII 的锁管理函数，可以有效解决 lock 后忘记 unlock 的情形，而目前在 C++17 后推荐统一使用 scoped_lock 而不是 lock_guard。\n而使用 unique_lock 是因为我们在使用条件变量时，需要在条件变量 wait 时解除 lock，只有 unique_lock 能够满足这个条件，实现自己更细粒度的锁区间的划分。\n什么是虚假唤醒？ 可以注意到在第一部分代码中有这么一段：\nauto consumer = [\u0026]() { while (true) { std::unique_lock\u003cstd::mutex\u003e lock(mtx); while (!notified) { // 避免虚假唤醒 cv.wait(lock); } // ... notified = false; } }; 避免虚假唤醒，那么什么是虚假唤醒呢？\n虚假唤醒简而言之就是，没有满足消费的条件却被唤醒后进行了消费。\n这个发生的可能多是在系统调度层面，具体的可以参考此知乎问题：为什么条件锁会产生虚假唤醒现象（spurious wakeup）？\n而解决的方案就是在消费之前再检查一下是否满足消费的条件，而这个消费条件多是用一个形如 notified 的 bool 变量来标识是否可以消费。\n如果不检查，带条件变量的执行流程就会像如下这样：\n其中少了一步检查是否可以消费的过程。\n后记 本文记录了我在学习条件变量过程中的一些疑问，如有错误之处，敬请交流指正。\nhttps://changkun.de/modern-cpp/ ↩︎\n","wordCount":"395","inLanguage":"en","datePublished":"2022-08-24T23:37:00Z","dateModified":"2022-08-24T23:37:00Z","author":{"@type":"Person","name":"zzsqwq"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.zzsqwq.cn/posts/why-use-condition-variable/"},"publisher":{"@type":"Organization","name":"Zs's Blog","logo":{"@type":"ImageObject","url":"https://blog.zzsqwq.cn/images/avatar.png"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://blog.zzsqwq.cn/ accesskey=h title="Zs's Blog (Alt + H)">Zs's Blog</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://blog.zzsqwq.cn/about title=About><span>About</span></a></li><li><a href=https://blog.zzsqwq.cn/archives title=Posts><span>Posts</span></a></li><li><a href=https://blog.zzsqwq.cn/friends title=Friends><span>Friends</span></a></li><li><a href=https://blog.zzsqwq.cn/search title="Search (Alt + /)" accesskey=/><span>Search</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://blog.zzsqwq.cn/>Home</a>&nbsp;»&nbsp;<a href=https://blog.zzsqwq.cn/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">为什么要使用条件变量？</h1><div class=post-meta><span title='2022-08-24 23:37:00 +0000 UTC'>August 24, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;zzsqwq&nbsp;|&nbsp;<a href=https://github.com/zzsqwq/zzsqwq.github.io/tree/master/content/posts/why-use-condition-variable.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><ul><li><a href=#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e4%bd%bf%e7%94%a8%e6%9d%a1%e4%bb%b6%e5%8f%98%e9%87%8f aria-label=为什么要使用条件变量？>为什么要使用条件变量？</a><ul><li><a href=#%e5%89%8d%e8%a8%80 aria-label=前言>前言</a></li><li><a href=#%e6%b2%a1%e6%9c%89%e6%9d%a1%e4%bb%b6%e5%8f%98%e9%87%8f%e6%88%91%e4%bb%ac%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e7%9b%b8%e5%90%8c%e7%9a%84%e9%9c%80%e6%b1%82 aria-label=没有条件变量我们如何实现相同的需求？>没有条件变量我们如何实现相同的需求？</a><ul><li><a href=#%e4%b8%8d%e4%bd%bf%e7%94%a8%e6%9d%a1%e4%bb%b6%e5%8f%98%e9%87%8f%e7%89%88%e6%9c%ac aria-label=不使用条件变量版本>不使用条件变量版本</a></li><li><a href=#%e4%bd%bf%e7%94%a8%e6%9d%a1%e4%bb%b6%e5%8f%98%e9%87%8f%e7%89%88%e6%9c%ac aria-label=使用条件变量版本>使用条件变量版本</a></li></ul></li><li><a href=#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e5%92%8c-mutex-%e4%b8%8e-lock-%e4%b8%80%e8%b5%b7%e7%94%a8 aria-label="为什么要和 mutex 与 lock 一起用？">为什么要和 mutex 与 lock 一起用？</a></li><li><a href=#%e4%b8%ba%e4%bb%80%e4%b9%88%e4%bd%bf%e7%94%a8-unique_lock-%e8%80%8c%e4%b8%8d%e4%bd%bf%e7%94%a8-scoped_lock-%e6%88%96-lock_guard aria-label="为什么使用 unique_lock 而不使用 scoped_lock 或 lock_guard">为什么使用 unique_lock 而不使用 scoped_lock 或 lock_guard</a></li><li><a href=#%e4%bb%80%e4%b9%88%e6%98%af%e8%99%9a%e5%81%87%e5%94%a4%e9%86%92 aria-label=什么是虚假唤醒？>什么是虚假唤醒？</a></li><li><a href=#%e5%90%8e%e8%ae%b0 aria-label=后记>后记</a></li></ul></li></ul></div></details></div><div class=post-content><h1 id=为什么要使用条件变量>为什么要使用条件变量？<a hidden class=anchor aria-hidden=true href=#为什么要使用条件变量>#</a></h1><h2 id=前言>前言<a hidden class=anchor aria-hidden=true href=#前言>#</a></h2><p>最近看了很多与线程有关的 C++ 新特性，条件变量是见的比较多的一个特性。</p><p>看的时候我发现，想要理解一个新的特性，关键的要看它的引入到底解决了哪些问题，没有什么特性我们要实现相同的功能要怎么做？</p><p>以我的理解来看，条件变量是一个线程间互相同步与通知的手段，他通过<strong>主动唤醒</strong>的方式减小了各个线程的开销，取代了简单但是消耗较大的一直<strong>被动循环检验与等待</strong>。</p><h2 id=没有条件变量我们如何实现相同的需求>没有条件变量我们如何实现相同的需求？<a hidden class=anchor aria-hidden=true href=#没有条件变量我们如何实现相同的需求>#</a></h2><p>这里采用现代C++教程<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> 中关于条件变量的一个例子作为基础：</p><h3 id=不使用条件变量版本>不使用条件变量版本<a hidden class=anchor aria-hidden=true href=#不使用条件变量版本>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-C++ data-lang=C++><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;queue&gt;</span><span class=cp>
 </span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;chrono&gt;</span><span class=cp>
 </span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;mutex&gt;</span><span class=cp>
 </span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;thread&gt;</span><span class=cp>
@@ -141,5 +486,5 @@
 </a><a class=next href=https://blog.zzsqwq.cn/posts/my-hugo-academia-theme/><span class=title>Next »</span><br><span>一个基于 Hugo 的个人主页主题</span></a></nav></footer><div class=comments><script>let getTheme=window.localStorage&&window.localStorage.getItem("pref-theme");getTheme=getTheme??"preferred_color_scheme";let s=document.createElement("script");s.src="https://giscus.app/client.js",s.setAttribute("data-repo","zzsqwq/hugo-blog-comment"),s.setAttribute("data-repo-id","R_kgDOGgU1qQ"),s.setAttribute("data-category","Announcements"),s.setAttribute("data-category-id","DIC_kwDOGgU1qc4CSX1m"),s.setAttribute("data-mapping","pathname"),s.setAttribute("data-strict","0"),s.setAttribute("data-reactions-enabled","1"),s.setAttribute("data-emit-metadata","0"),s.setAttribute("data-input-position","top"),s.setAttribute("data-theme",getTheme),s.setAttribute("data-lang",""),s.setAttribute("crossorigin","anonymous"),s.setAttribute("async",""),document.querySelector("div.comments").innerHTML="",document.querySelector("div.comments").appendChild(s)</script></div></article></main><footer class=footer><span>&copy; 2024 <a href=https://blog.zzsqwq.cn/>Zs's Blog</a></span>
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a> | <a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a> | <a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>function sendMessage(e){const t=document.querySelector("iframe.giscus-frame");if(!t)return;t.contentWindow.postMessage({giscus:e},"https://giscus.app")}document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light"),sendMessage({setConfig:{theme:"light"}})):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"),sendMessage({setConfig:{theme:"dark"}}))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
