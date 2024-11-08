@@ -8,7 +8,7 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.138.0</generator>
     <language>en</language>
     <lastBuildDate>Sat, 25 Feb 2023 00:45:22 +0800</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/tags/fcos/index.xml" rel="self" type="application/rss+xml" />
@@ -19,8 +19,7 @@
       <guid>https://blog.zzsqwq.cn/posts/hat-train-fcos/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近想要使用自己采集与标注的数据集来训练与部署一下地平线微调过的 FCOS 网络，在询问和查看文档后发现如果想基于官方微调的模型训练，需要使用提供 HAT（Horizon Algorithm Toolkit，海图） 来进行，具体的文档可以查看：&lt;a href=&#34;https://developer.horizon.ai/api/v1/fileData/doc/ddk_doc/navigation/ai_toolchain/docs_cn/horizon_algorithm_toolkit/index.html&#34;&gt;Horizon Algorithm Toolkit 文档&lt;/a&gt;，这是在线的版本，版本可能会比较旧，想看最新版的可以查看离线的版本，位置在 OE（Open Explorer，天工开物） 包的 doc 目录下，如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/doc_position.png&#34; alt=&#34;image-20230224155005117&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20230224155005117&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/doc_position.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;想要方便的查看离线文档可以通过 Python 来实现，在 doc 目录下执行：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;python3&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;http&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;server&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3000&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样就可以在本地的 &lt;code&gt;0.0.0.0:3000&lt;/code&gt; 地址开启一个 http server，随后可以在本地浏览器使用 &lt;code&gt;localhost:3000&lt;/code&gt; 或者其他电脑浏览器使用 &lt;code&gt;{ip}:3000&lt;/code&gt; 来访问文档。&lt;/p&gt;
@@ -72,11 +71,9 @@
 &lt;p&gt;&lt;code&gt;docker run&lt;/code&gt; 部分就是启动一个 Docker 容器，其中比较重要的参数： &lt;code&gt;-dt&lt;/code&gt; 可以让容器使用 Daemon 的方式启动一个交互式终端，可以保证容器一直存活不会 detach 后就被杀死，方便我们多次操作；&lt;code&gt;--restart=always&lt;/code&gt; 可以在每次开机时自动重启容器，可以视自己的情况去掉或者改成 &lt;code&gt;--restart=unless-stopped&lt;/code&gt; 等；&lt;code&gt;--network=host&lt;/code&gt; 指定与宿主机器使用同一个网络，方便我们查看文档或者后面的网络结构。&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;设置后即可打开终端，使用 &lt;code&gt;bash run_docker.sh&lt;/code&gt; 启动容器，并使用 &lt;code&gt;docker exec -it {container_id} bash&lt;/code&gt; 来连接容器进行操作，其中 &lt;code&gt;container_id &lt;/code&gt; 可以通过 &lt;code&gt;docker ps&lt;/code&gt; 或者上述脚本的返回值查看。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/run_docker.png&#34; alt=&#34;image-20230224164845945&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20230224164845945&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/run_docker.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;进入后可使用 &lt;code&gt;nvidia-smi&lt;/code&gt; 验证一下，出现下方的信息即代表成功：&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/nvidia_smi.png&#34; alt=&#34;image-20230224165703545&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20230224165703545&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/nvidia_smi.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;环境配置到此结束，终于可以开始训练和部署网络了。&lt;/p&gt;
 &lt;h2 id=&#34;训练-coco-数据集并进行部署&#34;&gt;训练 COCO 数据集并进行部署&lt;/h2&gt;
 &lt;h3 id=&#34;数据准备&#34;&gt;数据准备&lt;/h3&gt;
@@ -122,14 +119,12 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 开始训练&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;python3 tools/train.py --step float --config configs/detection/fcos/fcos_efficientnetb0_mscoco.py
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果不出意外，已经开始训练了，正常如下图所示：&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/fcos_train.png&#34; alt=&#34;image-20230224180032520&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20230224180032520&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/fcos_train.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;顺便说一下，这里推荐配合 &lt;a href=&#34;https://github.com/tmux/tmux&#34;&gt;tmux&lt;/a&gt; 工具来训练，可以让 session 在后台运行，防止意外中断，顺附一个 tmux 教程：&lt;a href=&#34;https://www.ruanyifeng.com/blog/2019/10/tmux.html&#34;&gt;Tmux 使用教程&lt;/a&gt;。&lt;/p&gt;
 &lt;h3 id=&#34;模型转换&#34;&gt;模型转换&lt;/h3&gt;
 &lt;p&gt;训练的时间比较长，主要取决于数据集的大小，如果是 mscoco 这种大型数据集，一个 epoch 就要好久才行。&lt;/p&gt;
 &lt;p&gt;这里我训练了十轮就结束了，随后进入 &lt;code&gt;tmp_models&lt;/code&gt; 目录，找到我们训练好的权重文件，如下图，这里的存放位置主要和配置文件中的 &lt;code&gt;task_name&lt;/code&gt; 与 &lt;code&gt;ckpt_dir&lt;/code&gt; 有关，可以按需修改：&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/checkpoint.png&#34; alt=&#34;image-20230224180356435&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20230224180356435&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/checkpoint.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;接下来就是将权重文件导出成 ONNX 模型：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;python3 tools/export_onnx.py --config configs/detection/fcos/fcos_efficientnetb0_mscoco.py --ckpt tmp_models/fcos_efficientnetb0_mscoco/float-checkpoint-best.pth.tar --onnx-name fcos.onnx
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如上命令，将训练得到的 best 权重文件（float-checkpoint-best.pth.tar）导出成了 fcos.onnx 模型文件，这里也可以选择其他的权重，指定对模型路径即可。&lt;/p&gt;
@@ -494,21 +489,17 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其实流程还是蛮简单的，就是 加载模型 -&amp;gt; 读取照片 -&amp;gt; Resize 照片到模型推理尺寸 -&amp;gt; 转化为 NV12 输入格式 -&amp;gt;  拿到输出 outputs -&amp;gt; 对数据集进行后处理得到 bbox 与 classes 等数据 -&amp;gt; Resize 照片到原尺寸绘制框 -&amp;gt; 写照片。&lt;/p&gt;
 &lt;p&gt;大家拿脚本推理的时候，只需要改变 models 和读取照片的位置即可，这里我采用的示例图片是在模型转化后测试推理使用的，可以在 OE 包的如下路径找到 &lt;code&gt;ai_toolchain/horizon_model_convert_sample/01_common/test_data/det_images/kite.jpg&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;接下来就是运行脚本进行推理，得到的推理结果如下：&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/bad_kite_bbox.png&#34; alt=&#34;image-20230224191320596&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20230224191320596&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/bad_kite_bbox.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;为什么结果是这样的，起初我认为是我推理脚本写错了，因此我直接将权重替换为官方的权重，得到的结果如下：&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/kite_bbox.png&#34; alt=&#34;image-20230224191427658&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20230224191427658&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/kite_bbox.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;很显然，这次的推理是正确的，也就是说明，脚本是没问题，只是权重出了问题，因此我又仔细检查了训练和模型转换的各个步骤，但都没有发现问题。同时，使用官方提供的 mapper 目录下原 onnx 进行转换后，也是没有问题的。那么问题在哪里呢？&lt;/p&gt;
 &lt;h3 id=&#34;查找问题&#34;&gt;查找问题&lt;/h3&gt;
 &lt;p&gt;因为通过上面的排除可以确定，转化这个过程是没什么问题的，那也就只能是模型定义和训练中出现的问题，但是上面的效果又明显不是训练过拟合或者欠拟合导致的，因为框的位置是大致对的，就是太多了，而且太小了，因此我怀疑是模型上出了问题，可能是有节点不一致。&lt;/p&gt;
 &lt;p&gt;确定了方向，接下来我首先对官方原 onnx 模型文件和我自己训练得到的 onnx 模型使用了 &lt;code&gt;01_checker.sh &lt;/code&gt; 脚本来进行检查，因为他会输出模型中的各个层，对比结果如下：&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/compare_checker.png&#34; alt=&#34;image-20230224192435956&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20230224192435956&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/compare_checker.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;左侧是我自己训练得到的模型，右侧是我官方提供的模型，可以发现，两者存在差异，其实就是官方模型相比于训练得到的模型会多了几个 Mul 节点。&lt;/p&gt;
 &lt;p&gt;接下来进一步使用 netron 工具对两个模型进行对比，有区别的对比结果如下图所示：&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/compare_netron.png&#34; alt=&#34;image-20230224193411063&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20230224193411063&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/compare_netron.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;左侧为自己训练的模型，右侧为官方模型。可以看到只有 bbox 信息（对于 FCOS 为（l, t, r, b）四元组）在输出时两个模型有区别，多了一步 Relu 激活函数和 Mul 节点，其他的经过对比没有区别。&lt;/p&gt;
 &lt;p&gt;同时观察发现，这里 Mul 节点对应的数值，其实是对应的 stride（这个大家可以使用 netron 去看看）&lt;/p&gt;
 &lt;p&gt;知道了问题所在，解决方案就有了，只需要改动下面这一行即可：&lt;/p&gt;
@@ -521,8 +512,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;scores&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;_scores&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;cls&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ce&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;很好理解，对 bbox 获得的原始数据乘了 &lt;code&gt;strides[i]&lt;/code&gt;，这里我没有处理 Relu 函数，因为即使是负数，OpenCV 绘制也是不会出问题的。&lt;/p&gt;
 &lt;p&gt;再次运行获得的推理图如下，这次正常了：&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/good_kite_bbox.png&#34; alt=&#34;image-20230224194418427&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20230224194418427&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/good_kite_bbox.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;至此，训练 mscoco 数据集模型并进行部署就算结束了，接下来我们看看如何来处理自己得到的数据集。&lt;/p&gt;
 &lt;h2 id=&#34;训练自采集数据集&#34;&gt;训练自采集数据集&lt;/h2&gt;
 &lt;p&gt;对于自采集数据集，最可能是数据处理打包、以及配置文件的配置这两部分存在问题，剩下的模型检查、校准数据准备、模型转化、以及上板推理部分可以说是根本没区别，所以就着重讲一下数据准备和配置部分。&lt;/p&gt;
@@ -537,8 +527,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── train2017   &lt;span class=&#34;c1&#34;&gt;# 训练集照片&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└── val2017     &lt;span class=&#34;c1&#34;&gt;# 验证集照片&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这时候如果我们按照之前的操作，直接使用 &lt;code&gt;mscoco_packer.py&lt;/code&gt; 脚本进行打包，会报错如下：&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/coco_label_to_label.png&#34; alt=&#34;image-20230224232516565&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20230224232516565&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/coco_label_to_label.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;报错大意就是访问了字典一个不存在的键，直接查看报错的位置，位于 &lt;code&gt;/usr/local/lib/python3.6/site-packages/hat/data/datasets/mscoco.py&lt;/code&gt;，查看后发现 COCO_LABLE_TO_LABLE 这个字典是一个类别的映射，因为 mscoco 数据集类别包含 80 类，按顺序来是 [0, 80)，但是 mscoco 数据集原数据集类别序号范围为 [1, 90]，但是其中只有 80 个类别序号，所以需要做一个 [1, 90] -&amp;gt; [0, 80) 的类别映射，但是如果我们自制的数据集没有这个类别映射的需求，就不需要映射，把涉及到这个 Dict 的两行都去掉即可。&lt;/p&gt;
 &lt;p&gt;Btw：🤣 这里的 COCO_LABLE_TO_LABLE 是不是拼错了，要拼 LABEL 的？&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 229 行&lt;/span&gt;
@@ -580,8 +569,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;推理代码修改&#34;&gt;推理代码修改&lt;/h3&gt;
 &lt;p&gt;这里需要修改 &lt;code&gt;get_classes&lt;/code&gt; 函数返回的类别名，改成自己对应的类别 List.&lt;/p&gt;
 &lt;p&gt;推理得到结果如下：&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/self_coco_bbox.png&#34; alt=&#34;image-20230225000213268&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20230225000213268&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/hat-train-fcos/self_coco_bbox.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;可以看到，识别可以正常的工作（因为我选的训练数据集有点捞，所以过拟合比较严重，就选了一张凑合能看的图，大家见谅）。&lt;/p&gt;
 &lt;h2 id=&#34;后言&#34;&gt;后言&lt;/h2&gt;
 &lt;p&gt;这样我们就完成了 FCOS 网络的训练和部署，但是基于 Python 的推理可能有点慢，大家可以参考 ai_benchmark 等部分进行 C++ 推理，主要关键就是 PostProcess 后处理部分，不过之前 &lt;a href=&#34;https://developer.horizon.ai/college/detail/id=89018995415500842&#34;&gt;开发者直播KE——AI板端部署实践&lt;/a&gt; 张老师已经讲过一部分 API，如果大家有兴趣，我后面也可以给大家出个帖子讲讲 🤗。&lt;/p&gt;

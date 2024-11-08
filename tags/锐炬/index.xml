@@ -8,7 +8,7 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.138.0</generator>
     <language>en</language>
     <lastBuildDate>Tue, 02 Nov 2021 01:16:00 +0000</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/tags/%E9%94%90%E7%82%AC/index.xml" rel="self" type="application/rss+xml" />
@@ -35,8 +35,7 @@
 &lt;li&gt;外存：512 SSD&lt;/li&gt;
 &lt;li&gt;屏幕：分辨率 2880x1800、400nits、100%sRGB&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/11/3138090261.png&#34; alt=&#34;电脑配置信息&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;电脑配置信息&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/11/3138090261.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;这里需要注意的是，不同时间出的小新Pro14配置是不太一样的，所以我这里列了一下配置。主要区别在于有一部分是2.2K分辨率+MX450显卡，而我这个是2.8K分辨率+锐炬Iris Xe显卡。&lt;/p&gt;
 &lt;p&gt;为了工作的需要，要装一个Ubuntu，先是装了之前用过的 Ubuntu 18.04，安装后发现触摸板无法使用，一系列探索后无果，在朋友的推荐下，还是决定安装 Ubuntu 20.04 试一下，踩了一些坑，在这里记录一下。&lt;/p&gt;
 &lt;h2 id=&#34;问题列表&#34;&gt;问题列表&lt;/h2&gt;
@@ -93,8 +92,7 @@
 &lt;p&gt;在 Intel 官方的教程中，还添加了 grub 启动项等，我并没有发现他们的实际作用，在他后续的测试中我也没有达到期待的效果，因此没有继续尝试，如果有同学跟着文档做成功了，可以一起来讨论一下。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;但是！！！&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;安装完成后，我还是会花屏和黑屏，问题依旧没有解决。我突发奇想，考虑到我外接屏幕没有问题，而自带的屏幕有问题，**因为外接屏是 1920x1080 而内置屏幕是 2880x1800，我联想到会不会是高分辨率屏幕的问题，所以尝试着把外接屏的显示比例调成了 150%&lt;code&gt;(需要开启 Fractional Scaling)&lt;/code&gt;，没想到歪打正着，居然好了，看起来也更加的顺眼，比例也更加协调。**具体的内部原因还不是很清楚。&lt;/del&gt;  已解决，见本文开头。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/11/3113030601.png&#34; alt=&#34;比例配置信息&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;比例配置信息&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/11/3113030601.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;但是还是有一个小瑕疵，就是在BIOS引导阶段与输入密码登录的界面，我仍旧是会花屏、闪屏，我考虑到这是还没有初始化屏幕设置的问题，尝试搜索了修改BIOS比例、提前初始化login界面的分辨率，依旧没有找到比较好的解决办法，&lt;/p&gt;
 &lt;p&gt;因此最后只好启动自动登录来跳过登录界面，这样就&lt;strong&gt;看上去算是一个完好的系统&lt;/strong&gt;了QAQ。。&lt;/p&gt;
 &lt;p&gt;这里给出一些可能有价值的资料，大家可以自行查阅&lt;/p&gt;

@@ -8,7 +8,7 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.138.0</generator>
     <language>en</language>
     <lastBuildDate>Wed, 01 Dec 2021 20:12:00 +0000</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
@@ -27,8 +27,7 @@
 &lt;p&gt;&lt;strong&gt;特别声明，下面的分享多是我日常体验中的一些感受，可能不够客观，比较片面，大家可以自己使用体验一下！&lt;/strong&gt;&lt;/p&gt;
 &lt;h1 id=&#34;一obsidian&#34;&gt;一、Obsidian&lt;/h1&gt;
 &lt;h2 id=&#34;界面预览&#34;&gt;界面预览&lt;/h2&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/12/1150718291.png&#34; alt=&#34;Obsidian&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Obsidian&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/12/1150718291.png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;特点&#34;&gt;特点&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -64,8 +63,7 @@
 &lt;/ol&gt;
 &lt;h1 id=&#34;二mark-text&#34;&gt;二、Mark Text&lt;/h1&gt;
 &lt;h2 id=&#34;界面预览-1&#34;&gt;界面预览&lt;/h2&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/12/3145024348.png&#34; alt=&#34;Mark Text&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Mark Text&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/12/3145024348.png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;特点-1&#34;&gt;特点&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -94,8 +92,7 @@
 &lt;p&gt;可能还是有一些 bug 的，软件的最后一次 release 还是在 2020 年了（&lt;del&gt;说明非常的稳定啊哈哈&lt;/del&gt;）。不过贵在他是个开源的软件，有很多大佬愿意为之奉献，期待后续的更新！&lt;/p&gt;
 &lt;h1 id=&#34;三zettlr&#34;&gt;三、Zettlr&lt;/h1&gt;
 &lt;h2 id=&#34;界面预览-2&#34;&gt;界面预览&lt;/h2&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/12/3408881163.png&#34; alt=&#34;Zettlr&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Zettlr&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/12/3408881163.png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;特点-2&#34;&gt;特点&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -123,8 +120,7 @@
 &lt;p&gt;同时他也支持任务清单这种小功能，但是我认为它没有 Mark Text 美观和好用。使用的也不算太多，就不过多的评价了~&lt;/p&gt;
 &lt;h1 id=&#34;四vscode--插件&#34;&gt;四、VSCode + 插件&lt;/h1&gt;
 &lt;h2 id=&#34;界面预览-3&#34;&gt;界面预览&lt;/h2&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/12/1511072141.png&#34; alt=&#34;其中一个插件（vscode all markdown）&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;其中一个插件（vscode all markdown）&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/12/1511072141.png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;特点-3&#34;&gt;特点&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;

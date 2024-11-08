@@ -8,7 +8,7 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.138.0</generator>
     <language>en</language>
     <lastBuildDate>Sun, 30 Oct 2022 00:31:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/categories/study/index.xml" rel="self" type="application/rss+xml" />
@@ -41,8 +41,7 @@
 &lt;p&gt;首先，你可能需要转换一下语言，例如之前问题采用中文，你应该将其翻译成英文再重新搜索，&lt;strong&gt;记得翻译时要保证专有名词的正确性&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;如果还是不行，这个时候我认为应该首先静下心来思考一下这是属于什么问题，是这个程序特有的问题，还是这个程序使用的某个库或部件导致的问题？你可能需要仔细思考来进一步提取错误（问题）中的关键所在，使用提取的关键字继续搜索或者去查对应的程序或者库的 Q&amp;amp;A ，如果还是无法找到，就应该去看相应部分的文档，去 RTFM（Read The Fantastic Manual）。&lt;/p&gt;
 &lt;p&gt;最后的最后，还是无法找到的话，那你就应该考虑去对应程序、库或部件的 Github Issue 或者论坛、或非定向的 Stack Overflow 等平台提交问题，在提问之前，你最好仔细阅读过 &lt;a href=&#34;https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md&#34;&gt;提问的智慧&lt;/a&gt;&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;，&lt;strong&gt;不然可能无法获得到热情、友善的回复&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/how-to-search/microsoft_edge_question.png&#34; alt=&#34;Microsoft Edge Question&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Microsoft Edge Question&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/how-to-search/microsoft_edge_question.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;上图所示是我之前 &lt;a href=&#34;https://techcommunity.microsoft.com/t5/discussions/microsoft-edge-crash-when-i-login-in-my-microsoft-account-linux/m-p/3284922&#34;&gt;有关 Microsoft Edge 的一个提问&lt;/a&gt; ，应该可以算是一个相对正确的示范。&lt;/p&gt;
 &lt;h2 id=&#34;最好积累一个错误文档&#34;&gt;最好积累一个错误文档&lt;/h2&gt;
 &lt;p&gt;感觉这个的作用有点类似于高中时候老师们推崇的错题本了，虽然我一直觉得没啥用，也几乎没有照做过。&lt;/p&gt;

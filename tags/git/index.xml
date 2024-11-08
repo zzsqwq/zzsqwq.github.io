@@ -8,7 +8,7 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.138.0</generator>
     <language>en</language>
     <lastBuildDate>Fri, 23 Jul 2021 14:17:00 +0000</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/tags/git/index.xml" rel="self" type="application/rss+xml" />
@@ -24,8 +24,7 @@
 &lt;p&gt;学习中记了一些零零散散的思路，想要写一篇笔记记录出来，之前已经写过一个简单的 Git 教程，这篇教程将会更加深入，希望可以帮助大家更好的掌握 Git。&lt;/p&gt;
 &lt;p&gt;窃认为，想要学好 Git ，必须要理解清楚其中的分区以及引用，学会了这两个，各种基本操作就很容易理解了。接下来的笔记也基本以此思路展开。&lt;/p&gt;
 &lt;h1 id=&#34;git中的分区&#34;&gt;Git中的分区&lt;/h1&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/07/612956951.jpg&#34; alt=&#34;Git中的三大分区，图片来源自掘金GabrielPanda&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Git中的三大分区，图片来源自掘金GabrielPanda&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2021/07/612956951.jpg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;首先，Git中存在三大分区，分别是&lt;strong&gt;工作区、暂存区、版本库&lt;/strong&gt;。其中，&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;工作区&lt;/strong&gt;即我们工作的目录，&lt;strong&gt;暂存区&lt;/strong&gt;是我们执行 &lt;code&gt;git add&lt;/code&gt; 后文件存在的区域。&lt;/p&gt;
 &lt;p&gt;我们可以通过 &lt;code&gt;git status&lt;/code&gt; 对两种状态进行查看，例如：&lt;/p&gt;
@@ -160,8 +159,7 @@ Changes not staged for commit:
 &lt;p&gt;那么既然有分布式版本控制系统，就有 &lt;strong&gt;集中式版本控制系统&lt;/strong&gt;，前者的代表是 &lt;strong&gt;Git&lt;/strong&gt; ，后者的代表有 &lt;strong&gt;SVN、CVS&lt;/strong&gt; 等。&lt;/p&gt;
 &lt;p&gt;关于两者的区别，对于集中式版本控制系统，如果你想要对做一个项目的内容做修改，那么你要先从中央服务器把最近的版本拉取(Pull)下来，然后修改完以后，把修改后的版本推送(Push)上去，你本地只有最新的版本，而没有完整的版本库，分布式版本控制系统所作的工作与集中式的相差不大，只是它的本地会有一个完整的版本库，因此它十分的安全。&lt;/p&gt;
 &lt;p&gt;这里贴一个他人总结的区别，供大家参考。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/12/2911747011.png&#34; alt=&#34;集中式与分布式版本控制系统的区别&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;集中式与分布式版本控制系统的区别&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/12/2911747011.png&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;git的安装&#34;&gt;Git的安装&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -204,8 +202,7 @@ Changes not staged for commit:
 &lt;li&gt;一个是 &lt;strong&gt;最终分支&lt;/strong&gt;，这就是我们最终的版本存放的位置。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;贴一张廖雪峰老师教程中的一张图，我觉得还挺形象的。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://static.liaoxuefeng.com/files/attachments/919020037470528/0&#34; alt=&#34;git-repo&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;git-repo&#34; loading=&#34;lazy&#34; src=&#34;https://static.liaoxuefeng.com/files/attachments/919020037470528/0&#34;&gt;&lt;/p&gt;
 &lt;p&gt;我们清楚了上面的三个分区，那么考虑一下如何把文件夹中的文件从工作区推到暂存区，通过如下命令&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git add filepath
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们就可以把文件推到暂存区，最后的filepath就是我们需要推送的文件的路径，一般都用相对路径。&lt;/p&gt;

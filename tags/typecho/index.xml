@@ -8,7 +8,7 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.138.0</generator>
     <language>en</language>
     <lastBuildDate>Wed, 26 Aug 2020 16:34:00 +0000</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/tags/typecho/index.xml" rel="self" type="application/rss+xml" />
@@ -46,33 +46,26 @@
 &lt;h3 id=&#34;1-购买服务器&#34;&gt;1. 购买服务器&lt;/h3&gt;
 &lt;p&gt;首先我们去阿里云那边买一台学生机，一年也就 &lt;strong&gt;120￥&lt;/strong&gt; 的样子，很实惠。本来一年大概 &lt;strong&gt;1600￥&lt;/strong&gt; 的样子。&lt;/p&gt;
 &lt;p&gt;买学生机的话就买 &lt;strong&gt;轻量应用服务器&lt;/strong&gt; ，然后应用镜像选一下 &lt;strong&gt;BT-Panel&lt;/strong&gt; 即可。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/2971720137.png&#34; alt=&#34;一些服务器类型&#34;  /&gt;
-&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/559120068.png&#34; alt=&#34;初始服务器的配置选择&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;一些服务器类型&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/2971720137.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;初始服务器的配置选择&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/559120068.png&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;2-登录服务器&#34;&gt;2. 登录服务器&lt;/h3&gt;
 &lt;p&gt;进去之后点击应用详情，看一下 &lt;strong&gt;BT-Panel使用步骤&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/1152103512.png&#34; alt=&#34;BT-Panel的使用步骤&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;BT-Panel的使用步骤&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/1152103512.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;根据上面的指示获取登陆服务器的密码。然后点击左侧的 &lt;strong&gt;防火墙&lt;/strong&gt; ，在那里开启 &lt;strong&gt;8888&lt;/strong&gt; 端口。如下图所示。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/3471176574.png&#34; alt=&#34;添加规则&#34;  /&gt;
-&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/972834655.png&#34; alt=&#34;按如图设置开启8888端口&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;添加规则&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/3471176574.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;按如图设置开启8888端口&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/972834655.png&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;3-配置服务器&#34;&gt;3. 配置服务器&lt;/h3&gt;
 &lt;p&gt;我们登录进入服务器后，点击左侧应用商城。依次安装 Apache、PHP-7.4、Mysql5.6。可能要等挺长时间。&lt;/p&gt;
 &lt;h3 id=&#34;4-开启网站&#34;&gt;4. 开启网站&lt;/h3&gt;
 &lt;p&gt;安装完成后，我们去面板设置那边看一下自己的 &lt;strong&gt;服务器ip&lt;/strong&gt; ，记下来。&lt;/p&gt;
 &lt;p&gt;点击左侧网站，添加站点。域名那里写自己的 &lt;strong&gt;服务器ip&lt;/strong&gt; ，然后提交即可。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/2339810532.png&#34; alt=&#34;新建站点&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;新建站点&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/2339810532.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;然后点击左侧数据库，建立一个新的数据库，用于存放我们之后网站的信息。&lt;/p&gt;
 &lt;p&gt;我们访问到我们网站的根目录，然后将自己心仪的博客程序拷入，访问 &lt;strong&gt;服务器ip/install.php&lt;/strong&gt; 即可开启安装！&lt;/p&gt;
 &lt;p&gt;安装完成后我们就可以通过 &lt;strong&gt;服务器ip&lt;/strong&gt; 来访问我们的网站了！然后可以去网上找一下心仪的主题和插件来安装~&lt;/p&gt;
 &lt;h2 id=&#34;一些后续工作&#34;&gt;一些后续工作&lt;/h2&gt;
 &lt;p&gt;如果我们要自定义域名，首先我们可以去阿里云 / 腾讯云那边买一个域名，然后进行域名备案，你服务器是在哪边买的就在哪边备案即可。后续备案结束后在云解析那边添加域名解析（具体操作可以百度），然后在 &lt;strong&gt;BT-Panel&lt;/strong&gt; 这边也添加域名解析，这样即可使用我们的自定义域名访问博客了！&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/1872130264.png&#34; alt=&#34;添加域名解析&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;添加域名解析&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/1872130264.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;还有一些后续的优化例如安装 &lt;strong&gt;https安全证书（我自己现在还没搞好QAQ）&lt;/strong&gt; ，加入 &lt;strong&gt;SEO优化&lt;/strong&gt; ，提交申请让 &lt;strong&gt;搜索引擎收录&lt;/strong&gt; 等等……大家有兴趣的可以自行探索！&lt;/p&gt;</description>
     </item>
   </channel>

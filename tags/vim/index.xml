@@ -8,7 +8,7 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.138.0</generator>
     <language>en</language>
     <lastBuildDate>Mon, 30 Mar 2020 01:18:00 +0000</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/tags/vim/index.xml" rel="self" type="application/rss+xml" />
@@ -29,8 +29,7 @@
 &lt;li&gt;&lt;strong&gt;cd !$&lt;/strong&gt; ：将上个命令的参数做为输入&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;cd ..&lt;/strong&gt; ：回到上层目录&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/1228769729.png&#34; alt=&#34;image-20200330164354765.png&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20200330164354765.png&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/1228769729.png&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;ul&gt;
@@ -47,8 +46,7 @@
 &lt;p&gt;&lt;strong&gt;ls -l&lt;/strong&gt;  ： 显示较全的文件信息，包括权限，用户，用户组。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/364135134.png&#34; alt=&#34;image-20200330164408910.png&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20200330164408910.png&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/364135134.png&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Tab&lt;/strong&gt; 键：通过按Tab可以进行自动补全。如果当前目录有前缀相同的文件，则按两下Tab可以显示出所有以具有该前缀的文件。&lt;/p&gt;
@@ -56,8 +54,7 @@
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;mv (Move)&lt;/strong&gt; 命令：移动（剪切）文件，也可以用作一个等效给文件或目录的重命名。&lt;/p&gt;
 &lt;p&gt;通过 &lt;code&gt;mv 文件x 目录a&lt;/code&gt; 可以将当前目录下的文件x移入目录k。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/2649793930.png&#34; alt=&#34;image-20200330164434299.png&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20200330164434299.png&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/2649793930.png&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;cp (Copy)&lt;/strong&gt; 命令：拷贝，将一个文件或目录拷贝到另一个文件或目录。&lt;/p&gt;
@@ -108,30 +105,30 @@
 &lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;参数&lt;/th&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;含义&lt;/th&gt;
+          &lt;th&gt;参数&lt;/th&gt;
+          &lt;th&gt;含义&lt;/th&gt;
       &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;-c&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;生成档案文件，创建打包文件&lt;/td&gt;
+          &lt;td&gt;-c&lt;/td&gt;
+          &lt;td&gt;生成档案文件，创建打包文件&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;-v&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;列出归档解档的详细过程，显示进度&lt;/td&gt;
+          &lt;td&gt;-v&lt;/td&gt;
+          &lt;td&gt;列出归档解档的详细过程，显示进度&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;-f&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;指定档案文件名称，f后面一定是.tar文件，所以放选项最后&lt;/td&gt;
+          &lt;td&gt;-f&lt;/td&gt;
+          &lt;td&gt;指定档案文件名称，f后面一定是.tar文件，所以放选项最后&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;-t&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;列出档案中包含的文件&lt;/td&gt;
+          &lt;td&gt;-t&lt;/td&gt;
+          &lt;td&gt;列出档案中包含的文件&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;-x&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;解开档案文件&lt;/td&gt;
+          &lt;td&gt;-x&lt;/td&gt;
+          &lt;td&gt;解开档案文件&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -140,8 +137,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/2524054836.png&#34; alt=&#34;image-20200330164654339.png&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20200330164654339.png&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/2524054836.png&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;不同的查找方式&#34;&gt;不同的查找方式&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -162,17 +158,14 @@
 &lt;li&gt;&lt;strong&gt;-newer file1 !file2&lt;/strong&gt;：查找更改时间比file1新比file2旧的文件。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;-type&lt;/strong&gt;：查找某一类型文件，b：块设备文件，d：目录，c：字符设备文件，P：管道文件，l：符号链接文件，f：普通文件。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/3627533122.png&#34; alt=&#34;image-20200330164709797.png&#34;  /&gt;
-&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/13609959.png&#34; alt=&#34;image-20200330164721033.png&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20200330164709797.png&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/3627533122.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20200330164721033.png&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/13609959.png&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;locate&lt;/strong&gt; ：等价于 &lt;code&gt;find -name&lt;/code&gt; ，但是速度要快，因为locate在一个本地数据库中存放了所有本地文件信息，每天自动更新，我们查找之前需要通过 &lt;code&gt;updatedb&lt;/code&gt; 手动更新其中内容，不然可能会导致新改动的文件查找不到。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/496389565.png&#34; alt=&#34;image-20200330164733755.png&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20200330164733755.png&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/496389565.png&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;whereis&lt;/strong&gt; ：whereis可以用于程序名的搜索，可以通过参数 &lt;strong&gt;-s，-m，-s&lt;/strong&gt; 分别搜索二进制文件，man说明文件，和源代码文件。如果省略参数，则返回所有信息。不过这个也是从本地数据库里面进行搜索。&lt;/p&gt;
@@ -211,10 +204,8 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;新建一个用户：通过&lt;code&gt;sudo useradd -m name&lt;/code&gt; 会创建一个名为name的用户，看/home文件下会显示名为name的用户，可以通过 &lt;code&gt;sudo passwd name&lt;/code&gt; 来为用户设置密码，通过&lt;code&gt;su name&lt;/code&gt;来切换用户，如果想要删除则通过&lt;code&gt;sudo userdel [-r] name&lt;/code&gt; 来删除，加上-r代表删除对应文件夹。我们可以通过命令来查看etc中的passwd文件，就能够看到是否创建成功。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/4029946989.png&#34; alt=&#34;image-20200330164751936.png&#34;  /&gt;
-&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/3948877620.png&#34; alt=&#34;image-20200330164808040.png&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20200330164751936.png&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/4029946989.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20200330164808040.png&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/3948877620.png&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;权限的修改：我们可以通过&lt;code&gt;sudo gedit /etc/sudoers&lt;/code&gt; 打开sudoers文件修改 # User privilege specification 下的目录，添加&lt;code&gt;&amp;lt;用户名&amp;gt; ALL=(ALL:ALL) ALL&lt;/code&gt; 来为用户添加sudo权限。&lt;/p&gt;
@@ -256,8 +247,7 @@
 &lt;ul&gt;
 &lt;li&gt;首先通过 &lt;code&gt;sudo apt-get install vim&lt;/code&gt; 来安装Vim&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/1435335493.png&#34; alt=&#34;image-20200330164821953.png&#34;  /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;image-20200330164821953.png&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/1435335493.png&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;通过 &lt;code&gt;vim name&lt;/code&gt; 来编辑name这个文件，如果不存在那么就会创建一个。&lt;/p&gt;
@@ -299,8 +289,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/2041226361.png&#34; alt=&#34;vim.png&#34;  /&gt;
-&lt;/p&gt;</description>
+&lt;p&gt;&lt;img alt=&#34;vim.png&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/2041226361.png&#34;&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
