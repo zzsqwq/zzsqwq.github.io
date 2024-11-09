@@ -11,7 +11,7 @@
 我们对上述模型来进行实现并确定评估标准来对他们进行比较，选择最优的模型作为预测模型。
 算法流程 传统的回归算法 自变量的选择 首先，考虑到数据集中13列自变量其中某一些可能和最终的房价并无强相关性，如果全部使用进行预测可能会对模型引入噪声，因此我们首先计算了房价price与各个自变量之间的相关系数 $r$ ，其中 $r$ 计算公式如下： $$ r = \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum(x_i-\bar{x})^2\sum(y_i-\bar{y})^2}} $$ 其中 $x_i,y_i$ 为数据的每个分量，$\bar{x}，\bar{y}$ 为数据的均值
 该系数反映了两变量之间的相关性，$r$ 的绝对值介于 $[0,1]$ 区间内，$|r|$ 越接近1，表示两数据相关性越高，反之越低。计算后结果如下：
-...</p></div><footer class=entry-footer><span title='2021-05-16 15:19:00 +0000 UTC'>May 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;zzsqwq</footer><a class=entry-link aria-label="post link to 利用神经网络进行波士顿房价预测" href=https://blog.zzsqwq.cn/posts/182/></a></article></main><footer class=footer><span>&copy; 2024 <a href=https://blog.zzsqwq.cn/>Zs's Blog</a></span> ·
+...</p></div><footer class=entry-footer><span title='2021-05-16 15:19:00 +0000 UTC'>May 16, 2021</span>&nbsp;·&nbsp;zzsqwq</footer><a class=entry-link aria-label="post link to 利用神经网络进行波士顿房价预测" href=https://blog.zzsqwq.cn/posts/182/></a></article></main><footer class=footer><span>&copy; 2024 <a href=https://blog.zzsqwq.cn/>Zs's Blog</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a> | <a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>

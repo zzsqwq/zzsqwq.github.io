@@ -11,7 +11,7 @@
 我们对上述模型来进行实现并确定评估标准来对他们进行比较，选择最优的模型作为预测模型。
 算法流程 传统的回归算法 自变量的选择 首先，考虑到数据集中13列自变量其中某一些可能和最终的房价并无强相关性，如果全部使用进行预测可能会对模型引入噪声，因此我们首先计算了房价price与各个自变量之间的相关系数 $r$ ，其中 $r$ 计算公式如下： $$ r = \frac{\sum(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum(x_i-\bar{x})^2\sum(y_i-\bar{y})^2}} $$ 其中 $x_i,y_i$ 为数据的每个分量，$\bar{x}，\bar{y}$ 为数据的均值
 该系数反映了两变量之间的相关性，$r$ 的绝对值介于 $[0,1]$ 区间内，$|r|$ 越接近1，表示两数据相关性越高，反之越低。计算后结果如下：
-...</p></div><footer class=entry-footer><span title='2021-05-16 15:19:00 +0000 UTC'>May 16, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;zzsqwq</footer><a class=entry-link aria-label="post link to 利用神经网络进行波士顿房价预测" href=https://blog.zzsqwq.cn/posts/182/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>如何使用CenterNet做3D目标检测测试</h2></header><div class=entry-content><p>CenterNet—Objects as Points介绍 ​CenterNet是一个anchor-free的目标检测网络，与YOLOv3相比，精度有所提升，此外他不仅能够用于2D目标检测，也能够用于人体姿态识别，3D目标检测等···
+...</p></div><footer class=entry-footer><span title='2021-05-16 15:19:00 +0000 UTC'>May 16, 2021</span>&nbsp;·&nbsp;zzsqwq</footer><a class=entry-link aria-label="post link to 利用神经网络进行波士顿房价预测" href=https://blog.zzsqwq.cn/posts/182/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>如何使用CenterNet做3D目标检测测试</h2></header><div class=entry-content><p>CenterNet—Objects as Points介绍 ​CenterNet是一个anchor-free的目标检测网络，与YOLOv3相比，精度有所提升，此外他不仅能够用于2D目标检测，也能够用于人体姿态识别，3D目标检测等···
 安装CenterNet ​其实安装CenterNet的过程就是一个配置环境的问题，直接跟着官方给出的这里Install.md配置一下即可，十分推荐使用Conda来管理环境，这里给出我的环境给大家参考一下：
 Ubuntu = 18.04 LTS
 pytorch = 1.2.0
@@ -28,7 +28,7 @@ python demo.py ctdet --demo ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jp
 ​这里说一下遇到的几个坑：
 首先是配置数据集的过程中，我们需要配置的目录结构如图所示（官方给出的结构树有点模糊不清的感觉）
 . ├── ImageSets_3dop │ ├── test.txt │ ├── train.txt │ ├── trainval.txt │ └── val.txt ├── ImageSets_subcnn │ ├── test.txt │ ├── train.txt │ ├── trainval.txt │ └── val.txt └── training ├── calib ├── image_2 └── label_2 然后去到 ${CenterNet_ROOT}/src/tools目录下，运行 python convert_kitti_to_coco.py 将 kitti 数据集转换为 coco 数据集的格式，不出意外应该会报错如下：
-...</p></div><footer class=entry-footer><span title='2021-01-27 11:50:00 +0000 UTC'>January 27, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;zzsqwq</footer><a class=entry-link aria-label="post link to 如何使用CenterNet做3D目标检测测试" href=https://blog.zzsqwq.cn/posts/164/></a></article></main><footer class=footer><span>&copy; 2024 <a href=https://blog.zzsqwq.cn/>Zs's Blog</a></span> ·
+...</p></div><footer class=entry-footer><span title='2021-01-27 11:50:00 +0000 UTC'>January 27, 2021</span>&nbsp;·&nbsp;zzsqwq</footer><a class=entry-link aria-label="post link to 如何使用CenterNet做3D目标检测测试" href=https://blog.zzsqwq.cn/posts/164/></a></article></main><footer class=footer><span>&copy; 2024 <a href=https://blog.zzsqwq.cn/>Zs's Blog</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a> | <a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
