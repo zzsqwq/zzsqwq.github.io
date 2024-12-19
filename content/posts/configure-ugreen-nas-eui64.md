@@ -56,4 +56,20 @@ sudo systemctl restart systemd-networkd
 
 
 
+---
+
+补充：
+
+后续使用发现绿联每次启动的时候并不会遵守 systemd-networkd 的这个设定，所以还是会自动生成一个 stable-privacy 地址，因此需要每次开启重启一下 systemd-networkd。
+
+绿联 NAS 的 rc.local 文件是自动生成的，所以不建议在里面修改会被自动覆盖，使用 crontab 在 root 用户下添加重启任务即可。
+
+首先 `sudo -i` 切换到 root 用户，然后使用 `crontab -e` 打开定时任务编辑文件，向其中添加：
+
+```bash
+@reboot systemctl restart systemd-networkd
+```
+
+然后重启系统验证只存在 eui64 地址
+
 [^1]:https://www.v2ex.com/t/1004926
