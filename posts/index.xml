@@ -8,7 +8,7 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- 0.139.3</generator>
+    <generator>Hugo -- 0.140.0</generator>
     <language>en</language>
     <lastBuildDate>Thu, 05 Dec 2024 00:08:00 +0800</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/posts/index.xml" rel="self" type="application/rss+xml" />
@@ -19,7 +19,7 @@
       <guid>https://blog.zzsqwq.cn/posts/ugreen-nas-configure-eui64-ipv6/</guid>
       <description>&lt;p&gt;最近在玩 PT 站，家里没有公网 IPv4 地址但有公网 IPv6 地址，绿联 NAS 上挂的 qBittorrent 需要靠 IPv6 刷上传量。&lt;/p&gt;
 &lt;p&gt;但是一般来说 IPv6 的地址都是随机生成的，不好在 OpenWrt 配置防火墙规则放行对应设备地址和端口，如果全部放行又过于危险，所以需要找到一种可以固定放行对应的设备地址和端口的方法。&lt;/p&gt;
-&lt;p&gt;参考 &lt;a href=&#34;https://www.youtube.com/watch?v=klQ6JbZEeJ0&amp;list=PL5TbbtexT8T293fBi4i5MOf4OjdLQ3hUa&amp;index=6&#34;&gt;不良林的 IPv6 配置视频&lt;/a&gt; 可以找到一种组合：&lt;/p&gt;
+&lt;p&gt;参考 &lt;a href=&#34;https://www.youtube.com/watch?v=klQ6JbZEeJ0&amp;amp;list=PL5TbbtexT8T293fBi4i5MOf4OjdLQ3hUa&amp;amp;index=6&#34;&gt;不良林的 IPv6 配置视频&lt;/a&gt; 可以找到一种组合：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;SLAAC 的方式下发 IPv6 地址&lt;/li&gt;
 &lt;li&gt;设备端配置 EUI64 模式生成后缀&lt;/li&gt;
@@ -47,6 +47,13 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo systemctl restart systemd-networkd
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后通过 &lt;code&gt;ip addr show eth0&lt;/code&gt; 可以查看到已经通过 eui64 方式生成 IPv6 地址后缀&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;success&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/configure-ugreen-nas-eui64/eui64.png&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;补充：&lt;/p&gt;
+&lt;p&gt;后续使用发现绿联每次启动的时候并不会遵守 systemd-networkd 的这个设定，所以还是会自动生成一个 stable-privacy 地址，因此需要每次开启重启一下 systemd-networkd。&lt;/p&gt;
+&lt;p&gt;绿联 NAS 的 rc.local 文件是自动生成的，所以不建议在里面修改会被自动覆盖，使用 crontab 在 root 用户下添加重启任务即可。&lt;/p&gt;
+&lt;p&gt;首先 &lt;code&gt;sudo -i&lt;/code&gt; 切换到 root 用户，然后使用 &lt;code&gt;crontab -e&lt;/code&gt; 打开定时任务编辑文件，向其中添加：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;@reboot systemctl restart systemd-networkd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后重启系统验证只存在 eui64 地址&lt;/p&gt;
 &lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
@@ -109,7 +116,7 @@
 &lt;li&gt;推荐 1 个近期喜欢的事物？（例如书籍、电影、音乐、工具、软件。）&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;近期很喜欢的一个事物是最近新入的 &lt;a href=&#34;https://www.ugnas.com/products-detail/id-39.html&#34;&gt;绿联DXP4800 Plus&lt;/a&gt;，很久之前就有搞一个 NAS 的想法，双十一趁着有优惠终于如愿。大家都说中年男人三件套是：路由器、充电器、NAS，我也算是「修成正果」了，成功转正为中年男人了😎。&lt;/p&gt;
-&lt;p&gt;虽然绿联 DXP 系列 NAS 刚上市时风评很差甚至被喷到下架，但经过几个月的快速迭代，已经完全达到可用的程度。选择时横向对比了群晖、极空间、威联通、飞牛私有云fnOS 等，也顺便写些对比总结在&lt;a href=&#34;https://blog.zzsqwq.cn/posts/another-dayu-9-questions/#nas-对比总结&#34;&gt;下方&lt;/a&gt;供可能同样在纠结观望的朋友参考。&lt;/p&gt;
+&lt;p&gt;虽然绿联 DXP 系列 NAS 刚上市时风评很差甚至被喷到下架，但经过几个月的快速迭代，已经完全达到可用的程度。选择时横向对比了群晖、极空间、威联通、飞牛私有云fnOS 等，也顺便写些对比总结在&lt;a href=&#34;https://blog.zzsqwq.cn/posts/another-dayu-9-questions/#nas-%e5%af%b9%e6%af%94%e6%80%bb%e7%bb%93&#34;&gt;下方&lt;/a&gt;供可能同样在纠结观望的朋友参考。&lt;/p&gt;
 &lt;p&gt;目前断断续续用了一个月左右，体验还是蛮不错的，没什么太大的问题，已经非常可用。目前主要做了这么几件事：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;把我从初中高中到现在的 4w 多张照片都整理到了 NAS 里面，可以很方便的按时间线、人物或地点等查看，我现在闲得没事就去翻我之前的照片一张张地看，然后回想当时为什么会拍下这张照片，感觉很不错&lt;/li&gt;
