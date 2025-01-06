@@ -8,7 +8,7 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- 0.140.0</generator>
+    <generator>Hugo -- 0.140.2</generator>
     <language>en</language>
     <lastBuildDate>Mon, 01 May 2023 23:35:01 +0800</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/categories/%E6%8B%BC%E5%A4%9A%E5%A4%9A/index.xml" rel="self" type="application/rss+xml" />
@@ -71,37 +71,12 @@
 &lt;li&gt;对于百亿补贴类型的广告，多出现在 Bilibili 以及微信公众号（可能还有抖音等位置，因为我不使用，故不得而知），每次看各种UP主视频的，就会突然说起来买什么东西太贵了或者什么东西太贵了，就开始推荐拼多多的百亿补贴。除此以外，还会几乎每周固定的一次的集体刷屏，超多UP主一起在动态发，超多公众号一起发，标题都是如「苹果又跌破历史新低」这种。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;这个可能是合法的，只是这种过量的宣发我认为很令人不适，容易引起反感。&lt;/p&gt;
-&lt;h2 id=&#34;五利用漏洞&#34;&gt;五、利用漏洞&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;认可白帽黑客价值、走进安全社区，打造安全团队，借助黑客视角提升自身安全能力，这已经成为了行业最佳安全实践之一。&lt;/p&gt;
-&lt;p&gt;但是，也有少数地下或隐蔽的公司通过招募黑客，用他们掌握的黑客技术寻找并利用漏洞，为自身牟取非法利益。&lt;/p&gt;
-&lt;p&gt;2022 年，竟有巨头公司打破底线，将白帽黑客作为武器，指向了用户。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;2023年2月28日，&lt;a href=&#34;https://www.zhihu.com/org/darknavyshen-lan&#34;&gt;DarkNavy深蓝&lt;/a&gt; 发布了一篇名为 &lt;a href=&#34;https://zhuanlan.zhihu.com/p/610241711&#34;&gt;「DarkNavy深蓝洞察」2022年度十大漏洞与利用：最“不可赦”漏洞利用&lt;/a&gt; 的文章，文章指出有一个互联网厂商利用了安卓手机中的高危漏洞，在其看似合法的 App 背后，达到了：&lt;/p&gt;
+&lt;h2 id=&#34;五其他&#34;&gt;五、其他&lt;/h2&gt;
+&lt;p&gt;本部分因受到「上海寻梦信息技术有限公司」警告而有所改动，详细可见博客仓库 commit 信息及参考链接：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;隐蔽安装，提升装机量&lt;/li&gt;
-&lt;li&gt;伪造提升 DAU/MAU&lt;/li&gt;
-&lt;li&gt;用户无法卸载&lt;/li&gt;
-&lt;li&gt;攻击竞争对手 App&lt;/li&gt;
-&lt;li&gt;窃取用户隐私数据&lt;/li&gt;
-&lt;li&gt;逃避隐私合规监管&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/davinci01010/pinduoduo_backdoor_x&#34;&gt;https://github.com/davinci01010/pinduoduo_backdoor_x&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/davinci1012/pinduoduo_backdoor_unpacker&#34;&gt;https://github.com/davinci1012/pinduoduo_backdoor_unpacker&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;等各种涉嫌违规违法目的，但并未点名该 App 是谁。&lt;/p&gt;
-&lt;p&gt;此文一出，持续发酵，各种线索均指向了一个 App —— 拼多多。&lt;/p&gt;
-&lt;p&gt;随着研究的深入，基本已经实锤拼多多，包括不限于各种行内安全大佬的分析&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;，谷歌在 Google Play 下架拼多多，并提示他为恶意软件，最终在2023年3月27号，卡巴斯基实验室的安全研究人员证实拼多多 App 包含恶意代码&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;。在对恶意代码的首批公开报告之一中，&lt;strong&gt;卡巴斯基阐述了该应用程序如何提升自身权限以破坏用户隐私和数据安全&lt;/strong&gt;。它测试了通过中国本地应用商店分发的应用版本 —— 包含来自华为、腾讯和小米的应用市场。&lt;/p&gt;
-&lt;p&gt;同时更令人恶心的是，「目前没有证据表明 Google Play Store 和苹果 App Store 的版本含有恶意代码，通过 Google 和苹果官方商店下载的拼多多应用是安全的。但通过第三方市场下载的 Android 用户则没有那么幸运了，鉴于拼多多有数亿用户，受影响的用户数量可能是非常惊人」，也就是说拼多多这还是定向打击、定向投毒，是看咱们国人好欺负？大家可能对于这种事情向来是不关心，能用就行可能就是大多数人奉行的宗旨，管他对我做了什么，管他有没有什么违法的事情，一味的这样只会助长拼多多这种恶心平台与 App 的气焰。&lt;/p&gt;
-&lt;div align=&#34;center&#34;&gt;&lt;img src=&#34;https://pic2.zhimg.com/80/v2-6cf36124b40760b420f266ebe6117fd9_1440w.webp&#34; alt=&#34;img&#34; style=&#34;zoom:33%;&#34; /&gt;&lt;/div&gt;
-&lt;p&gt;目前拼多多已经替换了利用漏洞 App 以及解散了漏洞挖掘与利用相关的团队，不过也有消息称仍有部份人留任继续挖掘。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;被谷歌下架半个月后，拼多多平台内的恶意功能逐渐浮出水面。根据公开资料显示，近日匿名拼多多员工称，公司在 2020 年组建了一支由大约 100 名工程师和产品经理组成的团队，致力于挖掘 Android 手机漏洞，开发漏洞利用方法，将其转化为利润。&lt;/p&gt;
-&lt;p&gt;此外，消息源称，拼多多应用的恶意功能最初只针对农村和小城镇的用户，避开北京上海之类大都市的用户，此举旨在降低被暴露的风险。通过收集用户活动的大量数据，拼多多能全面了解用户习惯、兴趣和偏好，改进其机器学习模型，提供更具有个性化的推送通知和广告，吸引用户打开应用并下单。在被曝光之后该团队于三月初被解散。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;同时，截止目前为止，网信办也没有公布任何对拼多多不法行为的追责。一个人要转头多少次，还假装视而不见&lt;/strong&gt;。315晚会上也没有拼多多，都是些不痛不痒的事情，加起来也没拼多多恶心。法律没有惩治拼多多，反而拼多多自己在用着这些法律武器来追责那些对他「抹黑」的人，明明事实都已经摆在台面上了，还是可以嘴硬，就好像只要自己一味的否定自己做过的事情，就真的可以当作事情没发生过，谎话说多了自己都信了。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;昨日，OSCHINA 微信公众号此前报道的相关文章《某国产电商 APP 利用 Android 漏洞细节曝光：内嵌提权代码、动态下发 Dex》收到了来自拼多多主体公司的投诉，投诉类型是 “&lt;strong&gt;内容侵犯名誉 / 商誉 / 隐私 / 肖像&lt;/strong&gt;”。然而那篇文章从头到尾都没有指名道姓地说是哪家公司、哪款 APP。&lt;sup id=&#34;fnref1:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img alt=&#34;img&#34; loading=&#34;lazy&#34; src=&#34;https://pic4.zhimg.com/80/v2-6229aaac28989be822128797119580e3_1440w.webp&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/images/why-should-boycott-pdd/1.png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;结语&#34;&gt;结语&lt;/h2&gt;
 &lt;p&gt;可能有人会说，拼多多就那么一无是处，一点优点都没有吗？&lt;/p&gt;
 &lt;p&gt;要说优点，还是有的，例如百亿补贴、小物件免邮、新鲜水果便宜、签到打卡浇水领各种东西、支持仅退款，相对利好消费者、用户下沉做得好，利好农村的人们。但这不是本文讨论的范围，我只是总结他的恶行，你也可以去多了解拼多多的好处，用不用还是需要自己权衡。&lt;/p&gt;
@@ -111,12 +86,6 @@
 &lt;ol&gt;
 &lt;li id=&#34;fn:1&#34;&gt;
 &lt;p&gt;&lt;a href=&#34;https://finance.sina.com.cn/zt_d/pddhykj/&#34;&gt;https://finance.sina.com.cn/zt_d/pddhykj/&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:2&#34;&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/davinci01010/pinduoduo_backdoor_x&#34;&gt;https://github.com/davinci01010/pinduoduo_backdoor_x&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li id=&#34;fn:3&#34;&gt;
-&lt;p&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/617661783&#34;&gt;https://zhuanlan.zhihu.com/p/617661783&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref1:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;

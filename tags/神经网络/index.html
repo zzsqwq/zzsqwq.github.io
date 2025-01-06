@@ -28,7 +28,7 @@ python demo.py ctdet --demo ${CenterNet_Root}/images/17790319373_bd19b24cfc_k.jp
 ​这里说一下遇到的几个坑：
 首先是配置数据集的过程中，我们需要配置的目录结构如图所示（官方给出的结构树有点模糊不清的感觉）
 . ├── ImageSets_3dop │ ├── test.txt │ ├── train.txt │ ├── trainval.txt │ └── val.txt ├── ImageSets_subcnn │ ├── test.txt │ ├── train.txt │ ├── trainval.txt │ └── val.txt └── training ├── calib ├── image_2 └── label_2 然后去到 ${CenterNet_ROOT}/src/tools目录下，运行 python convert_kitti_to_coco.py 将 kitti 数据集转换为 coco 数据集的格式，不出意外应该会报错如下：
-...</p></div><footer class=entry-footer><span title='2021-01-27 11:50:00 +0000 UTC'>January 27, 2021</span>&nbsp;·&nbsp;zzsqwq</footer><a class=entry-link aria-label="post link to 如何使用CenterNet做3D目标检测测试" href=https://blog.zzsqwq.cn/posts/164/></a></article></main><footer class=footer><span>&copy; 2024 <a href=https://blog.zzsqwq.cn/>Zs's Blog</a></span> ·
+...</p></div><footer class=entry-footer><span title='2021-01-27 11:50:00 +0000 UTC'>January 27, 2021</span>&nbsp;·&nbsp;zzsqwq</footer><a class=entry-link aria-label="post link to 如何使用CenterNet做3D目标检测测试" href=https://blog.zzsqwq.cn/posts/164/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://blog.zzsqwq.cn/>Zs's Blog</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a> | <a href=http://beian.miit.gov.cn/ target=_blank>鲁ICP备2020034310号</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
