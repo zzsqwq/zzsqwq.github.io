@@ -9,7 +9,9 @@ HuaDeity https://blog.huadeity.com
 
 Angine https://angine.tech
 
-MurphyHou https://cosmicdusty.cc
+CosmicDusty https://cosmicdusty.cc
+
+MF https://mfqwq.cn
 
 Orangii https://orangii.cn
 
