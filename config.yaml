@@ -1,6 +1,5 @@
 baseURL: "https://blog.zzsqwq.cn"
 title: Zs's Blog
-paginate: 5
 theme: hugo-PaperMod
 languageCode: en
 defaultContentLanguage: en
@@ -14,6 +13,9 @@ buildExpired: false
 enableEmoji: true
 pygmentsUseClasses: true
 # googleAnalytics: UA-123-45
+
+pagination:
+    pagerSize: 5
 
 minify:
     disableXML: true
