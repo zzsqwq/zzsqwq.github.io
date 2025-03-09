@@ -8,7 +8,7 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- 0.141.0</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>en</language>
     <lastBuildDate>Sun, 16 May 2021 15:19:00 +0000</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/categories/python/index.xml" rel="self" type="application/rss+xml" />
@@ -180,8 +180,7 @@ $$&lt;/p&gt;
 &lt;p&gt;根据通用近似定理:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;通用近似定理&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;对于具有线性输出层和至少一个使用“挤压”性质的激活函数的隐藏层组成的前馈神经网络，只要其隐藏层神经元的数量足够，它可以以任意精度来近似任何从一个定义在实数空间中的有界闭集函数。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;对于具有线性输出层和至少一个使用“挤压”性质的激活函数的隐藏层组成的前馈神经网络，只要其隐藏层神经元的数量足够，它可以以任意精度来近似任何从一个定义在实数空间中的有界闭集函数。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;只要隐藏层网络维度够高，就可以拟合任意的函数。&lt;/p&gt;
 &lt;p&gt;考虑到我们的模型有六维or十三维的数据输入，因此我们建立两层前馈神经网络，中间具有一层隐藏层，维度为1000维，激活函数使用Relu，Relu函数有以下优点:&lt;/p&gt;
 &lt;ul&gt;
@@ -561,12 +560,10 @@ $$
 &lt;h3 id=&#34;返回函数&#34;&gt;返回函数&lt;/h3&gt;
 &lt;p&gt;我们知道，函数名只是一个指向函数的变量，我们也可以用另一个变量指向这个函数来引用函数，相当于起了一个别名。因此，我们也可以在函数的返回值中返回一个函数，然后将返回值赋值给一个变量，这样就可以通过这个变量来调用返回的函数。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;我们在一个函数中又定义了一个函数，并且，内部函数可以引用外部函数的参数和局部变量，当外部函数返回内部函数时，相关参数和变量都保存在返回的函数中，这种称为“闭包**（Closure）**”的程序结构拥有极大的威力。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;我们在一个函数中又定义了一个函数，并且，内部函数可以引用外部函数的参数和局部变量，当外部函数返回内部函数时，相关参数和变量都保存在返回的函数中，这种称为“闭包**（Closure）**”的程序结构拥有极大的威力。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;返回闭包时牢记一点：返回函数不要引用任何循环变量，或者后续会发生变化的变量。因为这个变量相当于一个静态变量，现在变了，前面相应的结果也会变。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;返回闭包时牢记一点：返回函数不要引用任何循环变量，或者后续会发生变化的变量。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;返回闭包时牢记一点：返回函数不要引用任何循环变量，或者后续会发生变化的变量。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;通过  &lt;code&gt;函数.__name__&lt;/code&gt;  可以获得函数的真实名字。&lt;/p&gt;
 &lt;h3 id=&#34;匿名函数&#34;&gt;匿名函数&lt;/h3&gt;
 &lt;p&gt;通过 &lt;code&gt;lambda&lt;/code&gt; 可以创建匿名函数，这个就类似于matlab里面的那个 &lt;code&gt;@&lt;/code&gt; 创建的匿名函数。&lt;/p&gt;
@@ -592,8 +589,7 @@ $$
 &lt;h3 id=&#34;偏函数&#34;&gt;偏函数&lt;/h3&gt;
 &lt;p&gt;偏函数可以看做一个函数其中某一个参数固定，然后另成一个新函数，这样到时候我们重复调用的时候就会比较方便了。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;当函数的参数个数太多，需要简化时，使用&lt;code&gt;functools.partial&lt;/code&gt;可以创建一个新的函数，这个新函数可以固定住原函数的部分参数，从而在调用时更简单。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;当函数的参数个数太多，需要简化时，使用&lt;code&gt;functools.partial&lt;/code&gt;可以创建一个新的函数，这个新函数可以固定住原函数的部分参数，从而在调用时更简单。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;当用 &lt;code&gt;functools.partial&lt;/code&gt; 之前我们需要引入 &lt;code&gt;functools&lt;/code&gt; 模块。&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;functools&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
@@ -611,8 +607,7 @@ $$
 &lt;ul&gt;
 &lt;li&gt;模块名要遵循Python变量命名规范，不要使用中文、特殊字符；&lt;/li&gt;
 &lt;li&gt;模块名不要和系统模块名冲突，最好先查看系统是否已存在该模块，检查方法是在Python交互环境执行&lt;code&gt;import abc&lt;/code&gt;，若成功则说明系统存在此模块。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;使用模块&#34;&gt;使用模块&lt;/h3&gt;
 &lt;p&gt;在使用模块之前只需要  &lt;code&gt;import 模块名&lt;/code&gt; ，就可以通过 &lt;strong&gt;模块名.方法&lt;/strong&gt; 的方式来调用这个模块里面的方法。&lt;/p&gt;
 &lt;p&gt;当我们在命令行运行模块文件时，Python解释器把一个特殊变量&lt;code&gt;__name__&lt;/code&gt;置为&lt;code&gt;__main__&lt;/code&gt;，而如果在其他地方导入模块时，&lt;code&gt;if&lt;/code&gt;判断将失败，因此，这种&lt;code&gt;if&lt;/code&gt;测试可以让一个模块通过命令行运行时执行一些额外的代码，最常见的就是运行测试。&lt;/p&gt;

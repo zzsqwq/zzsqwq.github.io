@@ -8,7 +8,7 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- 0.141.0</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>en</language>
     <lastBuildDate>Wed, 19 Aug 2020 13:21:00 +0000</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/categories/acm/index.xml" rel="self" type="application/rss+xml" />
@@ -18,7 +18,7 @@
       <pubDate>Wed, 19 Aug 2020 13:21:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/68/</guid>
       <description>&lt;h1 id=&#34;day-3&#34;&gt;Day 3&lt;/h1&gt;
-&lt;h2 id=&#34;a-黑妹的游戏httpsacnowcodercomacmcontest6956a&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6956/A&#34;&gt;黑妹的游戏Ⅰ&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;a-黑妹的游戏&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6956/A&#34;&gt;黑妹的游戏Ⅰ&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给出三个不同的初始数字$a,b,c$，黑妹每次选择两个不同的数字，计算出差的绝对值后如果黑板上没有就写在黑板上。问黑妹最多能添加多少个数字。&lt;/p&gt;
 &lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
@@ -55,7 +55,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;b-御坂美琴httpsacnowcodercomacmcontest6956b&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6956/B&#34;&gt;御坂美琴&lt;/a&gt;&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;b-御坂美琴&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6956/B&#34;&gt;御坂美琴&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;有 $n$ 个玩偶堆成一堆。$(1\le n \le 10^{18})$&lt;/p&gt;
 &lt;p&gt;你可以指定某一有 $x$ 个玩偶的玩偶堆将他分成 $\lfloor \frac{x}{2}\rfloor$ 和 $x-\lfloor \frac{x}{2} \rfloor$ 两堆。&lt;/p&gt;
@@ -124,7 +124,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;day-4&#34;&gt;Day 4&lt;/h1&gt;
-&lt;h2 id=&#34;a-distancehttpsacnowcodercomacmcontest6957a&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6957/A&#34;&gt;Distance&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;a-distance&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6957/A&#34;&gt;Distance&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定有 $n$ 个数的序列 $A$ ，第 $i$ 个位置对应的值为 $A_i$ 。$(n\le 10^5 ,A_i \le 10^9)$&lt;/p&gt;
 &lt;p&gt;定义 $FST$ 距离为 $|i^2 - j^2| + |A_i^2 - A_j^2|$ ，现在 $fst$ 想在序列 $A$ 中找到距离最大的一对元素，他不关心是哪一对，只想要求出最大的距离。&lt;/p&gt;
@@ -173,7 +173,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%lld&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;b-字典序最小的中序遍历httpsacnowcodercomacmcontest6957b&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6957/B&#34;&gt;字典序最小的中序遍历&lt;/a&gt;&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;b-字典序最小的中序遍历&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6957/B&#34;&gt;字典序最小的中序遍历&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-3&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给一个有根二叉树,可以无限次的交换任意节点的左右子树,问最少交换多少次使得该树的中序遍历的字典序最小?&lt;/p&gt;
 &lt;h3 id=&#34;思路-3&#34;&gt;思路&lt;/h3&gt;
@@ -236,7 +236,7 @@ $$
       <pubDate>Mon, 17 Aug 2020 20:04:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/5/</guid>
       <description>&lt;h1 id=&#34;day-1&#34;&gt;Day 1&lt;/h1&gt;
-&lt;h2 id=&#34;a-兔子的区间密码httpsacnowcodercomacmcontest6954a&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6954/A&#34;&gt;兔子的区间密码&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;a-兔子的区间密码&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6954/A&#34;&gt;兔子的区间密码&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定一个区间$[L,R]$ ，求从这个区间任意取两个整数(可以相同)，两者异或后能得到的最大值是多少？&lt;/p&gt;
 &lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
@@ -286,7 +286,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;b-猴子排序的期望httpsacnowcodercomacmcontest6954b&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6954/B&#34;&gt;猴子排序的期望&lt;/a&gt;&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;b-猴子排序的期望&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6954/B&#34;&gt;猴子排序的期望&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;有 $N$ 张卡片，每个上面都写着一个大写字母，问随便扔一次这 $N$ 张的卡片就已经按字典序排好的概率，答案用分字为1的形如 $1/x$ 的形式表示。$( 1&amp;lt;N &amp;lt; 100)$&lt;/p&gt;
 &lt;h3 id=&#34;思路-1&#34;&gt;思路&lt;/h3&gt;
@@ -314,7 +314,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ans&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
 &lt;h1 id=&#34;day-2&#34;&gt;Day 2&lt;/h1&gt;
-&lt;h2 id=&#34;a-愤怒的巨巨httpsacnowcodercomacmcontest6955a&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6955/A&#34;&gt;愤怒的巨巨&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;a-愤怒的巨巨&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6955/A&#34;&gt;愤怒的巨巨&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;已知香蕉的次品率为 $p(0\le p\le 1)$  ，如果想要买到好香蕉则买香蕉个数的期望值是多少。如果买不到好香蕉，输出”Sorrry,JuJu!”(忽略双引号)。否则输出期望值的最简分数形式：c/d. $p$ 的最多位数为6。&lt;/p&gt;
 &lt;h3 id=&#34;思路-2&#34;&gt;思路&lt;/h3&gt;
@@ -370,7 +370,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d/%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mod&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;b-兔子的逆序对httpsacnowcodercomacmcontest6955c&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6955/C&#34;&gt;兔子的逆序对&lt;/a&gt;&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;b-兔子的逆序对&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6955/C&#34;&gt;兔子的逆序对&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-3&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定一个区间 $[L,R]$ ，然后给出 $m$ 次翻转操作，通过给出子区间左右端点，反转该区间。每翻转一次，要求给出区间 $[L,R]$ 逆序对的奇偶性，如果是奇数，输出 &lt;strong&gt;dislike&lt;/strong&gt; ，如果是偶数，输出 &lt;strong&gt;like&lt;/strong&gt; 。&lt;/p&gt;
 &lt;h3 id=&#34;思路-3&#34;&gt;思路&lt;/h3&gt;
@@ -465,7 +465,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;c-butterflyhttpsacnowcodercomacmcontest6955f&#34;&gt;C. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6955/F&#34;&gt;Butterfly&lt;/a&gt;&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;c-butterfly&#34;&gt;C. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6955/F&#34;&gt;Butterfly&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-4&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;这题描述起来有点难，还是直接点链接去看比较好。&lt;/p&gt;
 &lt;p&gt;大概就是给定一个 由 &lt;strong&gt;X&lt;/strong&gt; 和 &lt;strong&gt;O&lt;/strong&gt; 构成的$n\times m$ 的矩阵，让你找出里面由 &lt;strong&gt;X&lt;/strong&gt; 构成的蝴蝶的最大对角线长度。&lt;/p&gt;
@@ -527,7 +527,7 @@ $$
       <link>https://blog.zzsqwq.cn/posts/30/</link>
       <pubDate>Wed, 19 Feb 2020 01:02:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/30/</guid>
-      <description>&lt;h2 id=&#34;a-two-rabbitshttpscodeforcescomcontest1304problema&#34;&gt;A. &lt;a href=&#34;https://codeforces.com/contest/1304/problem/A&#34;&gt;Two Rabbits&lt;/a&gt;&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;a-two-rabbits&#34;&gt;A. &lt;a href=&#34;https://codeforces.com/contest/1304/problem/A&#34;&gt;Two Rabbits&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;两个兔子分别位于 $(x,0)$ 和 $(y,0)$  ，两个人对头蹦，前者往前蹦 $a$ ，后者往前蹦 $b$ ，问两人是否能恰好相遇。&lt;/p&gt;
 &lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
@@ -560,7 +560,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;b-longest-palindromehttpscodeforcescomcontest1304problemb&#34;&gt;B. &lt;a href=&#34;https://codeforces.com/contest/1304/problem/B&#34;&gt;Longest Palindrome&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;b-longest-palindrome&#34;&gt;B. &lt;a href=&#34;https://codeforces.com/contest/1304/problem/B&#34;&gt;Longest Palindrome&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给出 $n$ 段长度为 $m$ 的字符串，从中挑选出一些组成最长的回文字串，输出这个回文子串的长度和内容，如果有多种情况输出一种即可。如果没有符合的，就输出0 。$(1\le n\le 100,1\le m\le 50)$&lt;/p&gt;
 &lt;h3 id=&#34;思路-1&#34;&gt;思路&lt;/h3&gt;
@@ -639,7 +639,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;c-air-conditionerhttpscodeforcescomcontest1304problemc&#34;&gt;C. &lt;a href=&#34;https://codeforces.com/contest/1304/problem/C&#34;&gt;Air Conditioner&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;c-air-conditioner&#34;&gt;C. &lt;a href=&#34;https://codeforces.com/contest/1304/problem/C&#34;&gt;Air Conditioner&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;餐厅老板有一个空调，餐厅初始温度为 $m$ ，会陆续来 $n$ 个顾客。餐厅老板每分钟可以控制空调的温度+1，-1，或者是不变。这 $n$ 个顾客会按来的时间顺序给出，每个人有一个感到舒适的温度范围，如果空调的温度在这个范围里面，那么顾客就会满意。问餐厅老板是否可以达到让每个人都满意。&lt;/p&gt;
 &lt;h3 id=&#34;思路-2&#34;&gt;思路&lt;/h3&gt;
@@ -695,7 +695,7 @@ $$
       <link>https://blog.zzsqwq.cn/posts/27/</link>
       <pubDate>Sat, 15 Feb 2020 00:52:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/27/</guid>
-      <description>&lt;h2 id=&#34;a-配对httpsacnowcodercomacmcontest3007a&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3007/A&#34;&gt;配对&lt;/a&gt;&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;a-配对&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3007/A&#34;&gt;配对&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定含有 $n$ 个正整数的集合 $A$ 和 $B$ ，你需要建立他们之间的一一映射。将配对的两个数相加可以得到 $n$ 个和，问第 $k$ 大的和最大为多少。&lt;/p&gt;
 &lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
@@ -737,7 +737,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ans&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;b-十字阵列httpsacnowcodercomacmcontest3007f&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3007/F&#34;&gt;十字阵列&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;b-十字阵列&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3007/F&#34;&gt;十字阵列&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定一个 $n\times m$ 的网格，每一个交点都一个敌人。你可以使用共 $h$ 次魔法，第 $i$ 次魔法能对第 $x_i$ 行和第 $y_i$  列的所有敌人造成 $w_i$ 点伤害，交界点的伤害只计算一次。。如果施放完所有所有魔法后，如果一个点 $(i,j)$ 共受到 $z_i$ 点伤害，问 $\sum{z_i(i+j)}$ 为多少。&lt;/p&gt;
 &lt;h3 id=&#34;思路-1&#34;&gt;思路&lt;/h3&gt;
@@ -783,7 +783,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%lld&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ans&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;c-垃圾陷阱httpswwwluogucomcnproblemp1156&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1156&#34;&gt;垃圾陷阱&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;c-垃圾陷阱&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1156&#34;&gt;垃圾陷阱&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;奶牛卡门想要从垃圾井底上到地面，对于一个垃圾它可以吃掉，或者是堆起来。初始卡门有10个小时的能量，吃掉一个垃圾会给他提供 $f_i$ 个小时的能量，叠起来一个垃圾会获得 $h_i$ 点高度，当垃圾总高度超过井的深度 $D$ 的时候，卡门就能上到地面。一个垃圾当 $t_i$ 小时时会到达井底。给出所有垃圾的状态，问奶牛能否到达地面。&lt;/p&gt;
 &lt;h3 id=&#34;思路-2&#34;&gt;思路&lt;/h3&gt;
@@ -856,7 +856,7 @@ $$
       <link>https://blog.zzsqwq.cn/posts/26/</link>
       <pubDate>Fri, 14 Feb 2020 00:51:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/26/</guid>
-      <description>&lt;h2 id=&#34;a-three-stringshttpscodeforcescomcontest1301problema&#34;&gt;A. &lt;a href=&#34;https://codeforces.com/contest/1301/problem/A&#34;&gt;Three Strings&lt;/a&gt;&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;a-three-strings&#34;&gt;A. &lt;a href=&#34;https://codeforces.com/contest/1301/problem/A&#34;&gt;Three Strings&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定三个长度为 $n$ 的字符串 $a$ , $b$ , $c$ ，遍历每个 $c$ 中每个字符 $c_i$，可以将其替换成 $a_i$ 或者 $b_i$ ，必须操作其中一个，问能否通过此操作使得字符串 $a$ , $b$ 相同。&lt;/p&gt;
 &lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
@@ -897,7 +897,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;b-motaracks-birthdayhttpscodeforcescomcontest1301problemb&#34;&gt;B. &lt;a href=&#34;https://codeforces.com/contest/1301/problem/B&#34;&gt;Motarack&amp;rsquo;s Birthday&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;b-motarack&#34;&gt;B. &lt;a href=&#34;https://codeforces.com/contest/1301/problem/B&#34;&gt;Motarack&amp;rsquo;s Birthday&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定一个含有 $n$ 个整数的序列 $a$ ，其中有一些数丢失，问将丢失的数赋值为多少才能使得相邻两数之差的绝对值的最大值的最小。&lt;/p&gt;
 &lt;h3 id=&#34;思路-1&#34;&gt;思路&lt;/h3&gt;
@@ -951,7 +951,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;c-ayoubs-functionhttpscodeforcescomcontest1301problemc&#34;&gt;C. &lt;a href=&#34;https://codeforces.com/contest/1301/problem/C&#34;&gt;Ayoub&amp;rsquo;s function&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;c-ayoub&#34;&gt;C. &lt;a href=&#34;https://codeforces.com/contest/1301/problem/C&#34;&gt;Ayoub&amp;rsquo;s function&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定一个01字符串 $s$ ，其中含有 $m$ 个1，用 $f(s)$ 来表示字符串 $s$ 的有多少个字串其中含有1，求出符合条件的字符串 $s$ 中， $f(s)$ 的最大值是多少。&lt;/p&gt;
 &lt;h3 id=&#34;思路-2&#34;&gt;思路&lt;/h3&gt;
@@ -993,7 +993,7 @@ $$
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;今天又是颓废的一天，被大佬拉去跟他一起做牛客网的题，QAQ&amp;hellip;那我会点啥嘛，就只能替大佬写两道水题了···&lt;/p&gt;
 &lt;/br&gt;
-&lt;h2 id=&#34;a-牛牛战队的比赛地httpsacnowcodercomacmcontest3006&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3006&#34;&gt;牛牛战队的比赛地&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;a-牛牛战队的比赛地&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3006&#34;&gt;牛牛战队的比赛地&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;由于牛牛战队经常要外出比赛，因此在全国各地建立了很多训练基地，每一个基地都有一个坐标 $(x,y)$ 。
 这周末，牛牛队又要出去比赛了，各个比赛的赛点都在 $x$ 轴上。牛牛战队为了方便比赛，想找一个到达训练基地最大距离最小的地方作为比赛地。请你求出选择的比赛地距离各训练基地最大距离的最小值。&lt;/p&gt;
@@ -1056,7 +1056,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;b-牛牛与牛妹的约会httpsacnowcodercomacmcontest3006d&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3006/D&#34;&gt;牛牛与牛妹的约会&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;b-牛牛与牛妹的约会&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3006/D&#34;&gt;牛牛与牛妹的约会&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;你想从 $(a,0)$ 点到 $(b,0)$ 点，你可以除了可以以 $1m/s$ 的速度奔跑，还可以用1秒的时间来引导闪现，这将使你从 $(x,0)$ 点闪现到 $(\sqrt[3]{x},0)$ 点，问最少需要多长时间到达 $(b,0)$ 点。$(Ps:a,b \in[-10^6,10^6])$&lt;/p&gt;
 &lt;h3 id=&#34;思路-1&#34;&gt;思路&lt;/h3&gt;
@@ -1109,7 +1109,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;c-碎碎念httpsacnowcodercomacmcontest3006f&#34;&gt;C. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3006/F&#34;&gt;碎碎念&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;c-碎碎念&#34;&gt;C. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3006/F&#34;&gt;碎碎念&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;大佬豪和弱鸡战合作做题，如果大佬豪AC掉题目，那么弱鸡战会说 “宁好强啊！”，如果大佬豪WA掉了题目，那么弱鸡战会嘲讽大佬豪 $k$ 句 “宁好弱啊！” 。我们规定大佬豪提交只有AC和WA两种状态。因为大佬豪非常的强，如果一道题他WA掉了一发，那么他的下一发一定会AC。如果已知最终弱鸡战嘲讽了 $x$ 句，那么很明显可以对应很多的提交序列。现在想问你如果弱鸡战嘲讽数在 $[l,r]$ 这个区间，一共会有多少种提交序列。答案对 $1e9+7$ 取模。&lt;/p&gt;
 &lt;h3 id=&#34;思路-2&#34;&gt;思路&lt;/h3&gt;
@@ -1167,7 +1167,7 @@ QAQ刷了这么多天的dp好像终于有点作用了，我终于看出来这是
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;d-牛牛战队的秀场httpsacnowcodercomacmcontest3006j&#34;&gt;D. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3006/J&#34;&gt;牛牛战队的秀场&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;d-牛牛战队的秀场&#34;&gt;D. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3006/J&#34;&gt;牛牛战队的秀场&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-3&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;在半径为 $r$ 的圆内有一个正接 $n$ 边形，随便选取一个顶点编号为 $1$ ，顺时针编号为 $2\sim n$ ，规定只能沿多边形边走，问从顶点 $i$ 到顶点 $j$ 最短路径为多少。&lt;/p&gt;
 &lt;h3 id=&#34;思路-3&#34;&gt;思路&lt;/h3&gt;
@@ -1212,7 +1212,7 @@ QAQ刷了这么多天的dp好像终于有点作用了，我终于看出来这是
       <link>https://blog.zzsqwq.cn/posts/22/</link>
       <pubDate>Mon, 10 Feb 2020 00:39:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/22/</guid>
-      <description>&lt;h2 id=&#34;a-non-zerohttpscodeforcescomcontest1300problema&#34;&gt;A. &lt;a href=&#34;https://codeforces.com/contest/1300/problem/A&#34;&gt;Non-zero&lt;/a&gt;&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;a-non-zero&#34;&gt;A. &lt;a href=&#34;https://codeforces.com/contest/1300/problem/A&#34;&gt;Non-zero&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给出一段含有 $n$ 个数的序列 $a$ ，可以对其中任何数加一，问最少操作多少次让每一个数和序列和都不为0。&lt;/p&gt;
 &lt;hr&gt;
@@ -1251,7 +1251,7 @@ QAQ刷了这么多天的dp好像终于有点作用了，我终于看出来这是
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;b-assigning-to-classeshttpscodeforcescomcontest1300problemb&#34;&gt;B. &lt;a href=&#34;https://codeforces.com/contest/1300/problem/B&#34;&gt;Assigning to Classes&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;b-assigning-to-classes&#34;&gt;B. &lt;a href=&#34;https://codeforces.com/contest/1300/problem/B&#34;&gt;Assigning to Classes&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;将 $2n$ 个数分成个奇数序列，问两个奇数序列的中位数之差最小为多少。&lt;/p&gt;
 &lt;hr&gt;
@@ -1286,7 +1286,7 @@ QAQ刷了这么多天的dp好像终于有点作用了，我终于看出来这是
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;c-anu-has-a-functionhttpscodeforcescomcontest1300problemc&#34;&gt;C. &lt;a href=&#34;https://codeforces.com/contest/1300/problem/C&#34;&gt;Anu Has a Function&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;c-anu-has-a-function&#34;&gt;C. &lt;a href=&#34;https://codeforces.com/contest/1300/problem/C&#34;&gt;Anu Has a Function&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给出函数 $f: f(x,y)=(x|y)-y $ ，给出序列 $a$，序列 $a$ 中含有 $n$ 个数，可以表示为$[a_1,a_2\cdots,a_n ]$ ，定义 $x=f(f(&amp;hellip;f(f(a_1,a_2),a_3),&amp;hellip;a_{n-1}),a_n)$ ，你可以对序列 $a$ 中元素进行重排，求使得 $x$ 最大的序列 $a$ 。如果有多种情况，输出一种即可。&lt;/p&gt;
 &lt;h3 id=&#34;思路-2&#34;&gt;思路&lt;/h3&gt;
@@ -1420,7 +1420,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;d-aerodynamichttpscodeforcescomcontest1299problemb&#34;&gt;D. &lt;a href=&#34;https://codeforces.com/contest/1299/problem/B&#34;&gt;Aerodynamic&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;d-aerodynamic&#34;&gt;D. &lt;a href=&#34;https://codeforces.com/contest/1299/problem/B&#34;&gt;Aerodynamic&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-3&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定一个凸多边形 $P$ 的所有顶点，可以将凸多边形沿向量 $(x,y)$ 平移，我们定义多边形 $T$ 是所有 $P$ 平移到与原点有交点后所构成的点集所形成的图形（我知道这句话有点绕，我实在是解释不明白，实在不行康康原题吧）。那么问这个 $T$ 是否是和 $P$ 相似的，如果是输出YES，不是输出NO。&lt;/p&gt;
 &lt;hr&gt;
@@ -1482,7 +1482,7 @@ $$
       <link>https://blog.zzsqwq.cn/posts/17/</link>
       <pubDate>Wed, 05 Feb 2020 23:18:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/17/</guid>
-      <description>&lt;h3 id=&#34;a-array-with-odd-sumhttpscodeforcescomcontest1296problema&#34;&gt;A. &lt;a href=&#34;https://codeforces.com/contest/1296/problem/A&#34;&gt;Array with Odd Sum&lt;/a&gt;&lt;/h3&gt;
+      <description>&lt;h3 id=&#34;a-array-with-odd-sum&#34;&gt;A. &lt;a href=&#34;https://codeforces.com/contest/1296/problem/A&#34;&gt;Array with Odd Sum&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;给出包含 &lt;strong&gt;n&lt;/strong&gt; 个正整数的序列 &lt;strong&gt;a&lt;/strong&gt; ，你可以把任何一个元素 $a_i$ ，赋值给另一个元素 $a_j$ ($i\neq j$) ，问通过任意此操作能否将序列 &lt;strong&gt;a&lt;/strong&gt; 的和变为奇数。可以输出 &lt;strong&gt;YES&lt;/strong&gt; ,不可以输入 &lt;strong&gt;NO&lt;/strong&gt;.&lt;/p&gt;
@@ -1525,7 +1525,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;b-food-buyinghttpscodeforcescomcontest1296problemb&#34;&gt;B. &lt;a href=&#34;https://codeforces.com/contest/1296/problem/B&#34;&gt;Food Buying&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;b-food-buying&#34;&gt;B. &lt;a href=&#34;https://codeforces.com/contest/1296/problem/B&#34;&gt;Food Buying&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-1&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;初始有 &lt;strong&gt;s&lt;/strong&gt; 个货币，每次花费 &lt;strong&gt;x&lt;/strong&gt; 个货币会返还 $\lfloor{\frac{x}{10}}\rfloor$ 个货币，问最多共能花费多少货币。&lt;/p&gt;
@@ -1564,7 +1564,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;c-yet-another-walking-robothttpscodeforcescomcontest1296problemc&#34;&gt;C. &lt;a href=&#34;https://codeforces.com/contest/1296/problem/C&#34;&gt;Yet Another Walking Robot&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;c-yet-another-walking-robot&#34;&gt;C. &lt;a href=&#34;https://codeforces.com/contest/1296/problem/C&#34;&gt;Yet Another Walking Robot&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-2&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;一个机器人初始在 $(0,0)$ 点，规定 &lt;strong&gt;&amp;lsquo;L&amp;rsquo;&lt;/strong&gt;  ，&lt;strong&gt;&amp;lsquo;R&amp;rsquo;&lt;/strong&gt; ，&lt;strong&gt;&amp;lsquo;U&amp;rsquo;&lt;/strong&gt; ，&lt;strong&gt;&amp;lsquo;D&amp;rsquo;&lt;/strong&gt;  分别对应向左，向右，向上和向下。给定一段包含上述字母的序列 &lt;strong&gt;s&lt;/strong&gt; ，机器人遵循指引序列移动。如果删除一段连续序列可使得机器人最终到达终点不变，问删除的最短序列的起始和终点为多少。&lt;/p&gt;
@@ -1635,7 +1635,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;d-fight-with-monstershttpscodeforcescomcontest1296problemd&#34;&gt;D. &lt;a href=&#34;https://codeforces.com/contest/1296/problem/D&#34;&gt;Fight with Monsters&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;d-fight-with-monsters&#34;&gt;D. &lt;a href=&#34;https://codeforces.com/contest/1296/problem/D&#34;&gt;Fight with Monsters&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-3&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;由你先手和对手轮流击打 $n$ 个血量为 $h_i$ 的小怪兽，你可以对怪物造成 $a$ 点伤害，对手可以造成 $b$ 点伤害。你有 $k$ 次机会使对手跳过他的回合。当小怪兽血量 $h\le0$ 时视为被击杀，当你击杀怪兽，你获得一分，当对手击杀，你不得分。求你最多能获得多少分数。&lt;/p&gt;
@@ -1700,7 +1700,7 @@ $$
       <link>https://blog.zzsqwq.cn/posts/8/</link>
       <pubDate>Sun, 02 Feb 2020 21:53:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/8/</guid>
-      <description>&lt;h3 id=&#34;a--display-the-numberhttpscodeforcescomcontest1295problema&#34;&gt;A : &lt;a href=&#34;https://codeforces.com/contest/1295/problem/A&#34;&gt;Display The Number&lt;/a&gt;&lt;/h3&gt;
+      <description>&lt;h3 id=&#34;a--display-the-number&#34;&gt;A : &lt;a href=&#34;https://codeforces.com/contest/1295/problem/A&#34;&gt;Display The Number&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题意&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;用一定数目的灯管，显示尽可能大的数&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;A&#34; loading=&#34;lazy&#34; src=&#34;https://s2.ax1x.com/2020/02/02/1te6Re.md.png&#34;&gt;&lt;/p&gt;
@@ -1737,12 +1737,11 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;b--infinite-prefixeshttpscodeforcescomcontest1295problemb&#34;&gt;B : &lt;a href=&#34;https://codeforces.com/contest/1295/problem/B&#34;&gt;Infinite Prefixes&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;b--infinite-prefixes&#34;&gt;B : &lt;a href=&#34;https://codeforces.com/contest/1295/problem/B&#34;&gt;Infinite Prefixes&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题意-1&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;给定一段01字符串 &lt;strong&gt;s&lt;/strong&gt; 为循环节，得到无限循环的01字符串 &lt;strong&gt;t&lt;/strong&gt;，求 &lt;strong&gt;t&lt;/strong&gt; 中有多少前缀满足0个数-1个数等于期望值&lt;strong&gt;x&lt;/strong&gt; （空前缀也算是一个前缀）&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;前缀：例如&amp;quot;abcd&amp;quot;的前缀包括 &amp;quot; &amp;ldquo;,&amp;ldquo;a&amp;rdquo;,&amp;ldquo;ab&amp;rdquo;,&amp;ldquo;abc&amp;rdquo;,&amp;ldquo;abcd&amp;rdquo;.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;前缀：例如&amp;quot;abcd&amp;quot;的前缀包括 &amp;quot; &amp;ldquo;,&amp;ldquo;a&amp;rdquo;,&amp;ldquo;ab&amp;rdquo;,&amp;ldquo;abc&amp;rdquo;,&amp;ldquo;abcd&amp;rdquo;.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h4 id=&#34;思路-1&#34;&gt;思路&lt;/h4&gt;
 &lt;p&gt;首先我们先记录循环节 &lt;strong&gt;s&lt;/strong&gt; 中每个位置对应的01个数差，记为$num_i，i\in[1,n]$ （ &lt;strong&gt;s&lt;/strong&gt; 长度记为n）&lt;/p&gt;
 &lt;ul&gt;
@@ -1818,15 +1817,14 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;c--obtain-the-stringhttpscodeforcescomcontest1295problemc&#34;&gt;C : &lt;a href=&#34;https://codeforces.com/contest/1295/problem/C&#34;&gt;Obtain The String&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;c--obtain-the-string&#34;&gt;C : &lt;a href=&#34;https://codeforces.com/contest/1295/problem/C&#34;&gt;Obtain The String&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题意-2&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;给定字符串 &lt;strong&gt;s&lt;/strong&gt; 和 &lt;strong&gt;t&lt;/strong&gt; ，每次从 &lt;strong&gt;s&lt;/strong&gt; 中选取子序列放入起始为空串的 &lt;strong&gt;z&lt;/strong&gt; 后，问最少需要多少次操作使得 &lt;strong&gt;z=t&lt;/strong&gt;&lt;/p&gt;
 &lt;h4 id=&#34;思路-2&#34;&gt;思路&lt;/h4&gt;
 &lt;p&gt;看了小姜老师的博客解法说是贪心，想了好一会，好像确实是可以贪心的···? 设置两个指针从 &lt;strong&gt;s&lt;/strong&gt; 和 &lt;strong&gt;t&lt;/strong&gt; 串的头部开始扫，对于 &lt;strong&gt;t&lt;/strong&gt; 串中的每个字母，循环扫 &lt;strong&gt;s&lt;/strong&gt; 串在其中找与它相同的，最终的答案就是扫 &lt;strong&gt;s&lt;/strong&gt; 串的次数。(小姜老师说这个实质上就是每次尽可能找尽可能多的后缀，仔细想想确实是这样。)不过这么一直暴力扫下去肯定不是最优的方法，想办法去优化。还是借鉴大佬的想法用一个lens*26的跳表，然后O(lent)扫一遍 &lt;strong&gt;t&lt;/strong&gt; 即可.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;跳表nxt的作用，用于寻找下一个所寻找字符在s中的位置。&lt;/p&gt;
-&lt;p&gt;nxt[x][y]用于指向从x位置开始下一个y的位置+1 （next在C++属于保留字，注意不要踩坑）&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;nxt[x][y]用于指向从x位置开始下一个y的位置+1 （next在C++属于保留字，注意不要踩坑）&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h4 id=&#34;代码实现-2&#34;&gt;代码实现&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&amp;lt;cstdio&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&amp;lt;cstring&amp;gt;

@@ -8,7 +8,7 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- 0.141.0</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>en</language>
     <lastBuildDate>Wed, 09 Nov 2022 22:40:41 +0800</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/categories/c++/index.xml" rel="self" type="application/rss+xml" />
@@ -305,7 +305,7 @@
       <pubDate>Mon, 06 Apr 2020 01:22:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/64/</guid>
       <description>&lt;h1 id=&#34;c大数类设计思路&#34;&gt;C++大数类设计思路&lt;/h1&gt;
-&lt;h3 id=&#34;洛谷大数类httpswwwluogucomcnproblemu111551的评测结果开了氧气优化&#34;&gt;&lt;a href=&#34;https://www.luogu.com.cn/problem/U111551&#34;&gt;洛谷大数类&lt;/a&gt;的评测结果(开了氧气优化)&lt;/h3&gt;
+&lt;h3 id=&#34;洛谷大数类的评测结果开了氧气优化&#34;&gt;&lt;a href=&#34;https://www.luogu.com.cn/problem/U111551&#34;&gt;洛谷大数类&lt;/a&gt;的评测结果(开了氧气优化)&lt;/h3&gt;
 &lt;p&gt;&lt;img alt=&#34;BigNumber.png&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/4200651250.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;这个第四个点真的优化不过去了QAQ，24W的数据，&lt;del&gt;丧心病狂&lt;/del&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;整体构思&#34;&gt;整体构思&lt;/h3&gt;

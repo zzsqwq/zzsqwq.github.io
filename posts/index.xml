@@ -8,10 +8,104 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- 0.141.0</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 05 Dec 2024 00:08:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 21 Dec 2024 16:58:33 +0800</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024 年我的数码「年度好物」</title>
+      <link>https://blog.zzsqwq.cn/posts/2024-annual-goodies/</link>
+      <pubDate>Sat, 21 Dec 2024 16:58:33 +0800</pubDate>
+      <guid>https://blog.zzsqwq.cn/posts/2024-annual-goodies/</guid>
+      <description>&lt;p&gt;在过去的一年中，我买了很多新的数码产品，因此想趁着这个岁末年初的时间，分享一下我过去一年觉得最值的 3 件「年度好物」。&lt;/p&gt;
+&lt;h2 id=&#34;一绿联私有云-dxp4800-plus&#34;&gt;一、绿联私有云 DXP4800 Plus&lt;/h2&gt;
+&lt;p&gt;很久之前就已经在看 NAS 相关的内容，一直手痒想入一个，终于趁着双11下单了。&lt;/p&gt;
+&lt;p&gt;纠结再三还是买的绿联最新出的 NAS，在选择过程中的对比心路历程和总结已经在 &lt;a href=&#34;https://blog.zzsqwq.cn/posts/another-dayu-9-questions/#nas-%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93&#34;&gt;之前的博文&lt;/a&gt; 中提到过：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;飞牛云是近期才推出的一款开源 NAS 系统，据社区评价说体验很不错，迭代速度也快。但由于还没有出成品NAS，又不想折腾自组，于是作罢，后续如果飞牛云出了成品 NAS 或许会考虑。&lt;/li&gt;
+&lt;li&gt;威联通几乎没看到什么正面评价，听说系统很难用，逻辑很复杂，并且UI并不美观，像上个时代的审美。&lt;/li&gt;
+&lt;li&gt;群晖是最成熟的，应该也是用的人最多的。可定制化程度和功能最多，但上手难度相对高，例如想要外网访问需要做一些配置或者 DDNS 等，适合比较喜欢折腾的人。&lt;/li&gt;
+&lt;li&gt;极空间和绿联是近些年才兴起的国产 NAS，胜在上手难度低，无需配置即可方便的从非局域网访问。其中极空间做的时间比较长，同时公司只做 NAS 这个产品线，而不是像绿联是什么都做的大厂。极空间系统体验后感觉 UI 风格不是很喜欢，同时看大家的反馈说目前更新进度非常缓慢，社区中吐槽的人很多，但功能还是要比目前的 UGOS Pro 更多些。&lt;/li&gt;
+&lt;li&gt;绿联算是后起之秀，之前推出的 DX4600 用的 UGOS 系统底层是基于 OpenWrt 的，扩展性不够强，有很多功能无法实现。于是后续的 DXP 系列统一升级成了基于 Debian 的 UGOS Pro 系统，新系统 UI 比较美观，也包含了 Docker 和虚拟机等呼声已久的功能。目前基本保持一月一个大版本更新的节奏，迭代速度很快，很有活力，未来可期。&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;p&gt;其中绿联系列 4 盘位的机器有 DXP4800 和 DXP4800 Plus 两种型号，选择后者的主要考虑就是 CPU 的性能会好一些，可以应对更复杂的场景，例如开虚拟机、作为流媒体服务器硬解资源等场景，会更流畅一些。&lt;/p&gt;
+&lt;p&gt;到手后感觉手感很不错，全铝合金外壳，做工还是很到位的，放在家里也不突兀。&lt;/p&gt;
+&lt;div align=&#34;center&#34;&gt;
+  &lt;img src=&#34;https://blog-assets-1300413137.cos.ap-guangzhou.myqcloud.com/uPic/ugreen-nas.png&#34; alt=&#34;ugreen-nas&#34; style=&#34;zoom: 10%;&#34; /&gt;
+  &lt;p style=&#34;color: gray; font-size: 14px;&#34;&gt;DXP4800 Plus + 小米 BE7000 路由器&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;起初有买 NAS 的想法主要是为了如下两个场景：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;存储之前使用相机拍照的各种 raw 图以及对应修图软件的工程文件&lt;/li&gt;
+&lt;li&gt;Mac Time Machine 自动备份&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;过去对于这两个场景都是通过 SSD 硬盘完成的。我有三个 SSD 硬盘，1个专门用于 Time Machine 备份，另两个用来存储各种文件。每次修图的时候都先把相机的 SD 卡插入到电脑，同时把 SSD 硬盘插入到电脑，把照片全量导入到硬盘，然后在硬盘中新建工程修图。Time Machine 就是每隔 10 天插入备份一次。&lt;/p&gt;
+&lt;p&gt;在我想象中，有了 NAS 后整个工作流是这样的：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;拍摄后直接把 SD 卡插到 NAS 上然后全量导入到硬盘中，然后通过 SMB 协议挂载到电脑上，然后可以直接开始修图并且后续可以随时查看，工程文件夹也可以直接放到&lt;/li&gt;
+&lt;li&gt;设置 Time Machine 自动备份后每次在家使用电脑都会自动备份到 NAS&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div align=&#34;center&#34;&gt;
+  &lt;img src=&#34;https://blog-assets-1300413137.cos.ap-guangzhou.myqcloud.com/uPic/smb-zs-nas.png&#34; alt=&#34;smb-zs-nas&#34; style=&#34;zoom: 60%;&#34; /&gt;
+  &lt;p style=&#34;color: gray; font-size: 14px;&#34;&gt;通过 SMB 协议挂载 NAS 的文件并查看&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;然而 NAS 到手后，发现我能够拍摄+修图的机会实在是少之又少（我甚至已经把我去年买的 Nikon ZFC 出掉了），于是上述流程一直还没有尝试过。同时 Mac 的 Time Machine 时间备份也没有备份成功过一次，每次都是备份到中途就挂掉了，原因未知。&lt;/p&gt;
+&lt;p&gt;不过虽然上述两个目标没有达成，反而有一些意外之喜。&lt;/p&gt;
+&lt;h3 id=&#34;此生照片的归宿&#34;&gt;此生照片的归宿&lt;/h3&gt;
+&lt;p&gt;绿联自带自动备份手机照片的功能，每次打开绿联 NAS 的 App 都会自动检测手机中增量的照片并上传整理到绿联云。同时，得益于我之前有一些备份的习惯，在我一顿翻箱倒柜后，在我的硬盘、百度云盘、一刻相册、阿里云盘、QQ 空间相册等各个位置，找齐了我从拥有第一部手机之后的所有照片和一些游戏会议，并把他们上传到了 NAS，因此我现在可以很方便地在 NAS 上查看从 2012 年到 2025 年的所有回忆，现在经常得空就按着时间线看过去的各种照片，满满的回忆。&lt;/p&gt;
+&lt;div align=&#34;center&#34;&gt;
+  &lt;img src=&#34;https://blog-assets-1300413137.cos.ap-guangzhou.myqcloud.com/uPic/image-20250125020152141.png&#34; alt=&#34;ugreen-nas&#34; style=&#34;zoom: 60%;&#34; /&gt;
+  &lt;p style=&#34;color: gray; font-size: 14px;&#34;&gt;以各种识图查看图片库&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;自建影视库&#34;&gt;自建影视库&lt;/h3&gt;
+&lt;p&gt;其实在没有拥有 NAS 前，我一直对「家庭影视库」这个东西嗤之以鼻，觉得他无法很难简单稳定获得高质量的片源，网上散落的资源质量参差不齐，时效性差，很难说基于这种资源建立的影视库相比于流媒体平台的内容有什么优势，同时需要自己花精力不断维护，属于是费力不讨好。但直到我遇到了 PT 站，我发现这些问题都迎刃而解了。&lt;/p&gt;
+&lt;p&gt;PT 站一般会有驻站小组或者转种组和各志愿者上传各最新资源的种子，可以非常方便的下载到规范命名的资源，配合 NAS 自带的影视中心可以自动刮削建立自己的影视库，十分快捷。同时，基本上热门资源都有很多辅种的伙伴，下载速度基本可以拉满 1000Mbps 下行带宽。&lt;/p&gt;
+&lt;p&gt;同时，我也成了囤囤鼠，下载了一堆资源也没来得及看，收集了很多 PT 站，也折腾了很多例如 MovivePilot、IYUU 自动辅种、自动刷流等等。如果有想玩 PT 站的可以问我要邀请，目前有一些小站的邀请，偶尔也会有大站的邀请。&lt;/p&gt;
+&lt;div align=&#34;center&#34;&gt;
+  &lt;img src=&#34;https://blog-assets-1300413137.cos.ap-guangzhou.myqcloud.com/uPic/ugreen-nas-apple-tv.webp&#34; alt=&#34;ugreen-nas&#34; style=&#34;zoom: 60%;&#34; /&gt;
+  &lt;p style=&#34;color: gray; font-size: 14px;&#34;&gt;Apple TV 上查看  NAS 的影视中心&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;NAS 上我没有组 RAID，之前一直觉得 RAID 是为了做数据备份防止硬盘坏掉的，后知后觉才知道 RAID 最大的用处是为维持服务的高可用性，能够在硬盘坏掉的时候服务也不掉线。如果要想真正的保持数据安全最好是异地容灾备份甚至是三二一原则。所以目前我的盘都是 basic 方式建立的，没有组任何 RAID。后续计划是建立如下几个盘存放不同的内容，然后再在老家放一个绿联 NAS 实时异地备份最重要的照片和各种日常文件&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;有一个专门存储各种照片和日常使用的文件&lt;/li&gt;
+&lt;li&gt;有一个专门做 Time Machine 备份&lt;/li&gt;
+&lt;li&gt;有一个专门存放影视相关的&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;同时买 NAS 还有一个很「坑」的点是，你不会只买 NAS 和存储硬盘，还有一些周边配套的其他设施。例如我，还买了 UPS、2.5G 路由器+交换机、用于缓存的 SSD 硬盘。&lt;/p&gt;
+&lt;h2 id=&#34;二apple-watch-series-10&#34;&gt;二、Apple Watch Series 10&lt;/h2&gt;
+&lt;p&gt;购入渠道：Apple Store&lt;/p&gt;
+&lt;p&gt;购入时间：2024/09/13&lt;/p&gt;
+&lt;p&gt;购入价格：3999 元（含两年 AppleCare+）&lt;/p&gt;
+&lt;p&gt;早在 2022 年就已经入手过 Apple Watch SE 2，两年时间过去，电池健康度降至 78%，很难支撑一整天使用，于是果断升级到了最新的 Apple Watch S10。&lt;/p&gt;
+&lt;p&gt;这已经是我使用 Apple Watch 的第三个年头，它已成为我日常生活中不可或缺的一部分。以下是我最常用且最有价值的几个功能：&lt;/p&gt;
+&lt;h3 id=&#34;万能的震动提醒&#34;&gt;万能的震动提醒&lt;/h3&gt;
+&lt;p&gt;Apple Watch 的震动反馈做得相当出色，在各种场合都能发挥作用。iPhone 的雷达闹钟铃声一直饱受诟病，每次听到都像是心脏骤停（虽然新系统似乎已经替换了默认铃声）。而 Apple Watch 可以设置闹钟默认为震动模式，既能有效唤醒你，又不会被刺耳的铃声惊醒。&lt;/p&gt;
+&lt;p&gt;此外，震动提醒还适用于各类消息通知，如飞书、微信等 IM 消息和来电提醒。对于习惯将手机设为静音模式的人来说，这个功能简直是救星。&lt;/p&gt;
+&lt;h3 id=&#34;运动睡眠数据记录&#34;&gt;运动、睡眠数据记录&lt;/h3&gt;
+&lt;p&gt;购买 Apple Watch 后，iPhone 上的健康 App 会显示三个活动圆环，分别代表运动量（消耗的卡路里）、锻炼时长和站立时间。你可以根据个人情况设置每项活动的目标，我目前的设置是：运动量 600 千卡、锻炼 20 分钟、站立 10 个小时。&lt;/p&gt;
+&lt;p&gt;虽然最初购买 Apple Watch 部分原因是希望它能督促我锻炼，效果可能没有想象中那么显著，但它确实在一定程度上提高了我的锻炼频率。每次看到三个圆环合并时，都会带来满满的成就感。&lt;/p&gt;
+&lt;p&gt;同时，搭配 Auto Sleep 应用，Apple Watch 能够精确记录睡眠数据，直观量化睡眠质量。我明显感觉到，当 Auto Sleep 显示我有&amp;quot;睡眠负债&amp;quot;时，我确实会感到特别疲惫，两者的同步性非常高。&lt;/p&gt;
+&lt;div align=&#34;center&#34;&gt;
+  &lt;img src=&#34;https://blog-assets-1300413137.cos.ap-guangzhou.myqcloud.com/uPic/image-20250309182453981.png&#34; alt=&#34;Auto Sleep&#34; style=&#34;zoom: 60%;&#34; /&gt;
+  &lt;p style=&#34;color: gray; font-size: 14px;&#34;&gt;Auto Sleep 记录的睡眠数据&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id=&#34;实用的日常功能&#34;&gt;实用的日常功能&lt;/h3&gt;
+&lt;p&gt;对于我这种经常找不到手机的人来说，Apple Watch 的查找手机功能简直是救命稻草。只需下拉控制中心就能让手机发出声音。更新到最新系统后，如果双方设备都支持 UWB 功能，Apple Watch 甚至能精确感知手机位置并提供方向指引。&lt;/p&gt;
+&lt;p&gt;此外，最新系统更新的智能小组件栏也非常实用，只需旋转表冠就能查看自动推荐的小组件，还可以同步 iPhone 上的实时活动。无论是查看滴滴打车进度、美团外卖状态，还是实时天气，都变得异常便捷。&lt;/p&gt;
+&lt;p&gt;总体而言，Apple Watch 确实在多方面提升了我的日常生活体验，是我认为最值得投资的数码产品之一。&lt;/p&gt;
+&lt;h2 id=&#34;三小米热泵烘干机&#34;&gt;三、小米热泵烘干机&lt;/h2&gt;
+&lt;p&gt;购入渠道：京东&lt;/p&gt;
+&lt;p&gt;购入时间：2024/4/26&lt;/p&gt;
+&lt;p&gt;购入价格：3599&lt;/p&gt;
+&lt;p&gt;深圳地处东南沿海，湿度甚高。尤其是到了每年的回南天更是重量级，衣服根本晒不干，越晒越湿。&lt;/p&gt;
+&lt;p&gt;因此在去年四月份，我们合租的几个一起买了一台烘干机，同时也考虑过买一个洗烘一体的机器，但是听说洗烘一体的机器会更加伤衣服，因此最终买了小米热泵烘干机。买了烘干机可以无惧深圳的回南天和高湿度，下雨天也不需要记得去阳台收衣服，甚至下雨天你也可以洗衣服，不用怕晾不干。除了这些基本的，这个烘干机也还带来了一些意料之外的收获：&lt;/p&gt;
+&lt;p&gt;首先是烘干机极大的减轻了洗衣服这件事的心理负担，同时极大的缩短了洗衣服&amp;amp;晒衣服的时间。过去洗完衣服后，需要一件件的把衣服拿出来分离开挂到晾衣架上，还要记得再等一天或者两天后把衣服收回去。你需要很麻烦的去晾衣服、也需要记得收回晾干的衣服。但是有了烘干机后，一切都变得如此简单，你只需要在衣服洗完后直接一股脑丢进烘干机，再记得两个小时后拿出来即可。而且甚至你不需要记得，烘干机可以接入米家，在烘干完成时会自动通知你。同时，由于我们是多人共享同一台烘干机，就算你不忘记了拿，别人在烘干前也会帮你拿出来放好，这个根本不会成为一项负担。&lt;/p&gt;
+&lt;p&gt;同时，更让人感到惊喜的是，烘干机居然可以去除衣服上的猫毛（是的，我过去一直不知道，用过后才知道。）。养猫后很烦的一点就是，身上到处都是猫毛，出门前需要记得用粘毛器粘完再出门，洗完晒干的衣服上也还是会残留猫毛。但是用了烘干机后，烘干机每次烘干都会把猫毛收集到烘干机自带的毛盒中，烘完的衣服上几乎看不到猫毛，非常的舒适。&lt;/p&gt;
+&lt;p&gt;因此，现在我养成的习惯就是，买了三件类似的衣服换着穿，然后每隔三天都集体洗一次然后烘干。这样我每天穿的衣服都是新的不带猫毛的，我也不需要粘毛了，整个流程便利了非常多。&lt;/p&gt;
+&lt;p&gt;此外，烘干机目前我们发现也有一个缺点就是，有的衣服上会贴那种胶标，晒干后会掉或者开裂。当然问题也好解决，就是不穿这种带胶标的衣服就好了～哈哈&lt;/p&gt;
+</description>
+    </item>
     <item>
       <title>绿联 NAS 配置基于 EUI64 的 SLAAC IPv6 地址</title>
       <link>https://blog.zzsqwq.cn/posts/ugreen-nas-configure-eui64-ipv6/</link>
@@ -243,8 +337,7 @@
 &lt;/ol&gt;
 &lt;blockquote&gt;
 &lt;p&gt;关注当下大意就是：喝一杯茶就认真去品味这杯茶，总想着喝完茶之后的事情，这茶也就饮之无味，属于你的饮茶时间也就被偷走了。夜晚想着明天的事情难以入眠，那就关注躺在床上的自己，此刻的你不可能爬起来去做明天的事，想到这里便可以安心入睡；疼痛的时候就去感知疼痛，去关照你身体此刻的感受，不去想别的，它反而就没那么痛了。&lt;/p&gt;
-&lt;p&gt;原来看问题还有这种角度？长久以来我做事确实都是魂不附体，思绪永远快于肉体，刷着牙想着等下要洗脸，洗着脸想着马上要洗澡，洗着澡，魂早飘到一会躺床上刷手机用什么姿势？总是很急，急来急去俨然一副空壳子，对生活的细节毫无感知，其实就是浮躁，而关注当下就是浮躁的解药，也是我在病前期意外抓到的一根救命稻草。听人劝吃饱饭，得益于此书，我的心态开始转变，关注当下进而去关照自身，帮助自己真正放松了下来。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;原来看问题还有这种角度？长久以来我做事确实都是魂不附体，思绪永远快于肉体，刷着牙想着等下要洗脸，洗着脸想着马上要洗澡，洗着澡，魂早飘到一会躺床上刷手机用什么姿势？总是很急，急来急去俨然一副空壳子，对生活的细节毫无感知，其实就是浮躁，而关注当下就是浮躁的解药，也是我在病前期意外抓到的一根救命稻草。听人劝吃饱饭，得益于此书，我的心态开始转变，关注当下进而去关照自身，帮助自己真正放松了下来。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;再就是三月份提到的办了年卡的健身房，六月份跑路了。在多次协调无果、12315 也不起作用的情况下，尝试起诉了健身房，第一次尝试当原告，最终在 12 月末成功立案，希望新的一年可以起诉成功，到时候可以总结一下发个经验帖供大家参考。&lt;/li&gt;
 &lt;/ol&gt;
@@ -877,8 +970,7 @@
 &lt;p&gt;I hope this clears things up. If you have any further questions, please let us know.&lt;/p&gt;
 &lt;p&gt;Kind regards,
 Pip,
-GitHub Support&lt;/p&gt;
-&lt;/blockquote&gt;
+GitHub Support&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;大意就是 GitHub 最近在我的帐户上检测到可疑活动，并在调查发生的事情的同时出于谨慎考虑对我的账号施加了限制。现在已经把我的账号解封了，但是需要重置密码后才可以继续使用。&lt;/p&gt;
 &lt;h3 id=&#34;后续处理&#34;&gt;后续处理&lt;/h3&gt;
 &lt;p&gt;登录账号后，我发现组织 nwpusr-vision-team 仍存在限制，提示如下：&lt;/p&gt;
@@ -892,22 +984,19 @@ GitHub Support&lt;/p&gt;
 &lt;p&gt;随后我又就被封号原因这个问题，和 Github Support 人员展开了一些沟通，但是他们只是一直在说「GitHub 在我的帐户上检测到可疑活动，并在调查发生的事情的同时出于谨慎考虑对我的账号施加了限制，由于这个过程是他们检测工具自动进行的，恕他们无法告知更准确的原因」，最后仍是无法得知我推断的是否正确，但是应该除此之外没什么其他的原因了，由于我 GitHub 开启了 2FA 同时没泄露任何 token，理论上不会被有被异地登陆的可能。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Our security team has recently been investigating suspicious activity and account hijacking, and we were concerned that your account may have been affected. Out of an abundance of caution, restrictions were placed on your account as part of our attempts to combat this campaign.&lt;/p&gt;
-&lt;p&gt;We use a number of detection methods to find abuse on GitHub, but I’m afraid I’m not at liberty to discuss our internal tooling.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;We use a number of detection methods to find abuse on GitHub, but I’m afraid I’m not at liberty to discuss our internal tooling.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;后记&#34;&gt;后记&lt;/h2&gt;
 &lt;p&gt;整件事情看下来其实 GitHub 的处理有点离谱，仅仅是检测到账号可能存在异常活动，就在&lt;strong&gt;没有任何通知且不告知详细缘由&lt;/strong&gt;的情况下封禁了账号，同时无法访问任何仓库/Issue，目前来看恢复账号也需要个至少两天，可能会耽误很多事情。&lt;/p&gt;
 &lt;p&gt;我也就这件事情进行了反馈：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Lastly, I believe the way GitHub officially handled this situation was quite unreasonable. Our accounts were banned without any email notification, making it impossible to access repos, followers, following, stars, issues (all showing 404), and without stating a specific reason. For instance, as mentioned in the previous reply: &amp;ldquo;We recently detected suspicious activity on your account and applied restrictions out of an abundance of caution while we investigated what took place.&amp;rdquo; I think if you were to conduct an investigation, you could consider first imposing restrictions on the account (such as only allowing the repository to be pulled without any write operations on the account/repository) and notify us by email: &amp;ldquo;We have detected unusual activity and have restricted your account for safety reasons.&amp;rdquo; This would seem more reasonable and wouldn&amp;rsquo;t leave us confused. Please seriously consider the workflow for the future; this will make everyone love GitHub more. Thank you!&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Lastly, I believe the way GitHub officially handled this situation was quite unreasonable. Our accounts were banned without any email notification, making it impossible to access repos, followers, following, stars, issues (all showing 404), and without stating a specific reason. For instance, as mentioned in the previous reply: &amp;ldquo;We recently detected suspicious activity on your account and applied restrictions out of an abundance of caution while we investigated what took place.&amp;rdquo; I think if you were to conduct an investigation, you could consider first imposing restrictions on the account (such as only allowing the repository to be pulled without any write operations on the account/repository) and notify us by email: &amp;ldquo;We have detected unusual activity and have restricted your account for safety reasons.&amp;rdquo; This would seem more reasonable and wouldn&amp;rsquo;t leave us confused. Please seriously consider the workflow for the future; this will make everyone love GitHub more. Thank you!&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;他们的一些回复如下（分多封邮件进行交流，不同邮件间使用分割线分割）：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Thanks for your reply and your feedback, I appreciate you taking the time to share it with me and I will make sure to share it with the relevant team.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;We restricted your account as we had reasons to believe it may have been compromised in the aforementioned campaign. However, in your specific case, further review suggests that your personal account was unlikely to have been affected. I do apologize for the inconvenience, but hope you understand our need to prioritize account security.&lt;/p&gt;
 &lt;hr&gt;
-&lt;p&gt;I understand that having your account restricted unexpectedly can be a frustrating experience, and I appreciate your feedback on receiving notification. I have shared your feedback internally.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;I understand that having your account restricted unexpectedly can be a frustrating experience, and I appreciate your feedback on receiving notification. I have shared your feedback internally.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;希望 GitHub 后续可以改进这个流程。&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Ps：这次导致封号的违规仓库居然还是 fork 的 &lt;a href=&#34;https://github.com/RoboMaster/RoboRTS&#34;&gt;RoboRTS&lt;/a&gt; ，就连这个都跟 RM 有关，有点离谱。&lt;/p&gt;
@@ -936,15 +1025,13 @@ GitHub Support&lt;/p&gt;
 &lt;iframe  width=&#34;100%&#34; height=&#34;500&#34; src=&#34;//player.bilibili.com/player.html?aid=334427777&amp;bvid=BV1uw411R78b&amp;cid=378349675&amp;page=1&amp;autoplay=0&#34; scrolling=&#34;no&#34; border=&#34;0&#34; frameborder=&#34;no&#34; framespacing=&#34;0&#34; allowfullscreen=&#34;true&#34;&gt; &lt;/iframe&gt;
 &lt;p&gt;根据百度百科对于虚假宣传的定义：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;虚假宣传是指在商业活动中经营者利用广告或其他方法对商品或者服务做出与实际内容不相符的&lt;a href=&#34;https://baike.baidu.com/item/%E8%99%9A%E5%81%87%E4%BF%A1%E6%81%AF/2398005?fromModule=lemma_inlink&#34;&gt;虚假信息&lt;/a&gt;，导致客户或消费者误解的行为。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;虚假宣传是指在商业活动中经营者利用广告或其他方法对商品或者服务做出与实际内容不相符的&lt;a href=&#34;https://baike.baidu.com/item/%E8%99%9A%E5%81%87%E4%BF%A1%E6%81%AF/2398005?fromModule=lemma_inlink&#34;&gt;虚假信息&lt;/a&gt;，导致客户或消费者误解的行为。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;这拼多多应该确实是符合的吧？虽然很多只是下载了 App 但是没有产生消费行为，但也可以归入其中。&lt;/p&gt;
 &lt;h2 id=&#34;二砍一刀套路多&#34;&gt;二、砍一刀套路多&lt;/h2&gt;
 &lt;p&gt;套路多是指，经过第一步的虚假宣传，让你下载了 App，你以为可以很轻松的拿到免单的商品，但实际他会给你放一堆的限制，就像十年前的页游，一堆过场动画，什么「你是砍价第一名」、「还差 0.01 即可砍成功」，但你一旦继续深入，你就会发现这是个无底洞，0.01 后面是 0.001，0.001 后面是 0.0001，0.0001 后面怕你看数字太小生气，他就会让你集几万个金币或者一些其他的东西，十万个金币兑换 0.001，这样无限循环，想砍成实在难如登天。&lt;/p&gt;
 &lt;p&gt;拼多多曾公开表示&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;近日，“拼多多砍价，但始终差0.9%”话题受到广泛关注，去年3月，上海律师刘宇航参加了拼多多的“砍价免费拿”活动后，经多人砍价还是0.9%，在质疑数据有问题后，刘以使用虚假数据隐瞒规则已构成欺诈为由，向法院递交了起诉材料。在刘宇航随后释出的文件中得知，拼多多称是“因页面显示百分比位数有限，所以他们把一个至少小数点后有6位数以上的百分比，省略显示为0.9%，砍价页面显示的0.9%不是0.9%，而是0.9996427%。”&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;近日，“拼多多砍价，但始终差0.9%”话题受到广泛关注，去年3月，上海律师刘宇航参加了拼多多的“砍价免费拿”活动后，经多人砍价还是0.9%，在质疑数据有问题后，刘以使用虚假数据隐瞒规则已构成欺诈为由，向法院递交了起诉材料。在刘宇航随后释出的文件中得知，拼多多称是“因页面显示百分比位数有限，所以他们把一个至少小数点后有6位数以上的百分比，省略显示为0.9%，砍价页面显示的0.9%不是0.9%，而是0.9996427%。”&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;当然这里也有砍成功的，不过是分价位的，你砍 100 元的红包，可能拉个七八个人就成功，如果都是新用户可能会更少，如果是砍 Switch、手机这种大件，需要砍的次数则就更多。当然砍 100 元的红包砍的多了，积累的价钱上去了，他也不会让你持续的薅，难度也是累加的。一个典型的案例可以看 &lt;a href=&#34;https://space.bilibili.com/29440965&#34;&gt;超级小桀&lt;/a&gt; 之前的视频，如下：&lt;/p&gt;
 &lt;iframe width=&#34;100%&#34; height=&#34;500&#34; src=&#34;//player.bilibili.com/player.html?aid=679818997&amp;bvid=BV12S4y1u7rw&amp;cid=553141060&amp;page=1&amp;autoplay=0&#34; scrolling=&#34;no&#34; border=&#34;0&#34; frameborder=&#34;no&#34; framespacing=&#34;0&#34; allowfullscreen=&#34;true&#34;&gt; &lt;/iframe&gt;
 &lt;p&gt;上面这个视频简单概括一下就是，小桀在直播间突发奇想带水友一起砍一部 IQOO 手机，前期很长的过场动画都在提示你，马上可以直接拿到，进度已经到达 0.00%，但是还是需要收集 10 多个金币，邀请两三个人即可，后来小桀把二维码分享出来，非常多的水友扫码砍，后来导致二维码提示被封禁，小桀又把链接分享给了群里的水友，当时在线的水友不完全统计 6-7W，至少有上千人参与，但最终也没有让那 10 多个金币归零，打电话给客服询问，客服给出理由如下：&lt;/p&gt;
@@ -952,8 +1039,7 @@ GitHub Support&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;每个人砍都是概率砍成功，可能 100 人砍有 50 个人、80 个人砍成功，不是 100% 成功。&lt;/li&gt;
 &lt;li&gt;像这么多人砍价，系统检测到会封禁。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
 &lt;p&gt;那我就有点疑问了，你这个东西本来就需要邀请很多人砍价才能成功，但是你人一多又要封禁，那么不邀请这么多人砍价，那么怎么成功呢？真的是「解释权归拼多多所有」。&lt;/p&gt;
 &lt;p&gt;据小桀自己回应，直到3月17号下午2点40分左右下播，也没有砍成功，但是突然在4点40分左右莫名其妙的成功了，赠送了一张无门槛购物券可以下单此手机，随后客服回应：砍价不成功不属实，已经发放「特制」优惠券。这一通操作，实在是闻所未闻，谁也能看出来是事态发展到不可预料的地步搞了个东西出来封口的。&lt;/p&gt;
 &lt;p&gt;实在是太像诈骗、传销了，即使这样广泛的虚假宣传，到现在也没有被整治，也还是随处可见。&lt;/p&gt;
@@ -1026,8 +1112,7 @@ GitHub Support&lt;/p&gt;
 &lt;p&gt;GPU: RTX3090&lt;/p&gt;
 &lt;p&gt;NVIDIA Driver Version: 515.65.01&lt;/p&gt;
 &lt;p&gt;CUDA Version: 11.7&lt;/p&gt;
-&lt;p&gt;OE Version: v2.4.2( gcc-9.3.0 For XJ3 )&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;OE Version: v2.4.2( gcc-9.3.0 For XJ3 )&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;因为我的开发是基于 Ubuntu 进行，训练是 GPU 进行的，所以这里只提及关于 Ubuntu +  GPU 训练的环境配置，Windows 情况下，或者只有 CPU 的情况，我也没尝试过。&lt;/p&gt;
 &lt;p&gt;首先需要安装 Docker 以及 NVIDIA Docker，前者安装参考：&lt;a href=&#34;https://docs.docker.com/engine/install/ubuntu/&#34;&gt;Docker 安装文档&lt;/a&gt;，后者安装参考：&lt;a href=&#34;https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#install-guide&#34;&gt;NVIDIA Docker 安装文档&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;参考官方 X3 芯片文档编写启动脚本 &lt;code&gt;run_docker.sh&lt;/code&gt; 如下：&lt;/p&gt;
@@ -1058,8 +1143,7 @@ GitHub Support&lt;/p&gt;
 &lt;h2 id=&#34;训练-coco-数据集并进行部署&#34;&gt;训练 COCO 数据集并进行部署&lt;/h2&gt;
 &lt;h3 id=&#34;数据准备&#34;&gt;数据准备&lt;/h3&gt;
 &lt;blockquote&gt;
-&lt;p&gt;下方的操作均在上方启动的容器中进行，首先需要先 docker exec 进入容器中。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;下方的操作均在上方启动的容器中进行，首先需要先 docker exec 进入容器中。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;其中准备 COCO 数据集部分参考 &lt;a href=&#34;https://developer.horizon.ai/api/v1/fileData/doc/ddk_doc/navigation/ai_toolchain/docs_cn/horizon_algorithm_toolkit/examples/fcos.html&#34;&gt;官方文档部分&lt;/a&gt;，首先进入 &lt;code&gt;/data&lt;/code&gt; 目录，然后新建一个文件夹 &lt;code&gt;mscoco&lt;/code&gt;，下载数据集、解压即可。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 进入之前挂载的 /data 目录&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /data
@@ -2242,8 +2326,7 @@ GitHub Support&lt;/p&gt;
 &lt;p&gt;至少我现在，还是个滴酒不沾、不屑于打点的鸟人。&lt;/p&gt;
 &lt;h3 id=&#34;酒文化&#34;&gt;酒文化&lt;/h3&gt;
 &lt;blockquote&gt;
-&lt;p&gt;我是个滴酒不沾的人&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;我是个滴酒不沾的人&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;有两点比较重要的原因&lt;/p&gt;
 &lt;p&gt;一个是因为酒真的很难喝，好喝也就罢了，难喝为什么要喝呢？&lt;/p&gt;
 &lt;p&gt;二是因为我真的很讨厌饭桌上推杯换盏，你推我我推你，大家都喝得烂醉如泥。村里有很多喝酒出事去世的例子，小时候看见一个哥哥的朋友，喝醉后在大街上和别人干架，然后在欢喜的日子里一起进医院···何必呢？&lt;/p&gt;
@@ -2294,8 +2377,7 @@ GitHub Support&lt;/p&gt;
 &lt;p&gt;可以看到官方的注释为&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回&lt;/p&gt;
-&lt;p&gt;所以此处加入 callback 以防止这种情况&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;所以此处加入 callback 以防止这种情况&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;这里判断了主程序内是否含有 &lt;code&gt;userInfoReadyCallback&lt;/code&gt; 这个函数，如果有的话就执行。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;qq&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getSetting&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            &lt;span class=&#34;nx&#34;&gt;success&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;res&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
@@ -2373,8 +2455,7 @@ GitHub Support&lt;/p&gt;
 &lt;li&gt;The technical build time difference is that it requires a C++ build chain for the target platform to build, the reason why we currently only build the extended for 3 platforms (Windows, Linux, MacOS)&lt;/li&gt;
 &lt;li&gt;Binaries are slightly less portable as you need a compatible Libc version on your computer (for Windows we build a fully static version as Libc is rather uncommon unless you have Visual Studio or something installed).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;via: &lt;a href=&#34;https://github.com/gohugoio/hugoDocs/issues/1152&#34;&gt;Please document the difference between the &amp;ldquo;extended&amp;rdquo; and non-&amp;ldquo;extended&amp;rdquo; versions&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;via: &lt;a href=&#34;https://github.com/gohugoio/hugoDocs/issues/1152&#34;&gt;Please document the difference between the &amp;ldquo;extended&amp;rdquo; and non-&amp;ldquo;extended&amp;rdquo; versions&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;我认为，直接使用 extended 版本就完事了。使用了 extended 不会报错，而不用 extended 版本可能会报错。&lt;/p&gt;
 &lt;h3 id=&#34;构建网站&#34;&gt;构建网站&lt;/h3&gt;
 &lt;p&gt;首先在合适的目录下生成一个新的网站&lt;/p&gt;
@@ -2385,8 +2466,7 @@ GitHub Support&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git submodule add https://github.com/luizdepra/hugo-coder.git themes/hugo-coder
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后基于对应主题的 exampleSite 来设定对应的配置文件 config.toml，&lt;strong&gt;这里很蛋疼的是 coder 主题居然偏爱 toml 配置格式，为什么不是 yaml/json 呢？&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;补充：hugo 支持三种格式的配置文件 yaml, toml, json.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;补充：hugo 支持三种格式的配置文件 yaml, toml, json.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;然后启动博客即可&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ hugo server
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里很有意思的是，启动多个 server 不会冲突，hugo 会选择另外一个端口部署。同时，启动 server 不会显式生成静态文件。&lt;/p&gt;
@@ -2465,8 +2545,7 @@ GitHub Support&lt;/p&gt;
       <description>&lt;h1 id=&#34;前言&#34;&gt;前言&lt;/h1&gt;
 &lt;p&gt;近期著名 Markdown 编辑器 &lt;a href=&#34;https://typora.io/&#34;&gt;Typora&lt;/a&gt; 宣布收费了，起初感觉很难受，后来感慨之余也觉得算是合理，毕竟 Typora 用起来感觉是真的很良心，也在考虑是否买一份支持一下。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;已于2021/12/10购入，还是选择回归了 Typora 了哈哈哈&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;已于2021/12/10购入，还是选择回归了 Typora 了哈哈哈&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;虽说左右分屏的设计可能更符合 Markdown 的初衷，但是像 Typora 这种所见即所得（WYSIWYG） 的书写体验确实是感觉习惯了就回不去了。&lt;/p&gt;
 &lt;p&gt;因此近期也搜集了 Markdown 编辑器作为 Typora 的替代品，在这里给大家分享一下。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;特别声明，下面的分享多是我日常体验中的一些感受，可能不够客观，比较片面，大家可以自己使用体验一下！&lt;/strong&gt;&lt;/p&gt;
@@ -2651,8 +2730,7 @@ GitHub Support&lt;/p&gt;
 &lt;p&gt;说一下三个安装方式的区别&lt;/p&gt;
 &lt;p&gt;第一个模式与第二个模式的区别就是，第二个模式对于grub启动项目中添加了一个 &lt;code&gt;nomodeset&lt;/code&gt;  选项，那么这个选项是做什么的？以下是他的解释：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;The newest kernels have moved the video mode setting into the kernel. So all the programming of the hardware specific clock rates and registers on the video card happen in the kernel rather than in the X driver when the X server starts.. This makes it possible to have high resolution nice looking splash (boot) screens and flicker free transitions from boot splash to login screen. Unfortunately, on some cards this doesn’t work properly and you end up with a black screen. Adding the nomodeset parameter instructs the kernel to not load video drivers and use BIOS modes instead until X is loaded.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;The newest kernels have moved the video mode setting into the kernel. So all the programming of the hardware specific clock rates and registers on the video card happen in the kernel rather than in the X driver when the X server starts.. This makes it possible to have high resolution nice looking splash (boot) screens and flicker free transitions from boot splash to login screen. Unfortunately, on some cards this doesn’t work properly and you end up with a black screen. Adding the nomodeset parameter instructs the kernel to not load video drivers and use BIOS modes instead until X is loaded.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;大概意思是在最新的内核中，已经能够在BIOS引导阶段启用显卡，这样做的目的是很好的适应高分辨率屏，但是很遗憾的是某些显卡并不能很好的适配，通过 &lt;code&gt;nomodeset&lt;/code&gt; 参数可以防止以不支持的显卡驱动视频流。&lt;/p&gt;
 &lt;p&gt;很遗憾，锐炬显卡刚好没有被适配，所以选第一个选项&lt;code&gt;(Ubuntu)&lt;/code&gt;来安装也会屏幕一闪一闪的，因此我们安装选择Ubuntu&lt;code&gt;(safe graphics)&lt;/code&gt;选项来进行安装然后流程是一样的，蛮顺利。&lt;/p&gt;
 &lt;p&gt;这里装完就没有触摸板的问题，屏幕亮度调节也没有问题。不过键盘依旧有问题，可以根据上面描述进行更改。&lt;/p&gt;
@@ -2875,8 +2953,7 @@ Changes not staged for commit:
 &lt;p&gt;以下大多参考：&lt;a href=&#34;https://sspai.com/post/40997&#34;&gt;如何正确地用树莓派共享打印机&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;大佬言：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;其实，这一步的工作量非常少，因为软件包 CUPS 就是为共享打印机而生。我们要做的只是将打印机用 USB 线缆连接树莓派，然后安装并配置 CUPS。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;其实，这一步的工作量非常少，因为软件包 CUPS 就是为共享打印机而生。我们要做的只是将打印机用 USB 线缆连接树莓派，然后安装并配置 CUPS。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;然而，事实并非如此。&lt;/p&gt;
 &lt;h4 id=&#34;换源&#34;&gt;换源&lt;/h4&gt;
 &lt;p&gt;在安装之前需要换源，如果不换源的话，安装会十分缓慢，具体的流程可以看上面的blog，因为我们基地的WiFi自带代理，因此这一步我没有做。&lt;/p&gt;
@@ -3237,8 +3314,7 @@ $$&lt;/p&gt;
 &lt;p&gt;根据通用近似定理:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;通用近似定理&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;对于具有线性输出层和至少一个使用“挤压”性质的激活函数的隐藏层组成的前馈神经网络，只要其隐藏层神经元的数量足够，它可以以任意精度来近似任何从一个定义在实数空间中的有界闭集函数。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;对于具有线性输出层和至少一个使用“挤压”性质的激活函数的隐藏层组成的前馈神经网络，只要其隐藏层神经元的数量足够，它可以以任意精度来近似任何从一个定义在实数空间中的有界闭集函数。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;只要隐藏层网络维度够高，就可以拟合任意的函数。&lt;/p&gt;
 &lt;p&gt;考虑到我们的模型有六维or十三维的数据输入，因此我们建立两层前馈神经网络，中间具有一层隐藏层，维度为1000维，激活函数使用Relu，Relu函数有以下优点:&lt;/p&gt;
 &lt;ul&gt;
@@ -3360,8 +3436,7 @@ $$
 &lt;p&gt;pytorch = 1.2.0&lt;/p&gt;
 &lt;p&gt;python = 3.6.12&lt;/p&gt;
 &lt;p&gt;torchvision = 0.4.0&lt;/p&gt;
-&lt;p&gt;cuda = 10.2&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;cuda = 10.2&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;​需要注意的是：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;官方给出的教程里面使用的是 &lt;code&gt;pytorch 0.4.1&lt;/code&gt;，但是我个人在实测过程中遇到了一些问题，遂安装网上的教程更改为 &lt;code&gt;pytorch 1.2.0&lt;/code&gt;，并且需要把 &lt;code&gt;${CenterNet_Root}/src/lib/models/networks/DCNv2&lt;/code&gt; 中的这个&lt;a href=&#34;https://github.com/CharlesShang/DCNv2&#34;&gt;DCNv2&lt;/a&gt;网络更改为官方的最新版。&lt;/li&gt;
@@ -3429,8 +3504,7 @@ $$
 &lt;li&gt;
 &lt;p&gt;然后根据官方的教程，我们需要创建一个images文件夹，然后将其 &lt;code&gt;training/image_2&lt;/code&gt; 链接到 &lt;code&gt;images/trainval&lt;/code&gt;，我在实际的测试中，发现此方法并不可行。参考CenterNet中的一个Issue: &lt;a href=&#34;https://github.com/xingyizhou/CenterNet/issues/575&#34;&gt;Evaluate kitti&amp;ndash;AttributeError: &amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;shape&amp;rsquo;&lt;/a&gt; ，其中 juanmed给出了解决方案：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;I had the same problem. For some reason the simlinks that are created during the data preparation process described in DATA.md are not working. So instead of creating simlinks I simply copied the actual data into the directories indicated in DATA.md. In other words the folders &lt;code&gt;data/kitti/images/test&lt;/code&gt; and &lt;code&gt;data/kitti/images/trainval&lt;/code&gt; do contain the actual images.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;I had the same problem. For some reason the simlinks that are created during the data preparation process described in DATA.md are not working. So instead of creating simlinks I simply copied the actual data into the directories indicated in DATA.md. In other words the folders &lt;code&gt;data/kitti/images/test&lt;/code&gt; and &lt;code&gt;data/kitti/images/trainval&lt;/code&gt; do contain the actual images.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;意思就是说，我们在 &lt;strong&gt;images&lt;/strong&gt; 中的图片必须都是真实的照片，而不能只是软链接过去。&lt;/p&gt;
 &lt;p&gt;解决方案很显然，只需要在 &lt;strong&gt;images&lt;/strong&gt; 文件夹中建立一个 &lt;strong&gt;trainval&lt;/strong&gt; 文件夹，将 &lt;code&gt;training/image_2&lt;/code&gt; 中的所有图像都移入其中即可。如果有test的照片，那么也照规在 &lt;strong&gt;images&lt;/strong&gt; 新建一个 &lt;strong&gt;test&lt;/strong&gt; 文件夹，把测试的照片移入其中即可。&lt;/p&gt;
 &lt;/li&gt;
@@ -3443,8 +3517,7 @@ $$
 &lt;blockquote&gt;
 &lt;p&gt;The solution is quite simple.
 &lt;code&gt;cd data/kitti&lt;/code&gt;
-&lt;code&gt;mv label_2 label_val&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;code&gt;mv label_2 label_val&lt;/code&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;​    更改后，运行成功~&lt;/p&gt;
 &lt;p&gt;我们应该可以在 &lt;code&gt;${CenterNet_ROOT}/exp/ddd/3dop/results&lt;/code&gt; 看到我们得到的结果，只不过运行得到的是点的坐标，而不是图像，如果需要图像的话可能还需要自己绘制一下。&lt;/p&gt;
 </description>
@@ -3708,8 +3781,8 @@ prompt pure
       <link>https://blog.zzsqwq.cn/posts/136/</link>
       <pubDate>Thu, 12 Nov 2020 23:13:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/136/</guid>
-      <description>&lt;h2 id=&#34;程序星编程之路第二次作业httpswwwluogucomcncontest36509题解&#34;&gt;&lt;a href=&#34;https://www.luogu.com.cn/contest/36509&#34;&gt;“程序星编程之路”第二次作业&lt;/a&gt;题解&lt;/h2&gt;
-&lt;h3 id=&#34;a-zs的回文质数httpswwwluogucomcnproblemu138527contestid36509&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/U138527?contestId=36509&#34;&gt;Zs的回文质数&lt;/a&gt;&lt;/h3&gt;
+      <description>&lt;h2 id=&#34;程序星编程之路第二次作业题解&#34;&gt;&lt;a href=&#34;https://www.luogu.com.cn/contest/36509&#34;&gt;“程序星编程之路”第二次作业&lt;/a&gt;题解&lt;/h2&gt;
+&lt;h3 id=&#34;a-zs的回文质数&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/U138527?contestId=36509&#34;&gt;Zs的回文质数&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题目描述&#34;&gt;题目描述&lt;/h4&gt;
 &lt;p&gt;读入一个整数 $n$ ，输出 $[1,n]$ 的所有回文质数，我们规定 $1\sim9$ 也是回文数。&lt;/p&gt;
 &lt;h4 id=&#34;思路&#34;&gt;思路&lt;/h4&gt;
@@ -3804,7 +3877,7 @@ prompt pure
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;b-wcx的杨辉三角httpswwwluogucomcnproblemu138528contestid36509&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/U138528?contestId=36509&#34;&gt;Wcx的杨辉三角&lt;/a&gt;&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;b-wcx的杨辉三角&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/U138528?contestId=36509&#34;&gt;Wcx的杨辉三角&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题目描述-1&#34;&gt;题目描述&lt;/h4&gt;
 &lt;p&gt;读入一个整数 $n$ ，输出杨辉三角的前 $n$ 行。&lt;/p&gt;
 &lt;h4 id=&#34;思路-1&#34;&gt;思路&lt;/h4&gt;
@@ -3851,7 +3924,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;其他-1&#34;&gt;其他&lt;/h4&gt;
 &lt;p&gt;这道题主要是对二维数组的考察。&lt;/p&gt;
 &lt;p&gt;注意我们遇到第五个点过不去的时候，应该试一下最大的值 $40$ ，会发现有负数，显然是溢出问题，我们就能知道问题的解决办法了。&lt;/p&gt;
-&lt;h3 id=&#34;c-zh的约瑟夫环问题httpswwwluogucomcnproblemu138529contestid36509&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/U138529?contestId=36509&#34;&gt;Zh的约瑟夫环问题&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;c-zh的约瑟夫环问题&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/U138529?contestId=36509&#34;&gt;Zh的约瑟夫环问题&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题目描述-2&#34;&gt;题目描述&lt;/h4&gt;
 &lt;p&gt;有 $n$ 个人围成一圈，顺序排号，从第一个开始报数(从 $1$ 到 $m$ 报数)，凡报到 $m$ 的人退出圈子，问最后留下的是几号.&lt;/p&gt;
 &lt;h4 id=&#34;思路-2&#34;&gt;思路&lt;/h4&gt;
@@ -4032,13 +4105,11 @@ $$&lt;/p&gt;
       <description>&lt;h1 id=&#34;了解sql&#34;&gt;了解SQL&lt;/h1&gt;
 &lt;h2 id=&#34;一什么是sql&#34;&gt;一.什么是SQL&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;SQL&lt;/strong&gt;是结构化查询语言（Structured Query Language）的缩写。是一种专门用来与数据库通信的语言。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;SQL&lt;/strong&gt;是结构化查询语言（Structured Query Language）的缩写。是一种专门用来与数据库通信的语言。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;二什么是数据库&#34;&gt;二.什么是数据库？&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;数据库（Database）：保存有组织的数据的容器（通常是一个文件或一组文件）。
-​[scode type = &amp;ldquo;yellow&amp;rdquo;]需要注意的是，有时候我们把数据库软件也简称为数据库，但是数据库软件和数据库有本质区别，数据库软件应称为DBMS（数据库管理系统），我们通过数据库软件对数据库进行删减等操作，他代替你操作和访问数据库。[/scode]&lt;/p&gt;
-&lt;/blockquote&gt;
+​[scode type = &amp;ldquo;yellow&amp;rdquo;]需要注意的是，有时候我们把数据库软件也简称为数据库，但是数据库软件和数据库有本质区别，数据库软件应称为DBMS（数据库管理系统），我们通过数据库软件对数据库进行删减等操作，他代替你操作和访问数据库。[/scode]&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;三数据库的组成&#34;&gt;三.数据库的组成&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -4096,8 +4167,7 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;五数据库设计范式&#34;&gt;五.数据库设计范式&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;范式：当一个关系中的所有分类都是不可再分的数据项时，该关系是规范化的。不可再分的数据项，即不存在组合数据项和多项数据项。一个低一级的关系模式，通过模式分解可以转换为若干高一级范式的关系模式的集合，这个过程就叫规范化。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;范式：当一个关系中的所有分类都是不可再分的数据项时，该关系是规范化的。不可再分的数据项，即不存在组合数据项和多项数据项。一个低一级的关系模式，通过模式分解可以转换为若干高一级范式的关系模式的集合，这个过程就叫规范化。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;第一范式&lt;/strong&gt;：当关系模式R的所有属性都不能在分解为更基本的数据单位时，称R是满足第一范式的，简记为1NF。满足第一范式是关系模式规范化的最低要求，否则，将有很多基本操作在这样的关系模式中实现不了。&lt;/p&gt;
@@ -4181,7 +4251,7 @@ $$&lt;/p&gt;
       <pubDate>Wed, 19 Aug 2020 13:21:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/68/</guid>
       <description>&lt;h1 id=&#34;day-3&#34;&gt;Day 3&lt;/h1&gt;
-&lt;h2 id=&#34;a-黑妹的游戏httpsacnowcodercomacmcontest6956a&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6956/A&#34;&gt;黑妹的游戏Ⅰ&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;a-黑妹的游戏&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6956/A&#34;&gt;黑妹的游戏Ⅰ&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给出三个不同的初始数字$a,b,c$，黑妹每次选择两个不同的数字，计算出差的绝对值后如果黑板上没有就写在黑板上。问黑妹最多能添加多少个数字。&lt;/p&gt;
 &lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
@@ -4218,7 +4288,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;b-御坂美琴httpsacnowcodercomacmcontest6956b&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6956/B&#34;&gt;御坂美琴&lt;/a&gt;&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;b-御坂美琴&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6956/B&#34;&gt;御坂美琴&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;有 $n$ 个玩偶堆成一堆。$(1\le n \le 10^{18})$&lt;/p&gt;
 &lt;p&gt;你可以指定某一有 $x$ 个玩偶的玩偶堆将他分成 $\lfloor \frac{x}{2}\rfloor$ 和 $x-\lfloor \frac{x}{2} \rfloor$ 两堆。&lt;/p&gt;
@@ -4287,7 +4357,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;day-4&#34;&gt;Day 4&lt;/h1&gt;
-&lt;h2 id=&#34;a-distancehttpsacnowcodercomacmcontest6957a&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6957/A&#34;&gt;Distance&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;a-distance&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6957/A&#34;&gt;Distance&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定有 $n$ 个数的序列 $A$ ，第 $i$ 个位置对应的值为 $A_i$ 。$(n\le 10^5 ,A_i \le 10^9)$&lt;/p&gt;
 &lt;p&gt;定义 $FST$ 距离为 $|i^2 - j^2| + |A_i^2 - A_j^2|$ ，现在 $fst$ 想在序列 $A$ 中找到距离最大的一对元素，他不关心是哪一对，只想要求出最大的距离。&lt;/p&gt;
@@ -4336,7 +4406,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%lld&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;b-字典序最小的中序遍历httpsacnowcodercomacmcontest6957b&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6957/B&#34;&gt;字典序最小的中序遍历&lt;/a&gt;&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;b-字典序最小的中序遍历&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6957/B&#34;&gt;字典序最小的中序遍历&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-3&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给一个有根二叉树,可以无限次的交换任意节点的左右子树,问最少交换多少次使得该树的中序遍历的字典序最小?&lt;/p&gt;
 &lt;h3 id=&#34;思路-3&#34;&gt;思路&lt;/h3&gt;
@@ -4399,7 +4469,7 @@ $$
       <pubDate>Mon, 17 Aug 2020 20:04:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/5/</guid>
       <description>&lt;h1 id=&#34;day-1&#34;&gt;Day 1&lt;/h1&gt;
-&lt;h2 id=&#34;a-兔子的区间密码httpsacnowcodercomacmcontest6954a&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6954/A&#34;&gt;兔子的区间密码&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;a-兔子的区间密码&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6954/A&#34;&gt;兔子的区间密码&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定一个区间$[L,R]$ ，求从这个区间任意取两个整数(可以相同)，两者异或后能得到的最大值是多少？&lt;/p&gt;
 &lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
@@ -4449,7 +4519,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;b-猴子排序的期望httpsacnowcodercomacmcontest6954b&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6954/B&#34;&gt;猴子排序的期望&lt;/a&gt;&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;b-猴子排序的期望&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6954/B&#34;&gt;猴子排序的期望&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;有 $N$ 张卡片，每个上面都写着一个大写字母，问随便扔一次这 $N$ 张的卡片就已经按字典序排好的概率，答案用分字为1的形如 $1/x$ 的形式表示。$( 1&amp;lt;N &amp;lt; 100)$&lt;/p&gt;
 &lt;h3 id=&#34;思路-1&#34;&gt;思路&lt;/h3&gt;
@@ -4477,7 +4547,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ans&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
 &lt;h1 id=&#34;day-2&#34;&gt;Day 2&lt;/h1&gt;
-&lt;h2 id=&#34;a-愤怒的巨巨httpsacnowcodercomacmcontest6955a&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6955/A&#34;&gt;愤怒的巨巨&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;a-愤怒的巨巨&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6955/A&#34;&gt;愤怒的巨巨&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;已知香蕉的次品率为 $p(0\le p\le 1)$  ，如果想要买到好香蕉则买香蕉个数的期望值是多少。如果买不到好香蕉，输出”Sorrry,JuJu!”(忽略双引号)。否则输出期望值的最简分数形式：c/d. $p$ 的最多位数为6。&lt;/p&gt;
 &lt;h3 id=&#34;思路-2&#34;&gt;思路&lt;/h3&gt;
@@ -4533,7 +4603,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d/%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mod&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;b-兔子的逆序对httpsacnowcodercomacmcontest6955c&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6955/C&#34;&gt;兔子的逆序对&lt;/a&gt;&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;b-兔子的逆序对&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6955/C&#34;&gt;兔子的逆序对&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-3&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定一个区间 $[L,R]$ ，然后给出 $m$ 次翻转操作，通过给出子区间左右端点，反转该区间。每翻转一次，要求给出区间 $[L,R]$ 逆序对的奇偶性，如果是奇数，输出 &lt;strong&gt;dislike&lt;/strong&gt; ，如果是偶数，输出 &lt;strong&gt;like&lt;/strong&gt; 。&lt;/p&gt;
 &lt;h3 id=&#34;思路-3&#34;&gt;思路&lt;/h3&gt;
@@ -4628,7 +4698,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;c-butterflyhttpsacnowcodercomacmcontest6955f&#34;&gt;C. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6955/F&#34;&gt;Butterfly&lt;/a&gt;&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;c-butterfly&#34;&gt;C. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/6955/F&#34;&gt;Butterfly&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-4&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;这题描述起来有点难，还是直接点链接去看比较好。&lt;/p&gt;
 &lt;p&gt;大概就是给定一个 由 &lt;strong&gt;X&lt;/strong&gt; 和 &lt;strong&gt;O&lt;/strong&gt; 构成的$n\times m$ 的矩阵，让你找出里面由 &lt;strong&gt;X&lt;/strong&gt; 构成的蝴蝶的最大对角线长度。&lt;/p&gt;
@@ -5249,12 +5319,10 @@ $$&lt;/p&gt;
 &lt;h3 id=&#34;返回函数&#34;&gt;返回函数&lt;/h3&gt;
 &lt;p&gt;我们知道，函数名只是一个指向函数的变量，我们也可以用另一个变量指向这个函数来引用函数，相当于起了一个别名。因此，我们也可以在函数的返回值中返回一个函数，然后将返回值赋值给一个变量，这样就可以通过这个变量来调用返回的函数。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;我们在一个函数中又定义了一个函数，并且，内部函数可以引用外部函数的参数和局部变量，当外部函数返回内部函数时，相关参数和变量都保存在返回的函数中，这种称为“闭包**（Closure）**”的程序结构拥有极大的威力。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;我们在一个函数中又定义了一个函数，并且，内部函数可以引用外部函数的参数和局部变量，当外部函数返回内部函数时，相关参数和变量都保存在返回的函数中，这种称为“闭包**（Closure）**”的程序结构拥有极大的威力。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;返回闭包时牢记一点：返回函数不要引用任何循环变量，或者后续会发生变化的变量。因为这个变量相当于一个静态变量，现在变了，前面相应的结果也会变。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;返回闭包时牢记一点：返回函数不要引用任何循环变量，或者后续会发生变化的变量。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;返回闭包时牢记一点：返回函数不要引用任何循环变量，或者后续会发生变化的变量。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;通过  &lt;code&gt;函数.__name__&lt;/code&gt;  可以获得函数的真实名字。&lt;/p&gt;
 &lt;h3 id=&#34;匿名函数&#34;&gt;匿名函数&lt;/h3&gt;
 &lt;p&gt;通过 &lt;code&gt;lambda&lt;/code&gt; 可以创建匿名函数，这个就类似于matlab里面的那个 &lt;code&gt;@&lt;/code&gt; 创建的匿名函数。&lt;/p&gt;
@@ -5280,8 +5348,7 @@ $$&lt;/p&gt;
 &lt;h3 id=&#34;偏函数&#34;&gt;偏函数&lt;/h3&gt;
 &lt;p&gt;偏函数可以看做一个函数其中某一个参数固定，然后另成一个新函数，这样到时候我们重复调用的时候就会比较方便了。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;当函数的参数个数太多，需要简化时，使用&lt;code&gt;functools.partial&lt;/code&gt;可以创建一个新的函数，这个新函数可以固定住原函数的部分参数，从而在调用时更简单。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;当函数的参数个数太多，需要简化时，使用&lt;code&gt;functools.partial&lt;/code&gt;可以创建一个新的函数，这个新函数可以固定住原函数的部分参数，从而在调用时更简单。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;当用 &lt;code&gt;functools.partial&lt;/code&gt; 之前我们需要引入 &lt;code&gt;functools&lt;/code&gt; 模块。&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;functools&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
@@ -5299,8 +5366,7 @@ $$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;模块名要遵循Python变量命名规范，不要使用中文、特殊字符；&lt;/li&gt;
 &lt;li&gt;模块名不要和系统模块名冲突，最好先查看系统是否已存在该模块，检查方法是在Python交互环境执行&lt;code&gt;import abc&lt;/code&gt;，若成功则说明系统存在此模块。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;使用模块&#34;&gt;使用模块&lt;/h3&gt;
 &lt;p&gt;在使用模块之前只需要  &lt;code&gt;import 模块名&lt;/code&gt; ，就可以通过 &lt;strong&gt;模块名.方法&lt;/strong&gt; 的方式来调用这个模块里面的方法。&lt;/p&gt;
 &lt;p&gt;当我们在命令行运行模块文件时，Python解释器把一个特殊变量&lt;code&gt;__name__&lt;/code&gt;置为&lt;code&gt;__main__&lt;/code&gt;，而如果在其他地方导入模块时，&lt;code&gt;if&lt;/code&gt;判断将失败，因此，这种&lt;code&gt;if&lt;/code&gt;测试可以让一个模块通过命令行运行时执行一些额外的代码，最常见的就是运行测试。&lt;/p&gt;
@@ -5332,7 +5398,7 @@ $$&lt;/p&gt;
       <pubDate>Mon, 06 Apr 2020 01:22:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/64/</guid>
       <description>&lt;h1 id=&#34;c大数类设计思路&#34;&gt;C++大数类设计思路&lt;/h1&gt;
-&lt;h3 id=&#34;洛谷大数类httpswwwluogucomcnproblemu111551的评测结果开了氧气优化&#34;&gt;&lt;a href=&#34;https://www.luogu.com.cn/problem/U111551&#34;&gt;洛谷大数类&lt;/a&gt;的评测结果(开了氧气优化)&lt;/h3&gt;
+&lt;h3 id=&#34;洛谷大数类的评测结果开了氧气优化&#34;&gt;&lt;a href=&#34;https://www.luogu.com.cn/problem/U111551&#34;&gt;洛谷大数类&lt;/a&gt;的评测结果(开了氧气优化)&lt;/h3&gt;
 &lt;p&gt;&lt;img alt=&#34;BigNumber.png&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/4200651250.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;这个第四个点真的优化不过去了QAQ，24W的数据，&lt;del&gt;丧心病狂&lt;/del&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;整体构思&#34;&gt;整体构思&lt;/h3&gt;
@@ -6153,7 +6219,7 @@ $$&lt;/p&gt;
       <pubDate>Mon, 23 Mar 2020 01:14:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/51/</guid>
       <description>&lt;h2 id=&#34;41-二维曲线&#34;&gt;4.1 二维曲线&lt;/h2&gt;
-&lt;h3 id=&#34;span-idjumpplot函数span&#34;&gt;&lt;span id=&#34;jump&#34;&gt;plot函数&lt;/span&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;plot函数&#34;&gt;&lt;span id=&#34;jump&#34;&gt;plot函数&lt;/span&gt;&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;基本用法&lt;/strong&gt;：&lt;code&gt;plot(x,y)&lt;/code&gt; ，x和y分别代表横纵坐标，plot函数会将各个点连接起来，形成线，x和y一般为长度相等的向量。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;最简单的调用格式&lt;/strong&gt;：&lt;code&gt;plot(x)&lt;/code&gt;
@@ -6179,7 +6245,7 @@ $$&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;span-idjump2fplot函数span&#34;&gt;&lt;span id=&#34;jump2&#34;&gt;fplot函数&lt;/span&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;fplot函数&#34;&gt;&lt;span id=&#34;jump2&#34;&gt;fplot函数&lt;/span&gt;&lt;/h3&gt;
 &lt;p&gt;可根据参数函数的变化特性自适应地设置采样间隔，当函数值变化缓慢，采样间隔大，当变化快的时候，采样间隔小。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -6448,12 +6514,10 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;legend&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&amp;#34;&lt;span class=&#34;n&#34;&gt;Excellent&lt;/span&gt;&amp;#34;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&amp;#34;&lt;span class=&#34;n&#34;&gt;Good&lt;/span&gt;&amp;#34;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&amp;#34;&lt;span class=&#34;n&#34;&gt;Middle&lt;/span&gt;&amp;#34;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&amp;#34;&lt;span class=&#34;n&#34;&gt;Qualified&lt;/span&gt;&amp;#34;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&amp;#34;&lt;span class=&#34;n&#34;&gt;Bad&lt;/span&gt;&amp;#34;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;Location&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#39;eastoutside&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c&#34;&gt;%上方legend中的location是用于指定图例出现位置的，如果不指定，会与统计图重合&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;不加location参数&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;不加location参数&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;img alt=&#34;pie.png&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/1604792788.png&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;加入location参数&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;加入location参数&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;&lt;img alt=&#34;pie2.png&#34; loading=&#34;lazy&#34; src=&#34;https://blog.zzsqwq.cn/usr/uploads/2020/08/200869395.png&#34;&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;/br&gt;
@@ -7511,7 +7575,7 @@ $$&lt;/p&gt;
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;学OI的时候就做过树形dp的题，不过那时候全在划水。看了看题解还不太懂就直接照着题解写了，现在再回来看还是不会QAQ，所以就再看看然后自己写了一遍。&lt;/p&gt;
 &lt;/br&gt;
-&lt;h2 id=&#34;a-没有上司的舞会httpswwwluogucomcnproblemp1352&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1352&#34;&gt;没有上司的舞会&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;a-没有上司的舞会&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1352&#34;&gt;没有上司的舞会&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;有 $N$ 个职员被邀请去参加公司的舞会，他们每个人对应着一个快乐指数 $h_i$ ，如果该职员来了就会为舞会增加$h_i$ 点快乐指数。这 $N$ 个职员之间有从属关系，也就是说他们的关系就像一棵以顶级上司为根的树，父结点就是子结点的直接上司。如果一个职员的&lt;strong&gt;直接&lt;/strong&gt;上司来到了舞会，那么他本人就不会再来。问邀请哪些职员可获得最大的快乐指数，最大为多少。&lt;/p&gt;
 &lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
@@ -7583,7 +7647,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;b-战略游戏httpswwwluogucomcnproblemp2016&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/P2016&#34;&gt;战略游戏&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;b-战略游戏&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/P2016&#34;&gt;战略游戏&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;小姜老师要建立一个树，树节点两两之间通过道路连接，他要在这些节点上放一些小人，每个小人可监管与该节点相连的道路，问最少放置多少小人可以监管所有道路。（数据保证0为根节点）&lt;/p&gt;
 &lt;h3 id=&#34;思路-1&#34;&gt;思路&lt;/h3&gt;
@@ -7651,7 +7715,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;c-二叉苹果树httpswwwluogucomcnproblemp2015&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P2015&#34;&gt;二叉苹果树&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;c-二叉苹果树&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P2015&#34;&gt;二叉苹果树&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;有一颗二叉苹果树，也就是说树枝如果分叉，一定是分二叉。苹果树有 $n$ 个节点，树根编号为 1 。每个树枝上都有一定数量的苹果，如果最终保留 $q$ 根树枝，问最多能够保留多少苹果。&lt;/p&gt;
 &lt;h3 id=&#34;思路-2&#34;&gt;思路&lt;/h3&gt;
@@ -7717,7 +7781,7 @@ $$&lt;/p&gt;
       <link>https://blog.zzsqwq.cn/posts/30/</link>
       <pubDate>Wed, 19 Feb 2020 01:02:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/30/</guid>
-      <description>&lt;h2 id=&#34;a-two-rabbitshttpscodeforcescomcontest1304problema&#34;&gt;A. &lt;a href=&#34;https://codeforces.com/contest/1304/problem/A&#34;&gt;Two Rabbits&lt;/a&gt;&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;a-two-rabbits&#34;&gt;A. &lt;a href=&#34;https://codeforces.com/contest/1304/problem/A&#34;&gt;Two Rabbits&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;两个兔子分别位于 $(x,0)$ 和 $(y,0)$  ，两个人对头蹦，前者往前蹦 $a$ ，后者往前蹦 $b$ ，问两人是否能恰好相遇。&lt;/p&gt;
 &lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
@@ -7750,7 +7814,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;b-longest-palindromehttpscodeforcescomcontest1304problemb&#34;&gt;B. &lt;a href=&#34;https://codeforces.com/contest/1304/problem/B&#34;&gt;Longest Palindrome&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;b-longest-palindrome&#34;&gt;B. &lt;a href=&#34;https://codeforces.com/contest/1304/problem/B&#34;&gt;Longest Palindrome&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给出 $n$ 段长度为 $m$ 的字符串，从中挑选出一些组成最长的回文字串，输出这个回文子串的长度和内容，如果有多种情况输出一种即可。如果没有符合的，就输出0 。$(1\le n\le 100,1\le m\le 50)$&lt;/p&gt;
 &lt;h3 id=&#34;思路-1&#34;&gt;思路&lt;/h3&gt;
@@ -7829,7 +7893,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;c-air-conditionerhttpscodeforcescomcontest1304problemc&#34;&gt;C. &lt;a href=&#34;https://codeforces.com/contest/1304/problem/C&#34;&gt;Air Conditioner&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;c-air-conditioner&#34;&gt;C. &lt;a href=&#34;https://codeforces.com/contest/1304/problem/C&#34;&gt;Air Conditioner&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;餐厅老板有一个空调，餐厅初始温度为 $m$ ，会陆续来 $n$ 个顾客。餐厅老板每分钟可以控制空调的温度+1，-1，或者是不变。这 $n$ 个顾客会按来的时间顺序给出，每个人有一个感到舒适的温度范围，如果空调的温度在这个范围里面，那么顾客就会满意。问餐厅老板是否可以达到让每个人都满意。&lt;/p&gt;
 &lt;h3 id=&#34;思路-2&#34;&gt;思路&lt;/h3&gt;
@@ -7885,7 +7949,7 @@ $$&lt;/p&gt;
       <link>https://blog.zzsqwq.cn/posts/29/</link>
       <pubDate>Tue, 18 Feb 2020 01:00:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/29/</guid>
-      <description>&lt;h2 id=&#34;a-矩阵取数游戏httpswwwluogucomcnproblemp1005&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1005&#34;&gt;矩阵取数游戏&lt;/a&gt;&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;a-矩阵取数游戏&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1005&#34;&gt;矩阵取数游戏&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定一个 $n\times m$ 的矩阵，其中每个元素为非负整数。每次你可以从每行的行首或行末取一个元素，得到的分数为当前元素的值 $a_{ij}\times 2^k$  ，$k$ 为当前是第几次取该行上的元素。 问最大得分为多少。&lt;/p&gt;
 &lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
@@ -7949,7 +8013,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;b-关路灯httpswwwluogucomcnproblemp1220&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1220&#34;&gt;关路灯&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;b-关路灯&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1220&#34;&gt;关路灯&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;在一条街道上有 $n$ 个路灯开着，他们可以看作分布在 $x$ 轴上，每个路灯有一定的坐标，也就是代表他们的位置。每个路灯也有一定的功率 $x$ ，代表一秒钟消耗多少电能。姜大佬初始位置在 $c$  ，他每天早晨出来关掉路灯。它可以先关左边的也可以先关右边的，他的行走速率是 $1m/s$ ，问最少消耗多少电能能关掉所有路灯。&lt;/p&gt;
 &lt;h3 id=&#34;思路-1&#34;&gt;思路&lt;/h3&gt;
@@ -8004,7 +8068,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;c-小a和uim之大逃离httpswwwluogucomcnproblemp1373&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1373&#34;&gt;小a和uim之大逃离&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;c-小a和uim之大逃离&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1373&#34;&gt;小a和uim之大逃离&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定一个 $n\times m$ 的矩阵，每个格子中有 $0\sim k$ 滴魔液，小姜老师和它朋友可以从任意地点开始，一起向右或者向下走，他们每个人有一个容量为 $k$ 的瓶子，由小姜老师开始轮流收集地上的魔液，当收集魔液大于 $k$ 的时候，会对 $k+1$ 取模，问他们有多少种方法使得收集的魔液数量相同。&lt;/p&gt;
 &lt;h3 id=&#34;思路-2&#34;&gt;思路&lt;/h3&gt;
@@ -8084,8 +8148,7 @@ $$&lt;/p&gt;
 &lt;li&gt;pop( )  弹出队首元素，使用的时候必须确保队列不为空&lt;/li&gt;
 &lt;li&gt;empty( )  判断队列是否为空，空返回true，不空返回false&lt;/li&gt;
 &lt;li&gt;size( ) 查询队列中有多少个元素&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;应用实例&#34;&gt;应用实例&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&amp;lt;cstdio&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&amp;lt;iostream&amp;gt;
@@ -8131,8 +8194,7 @@ $$&lt;/p&gt;
 &lt;li&gt;top( ) 获取栈顶元素的值，使用时要确保栈不为空&lt;/li&gt;
 &lt;li&gt;size( ) 返回栈中元素的个数&lt;/li&gt;
 &lt;li&gt;empty( ) 查询栈是否为空，空返回true，不空返回false&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
 &lt;h3 id=&#34;应用实例-1&#34;&gt;应用实例&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&amp;lt;cstdio&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&amp;lt;iostream&amp;gt;
@@ -8256,8 +8318,7 @@ $$&lt;/p&gt;
 &lt;li&gt;empty( )  判断是否为空，空返回true，不空返回false&lt;/li&gt;
 &lt;li&gt;begin( ) &amp;amp; end( ) 分别为返回头和尾迭代器，配合迭代器可实行遍历&lt;/li&gt;
 &lt;li&gt;iterator-&amp;gt;first &amp;amp; iterator-&amp;gt;second 分别对应相应迭代器指向的元素的关键字和值&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;/br&gt;
 &lt;h2 id=&#34;集合set&#34;&gt;集合(set)&lt;/h2&gt;
@@ -8285,8 +8346,7 @@ $$&lt;/p&gt;
 &lt;li&gt;empty( ) 判断set容器是否为空，为空则返回true，不空返回false&lt;/li&gt;
 &lt;li&gt;size( ) 返回当前set容器中元素的个数&lt;/li&gt;
 &lt;li&gt;rebegin( ) &amp;amp; rend( ) 返回尾和头迭代器，配合reverse_iterator可以反序遍历set&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/blockquote&gt;
+&lt;/ol&gt;&lt;/blockquote&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;关于vector和string等&#34;&gt;关于vector和string等&lt;/h2&gt;
 &lt;ul&gt;
@@ -8303,7 +8363,7 @@ $$&lt;/p&gt;
       <link>https://blog.zzsqwq.cn/posts/27/</link>
       <pubDate>Sat, 15 Feb 2020 00:52:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/27/</guid>
-      <description>&lt;h2 id=&#34;a-配对httpsacnowcodercomacmcontest3007a&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3007/A&#34;&gt;配对&lt;/a&gt;&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;a-配对&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3007/A&#34;&gt;配对&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定含有 $n$ 个正整数的集合 $A$ 和 $B$ ，你需要建立他们之间的一一映射。将配对的两个数相加可以得到 $n$ 个和，问第 $k$ 大的和最大为多少。&lt;/p&gt;
 &lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
@@ -8345,7 +8405,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ans&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;b-十字阵列httpsacnowcodercomacmcontest3007f&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3007/F&#34;&gt;十字阵列&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;b-十字阵列&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3007/F&#34;&gt;十字阵列&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定一个 $n\times m$ 的网格，每一个交点都一个敌人。你可以使用共 $h$ 次魔法，第 $i$ 次魔法能对第 $x_i$ 行和第 $y_i$  列的所有敌人造成 $w_i$ 点伤害，交界点的伤害只计算一次。。如果施放完所有所有魔法后，如果一个点 $(i,j)$ 共受到 $z_i$ 点伤害，问 $\sum{z_i(i+j)}$ 为多少。&lt;/p&gt;
 &lt;h3 id=&#34;思路-1&#34;&gt;思路&lt;/h3&gt;
@@ -8391,7 +8451,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%lld&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ans&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;c-垃圾陷阱httpswwwluogucomcnproblemp1156&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1156&#34;&gt;垃圾陷阱&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;c-垃圾陷阱&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1156&#34;&gt;垃圾陷阱&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;奶牛卡门想要从垃圾井底上到地面，对于一个垃圾它可以吃掉，或者是堆起来。初始卡门有10个小时的能量，吃掉一个垃圾会给他提供 $f_i$ 个小时的能量，叠起来一个垃圾会获得 $h_i$ 点高度，当垃圾总高度超过井的深度 $D$ 的时候，卡门就能上到地面。一个垃圾当 $t_i$ 小时时会到达井底。给出所有垃圾的状态，问奶牛能否到达地面。&lt;/p&gt;
 &lt;h3 id=&#34;思路-2&#34;&gt;思路&lt;/h3&gt;
@@ -8464,7 +8524,7 @@ $$&lt;/p&gt;
       <link>https://blog.zzsqwq.cn/posts/26/</link>
       <pubDate>Fri, 14 Feb 2020 00:51:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/26/</guid>
-      <description>&lt;h2 id=&#34;a-three-stringshttpscodeforcescomcontest1301problema&#34;&gt;A. &lt;a href=&#34;https://codeforces.com/contest/1301/problem/A&#34;&gt;Three Strings&lt;/a&gt;&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;a-three-strings&#34;&gt;A. &lt;a href=&#34;https://codeforces.com/contest/1301/problem/A&#34;&gt;Three Strings&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定三个长度为 $n$ 的字符串 $a$ , $b$ , $c$ ，遍历每个 $c$ 中每个字符 $c_i$，可以将其替换成 $a_i$ 或者 $b_i$ ，必须操作其中一个，问能否通过此操作使得字符串 $a$ , $b$ 相同。&lt;/p&gt;
 &lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
@@ -8505,7 +8565,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;b-motaracks-birthdayhttpscodeforcescomcontest1301problemb&#34;&gt;B. &lt;a href=&#34;https://codeforces.com/contest/1301/problem/B&#34;&gt;Motarack&amp;rsquo;s Birthday&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;b-motarack&#34;&gt;B. &lt;a href=&#34;https://codeforces.com/contest/1301/problem/B&#34;&gt;Motarack&amp;rsquo;s Birthday&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定一个含有 $n$ 个整数的序列 $a$ ，其中有一些数丢失，问将丢失的数赋值为多少才能使得相邻两数之差的绝对值的最大值的最小。&lt;/p&gt;
 &lt;h3 id=&#34;思路-1&#34;&gt;思路&lt;/h3&gt;
@@ -8559,7 +8619,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;c-ayoubs-functionhttpscodeforcescomcontest1301problemc&#34;&gt;C. &lt;a href=&#34;https://codeforces.com/contest/1301/problem/C&#34;&gt;Ayoub&amp;rsquo;s function&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;c-ayoub&#34;&gt;C. &lt;a href=&#34;https://codeforces.com/contest/1301/problem/C&#34;&gt;Ayoub&amp;rsquo;s function&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定一个01字符串 $s$ ，其中含有 $m$ 个1，用 $f(s)$ 来表示字符串 $s$ 的有多少个字串其中含有1，求出符合条件的字符串 $s$ 中， $f(s)$ 的最大值是多少。&lt;/p&gt;
 &lt;h3 id=&#34;思路-2&#34;&gt;思路&lt;/h3&gt;
@@ -8601,7 +8661,7 @@ $$&lt;/p&gt;
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;今天又是颓废的一天，被大佬拉去跟他一起做牛客网的题，QAQ&amp;hellip;那我会点啥嘛，就只能替大佬写两道水题了···&lt;/p&gt;
 &lt;/br&gt;
-&lt;h2 id=&#34;a-牛牛战队的比赛地httpsacnowcodercomacmcontest3006&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3006&#34;&gt;牛牛战队的比赛地&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;a-牛牛战队的比赛地&#34;&gt;A. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3006&#34;&gt;牛牛战队的比赛地&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;由于牛牛战队经常要外出比赛，因此在全国各地建立了很多训练基地，每一个基地都有一个坐标 $(x,y)$ 。
 这周末，牛牛队又要出去比赛了，各个比赛的赛点都在 $x$ 轴上。牛牛战队为了方便比赛，想找一个到达训练基地最大距离最小的地方作为比赛地。请你求出选择的比赛地距离各训练基地最大距离的最小值。&lt;/p&gt;
@@ -8664,7 +8724,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;b-牛牛与牛妹的约会httpsacnowcodercomacmcontest3006d&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3006/D&#34;&gt;牛牛与牛妹的约会&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;b-牛牛与牛妹的约会&#34;&gt;B. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3006/D&#34;&gt;牛牛与牛妹的约会&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;你想从 $(a,0)$ 点到 $(b,0)$ 点，你可以除了可以以 $1m/s$ 的速度奔跑，还可以用1秒的时间来引导闪现，这将使你从 $(x,0)$ 点闪现到 $(\sqrt[3]{x},0)$ 点，问最少需要多长时间到达 $(b,0)$ 点。$(Ps:a,b \in[-10^6,10^6])$&lt;/p&gt;
 &lt;h3 id=&#34;思路-1&#34;&gt;思路&lt;/h3&gt;
@@ -8717,7 +8777,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;c-碎碎念httpsacnowcodercomacmcontest3006f&#34;&gt;C. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3006/F&#34;&gt;碎碎念&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;c-碎碎念&#34;&gt;C. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3006/F&#34;&gt;碎碎念&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;大佬豪和弱鸡战合作做题，如果大佬豪AC掉题目，那么弱鸡战会说 “宁好强啊！”，如果大佬豪WA掉了题目，那么弱鸡战会嘲讽大佬豪 $k$ 句 “宁好弱啊！” 。我们规定大佬豪提交只有AC和WA两种状态。因为大佬豪非常的强，如果一道题他WA掉了一发，那么他的下一发一定会AC。如果已知最终弱鸡战嘲讽了 $x$ 句，那么很明显可以对应很多的提交序列。现在想问你如果弱鸡战嘲讽数在 $[l,r]$ 这个区间，一共会有多少种提交序列。答案对 $1e9+7$ 取模。&lt;/p&gt;
 &lt;h3 id=&#34;思路-2&#34;&gt;思路&lt;/h3&gt;
@@ -8775,7 +8835,7 @@ QAQ刷了这么多天的dp好像终于有点作用了，我终于看出来这是
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;d-牛牛战队的秀场httpsacnowcodercomacmcontest3006j&#34;&gt;D. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3006/J&#34;&gt;牛牛战队的秀场&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;d-牛牛战队的秀场&#34;&gt;D. &lt;a href=&#34;https://ac.nowcoder.com/acm/contest/3006/J&#34;&gt;牛牛战队的秀场&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-3&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;在半径为 $r$ 的圆内有一个正接 $n$ 边形，随便选取一个顶点编号为 $1$ ，顺时针编号为 $2\sim n$ ，规定只能沿多边形边走，问从顶点 $i$ 到顶点 $j$ 最短路径为多少。&lt;/p&gt;
 &lt;h3 id=&#34;思路-3&#34;&gt;思路&lt;/h3&gt;
@@ -8820,7 +8880,7 @@ QAQ刷了这么多天的dp好像终于有点作用了，我终于看出来这是
       <link>https://blog.zzsqwq.cn/posts/24/</link>
       <pubDate>Wed, 12 Feb 2020 00:45:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/24/</guid>
-      <description>&lt;h2 id=&#34;a-方格取数httpswwwluogucomcnproblemp1004&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1004&#34;&gt;方格取数&lt;/a&gt;&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;a-方格取数&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1004&#34;&gt;方格取数&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;有一个 $N*N$ 的整数方阵，每个点初始值为0，在一些点上放上数，一个人从左上角走到右下角，规定只能向下或向右走，当他经过的点上有数时会取走它，问走两遍最多能取的数的和最大为多少。&lt;/p&gt;
 &lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
@@ -8868,7 +8928,7 @@ QAQ刷了这么多天的dp好像终于有点作用了，我终于看出来这是
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt; 
-&lt;h2 id=&#34;b-创意吃鱼法httpswwwluogucomcnproblemp1736&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1736&#34;&gt;创意吃鱼法&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;b-创意吃鱼法&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1736&#34;&gt;创意吃鱼法&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给出一个 $N*M$ 的只包含0和1的数阵，求只有对角线为1，其余位置为0的子方阵的最大边长。&lt;/p&gt;
 &lt;h3 id=&#34;思路-1&#34;&gt;思路&lt;/h3&gt;
@@ -8931,7 +8991,7 @@ QAQ刷了这么多天的dp好像终于有点作用了，我终于看出来这是
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ans&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;c-乌龟棋httpswwwluogucomcnproblemp1541&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1541&#34;&gt;乌龟棋&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;c-乌龟棋&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1541&#34;&gt;乌龟棋&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给出标号分别为1，2，3，4的四种卡片若干张，分别可以移动1，2，3，4步，玩家初始处于坐标为1的位置。玩家出一张牌，可移动相应的步数。移动到不同的坐标会加不同的分数，很明显不同的出牌顺序会对应着不同的分数，求玩家能获得的最大分数为多少。&lt;/p&gt;
 &lt;h3 id=&#34;思路-2&#34;&gt;思路&lt;/h3&gt;
@@ -8995,7 +9055,7 @@ QAQ刷了这么多天的dp好像终于有点作用了，我终于看出来这是
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;d-能量项链httpswwwluogucomcnproblemp1063&#34;&gt;D. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1063&#34;&gt;能量项链&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;d-能量项链&#34;&gt;D. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1063&#34;&gt;能量项链&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-3&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给出一段含有 $n$ 个珠子的环状项链，对于相邻的两个珠子，前一颗珠子的尾标记等于后方珠子的头标记。
 例如项链为 $[2,4,6,8]$ ， 那么用加入标记表示就是 $[(2,4),(4,6),(6,8),(8,2)]$  。当两个珠子两两合并的时候会产生的能量大小为 前方珠子头标记 $\times$ 前方珠子尾标记 $\times$ 后方珠子尾标记。显然合并的顺序不同最终会产生不同的能量值，问能产生的最大能量值为多少。&lt;/p&gt;
@@ -9118,7 +9178,7 @@ QAQ刷了这么多天的dp好像终于有点作用了，我终于看出来这是
 &lt;li&gt;优化dp，我现在能接触到的就是一个用单调队列优化多重背包的一个题，但是那个题我学了这个东西之后还是不理解为什么可以那么做。例题如下：&lt;a href=&#34;https://www.luogu.com.cn/problem/P1776&#34;&gt;宝物筛选&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;单调队列的一些例题&#34;&gt;单调队列的一些例题&lt;/h2&gt;
-&lt;h3 id=&#34;a-sliding-windowhttppojorgproblemid2823&#34;&gt;A. &lt;a href=&#34;http://poj.org/problem?id=2823&#34;&gt;Sliding Window&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;a-sliding-window&#34;&gt;A. &lt;a href=&#34;http://poj.org/problem?id=2823&#34;&gt;Sliding Window&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;给出一个含有 $n$ 个整数的序列 $a$ ，给出滑动窗口长度 $k$ ，窗口从序列最左端滑动到序列最右端，问滑动过程中每个时刻窗口中最大值和最小值是多少。&lt;/p&gt;
@@ -9177,7 +9237,7 @@ QAQ刷了这么多天的dp好像终于有点作用了，我终于看出来这是
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;getmin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;b-max-sum-of-max-k-sub-sequencehttpacmhdueducnshowproblemphppid3415&#34;&gt;B. &lt;a href=&#34;http://acm.hdu.edu.cn/showproblem.php?pid=3415&#34;&gt;Max Sum of Max-K-sub-sequence&lt;/a&gt;&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;b-max-sum-of-max-k-sub-sequence&#34;&gt;B. &lt;a href=&#34;http://acm.hdu.edu.cn/showproblem.php?pid=3415&#34;&gt;Max Sum of Max-K-sub-sequence&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题意-1&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;给定长度为 $n$ 的整数循环序列 $a$ ，也就是$a[1],a[2],\cdots,a[n],a[1]\cdots$ 这样的序列，问最大连续长度为 $k$ 的连续子区间的序列和最大为多少，并且输出这个区间的左右坐标。&lt;/p&gt;
 &lt;h4 id=&#34;思路-1&#34;&gt;思路&lt;/h4&gt;
@@ -9288,7 +9348,7 @@ QAQ刷了这么多天的dp好像终于有点作用了，我终于看出来这是
 &lt;li&gt;确定这个元素是否是一定区间内的最值，或者确定以他为最值的区间长度&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;单调栈的一些例题&#34;&gt;单调栈的一些例题&lt;/h2&gt;
-&lt;h3 id=&#34;a-单调栈模板httpswwwluogucomcnproblemp5788&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/P5788&#34;&gt;单调栈模板&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;a-单调栈模板&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/P5788&#34;&gt;单调栈模板&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题意-2&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;给出含有 $n$ 个整数的序列 $a$ ，定义 $f(i)$ 为第 $i$ 个元素后第一个大于 $a_i$ 的下标，求 $f(1)\cdots f(n)$&lt;/p&gt;
 &lt;h4 id=&#34;思路-2&#34;&gt;思路&lt;/h4&gt;
@@ -9334,7 +9394,7 @@ QAQ刷了这么多天的dp好像终于有点作用了，我终于看出来这是
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;b-发射站httpswwwluogucomcnproblemp1901&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1901&#34;&gt;发射站&lt;/a&gt;&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;b-发射站&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1901&#34;&gt;发射站&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题意-3&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;某地有 $N$ 个能量发射站排成一行，每个发射站 $i$ 都有不相同的高度 $H_i$，并能向两边（两端的发射站只能向一边）同时发射能量值为 $V_i$ 的能量，发出的能量只被两边&lt;strong&gt;最近的且比它高&lt;/strong&gt;的发射站接收。计算出接受能量最多的发射站接受的能量为多少。&lt;/p&gt;
 &lt;h4 id=&#34;思路-3&#34;&gt;思路&lt;/h4&gt;
@@ -9373,7 +9433,7 @@ QAQ刷了这么多天的dp好像终于有点作用了，我终于看出来这是
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ans&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;c-音乐会的等待httpswwwluogucomcnproblemp1823&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1823&#34;&gt;音乐会的等待&lt;/a&gt;&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;c-音乐会的等待&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1823&#34;&gt;音乐会的等待&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题意-4&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;给出一段序列 $a$ 代表 $n$ 个人，在一个区间 $[l,r]$ 如果区间内没有大于 $min(a[i],a[r])$ 的那么两个人可以相互看到。问这个序列中有多少对人可以相互看到。&lt;/p&gt;
 &lt;h4 id=&#34;思路-4&#34;&gt;思路&lt;/h4&gt;
@@ -9450,7 +9510,7 @@ QAQ刷了这么多天的dp好像终于有点作用了，我终于看出来这是
       <link>https://blog.zzsqwq.cn/posts/22/</link>
       <pubDate>Mon, 10 Feb 2020 00:39:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/22/</guid>
-      <description>&lt;h2 id=&#34;a-non-zerohttpscodeforcescomcontest1300problema&#34;&gt;A. &lt;a href=&#34;https://codeforces.com/contest/1300/problem/A&#34;&gt;Non-zero&lt;/a&gt;&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;a-non-zero&#34;&gt;A. &lt;a href=&#34;https://codeforces.com/contest/1300/problem/A&#34;&gt;Non-zero&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给出一段含有 $n$ 个数的序列 $a$ ，可以对其中任何数加一，问最少操作多少次让每一个数和序列和都不为0。&lt;/p&gt;
 &lt;hr&gt;
@@ -9489,7 +9549,7 @@ QAQ刷了这么多天的dp好像终于有点作用了，我终于看出来这是
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;b-assigning-to-classeshttpscodeforcescomcontest1300problemb&#34;&gt;B. &lt;a href=&#34;https://codeforces.com/contest/1300/problem/B&#34;&gt;Assigning to Classes&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;b-assigning-to-classes&#34;&gt;B. &lt;a href=&#34;https://codeforces.com/contest/1300/problem/B&#34;&gt;Assigning to Classes&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;将 $2n$ 个数分成个奇数序列，问两个奇数序列的中位数之差最小为多少。&lt;/p&gt;
 &lt;hr&gt;
@@ -9524,7 +9584,7 @@ QAQ刷了这么多天的dp好像终于有点作用了，我终于看出来这是
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;c-anu-has-a-functionhttpscodeforcescomcontest1300problemc&#34;&gt;C. &lt;a href=&#34;https://codeforces.com/contest/1300/problem/C&#34;&gt;Anu Has a Function&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;c-anu-has-a-function&#34;&gt;C. &lt;a href=&#34;https://codeforces.com/contest/1300/problem/C&#34;&gt;Anu Has a Function&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给出函数 $f: f(x,y)=(x|y)-y $ ，给出序列 $a$，序列 $a$ 中含有 $n$ 个数，可以表示为$[a_1,a_2\cdots,a_n ]$ ，定义 $x=f(f(&amp;hellip;f(f(a_1,a_2),a_3),&amp;hellip;a_{n-1}),a_n)$ ，你可以对序列 $a$ 中元素进行重排，求使得 $x$ 最大的序列 $a$ 。如果有多种情况，输出一种即可。&lt;/p&gt;
 &lt;h3 id=&#34;思路-2&#34;&gt;思路&lt;/h3&gt;
@@ -9658,7 +9718,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;d-aerodynamichttpscodeforcescomcontest1299problemb&#34;&gt;D. &lt;a href=&#34;https://codeforces.com/contest/1299/problem/B&#34;&gt;Aerodynamic&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;d-aerodynamic&#34;&gt;D. &lt;a href=&#34;https://codeforces.com/contest/1299/problem/B&#34;&gt;Aerodynamic&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-3&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定一个凸多边形 $P$ 的所有顶点，可以将凸多边形沿向量 $(x,y)$ 平移，我们定义多边形 $T$ 是所有 $P$ 平移到与原点有交点后所构成的点集所形成的图形（我知道这句话有点绕，我实在是解释不明白，实在不行康康原题吧）。那么问这个 $T$ 是否是和 $P$ 相似的，如果是输出YES，不是输出NO。&lt;/p&gt;
 &lt;hr&gt;
@@ -9720,7 +9780,7 @@ $$
       <link>https://blog.zzsqwq.cn/posts/21/</link>
       <pubDate>Sun, 09 Feb 2020 00:38:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/21/</guid>
-      <description>&lt;h3 id=&#34;1-分组背包httpswwwluogucomcnproblemp1757&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1757&#34;&gt;分组背包&lt;/a&gt;&lt;/h3&gt;
+      <description>&lt;h3 id=&#34;1-分组背包&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1757&#34;&gt;分组背包&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;在01背包基础上，将其中的物体分成 $k$ 组，每组内的物品相互冲突，即只能取其中一个，问最大价值。&lt;/p&gt;
@@ -9772,7 +9832,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;2-有依赖的背包httpswwwluogucomcnproblemu65320&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/U65320&#34;&gt;有依赖的背包&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;2-有依赖的背包&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/U65320&#34;&gt;有依赖的背包&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-1&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;在01背包的基础上给物品加上依赖，某个物品可能为附件，必须买了主件之后才能买。规定一个物品最多有两个附件，并且附件不会再有附件，也不存在循环依赖（附件再依赖于主件）。问能获得的最大价值为多少。&lt;/p&gt;
@@ -9871,7 +9931,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;3-多米诺骨牌隐式背包httpswwwluogucomcnproblemp1282&#34;&gt;3. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1282&#34;&gt;多米诺骨牌(隐式背包)&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;3-多米诺骨牌隐式背包&#34;&gt;3. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1282&#34;&gt;多米诺骨牌(隐式背包)&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-2&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;多米诺骨牌有上下两个部分，分别具有一定点数。所有多米诺骨牌上部分点数之和与下部分点数之和差的绝对值为 $x$ ，多米诺骨牌可以进行上下翻转，问当 $x$ 最小的时候最少翻转几次。&lt;/p&gt;
@@ -9946,7 +10006,7 @@ $$
       <description>&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
 &lt;p&gt;今天跟着背包九讲把背包再学习一下，dd_engi大佬的背包九讲Github链接: &lt;a href=&#34;https://github.com/tianyicui/pack&#34;&gt;背包九讲&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id=&#34;1-采药01背包httpswwwluogucomcnproblemp1048&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1048&#34;&gt;采药(01背包)&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;1-采药01背包&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1048&#34;&gt;采药(01背包)&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;有 $n$ 个价值为 $w_i$ ，体积为 $v_i$ 的物品，装入体积为 $V$ 的背包中，问能获得的最大为多少。&lt;/p&gt;
@@ -9986,7 +10046,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;2-疯狂的采药完全背包httpswwwluogucomcnproblemp1616&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1616&#34;&gt;疯狂的采药(完全背包)&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;2-疯狂的采药完全背包&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1616&#34;&gt;疯狂的采药(完全背包)&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-1&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;有 $n$ 种价值为 $w_i$ ，体积为 $v_i$ 的物品，每一种物品有无数个，装入体积为 $V$ 的背包中，问能获得的最大为多少。&lt;/p&gt;
@@ -10025,7 +10085,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;3-宝物筛选多重背包httpswwwluogucomcnproblemp1776&#34;&gt;3. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1776&#34;&gt;宝物筛选(多重背包)&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;3-宝物筛选多重背包&#34;&gt;3. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1776&#34;&gt;宝物筛选(多重背包)&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-2&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;有 $N$ 种物品和一个容量为 $V$ 的背包。第 $i$ 种物品最多有 $m_i$ 件可用，每件耗费的空间是 $v_i$，价值是 $w_i$ 。求解将哪些物品装入背包可使这些物品的耗费的空间总和不超过背包容量，且价值总和最大。&lt;/p&gt;
@@ -10082,7 +10142,7 @@ $$
       <link>https://blog.zzsqwq.cn/posts/19/</link>
       <pubDate>Fri, 07 Feb 2020 00:22:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/19/</guid>
-      <description>&lt;h3 id=&#34;1-石子归并httpswww51nodcomchallengeproblemhtmlproblemid1021&#34;&gt;1. &lt;a href=&#34;https://www.51nod.com/Challenge/Problem.html#problemId=1021&#34;&gt;石子归并&lt;/a&gt;&lt;/h3&gt;
+      <description>&lt;h3 id=&#34;1-石子归并&#34;&gt;1. &lt;a href=&#34;https://www.51nod.com/Challenge/Problem.html#problemId=1021&#34;&gt;石子归并&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意&#34;&gt;题意&lt;/h4&gt;
 &lt;pre&gt;&lt;code&gt;$N$ 堆石子摆成一条线。现要将石子有次序地合并成一堆。规定每次只能选相邻的2堆石子合并成新的一堆，并将新的一堆石子数记为该次合并的代价。计算将 $N$ 堆石子合并成一堆的最小代价。
@@ -10129,7 +10189,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;2-p1880-noi1995石子合并httpswwwluogucomcnproblemp1880&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1880&#34;&gt;P1880 [NOI1995]石子合并&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;2-p1880-&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1880&#34;&gt;P1880 [NOI1995]石子合并&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-1&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;$N$ 堆石子摆成一个环。现要将石子有次序地合并成一堆。规定每次只能选相邻的2堆石子合并成新的一堆，并将新的一堆石子数记为该次合并的代价。计算将 $N$ 堆石子合并成一堆的最小代价和最大代价。&lt;/p&gt;
@@ -10184,7 +10244,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;3-p1140-相似基因httpswwwluogucomcnproblemnewsolutionp1140&#34;&gt;3. &lt;a href=&#34;https://www.luogu.com.cn/problemnew/solution/P1140&#34;&gt;P1140 相似基因&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;3-p1140-相似基因&#34;&gt;3. &lt;a href=&#34;https://www.luogu.com.cn/problemnew/solution/P1140&#34;&gt;P1140 相似基因&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-2&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;有 $A : T :C : G $ 四种碱基，他们之间可以两两配对，特殊的，一个碱基也可以和空碱基配对，但是空碱基和空碱基配对是不被允许的，当不同的碱基间两两配对时，会具有一定的相似度，问给定两段序列 $s$，$t$ 能获得的最大相似度是多少。&lt;/p&gt;
@@ -10322,7 +10382,7 @@ $$
       <description>&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
 &lt;hr&gt;
 &lt;p&gt;某位大佬曾经说过，dp不会没问题，想不到状态转移方程没问题，多做题就会了。所以，我打算多刷点dp题。那么，先从基础刷起吧。&lt;/p&gt;
-&lt;h3 id=&#34;1-p1091-合唱队形httpswwwluogucomcnproblemp1091&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1091&#34;&gt;P1091 合唱队形&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;1-p1091-合唱队形&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1091&#34;&gt;P1091 合唱队形&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;已知序列 $a$ 有 $n$ 个数，通过取出其中一些数可以使他满足严格的先增再减序列，问最少取出几个。&lt;/p&gt;
@@ -10372,7 +10432,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;2-p1280-尼克的任务httpswwwluogucomcnproblemp1280&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1280&#34;&gt;P1280 尼克的任务&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;2-p1280-尼克的任务&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1280&#34;&gt;P1280 尼克的任务&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-1&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;尼克的一个工作日为 $n$ 分钟，从第一分钟开始到第 $n$ 分钟结束。当尼克到达单位后他就开始干活。如果在同一时刻有多个任务需要完成，尼克可以任选其中的一个来做，而其余的则由他的同事完成，反之如果只有一个任务，则该任务必需由尼克去完成，假如某些任务开始时刻尼克正在工作，则这些任务也由尼克的同事完成。如果某任务于第 $p$ 分钟开始，持续时间为 $t$ 分钟，则该任务将在第 $p+t-1$ 分钟结束。（实在不会总结题意，就直接复制过来了）&lt;/p&gt;
@@ -10445,7 +10505,7 @@ $$
       <link>https://blog.zzsqwq.cn/posts/17/</link>
       <pubDate>Wed, 05 Feb 2020 23:18:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/17/</guid>
-      <description>&lt;h3 id=&#34;a-array-with-odd-sumhttpscodeforcescomcontest1296problema&#34;&gt;A. &lt;a href=&#34;https://codeforces.com/contest/1296/problem/A&#34;&gt;Array with Odd Sum&lt;/a&gt;&lt;/h3&gt;
+      <description>&lt;h3 id=&#34;a-array-with-odd-sum&#34;&gt;A. &lt;a href=&#34;https://codeforces.com/contest/1296/problem/A&#34;&gt;Array with Odd Sum&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;给出包含 &lt;strong&gt;n&lt;/strong&gt; 个正整数的序列 &lt;strong&gt;a&lt;/strong&gt; ，你可以把任何一个元素 $a_i$ ，赋值给另一个元素 $a_j$ ($i\neq j$) ，问通过任意此操作能否将序列 &lt;strong&gt;a&lt;/strong&gt; 的和变为奇数。可以输出 &lt;strong&gt;YES&lt;/strong&gt; ,不可以输入 &lt;strong&gt;NO&lt;/strong&gt;.&lt;/p&gt;
@@ -10488,7 +10548,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;b-food-buyinghttpscodeforcescomcontest1296problemb&#34;&gt;B. &lt;a href=&#34;https://codeforces.com/contest/1296/problem/B&#34;&gt;Food Buying&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;b-food-buying&#34;&gt;B. &lt;a href=&#34;https://codeforces.com/contest/1296/problem/B&#34;&gt;Food Buying&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-1&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;初始有 &lt;strong&gt;s&lt;/strong&gt; 个货币，每次花费 &lt;strong&gt;x&lt;/strong&gt; 个货币会返还 $\lfloor{\frac{x}{10}}\rfloor$ 个货币，问最多共能花费多少货币。&lt;/p&gt;
@@ -10527,7 +10587,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;c-yet-another-walking-robothttpscodeforcescomcontest1296problemc&#34;&gt;C. &lt;a href=&#34;https://codeforces.com/contest/1296/problem/C&#34;&gt;Yet Another Walking Robot&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;c-yet-another-walking-robot&#34;&gt;C. &lt;a href=&#34;https://codeforces.com/contest/1296/problem/C&#34;&gt;Yet Another Walking Robot&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-2&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;一个机器人初始在 $(0,0)$ 点，规定 &lt;strong&gt;&amp;lsquo;L&amp;rsquo;&lt;/strong&gt;  ，&lt;strong&gt;&amp;lsquo;R&amp;rsquo;&lt;/strong&gt; ，&lt;strong&gt;&amp;lsquo;U&amp;rsquo;&lt;/strong&gt; ，&lt;strong&gt;&amp;lsquo;D&amp;rsquo;&lt;/strong&gt;  分别对应向左，向右，向上和向下。给定一段包含上述字母的序列 &lt;strong&gt;s&lt;/strong&gt; ，机器人遵循指引序列移动。如果删除一段连续序列可使得机器人最终到达终点不变，问删除的最短序列的起始和终点为多少。&lt;/p&gt;
@@ -10598,7 +10658,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;d-fight-with-monstershttpscodeforcescomcontest1296problemd&#34;&gt;D. &lt;a href=&#34;https://codeforces.com/contest/1296/problem/D&#34;&gt;Fight with Monsters&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;d-fight-with-monsters&#34;&gt;D. &lt;a href=&#34;https://codeforces.com/contest/1296/problem/D&#34;&gt;Fight with Monsters&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-3&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;由你先手和对手轮流击打 $n$ 个血量为 $h_i$ 的小怪兽，你可以对怪物造成 $a$ 点伤害，对手可以造成 $b$ 点伤害。你有 $k$ 次机会使对手跳过他的回合。当小怪兽血量 $h\le0$ 时视为被击杀，当你击杀怪兽，你获得一分，当对手击杀，你不得分。求你最多能获得多少分数。&lt;/p&gt;
@@ -10663,7 +10723,7 @@ $$
       <link>https://blog.zzsqwq.cn/posts/16/</link>
       <pubDate>Tue, 04 Feb 2020 23:02:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/16/</guid>
-      <description>&lt;h3 id=&#34;1-p1378-油滴扩展httpswwwluogucomcnproblemp1378&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1378&#34;&gt;P1378 油滴扩展&lt;/a&gt;&lt;/h3&gt;
+      <description>&lt;h3 id=&#34;1-p1378-油滴扩展&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1378&#34;&gt;P1378 油滴扩展&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;在长方形框中，最多有 n ($0\le{n}\le6$)个相异点，在框中点上依次放置可扩展的油滴，当碰到其他油滴边界或者长方形边框时会停止，扩展呈圆形展开。放置下一个时会确保上一个已经扩展完成。问通过变换放置顺序可使得最终框中剩下的面积最小为多少。&lt;/p&gt;
@@ -10737,7 +10797,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;2-p1120-小木棍httpswwwluogucomcnproblemp1120&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1120&#34;&gt;P1120 小木棍&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;2-p1120-小木棍&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1120&#34;&gt;P1120 小木棍&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-1&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;将一些长度为 &lt;strong&gt;x&lt;/strong&gt; 的等长木棍全部切成 &lt;strong&gt;n&lt;/strong&gt; 段不超过50的小木棍，求长木棍长度 &lt;strong&gt;x&lt;/strong&gt; 的最小长度。&lt;/p&gt;
@@ -10850,7 +10910,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;3-yokof---power-calculushttpswwwspojcomproblemsyokof&#34;&gt;3. &lt;a href=&#34;https://www.spoj.com/problems/YOKOF/&#34;&gt;YOKOF - Power Calculus&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;3-yokof---power-calculus&#34;&gt;3. &lt;a href=&#34;https://www.spoj.com/problems/YOKOF/&#34;&gt;YOKOF - Power Calculus&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-2&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;给出一个正整数 &lt;strong&gt;n&lt;/strong&gt; ，只能使用乘法或者除法，可以乘除 $x$ 或者过程中产生的中间值 $x^i$ ，输出使得 $x$ 变为 $x^n$ 所需的最少步数。$(n\le100)$&lt;/p&gt;
@@ -10858,8 +10918,7 @@ $$
 &lt;h4 id=&#34;思路-2&#34;&gt;思路&lt;/h4&gt;
 &lt;p&gt;很显然我们一直是对指数进行操作，看似是乘除，直接转化为指数的加减。因此我们需要记录一个状态数组来记录乘除中间所产生的 $x^i$ ，以便后续过程中使用。但是这道题直接搜索的话，又会超时，因为他把大量的时间浪费在高深度上，但是这个却不一定是最优解。因此需要用到迭代加深搜索(IDDFS).&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;迭代加深搜索(IDDFS)主要用于处理一些题目可能会搜到很深但是答案却不是最优的问题。有的时候dfs搜索的深度是无穷的，而且他的复杂度是呈指数级增长的，因此这其中某些情况就可以用IDDFS，在每次搜索的时候，我们给深度一个限制，当达到这个最大深度却没有得到答案的时候，就返回，然后逐步提升深度，这样我们就可以避免将时间浪费在那些无谓的高深度搜索上了。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;迭代加深搜索(IDDFS)主要用于处理一些题目可能会搜到很深但是答案却不是最优的问题。有的时候dfs搜索的深度是无穷的，而且他的复杂度是呈指数级增长的，因此这其中某些情况就可以用IDDFS，在每次搜索的时候，我们给深度一个限制，当达到这个最大深度却没有得到答案的时候，就返回，然后逐步提升深度，这样我们就可以避免将时间浪费在那些无谓的高深度搜索上了。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;$$
 \sum_{i=0}^n2^i=2^{n+1}-1（指数级别增长实例）
 $$&lt;/p&gt;
@@ -11066,7 +11125,7 @@ $$&lt;/p&gt;
       <link>https://blog.zzsqwq.cn/posts/8/</link>
       <pubDate>Sun, 02 Feb 2020 21:53:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/8/</guid>
-      <description>&lt;h3 id=&#34;a--display-the-numberhttpscodeforcescomcontest1295problema&#34;&gt;A : &lt;a href=&#34;https://codeforces.com/contest/1295/problem/A&#34;&gt;Display The Number&lt;/a&gt;&lt;/h3&gt;
+      <description>&lt;h3 id=&#34;a--display-the-number&#34;&gt;A : &lt;a href=&#34;https://codeforces.com/contest/1295/problem/A&#34;&gt;Display The Number&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题意&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;用一定数目的灯管，显示尽可能大的数&lt;/p&gt;
 &lt;p&gt;&lt;img alt=&#34;A&#34; loading=&#34;lazy&#34; src=&#34;https://s2.ax1x.com/2020/02/02/1te6Re.md.png&#34;&gt;&lt;/p&gt;
@@ -11103,12 +11162,11 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;b--infinite-prefixeshttpscodeforcescomcontest1295problemb&#34;&gt;B : &lt;a href=&#34;https://codeforces.com/contest/1295/problem/B&#34;&gt;Infinite Prefixes&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;b--infinite-prefixes&#34;&gt;B : &lt;a href=&#34;https://codeforces.com/contest/1295/problem/B&#34;&gt;Infinite Prefixes&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题意-1&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;给定一段01字符串 &lt;strong&gt;s&lt;/strong&gt; 为循环节，得到无限循环的01字符串 &lt;strong&gt;t&lt;/strong&gt;，求 &lt;strong&gt;t&lt;/strong&gt; 中有多少前缀满足0个数-1个数等于期望值&lt;strong&gt;x&lt;/strong&gt; （空前缀也算是一个前缀）&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;前缀：例如&amp;quot;abcd&amp;quot;的前缀包括 &amp;quot; &amp;ldquo;,&amp;ldquo;a&amp;rdquo;,&amp;ldquo;ab&amp;rdquo;,&amp;ldquo;abc&amp;rdquo;,&amp;ldquo;abcd&amp;rdquo;.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;前缀：例如&amp;quot;abcd&amp;quot;的前缀包括 &amp;quot; &amp;ldquo;,&amp;ldquo;a&amp;rdquo;,&amp;ldquo;ab&amp;rdquo;,&amp;ldquo;abc&amp;rdquo;,&amp;ldquo;abcd&amp;rdquo;.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h4 id=&#34;思路-1&#34;&gt;思路&lt;/h4&gt;
 &lt;p&gt;首先我们先记录循环节 &lt;strong&gt;s&lt;/strong&gt; 中每个位置对应的01个数差，记为$num_i，i\in[1,n]$ （ &lt;strong&gt;s&lt;/strong&gt; 长度记为n）&lt;/p&gt;
 &lt;ul&gt;
@@ -11184,15 +11242,14 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;c--obtain-the-stringhttpscodeforcescomcontest1295problemc&#34;&gt;C : &lt;a href=&#34;https://codeforces.com/contest/1295/problem/C&#34;&gt;Obtain The String&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;c--obtain-the-string&#34;&gt;C : &lt;a href=&#34;https://codeforces.com/contest/1295/problem/C&#34;&gt;Obtain The String&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题意-2&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;给定字符串 &lt;strong&gt;s&lt;/strong&gt; 和 &lt;strong&gt;t&lt;/strong&gt; ，每次从 &lt;strong&gt;s&lt;/strong&gt; 中选取子序列放入起始为空串的 &lt;strong&gt;z&lt;/strong&gt; 后，问最少需要多少次操作使得 &lt;strong&gt;z=t&lt;/strong&gt;&lt;/p&gt;
 &lt;h4 id=&#34;思路-2&#34;&gt;思路&lt;/h4&gt;
 &lt;p&gt;看了小姜老师的博客解法说是贪心，想了好一会，好像确实是可以贪心的···? 设置两个指针从 &lt;strong&gt;s&lt;/strong&gt; 和 &lt;strong&gt;t&lt;/strong&gt; 串的头部开始扫，对于 &lt;strong&gt;t&lt;/strong&gt; 串中的每个字母，循环扫 &lt;strong&gt;s&lt;/strong&gt; 串在其中找与它相同的，最终的答案就是扫 &lt;strong&gt;s&lt;/strong&gt; 串的次数。(小姜老师说这个实质上就是每次尽可能找尽可能多的后缀，仔细想想确实是这样。)不过这么一直暴力扫下去肯定不是最优的方法，想办法去优化。还是借鉴大佬的想法用一个lens*26的跳表，然后O(lent)扫一遍 &lt;strong&gt;t&lt;/strong&gt; 即可.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;跳表nxt的作用，用于寻找下一个所寻找字符在s中的位置。&lt;/p&gt;
-&lt;p&gt;nxt[x][y]用于指向从x位置开始下一个y的位置+1 （next在C++属于保留字，注意不要踩坑）&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;nxt[x][y]用于指向从x位置开始下一个y的位置+1 （next在C++属于保留字，注意不要踩坑）&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h4 id=&#34;代码实现-2&#34;&gt;代码实现&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&amp;lt;cstdio&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&amp;lt;cstring&amp;gt;

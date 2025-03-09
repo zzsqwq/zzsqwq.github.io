@@ -8,7 +8,7 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- 0.141.0</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>en</language>
     <lastBuildDate>Sun, 09 Feb 2020 00:38:00 +0000</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/tags/%E8%83%8C%E5%8C%85/index.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,7 @@
       <link>https://blog.zzsqwq.cn/posts/21/</link>
       <pubDate>Sun, 09 Feb 2020 00:38:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/21/</guid>
-      <description>&lt;h3 id=&#34;1-分组背包httpswwwluogucomcnproblemp1757&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1757&#34;&gt;分组背包&lt;/a&gt;&lt;/h3&gt;
+      <description>&lt;h3 id=&#34;1-分组背包&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1757&#34;&gt;分组背包&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;在01背包基础上，将其中的物体分成 $k$ 组，每组内的物品相互冲突，即只能取其中一个，问最大价值。&lt;/p&gt;
@@ -69,7 +69,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;2-有依赖的背包httpswwwluogucomcnproblemu65320&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/U65320&#34;&gt;有依赖的背包&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;2-有依赖的背包&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/U65320&#34;&gt;有依赖的背包&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-1&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;在01背包的基础上给物品加上依赖，某个物品可能为附件，必须买了主件之后才能买。规定一个物品最多有两个附件，并且附件不会再有附件，也不存在循环依赖（附件再依赖于主件）。问能获得的最大价值为多少。&lt;/p&gt;
@@ -168,7 +168,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;3-多米诺骨牌隐式背包httpswwwluogucomcnproblemp1282&#34;&gt;3. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1282&#34;&gt;多米诺骨牌(隐式背包)&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;3-多米诺骨牌隐式背包&#34;&gt;3. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1282&#34;&gt;多米诺骨牌(隐式背包)&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-2&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;多米诺骨牌有上下两个部分，分别具有一定点数。所有多米诺骨牌上部分点数之和与下部分点数之和差的绝对值为 $x$ ，多米诺骨牌可以进行上下翻转，问当 $x$ 最小的时候最少翻转几次。&lt;/p&gt;
@@ -243,7 +243,7 @@
       <description>&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
 &lt;p&gt;今天跟着背包九讲把背包再学习一下，dd_engi大佬的背包九讲Github链接: &lt;a href=&#34;https://github.com/tianyicui/pack&#34;&gt;背包九讲&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id=&#34;1-采药01背包httpswwwluogucomcnproblemp1048&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1048&#34;&gt;采药(01背包)&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;1-采药01背包&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1048&#34;&gt;采药(01背包)&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;有 $n$ 个价值为 $w_i$ ，体积为 $v_i$ 的物品，装入体积为 $V$ 的背包中，问能获得的最大为多少。&lt;/p&gt;
@@ -283,7 +283,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;2-疯狂的采药完全背包httpswwwluogucomcnproblemp1616&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1616&#34;&gt;疯狂的采药(完全背包)&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;2-疯狂的采药完全背包&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1616&#34;&gt;疯狂的采药(完全背包)&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-1&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;有 $n$ 种价值为 $w_i$ ，体积为 $v_i$ 的物品，每一种物品有无数个，装入体积为 $V$ 的背包中，问能获得的最大为多少。&lt;/p&gt;
@@ -322,7 +322,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;3-宝物筛选多重背包httpswwwluogucomcnproblemp1776&#34;&gt;3. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1776&#34;&gt;宝物筛选(多重背包)&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;3-宝物筛选多重背包&#34;&gt;3. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1776&#34;&gt;宝物筛选(多重背包)&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-2&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;有 $N$ 种物品和一个容量为 $V$ 的背包。第 $i$ 种物品最多有 $m_i$ 件可用，每件耗费的空间是 $v_i$，价值是 $w_i$ 。求解将哪些物品装入背包可使这些物品的耗费的空间总和不超过背包容量，且价值总和最大。&lt;/p&gt;

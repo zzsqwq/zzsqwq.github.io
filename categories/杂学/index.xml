@@ -8,7 +8,7 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- 0.141.0</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>en</language>
     <lastBuildDate>Sun, 18 Jul 2021 16:03:00 +0000</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/categories/%E6%9D%82%E5%AD%A6/index.xml" rel="self" type="application/rss+xml" />
@@ -59,8 +59,7 @@
 &lt;p&gt;以下大多参考：&lt;a href=&#34;https://sspai.com/post/40997&#34;&gt;如何正确地用树莓派共享打印机&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;大佬言：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;其实，这一步的工作量非常少，因为软件包 CUPS 就是为共享打印机而生。我们要做的只是将打印机用 USB 线缆连接树莓派，然后安装并配置 CUPS。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;其实，这一步的工作量非常少，因为软件包 CUPS 就是为共享打印机而生。我们要做的只是将打印机用 USB 线缆连接树莓派，然后安装并配置 CUPS。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;然而，事实并非如此。&lt;/p&gt;
 &lt;h4 id=&#34;换源&#34;&gt;换源&lt;/h4&gt;
 &lt;p&gt;在安装之前需要换源，如果不换源的话，安装会十分缓慢，具体的流程可以看上面的blog，因为我们基地的WiFi自带代理，因此这一步我没有做。&lt;/p&gt;
@@ -307,8 +306,7 @@ $$&lt;/p&gt;
 &lt;p&gt;根据通用近似定理:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;通用近似定理&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;对于具有线性输出层和至少一个使用“挤压”性质的激活函数的隐藏层组成的前馈神经网络，只要其隐藏层神经元的数量足够，它可以以任意精度来近似任何从一个定义在实数空间中的有界闭集函数。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;对于具有线性输出层和至少一个使用“挤压”性质的激活函数的隐藏层组成的前馈神经网络，只要其隐藏层神经元的数量足够，它可以以任意精度来近似任何从一个定义在实数空间中的有界闭集函数。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;只要隐藏层网络维度够高，就可以拟合任意的函数。&lt;/p&gt;
 &lt;p&gt;考虑到我们的模型有六维or十三维的数据输入，因此我们建立两层前馈神经网络，中间具有一层隐藏层，维度为1000维，激活函数使用Relu，Relu函数有以下优点:&lt;/p&gt;
 &lt;ul&gt;
@@ -387,8 +385,7 @@ $$
 &lt;p&gt;pytorch = 1.2.0&lt;/p&gt;
 &lt;p&gt;python = 3.6.12&lt;/p&gt;
 &lt;p&gt;torchvision = 0.4.0&lt;/p&gt;
-&lt;p&gt;cuda = 10.2&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;cuda = 10.2&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;​需要注意的是：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;官方给出的教程里面使用的是 &lt;code&gt;pytorch 0.4.1&lt;/code&gt;，但是我个人在实测过程中遇到了一些问题，遂安装网上的教程更改为 &lt;code&gt;pytorch 1.2.0&lt;/code&gt;，并且需要把 &lt;code&gt;${CenterNet_Root}/src/lib/models/networks/DCNv2&lt;/code&gt; 中的这个&lt;a href=&#34;https://github.com/CharlesShang/DCNv2&#34;&gt;DCNv2&lt;/a&gt;网络更改为官方的最新版。&lt;/li&gt;
@@ -456,8 +453,7 @@ $$
 &lt;li&gt;
 &lt;p&gt;然后根据官方的教程，我们需要创建一个images文件夹，然后将其 &lt;code&gt;training/image_2&lt;/code&gt; 链接到 &lt;code&gt;images/trainval&lt;/code&gt;，我在实际的测试中，发现此方法并不可行。参考CenterNet中的一个Issue: &lt;a href=&#34;https://github.com/xingyizhou/CenterNet/issues/575&#34;&gt;Evaluate kitti&amp;ndash;AttributeError: &amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;shape&amp;rsquo;&lt;/a&gt; ，其中 juanmed给出了解决方案：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;I had the same problem. For some reason the simlinks that are created during the data preparation process described in DATA.md are not working. So instead of creating simlinks I simply copied the actual data into the directories indicated in DATA.md. In other words the folders &lt;code&gt;data/kitti/images/test&lt;/code&gt; and &lt;code&gt;data/kitti/images/trainval&lt;/code&gt; do contain the actual images.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;I had the same problem. For some reason the simlinks that are created during the data preparation process described in DATA.md are not working. So instead of creating simlinks I simply copied the actual data into the directories indicated in DATA.md. In other words the folders &lt;code&gt;data/kitti/images/test&lt;/code&gt; and &lt;code&gt;data/kitti/images/trainval&lt;/code&gt; do contain the actual images.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;意思就是说，我们在 &lt;strong&gt;images&lt;/strong&gt; 中的图片必须都是真实的照片，而不能只是软链接过去。&lt;/p&gt;
 &lt;p&gt;解决方案很显然，只需要在 &lt;strong&gt;images&lt;/strong&gt; 文件夹中建立一个 &lt;strong&gt;trainval&lt;/strong&gt; 文件夹，将 &lt;code&gt;training/image_2&lt;/code&gt; 中的所有图像都移入其中即可。如果有test的照片，那么也照规在 &lt;strong&gt;images&lt;/strong&gt; 新建一个 &lt;strong&gt;test&lt;/strong&gt; 文件夹，把测试的照片移入其中即可。&lt;/p&gt;
 &lt;/li&gt;
@@ -470,8 +466,7 @@ $$
 &lt;blockquote&gt;
 &lt;p&gt;The solution is quite simple.
 &lt;code&gt;cd data/kitti&lt;/code&gt;
-&lt;code&gt;mv label_2 label_val&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;code&gt;mv label_2 label_val&lt;/code&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;​    更改后，运行成功~&lt;/p&gt;
 &lt;p&gt;我们应该可以在 &lt;code&gt;${CenterNet_ROOT}/exp/ddd/3dop/results&lt;/code&gt; 看到我们得到的结果，只不过运行得到的是点的坐标，而不是图像，如果需要图像的话可能还需要自己绘制一下。&lt;/p&gt;
 </description>
@@ -481,8 +476,8 @@ $$
       <link>https://blog.zzsqwq.cn/posts/136/</link>
       <pubDate>Thu, 12 Nov 2020 23:13:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/136/</guid>
-      <description>&lt;h2 id=&#34;程序星编程之路第二次作业httpswwwluogucomcncontest36509题解&#34;&gt;&lt;a href=&#34;https://www.luogu.com.cn/contest/36509&#34;&gt;“程序星编程之路”第二次作业&lt;/a&gt;题解&lt;/h2&gt;
-&lt;h3 id=&#34;a-zs的回文质数httpswwwluogucomcnproblemu138527contestid36509&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/U138527?contestId=36509&#34;&gt;Zs的回文质数&lt;/a&gt;&lt;/h3&gt;
+      <description>&lt;h2 id=&#34;程序星编程之路第二次作业题解&#34;&gt;&lt;a href=&#34;https://www.luogu.com.cn/contest/36509&#34;&gt;“程序星编程之路”第二次作业&lt;/a&gt;题解&lt;/h2&gt;
+&lt;h3 id=&#34;a-zs的回文质数&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/U138527?contestId=36509&#34;&gt;Zs的回文质数&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题目描述&#34;&gt;题目描述&lt;/h4&gt;
 &lt;p&gt;读入一个整数 $n$ ，输出 $[1,n]$ 的所有回文质数，我们规定 $1\sim9$ 也是回文数。&lt;/p&gt;
 &lt;h4 id=&#34;思路&#34;&gt;思路&lt;/h4&gt;
@@ -577,7 +572,7 @@ $$
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;b-wcx的杨辉三角httpswwwluogucomcnproblemu138528contestid36509&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/U138528?contestId=36509&#34;&gt;Wcx的杨辉三角&lt;/a&gt;&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;b-wcx的杨辉三角&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/U138528?contestId=36509&#34;&gt;Wcx的杨辉三角&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题目描述-1&#34;&gt;题目描述&lt;/h4&gt;
 &lt;p&gt;读入一个整数 $n$ ，输出杨辉三角的前 $n$ 行。&lt;/p&gt;
 &lt;h4 id=&#34;思路-1&#34;&gt;思路&lt;/h4&gt;
@@ -624,7 +619,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;其他-1&#34;&gt;其他&lt;/h4&gt;
 &lt;p&gt;这道题主要是对二维数组的考察。&lt;/p&gt;
 &lt;p&gt;注意我们遇到第五个点过不去的时候，应该试一下最大的值 $40$ ，会发现有负数，显然是溢出问题，我们就能知道问题的解决办法了。&lt;/p&gt;
-&lt;h3 id=&#34;c-zh的约瑟夫环问题httpswwwluogucomcnproblemu138529contestid36509&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/U138529?contestId=36509&#34;&gt;Zh的约瑟夫环问题&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;c-zh的约瑟夫环问题&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/U138529?contestId=36509&#34;&gt;Zh的约瑟夫环问题&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题目描述-2&#34;&gt;题目描述&lt;/h4&gt;
 &lt;p&gt;有 $n$ 个人围成一圈，顺序排号，从第一个开始报数(从 $1$ 到 $m$ 报数)，凡报到 $m$ 的人退出圈子，问最后留下的是几号.&lt;/p&gt;
 &lt;h4 id=&#34;思路-2&#34;&gt;思路&lt;/h4&gt;

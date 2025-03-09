@@ -8,7 +8,7 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- 0.141.0</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>en</language>
     <lastBuildDate>Thu, 20 Feb 2020 01:04:00 +0000</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/tags/dp/index.xml" rel="self" type="application/rss+xml" />
@@ -20,7 +20,7 @@
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;学OI的时候就做过树形dp的题，不过那时候全在划水。看了看题解还不太懂就直接照着题解写了，现在再回来看还是不会QAQ，所以就再看看然后自己写了一遍。&lt;/p&gt;
 &lt;/br&gt;
-&lt;h2 id=&#34;a-没有上司的舞会httpswwwluogucomcnproblemp1352&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1352&#34;&gt;没有上司的舞会&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;a-没有上司的舞会&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1352&#34;&gt;没有上司的舞会&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;有 $N$ 个职员被邀请去参加公司的舞会，他们每个人对应着一个快乐指数 $h_i$ ，如果该职员来了就会为舞会增加$h_i$ 点快乐指数。这 $N$ 个职员之间有从属关系，也就是说他们的关系就像一棵以顶级上司为根的树，父结点就是子结点的直接上司。如果一个职员的&lt;strong&gt;直接&lt;/strong&gt;上司来到了舞会，那么他本人就不会再来。问邀请哪些职员可获得最大的快乐指数，最大为多少。&lt;/p&gt;
 &lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
@@ -92,7 +92,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;b-战略游戏httpswwwluogucomcnproblemp2016&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/P2016&#34;&gt;战略游戏&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;b-战略游戏&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/P2016&#34;&gt;战略游戏&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;小姜老师要建立一个树，树节点两两之间通过道路连接，他要在这些节点上放一些小人，每个小人可监管与该节点相连的道路，问最少放置多少小人可以监管所有道路。（数据保证0为根节点）&lt;/p&gt;
 &lt;h3 id=&#34;思路-1&#34;&gt;思路&lt;/h3&gt;
@@ -160,7 +160,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;c-二叉苹果树httpswwwluogucomcnproblemp2015&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P2015&#34;&gt;二叉苹果树&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;c-二叉苹果树&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P2015&#34;&gt;二叉苹果树&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;有一颗二叉苹果树，也就是说树枝如果分叉，一定是分二叉。苹果树有 $n$ 个节点，树根编号为 1 。每个树枝上都有一定数量的苹果，如果最终保留 $q$ 根树枝，问最多能够保留多少苹果。&lt;/p&gt;
 &lt;h3 id=&#34;思路-2&#34;&gt;思路&lt;/h3&gt;
@@ -226,7 +226,7 @@
       <link>https://blog.zzsqwq.cn/posts/29/</link>
       <pubDate>Tue, 18 Feb 2020 01:00:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/29/</guid>
-      <description>&lt;h2 id=&#34;a-矩阵取数游戏httpswwwluogucomcnproblemp1005&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1005&#34;&gt;矩阵取数游戏&lt;/a&gt;&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;a-矩阵取数游戏&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1005&#34;&gt;矩阵取数游戏&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定一个 $n\times m$ 的矩阵，其中每个元素为非负整数。每次你可以从每行的行首或行末取一个元素，得到的分数为当前元素的值 $a_{ij}\times 2^k$  ，$k$ 为当前是第几次取该行上的元素。 问最大得分为多少。&lt;/p&gt;
 &lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
@@ -290,7 +290,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;b-关路灯httpswwwluogucomcnproblemp1220&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1220&#34;&gt;关路灯&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;b-关路灯&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1220&#34;&gt;关路灯&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;在一条街道上有 $n$ 个路灯开着，他们可以看作分布在 $x$ 轴上，每个路灯有一定的坐标，也就是代表他们的位置。每个路灯也有一定的功率 $x$ ，代表一秒钟消耗多少电能。姜大佬初始位置在 $c$  ，他每天早晨出来关掉路灯。它可以先关左边的也可以先关右边的，他的行走速率是 $1m/s$ ，问最少消耗多少电能能关掉所有路灯。&lt;/p&gt;
 &lt;h3 id=&#34;思路-1&#34;&gt;思路&lt;/h3&gt;
@@ -345,7 +345,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;c-小a和uim之大逃离httpswwwluogucomcnproblemp1373&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1373&#34;&gt;小a和uim之大逃离&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;c-小a和uim之大逃离&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1373&#34;&gt;小a和uim之大逃离&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给定一个 $n\times m$ 的矩阵，每个格子中有 $0\sim k$ 滴魔液，小姜老师和它朋友可以从任意地点开始，一起向右或者向下走，他们每个人有一个容量为 $k$ 的瓶子，由小姜老师开始轮流收集地上的魔液，当收集魔液大于 $k$ 的时候，会对 $k+1$ 取模，问他们有多少种方法使得收集的魔液数量相同。&lt;/p&gt;
 &lt;h3 id=&#34;思路-2&#34;&gt;思路&lt;/h3&gt;
@@ -408,7 +408,7 @@
       <link>https://blog.zzsqwq.cn/posts/24/</link>
       <pubDate>Wed, 12 Feb 2020 00:45:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/24/</guid>
-      <description>&lt;h2 id=&#34;a-方格取数httpswwwluogucomcnproblemp1004&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1004&#34;&gt;方格取数&lt;/a&gt;&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;a-方格取数&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1004&#34;&gt;方格取数&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;有一个 $N*N$ 的整数方阵，每个点初始值为0，在一些点上放上数，一个人从左上角走到右下角，规定只能向下或向右走，当他经过的点上有数时会取走它，问走两遍最多能取的数的和最大为多少。&lt;/p&gt;
 &lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
@@ -456,7 +456,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt; 
-&lt;h2 id=&#34;b-创意吃鱼法httpswwwluogucomcnproblemp1736&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1736&#34;&gt;创意吃鱼法&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;b-创意吃鱼法&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1736&#34;&gt;创意吃鱼法&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-1&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给出一个 $N*M$ 的只包含0和1的数阵，求只有对角线为1，其余位置为0的子方阵的最大边长。&lt;/p&gt;
 &lt;h3 id=&#34;思路-1&#34;&gt;思路&lt;/h3&gt;
@@ -519,7 +519,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ans&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;c-乌龟棋httpswwwluogucomcnproblemp1541&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1541&#34;&gt;乌龟棋&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;c-乌龟棋&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1541&#34;&gt;乌龟棋&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-2&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给出标号分别为1，2，3，4的四种卡片若干张，分别可以移动1，2，3，4步，玩家初始处于坐标为1的位置。玩家出一张牌，可移动相应的步数。移动到不同的坐标会加不同的分数，很明显不同的出牌顺序会对应着不同的分数，求玩家能获得的最大分数为多少。&lt;/p&gt;
 &lt;h3 id=&#34;思路-2&#34;&gt;思路&lt;/h3&gt;
@@ -583,7 +583,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/br&gt;
-&lt;h2 id=&#34;d-能量项链httpswwwluogucomcnproblemp1063&#34;&gt;D. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1063&#34;&gt;能量项链&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;d-能量项链&#34;&gt;D. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1063&#34;&gt;能量项链&lt;/a&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;题意-3&#34;&gt;题意&lt;/h3&gt;
 &lt;p&gt;给出一段含有 $n$ 个珠子的环状项链，对于相邻的两个珠子，前一颗珠子的尾标记等于后方珠子的头标记。
 例如项链为 $[2,4,6,8]$ ， 那么用加入标记表示就是 $[(2,4),(4,6),(6,8),(8,2)]$  。当两个珠子两两合并的时候会产生的能量大小为 前方珠子头标记 $\times$ 前方珠子尾标记 $\times$ 后方珠子尾标记。显然合并的顺序不同最终会产生不同的能量值，问能产生的最大能量值为多少。&lt;/p&gt;
@@ -648,7 +648,7 @@
       <link>https://blog.zzsqwq.cn/posts/21/</link>
       <pubDate>Sun, 09 Feb 2020 00:38:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/21/</guid>
-      <description>&lt;h3 id=&#34;1-分组背包httpswwwluogucomcnproblemp1757&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1757&#34;&gt;分组背包&lt;/a&gt;&lt;/h3&gt;
+      <description>&lt;h3 id=&#34;1-分组背包&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1757&#34;&gt;分组背包&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;在01背包基础上，将其中的物体分成 $k$ 组，每组内的物品相互冲突，即只能取其中一个，问最大价值。&lt;/p&gt;
@@ -700,7 +700,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;m&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;2-有依赖的背包httpswwwluogucomcnproblemu65320&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/U65320&#34;&gt;有依赖的背包&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;2-有依赖的背包&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/U65320&#34;&gt;有依赖的背包&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-1&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;在01背包的基础上给物品加上依赖，某个物品可能为附件，必须买了主件之后才能买。规定一个物品最多有两个附件，并且附件不会再有附件，也不存在循环依赖（附件再依赖于主件）。问能获得的最大价值为多少。&lt;/p&gt;
@@ -799,7 +799,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;3-多米诺骨牌隐式背包httpswwwluogucomcnproblemp1282&#34;&gt;3. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1282&#34;&gt;多米诺骨牌(隐式背包)&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;3-多米诺骨牌隐式背包&#34;&gt;3. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1282&#34;&gt;多米诺骨牌(隐式背包)&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-2&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;多米诺骨牌有上下两个部分，分别具有一定点数。所有多米诺骨牌上部分点数之和与下部分点数之和差的绝对值为 $x$ ，多米诺骨牌可以进行上下翻转，问当 $x$ 最小的时候最少翻转几次。&lt;/p&gt;
@@ -874,7 +874,7 @@
       <description>&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
 &lt;p&gt;今天跟着背包九讲把背包再学习一下，dd_engi大佬的背包九讲Github链接: &lt;a href=&#34;https://github.com/tianyicui/pack&#34;&gt;背包九讲&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id=&#34;1-采药01背包httpswwwluogucomcnproblemp1048&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1048&#34;&gt;采药(01背包)&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;1-采药01背包&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1048&#34;&gt;采药(01背包)&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;有 $n$ 个价值为 $w_i$ ，体积为 $v_i$ 的物品，装入体积为 $V$ 的背包中，问能获得的最大为多少。&lt;/p&gt;
@@ -914,7 +914,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;2-疯狂的采药完全背包httpswwwluogucomcnproblemp1616&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1616&#34;&gt;疯狂的采药(完全背包)&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;2-疯狂的采药完全背包&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1616&#34;&gt;疯狂的采药(完全背包)&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-1&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;有 $n$ 种价值为 $w_i$ ，体积为 $v_i$ 的物品，每一种物品有无数个，装入体积为 $V$ 的背包中，问能获得的最大为多少。&lt;/p&gt;
@@ -953,7 +953,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;3-宝物筛选多重背包httpswwwluogucomcnproblemp1776&#34;&gt;3. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1776&#34;&gt;宝物筛选(多重背包)&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;3-宝物筛选多重背包&#34;&gt;3. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1776&#34;&gt;宝物筛选(多重背包)&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-2&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;有 $N$ 种物品和一个容量为 $V$ 的背包。第 $i$ 种物品最多有 $m_i$ 件可用，每件耗费的空间是 $v_i$，价值是 $w_i$ 。求解将哪些物品装入背包可使这些物品的耗费的空间总和不超过背包容量，且价值总和最大。&lt;/p&gt;
@@ -1010,7 +1010,7 @@
       <link>https://blog.zzsqwq.cn/posts/19/</link>
       <pubDate>Fri, 07 Feb 2020 00:22:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/19/</guid>
-      <description>&lt;h3 id=&#34;1-石子归并httpswww51nodcomchallengeproblemhtmlproblemid1021&#34;&gt;1. &lt;a href=&#34;https://www.51nod.com/Challenge/Problem.html#problemId=1021&#34;&gt;石子归并&lt;/a&gt;&lt;/h3&gt;
+      <description>&lt;h3 id=&#34;1-石子归并&#34;&gt;1. &lt;a href=&#34;https://www.51nod.com/Challenge/Problem.html#problemId=1021&#34;&gt;石子归并&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意&#34;&gt;题意&lt;/h4&gt;
 &lt;pre&gt;&lt;code&gt;$N$ 堆石子摆成一条线。现要将石子有次序地合并成一堆。规定每次只能选相邻的2堆石子合并成新的一堆，并将新的一堆石子数记为该次合并的代价。计算将 $N$ 堆石子合并成一堆的最小代价。
@@ -1057,7 +1057,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;2-p1880-noi1995石子合并httpswwwluogucomcnproblemp1880&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1880&#34;&gt;P1880 [NOI1995]石子合并&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;2-p1880-&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1880&#34;&gt;P1880 [NOI1995]石子合并&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-1&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;$N$ 堆石子摆成一个环。现要将石子有次序地合并成一堆。规定每次只能选相邻的2堆石子合并成新的一堆，并将新的一堆石子数记为该次合并的代价。计算将 $N$ 堆石子合并成一堆的最小代价和最大代价。&lt;/p&gt;
@@ -1112,7 +1112,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;3-p1140-相似基因httpswwwluogucomcnproblemnewsolutionp1140&#34;&gt;3. &lt;a href=&#34;https://www.luogu.com.cn/problemnew/solution/P1140&#34;&gt;P1140 相似基因&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;3-p1140-相似基因&#34;&gt;3. &lt;a href=&#34;https://www.luogu.com.cn/problemnew/solution/P1140&#34;&gt;P1140 相似基因&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-2&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;有 $A : T :C : G $ 四种碱基，他们之间可以两两配对，特殊的，一个碱基也可以和空碱基配对，但是空碱基和空碱基配对是不被允许的，当不同的碱基间两两配对时，会具有一定的相似度，问给定两段序列 $s$，$t$ 能获得的最大相似度是多少。&lt;/p&gt;
@@ -1250,7 +1250,7 @@
       <description>&lt;h3 id=&#34;前言&#34;&gt;前言&lt;/h3&gt;
 &lt;hr&gt;
 &lt;p&gt;某位大佬曾经说过，dp不会没问题，想不到状态转移方程没问题，多做题就会了。所以，我打算多刷点dp题。那么，先从基础刷起吧。&lt;/p&gt;
-&lt;h3 id=&#34;1-p1091-合唱队形httpswwwluogucomcnproblemp1091&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1091&#34;&gt;P1091 合唱队形&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;1-p1091-合唱队形&#34;&gt;1. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1091&#34;&gt;P1091 合唱队形&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;已知序列 $a$ 有 $n$ 个数，通过取出其中一些数可以使他满足严格的先增再减序列，问最少取出几个。&lt;/p&gt;
@@ -1300,7 +1300,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;2-p1280-尼克的任务httpswwwluogucomcnproblemp1280&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1280&#34;&gt;P1280 尼克的任务&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;2-p1280-尼克的任务&#34;&gt;2. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1280&#34;&gt;P1280 尼克的任务&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意-1&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;尼克的一个工作日为 $n$ 分钟，从第一分钟开始到第 $n$ 分钟结束。当尼克到达单位后他就开始干活。如果在同一时刻有多个任务需要完成，尼克可以任选其中的一个来做，而其余的则由他的同事完成，反之如果只有一个任务，则该任务必需由尼克去完成，假如某些任务开始时刻尼克正在工作，则这些任务也由尼克的同事完成。如果某任务于第 $p$ 分钟开始，持续时间为 $t$ 分钟，则该任务将在第 $p+t-1$ 分钟结束。（实在不会总结题意，就直接复制过来了）&lt;/p&gt;

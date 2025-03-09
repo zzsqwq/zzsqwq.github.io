@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.zzsqwq.cn/posts/2024-annual-goodies/</loc>
+    <lastmod>2024-12-21T16:58:33+08:00</lastmod>
+  </url><url>
     <loc>https://blog.zzsqwq.cn/posts/</loc>
     <lastmod>2024-12-21T16:58:33+08:00</lastmod>
   </url><url>
@@ -11,10 +14,10 @@
     <loc>https://blog.zzsqwq.cn/categories/</loc>
     <lastmod>2024-12-05T00:08:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/nas/</loc>
+    <loc>https://blog.zzsqwq.cn/categories/nas/</loc>
     <lastmod>2024-12-05T00:08:00+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/nas/</loc>
+    <loc>https://blog.zzsqwq.cn/tags/nas/</loc>
     <lastmod>2024-12-05T00:08:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/tags/</loc>
@@ -41,10 +44,10 @@
     <loc>https://blog.zzsqwq.cn/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/</loc>
     <lastmod>2024-01-03T12:56:41+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/app/</loc>
+    <loc>https://blog.zzsqwq.cn/categories/app/</loc>
     <lastmod>2023-12-03T23:44:24+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/app/</loc>
+    <loc>https://blog.zzsqwq.cn/tags/app/</loc>
     <lastmod>2023-12-03T23:44:24+08:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/posts/macos-app-use-experience-record/</loc>
@@ -77,10 +80,10 @@
     <loc>https://blog.zzsqwq.cn/tags/%E6%8A%B5%E5%88%B6/</loc>
     <lastmod>2023-05-01T23:35:01+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/%E6%8B%BC%E5%A4%9A%E5%A4%9A/</loc>
+    <loc>https://blog.zzsqwq.cn/categories/%E6%8B%BC%E5%A4%9A%E5%A4%9A/</loc>
     <lastmod>2023-05-01T23:35:01+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/%E6%8B%BC%E5%A4%9A%E5%A4%9A/</loc>
+    <loc>https://blog.zzsqwq.cn/tags/%E6%8B%BC%E5%A4%9A%E5%A4%9A/</loc>
     <lastmod>2023-05-01T23:35:01+08:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/categories/deep-learning/</loc>
@@ -101,10 +104,10 @@
     <loc>https://blog.zzsqwq.cn/posts/summary-2022/</loc>
     <lastmod>2023-01-01T16:13:45+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/openwrt/</loc>
+    <loc>https://blog.zzsqwq.cn/categories/openwrt/</loc>
     <lastmod>2022-12-31T16:34:42+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/openwrt/</loc>
+    <loc>https://blog.zzsqwq.cn/tags/openwrt/</loc>
     <lastmod>2022-12-31T16:34:42+08:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/tags/orangepi4-lts/</loc>
@@ -116,10 +119,10 @@
     <loc>https://blog.zzsqwq.cn/posts/orangepi4-lts-with-openwrt/</loc>
     <lastmod>2022-12-31T16:34:42+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/c&#43;&#43;/</loc>
+    <loc>https://blog.zzsqwq.cn/categories/c&#43;&#43;/</loc>
     <lastmod>2022-11-09T22:40:41+08:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/c&#43;&#43;/</loc>
+    <loc>https://blog.zzsqwq.cn/tags/c&#43;&#43;/</loc>
     <lastmod>2022-11-09T22:40:41+08:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/posts/cxx-class-skills/</loc>
@@ -197,10 +200,10 @@
     <loc>https://blog.zzsqwq.cn/tags/%E6%9D%82%E8%B0%88/</loc>
     <lastmod>2022-02-10T00:52:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/javascript/</loc>
+    <loc>https://blog.zzsqwq.cn/categories/javascript/</loc>
     <lastmod>2022-01-19T00:24:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/javascript/</loc>
+    <loc>https://blog.zzsqwq.cn/tags/javascript/</loc>
     <lastmod>2022-01-19T00:24:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/posts/223/</loc>
@@ -233,10 +236,10 @@
     <loc>https://blog.zzsqwq.cn/tags/iris/</loc>
     <lastmod>2021-11-02T01:16:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/ubuntu/</loc>
+    <loc>https://blog.zzsqwq.cn/categories/ubuntu/</loc>
     <lastmod>2021-11-02T01:16:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/ubuntu/</loc>
+    <loc>https://blog.zzsqwq.cn/tags/ubuntu/</loc>
     <lastmod>2021-11-02T01:16:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/tags/%E5%B0%8F%E6%96%B0pro14/</loc>
@@ -245,10 +248,10 @@
     <loc>https://blog.zzsqwq.cn/tags/%E9%94%90%E7%82%AC/</loc>
     <lastmod>2021-11-02T01:16:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/git/</loc>
+    <loc>https://blog.zzsqwq.cn/categories/git/</loc>
     <lastmod>2021-07-23T14:17:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/git/</loc>
+    <loc>https://blog.zzsqwq.cn/tags/git/</loc>
     <lastmod>2021-07-23T14:17:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/posts/201/</loc>
@@ -278,10 +281,10 @@
     <loc>https://blog.zzsqwq.cn/tags/steam/</loc>
     <lastmod>2021-06-16T01:38:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/python/</loc>
+    <loc>https://blog.zzsqwq.cn/categories/python/</loc>
     <lastmod>2021-05-16T15:19:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/python/</loc>
+    <loc>https://blog.zzsqwq.cn/tags/python/</loc>
     <lastmod>2021-05-16T15:19:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/tags/pytorch/</loc>
@@ -296,10 +299,10 @@
     <loc>https://blog.zzsqwq.cn/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2021-05-16T15:19:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
+    <loc>https://blog.zzsqwq.cn/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2021-05-16T15:19:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
+    <loc>https://blog.zzsqwq.cn/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2021-05-16T15:19:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/posts/173/</loc>
@@ -353,10 +356,10 @@
     <loc>https://blog.zzsqwq.cn/tags/%E7%A8%8B%E5%BA%8F%E6%98%9F/</loc>
     <lastmod>2020-11-12T23:13:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/opencv/</loc>
+    <loc>https://blog.zzsqwq.cn/categories/opencv/</loc>
     <lastmod>2020-10-31T20:38:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/opencv/</loc>
+    <loc>https://blog.zzsqwq.cn/tags/opencv/</loc>
     <lastmod>2020-10-31T20:38:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/posts/114/</loc>
@@ -392,10 +395,10 @@
     <loc>https://blog.zzsqwq.cn/posts/5/</loc>
     <lastmod>2020-08-17T20:04:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <loc>https://blog.zzsqwq.cn/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2020-04-20T01:25:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <loc>https://blog.zzsqwq.cn/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2020-04-20T01:25:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/posts/67/</loc>
@@ -416,10 +419,10 @@
     <loc>https://blog.zzsqwq.cn/tags/vim/</loc>
     <lastmod>2020-03-30T01:18:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/matlab/</loc>
+    <loc>https://blog.zzsqwq.cn/categories/matlab/</loc>
     <lastmod>2020-03-23T01:14:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/matlab/</loc>
+    <loc>https://blog.zzsqwq.cn/tags/matlab/</loc>
     <lastmod>2020-03-23T01:14:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/posts/51/</loc>
@@ -434,10 +437,10 @@
     <loc>https://blog.zzsqwq.cn/posts/33/</loc>
     <lastmod>2020-03-14T01:05:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/dp/</loc>
+    <loc>https://blog.zzsqwq.cn/categories/dp/</loc>
     <lastmod>2020-02-20T01:04:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/dp/</loc>
+    <loc>https://blog.zzsqwq.cn/tags/dp/</loc>
     <lastmod>2020-02-20T01:04:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/tags/luogu/</loc>
@@ -455,10 +458,10 @@
     <loc>https://blog.zzsqwq.cn/posts/29/</loc>
     <lastmod>2020-02-18T01:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/stl/</loc>
+    <loc>https://blog.zzsqwq.cn/categories/stl/</loc>
     <lastmod>2020-02-16T00:55:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/stl/</loc>
+    <loc>https://blog.zzsqwq.cn/tags/stl/</loc>
     <lastmod>2020-02-16T00:55:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/posts/28/</loc>
@@ -482,10 +485,10 @@
     <loc>https://blog.zzsqwq.cn/posts/22/</loc>
     <lastmod>2020-02-10T00:39:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/%E8%83%8C%E5%8C%85/</loc>
+    <loc>https://blog.zzsqwq.cn/categories/%E8%83%8C%E5%8C%85/</loc>
     <lastmod>2020-02-09T00:38:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/%E8%83%8C%E5%8C%85/</loc>
+    <loc>https://blog.zzsqwq.cn/tags/%E8%83%8C%E5%8C%85/</loc>
     <lastmod>2020-02-09T00:38:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/posts/21/</loc>
@@ -503,19 +506,19 @@
     <loc>https://blog.zzsqwq.cn/posts/17/</loc>
     <lastmod>2020-02-05T23:18:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/%E6%90%9C%E7%B4%A2/</loc>
+    <loc>https://blog.zzsqwq.cn/categories/%E6%90%9C%E7%B4%A2/</loc>
     <lastmod>2020-02-04T23:02:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/%E6%90%9C%E7%B4%A2/</loc>
+    <loc>https://blog.zzsqwq.cn/tags/%E6%90%9C%E7%B4%A2/</loc>
     <lastmod>2020-02-04T23:02:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/posts/16/</loc>
     <lastmod>2020-02-04T23:02:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/tags/latex/</loc>
+    <loc>https://blog.zzsqwq.cn/categories/latex/</loc>
     <lastmod>2020-02-04T22:47:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.zzsqwq.cn/categories/latex/</loc>
+    <loc>https://blog.zzsqwq.cn/tags/latex/</loc>
     <lastmod>2020-02-04T22:47:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.zzsqwq.cn/posts/10/</loc>

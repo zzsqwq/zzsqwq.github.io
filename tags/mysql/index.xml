@@ -8,7 +8,7 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- 0.141.0</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>en</language>
     <lastBuildDate>Fri, 11 Sep 2020 00:08:00 +0000</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
@@ -20,13 +20,11 @@
       <description>&lt;h1 id=&#34;了解sql&#34;&gt;了解SQL&lt;/h1&gt;
 &lt;h2 id=&#34;一什么是sql&#34;&gt;一.什么是SQL&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;SQL&lt;/strong&gt;是结构化查询语言（Structured Query Language）的缩写。是一种专门用来与数据库通信的语言。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;SQL&lt;/strong&gt;是结构化查询语言（Structured Query Language）的缩写。是一种专门用来与数据库通信的语言。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;二什么是数据库&#34;&gt;二.什么是数据库？&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;数据库（Database）：保存有组织的数据的容器（通常是一个文件或一组文件）。
-​[scode type = &amp;ldquo;yellow&amp;rdquo;]需要注意的是，有时候我们把数据库软件也简称为数据库，但是数据库软件和数据库有本质区别，数据库软件应称为DBMS（数据库管理系统），我们通过数据库软件对数据库进行删减等操作，他代替你操作和访问数据库。[/scode]&lt;/p&gt;
-&lt;/blockquote&gt;
+​[scode type = &amp;ldquo;yellow&amp;rdquo;]需要注意的是，有时候我们把数据库软件也简称为数据库，但是数据库软件和数据库有本质区别，数据库软件应称为DBMS（数据库管理系统），我们通过数据库软件对数据库进行删减等操作，他代替你操作和访问数据库。[/scode]&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;三数据库的组成&#34;&gt;三.数据库的组成&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -84,8 +82,7 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;五数据库设计范式&#34;&gt;五.数据库设计范式&lt;/h2&gt;
 &lt;blockquote&gt;
-&lt;p&gt;范式：当一个关系中的所有分类都是不可再分的数据项时，该关系是规范化的。不可再分的数据项，即不存在组合数据项和多项数据项。一个低一级的关系模式，通过模式分解可以转换为若干高一级范式的关系模式的集合，这个过程就叫规范化。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;范式：当一个关系中的所有分类都是不可再分的数据项时，该关系是规范化的。不可再分的数据项，即不存在组合数据项和多项数据项。一个低一级的关系模式，通过模式分解可以转换为若干高一级范式的关系模式的集合，这个过程就叫规范化。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;第一范式&lt;/strong&gt;：当关系模式R的所有属性都不能在分解为更基本的数据单位时，称R是满足第一范式的，简记为1NF。满足第一范式是关系模式规范化的最低要求，否则，将有很多基本操作在这样的关系模式中实现不了。&lt;/p&gt;

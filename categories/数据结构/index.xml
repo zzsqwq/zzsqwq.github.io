@@ -8,7 +8,7 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- 0.141.0</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>en</language>
     <lastBuildDate>Mon, 20 Apr 2020 01:25:00 +0000</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
@@ -324,7 +324,7 @@ $$&lt;/p&gt;
 &lt;li&gt;优化dp，我现在能接触到的就是一个用单调队列优化多重背包的一个题，但是那个题我学了这个东西之后还是不理解为什么可以那么做。例题如下：&lt;a href=&#34;https://www.luogu.com.cn/problem/P1776&#34;&gt;宝物筛选&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;单调队列的一些例题&#34;&gt;单调队列的一些例题&lt;/h2&gt;
-&lt;h3 id=&#34;a-sliding-windowhttppojorgproblemid2823&#34;&gt;A. &lt;a href=&#34;http://poj.org/problem?id=2823&#34;&gt;Sliding Window&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;a-sliding-window&#34;&gt;A. &lt;a href=&#34;http://poj.org/problem?id=2823&#34;&gt;Sliding Window&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
 &lt;h4 id=&#34;题意&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;给出一个含有 $n$ 个整数的序列 $a$ ，给出滑动窗口长度 $k$ ，窗口从序列最左端滑动到序列最右端，问滑动过程中每个时刻窗口中最大值和最小值是多少。&lt;/p&gt;
@@ -383,7 +383,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;getmin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;b-max-sum-of-max-k-sub-sequencehttpacmhdueducnshowproblemphppid3415&#34;&gt;B. &lt;a href=&#34;http://acm.hdu.edu.cn/showproblem.php?pid=3415&#34;&gt;Max Sum of Max-K-sub-sequence&lt;/a&gt;&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;b-max-sum-of-max-k-sub-sequence&#34;&gt;B. &lt;a href=&#34;http://acm.hdu.edu.cn/showproblem.php?pid=3415&#34;&gt;Max Sum of Max-K-sub-sequence&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题意-1&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;给定长度为 $n$ 的整数循环序列 $a$ ，也就是$a[1],a[2],\cdots,a[n],a[1]\cdots$ 这样的序列，问最大连续长度为 $k$ 的连续子区间的序列和最大为多少，并且输出这个区间的左右坐标。&lt;/p&gt;
 &lt;h4 id=&#34;思路-1&#34;&gt;思路&lt;/h4&gt;
@@ -494,7 +494,7 @@ $$&lt;/p&gt;
 &lt;li&gt;确定这个元素是否是一定区间内的最值，或者确定以他为最值的区间长度&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;单调栈的一些例题&#34;&gt;单调栈的一些例题&lt;/h2&gt;
-&lt;h3 id=&#34;a-单调栈模板httpswwwluogucomcnproblemp5788&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/P5788&#34;&gt;单调栈模板&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;a-单调栈模板&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/P5788&#34;&gt;单调栈模板&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题意-2&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;给出含有 $n$ 个整数的序列 $a$ ，定义 $f(i)$ 为第 $i$ 个元素后第一个大于 $a_i$ 的下标，求 $f(1)\cdots f(n)$&lt;/p&gt;
 &lt;h4 id=&#34;思路-2&#34;&gt;思路&lt;/h4&gt;
@@ -540,7 +540,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;b-发射站httpswwwluogucomcnproblemp1901&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1901&#34;&gt;发射站&lt;/a&gt;&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;b-发射站&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1901&#34;&gt;发射站&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题意-3&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;某地有 $N$ 个能量发射站排成一行，每个发射站 $i$ 都有不相同的高度 $H_i$，并能向两边（两端的发射站只能向一边）同时发射能量值为 $V_i$ 的能量，发出的能量只被两边&lt;strong&gt;最近的且比它高&lt;/strong&gt;的发射站接收。计算出接受能量最多的发射站接受的能量为多少。&lt;/p&gt;
 &lt;h4 id=&#34;思路-3&#34;&gt;思路&lt;/h4&gt;
@@ -579,7 +579,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ans&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;c-音乐会的等待httpswwwluogucomcnproblemp1823&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1823&#34;&gt;音乐会的等待&lt;/a&gt;&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;c-音乐会的等待&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/P1823&#34;&gt;音乐会的等待&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题意-4&#34;&gt;题意&lt;/h4&gt;
 &lt;p&gt;给出一段序列 $a$ 代表 $n$ 个人，在一个区间 $[l,r]$ 如果区间内没有大于 $min(a[i],a[r])$ 的那么两个人可以相互看到。问这个序列中有多少对人可以相互看到。&lt;/p&gt;
 &lt;h4 id=&#34;思路-4&#34;&gt;思路&lt;/h4&gt;

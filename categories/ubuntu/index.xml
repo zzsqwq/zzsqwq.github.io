@@ -8,7 +8,7 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- 0.141.0</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>en</language>
     <lastBuildDate>Tue, 02 Nov 2021 01:16:00 +0000</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/categories/ubuntu/index.xml" rel="self" type="application/rss+xml" />
@@ -73,8 +73,7 @@
 &lt;p&gt;说一下三个安装方式的区别&lt;/p&gt;
 &lt;p&gt;第一个模式与第二个模式的区别就是，第二个模式对于grub启动项目中添加了一个 &lt;code&gt;nomodeset&lt;/code&gt;  选项，那么这个选项是做什么的？以下是他的解释：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;The newest kernels have moved the video mode setting into the kernel. So all the programming of the hardware specific clock rates and registers on the video card happen in the kernel rather than in the X driver when the X server starts.. This makes it possible to have high resolution nice looking splash (boot) screens and flicker free transitions from boot splash to login screen. Unfortunately, on some cards this doesn’t work properly and you end up with a black screen. Adding the nomodeset parameter instructs the kernel to not load video drivers and use BIOS modes instead until X is loaded.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;The newest kernels have moved the video mode setting into the kernel. So all the programming of the hardware specific clock rates and registers on the video card happen in the kernel rather than in the X driver when the X server starts.. This makes it possible to have high resolution nice looking splash (boot) screens and flicker free transitions from boot splash to login screen. Unfortunately, on some cards this doesn’t work properly and you end up with a black screen. Adding the nomodeset parameter instructs the kernel to not load video drivers and use BIOS modes instead until X is loaded.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;大概意思是在最新的内核中，已经能够在BIOS引导阶段启用显卡，这样做的目的是很好的适应高分辨率屏，但是很遗憾的是某些显卡并不能很好的适配，通过 &lt;code&gt;nomodeset&lt;/code&gt; 参数可以防止以不支持的显卡驱动视频流。&lt;/p&gt;
 &lt;p&gt;很遗憾，锐炬显卡刚好没有被适配，所以选第一个选项&lt;code&gt;(Ubuntu)&lt;/code&gt;来安装也会屏幕一闪一闪的，因此我们安装选择Ubuntu&lt;code&gt;(safe graphics)&lt;/code&gt;选项来进行安装然后流程是一样的，蛮顺利。&lt;/p&gt;
 &lt;p&gt;这里装完就没有触摸板的问题，屏幕亮度调节也没有问题。不过键盘依旧有问题，可以根据上面描述进行更改。&lt;/p&gt;
@@ -297,8 +296,7 @@ Changes not staged for commit:
 &lt;p&gt;以下大多参考：&lt;a href=&#34;https://sspai.com/post/40997&#34;&gt;如何正确地用树莓派共享打印机&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;大佬言：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;其实，这一步的工作量非常少，因为软件包 CUPS 就是为共享打印机而生。我们要做的只是将打印机用 USB 线缆连接树莓派，然后安装并配置 CUPS。&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;其实，这一步的工作量非常少，因为软件包 CUPS 就是为共享打印机而生。我们要做的只是将打印机用 USB 线缆连接树莓派，然后安装并配置 CUPS。&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;然而，事实并非如此。&lt;/p&gt;
 &lt;h4 id=&#34;换源&#34;&gt;换源&lt;/h4&gt;
 &lt;p&gt;在安装之前需要换源，如果不换源的话，安装会十分缓慢，具体的流程可以看上面的blog，因为我们基地的WiFi自带代理，因此这一步我没有做。&lt;/p&gt;
@@ -523,8 +521,7 @@ Changes not staged for commit:
 &lt;p&gt;pytorch = 1.2.0&lt;/p&gt;
 &lt;p&gt;python = 3.6.12&lt;/p&gt;
 &lt;p&gt;torchvision = 0.4.0&lt;/p&gt;
-&lt;p&gt;cuda = 10.2&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;cuda = 10.2&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;​需要注意的是：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;官方给出的教程里面使用的是 &lt;code&gt;pytorch 0.4.1&lt;/code&gt;，但是我个人在实测过程中遇到了一些问题，遂安装网上的教程更改为 &lt;code&gt;pytorch 1.2.0&lt;/code&gt;，并且需要把 &lt;code&gt;${CenterNet_Root}/src/lib/models/networks/DCNv2&lt;/code&gt; 中的这个&lt;a href=&#34;https://github.com/CharlesShang/DCNv2&#34;&gt;DCNv2&lt;/a&gt;网络更改为官方的最新版。&lt;/li&gt;
@@ -592,8 +589,7 @@ Changes not staged for commit:
 &lt;li&gt;
 &lt;p&gt;然后根据官方的教程，我们需要创建一个images文件夹，然后将其 &lt;code&gt;training/image_2&lt;/code&gt; 链接到 &lt;code&gt;images/trainval&lt;/code&gt;，我在实际的测试中，发现此方法并不可行。参考CenterNet中的一个Issue: &lt;a href=&#34;https://github.com/xingyizhou/CenterNet/issues/575&#34;&gt;Evaluate kitti&amp;ndash;AttributeError: &amp;lsquo;NoneType&amp;rsquo; object has no attribute &amp;lsquo;shape&amp;rsquo;&lt;/a&gt; ，其中 juanmed给出了解决方案：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;I had the same problem. For some reason the simlinks that are created during the data preparation process described in DATA.md are not working. So instead of creating simlinks I simply copied the actual data into the directories indicated in DATA.md. In other words the folders &lt;code&gt;data/kitti/images/test&lt;/code&gt; and &lt;code&gt;data/kitti/images/trainval&lt;/code&gt; do contain the actual images.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;I had the same problem. For some reason the simlinks that are created during the data preparation process described in DATA.md are not working. So instead of creating simlinks I simply copied the actual data into the directories indicated in DATA.md. In other words the folders &lt;code&gt;data/kitti/images/test&lt;/code&gt; and &lt;code&gt;data/kitti/images/trainval&lt;/code&gt; do contain the actual images.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;意思就是说，我们在 &lt;strong&gt;images&lt;/strong&gt; 中的图片必须都是真实的照片，而不能只是软链接过去。&lt;/p&gt;
 &lt;p&gt;解决方案很显然，只需要在 &lt;strong&gt;images&lt;/strong&gt; 文件夹中建立一个 &lt;strong&gt;trainval&lt;/strong&gt; 文件夹，将 &lt;code&gt;training/image_2&lt;/code&gt; 中的所有图像都移入其中即可。如果有test的照片，那么也照规在 &lt;strong&gt;images&lt;/strong&gt; 新建一个 &lt;strong&gt;test&lt;/strong&gt; 文件夹，把测试的照片移入其中即可。&lt;/p&gt;
 &lt;/li&gt;
@@ -606,8 +602,7 @@ Changes not staged for commit:
 &lt;blockquote&gt;
 &lt;p&gt;The solution is quite simple.
 &lt;code&gt;cd data/kitti&lt;/code&gt;
-&lt;code&gt;mv label_2 label_val&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;code&gt;mv label_2 label_val&lt;/code&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;​    更改后，运行成功~&lt;/p&gt;
 &lt;p&gt;我们应该可以在 &lt;code&gt;${CenterNet_ROOT}/exp/ddd/3dop/results&lt;/code&gt; 看到我们得到的结果，只不过运行得到的是点的坐标，而不是图像，如果需要图像的话可能还需要自己绘制一下。&lt;/p&gt;
 </description>

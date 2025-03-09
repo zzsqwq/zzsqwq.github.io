@@ -8,7 +8,7 @@
       <feedId>62734001391548416</feedId>
       <userId>62689941916008448</userId>
     </follow_challenge>
-    <generator>Hugo -- 0.141.0</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>en</language>
     <lastBuildDate>Thu, 12 Nov 2020 23:13:00 +0000</lastBuildDate>
     <atom:link href="https://blog.zzsqwq.cn/tags/c%E8%AF%AD%E8%A8%80/index.xml" rel="self" type="application/rss+xml" />
@@ -17,8 +17,8 @@
       <link>https://blog.zzsqwq.cn/posts/136/</link>
       <pubDate>Thu, 12 Nov 2020 23:13:00 +0000</pubDate>
       <guid>https://blog.zzsqwq.cn/posts/136/</guid>
-      <description>&lt;h2 id=&#34;程序星编程之路第二次作业httpswwwluogucomcncontest36509题解&#34;&gt;&lt;a href=&#34;https://www.luogu.com.cn/contest/36509&#34;&gt;“程序星编程之路”第二次作业&lt;/a&gt;题解&lt;/h2&gt;
-&lt;h3 id=&#34;a-zs的回文质数httpswwwluogucomcnproblemu138527contestid36509&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/U138527?contestId=36509&#34;&gt;Zs的回文质数&lt;/a&gt;&lt;/h3&gt;
+      <description>&lt;h2 id=&#34;程序星编程之路第二次作业题解&#34;&gt;&lt;a href=&#34;https://www.luogu.com.cn/contest/36509&#34;&gt;“程序星编程之路”第二次作业&lt;/a&gt;题解&lt;/h2&gt;
+&lt;h3 id=&#34;a-zs的回文质数&#34;&gt;A. &lt;a href=&#34;https://www.luogu.com.cn/problem/U138527?contestId=36509&#34;&gt;Zs的回文质数&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题目描述&#34;&gt;题目描述&lt;/h4&gt;
 &lt;p&gt;读入一个整数 $n$ ，输出 $[1,n]$ 的所有回文质数，我们规定 $1\sim9$ 也是回文数。&lt;/p&gt;
 &lt;h4 id=&#34;思路&#34;&gt;思路&lt;/h4&gt;
@@ -113,7 +113,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;b-wcx的杨辉三角httpswwwluogucomcnproblemu138528contestid36509&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/U138528?contestId=36509&#34;&gt;Wcx的杨辉三角&lt;/a&gt;&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;b-wcx的杨辉三角&#34;&gt;B. &lt;a href=&#34;https://www.luogu.com.cn/problem/U138528?contestId=36509&#34;&gt;Wcx的杨辉三角&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题目描述-1&#34;&gt;题目描述&lt;/h4&gt;
 &lt;p&gt;读入一个整数 $n$ ，输出杨辉三角的前 $n$ 行。&lt;/p&gt;
 &lt;h4 id=&#34;思路-1&#34;&gt;思路&lt;/h4&gt;
@@ -160,7 +160,7 @@ $$&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;其他-1&#34;&gt;其他&lt;/h4&gt;
 &lt;p&gt;这道题主要是对二维数组的考察。&lt;/p&gt;
 &lt;p&gt;注意我们遇到第五个点过不去的时候，应该试一下最大的值 $40$ ，会发现有负数，显然是溢出问题，我们就能知道问题的解决办法了。&lt;/p&gt;
-&lt;h3 id=&#34;c-zh的约瑟夫环问题httpswwwluogucomcnproblemu138529contestid36509&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/U138529?contestId=36509&#34;&gt;Zh的约瑟夫环问题&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;c-zh的约瑟夫环问题&#34;&gt;C. &lt;a href=&#34;https://www.luogu.com.cn/problem/U138529?contestId=36509&#34;&gt;Zh的约瑟夫环问题&lt;/a&gt;&lt;/h3&gt;
 &lt;h4 id=&#34;题目描述-2&#34;&gt;题目描述&lt;/h4&gt;
 &lt;p&gt;有 $n$ 个人围成一圈，顺序排号，从第一个开始报数(从 $1$ 到 $m$ 报数)，凡报到 $m$ 的人退出圈子，问最后留下的是几号.&lt;/p&gt;
 &lt;h4 id=&#34;思路-2&#34;&gt;思路&lt;/h4&gt;
